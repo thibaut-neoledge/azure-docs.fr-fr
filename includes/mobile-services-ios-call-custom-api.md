@@ -1,7 +1,7 @@
-﻿
-## <a name="update-app"></a>Appel d'une API personnalisée à partir d'une application iOS
 
-Pour appeler cette API personnalisée à partir d'un client iOS, utilisez la méthode  `MSClient invokeAPI`. Il existe deux versions de cette méthode, une relative aux requêtes au format JSON et une relative à tout type de données :
+## <a name="update-app"></a> Appel d'une API personnalisée à partir d'une application iOS
+
+Pour appeler cette API personnalisée à partir d'un client iOS, utilisez la méthode `MSClient invokeAPI`. Il existe deux versions de cette méthode, une relative aux requêtes au format JSON et une relative à tout type de données :
 
 	/// Invokes a user-defined API of the Mobile Service.  The HTTP request and
 	/// response content will be treated as JSON.
@@ -22,7 +22,7 @@ Pour appeler cette API personnalisée à partir d'un client iOS, utilisez la mé
 	      completion:(MSAPIDataBlock)completion;
 
 
-Par exemple, pour envoyer une requête JSON à une API personnalisée nommée " sendEmail ", transmettez un  `NSDictionary` pour les paramètres de requête :
+Par exemple, pour envoyer une requête JSON à une API personnalisée nommée « sendEmail », transmettez un `NSDictionary` pour les paramètres de requête :
 
 	NSDictionary *emailHeader = @{ @"to": @"email.com", @"subject" : @"value" };
 
@@ -35,5 +35,4 @@ Par exemple, pour envoyer une requête JSON à une API personnalisée nommée " 
 		
 
 
-
-<!--HONumber=52-->
+<!--HONumber=54-->

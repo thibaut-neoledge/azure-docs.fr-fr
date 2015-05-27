@@ -1,30 +1,32 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Décrit ce qui est arrivé à votre projet .NET Azure Mobile Services dans Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Qu'est-il arrivé à mon projet ?
 
 > [AZURE.SELECTOR]
-> - [Mise en route](vs-mobile-services-dotnet-getting-started.md)
-> - [Que s'est-il passé](vs-mobile-services-dotnet-what-happened.md)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
-###<span id="whathappened">Qu'est-il arrivé à mon projet ?</span>
+###<span id="whathappened">Qu’est-il arrivé à mon projet ?</span>
 
 #####Références ajoutées
 
-Le package NuGet Azure Mobile Services a été ajouté à votre projet. Suite à cette opération, les références .NET suivantes ont été ajoutées à votre projet :
+Le package NuGet Azure Mobile Services a été ajouté à votre projet. Suite à cette opération, les références .NET suivantes ont été ajoutées à votre projet :
 
 - `Microsoft.WindowsAzure.Mobile`
 - `Microsoft.WindowsAzure.Mobile.Ext`
@@ -34,9 +36,7 @@ Le package NuGet Azure Mobile Services a été ajouté à votre projet. Suite à
 
 #####Valeurs de la chaîne de connexion pour Mobile Services
 
-Dans votre fichier App.xaml.cs, un objet **MobileServiceClient** a été créé avec l'URL et la clé d'application du service mobile sélectionné. 
+Dans votre fichier App.xaml.cs, un objet **MobileServiceClient** a été créé avec l'URL et la clé d'application du service mobile sélectionné.
 
-[En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+[En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
+<!--HONumber=54-->

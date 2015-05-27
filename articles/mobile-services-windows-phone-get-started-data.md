@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Prise en main des données (WP8) - Azure Mobile Services" 
-	description="Découvrez comment utiliser les données de votre application Windows Phone 8 Azure Mobile Services." 
+<properties 
+	pageTitle="Ajouter Mobile Services à une application existante (WP8) - Azure Mobile Services" 
+	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -10,44 +10,44 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
+	ms.date="02/20/2015" 
 	ms.author="glenga"/>
 
 
-# Ajout de Mobile Services à une application existante
+# Ajout de services mobiles à une application existante
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Cette rubrique montre comment utiliser Azure Mobile Services pour exploiter des données dans une application Windows Phone 8. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.</p>
+<p>Cette rubrique montre comment utiliser Azure Mobile Services pour exploiter des données dans une application Windows Phone&#160;8. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:54</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:54:00</span></div>
 </div>
 
-Ce didacticiel vous familiarise avec ces étapes de base :
+Ce didacticiel vous familiarise avec ces étapes de base :
 
-1. [Téléchargement du projet d'application Windows Phone 8] 
-2. [Création du service mobile]
-3. [Ajout d'une table de données pour le stockage]
-4. [Mise à jour de l'application pour utiliser Mobile Services]
-5. [Test de l'application par rapport à Mobile Services]
+1. [Télécharger le projet d'application Windows Phone 8] 
+2. [Créer le service mobile]
+3. [Ajouter une table de données pour le stockage]
+4. [Mettre à jour l'application pour utiliser Mobile Services]
+5. [Tester l'application avec Mobile Services]
 
-Ce didacticiel requiert Visual Studio 2012 Express pour Windows Phone 8 et le [Kit de développement logiciel (SDK) Windows Phone 8] en cours d'exécution sur Windows 8. Pour suivre ce didacticiel afin de créer une application Windows Phone 8.1, vous devez utiliser Visual Studio 2013 Update 2 ou une version ultérieure.
+Ce didacticiel requiert Visual Studio 2012 Express pour Windows Phone 8 et le [Kit de développement logiciel (SDK) Windows Phone 8] s'exécutant sous Windows 8. Pour suivre ce didacticiel afin de créer une application Windows Phone 8.1, vous devez utiliser Visual Studio 2013 Update 2 ou une version ultérieure.
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
-##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
+##<a name="download-app"></a>Télécharger le projet GetStartedWithData
 
-Ce didacticiel est basé sur l'[application GetStartedWithData][site d'exemples de code développeur], un projet d'application Silverlight 8 pour Windows Phone.  
+Ce didacticiel est basé sur [GetStartedWithData][Developer Code Samples site], qui est une application Silverlight pour Windows Phone 8.
 
-1. Téléchargez l'exemple de projet d'application GetStartedWithData à partir du [site d'exemples de code développeur]. 
+1. Téléchargez le projet de l'exemple d'application GetStartedWithData sur le [site d'exemples de code développeur]. 
 
-	>[AZURE.NOTE]Pour créer une application Silverlight pour Windows Phone 8.1, il vous suffit de remplacer par Windows Phone 8.1 le système d'exploitation cible dans le projet d'application Silverlight pour Windows Phone 8 téléchargé. Pour créer une application Windows Phone Store, téléchargez la [version Windows Phone Store](http://go.microsoft.com/fwlink/p/?LinkId=397372) de l'exemple de projet d'application GetStartedWithData. 
+	>[AZURE.NOTE]Pour créer une application Silverlight pour Windows Phone 8.1, il vous suffit de remplacer par Windows Phone 8.1 le système d'exploitation cible dans le projet d'application Silverlight pour Windows Phone 8 téléchargé. Pour créer une application Windows Phone Store, téléchargez la [version Windows Phone Store de l'application](http://go.microsoft.com/fwlink/p/?LinkId=397372) du projet de l'exemple d'application GetStartedWithData.
 
 2. Dans Visual Studio, ouvrez le projet téléchargé et examinez le fichier MainPage.xaml.cs.
 
@@ -57,11 +57,11 @@ Ce didacticiel est basé sur l'[application GetStartedWithData][site d'exemples 
 
 4. Dans l'application, tapez du texte dans la zone de texte, puis cliquez sur le bouton **Enregistrer**.
 
-   	![][0]  
+   	![][0]
 
    	Le texte enregistré est affiché dans la liste ci-dessous.
 
-<h2><a name="create-service"></a>Création d'un service mobile dans le portail de gestion</h2>
+<h2><a name="create-service"></a>Création d'un service mobile dans portail de gestion</h2>
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
@@ -71,11 +71,11 @@ Ce didacticiel est basé sur l'[application GetStartedWithData][site d'exemples 
 
 <h2><a name="update-app"></a>Mise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données</h2>
 
-Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale. 
+Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
 
-1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**.
+1. Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Manage NuGet Packages**.
 
-2. Dans le volet gauche, sélectionnez la catégorie **Online**, recherchez `WindowsAzure.MobileServices`, cliquez sur **Install** au niveau du package **Azure Mobile Services**, puis acceptez le contrat de licence.
+2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, recherchez `WindowsAzure.MobileServices`, cliquez sur **Installer** au niveau du package **Azure Mobile Services**, puis acceptez le contrat de licence.
 
   	![][7]
 
@@ -89,25 +89,25 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
   	Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
-5. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez l'instruction `using` suivante ou annulez ses marques de commentaire :
+5. Dans Visual Studio, ouvrez le fichier App.xaml.cs et ajoutez l'instruction `using` suivante ou annulez ses marques de commentaire :
 
        	using Microsoft.WindowsAzure.MobileServices;
 
-6. Dans le même fichier, supprimez les marques de commentaire du code qui définit la variable **MobileService**, puis indiquez l'URL et la clé d'application du service mobile dans le constructeur **MobileServiceClient**, dans cet ordre.
+6. Dans le même fichier, annulez les marques de commentaire dans le code qui définit la variable **MobileService**, puis indiquez l'URL et la clé d'application du service mobile dans le constructeur **MobileServiceClient**, dans cet ordre.
 
 		//public static MobileServiceClient MobileService = new MobileServiceClient( 
         //    "AppUrl", 
         //    "AppKey" 
         //); 
 
-  	Cela crée une instance de **MobileServiceClient** utilisée pour accéder au service mobile.
+  	Cela permet de créer une nouvelle instance de **MobileServiceClient**, qui est utilisée pour accéder à votre service mobile.
 
-6. Dans le fichier MainPage.xaml.cs, ajoutez les instructions `using` suivantes ou supprimez leurs marques de commentaire :
+6. Dans le fichier MainPage.xaml.cs, ajoutez les instructions `using` suivantes ou supprimez leurs marques de commentaire :
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. Dans ce même fichier, remplacez la définition de classe **TodoItem** par le code suivant :
+7. Dans ce même fichier, remplacez la définition de classe **TodoItem** par le code suivant :
 
         public class TodoItem
         {
@@ -120,27 +120,27 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
             public bool Complete { get; set; }
         }
 
-7. Commentez la ligne qui définit la collection **items** existante, puis supprimez les marques de commentaire des lignes suivantes :
+7. Commentez la ligne qui définit la collection **items** existante, puis annulez les marques de commentaire dans les lignes suivantes :
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Ce code crée une collection de liaisons (**items**) prenant en charge les services mobiles et une classe proxy pour la table de la base de données SQL **TodoItem** (**todoTable**). 
+   	Ce code crée une collection de liaisons (**éléments**) prenant en charge les services mobiles et une classe proxy pour la table de la base de données SQL **TodoItem** (**todoTable**).
 
-7. Dans la méthode **InsertTodoItem**, supprimez la ligne de code qui définit la propriété **TodoItem**.**Id**, ajoutez le modificateur **async** à la méthode, puis supprimez les marques de commentaire de la ligne de code suivante :
+7. Dans la méthode **InsertTodoItem**, supprimez la ligne de code définissant la propriété **TodoItem**.**Id**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire dans la ligne de code suivante :
 
         await todoTable.InsertAsync(todoItem);
 
   	Ce code permet d'insérer un nouvel élément dans la table.
 
-8. Dans la méthode **RefreshTodoItems**, ajoutez le modificateur **async** à la méthode, puis supprimez les marques de commentaire de la ligne de code suivante :
+8. Dans la méthode **RefreshTodoItems**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire sur la ligne de code suivante :
 
         items = await todoTable.ToCollectionAsync();
 
-   	Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les objets TodoItem renvoyés depuis le service mobile. 
+   	Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les objets TodoItem renvoyés depuis le service mobile.
 
-9. Dans la méthode **UpdateCheckedTodoItem**, ajoutez le modificateur **async** à la méthode, puis supprimez les marques de commentaire de la ligne de code suivante :
+9. Dans la méthode **UpdateCheckedTodoItem**, ajoutez le modificateur **async** à la méthode, puis annulez les marques de commentaire sur la ligne de code suivante :
 
          await todoTable.UpdateAsync(item);
 
@@ -148,7 +148,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
-<h2><a name="test-app"></a>Test de l'application sur la base de votre nouveau service mobile</h2>
+<h2><a name="test-app"></a>Test de l'application sur base de votre nouveau service mobile</h2>
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
@@ -162,35 +162,27 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
    	![][9]
   
-   	Notez que la table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et que des colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
+   	La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
-Cela conclut le didacticiel **Prise en main des données** pour Windows Phone 8.
+Cela conclut le didacticiel.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Ce didacticiel a présenté les bases de l'activation d'une application Windows Phone 8 pour utiliser les données dans Mobile Services. Ensuite, nous vous invitons à suivre le didacticiel suivant, qui est basé sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
+Ce didacticiel a présenté les bases de l'activation d'une application Windows Phone 8 pour utiliser les données dans Mobile Services. Vous pouvez ensuite consulter l'une de ces autres rubriques :
 
-* [Validation et modification de données à l'aide de scripts]
-  <br/>En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Affinage des requêtes au moyen de la pagination]
-  <br/>Apprenez à utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
+* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
-Une fois que vous avez terminé la série de données, vous pouvez essayer l'un des didacticiels Windows Phone 8 suivants :
-
-* [Prise en main de l'authentification] 
-  <br/>Découvrez comment authentifier les utilisateurs de votre application.
-
-* [Prise en main des notifications Push] 
-  <br/>Apprenez à envoyer une notification Push très basique à votre application avec Mobile Services.
+* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
  
 <!-- Anchors. -->
-[Téléchargement du projet d'application Windows Phone 8]: #download-app
-[Création du service mobile]: #create-service
-[Ajout d'une table de données pour le stockage]: #add-table
-[Mise à jour de l'application pour utiliser Mobile Services]: #update-app
-[Test de l'application par rapport à Mobile Services]: #test-app
-[Étapes suivantes]:#next-steps
+[Télécharger le projet d'application Windows Phone 8]: #download-app
+[Créer le service mobile]: #create-service
+[Ajouter une table de données pour le stockage]: #add-table
+[Mettre à jour l'application pour utiliser Mobile Services]: #update-app
+[Tester l'application avec Mobile Services]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
@@ -207,19 +199,18 @@ Une fois que vous avez terminé la série de données, vous pouvez essayer l'un 
 
 
 <!-- URLs. -->
-[Validation et modification de données à l'aide de scripts]: /fr-fr/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Affinage des requêtes au moyen de la pagination]: /fr-fr/develop/mobile/tutorials/add-paging-to-data-wp8
-[Prise en main de Mobile Services]: /fr-fr/develop/mobile/tutorials/get-started-wp8
-[Prise en main des données]: /fr-fr/develop/mobile/tutorials/get-started-with-data-wp8
-[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-wp8
-[Prise en main des notifications Push]: /fr-fr/develop/mobile/tutorials/get-started-with-push-wp8
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-wp8
+[Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-wp8
+[Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-wp8
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Portail de gestion]: https://manage.windowsazure.com/
-[Kit de développement logiciel (SDK) Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
-[Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkID=268375
-[Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
+[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion]: https://manage.windowsazure.com/
+[Kit de développement logiciel (SDK) Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
+[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

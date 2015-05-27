@@ -1,60 +1,60 @@
-Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][] (Web, SMTP, Event, Parse, Sub-User). Pour plus d'informations sur les services supplémentaires proposés par SendGrid, consultez la page [Fonctionnalités SendGrid][].
+Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][] (Web, SMTP, Event, Parse, etc.). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, consultez la page [Fonctionnalités SendGrid][].
 
-### Création d'un compte SendGrid
+### Création d’un compte SendGrid
 
-1. Connectez-vous au [Portail de gestion Azure][].
+1. Connectez-vous au [portail de gestion Azure][].
 
-2. Dans le volet inférieur du portail de gestion, cliquez sur **Nouveau**.
+2. Dans le volet inférieur du portail de gestion, cliquez sur **New**.
 
 	![command-bar-new][command-bar-new]
 
 3. Cliquez sur **Marketplace**.
 
-	![sendgrid-store][sendgrid-store]
+	![store-sendgrid][sendgrid-store]
 
-4. Dans la boîte de dialogue **Sélectionner un module complémentaire**, sélectionnez **SendGrid** et cliquez sur la flèche droite.
+4. Dans la boîte de dialogue **Choisir une application et un service**, sélectionnez **SendGrid** et cliquez sur la flèche droite.
 
-5. Dans la boîte de dialogue **Personnaliser un module complémentaire**, sélectionnez le plan **SendGrid** de votre choix pour l'inscription.
+5. Dans la boîte de dialogue **Personnaliser l'application et le service**, sélectionnez le plan **SendGrid** de votre choix pour l’inscription.
 
-6. Entrez un nom pour identifier le service **SendGrid** dans vos paramètres Azure ou utilisez la valeur par défaut **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l'Azure Store auxquels vous êtes abonné.
+6. Entrez un nom pour identifier le service **SendGrid** dans vos paramètres Azure ou utilisez la valeur par défaut **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Les noms doivent contenir entre 1 et 100 caractères et ne peuvent inclure que des lettres, des chiffres, des tirets, des points et des traits de soulignement. Le nom doit être unique dans la liste des éléments de l’Azure Store auxquels vous êtes abonné.
 
 	![store-screen-2][store-screen-2]
 
-7. Choisissez une valeur pour la région ; par exemple, Bretagne.
+7. Choisissez une valeur pour la région ; par exemple, Bretagne.
 
 8. Cliquez sur la flèche droite.
 
-9. Sous l'onglet **Revoir l'achat**, vérifiez le plan et les informations tarifaires, ainsi que les conditions juridiques. Si vous acceptez les conditions juridiques, cliquez sur la coche. Une fois que vous avez coché la case, votre compte SendGrid lance le [processus d'approvisionnement de SendGrid].
+9. Sous l’onglet **Review Purchase**, vérifiez le plan et les informations tarifaires, ainsi que les conditions juridiques. Si vous acceptez les conditions juridiques, cliquez sur la coche. Une fois que vous avez coché la case, votre compte SendGrid lance le [processus d'approvisionnement de SendGrid].
 
 	![store-screen-3][store-screen-3]
 
-10. Après la confirmation de votre achat, vous êtes redirigé vers le tableau de bord des modules et le message **Achat de SendGrid**.
+10. Après la confirmation de votre achat, vous êtes redirigé vers le tableau de bord des modules et le message **Purchasing SendGrid** s’affiche.
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-	Votre compte SendGrid est immédiatement déployé et le message **Successfully purchased Add-On SendGrid**. Votre compte et vos informations d'identification sont créés. Vous pouvez désormais envoyer des courriers électroniques. 
+	Votre compte SendGrid est immédiatement déployé et le message **Successfully purchased Add-On SendGrid** s’affiche. Votre compte et vos informations d’identification sont créés. Vous pouvez désormais envoyer des courriers électroniques.
 
-	Pour modifier votre plan d'abonnement ou voir les paramètres de contact de SendGrid, cliquez sur le nom du service SendGrid pour ouvrir le tableau de bord Marketplace SendGrid. 
+	Pour modifier votre plan d’abonnement ou voir les paramètres de contact de SendGrid, cliquez sur le nom du service SendGrid pour ouvrir le tableau de bord Marketplace SendGrid.
 
 	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
-	Pour envoyer un courrier électronique à l'aide de SendGrid, vous devez fournir les informations d'identification de votre compte (nom d'utilisateur et mot de passe).
+	Pour envoyer un courrier électronique à l’aide de SendGrid, vous devez fournir les informations d’identification de votre compte (nom d’utilisateur et mot de passe).
 
-### Recherche de vos informations d'identification SendGrid ###
+### Recherche de vos informations d’identification SendGrid ###
 
-1. Cliquez sur **Informations de connexion**.
+1. Cliquez sur **Connection Info**.
 
 	![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
-2. Dans le *Connection info* boîte de dialogue, copiez les **mot de passe** et nom d'utilisateur à utiliser ultérieurement dans ce didacticiel.
+2. Dans la boîte de dialogue *Connection info*, copiez le **Mot de passe** et le nom d’utilisateur pour une utilisation ultérieure dans ce didacticiel.
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Pour définir les paramètres de remise des courriers électroniques, cliquez sur le bouton **Gérer**. L'interface Web de Sendgrid.com s'ouvre et vous pouvez vous connecter et ouvrir le panneau de configuration de SendGrid. 
+	Pour définir les paramètres de remise des courriers électroniques, cliquez sur le bouton **Manage**. L’interface Web de Sendgrid.com s’ouvre et vous pouvez vous connecter et ouvrir le panneau de configuration de SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
-	Pour plus d'informations sur la mise en route de SendGrid, consultez la page [Mise en route de SendGrid][].
+	Pour plus d’informations sur la mise en route de SendGrid, consultez la page [Mise en route de SendGrid][].
 
 <!--images-->
 
@@ -71,11 +71,10 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits ch
 <!--Links-->
 
 [Fonctionnalités SendGrid]: http://sendgrid.com/features
-[Portail de gestion Azure]: https://manage.windowsazure.com
-[Prise en main de SendGrid]: http://sendgrid.com/docs
+[portail de gestion Azure]: https://manage.windowsazure.com
 [Mise en route de SendGrid]: http://sendgrid.com/docs
-[Processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
-[Toutes les API]: https://sendgrid.com/docs/API_Reference/index.html
+[processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
+[toutes les API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

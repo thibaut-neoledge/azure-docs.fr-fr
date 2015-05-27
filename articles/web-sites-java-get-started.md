@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Créer une application web Java dans Azure App Service" 
 	description="Ce didacticiel vous explique comment déployer une application web Java dans Azure App Service." 
 	services="app-service\web" 
@@ -18,72 +18,72 @@
 
 # Créer une application web Java dans Azure App Service
 
-Ce didacticiel vous explique comment créer une application web sur Microsoft Azure à l'aide de Java, soit par le biais d'Azure Marketplace, soit via l'interface utilisateur de configuration d'[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Ce didacticiel vous explique comment créer une application web sur Microsoft Azure à l’aide de Java, soit par le biais d’Azure Marketplace, soit via l’interface utilisateur de configuration d’[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Si vous ne souhaitez pas utiliser l'une de ces techniques (par exemple, si vous préférez personnaliser votre conteneur d'applications), voir [Charger une application web Java personnalisée dans Azure](web-sites-java-custom-upload.md).
+Si vous ne souhaitez pas utiliser l’une de ces techniques (par exemple, si vous préférez personnaliser votre conteneur d’applications), consultez la page [Charger une application web Java personnalisée dans Azure](web-sites-java-custom-upload.md).
 
-> [AZURE.NOTE] Pour effectuer ce didacticiel, vous avez besoin d'un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez <a href="/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement MSDN</a> ou <a href="/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">souscrire à une version d'évaluation gratuite</a>. 
+> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous n’avez pas de compte, vous pouvez <a href="/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activer les avantages de votre abonnement MSDN</a> ou <a href="/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">demander une évaluation gratuite</a>.
 
->Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
+>Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-# Créer une application web Java à l'aide d'Azure Marketplace
+# Créer une application web Java à l’aide d’Azure Marketplace
 
-Ces informations vous indiquent comment utiliser Azure Marketplace pour sélectionner un conteneur d'applications Java (Apache Tomcat ou Jetty) pour votre application web.
+Ces informations vous indiquent comment utiliser Azure Marketplace pour sélectionner un conteneur d’applications Java (Apache Tomcat ou Jetty) pour votre application web.
 
-L'exemple suivant illustre l'aspect d'une application web conçue avec Tomcat à partir d'Azure Marketplace :
+L’exemple suivant illustre l’aspect d’une application web conçue avec Tomcat à partir d’Azure Marketplace :
 
 <!--todo:![Web app using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)-->
 
-L'exemple suivant illustre l'aspect d'une application web conçue avec Jetty à partir d'Azure Marketplace :
+L’exemple suivant illustre l’aspect d’une application web conçue avec Jetty à partir d’Azure Marketplace :
 
 <!--todo:![Web app using Jetty](./media/web-sites-java-get-started/jetty.png)-->
 
 1. Connectez-vous au [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 2. Cliquez sur **Nouveau** dans la partie inférieure gauche de la page.
-3. Cliquez sur le panneau **Web + mobile**.
-4. Cliquez sur **Azure Marketplace** au bas du panneau **Web + mobile**.
+3. Cliquez sur le panneau **Web et mobilité**.
+4. Cliquez sur **Azure Marketplace** en bas du panneau **Web et mobilité**.
 5. Cliquez sur **Web**.
-6. La partie supérieure de la page **Web** contient une zone de texte de recherche. Dans cette zone de texte, tapez le serveur d'applications Java souhaité, par exemple **Apache Tomcat** ou **Jetty**.
-4. Cliquez sur le serveur d'applications Java souhaité.
-5. Cliquez sur **Créer**.
+6. La partie supérieure de la page **Web** contient une zone de texte de recherche. Dans cette zone, indiquez le serveur d’applications Java souhaité, par exemple **Apache Tomcat** ou **Jetty**.
+4. Cliquez sur le serveur d’applications Java souhaité.
+5. Cliquez sur **Create**.
 6. Spécifiez un nom d'URL
 6. Sélectionnez une région. Par exemple, **Ouest des États-Unis**.
-7. Cliquez sur **Créer**.
+7. Cliquez sur **Create**.
 
-Votre application web est créée en quelques instants. Pour visualiser l'application web, dans le panneau **Applications web** du Portail de gestion Azure, cliquez sur l'application web que vous venez de créer, puis cliquez sur l'URL associée.
+Votre application web est créée en quelques instants. Pour visualiser l’application web, dans le panneau **Web Apps** du portail Azure, cliquez sur l’application web que vous venez de créer, puis sur son URL.
 
-Maintenant que vous avez créé l'application web avec un conteneur d'applications, reportez-vous à la section **Étapes suivantes** pour accéder aux informations concernant le chargement de votre application dans l'application web.
+Maintenant que vous avez créé l’application web avec un conteneur d’applications, consultez la section **Étapes suivantes** pour accéder aux informations concernant le chargement de votre application dans l’application web.
 
-# Créer une application web Java avec l'interface utilisateur de configuration Azure
+# Créer une application web Java avec l’interface utilisateur de configuration Azure
 
-Ces informations vous indiquent comment utiliser l'interface utilisateur de configuration Azure pour sélectionner un conteneur d'applications Java (Apache Tomcat ou Jetty) pour votre application web.
+Ces informations vous indiquent comment utiliser l’interface utilisateur de configuration Azure pour sélectionner un conteneur d’applications Java (Apache Tomcat ou Jetty) pour votre application web.
 
 1. Connectez-vous au portail de gestion Microsoft Azure.
 2. Cliquez sur **Nouveau** dans la partie inférieure gauche de la page.
-3. Cliquez sur le panneau **Web + mobile**.
-4. Cliquez sur **Azure Marketplace** au bas du panneau **Web + mobile**.
+3. Cliquez sur le panneau **Web et mobilité**.
+4. Cliquez sur **Azure Marketplace** en bas du panneau **Web et mobilité**.
 5. Cliquez sur **Web**.
 6. Cliquez sur **Application web**.
-7. Cliquez sur **Créer**. 
+7. Cliquez sur **Create**. 
 8. Spécifiez un nom d'URL
 9. Sélectionnez une région. Par exemple, **Ouest des États-Unis**.
-10. Cliquez sur **Créer**.
-11. Lorsque l'application web a été créée, cliquez sur **Tous les paramètres**.
-12. Cliquez sur **Paramètres de l'application**.
+10. Cliquez sur **Create**.
+11. Une fois l’application web créée, cliquez sur **Tous les paramètres**.
+12. Cliquez sur **Paramètres de l’application**.
 13. Cliquez sur la version Java souhaitée.
-14. Les options pour le conteneur Web s'affichent (par exemple Tomcat et Jetty). Sélectionnez le conteneur web souhaité dans **Conteneur Web**. 
-15. Cliquez sur **Enregistrer**. 
+14. Les options pour le conteneur Web s'affichent (par exemple Tomcat et Jetty). Sélectionnez le **conteneur web** souhaité. 
+15. Cliquez sur **Save**. 
 
-Votre application web passe sous Java en quelques instants. Pour vérifier que l'application web est basée sur Java, cliquez sur son URL. Notez que la page affiche un message indiquant que la nouvelle application web est basée sur Java.
+Votre application web passe sous Java en quelques instants. Pour vérifier que l’application web est basée sur Java, cliquez sur son URL. Notez que la page affiche un message indiquant que la nouvelle application web est basée sur Java.
 
-Maintenant que vous avez créé l'application web avec un conteneur d'applications, reportez-vous à la section **Étapes suivantes** pour accéder aux informations concernant le chargement de votre application dans l'application web.
+Maintenant que vous avez créé l’application web avec un conteneur d’applications, consultez la section **Étapes suivantes** pour accéder aux informations concernant le chargement de votre application dans l’application web.
 
 # Étapes suivantes
 
-Vous disposez à présent d'un serveur d'applications Java exécuté comme votre application web Java sur Azure. Pour y ajouter votre propre application ou page web, voir [Ajouter une application ou une page web à votre application web Java](web-sites-java-add-app.md).
+Vous disposez à présent d’un serveur d’applications Java exécuté comme votre application web Java sur Azure. Pour y ajouter votre propre application ou page web, consultez la page [Ajout d’une application à votre site Web Java sur Azure](web-sites-java-add-app.md).
 
-## Nouveautés
-* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!--HONumber=49-->
+<!--HONumber=54-->

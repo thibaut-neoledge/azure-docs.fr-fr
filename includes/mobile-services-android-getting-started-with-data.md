@@ -1,6 +1,6 @@
-﻿Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale. 
+Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
 
-1. Vérifiez que les lignes suivantes se trouvent dans la balise **Dépendances** du fichier *build.gradle (Module app)* ou ajoutez-les. Cela ajoute des références au Kit de développement logiciel (SDK) Mobile Services Android Client.
+1. Vérifiez que vous avez les lignes suivantes dans la balise **dépendances** du fichier *build.gradle (application de module)*. Dans le cas contraire, ajoutez-les. Cela ajoute des références au Kit de développement logiciel (SDK) Mobile Services Android Client.
 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
@@ -8,7 +8,7 @@
 	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
 
-2. Maintenant régénérez le projet en cliquant sur **Synchronisation du projet avec les fichiers Gradle**.
+2. Maintenant générez une nouvelle fois le projet en cliquant sur **Synchronisation du projet avec les fichiers Gradle**.
 
 3. Ouvrez le fichier AndroidManifest.xml et ajoutez la ligne suivante, qui permet à l'application d'accéder à Mobile Services dans Azure.
 
@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. Dans l'Explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => app => src => java** et supprimez les marques de commentaire des lignes de code suivantes : 
+5. Dans l’explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => app => src => java** et supprimez les marques de commentaire des lignes de code suivantes :
 
 
 
@@ -37,7 +37,7 @@
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-5. Mettez les lignes suivantes en commentaire :
+5. Mettez les lignes suivantes en commentaire :
 
 		import java.util.ArrayList;
 		import java.util.List;
@@ -46,14 +46,14 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable toDoItemList est utilisée, et placez les sections indiquées en commentaire. Cela supprime complètement la liste en mémoire. 
+7. Enregistrez le fichier et le projet indiquera des erreurs de build. Recherchez les trois emplacements restants où la variable `toDoItemList` est utilisée et commentez les sections indiquées. Cela supprime complètement la liste en mémoire.
 
-8. Nous ajoutons maintenant notre service mobile. Annulez les marques de commentaire sur les lignes de code suivantes :
+8. Nous ajoutons maintenant notre service mobile. Annulez les marques de commentaire sur les lignes de code suivantes :
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. Recherchez la classe *ProgressFilter* en bas du fichier et annulez les marques de commentaire sur cette dernière. Cette classe affiche un indicateur 'loading' lorsque *MobileServiceClient* exécute des opérations réseau.
+9. Recherchez la classe *ProgressFilter* en bas du fichier et supprimez les marques de commentaire sur cette dernière. Cette classe affiche un indicateur « chargement » lorsque *MobileServiceClient* exécute des opérations réseau.
 
 
 10. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
@@ -64,7 +64,7 @@
 
   	Ces valeurs sont nécessaires pour accéder au service mobile à partir de votre code d'application.
 
-12. Dans la méthode **onCreate**, annulez les marques de commentaire sur les lignes de code suivantes qui définissent la variable **MobileServiceClient** :
+12. Dans la méthode **onCreate**, annulez les marques de commentaire sur les lignes de code suivantes qui définissent la variable **MobileServiceClient** :
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -80,13 +80,13 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Cela crée une instance de *MobileServiceClient* utilisée pour accéder au service mobile. Cela crée également l'instance de *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
+  	Cela permet de créer une nouvelle instance de *MobileServiceClient*, qui est utilisée pour accéder à votre service mobile. Cela crée également l'instance de *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
 
-13. Dans le code ci-dessus, remplacez MobileServiceUrl et AppKey par l'URL et la clé d'application de votre service mobile, dans cet ordre.
+13. Dans le code ci-dessus, remplacez `MobileServiceUrl` et `AppKey` par l'URL et la clé d'application de votre service mobile, dans cet ordre.
 
 
 
-14. Annulez les marques de commentaire sur ces lignes de la méthode **checkItem** :
+14. Annulez les marques de commentaire sur ces lignes de la méthode **checkItem** :
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -110,7 +110,7 @@
 
    	Cela permet d'envoyer une mise à jour de l'élément au service mobile et de supprimer les éléments cochés de l'adaptateur.
     
-15. Annulez les marques de commentaire sur ces lignes de la méthode **addItem** :
+15. Annulez les marques de commentaire sur ces lignes de la méthode **addItem** :
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -135,7 +135,7 @@
 
   	Ce code permet de créer un élément et de l'insérer dans la table du service mobile distant.
 
-16. Annulez les marques de commentaire sur ces lignes de la méthode **refreshItemsFromTable** :
+16. Annulez les marques de commentaire sur ces lignes de la méthode **refreshItemsFromTable** :
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {
@@ -164,6 +164,5 @@
 		
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
-
-<!--HONumber=49-->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=54-->

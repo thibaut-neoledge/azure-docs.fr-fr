@@ -18,17 +18,17 @@
 
 # Comment configurer votre application pour utiliser une connexion Facebook
 
-Cette rubrique montre comment configurer Azure App Services pour utiliser Facebook comme fournisseur d'authentification. 
+Cette rubrique montre comment configurer Azure App Services pour utiliser Facebook comme fournisseur d'authentification.
 	
-Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, accédez à [facebook.com].
+Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur [facebook.com].
 
 ## <a name="register"> </a>Inscription de votre application sur Facebook
 
-1. Accédez au site web [Développeurs Facebook] et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
+1. Accédez au site Web [Développeurs Facebook] et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
 
-2. (Facultatif) Si vous n'êtes pas encore inscrit, cliquez sur **My Apps**, puis sur **Register as a Developer**, acceptez la politique et suivez les étapes de l'inscription. 
+2. (Facultatif) Si vous n'êtes pas encore inscrit, cliquez sur **Applications**, puis sur **Register as a Developer**, acceptez la politique et suivez les étapes de l'inscription.
 
-3. Cliquez sur **Applications**, puis sur **Create a New App**.
+3. Cliquez sur **Applications**, puis sur **Créez une application**.
 
 4. Sélectionnez **Website** comme plateforme. Choisissez un nom unique pour votre application, puis cliquez sur **Create New Facebook App ID**.
 
@@ -36,20 +36,19 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 6. Dans la page suivante, sélectionnez **Skip Quick Start** dans le coin supérieur droit. Ceci vous dirigera vers le tableau de bord du développeur pour votre application.
 
-7. Dans le champ **App Secret**, cliquez sur **Show**, fournissez votre mot de passe si nécessaire, puis notez les valeurs **App ID** et **App Secret**. 
+7. Dans le champ **App Secret**, cliquez sur **Show**, fournissez votre mot de passe si nécessaire, puis notez les valeurs **App ID** et **App Secret**.
 
-	> [AZURE.NOTE] **Remarque relative à la sécurité**
-	La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
+	> [AZURE.NOTE]**Remarque relative à la sécurité** : la clé secrète d’application est une information d’identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
-8. Dans la barre de navigation gauche, cliquez sur **Settings**. Tapez l'URL de la passerelle dans **App Domains** et entrez une adresse de messagerie dans **Contact Email**.
+8. Dans la barre de navigation gauche, cliquez sur **Settings**. Tapez l’URL de la passerelle dans **App Domains** et entrez une adresse de messagerie dans **Contact Email**.
 
     ![][0]
 
-9. Si vous ne voyez pas de section de site web ci-dessous, cliquez sur **Add Platform** et sélectionnez **Website**. Tapez l'URL de votre passerelle App Service dans **Site URL**, puis cliquez sur **Save Changes**.
+9. Si vous ne voyez pas de section de site web ci-dessous, cliquez sur **Add Platform** et sélectionnez **Website**. Tapez l’URL de votre passerelle App Service dans **Site URL**, puis cliquez sur **Save Changes**.
 
-10. Cliquez sur l'onglet **Advanced** et ajoutez votre URI de redirection dans **Valid OAuth redirect URIs**. Ensuite, cliquez sur **Save Changes**. Votre URI de redirection correspond à l'URL de votre passerelle à laquelle s'ajoute le chemin d'accès _/signin-facebook_. Par exemple, `https://contosogateway.azurewebsites.net/signin-facebook`. Assurez-vous d'utiliser le schéma HTTPS.
+10. Cliquez sur l’onglet **Advanced** et ajoutez votre URI de redirection dans **Valid OAuth redirect URIs**. Ensuite, cliquez sur **Save Changes**. Votre URI de redirection correspond à l’URL de votre passerelle à laquelle s’ajoute le chemin d’accès _/signin-facebook_. Par exemple : `https://contosogateway.azurewebsites.net/signin-facebook`. Assurez-vous d'utiliser le schéma HTTPS.
 
-11. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d'autres comptes Facebook, cliquez sur **Status & Review** dans la barre de navigation de gauche. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
+11. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Status & Review** dans la barre de navigation de gauche. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
 
 
 ## <a name="secrets"> </a>Ajout des informations Facebook à votre application Mobile App
@@ -74,7 +73,6 @@ Vous êtes maintenant prêt à utiliser Facebook pour l'authentification dans vo
 <!-- URLs. -->
 [Développeurs Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Prise en main de l'authentification]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Portail de gestion Azure]: https://portal.azure.com/
-
-<!--HONumber=49-->
+[Get started with authentication]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
+[portail de gestion Azure]: https://portal.azure.com/
+<!--HONumber=54-->

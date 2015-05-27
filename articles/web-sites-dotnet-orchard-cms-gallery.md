@@ -1,85 +1,84 @@
-﻿<properties 
-	pageTitle="Création d'un site Web Orchard CMS à partir de la galerie dans Azure" 
-	description="Un didacticiel qui explique comment créer un site Web dans Azure. Apprenez également à lancer et gérer votre site à l'aide du portail de gestion." 
-	services="web-sites" 
+<properties 
+	pageTitle="Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace" 
+	description="Didacticiel qui explique comment créer une application Web dans Azure. Apprenez également à utiliser le portail Azure pour lancer et gérer votre application Web." 
+	tags="azure-portal"
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
-# Création d'un site Web Orchard CMS à partir de la galerie dans Azure
+# Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace
 
-La galerie met à votre disposition une large gamme d'applications Web développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Les applications Web créées à partir de la galerie ne requièrent pas l'installation de logiciel autre que le navigateur Web utilisé pour se connecter au [portail de gestion Azure](http://manage.windowsazure.com). Pour plus d'informations sur les applications Web dans la galerie, consultez la page [Galerie d'applications Web Windows](http://www.microsoft.com/web/gallery/categories.aspx).
+## Vue d'ensemble
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Marketplace met à votre disposition une large gamme d’applications Web développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Les applications Web créées à partir de Marketplace ne nécessitent pas l’installation de logiciels autres que le navigateur utilisé pour se connecter au [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). Pour plus d’informations sur les applications Web de Marketplace, consultez [Azure Marketplace](/marketplace/).
 
-- créer un site via la galerie ;
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
-- lancer et gérer votre site depuis le portail de gestion.
+- création d’une application Web à partir de Marketplace ;
+
+- utilisation du portail Azure pour lancer et gérer votre application Web.
  
-Vous allez configurer un site Orchard CMS avec un modèle par défaut. [Orchard](http://www.orchardproject.net/) est une application CMS gratuite, open source, basée sur .NET, qui vous permet de créer des sites Web personnalisés et orientés contenu. Orchard CMS comprend une infrastructure d'extensibilité qui vous permet de [télécharger des thèmes et modules complémentaires](http://gallery.orchardproject.net/) pour personnaliser votre site. L'illustration suivante présente le site Orchard CMS que vous allez créer.
+Vous allez configurer une application Web Orchard CMS avec un modèle par défaut. [Orchard](http://www.orchardproject.net/) est une application CMS gratuite, open source, basée sur .NET, qui vous permet de créer des sites et des applications Web personnalisés et orientés contenu. Orchard CMS comprend une infrastructure d’extensibilité qui vous permet de [télécharger des thèmes et modules complémentaires](http://gallery.orchardproject.net/) pour personnaliser votre application Web. L’illustration suivante présente l’application Web Orchard CMS dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) que vous allez créer.
 
-![Orchard blog][13]
+![Blog Orchard][13]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2>Créer un site Web Orchard à partir de la galerie</h2>
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
+## Création d’une application Web Orchard à partir de Marketplace
 
-2. Cliquez sur l'icône **Nouveau** en bas à gauche du portail.
+1. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com).
+
+2. Sélectionnez **Nouveau** > **Web + Mobile** > **Azure Marketplace**.
 	
-	![Create New][1]
+	![Création][1]
 
-3. Cliquez sur l'icône **Site Web**, puis sur **À partir de la galerie**.
+3. Cliquez sur **Applications Web** > **Orchard CMS**. Dans le panneau suivant, cliquez sur **Créer**.
 	
-	![Create From Gallery][2]
+	![Créer à partir de Marketplace][2]
 
-4. Cliquez sur l'icône **Orchard CMS** dans la liste, puis cliquez sur la flèche pour continuer.
+4. Configurez également l’URL de l’application Web, le plan App Service, le groupe de ressources et l’emplacement. Une fois ces opérations effectuées, cliquez sur **Créer**.
 	
-	![Orchard from list][3]
+	![Configurer l’application][3]
 
-5. Sur la page **Configurer votre application**, entrez ou sélectionnez des valeurs pour tous les champs :
-	
-- Entrez le nom d'URL de votre choix.	
-- Sélectionnez la région la plus proche de vos utilisateurs (afin d'offrir les meilleures performances).
+	Une fois que votre application Web est créée, le bouton **Notifications** affiche la mention « SUCCÈS » en vert et le panneau de votre application Web apparaît.
 
-	![configure your app][4]
+## Lancement et gestion de l’application Web Orchard
 
-6. Cliquez sur la coche dans le coin inférieur droit de la fenêtre pour lancer le déploiement de votre nouveau site Web Orchard CMS.
+1. Dans le panneau de votre application Web, cliquez sur **Parcourir** pour ouvrir la page d’accueil de votre application Web.
 
-Azure lance les opérations de configuration et de déploiement. Pendant la configuration et le déploiement du site Web, l'état de ces opérations est affiché en bas de la page Sites Web dans le portail de gestion. Une fois toutes les opérations achevées, un message indique que votre site Web a été créé.
+	![bouton parcourir][12]
 
-<h2>Lancement et gestion du site Orchard</h2>
+2. Entrez les informations de configuration demandées par Orchard, puis cliquez sur **Terminer l’installation** pour achever la configuration et ouvrir la page d’accueil de l’application Web.
 
-1. Cliquez sur le nom du nouveau site dans la page **Sites Web**, puis cliquez sur **Parcourir** en bas du portail pour ouvrir la page d'accueil de votre site Web.
+	![connexion à Orchard][7]
 
-	![launch dashboard][5]
+	Vous obtenez une nouvelle application Web Orchard ressemblant à la capture d’écran ci-dessous.
 
-	![browse button][12]
+	![votre application Web Orchard][13]
 
-2. Entrez les informations de configuration demandées par Orchard, puis cliquez sur **Terminer l'installation** pour achever la configuration et ouvrir la page d'accueil du site Web.
+3. Consultez les détails de la [documentation Orchard](http://docs.orchardproject.net/) pour en savoir plus sur Orchard et configurer votre nouvelle application Web.
 
-	![login to Orchard][7]
+## Étape suivante
 
-	Vous obtenez un nouveau site Orchard ressemblant à la capture d'écran ci-dessous.  
+* [Développement et déploiement d’une application Web avec Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) : apprenez à modifier une application Web App Service dans WebMatrix. 
+* [Création d’une application ASP.NET MVC avec authentification et base de données SQL et déploiement dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) : apprenez à créer une application Web dans Azure App Service à partir de Visual Studio.
 
-	![your Orchard site][13]
-
-3. Consultez les détails de la [documentation Orchard](http://docs.orchardproject.net/) pour en savoir plus sur Orchard et configurer votre nouveau site.
-
-<h2>Étape suivante</h2>
-* [Développer et déployer un site Web avec Microsoft WebMatrix](/fr-fr/develop/net/tutorials/website-with-webmatrix/) : apprenez à modifier un site Web Azure dans WebMatrix. 
-* [Déploiement d'une application ASP.NET MVC sécurisée avec une fonctionnalité d'appartenance, OAuth et une base de données SQL vers un site Web Azure](/fr-fr/develop/net/tutorials/web-site-with-sql-database/) : apprenez à créer un site Web avec Visual Studio.
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
@@ -92,6 +91,4 @@ Azure lance les opérations de configuration et de déploiement. Pendant la conf
 
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

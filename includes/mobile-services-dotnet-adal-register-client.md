@@ -1,6 +1,6 @@
-﻿## <a name="register-app-aad"></a>Inscription de votre application cliente auprès d'Azure Active Directory
+## <a name="register-app-aad"></a>Inscription de votre application cliente auprès d'Azure Active Directory
 
-1. Accédez à **Active Directory** dans les [portail de gestion Azure], puis cliquez sur votre annuaire.
+1. Accédez à **Active Directory** dans le [portail de gestion Azure], puis cliquez sur votre annuaire.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
@@ -22,14 +22,12 @@
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-client-id.png)
 
-7. Faites défiler la page jusqu'à la section **Autorisations à d'autres applications** et cliquez sur le bouton **Ajouter une application**. Choisissez **Autres** à partir du menu Afficher et recherchez todo. Cliquez sur **TodoList** pour ajouter le service mobile que vous avez enregistré précédemment et cliquez sur la coche pour finir. Accordez l'accès à l'application de service mobile. Cliquez sur **Enregistrer**
+7. Faites défiler la page jusqu'à la section **Autorisations à d'autres applications** et cliquez sur le bouton **Ajouter une application**. Choisissez **Autres** à partir du menu Afficher et recherchez todo. Cliquez sur **TodoList** pour ajouter le service mobile que vous avez enregistré précédemment et cliquez sur la coche pour finir. Accordez l’accès à l’application de service mobile. Cliquez ensuite sur **Enregistrer**.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-add-permissions.png)
 
 Votre service mobile est maintenant configuré dans AAD de manière à accepter des connexions via l'authentification unique à partir de votre application.
 
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=42-->
+[portail de gestion Azure]: https://manage.windowsazure.com/
+<!--HONumber=54-->

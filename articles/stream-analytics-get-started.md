@@ -1,304 +1,256 @@
-﻿<properties 
-	pageTitle="Prise en main d'Azure Stream Analytics | Azure" 
-	description="Prise en main de Azure Stream Analytics pour traiter et transformer les événements dans le concentrateur d'événements Azure Service Bus et stocker les résultats dans la base de données SQL Azure." 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Prise en main de Stream Analytics : détection des fraudes en temps réel | Microsoft Azure"
+	description="Apprenez à utiliser Stream Analytics pour créer une solution de détection de fraude en temps réel sur des données de télécommunication générées."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="2/17/2015" 
-	ms.author="jgao" />
+<tags
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="04/28/2015"
+	ms.author="jeffstok" />
 
 
-# Prise en main d'Azure Stream Analytics
 
-Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics][stream.analytics.introduction] et [Documentation d'Azure Stream Analytics][stream.analytics.documentation].
+# Prise en main de l'utilisation d'Azure Stream Analytics : détection des fraudes en temps réel
 
-Pour vous aider à prendre rapidement en main Stream Analytics, ce didacticiel va vous expliquer comment utiliser des données de température en lisant des données à partir d'un [Concentrateur d'événements Azure Service Bus][azure.event.hubs.documentation] avant de traiter les données provenant des résultats d'une [base de données SQL Azure][azure.sql.database.documentation].  Le schéma suivant illustre le flux d'événements de l'entrée vers le traitement en sortie :
-  
-![Azure Stream Analytics get started flow][img.get.started.flowchart]
+Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md).
 
-##Génération de données d'exemple de concentrateur d'événements
-Ce didacticiel repose sur l'application du didacticiel Prise en main du concentrateur d'événements Service Bus, un exemple de code situé dans la galerie de codes MSDN, pour créer un concentrateur d'événements, générer des exemples de lectures de température de périphérique et envoyer ces données vers le concentrateur d'événements.
+Apprenez à créer une solution de bout en bout pour la détection des fraudes en temps réel avec Stream Analytics. Importez des événements dans des concentrateurs d'événements Azure, écrivez des requêtes Stream Analytics à des fins d'agrégation ou d'alerte et envoyez les résultats à un récepteur de sortie pour obtenir des informations sur les données en temps réel.
 
-###Création d'un espace de noms Service Bus
-L'exemple d'application va créer un concentrateur d'événements dans un espace de noms Service Bus préexistant.  Vous pouvez utiliser un espace de noms Service Bus que vous avez déjà configuré ou suivre la procédure ci-dessous pour en créer un :
+##Scénario : fraude de télécommunication et SIM
 
-1.	Connectez-vous au [portail de gestion Azure][azure.management.portal].
-2.	Cliquez sur **CRÉER** en bas de la page Service Bus, puis suivez les instructions pour créer un espace de noms. Utilisez le type **MESSAGERIE**.
-3.	Cliquez sur le nouvel espace de noms, puis sur **INFORMATIONS DE CONNEXION** en bas de la page.
-4.	Copiez la chaîne de connexion. Vous en aurez besoin plus loin dans le didacticiel.
+Une société de télécommunication dispose d'un volume important de données pour les appels entrants. Elle veut réduire ces données à une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans les différentes régions géographiques. Elle souhaite aussi vivement détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant ses clients ou en arrêtant le service. Ces besoins correspondent à des scénarios de type Internet des objets où des tonnes de données télémétriques ou de capteur sont générées. Les clients veulent les agréger ou être alertés en cas d'anomalie.
 
-###Création d'un compte Azure Storage
+##Configuration requise
 
-Cet exemple d'application requiert un compte Azure Storage ou un émulateur de stockage pour la conservation de l'état de l'application. Vous pouvez utiliser un compte Storage existant ou suivre la procédure ci-dessous pour en créer un : 
+Ce scénario utilise un générateur d’événements disponible sur GitHub. Téléchargez-le [ici](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator), puis suivez les étapes de ce didacticiel pour configurer votre solution.
 
-1.	Dans le portail, créez un compte Storage en cliquant sur **NOUVEAU**, **SERVICES DE DONNÉES**, **STOCKAGE**, **CRÉATION RAPIDE**, puis suivez les instructions.
-2.	Sélectionnez le nouveau compte de stockage, puis cliquez sur **GÉRER LES CLÉS D'ACCÈS** en bas de la page.
-3.	Copiez le nom du compte de stockage et l'une des clés d'accès.
+## Création d’une entrée de concentrateur d’événements et d’un groupe de consommateurs
 
-###Génération de données d'exemple de concentrateur d'événements
+L’exemple d’application génère des événements et les transmet vers une instance de concentrateur d’événements. Les concentrateurs d'événements Service Bus constituent la méthode préférée de l'ingestion d'événements pour Stream Analytics. Pour plus d'informations sur les concentrateurs d'événements, consultez la [documentation Azure Service Bus](/documentation/services/service-bus/).
 
-1.	Téléchargez et décompressez le fichier [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097) dans votre station de travail.
-2.	Ouvrez le fichier de solution **EventHubSample.sln** dans Visual Studio.
-3.	Ouvrez le fichier **app.config**.
-4.	Indiquez les chaînes de connexion au compte Storage et à Service Bus. Les noms de clé sont **Microsoft.ServiceBus.ConnectionString** et **AzureStorageConnectionString**. Le format de la chaîne de connexion au compte de stockage est le suivant : 	
+Procédez comme suit pour créer un concentrateur d’événements.
 
-		DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<yourAccountKey>;
-5.	Générez la solution.
-6.	Exécutez l'application à partir du dossier Bin.  Procédez comme suit : 
+1.	Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Nouveau** > **Services d'application** > **Service Bus** > **Concentrateur d'événements** > **Création rapide**. Fournissez un nom, une région et un espace de noms nouveau ou existant pour créer un concentrateur d'événements.  
+2.	Nous vous recommandons de faire en sorte que chaque travail Stream Analytics lise les événements à partir d’un seul groupe de consommateurs de concentrateurs d’événements. Nous verrons plus loin comment créer un groupe de consommateurs et vous pourrez alors [en savoir plus](https://msdn.microsoft.com/library/azure/dn836025.aspx) sur ce point. Pour créer un groupe de consommateurs, accédez au concentrateur d’événements nouvellement créé et cliquez sur l’onglet **Groupes de consommateurs**, puis sur **Créer** en bas de la page et entrez un nom pour votre groupe de consommateurs.
+3.	Pour accorder l’accès au concentrateur d’événements, vous devez créer une stratégie d’accès partagé. Cliquez sur l’onglet **Configurer** de votre concentrateur d’événements.
+4.	Sous **Stratégies d'accès partagé**, créez une stratégie ayant les autorisations **Gérer**.
 
-		BasicEventHubSample <eventhubname> <NumberOfMessagesToSend> <NumberOfPartitions> 
+	![Stratégies d’accès partagé où vous pouvez créer une stratégie ayant les autorisations Gérer.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
-	L'exemple suivant crée un concentrateur d'événements nommé **devicereadings** avec **16** partitions, puis envoie **200** événements vers le concentrateur d'événements : 
+5.	Cliquez sur **Enregistrer** au bas de la page.
+6.	Accédez au **Tableau de bord**, cliquez sur **Informations de connexion** en bas de la page, puis copiez et enregistrez les informations de connexion.
 
-		BasicEventHubSample devicereadings 200 16
+## Configuration et démarrage de l’application de génération d’événements
 
- 	![insert image here][img.stream.analytics.event.hub.client.output] 
- 	
+Nous avons fourni une application cliente qui génère des exemples de métadonnées d'appel entrant et les envoie au concentrateur d'événements. Suivez les étapes ci-dessous pour configurer cette application.
 
-###Création d'une stratégie d'accès partagé au concentrateur d'événements
-Même s'il existe déjà une stratégie d'accès partagé sur l'espace de noms Service Bus et qu'elle permet de se connecter à tous les éléments dans l'espace de noms, pour plus de sécurité, nous allons créer une stratégie distincte pour le concentrateur d'événements.
+1.	Téléchargez la solution TelcoGenerator depuis [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
+2.	Remplacez les valeurs Microsoft.ServiceBus.ConnectionString et EventHubName dans le fichier App.Config par la chaîne de connexion et le nom de votre concentrateur d’événements.
+3.	Générez la solution pour déclencher le téléchargement des packages nuget requis.
+4.	Lancez l’application. Procédez comme suit :
 
-1.	Dans l'espace de travail Service Bus du portail, cliquez sur le nom de l'espace de noms Service Bus.
-2.	Cliquez sur **CONCENTRATEURS D'ÉVÉNEMENTS** en haut de la page.
-3.	Cliquez sur **devicereadings**, le concentrateur d'événements de ce didacticiel.
-4.	Cliquez sur **CONFIGURER** en haut de la page.
-5.	Sous Stratégies d'accès partagé, créez une stratégie ayant les autorisations **Gérer**.
+    	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-	![][img.stream.analytics.event.hub.shared.access.policy.config]
-6.	Cliquez sur **ENREGISTRER** en bas de la page.
-7.	Si le concentrateur d'événements est dans un autre abonnement que celui du travail Stream Analytics, vous devez copier et enregistrer les informations de connexion pour les utiliser plus tard.  Pour ce faire, cliquez sur **﻿﻿TABLEAU DE BORD**, puis sur **﻿﻿INFORMATIONS DE CONNEXION** en bas de la page, puis enregistrez la chaîne de connexion.
+L'exemple suivant génère 1 000 événements avec une probabilité de 20 % de fraude sur une durée de 2 heures :
 
+    TelcoDataGen.exe 1000 .2 2
 
-##Préparation d'une base de données SQL Azure pour stocker des données de sortie
-Azure Stream Analytics peut sortir des données vers une base de données SQL Azure, un stockage d'objets blob Azure et un concentrateur d'événements Azure. Dans ce didacticiel, vous allez définir un travail qui génère une sortie vers une base de données SQL Azure. Pour plus d'informations, consultez la rubrique Prise en main de Base de données SQL Microsoft SQL.
+Vous verrez des enregistrements être envoyés à votre concentrateur d'événements. Certains champs clés que nous utiliserons dans cette application sont définis ici :
 
-###Création d'une base de données SQL Azure
-Si vous disposez déjà d'une base de données SQL Azure pour ce didacticiel, ignorez cette section.
+| Enregistrement | Définition |
+| ------------- | ------------- |
+| CallrecTime | Horodatage de l'heure de début d'appel |
+| SwitchNum | Commutateur téléphonique utilisé pour connecter l'appel |
+| CallingNum | Numéro de téléphone de l'appelant |
+| CallingIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique de l'appelant |
+| CalledNum | Numéro de téléphone du destinataire de l'appel |
+| CalledIMSI | Identité de l'abonné mobile international (IMSI). Identificateur unique du destinataire de l'appel |
 
-1.	Dans le portail de gestion, cliquez sur **NOUVEAU**, **SERVICES DE DONNÉES**, **BASE DE DONNÉES SQL**, **CRÉATION RAPIDE**.  Spécifiez un nom de base de données sur un serveur, nouveau ou existant, de base de données SQL.
-2.	Sélectionnez la base de données nouvellement créée
-3.	Cliquez sur **TABLEAU DE BORD**, sur **Afficher les chaînes de connexion** sur le volet droit de la page, puis copiez la chaîne de connexion **ADO.NET**. Vous en aurez besoin plus loin dans le didacticiel.  
-4.	Assurez-vous que les paramètres de pare-feu au niveau du serveur permettent de vous connecter à la base de données.  Pour ce faire, ajoutez une nouvelle règle IP sous l'onglet Configuration du serveur. Pour plus d'informations, notamment sur la gestion d'adresses IP dynamiques, consultez [http://msdn.microsoft.com/library/azure/ee621782.aspx](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
-###Création de tables de sortie
-1.	Ouvrez Visual Studio ou SQL Server Management Studio.
-2.	Connectez-vous à la base de données SQL Azure.
-3.	Utilisez les instructions T-SQL suivantes pour créer deux tables pour votre base de données :
+## Création d’un travail Stream Analytics
+Maintenant que nous avons un flux d’événements de télécommunication, nous pouvons configurer un travail Stream Analytics pour analyser ces événements en temps réel.
 
-		CREATE TABLE [dbo].[PassthroughReadings] (
-		    [DeviceId]      BIGINT NULL,
-			[Temperature] BIGINT    NULL
-		);
+### Configuration d'un travail Stream Analytics
 
-		GO
-		CREATE CLUSTERED INDEX [PassthroughReadings]
-		    ON [dbo].[PassthroughReadings]([DeviceId] ASC);
-		GO
+1.	Dans le portail Azure, cliquez sur **Nouveau** > **Services de données** > **Stream Analytics** > **Création rapide**.
+2.	Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
-		CREATE TABLE [dbo].[AvgReadings] (
-		    [WinStartTime]   DATETIME2 (6) NULL,
-		    [WinEndTime]     DATETIME2 (6) NULL,
-		    [DeviceId]      BIGINT NULL,
-			[AvgTemperature] FLOAT (53)    NULL,
-			[EventCount] BIGINT null
-		);
-		
-		GO
-		CREATE CLUSTERED INDEX [AvgReadings]
-		    ON [dbo].[AvgReadings]([DeviceId] ASC);
+	* **Nom du travail** : entrez un nom pour le travail.
 
-	>[WACOM.NOTE] Pour insérer des données, les tables de base de données SQL doivent avoir des index cluster.
-	   
-##Création d'un travail d'analyse de flux
+	* **Région** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
 
-Après avoir créé le concentrateur d'événements Azure Service Bus, la base de données SQL Azure et les tables de sortie, vous êtes prêt à créer un travail Stream Analytics.
+	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
-###Configuration d'un travail Stream Analytics
-1.	Dans le portail de gestion, cliquez sur **NOUVEAU**, **SERVICES DE DONNÉES**, **﻿STREAM ANALYTICS**, **CRÉATION RAPIDE**. 
-2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
+3.	Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher la liste des travaux Stream Analytics.
 
-	- **NOM DU TRAVAIL** : entrez un nom pour le travail. Par exemple, **DeviceTemperatures**.
-	- **RÉGION** : sélectionnez la région où vous souhaitez exécuter le travail. La version d'évaluation d'Azure Stream Analytics est actuellement disponible uniquement dans 2 régions. Pour plus d'informations, consultez la page [Limitations et problèmes connus d'Azure Stream Analytics][stream.analytics.limitations]. Envisagez de placer le travail et le concentrateur d'événements dans la même région afin d'améliorer les performances et d'éviter de payer pour un transfert de données entre différentes régions.
-	- **COMPTE DE STOCKAGE** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de tous les travaux Stream Analytics en cours d'exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
-	
-3.	Dans le volet gauche, cliquez sur **STREAM ANALYTICS** pour afficher une liste des travaux Stream Analytics.
+	![Icône du service Stream Analytics](./media/stream-analytics-get-started/stream-analytics-service-icon.png)
 
-	![][img.stream.analytics.portal.button]
- 
-	Le nouveau travail sera affiché avec l'état **NON DÉMARRÉ**.  Notez que le bouton **DÉMARRER** situé en bas de la page est désactivé. Avant de pouvoir démarrer le travail, vous devez configurer son entrée, sa sortie, sa requête, etc. 
+4.	Le nouveau travail est affiché avec l’état **Créé**. Notez que le bouton **Démarrer** situé en bas de la page est désactivé. Avant de pouvoir démarrer le travail, vous devez configurer son entrée, sa sortie et sa requête.
 
-###Spécification d'une entrée de travail
+### Spécification d'une entrée de travail
+1.	En haut de la page de votre travail Stream Analytics, cliquez sur **Entrées**, puis sur **Ajouter une entrée**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre entrée.
+2.	Sélectionnez **Flux de données**, puis cliquez avec le bouton droit.
+3.	Sélectionnez **Concentrateur d’événements**, puis cliquez avec le bouton droit.
+4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-1.	Cliquez sur le nom du travail.
-2.	En haut de la page, cliquez sur **ENTRÉES**, puis sur **AJOUTER UNE ENTRÉE**. La boîte de dialogue qui s'ouvre vous guidera le long d'une procédure de configuration de votre entrée.
-3.	Sélectionnez **FLUX DE DONNÉES**, puis cliquez avec le bouton droit.
-4.	Sélectionnez **CONCENTRATEUR D'ÉVÉNEMENTS**, puis cliquez avec le bouton droit.
-5.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page : 
+	* **Alias d'entrée** : entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
+	* **Concentrateur d'événements** : si le concentrateur d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le concentrateur d’événements.
 
-	- **ALIAS D'ENTRÉE** : entrez un nom convivial pour cette entrée de travail. Notez que vous utiliserez ce nom dans la requête par la suite.
-	- **CONCENTRATEUR D'﻿﻿﻿ÉVÉNEMENTS** : si le concentrateur d'événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l'espace de noms dans lequel est situé le concentrateur d'événements.  
+	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
 
-		Si votre concentrateur d'événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d'événements à partir d'un autre abonnement** et entrez l'**ESPACE DE NOMS SERVICE BUS**, le **NOM ﻿﻿DU CONCENTRATEUR D'ÉVÉNEMENTS**, le **﻿﻿NOM DE LA STRATÉGIE DU CONCENTRATEUR D'ÉVÉNEMENTS**, la **﻿﻿CLÉ DE STRATÉGIE DU CONCENTRATEUR D'ÉVÉNEMENTS** et le **﻿﻿NOMBRE DE PARTITIONS DU CONCENTRATEUR D'ÉVÉNEMENTS**.  
+	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d’événements.
 
-		>[WACOM.NOTE] Cet exemple utilise le nombre de partitions par défaut : 16.
-		
-	- **NOM DU CONCENTRATEUR D'﻿﻿﻿ÉVÉNEMENTS** : sélectionnez le nom du concentrateur d'événements Azure que vous avez créé. Pour ce didacticiel, utilisez **devicereadings**.
-	- **NOM DE LA STRATÉGIE DU CONCENTRATEUR D'﻿﻿﻿ÉVÉNEMENTS** : sélectionnez la stratégie de concentrateur d'événements créée précédemment dans ce didacticiel.
- 
-	![][img.stream.analytics.config.input]
+	* **Nom de la stratégie du concentrateur d'événements** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 
-6.	Cliquez avec le bouton droit.
-7.	Spécifiez les valeurs suivantes :
+	* **Groupe de consommateurs du concentrateur d'événements** : entrez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
+5.	Cliquez avec le bouton droit.
+6.	Spécifiez les valeurs suivantes :
 
-	- **FORMAT ﻿﻿﻿DU SÉRIALISEUR D'ÉVÉNEMENT** : JSON
-	- **ENCODAGE** : UTF8
+	* **Format du sérialiseur d'événement** : JSON
+	* **Encodage** : UTF8
+7.	Cliquez sur la coche pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d’événements.
 
-8.	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d'événements.
+### Spécification de la requête du travail
 
-###Spécification de la sortie du travail
-1.	En haut de la page, cliquez sur **SORTIE**, puis sur **AJOUTER UNE SORTIE**.
-2.	Sélectionnez **BASE DE DONNÉES SQL**, puis cliquez avec le bouton droit.
-3.	Saisissez ou sélectionnez les valeurs suivantes :  utilisez la chaîne de connexion ADO.NET à partir de votre base de données pour renseigner les champs suivants :
+Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Ce didacticiel aborde la création et le test de plusieurs requêtes sur votre flux de données d'appel.
 
-	- **BASE ﻿﻿﻿DE DONNÉES SQL** : sélectionnez la base de données SQL créée précédemment dans ce didacticiel.  Si elle est située dans le même abonnement, sélectionnez la base de données dans le menu déroulant.   Si ce n'est pas le cas, remplissez manuellement les champs Nom du serveur et Base de données. 
-	- **NOM D'UTILISATEUR** : entrez le nom de connexion à la base de données SQL Azure.
-	- **﻿MOT DE PASSE** : entrez le mot de passe de connexion à la base de données SQL Azure.
-	- **﻿TABLE** : spécifiez la table vers laquelle vous souhaitez envoyer la sortie.  Pour le moment, utilisez **PassthroughReadings**.
+#### Facultatif : exemples de données d'entrée
+Pour appliquer votre requête à des données de travail réelles, vous pouvez utiliser la fonctionnalité **Exemples de données** pour extraire des événements à partir de votre flux de données et créer un fichier .JSON contenant les événements du test. Les étapes ci-dessous montrent comment effectuer cette opération. Nous avons également fourni un exemple de [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) à des fins de test.
 
-	![][img.stream.analytics.config.output]
+1.	Sélectionnez l’entrée de votre concentrateur d’événements, puis cliquez sur **Exemples de données** en bas de la page.
+2.	Dans la boîte de dialogue qui s’affiche, entrez une **Heure de début** pour le démarrage de la collecte des données et une **Durée** afin de déterminer la quantité de données supplémentaires à traiter.
+3.	Cliquez sur la coche pour démarrer l'échantillonnage des données à partir de l'entrée. La production du fichier de données peut prendre une minute ou deux. Quand le processus est terminé, cliquez sur **Détails** et téléchargez et enregistrez le fichier .JSON généré.
 
-4.	Cliquez sur le bouton en forme de coche pour créer votre sortie et vérifiez que Stream Analytics peut se connecter à la base de données SQL, comme indiqué.
+	![Téléchargement et enregistrement des données traitées dans un fichier JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
-###Spécification de la requête du travail
-Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations.  Pour plus d'informations sur ce langage, consultez les références sur le langage des requêtes d'Azure Stream Analytics.  
+#### Requête passthrough
 
-Ce didacticiel commence par une simple requête directe qui génère des relevés de température du périphérique transmis vers une table de base de données SQL.
+Si vous voulez archiver tous les événements, vous pouvez utiliser une requête passthrough pour lire tous les champs dans la charge utile de l'événement ou du message. Pour commencer, exécutez une simple requête passthrough qui projette tous les champs dans un événement.
 
-1.	En haut de la page, cliquez sur **Requête**.
-2.	Ajoutez le code suivant dans l'éditeur de code :
+1.	En haut de la page du travail Stream Analytics, cliquez sur **Requête**.
+2.	Ajoutez le code suivant dans l'éditeur de code :
 
-		SELECT DeviceId, Temperature FROM input
-Assurez-vous que le nom de la source d'entrée correspond à celui que vous avez spécifié précédemment.
-3.	En bas de la page, cliquez sur **﻿ENREGISTRER**, puis sur **OUI** pour confirmer.
+		SELECT * FROM CallStream
 
-##Démarrage du travail
-Par défaut, les travaux Stream Analytics commencent à lire les événements entrants à partir de l'heure à laquelle le travail commence.  Étant donné que le concentrateur d'événements contient des données à traiter, nous devons configurer le travail pour qu'il traite ces données d'historique.  
+	> Assurez-vous que le nom de la source d'entrée correspond à celui que vous avez spécifié précédemment.
 
-1.	En haut de la page, cliquez sur **CONFIGURER**.
-2.	Remplacez la valeur de **﻿DÉMARRER LA SORTIE** par **HORAIRE PERSONNALISÉ**, puis spécifiez un horaire personnalisé.  Assurez-vous que l'horaire de démarrage est antérieur à l'horaire d'exécution de BasicEventHubSample.  
-3.	En bas de la page, cliquez sur **﻿ENREGISTRER**, puis sur **OUI** pour confirmer.
-3.	En haut de la page, cliquez sur **TABLEAU DE BORD**, puis en bas de la page, cliquez sur **DÉMARRER** et sur **OUI** pour confirmer.  Dans le volet **Aperçu rapide**, l'**ÉTAT** passe à **Démarrage**. Le processus de démarrage peut prendre quelques minutes avant que l'état ne passe à **En cours d'exécution**.   
+3.	Sous l’éditeur de requête, cliquez sur **Test**.
+4.	Fournissez un fichier de test, soit un que vous avez créé en suivant la procédure ci-dessus, soit [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+5.	Cliquez sur la coche et consultez les résultats affichés sous la définition de la requête.
 
+	![Résultats de la définition de la requête](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
-##Affichage de la sortie du travail
 
-1.	Dans Visual Studio ou SQL Server Management Studio, connectez-vous à votre base de données SQL et exécutez la requête suivante : 
+### Projection de colonne
 
-		SELECT * FROM PassthroughReadings
+Nous allons maintenant réduire les champs renvoyés à un ensemble plus petit.
 
-2.	Vous verrez les enregistrements correspondant aux événements de lecture à partir du concentrateur d'événements.   
+1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
-	![][img.stream.analytics.job.output1]
+		SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum
+		FROM CallStream
 
-	Vous pouvez réexécuter l'application BasicEventHubSample pour générer de nouveaux événements et les voir se propager vers la sortie en temps réel en réexécutant la requête SELECT *.
-	
-	Si vous rencontrez des problèmes avec une sortie manquante ou inattendue, affichez les journaux des opérations du travail, liés dans le volet droit de la page du tableau de bord.
+2.	Cliquez sur **Réexécuter** dans l’éditeur de requête pour afficher les résultats de la requête.
 
-##Arrêt, mise à jour et redémarrage du travail
-﻿À présent, nous allons exécuter une requête plus intéressante sur ces données.
-1.	Dans la page **TABLEAU DE BORD** ou **SURVEILLER**, cliquez sur **ARRÊTER**.
-2.	Dans la page **REQUÊTE**, remplacez la requête existante par celle affichée plus bas, puis cliquez sur **ENREGISTRER** :
+	![Sortie dans l'éditeur de requête.](./media/stream-analytics-get-started/stream-analytics-query-editor-output.png)
 
-		SELECT DateAdd(second,-5,System.TimeStamp) as WinStartTime, system.TimeStamp as WinEndTime, DeviceId, Avg(Temperature) as AvgTemperature, Count(*) as EventCount 
-		FROM input
-		GROUP BY TumblingWindow(second, 5), DeviceId
+### Nombre d'appels entrants par région : fenêtre bascule avec agrégation
 
-	Cette requête utilise l'horaire d'envoi de l'événement au concentrateur d'événements défini par l'horodatage, recherche et projette la température moyenne lue toutes les 5 secondes et le nombre d'événements situés sous cette durée de 5 secondes.
-3.	Dans la page **SORTIE**, cliquez sur **MODIFIER**.  Remplacez la table de sortie PassthroughReadings par AvgReadings, puis cliquez sur l'icône en forme de coche.
+Pour comparer la quantité d'appels entrants par région, nous allons exploiter un [TumblingWindow](https://msdn.microsoft.com/library/azure/dn835055.aspx) pour obtenir le nombre d'appels entrants regroupés par SwitchNum toutes les 5 secondes.
 
-4.	Dans la page **TABLEAU DE BORD**, cliquez sur **DÉMARRER**.
+1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
-##Affichage de la sortie du travail
+		SELECT System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount
+		FROM CallStream TIMESTAMP BY CallRecTime
+		GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
 
-1.	Dans Visual Studio ou SQL Server Management Studio, connectez-vous à votre base de données SQL et exécutez la requête suivante :
+	Cette requête utilise le mot clé **Timestamp By** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le concentrateur d’événements. Consultez [« Heure d’arrivée par rapport à l’heure de l’application » dans la page Référence du langage de requête de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-		SELECT * from AvgReadings
+	Notez que vous pouvez accéder à un horodatage pour la fin de chaque fenêtre à l'aide de la propriété System.Timestamp.
 
-2.	Vous verrez les enregistrements correspondant à des intervalles de 5 secondes, qui indiquent la température moyenne et le nombre d'événements pour chaque périphérique : 
+2.	Cliquez sur **Réexécuter** dans l’éditeur de requête pour afficher les résultats de la requête.
 
-	![][img.stream.analytics.job.output2]
- 
-3.	 Pour continuer à afficher des événements traités par le travail en cours d'exécution, réexécutez l'application BasicEventHubSample.
+	![Résultats de la requête pour Timestand par](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
+### Identification de fraude SIM avec une jointure réflexive
 
+Pour identifier une utilisation potentiellement frauduleuse, nous examinons les appels provenant du même utilisateur mais à des endroits différents en moins de 5 secondes. Nous [joignons](https://msdn.microsoft.com/library/azure/dn835026.aspx) le flux d'événements d'appel avec lui-même pour vérifier ces cas.
 
+1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
+		SELECT System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
+		CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
+		FROM CallStream CS1 TIMESTAMP BY CallRecTime
+		JOIN CallStream CS2 TIMESTAMP BY CallRecTime
+		ON CS1.CallingIMSI = CS2.CallingIMSI
+		AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+		WHERE CS1.SwitchNum != CS2.SwitchNum
 
+2.	Cliquez sur **Réexécuter** dans l’éditeur de requête pour afficher les résultats de la requête.
 
+	![Résultats de la requête d'une jointure](./media/stream-analytics-get-started/stream-ananlytics-query-editor-join.png)
 
-##<a name="nextsteps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à utiliser Stream Analytics pour traiter les données météorologiques. Pour en savoir plus, consultez les articles suivants :
+### Création du récepteur de sortie
 
+Maintenant que nous avons défini un flux d’événements, un concentrateur d’événements d’entrée pour la réception des événements et une requête pour effectuer une transformation sur le flux, la dernière étape consiste à définir un récepteur de sortie pour le travail. Nous allons écrire des événements pour le comportement frauduleux dans le stockage d'objets blob.
 
-- [Présentation d'Azure Stream Analytics][stream.analytics.introduction]
-- [Guide de développement pour Azure Stream Analytics][stream.analytics.developer.guide]
-- [Mise à l'échelle des travaux Azure Stream Analytics][stream.analytics.scale]
-- [Limitations et problèmes connus d'Azure Stream Analytics][stream.analytics.limitations]
-- [Références sur le langage des requêtes d'Azure Stream Analytics][stream.analytics.query.language.reference]
-- [Références sur l'API REST de gestion d'Azure Stream Analytics][stream.analytics.rest.api.reference]
+Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, procédez comme suit pour en créer un.
 
+1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **Nouveau** > **Services de données** > **Stockage** > **Création rapide**, puis suivez les instructions qui s’affichent.
+2.	Sélectionnez le compte de stockage, puis, en haut de la page, cliquez sur **Conteneurs**, puis sur **Ajouter**.
+3.	Entrez un **NOM** pour votre conteneur et définissez son **ACCÈS** sur Objet blob public.
 
+## Spécification de la sortie du travail
 
+1.	En haut de la page de votre travail Stream Analytics, cliquez sur **SORTIE**, puis sur **AJOUTER UNE SORTIE**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre sortie.
+2.	Sélectionnez **STOCKAGE D’OBJETS BLOB**, puis cliquez avec le bouton droit.
+3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
-[img.stream.analytics.event.hub.client.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHClientOuput.png
-[img.stream.analytics.event.hub.shared.access.policy.config]: .\media\stream-analytics-get-started\AzureStreamAnalyticsEHSharedAccessPolicyConfig.png
-[img.stream.analytics.job.output2]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput2.png
-[img.stream.analytics.job.output1]: .\media\stream-analytics-get-started\AzureStreamAnalyticsSQLOutput1.png
-[img.stream.analytics.config.output]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureOutput.png
-[img.stream.analytics.config.input]: .\media\stream-analytics-get-started\AzureStreamAnalyticsConfigureInput.png
+	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
+	* **ABONNEMENT** : si le stockage d’objets blob que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
+	* **CONTENEUR** : sélectionnez le nom du conteneur.
+	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
 
+4.	Cliquez avec le bouton droit.
+5.	Spécifiez les valeurs suivantes :
 
+	* **FORMAT ﻿﻿﻿DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
+	* **ENCODAGE** : UTF8
 
-[img.get.started.flowchart]: ./media/stream-analytics-get-started/StreamAnalytics.get.started.flowchart.png
-[img.job.quick.create]: ./media/stream-analytics-get-started/StreamAnalytics.quick.create.png
-[img.stream.analytics.portal.button]: ./media/stream-analytics-get-started/StreamAnalyticsPortalButton.png
-[img.event.hub.policy.configure]: ./media/stream-analytics-get-started/StreamAnalytics.Event.Hub.policy.png
-[img.create.table]: ./media/stream-analytics-get-started/StreamAnalytics.create.table.png
-[img.stream.analytics.job.output]: ./media/stream-analytics-get-started/StreamAnalytics.job.output.png
-[img.stream.analytics.operation.logs]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.png
-[img.stream.analytics.operation.log.details]: ./media/stream-analytics-get-started/StreamAnalytics.operation.log.details.png
+6.	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
 
+## Démarrage du travail
 
-[azure.sql.database.firewall]: http://msdn.microsoft.com/library/azure/ee621782.aspx
-[azure.event.hubs.documentation]: http://azure.microsoft.com/services/event-hubs/
-[azure.sql.database.documentation]: http://azure.microsoft.com/services/sql-database/
+Après avoir spécifié une entrée, une requête et une sortie pour le travail Stream Analytics, nous pouvons le démarrer.
 
-[sql.database.introduction]: http://azure.microsoft.com/services/sql-database/
-[event.hubs.introduction]: http://azure.microsoft.com/services/event-hubs/
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.sdk.net]: ../dotnet-sdk/
+1.	Sur le **TABLEAU DE BORD** du travail, en bas de la page, cliquez sur **DÉMARRER**.
+2.	Dans la boîte de dialogue qui s’affiche, sélectionnez **HEURE DE DÉBUT DU TRAVAIL**, puis cliquez sur la coche en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
 
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.scale]: ../stream-analytics-scale-jobs/
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.documentation]: http://go.microsoft.com/fwlink/?LinkId=512093
+## Affichage de la sortie
 
+Utilisez un outil comme [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) pour afficher les événements frauduleux au fur et à mesure qu'ils s'écrivent dans la sortie en temps réel.
 
+![Événements frauduleux affichés en temps réel](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
+## Obtenir de l'aide
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-[azure.management.portal]: https://manage.windowsazure.com
 
+## Étapes suivantes
 
-<!--HONumber=46--> 
+- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
+
+<!--HONumber=54-->

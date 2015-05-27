@@ -1,13 +1,12 @@
-﻿<properties 
+<properties 
 	pageTitle="Restaurer une application web dans Azure App Service" 
-	description="Découvrez comment restaurer votre application web à partir d'une sauvegarde." 
+	description="Découvrez comment restaurer votre application web à partir d’une sauvegarde." 
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
-
 
 <tags 
 	ms.service="app-service-web" 
@@ -20,66 +19,65 @@
 
 # Restaurer une application web dans Azure App Service
 
-Cet article vous explique comment restaurer une application web que vous avez précédemment sauvegardée à l'aide de la fonctionnalité de sauvegarde d'[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Pour plus d'informations, voir [Sauvegardes d'App Service Web Apps](web-sites-backup.md). 
+Cet article vous explique comment restaurer une application web que vous avez précédemment sauvegardée à l’aide de la fonctionnalité de sauvegarde d’[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Pour plus d’informations, consultez la section [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
 
-La fonctionnalité de restauration de Web Apps vous permet de restaurer à la demande un état précédent de votre application web, ou de créer une application web à partir de l'une des sauvegardes de votre application web d'origine. La création d'une application web s'exécutant parallèlement à la dernière version peut se révéler utile à des fins de test A/B.
+La fonctionnalité de restauration de Web Apps vous permet de restaurer à la demande un état précédent de votre application web, ou de créer une application web à partir de l’une des sauvegardes de votre application web d’origine. La création d’une application web s’exécutant parallèlement à la dernière version peut se révéler utile à des fins de test A/B.
 
-La fonctionnalité de restauration de Web Apps, accessible à partir du panneau **Sauvegardes** du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), est uniquement disponible en modes Standard et Premium. Pour plus d'informations sur l'évolution de votre application vers le mode Standard ou Premium, voir [Faire évoluer une application web dans Azure App Service](web-sites-scale.md). 
-Notez que le mode Premium autorise un plus grand nombre de sauvegardes quotidiennes que le mode Standard.
+La fonctionnalité de restauration de Web Apps, accessible dans le panneau **Sauvegardes** du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), n’est disponible que dans les modes Standard et Premium. Pour plus d’informations sur la mise à l’échelle de votre application vers le mode Standard ou Premium, consultez la page [Faire évoluer une application web dans Azure App Service](web-sites-scale.md). Notez que le mode Premium autorise un plus grand nombre de sauvegardes quotidiennes que le mode Standard.
 
 <a name="PreviousBackup"></a>
-## Pour restaurer une application web à partir d'une sauvegarde précédente
+## Pour restaurer une application web à partir d’une sauvegarde précédente
 
-1. Sur le panneau **Paramètres** de votre application web dans le portail Azure, cliquez sur l'option **Sauvegardes** pour afficher le panneau **Sauvegardes**. Faites défiler ce panneau et sélectionnez l'un des éléments de sauvegarde en fonction des valeurs **HEURE DE LA SAUVEGARDE** et **STATUT** de la liste de sauvegardes.
+1. Dans le panneau **Paramètres** de votre application web dans le portail Azure, cliquez sur l’option **Sauvegardes** pour afficher le panneau **Sauvegardes**. Faites défiler ce panneau et sélectionnez l’un des éléments de sauvegarde en fonction des valeurs **HEURE DE LA SAUVEGARDE** et **STATUT** dans la liste de sauvegardes.
 	
-	![Choisir une source de sauvegarde][ChooseBackupSource]
+	![Sélection de la source de sauvegarde][ChooseBackupSource]
 	
-2. Sélectionnez **Restaurer maintenant** en haut du panneau **Sauvegardes**. 
+2. Sélectionnez **Restaurer maintenant** en haut du panneau **Sauvegardes**.
 
-	![Choisir l'option Restaurer maintenant][ChooseRestoreNow]
+	![Sélectionner Restaurer maintenant][ChooseRestoreNow]
 
-3. Dans le panneau **Restaurer**, pour restaurer l'application web existante, vérifiez tous les détails affichés, puis cliquez sur **OK**. 
+3. Dans le panneau **Restaurer**, pour restaurer l’application web, vérifiez tous les détails affichés, puis cliquez sur **OK**.
 	
-Vous pouvez également restaurer votre application web sous la forme d'une nouvelle application web en sélectionnant la section **APPLICATION WEB** du panneau **Restaurer**, puis la section **Créer une application web**.
+Vous pouvez également restaurer votre application web sous la forme d’une nouvelle application web en sélectionnant la section **APPLICATION WEB** du panneau **Restaurer**, puis la section **Créer une application web**.
 	
 <a name="StorageAccount"></a>
-## Télécharger ou supprimer une sauvegarde à partir d'un compte de stockage
+## Télécharger ou supprimer une sauvegarde à partir d’un compte de stockage
 	
 1. Dans le panneau **Parcourir** principal du portail Azure, sélectionnez **Comptes de stockage**.
 	
-	La liste de vos comptes de stockage existants s'affiche. 
+	La liste de vos comptes de stockage existants s’affiche.
 	
 2. Sélectionnez le compte de stockage contenant la sauvegarde que vous souhaitez télécharger ou supprimer.
 	
-	Le panneau **STOCKAGE** s'affiche.
+	Le panneau **STOCKAGE** s’affiche.
 
 3. Sélectionnez la section **Conteneurs** du panneau **STOCKAGE** pour afficher le panneau **Conteneurs**.
 	
-	La liste des conteneurs s'affiche. Cette liste affiche également l'URL et la date de la dernière modification de ce conteneur.
+	La liste des conteneurs s’affiche. Cette liste affiche également l’URL et la date de la dernière modification de ce conteneur.
 	
 	![Afficher les conteneurs][ViewContainers]
 
 4. Sélectionnez le conteneur dans la liste pour visualiser le panneau qui répertorie des noms de fichier, ainsi que la taille de chaque fichier.
 	
-5. Lorsque vous sélectionnez un fichier, vous pouvez choisir l'option **Télécharger** ou **Supprimer**. Notez qu'il existe deux principaux types de fichier : les fichiers .zip et les fichiers .xml. 
+5. Lorsque vous sélectionnez un fichier, vous pouvez choisir l’option **Télécharger** ou **Supprimer**. Notez qu’il existe deux principaux types de fichier : les fichiers .zip et les fichiers .xml.
 
 <a name="OperationLogs"></a>
-## Afficher les journaux d'audit
+## Afficher les journaux d’audit
 	
-1. Pour visualiser les détails concernant la réussite ou l'échec de l'opération de restauration de l'application web, sélectionnez la section **Journal d'audit** du panneau **Parcourir** principal. 
+1. Pour afficher les détails concernant la réussite ou l’échec de la restauration de l’application web, sélectionnez la section **Journal d’audit** du panneau **Parcourir** principal. 
 	
-	Le panneau **Journal d'audit** répertorie toutes vos opérations, ainsi que le niveau, l'état, la ressource et l'heure qui leur correspondent.
+	Le panneau **Journal d’audit** répertorie toutes vos opérations, ainsi que le niveau, l’état, la ressource et l’heure qui leur correspondent.
 	
 2. Faites défiler le panneau pour rechercher les opérations associées à votre application web.
 3. Pour visualiser des détails supplémentaires concernant une opération spécifique, sélectionnez cette opération dans la liste.
 	
-Le panneau de détails affiche les informations disponibles relatives à l'opération.
+Le panneau de détails affiche les informations disponibles relatives à l’opération.
 	
->[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 	
-## Nouveautés
-* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
@@ -98,4 +96,4 @@ Le panneau de détails affiche les informations disponibles relatives à l'opér
 [DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,25 +1,12 @@
-﻿
 
-1. Dans le fichier de script default.js, ajoutez la définition de fonction suivante juste en dessous de la ligne de code qui définit la liste todoItems :
- 
-        // Add a filter that adds a header to prevent caching. This makes sure that the 
-		// latest data is returned when the 'Refresh; button is clicked.        
-        var noCachingFilter = function (request, next, callback) {
-            if (request.type === 'GET' && !request.headers['If-Modified-Since']) {
-                request.headers['If-Modified-Since'] = 'Mon, 27 Mar 1972 00:00:00 GMT';
-            }
-            next(request, callback);
-        };
 
-	Cela définit une fonction de filtre qui ajoute l'en-tête `If-Modified-Since` pour empêcher la mise en cache sur le client.
- 
-2. Ensuite, annulez les marques de commentaire ou ajoutez la ligne de code suivante et remplacez `<yourClient>` par la variable ajoutée au fichier service.js lorsque vous avez connecté votre projet au service mobile :
+1. Ensuite, annulez les marques de commentaire ou ajoutez la ligne de code suivante et remplacez `<yourClient>` par la variable ajoutée au fichier service.js lorsque vous avez connecté votre projet au service mobile :
 
-		var todoTable = <yourClient>.withFilter(noCachingFilter).getTable('TodoItem');
+		var todoTable = <yourClient>.getTable('TodoItem');
 
-   	This code creates a proxy object (**todoTable**) for the new database table, using the caching filter. 
+   	Ce code crée un objet proxy (**todoTable**) pour la nouvelle table de base de données, à l'aide du filtre de mise en cache.
 
-3. Replace the **InsertTodoItem** function with the following code:
+2. Remplacez la fonction **InsertTodoItem** par le code suivant :
 
 		var insertTodoItem = function (todoItem) {
 		    // Inserts a new row into the database. When the operation completes
@@ -31,7 +18,7 @@
 
 	Ce code permet d'insérer un nouvel élément dans la table.
 
-3. Remplacez la fonction **RefreshTodoItem** par le code suivant :
+3. Remplacez la fonction **RefreshTodoItem** par le code suivant :
 
         var refreshTodoItems = function () {
             // This code refreshes the entries in the list by querying the table.
@@ -43,9 +30,9 @@
             });
         };
 
-   	Cela définit la liaison sur la collection d'éléments dans todoTable, qui contient tous les objets **TodoItem** renvoyés depuis le service mobile. 
+   	Cela définit la liaison sur la collection d'éléments de todoTable, qui contient tous les objets **TodoItem** renvoyés depuis le service mobile.
 
-4. Remplacez la fonction **UpdateCheckedTodoItem** par le code suivant :
+4. Remplacez la fonction **UpdateCheckedTodoItem** par le code suivant :
         
         var updateCheckedTodoItem = function (todoItem) {
             // This code takes a freshly completed TodoItem and updates the database. 
@@ -58,5 +45,4 @@
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

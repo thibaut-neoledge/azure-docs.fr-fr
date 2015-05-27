@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Configurer un nom de domaine personnalisé dans Azure App Service (GoDaddy)" 
 	description="Apprenez à utiliser un nom de domaine à partir de GoDaddy avec Azure Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="wpickett" 
+	authors="wadepickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -25,68 +25,71 @@
 
 [AZURE.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Cet article explique comment utiliser un nom de domaine personnalisé acheté auprès de [Go Daddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
+Cet article explique comment utiliser un nom de domaine personnalisé acheté auprès de [Go Daddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
-Dans cet article :
+Dans cet article :
 
 -   [Présentation des enregistrements DNS](#understanding-records)
--   [Ajouter un enregistrement DNS pour votre domaine personnalisé](#bkmk_configurecname)
--   [Activer le domaine sur votre application web](#enabledomain)
+-   [Ajout d'un enregistrement DNS pour votre domaine personnalisé](#bkmk_configurecname)
+-   [Activer le domaine sur votre web](#enabledomain)
 
-<h2><a name="understanding-records"></a>Présentation des enregistrements DNS</h2>
+<a name="understanding-records"></a>
+##Présentation des enregistrements DNS
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 
-<h2><a name="bkmk_configurecname"></a>Ajouter un enregistrement DNS pour votre domaine personnalisé</h2>
+<a name="bkmk_configurecname"></a>
+## Ajout d'un enregistrement DNS pour votre domaine personnalisé 
 
-Pour associer votre domaine personnalisé à une application web dans App Service, vous devez ajouter une nouvelle entrée pour ce domaine dans la table DNS en utilisant les outils fournis par GoDaddy. Pour trouver les outils DNS pour GoDaddy.com, procédez comme suit.
+Pour associer votre domaine personnalisé à une application web dans App Service, vous devez ajouter une nouvelle entrée pour ce domaine dans la table DNS en utilisant les outils fournis par GoDaddy. Pour trouver les outils DNS pour GoDaddy.com, procédez comme suit.
 
-1. Connectez-vous à votre compte GoDaddy.com, sélectionnez **My Account**, puis **Manage my domains**. Enfin, sélectionnez le menu déroulant du nom de domaine à utiliser avec votre application web Azure, puis sélectionnez **Manage DNS**.
+1. Connectez-vous à votre compte GoDaddy.com et sélectionnez **My Account**, puis **Manage my domains**. Enfin dans le menu déroulant, sélectionnez le nom de domaine à utiliser avec votre application web Azure, puis sélectionnez **Manage DNS**.
 
-	![custom domain page for GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
+	![page des domaines personnalisés de GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
 
-2. Dans la page **Domain details**, accédez à l'onglet **DNS Zone File**. Il s'agit de la section qui vous permet d'ajouter et de modifier des enregistrements DNS pour votre nom de domaine. 
+2. Dans la page **Domain details**, faites défiler jusqu'à l'onglet **DNS Zone File**. Il s'agit de la section qui vous permet d'ajouter et de modifier des enregistrements DNS pour votre nom de domaine.
 
-	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
+	![Onglet DNS Zone File](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
 	Sélectionnez **Add Record** pour ajouter un enregistrement existant.
 
-	Pour **modifier** un enregistrement existant, sélectionnez l'icône représentant un style et du papier à côté de l'enregistrement souhaité.
+	Pour **modifier** un enregistrement existant, sélectionnez l'icône représentant un stylo et du papier à côté de l'enregistrement souhaité.
 
-	> [AZURE.NOTE] Avant d'ajouter de nouveaux enregistrements, notez que GoDaddy a déjà créé des enregistrements DNS pour les sous-domaines fréquemment utilisés (sous **Host** dans l'éditeur), par exemple **email**, **files**, **mail**, etc. Si le nom que vous souhaitez utiliser existe déjà, modifiez l'enregistrement existant plutôt que d'en créer un nouveau.
+	> [AZURE.NOTE]Avant d’ajouter de nouveaux enregistrements, notez que GoDaddy a déjà créé des enregistrements DNS pour les sous-domaines populaires (sous **Host** dans l’éditeur), par exemple **email**, **files**, **mail**, etc. Si le nom que vous souhaitez utiliser existe déjà, modifiez l'enregistrement existant plutôt que d'en créer un nouveau.
 
 4. Quand vous ajoutez un enregistrement, vous devez d'abord sélectionner son type.
 
-	![select record type](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
+	![sélectionner le type d'enregistrement](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
 
-	Renseignez ensuite le champ **Host** (domaine ou sous-domaine personnalisé) et sa cible dans le champ **Points to**.
+	Vous devez ensuite indiquer l'**Host** (domaine ou sous-domaine personnalisé) et sa cible dans **Points to**.
 
-	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
+	![ajouter un enregistrement de zone](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
 
-	* Lorsque vous ajoutez un enregistrement A (hôte) via **A (host) record**, vous devez définir le champ **Host** sur la valeur **@** (qui correspond au nom de domaine racine, par exemple **contoso.com**,) sur la valeur * (caractère générique pour la correspondance avec plusieurs sous-domaines) ou sur le sous-domaine à utiliser (par exemple, **www**). Définissez le champ **Points to** sur l'adresse IP de votre application web Azure.
+	* Durant l’ajout d’un enregistrement (hôte A) (**A (host) record**) , vous devez attribuer au champ **Host** la valeur **@** (correspondant au nom de domaine racine, par exemple **contoso.com**), la valeur * (caractère générique correspondant à plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple, **www**.) Dans le champ **Points to**, indiquez l’adresse IP de votre application web Azure.
 	
-		> [AZURE.NOTE] Quand vous utilisez des enregistrements A (hôte), vous devez également ajouter un enregistrement CNAME avec la configuration suivante :
+		> [AZURE.NOTE]Quand vous utilisez des enregistrements A (hôte), vous devez également ajouter un enregistrement CNAME avec la configuration suivante :
 		> 
-		> * champ **Host** présentant la valeur **awverify** dont le champ **Points to** est défini sur **awverify.&lt;VotreApplicationWeb&gt;.azurewebsites.net**.
+		> * champ **Host** contenant la valeur **awverify** dont le champ **Points to** contient **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
 		> 
 		> Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l'enregistrement A.
 
-	* Lorsque vous ajoutez un enregistrement CNAME(alias) via **CNAME (alias) record**, vous devez définir le champ **Host** sur le sous-domaine à utiliser. Par exemple, **www**. Définissez le champ **Points to** sur le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurwebsites.net**.
+	* Quand vous ajoutez un **CNAME (alias) record**, vous devez définir le champ **Host** en fonction du sous-domaine à utiliser. Par exemple, **www**. Dans le **Points to**, indiquez le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurwebsites.net**.
 
 
-5. Lorsque vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Finish** pour enregistrer les modifications.
+5. Une fois que vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Finish** pour enregistrer les changements.
 
-<h2><a name="enabledomain"></a>Activer le nom de domaine sur votre application web</h2>
+<a name="enabledomain"></a>
+## Activer le nom de domaine sur votre application web 
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE] Si vous souhaitez commencer à utiliser Azure App Service avant d'ouvrir un compte Azure, accédez au site permettant d'[essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web de départ de courte durée dans App Service. Aucune carte de crédit n'est requise, et vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-## Nouveautés
-* Pour plus d'informations sur le remplacement de Sites Web par App Service, voir : [Azure App Service et son impact sur les services Azure existants (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour plus d'informations sur le remplacement de l'ancien portail par le nouveau portail, voir : [Référence en matière de navigation dans le portail en version préliminaire (en anglais)](http://go.microsoft.com/fwlink/?LinkId=529715)
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!--HONumber=49-->
+<!--HONumber=54-->

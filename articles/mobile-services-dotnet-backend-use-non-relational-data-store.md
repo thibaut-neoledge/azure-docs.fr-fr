@@ -1,8 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="Création d'un service à l'aide d'un magasin de données non relationnelles - Azure Mobile Services" 
 	description="Découvrez comment utiliser un magasin de données non relationnelles tel que MongoDB ou Azure Table Storage avec votre service mobile .NET" 
-	services="" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/24/2015" 
 	ms.author="mahender"/>
 
-# Création d'un service à l'aide du magasin de données MongoDB avec le projet .NET principal
+# Création d'un service à l'aide du magasin de données MongoDB avec le backend .NET
 
 Cette rubrique vous explique comment utiliser un magasin de données non relationnelles pour votre service mobile. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Mobile Services pour utiliser le magasin de données MongoDB plutôt que SQL.
 
-Ce didacticiel vous familiarise avec la procédure de configuration d'un magasin de données non relationnelles :
+Ce didacticiel vous familiarise avec la procédure de configuration d'un magasin de données non relationnelles :
 
 1. [Création d'un magasin de données non relationnelles]
 2. [Modification des données et des contrôleurs]
@@ -40,11 +40,11 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
 
 3. Accédez à la section Mobile Services du portail, puis cliquez sur l'onglet **Configurer**.
 
-4. Sous **Paramètres d'application**, entrez votre chaîne de connexion avec la clé " MongoConnectionString ", puis cliquez sur **Enregistrer**.
+4. Sous **Paramètres d'application**, entrez votre chaîne de connexion avec la clé « MongoConnectionString », puis cliquez sur **Enregistrer**.
 
     ![][1]
 
-2. Ajoutez le bloc de code suivant à  `TodoItemController` :
+2. Ajoutez le bloc de code suivant à `TodoItemController` :
 
         static bool connectionStringInitialized = false;
 
@@ -62,15 +62,15 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
             }
         }
     
-    Ce code charge le paramètre d'application et indique au service mobile de le traiter en tant que connexion pouvant être utilisée par un  `TableController`. Vous pourrez appeler ultérieurement cette méthode lors de l'appel de la classe  `TodoItemController`.
+    Ce code charge le paramètre d'application et indique au service mobile de le traiter en tant que connexion pouvant être utilisée par un `TableController`. Vous pourrez appeler ultérieurement cette méthode au moment de l'appel de la classe `TodoItemController`.
 
 
 
 ## <a name="modify-service"></a>Modification des données et des contrôleurs
 
-1. Installation du package Nuget **WindowsAzure.MobileServices.Backend.Mongo**
+1. Installez le package NuGet **WindowsAzure.MobileServices.Backend.Mongo**.
 
-2. Modifiez  `TodoItem` pour qu'il dérive de  `DocumentData` plutôt que de  `EntityData`.
+2. Modifiez `TodoItem` pour qu'il dérive de `DocumentData` plutôt que de `EntityData`.
 
         public class TodoItem : DocumentData
         {
@@ -79,7 +79,7 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
             public bool Complete { get; set; }
         }
 
-3. Dans la classe  `TodoItemController`, remplacez la méthode  `Initialize` par le code suivant :
+3. Dans la classe `TodoItemController`, remplacez la méthode `Initialize` par le code suivant :
 
         protected override async void Initialize(HttpControllerContext controllerContext)
         {
@@ -91,14 +91,14 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. Dans le code de la méthode  `Initialize` ci-dessus, remplacez **YOUR-DATABASE-NAME** par le nom que vous avez choisi lorsque vous avez configuré le module complémentaire MongoLab.
+4. Dans le bloc de code de la méthode `Initialize` ci-avant, remplacez **YOUR-DATABASE-NAME** par le nom défini pendant la configuration du module MongoLab.
 
 
 ## <a name="test-application"></a>Test de l'application
 
-1. Publiez à nouveau votre projet de service mobile principal.
+1. Publiez à nouveau votre projet de backend de service mobile.
 
-2. Exécutez l'application cliente. Notez qu'aucun des éléments précédemment stockés dans la base de données SQL du didacticiel de démarrage rapide n'est présent.
+2. Exécutez l'application cliente. Notez qu'aucun des éléments précédemment stockés dans la base de données SQL du didacticiel de démarrage rapide n'est présent.
 
 3. Créez un élément. L'application se comporte comme avant, mais les données sont envoyées au magasin de données non relationnelles.
 
@@ -115,11 +115,10 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
 
 
 <!-- URLs. -->
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Présentation du service de table]: /fr-fr/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[Page du module complémentaire MongoLab]: /fr-fr/gallery/store/mongolab/mongolab
+[Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Prise en main des données]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[portail de gestion Azure]: https://manage.windowsazure.com/
+[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[page dédiée au module complémentaire MongoLab]: /gallery/store/mongolab/mongolab
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

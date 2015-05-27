@@ -1,6 +1,6 @@
-﻿<properties
+<properties
 	pageTitle="Prise en main de l'authentification (Xamarin.iOS) - Mobile Services"
-	description="Apprenez à utiliser l'authentification dans votre application Azure Mobile Services pour Xamarin.iOS."
+	description="Découvrez comment utiliser l'authentification dans votre application Azure Mobile Services pour Xamarin.iOS."
 	documentationCenter="xamarin"
 	services="mobile-services"
 	manager="dwrede"
@@ -16,21 +16,21 @@
 	ms.date="09/23/2014"
 	ms.author="donnam"/>
 
-# Ajout d'une authentification à votre application Mobile Services
+# Ajout de l'authentification à votre application Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique vous montre comment authentifier des utilisateurs dans Azure Mobile Services à partir de votre application.  Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.  
+Cette rubrique vous présente l'authentification des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
-1. [Inscription de votre application pour l'authentification et configuration de Mobile Services]
-2. [Restriction des autorisations de table pour les utilisateurs authentifiés]
-3. [Ajout de l'authentification à l'application]
+1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
+2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
+3. [Ajouter l'authentification à l'application]
 
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez également commencer par suivre le didacticiel [Prise en main de Mobile Services].
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-[Xamarin.iOS], XCode 6.0 et iOS 7.0 ou versions ultérieures sont requis pour suivre ce didacticiel.
+[Xamarin.iOS], XCode 6.0 et iOS 7.0 ou versions ultérieures sont requis pour suivre ce didacticiel.
 
 <h2><a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services</h2>
 
@@ -44,9 +44,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 3. Dans Xcode, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services].
 
-4. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
+4. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application dans l'émulateur iPhone ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.
 
-   	Cela se produit, car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table **TodoItem** exige à présent une authentification.
+   	Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
@@ -58,7 +58,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **TodoService** en la définissant comme suit :
+2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **TodoService** en la définissant comme suit :
 
         private async Task Authenticate(UIViewController view)
         {
@@ -72,9 +72,9 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         }
 
-	> [AZURE.NOTE] Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur transmise à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : **Facebook**, **Twitter**, **Google** ou **WindowsAzureActiveDirectory**.
+	> [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Déplacez la demande de la table **TodoItem** du constructeur **TodoService** vers une nouvelle méthode intitulée **CreateTable** :
+3. Déplacez la demande de la table **TodoItem** depuis le constructeur **TodoService** vers une nouvelle méthode intitulée **CreateTable** :
 
         private async Task CreateTable()
         {
@@ -82,7 +82,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             todoTable = client.GetTable<TodoItem>();
         }
 
-4. Create a new asynchronous public method named **LoginAndGetData** defined as:
+4. Créez une méthode publique asynchrone nommée **LoginAndGetData** en la définissant comme suit :
 
         public async Task LoginAndGetData(UIViewController view)
         {
@@ -90,7 +90,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             await CreateTable();
         }
 
-5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **TodoService** ne possède pas de descripteur sur l'utilisateur :
+5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **TodoService** ne possède pas de descripteur sur l'utilisateur :
 
         public override async void ViewDidAppear(bool animated)
         {
@@ -111,22 +111,22 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
         }
 6. Supprimez l'appel initial à **RefreshAsync** dans **TodoListViewController.ViewDidLoad**.
 
-7. Appuyez sur le bouton **Exécuter** pour générer le projet, démarrez l'application dans l'émulateur iPhone, puis ouvrez une session avec le fournisseur d'identité de votre choix.
+7. Appuyez sur le bouton **Exécuter** pour générer le projet, démarrez l'application dans l'émulateur iPhone, puis connectez-vous avec le fournisseur d'identité de votre choix.
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
 ## Téléchargement de l'exemple terminé
-Téléchargez l'[exemple de projet terminé]. Veillez à mettre à jour les variables **applicationURL** et **applicationKey** avec vos propres paramètres Azure.
+Téléchargez le [projet d'exemple terminé]. Veillez à mettre à jour les variables **applicationURL** et **applicationKey** avec vos propres paramètres Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], vous allez utiliser la valeur de l'ID utilisateur fournie par Mobile Services en fonction de l'utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services.
 
 <!-- Anchors. -->
-[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
-[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
-[Ajout de l'authentification à l'application]: #add-authentication
-[Étapes suivantes]:#next-steps
+[Inscrire votre application pour l'authentification et configurer Mobile Services]: #register
+[Restreindre les autorisations de table aux utilisateurs authentifiés]: #permissions
+[Ajouter l'authentification à l'application]: #add-authentication
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [4]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-services-selection.png
@@ -136,19 +136,18 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [15]: ./media/partner-xamarin-mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. TODO:: update completed example project link with project download -->
-[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Prise en main de Mobile Services] /develop/mobile/tutorials/get-started-xamarin-ios
-[Prise en main des données] : /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Prise en main de l'authentification] : /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Prise en main des notifications Push] : /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
-[Autorisation des utilisateurs avec des scripts] : /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Prise en main de Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
+[Autorisation des utilisateurs avec des scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[exemple de projet terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+[Azure Management Portal]: https://manage.windowsazure.com/
+[projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
-"<!--HONumber=49-->" 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,32 +1,32 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Prise en main de Mobile Services (Projets .NET)
 
 > [AZURE.SELECTOR]
-> - [Mise en route](vs-mobile-services-dotnet-getting-started.md)
-> - [Que s'est-il passé](vs-mobile-services-dotnet-what-happened.md)
-
-## Prise en main de Mobile Services (Projets .NET)
+> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
+> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
-Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez "TodoItem" comme nom de table.
+Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem. Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez « TodoItem » comme nom de table.
 
-Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site Web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
+Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
 
 #####Obtenir une référence pointant vers une table
 
@@ -45,7 +45,7 @@ Le code ci-dessous permet d'obtenir une référence pointant vers une table qui 
 
 	IMobileServiceTable<TodoItem> todoTable = App.<yourClient>.GetTable<TodoItem>();
 
-Ce code fonctionne si les autorisations de votre table sont définies sur **Toute personne avec la clé d'application**. Si vous modifiez les autorisations pour sécuriser votre service mobile, vous devez ajouter la prise en charge de l'authentification des utilisateurs. Consultez la page [Prise en main de l'authentification](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+Ce code fonctionne si les autorisations de votre table sont définies sur **Toute personne avec la clé d'application**. Si vous modifiez les autorisations pour sécuriser votre service mobile, vous devez ajouter la prise en charge de l'authentification des utilisateurs. Consultez la page [Prise en main de l'authentification](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 #####Ajouter une entrée 
 
@@ -56,7 +56,7 @@ Insérez un nouvel élément dans une table de données.
 
 #####Lire ou lancer une requête sur une table 
 
-Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table. Notez qu'il ne renvoie que la première page de données, qui contient par défaut 50 éléments. Vous pouvez transmettre n'importe quelle taille de page, puisqu'il s'agit d'un paramètre facultatif.
+Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table. Notez qu'il ne renvoie que la première page de données, qui contient par défaut 50 éléments. Vous pouvez transmettre n'importe quelle taille de page, puisqu'il s'agit d'un paramètre facultatif.
 
     List<TodoItem> items;
     try
@@ -83,7 +83,5 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 	await todoTable.DeleteAsync(item);
 
 
-[En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+[En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
+<!--HONumber=54-->

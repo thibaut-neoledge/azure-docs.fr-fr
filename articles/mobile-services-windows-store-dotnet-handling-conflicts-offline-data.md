@@ -5,15 +5,15 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 
@@ -21,29 +21,27 @@
 
 [WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
+##Vue d'ensemble
+
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services.</p>
 <p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36:00</span></div>
 </div>
 
-Dans ce didacticiel, vous allez télécharger une solution Windows Universal c# pour une application prenant en charge la gestion des conflits de synchronisation hors connexion. Vous allez intégrer un service mobile à l'application, puis exécuter les clients Windows Store 8.1 et Windows Phone 8.1 pour générer un conflit de synchronisation et le résoudre.
+Dans ce didacticiel, vous allez télécharger une solution Windows Universal c# pour une application prenant en charge la gestion des conflits de synchronisation hors connexion. Vous allez intégrer un service mobile à l'application, puis exécuter les clients Windows Store 8.1 et Windows Phone 8.1 pour générer un conflit de synchronisation et le résoudre.
 
 Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion]. Avant de commencer, nous vous conseillons de suivre d'abord le didacticiel [Prise en main des données hors connexion].
 
 
-Ce didacticiel vous familiarise avec ces étapes de base :
+##Configuration requise
 
-1. [Téléchargement d'un projet d'application Windows Store] 
-2. [Test de l'application sur base d'un service mobile]
-3. [Mise à jour manuelle des données sur le serveur principal afin de créer un conflit]
-
-Ce didacticiel requiert Visual Studio 2013 s'exécutant sous Windows 8.1.
+Ce didacticiel requiert Visual Studio 2013 s'exécutant sous Windows 8.1.
 
 
-## <a name="download-app"></a>Téléchargement de l'exemple de projet
+##Téléchargement de l'exemple de projet
 
 ![][0]
 
@@ -51,26 +49,26 @@ Ce didacticiel est une procédure pas à pas expliquant comment l'[Exemple TODO 
 
 1. Téléchargez le fichier .zip du [Référentiel GitHub d'exemples Mobile Services] pour l'extraire dans un répertoire de travail. 
 
-2. Si vous n'avez pas déjà installé SQLite pour Windows 8.1 et Windows Phone 8.1 comme indiqué dans le didacticiel [Prise en main des données hors connexion], installez les deux runtimes.
+2. Si vous n'avez pas déjà installé SQLite pour Windows 8.1 et Windows Phone 8.1 comme indiqué dans le didacticiel [Prise en main des données hors connexion], installez les deux runtimes.
 
-3. Dans Visual Studio 2013, ouvrez le fichier de solution  *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
+3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
 
-    >[AZURE.NOTE] Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
+    >[AZURE.NOTE]Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
 
-4. Dans l'application, entrez du texte dans la zone **Insert a TodoItem**, puis cliquez sur **Enregistrer** pour ajouter des éléments todo au magasin local. Fermez ensuite l'application.
+4. Dans l'application, entrez du texte dans la zone **Insérer un TodoItem**, puis cliquez sur **Enregistrer** pour ajouter des éléments todo au magasin local. Fermez ensuite l'application.
 
 Notez que dans la mesure où l'application n'est pas encore connectée à un service mobile, les boutons **Push** et **Pull** généreront des exceptions.
 
 
 
 
-## <a name="test-app"></a>Test de l'application sur votre service mobile
+##Test de l'application sur votre service mobile
 
 À présent, il est temps de tester l'application sur base de Mobile Services.
 
 1. Dans le portail de gestion Azure, recherchez la clé d'application de votre service mobile en cliquant sur **Gérer les clés** dans la barre de commandes de l'onglet **Tableau de bord**. Copiez la **clé d'application**.
 
-2. Dans l'Explorateur de solutions pour Visual Studio, ouvrez le fichier App.xaml.cs dans l'exemple de projet client. Modifiez l'initialisation de **MobileServiceClient** pour utiliser l'URL et la clé d'application de votre service mobile :
+2. Dans l'Explorateur de solutions pour Visual Studio, ouvrez le fichier App.xaml.cs dans l'exemple de projet client. Modifiez l'initialisation de **MobileServiceClient** pour utiliser l'URL et la clé d'application de votre service mobile :
 
          public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://your-mobile-service.azure-mobile.net/",
@@ -82,21 +80,21 @@ Notez que dans la mesure où l'application n'est pas encore connectée à un ser
     ![][0]
 
 
-## <a name="handle-conflict"></a>Mise à jour des données sur le serveur principal afin de créer un conflit
+##Mise à jour des données sur le backend afin de créer un conflit
 
-Dans un scénario réel, un conflit de synchronisation se produit lorsqu'une application envoie par push les mises à jour vers un enregistrement de la base de données, puis qu'une autre application essaie d'envoyer par push une mise à jour vers le même enregistrement au moyen d'une version de champ obsolète de cet enregistrement. Si vous vous rappelez le contenu du didacticiel [Prise en main des données hors connexion], vous savez que la propriété " version " du système est requise pour la prise en charge des fonctionnalités de synchronisation hors connexion. Ces informations de version sont examinées lors de chaque mise à jour de la base de données. Si une instance de l'application tente de mettre à jour un enregistrement en utilisant une version obsolète, cela va générer un conflit qui se présentera sous la forme d'une exception  `MobileServicePreconditionFailedException` dans l'application. Si l'application n'intercepte pas l'exception  `MobileServicePreconditionFailedException`, une exception  `MobileServicePushFailedException` est alors levée. Elle décrit le nombre d'erreurs de synchronisation rencontrées.
+Dans un scénario réel, un conflit de synchronisation se produit lorsqu'une application envoie par push les mises à jour vers un enregistrement de la base de données, puis qu'une autre application essaie d'envoyer par push une mise à jour vers le même enregistrement au moyen d'une version de champ obsolète de cet enregistrement. Si vous vous rappelez le contenu du didacticiel [Prise en main des données hors connexion], vous savez que la propriété « version » du système est requise pour la prise en charge des fonctionnalités de synchronisation hors connexion. Ces informations de version sont examinées lors de chaque mise à jour de la base de données. Si une instance de l'application tente de mettre à jour un enregistrement en utilisant une version obsolète, cela va générer un conflit qui se présentera sous la forme d'une exception `MobileServicePreconditionFailedException` dans l'application. Si l'application n'intercepte pas l'exception `MobileServicePreconditionFailedException`, une exception `MobileServicePushFailedException` est alors levée. Elle décrit le nombre d'erreurs de synchronisation rencontrées.
 
->[AZURE.NOTE] Pour prendre en charge la synchronisation des enregistrements supprimés avec la synchronisation des données hors connexion, vous devez activer la [suppression réversible](mobile-services-using-soft-delete.md). Sinon, vous devez supprimer manuellement les enregistrements dans le magasin local, ou appeler  `IMobileServiceSyncTable::PurgeAsync()` pour purger le magasin local.
+>[AZURE.NOTE]Pour prendre en charge la synchronisation des enregistrements supprimés avec la synchronisation des données hors connexion, vous devez activer la [Suppression réversible](mobile-services-using-soft-delete.md). Sinon, vous devez supprimer manuellement les enregistrements dans le magasin local, ou appeler `IMobileServiceSyncTable::PurgeAsync()` pour purger le magasin local.
 
 
-La procédure suivante indique comment exécuter les clients Windows Phone 8.1 et Windows Store 8.1 en même temps pour provoquer et résoudre un conflit à l'aide de l'exemple.
+La procédure suivante indique comment exécuter les clients Windows Phone 8.1 et Windows Store 8.1 en même temps pour provoquer et résoudre un conflit à l'aide de l'exemple.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet Windows Phone 8.1 et cliquez sur **Définir comme projet de démarrage**. Appuyez sur **Ctrl + F5** pour exécuter le client Windows Phone 8.1 sans débogage. Une fois le client Windows Phone 8.1 opérationnel dans l'émulateur, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet Windows Phone 8.1 et cliquez sur **Définir comme projet de démarrage**. Puis, appuyez sur **Ctrl+F5** pour exécuter le client Windows Phone 8.1 sans débogage. Une fois le client Windows Phone 8.1 opérationnel dans l'émulateur, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
  
     ![][3]
  
    
-2. Dans Visual Studio, cliquez avec le bouton droit sur le projet de runtime Windows 8.1, puis cliquez sur **Définir comme projet de démarrage**. Ensuite, appuyez sur **F5** pour l'exécuter. Une fois le client Windows Store 8.1 opérationnel, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
+2. Dans Visual Studio, cliquez avec le bouton droit sur le projet de runtime Windows 8.1, puis cliquez sur **Définir comme projet de démarrage**. Ensuite, appuyez sur **F5** pour l'exécuter. Une fois le client Windows Store 8.1 opérationnel, cliquez sur **Pull** pour synchroniser le magasin local avec l'état actuel de la base de données.
 
     ![][4]
  
@@ -113,45 +111,36 @@ La procédure suivante indique comment exécuter les clients Windows Phone 8.1 e
 
 
 
-## Examen du code permettant de gérer les conflits de synchronisation
+##Examen du code permettant de gérer les conflits de synchronisation
 
-Pour utiliser les fonctionnalités hors connexion pour Mobile Services, vous devez inclure la colonne de version dans votre base de données locale et votre objet de transfert de données. Pour cela, vous devez mettre à jour la classe  `TodoItem` du membre suivant :
+Pour utiliser les fonctionnalités hors connexion pour Mobile Services, vous devez inclure la colonne de version dans votre base de données locale et votre objet de transfert de données. Pour cela, vous devez mettre à jour la classe `TodoItem` du membre suivant :
 
         [Version]
         public string Version { get; set; }
 
-La colonne `__version` est incluse dans la base de données locale dans la méthode  `OnNavigatedTo()` lorsque la classe  `TodoItem` est utilisée pour définir le magasin local.
+La colonne `__version` est incluse dans la base de données locale de la méthode `OnNavigatedTo()` lorsque la classe `TodoItem` est utilisée pour définir le magasin local.
 
-Pour gérer les conflits de synchronisation hors connexion dans votre code, vous créez une classe qui implémente  `IMobileServiceSyncHandler`. Transmettez un objet de ce type dans l'appel à  `MobileServiceClient.SyncContext.InitializeAsync()`. Cela se produit également dans la méthode  `OnNavigatedTo()` de l'exemple.
+Pour gérer les conflits de synchronisation hors connexion dans votre code, vous créez une classe qui implémente `IMobileServiceSyncHandler`. Transmettez un objet de ce type dans l'appel à `MobileServiceClient.SyncContext.InitializeAsync()`. Cela se produit également dans la méthode `OnNavigatedTo()` de l'exemple.
 
      await App.MobileService.SyncContext.InitializeAsync(store, new SyncHandler(App.MobileService));
 
-La classe  `SyncHandler` dans **SyncHandler.cs** implémente  `IMobileServiceSyncHandler`. La méthode  `ExecuteTableOperationAsync` est appelée lorsque chaque opération Push est envoyée vers le serveur. Si une exception de type  `MobileServicePreconditionFailedException` est générée, cela signifie qu'il y a un conflit entre la version locale et la version distante d'un élément.
+La classe `SyncHandler` de **SyncHandler.cs** implémente `IMobileServiceSyncHandler`. La méthode `ExecuteTableOperationAsync` est appelée lorsque chaque opération push est envoyée vers le serveur. Si une exception de type `MobileServicePreconditionFailedException` est levée, cela signifie qu'il y a un conflit entre la version locale et la version distante d'un élément.
 
-Pour résoudre les conflits au profit de l'élément local, essayez simplement à nouveau l'opération. Une fois qu'un conflit a eu lieu, la version locale de l'élément est mise à jour de façon à correspondre à la version serveur. Par conséquent, une nouvelle exécution de l'opération remplacera les modifications du serveur par les modifications locales :
+Pour résoudre les conflits au profit de l'élément local, essayez simplement à nouveau l'opération. Une fois qu'un conflit a eu lieu, la version locale de l'élément est mise à jour de façon à correspondre à la version serveur. Par conséquent, une nouvelle exécution de l'opération remplacera les modifications du serveur par les modifications locales :
 
     await operation.ExecuteAsync(); 
 
-Pour résoudre les conflits au profit de l'élément serveur, exécutez simplement la méthode  `ExecuteTableOperationAsync`. La version locale de l'objet sera ignorée et remplacée par la valeur provenant du serveur.
+Pour résoudre les conflits au profit de l'élément serveur, exécutez simplement la méthode `ExecuteTableOperationAsync`. La version locale de l'objet sera ignorée et remplacée par la valeur provenant du serveur.
 
-Pour interrompre l'opération Push (mais conserver les modifications en file d'attente), utilisez la méthode  `AbortPush()` :
+Pour interrompre l'opération push (mais conserver les modifications en file d'attente), utilisez la méthode `AbortPush()` :
 
     operation.AbortPush();
 
-Cette procédure interrompt l'opération Push, mais conserve toutes les modifications en attente, y compris l'opération en cours si  `AbortPush` est appelé à partir de  `ExecuteTableOperationAsync`. La prochaine fois que  `PushAsync()` est appelé, ces modifications sont envoyées vers le serveur. 
+Cette procédure interrompt l'opération push, mais conserve toutes les modifications en attente, y compris l'opération en cours si `AbortPush` est appelé à partir de `ExecuteTableOperationAsync`. La prochaine fois que `PushAsync()` est appelé, ces modifications sont envoyées vers le serveur.
 
-orsqu'une opération Push est annulée,  `PushAsync` génère une  `MobileServicePushFailedException`, et la propriété d'exception  `PushResult.Status` a la valeur  `MobileServicePushStatus.CancelledByOperation`. 
+Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileServicePushFailedException`, et la propriété d'exception `PushResult.Status` a la valeur `MobileServicePushStatus.CancelledByOperation`.
 
 
-<!-- Anchors. -->
-[Téléchargement d'un projet d'application Windows Store]: #download-app
-[Création du service mobile]: #create-service
-[Ajout d'une colonne de date d'échéance pour la base de données]: #add-column
-[Mise à jour de la base de données pour les services mobiles principaux .NET]: #dotnet-backend  
-[Mise à jour de la base de données pour les services mobiles JavaScript]: #javascript-backend
-[Test de l'application sur base d'un service mobile]: #test-app
-[Mise à jour manuelle des données sur le serveur principal afin de créer un conflit]: #handle-conflict
-[Étapes suivantes]: #next-steps
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
@@ -167,15 +156,13 @@ orsqu'une opération Push est annulée,  `PushAsync` génère une  `MobileServic
 
 
 <!-- URLs -->
-[Exemple de code de gestion des conflits]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-windows-store-get-started/
-[Prise en main des données hors connexion]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
-[SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Gestion des conflits de base de données]: /fr-fr/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
+[Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Prise en main des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [Référentiel GitHub d'exemples Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

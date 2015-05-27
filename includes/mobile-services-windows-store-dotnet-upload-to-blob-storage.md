@@ -1,12 +1,12 @@
-﻿##<a name="add-select-images"></a>Mise à jour de l'application cliente de démarrage rapide pour capturer et télécharger des images
+##<a name="add-select-images"></a>Mettre à jour l'application cliente de démarrage rapide pour capturer et télécharger des images
 
-1. Dans Visual Studio 2012, ouvrez le fichier Package.appxmanifest et dans l'onglet **Capacités**, activez les capacités **Webcam** et **Microphone**.
+1. Dans Visual Studio, ouvrez le fichier Package.appxmanifest et dans l'onglet **Capacités**, activez les capacités **Webcam** et **Microphone**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
    	Votre application pourra ainsi utiliser un appareil photo associé à l'ordinateur. Les utilisateurs seront invités à autoriser l'accès à l'appareil photo lors de la première exécution de l'application.
 
-1. Ouvrez le fichier MainPage.xaml et remplacez l'élément **StackPanel** situé directement après le premier élément **Task** par le code suivant :
+1. Ouvrez le fichier MainPage.xaml et remplacez l'élément **StackPanel** situé directement après le premier élément **Task** par le code suivant :
 
         <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
             <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
@@ -16,7 +16,7 @@
                     Click="ButtonSave_Click"/>
         </StackPanel>
 
-2. Remplacez l'élément **StackPanel** de **DataTemplate** par le code suivant :
+2. Remplacez l'élément **StackPanel** de **DataTemplate** par le code suivant :
 
         <StackPanel Orientation="Vertical">
             <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
@@ -28,7 +28,7 @@
 
    	Une image est ajoutée au modèle **ItemTemplate** et sa source de liaison est définie en tant qu'URI de l'image téléchargée dans le service de stockage d'objets blob.
 
-3. Ouvrez le fichier projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
+3. Ouvrez le fichier projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
 	
 		using Windows.Media.Capture;
 		using Windows.Storage;
@@ -36,7 +36,7 @@
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
     
-4. Dans la classe TodoItem, ajoutez les propriétés suivantes :
+4. Dans la classe TodoItem, ajoutez les propriétés suivantes :
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
@@ -52,7 +52,7 @@
 
    	>[AZURE.NOTE]Pour ajouter de nouvelles propriétés à l'objet TodoItem, le schéma dynamique doit être activé dans votre service mobile. Lorsque le schéma dynamique est activé, de nouvelles colonnes sont automatiquement ajoutées à la table TodoItem. Celles-ci sont mappées vers ces nouvelles propriétés.
 
-5. Dans la classe MainPage, ajoutez le code suivant :
+5. Dans la classe MainPage, ajoutez le code suivant :
 
         // Use a StorageFile to hold the captured image for upload.
         StorageFile media = null;
@@ -67,7 +67,7 @@
 
   	Ce code affiche l'interface utilisateur de l'appareil photo pour capturer une image et enregistre cette image dans un fichier de stockage.
 
-6. Remplacez la méthode existante `InsertTodoItem` par le code suivant :
+6. Remplacez la méthode `InsertTodoItem` existante par le code suivant :
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -118,7 +118,7 @@
 
 La dernière étape consiste à tester l'application et à confirmer que les téléchargements ont abouti.
 		
-##<a name="test"></a>Test du téléchargement des images dans votre application
+##<a name="test"></a>Tester le téléchargement des images dans votre application
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
@@ -126,7 +126,7 @@ La dernière étape consiste à tester l'application et à confirmer que les té
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	L'interface utilisateur de capture de l'appareil photo s'affiche. 
+  	L'interface utilisateur de capture de l'appareil photo s'affiche.
 
 3. Cliquez sur l'image pour prendre une photo, puis sur **OK**.
   
@@ -143,6 +143,4 @@ La dernière étape consiste à tester l'application et à confirmer que les té
    	>[AZURE.NOTE]L'image est automatiquement téléchargée depuis le service de stockage d'objets blob lorsque la propriété <code>imageUri</code> du nouvel élément est liée au contrôle <strong>Image</strong>.
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Notes de publication du Kit de développement logiciel (SDK) Azure Mobile Engagement Windows Store" 
-	description="Dernières mises à jour et procédures du Kit de développement logiciel (SDK) Windows Store pour Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal" 
+	description="Azure Mobile Engagement - Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,18 +11,29 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/02/2015" 
+	ms.author="piyushjo" />
 
-#Notes de publication
+#Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
+
+##3.0.1 (29/04/2015)
+
+-   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
+
+##3.0.0 (03/04/2015)
+
+-   Présentation du Kit de développement logiciel (SDK) de Mobile Engagement pour application Universal (Windows et Windows Phone WinRT).
+-   Icône de notification par défaut mise à jour.
+-   Envoyer des commentaires sur l’action de notification du système lorsque vous cliquez sur une notification.
+-   Correction d’une notification système qui est parfois relue dans l'application après avoir été cliquée.
 
 ##2.0.0 (17/02/2015)
 
--   Version initiale d'Azure Mobile Engagement
--   La configuration d'une ID d'application/clé SDK a été remplacée par la configuration d'une chaîne de connexion
--   Améliorations en matière de sécurité.
+-   Version initiale d'Azure Engagement Mobile
+-   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
+-   Améliorations de sécurité.
 
 
-<!--HONumber=47-->
+<!--HONumber=54-->

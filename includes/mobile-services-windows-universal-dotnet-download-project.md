@@ -1,9 +1,9 @@
-﻿
-Ce didacticiel est basé sur l'application [GetStartedWithMobileServices](http://go.microsoft.com/fwlink/p/?LinkID=510826), qui est un projet d'application Windows universelle dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire. 
 
-1. Téléchargez la version C# de l'exemple d'application GetStartedWithMobileServices à partir du [site d'exemples de code développeur]. 
+Ce didacticiel est basé sur l'application [GetStartedWithMobileServices app](http://go.microsoft.com/fwlink/p/?LinkID=510826), qui est un projet d'application Windows universelle dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
-2. Dans Visual Studio 2013, ouvrez le projet téléchargé et examinez le fichier MainPage.xaml.cs que vous trouverez dans le dossier de projet partagé GetStartedWithData.
+1. Téléchargez la version C# de l'exemple d'application GetStartedWithMobileServices sur le [site d'exemples de code développeur]. 
+
+2. Dans Visual Studio 2013, ouvrez le projet téléchargé et examinez le fichier MainPage.xaml.cs que vous trouverez dans le dossier de projet partagé GetStartedWithData.
 
    	Notez que les objets **TodoItem** ajoutés sont stockés dans un **ObservableCollection&lt;TodoItem&gt;** en mémoire.
 
@@ -11,15 +11,13 @@ Ce didacticiel est basé sur l'application [GetStartedWithMobileServices](http:/
 
 4. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-   	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png) 
+   	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png)
 
-   	Notice that the saved text is displayed.
+   	Notez que le texte enregistré est affiché.
 
-5. Cliquez avec le bouton droit sur le projet Windows Phone 8.1, cliquez sur **Définir comme projet de démarrage**, puis appuyez sur la touche **F5** pour exécuter l'application Windows Store.  
+5. Cliquez avec le bouton droit sur le projet Windows Phone 8.1, cliquez sur **Définir comme projet de démarrage**, puis appuyez sur la touche **F5** pour exécuter l'application Windows Store.
 
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 6. Répétez les étapes 3 et 4 pour vérifier que l'exemple se comporte de la même manière.
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

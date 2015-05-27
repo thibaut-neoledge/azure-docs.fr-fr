@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -19,27 +19,27 @@
 
 #Procédures de mise à niveau
 
-Si vous avez déjà intégré une ancienne version de notre SDK à votre application, vous devez prendre en compte les points suivants pendant la mise à niveau du SDK.
+Si vous avez déjà intégré une ancienne version de notre SDK à votre application, tenez compte des points suivants avant de procéder à la mise à niveau du SDK.
 
-Vous devrez peut-être suivre plusieurs procédures si vous avez manqué des versions du SDK. Par exemple, si vous migrez de la version 1.4.0 vers 1.6.0, vous devez d'abord suivre la procédure " de la version 1.4.0 à 1.5.0 ", puis la procédure " de la version 1.5.0 à 1.6.0 ".
+Vous devrez peut-être suivre quelques procédures si vous avez manqué plusieurs versions du kit SDK. Par exemple, si vous migrez de la version 1.4.0 vers 1.6.0, vous devez tout d'abord suivre la procédure « Migration de 1.4.0 vers 1.5.0 », puis la procédure « Migration de 1.5.0 vers 1.6.0 ».
 
 Quelle que soit la version que vous mettez à niveau, vous devez remplacer tous les `mobile-engagement-VERSION.jar` par les nouveaux.
 
-###De la version 2.4.0 à 3.0.0
+###Migration de 2.4.0 vers 3.0.0
 
-La procédure suivante décrit comment migrer une intégration du SDK du service Capptain offert par Capptain SAS vers une application optimisée par Azure Mobile Engagement. 
+La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement.
 
->[AZURE.IMPORTANT] Capptain et Mobile Engagement ne sont pas les mêmes services et la procédure décrite ci-dessous se contente d'expliquer la migration de l'application cliente. La migration du SDK vers l'application NE migrera PAS vos données des serveurs Capptain vers les serveurs Mobile Engagement
+>[AZURE.IMPORTANT]Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
 
-Si vous migrez à partir d'une version antérieure, consultez le site web Capptain pour migrer d'abord vers la version 2.4, puis appliquez la procédure suivante
+Si vous migrez à partir d'une version antérieure, consultez le site web de Capptain pour migrer tout d'abord vers 2.4, puis appliquez la procédure suivante.
 
 #### Fichier JAR
 
-Remplace `capptain.jar` par `mobile-engagement-VERSION.jar` dans votre dossier `libs`.
+Remplacez `capptain.jar` par `mobile-engagement-VERSION.jar` dans votre dossier `libs`.
 
 #### Fichiers de ressources
 
-Chaque fichier de ressources fourni (précédé de `capptain_`) doit être remplacé par un nouveau (précédé d'`engagement_`).
+Chaque fichier de ressources fourni (précédé de `capptain_`) doit être remplacé par un nouveau (précédé de `engagement_`).
 
 Si vous avez personnalisé ces fichiers, vous devez réappliquer vos modifications aux nouveaux fichiers, **tous les identificateurs dans les fichiers de ressources ont également été renommés**.
 
@@ -47,19 +47,19 @@ Si vous avez personnalisé ces fichiers, vous devez réappliquer vos modificatio
 
 Engagement utilise désormais une chaîne de connexion pour configurer les identificateurs du SDK tels que l'identificateur d'application.
 
-Vous devez utiliser la méthode `EngagementAgent.init` dans l'activité de votre programme de lancement comme suit :
+Vous devez utiliser la méthode `EngagementAgent.init` dans l'activité de votre programme de lancement comme suit :
 
 			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 			EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-La chaîne de connexion de votre application s'affiche dans le portail Azure.
+La chaîne de connexion de votre application est affichée sur le portail Azure.
 
 Supprimez tous les appels vers `CapptainAgent.configure`, car `EngagementAgent.init` remplace cette méthode.
 
-L'`appId` ne peut plus être configuré avec `AndroidManifest.xml`.
+`appId` ne peut plus être configuré avec `AndroidManifest.xml`.
 
-Supprimez cette section de votre `AndroidManifest.xml` si elle existe :
+Supprimez cette section de votre `AndroidManifest.xml` si elle existe :
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
@@ -79,7 +79,7 @@ La déclaration du service est plus simple, vous supprimez le filtre intent et t
 
 En outre, tous les éléments sont renommés pour utiliser Engagement.
 
-Vous devez obtenir quelque chose similaire à ce qui suit :
+Vous devez obtenir quelque chose similaire à ce qui suit :
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -87,7 +87,7 @@ Vous devez obtenir quelque chose similaire à ce qui suit :
 			  android:label="<Your application name>Service"
 			  android:process=":Engagement"/>
 
-Pour l'activation des journaux de tests, les métadonnées ont été déplacées dans la balise application et renommées :
+Pour l'activation des journaux de tests, les métadonnées ont été déplacées dans la balise application et renommées :
 
 			<application>
 			
@@ -97,7 +97,7 @@ Pour l'activation des journaux de tests, les métadonnées ont été déplacées
 			
 			</application>
 
-Toutes les autres métadonnées ont simplement été renommées, en voici la liste complète (renommez uniquement celles que vous utilisez) :
+Toutes les autres métadonnées ont simplement été renommées, en voici la liste complète (renommez uniquement celles que vous utilisez) :
 
 			<meta-data
 			  android:name="engagement:reportCrash"
@@ -145,7 +145,7 @@ Toutes les autres métadonnées ont simplement été renommées, en voici la lis
 			    android:value="false"/>
 			</activity>
 
-Le suivi de Google Play et SmartAd a été supprimé du SDK, il vous suffit le supprimer sans le remplacer :
+Le suivi de Google Play et SmartAd a été supprimé du SDK, il vous suffit le supprimer sans le remplacer :
 
 			<meta-data 
 				android:name="capptain:track:installReferrerForwardList"
@@ -154,7 +154,7 @@ Le suivi de Google Play et SmartAd a été supprimé du SDK, il vous suffit le s
 				android:name="capptain:track:adservers"
 				android:value="smartad" />
 
-Les activités Reach sont maintenant déclarées comme suit :
+Les activités Reach sont maintenant déclarées comme suit :
 
 			<activity
 			  android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
@@ -185,7 +185,7 @@ Les activités Reach sont maintenant déclarées comme suit :
 			
 Si vous avez personnalisé des activités Reach, vous devez simplement remplacer les actions intent par `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Les récepteurs de diffusion ont été renommés, et nous ajoutons maintenant `exported=false`. Voici la liste complète des récepteurs avec la nouvelle spécification, (renommez uniquement ceux que vous utilisez) :
+Les récepteurs de diffusion ont été renommés, et nous ajoutons maintenant `exported=false`. Voici la liste complète des récepteurs avec la nouvelle spécification, (renommez uniquement ceux que vous utilisez) :
 
 			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
 			  android:exported="false">
@@ -264,7 +264,7 @@ Les récepteurs de diffusion ont été renommés, et nous ajoutons maintenant `e
 			  </intent-filter>
 			</receiver>
 
-Le récepteur de suivi a été supprimé, par conséquent, vous devez supprimer cette section :
+Le récepteur de suivi a été supprimé, par conséquent, vous devez supprimer cette section :
 
 		  <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
 		    <intent-filter>
@@ -273,25 +273,25 @@ Le récepteur de suivi a été supprimé, par conséquent, vous devez supprimer 
 		    </intent-filter>
 		  </receiver>
 
-Notez que la déclaration de votre implémentation du récepteur de diffusion **EngagementMessageReceiver** a changé dans le `AndroidManifest.xml`. En effet, l'API permettant d'envoyer et de supprimer des messages XMPP arbitraires d'entités XMPP arbitraires, et l'API permettant d'envoyer et de recevoir des messages entre appareils ont été supprimées. Par conséquent, vous devez également supprimer les rappels suivants de votre implémentation de **EngagementMessageReceiver** :
+Notez que la déclaration de votre implémentation du récepteur de diffusion **EngagementMessageReceiver** a changé dans `AndroidManifest.xml`. En effet, l'API permettant d'envoyer et de supprimer des messages XMPP arbitraires d'entités XMPP arbitraires, et l'API permettant d'envoyer et de recevoir des messages entre appareils ont été supprimées. Par conséquent, vous devez également supprimer les rappels suivants de votre implémentation de **EngagementMessageReceiver** :
 
 			protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
-et
+and
 
 			protected void onXMPPMessageReceived(android.content.Context context, android.os.Bundle message)
 
-puis supprimez tout appel sur **EngagementAgent** dans :
+puis supprimez tout appel sur **EngagementAgent** dans :
 
 			sendMessageToDevice(java.lang.String deviceId, java.lang.String payload, java.lang.String packageName)
 
-et
+and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
 #### Proguard
 
-La configuration de Proguard peut être affectée par le changement de nom, les règles ressemblent maintenant à ce qui suit :
+La configuration de Proguard peut être affectée par le changement de nom, les règles ressemblent maintenant à ce qui suit :
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
@@ -301,4 +301,4 @@ La configuration de Proguard peut être affectée par le changement de nom, les 
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

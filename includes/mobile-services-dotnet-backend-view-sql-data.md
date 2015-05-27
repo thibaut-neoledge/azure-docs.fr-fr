@@ -1,17 +1,15 @@
-﻿
-La dernière étape facultative de ce didacticiel consiste à archiver la base de données SQL associée au service mobile et à vérifier les données stockées. 
+
+La dernière étape facultative de ce didacticiel consiste à archiver la base de données SQL associée au service mobile et à vérifier les données stockées.
 
 1. Dans le portail de gestion Azure, cliquez sur Gérer pour la base de données associée à votre service mobile.
  
-	![sign-in to manage SQL Database](./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png)
+	![se connecter pour gérer la base de données SQL](./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png)
 
 2. Dans le portail de gestion, exécutez une requête pour afficher les modifications effectuées par l'application Windows Store. Votre requête sera semblable à la requête suivante mais le nom de votre base de données sera utilisé à la place de <code>todolist</code>.</p>
 
         SELECT * FROM [todolist].[todoitems]
 
-    ![query SQL Database for stored items](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
+    ![interroger la base de données SQL pour obtenir les éléments stockés](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	Notez que la table inclut les colonnes Id, __createdAt, __updatedAt, et __version. Ces colonnes prennent en charge la synchronisation des données hors connexion et sont implémentées dans la classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Pour plus d'informations, consultez la page [Prise en main de la synchronisation des données hors connexion].
-
-
-<!--HONumber=42-->
+	Notez que la table inclut les colonnes Id, __createdAt, __updatedAt et __version. Ces colonnes prennent en charge la synchronisation des données hors connexion et sont implémentées dans la classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Pour plus d'informations, consultez la page [Prise en main de la synchronisation des données hors connexion]..
+<!--HONumber=54-->

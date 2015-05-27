@@ -1,77 +1,78 @@
-﻿<properties 
-	pageTitle="Création d'un site web Umbraco depuis la galerie dans Microsoft Azure" 
-	description="Créez un système de gestion de contenu Umbraco et déployez des applications sur le site web Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Créer une application web Umbraco à partir de MarketPlace dans Microsoft Azure" 
+	description="Créez un système de gestion de contenu Umbraco et déployez-le dans Azure App Service Web Apps." 
+	tags="azure-portal"
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="04/21/2015" 
 	ms.author="tomfitz"/>
 
-#Création d'un site web Umbraco depuis la galerie dans Microsoft Azure#
+#Créer une application web Umbraco à partir de MarketPlace dans Microsoft Azure#
 
-Umbraco CMS est un système de gestion de contenu open source complet qui peut être utilisé pour créer de nombreuses applications simples ou complexes. La galerie de l'application Sites Web Azure met à votre disposition une large gamme d'applications web développées par Microsoft, par des sociétés tierces ou par des initiatives de logiciel open source. Cette galerie vous permet de créer un site Umbraco CMS en quelques minutes, soit en appliquant les kits de démarrage, soit en intégrant votre propre conception. 
+Umbraco CMS est un système de gestion de contenu open source complet qui peut être utilisé pour créer de nombreuses applications simples ou complexes. Azure Marketplace met à votre disposition une large gamme d’applications web populaires, développées par Microsoft, des sociétés tierces ou des initiatives de logiciel Open Source. Cette galerie vous permet de créer une application Umbraco CMS en quelques minutes, soit en appliquant les kits de démarrage, soit en intégrant votre propre conception.
 
-Cet article présente la nouvelle version préliminaire du portail Azure, qui simplifie grandement la gestion des ressources. Le nouveau portail Azure est conçu pour accélérer le processus de distribution des logiciels en plaçant des outils, des technologies et des services interplateforme de Microsoft et ses partenaires au sein d'un même espace de travail. Au lieu d'utiliser des ressources indépendantes telles que Sites Web Azure, les projets Visual Studio ou les bases de données, vous pouvez créer, gérer et analyser l'intégralité de votre application comme un groupe de ressources unique. 
+Cet article présente le portail Azure qui simplifie grandement la gestion des ressources. Ce portail est conçu pour accélérer la distribution des logiciels en regroupant les outils, technologies et services interplateformes de Microsoft et de ses partenaires dans le même espace de travail. Au lieu d’utiliser des ressources autonomes telles que [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps, des projets Visual Studio ou des bases de données, vous pouvez créer, gérer et analyser l’intégralité de votre application comme un seul et même groupe de ressources.
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
-- Création d'un site dans la galerie à l'aide de la nouvelle version préliminaire du portail Azure
+- Création d’une application web dans Marketplace à l’aide de la version préliminaire du portail Azure
 - Création d'un blog à l'aide d'Umbraco CMS 
 
-##Création d'un site web à partir de la galerie dans le portail Azure
+##Création d’une application web à partir de Marketplace dans la version préliminaire du portail Azure
 
-1. Connectez-vous au [Portail de gestion Microsoft Azure](https://portal.azure.com/).
+1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
 
-2. Choisissez l'icône **Galerie Azure**.
+2. Cliquez sur l’icône **Marketplace**.
 	
 	![Choose Web Gallery][01Startboard]
 	
-3. Dans la **Galerie**, sélectionnez l'onglet **Web**, puis **Umbraco CMS**.
+3. Dans **Marketplace** , cliquez sur l’onglet **Web Apps** puis sélectionnez **Umbraco CMS**.
 	
 	![Select Umbraco in the Web Gallery][02WebGallery]
 	
-4. Pour créer un site web Umbraco CMS, cliquez sur **Créer**.
+4. Pour créer une application web Umbraco CMS, cliquez sur **Créer**.
 	
 	![Click Create][03UmbracoCMS]
 	
-5. La prochaine étape consiste à configurer toutes les ressources associées à Umbraco CMS. Dans ce cas, les ressources sont un site web et une base de données SQL Server. Commencez par sélectionner **Site web** pour configurer les paramètres de site web, comme l'**URL** du site, le **Plan d'hébergement web**, les **Paramètres d'application web** et l'**Emplacement**. 
+5. La prochaine étape consiste à configurer toutes les ressources associées à Umbraco CMS. Dans ce cas, les ressources sont une application web et une base de données SQL Server. D’abord, sélectionnez **Application web** pour configurer les paramètres de l’application web, comme l’**URL**, le **plan App Service**, les **paramètres de l’application web** et l’**emplacement**.
 	
 	![Configure resources][04AppSettings]
 	
-6. Configurez maintenant la base de données. Sélectionnez **Base de données**, puis **Créer une base de données**. Cet exemple permet de créer un serveur SQL pour la base de données sur Azure.
+6. Configurez maintenant la base de données. Sélectionnez **Base de données**, puis choisissez **Serveur**. Cet exemple permet de créer un serveur SQL pour la base de données sur Azure.
 	
 	![Create a SQL Server on Azure][05NewServer]
 	
-7. Maintenant que le site web et la base de données sont configurés, vous pouvez commencer à déployer l'application en cliquant sur **Créer** au bas du premier panneau **Umbraco CMS** visible sur l'image précédente.
+7. Maintenant que l’application web et la base de données sont configurées, vous pouvez commencer à déployer l’application en cliquant sur **Créer** en bas du premier panneau **Umbraco CMS** visible sur l’image précédente.
 	
 	![Click Create][06UmbracoCMSGroup]
 	
-Une fois le déploiement terminé, le tableau de démarrage du portail affiche le groupe de ressources créé pour Umbraco CMS, dans ce cas **UmbracoCMSgroup**. Dans la section **Résumé**, cliquez sur le nom du site web (dans ce cas, **umbracocmsgroup**) pour visualiser les propriétés associées. La section **Résumé** vous permet également de sélectionner la ressource de base de données pour voir les propriétés de la base de données associée.
+Une fois le déploiement terminé, le portail affiche le panneau du groupe de ressources de votre application web Umbraco CMS. Dans la section **Résumé**, cliquez sur le nom de l’application web pour afficher les propriétés de celle-ci. Dans la section **Résumé**, vous pouvez également sélectionner les ressources de la base de données pour voir les propriétés de la base de données correspondante.
 	
 ![][07UmbracoCMSGroupBlade]
 
-## Lancement et configuration de votre site web Umbraco CMS ##
+## Lancer et configurer votre application web Umbraco CMS ##
 
-1. Dans le panneau affichant les détails de votre site web, cliquez sur **Parcourir** pour explorer votre site (dans ce cas, umbracocmsgroup.azurewebsites.net).
+1. Dans le panneau de détails de votre application web, cliquez sur **Parcourir** pour trouver votre application web.
 	
 	![Browse to your site][08UmbracoCMSGroupRunning]
 	
-2. Lorsque vous parcourez votre site web, Umbraco CMS lance son Assistant d'installation. Entrez les informations demandées, puis cliquez sur **Personnaliser**.
+2. Dans l’application web, Umbraco CMS lance son assistant d’installation. Passez en revue les informations requises, puis cliquez sur **Personnaliser**.
 	
 	![Install Umbraco wizard][09InstallUmbraco7]
 	
-3. Saisissez vos informations de connexion et d'authentification pour la base de données qu'Umbraco utilisera. Sélectionnez **Microsoft SQL Azure** pour le type de base de données.  Vous pouvez obtenir la chaîne de connexion de votre base de données à partir de la section **Paramètres du site** de votre site web.
+3. Saisissez vos informations de connexion et d'authentification pour la base de données qu'Umbraco utilisera. Sélectionnez **Microsoft SQL Azure** pour le type de base de données. Vous pouvez récupérer la chaîne de connexion de votre base de données dans la section **Paramètres du site** de votre application web.
 	
-	![Configure your database][10ConfigureYourDatabase] 
+	![Configure your database][10ConfigureYourDatabase]
 	
 4. Si vous débutez dans Umbraco CMS, vous pouvez sélectionner un kit de site web pour débutant. Sinon, cliquez sur **Non merci, je ne veux pas installer de site web pour débutant**.
 	
@@ -89,26 +90,30 @@ Une fois le déploiement terminé, le tableau de démarrage du portail affiche l
 	
 	![Enter a title and some content][16EnterAName]
 	
-8. Patientez pendant la publication de votre page. Une fois la publication terminée, vous recevez une petite alerte en bas à droite de l'écran. Vous pouvez maintenant parcourir le nouveau contenu sur votre site web. 
+8. Patientez pendant la publication de votre page. Une fois la publication terminée, vous recevez une petite alerte en bas à droite de l'écran. Vous pouvez maintenant parcourir le nouveau contenu sur votre application web.
 	
 	![Published web site page][17MyPage]
 	
 
-Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minutes. 
+Et voilà ! Vous avez créé un blog à l’aide d’Umbraco CMS en quelques minutes.
 
 ##Ressources supplémentaires
 
-[Documentation sur Umbraco (en anglais)](http://our.umbraco.org/documentation)
+[Documentation sur Umbraco](http://our.umbraco.org/documentation)
 
-[Didacticiels vidéo sur Umbraco (en anglais)](https://umbraco.com/help-and-support/video-tutorials.aspx)
+[Didacticiels vidéo sur Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Vue d'ensemble du portail Microsoft Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/)
+[Documentation du portail Azure](preview-portal.md)
 
-[Documentation sur le portail Microsoft Azure en version préliminaire](http://azure.microsoft.com/documentation/preview-portal/)
+[Portail Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal)
 
-[Portail Azure en version préliminaire (Channel 9) (en anglais)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal)
+[Documentation sur Azure App Service Web Apps](/documentation/services/websites/)
 
-[Documentation sur Sites Web Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 
 <!-- IMAGES -->
@@ -129,4 +134,4 @@ Et voilà ! Vous avez créé un blog à l'aide d'Umbraco CMS en quelques minutes
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
 
-<!--HONumber=49-->
+<!--HONumber=54-->

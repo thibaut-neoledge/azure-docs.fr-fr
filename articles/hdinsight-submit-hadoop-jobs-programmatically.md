@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Envoi de tâches Hadoop dans HDInsight | Azure" 
 	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop." 
 	editor="cgronlun" 
@@ -13,69 +13,61 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 # Envoi de tâches Hadoop dans HDInsight
 
-Cet article explique comment envoyer des tâches MapReduce et Hive en utilisant PowerShell et le Kit de développement logiciel (SDK) .NET HDInsight.
+Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
 
-**Conditions préalables :**
+##Configuration requise
 
-Avant de commencer cet article, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main de HDInsight][hdinsight-get-started] ou la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
-* Installez et configurez Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+* Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 
-## Dans cet article
+##Envoi de tâches MapReduce avec Azure PowerShell
+Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur l'utilisation d’Azure PowerShell avec HDInsight, consultez [Gestion de HDInsight avec PowerShell][hdinsight-admin-powershell].
 
-* [Envoi de tâches MapReduce avec PowerShell](#mapreduce-powershell)
-* [Envoi de tâches Hive avec PowerShell](#hive-powershell)
-* [Envoi de tâches Sqoop avec PowerShell](#sqoop-powershell)
-* [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight](#mapreduce-sdk)
-* [Envoi de tâches MapReduce de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) HDInsight .NET](#streaming-sdk)
-* [Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](#hive-sdk)
-* [Étapes suivantes](#nextsteps)
+Hadoop MapReduce est une infrastructure logicielle qui permet d'écrire des applications traitant d'importantes quantités de données. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\\example\\jars\\hadoop-examples.jar*), qui contient différents exemples MapReduce.
 
-## <a id="mapreduce-powershell"></a> Envoi de tâches MapReduce avec PowerShell
-Azure PowerShell est un environnement de création de scripts vous permettant de contrôler et d'automatiser le déploiement et la gestion de vos charges de travail dans Azure. Pour plus d'informations sur l'utilisation de PowerShell avec HDInsight, consultez [Administration de HDInsight avec PowerShell][hdinsight-admin-powershell].
+L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à utiliser Azure PowerShell à partir d'un poste de travail pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
 
-Hadoop MapReduce est une infrastructure logicielle permettant d'écrire des applications traitant d'importantes quantités de données. Les clusters HDInsight sont fournis avec un fichier .jar, situé sur *\example\jars\hadoop-examples.jar*, qui contient différents exemples MapReduce. Ce fichier a été renommé hadoop-mapreduce-examples.jar sur les clusters HDInsight version 3.0. L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à utiliser PowerShell à partir d'un poste de travail exécutant l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
+**Exécution du programme MapReduce de comptage des mots avec Azure PowerShell**
 
-**Exécution d'un programme MapReduce de comptage des mots avec PowerShell**
+1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
-1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
-
-3. Configurez ces deux variables en exécutant les commandes PowerShell suivantes :
+3. Configurez les variables suivantes en exécutant ces commandes Azure PowerShell :
 		
 		$subscriptionName = "<SubscriptionName>"   
 		$clusterName = "<HDInsightClusterName>"    
 
-	Vous allez utiliser l'abonnement vous ayant déjà servi à créer le cluster HDInsight. Et vous allez utiliser le cluster HDInsight pour exécuter la tâche MapReduce.
+	Le nom de l’abonnement est celui que vous avez utilisé pour créer le cluster HDInsight. Vous allez utiliser le cluster HDInsight pour exécuter la tâche MapReduce.
 	
-5. Exécutez les commandes suivantes pour créer une définition de tâche MapReduce :
+5. Exécutez les commandes suivantes pour créer une définition de tâche MapReduce :
 
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+	Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb://, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
-6. Exécutez la commande suivante pour exécuter la tâche MapReduce :
+6. Exécutez la commande suivante pour exécuter la tâche MapReduce :
 
 		# Submit the MapReduce job
 		Select-AzureSubscription $subscriptionName
 		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
 
-	En plus de la définition de la tâche MapReduce, fournissez également le nom du cluster HDInsight sur lequel vous souhaitez exécuter la tâche MapReduce. 
+	En plus de la définition de la tâche MapReduce, vous devez également fournir le nom du cluster HDInsight sur lequel vous souhaitez exécuter la tâche MapReduce.
 
-7. Exécutez la commande suivante pour vérifier que la tâche MapReduce est terminée :
+7. Exécutez la commande suivante pour vérifier que la tâche MapReduce est terminée :
 
 		# Wait for the job to complete
 		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
 		
 
-8. Exécutez la commande suivante pour vérifier si l'exécution de la tâche MapReduce génère des erreurs :	
+8. Exécutez la commande suivante pour vérifier si l'exécution de la tâche MapReduce génère des erreurs :
 
 		# Get the job standard error output
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
@@ -85,43 +77,45 @@ Hadoop MapReduce est une infrastructure logicielle permettant d'écrire des appl
 	![HDI.GettingStarted.RunMRJob][image-hdi-gettingstarted-runmrjob]
 
 		
-**Extraction des résultats de la tâche MapReduce**
+**Pour récupérer les résultats de la tâche MapReduce**
 
 1. Ouvrez **Azure PowerShell**.
-2. Configurez ces trois variables en exécutant les commandes PowerShell suivantes :
+2. Configurez les variables suivantes en exécutant ces commandes Azure PowerShell :
 
 		$subscriptionName = "<SubscriptionName>"       
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"			
 
-	Le compte Azure Storage est celui que vous avez indiqué durant la configuration du cluster HDInsight. Il sert à héberger le conteneur d'objets blob utilisé comme système de fichiers par défaut du cluster HDInsight.  Le conteneur de stockage d'objets blob et le cluster HDInsight partagent généralement le même nom, à moins que vous spécifiiez un nom différent lors de la configuration du cluster.
+	Le nom du compte de stockage est le compte de stockage Azure que vous avez indiqué lors de l’approvisionnement du cluster HDInsight. Le compte de stockage sert à héberger le conteneur d'objets blob utilisé comme système de fichiers par défaut du cluster HDInsight. Le nom du conteneur a généralement le même nom que celui du cluster HDInsight, sauf si vous indiquez un autre nom lors de l’approvisionnement du cluster.
 
-3. Exécutez les commandes suivantes pour créer un objet de contexte de stockage Azure :
+3. Exécutez les commandes suivantes pour créer un objet de contexte de stockage d’objets blob Azure :
 
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-	Select-AzureSubscription sert à définir l'abonnement actif dans le cas où vous disposez de plusieurs abonnements et que l'abonnement par défaut n'est pas celui qui doit être utilisé. 
+	**Select-AzureSubscription** sert à définir l'abonnement actuel dans le cas où vous disposez de plusieurs abonnements et que l'abonnement par défaut n'est pas celui qui doit être utilisé.
 
-4. Exécutez la commande suivante pour télécharger la sortie de la tâche MapReduce du conteneur d'objets blob vers la station de travail :
+4. Exécutez la commande suivante pour télécharger la sortie de la tâche MapReduce du conteneur d'objets blob vers le poste de travail :
 
 		# Get the blob content
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Le dossier *example/data/WordCountOutput* est le dossier de résultat spécifié lors de l'exécution de la tâche MapReduce.  *part-r-00000* est le nom de fichier par défaut pour le résultat de la tâche MapReduce.  Le fichier est téléchargé dans la même structure de dossiers que le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actif est le dossier racine C.  Le fichier est téléchargé dans le dossier *C:\example\data\WordCountOutput\*.
+	Le dossier *example/data/WordCountOutput* est le dossier de sortie spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour la sortie de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers que le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actuel est le dossier racine C:. Le fichier est téléchargé dans :
 
-5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
+*C:\\example\\data\\WordCountOutput* 
+
+5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
 		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
 	![HDI.GettingStarted.MRJobOutput][image-hdi-gettingstarted-mrjoboutput]
 
-	La tâche MapReduce produit un fichier nommé *part-r-00000* avec les mots et les décomptes.  Le script utilise la commande findstr pour répertorier tous les mots contenant "there".
+	La tâche MapReduce génère un fichier nommé *part-r-00000* qui contient les mots et les décomptes. Le script utilise la commande **findstr** pour répertorier tous les mots contenant « there ».
 
 
-> [AZURE.NOTE] Si vous ouvrez, dans le Bloc-notes, ./example/data/WordCountOutput/part-r-00000, une sortie de plusieurs lignes résultant d'une tâche MapReduce, vous remarquerez que les sauts de ligne ne sont pas correctement rendus. Ceci est normal.
+> [AZURE.NOTE]Si vous ouvrez./example/data/WordCountOutput/part-r-00000 (une sortie de plusieurs lignes résultant d’une tâche MapReduce) dans le Bloc-notes, vous remarquerez que les sauts de ligne ne sont pas correctement rendus. Ceci est normal.
 
 
 
@@ -259,16 +253,16 @@ Hadoop MapReduce est une infrastructure logicielle permettant d'écrire des appl
 
 
 
-## <a id="hive-powershell"></a> Envoi de tâches Hive avec PowerShell
-Apache [hdinsight-use-hive][apache-hive] permet d'exécuter une tâche MapReduce via un langage de création de scripts semblable à SQL, nommé *HiveQL*, qui peut être appliqué au résumé, à l'envoi de requêtes et à l'analyse d'importants volumes de données. 
+##Envoi de tâches Hive avec Azure PowerShell
+[Apache Hive][apache-hive] permet d'exécuter une tâche MapReduce par l'intermédiaire d'un langage de script similaire à SQL, appelé *HiveQL*, qui peut être appliqué pour résumer, interroger et analyser de gros volumes de données.
 
-Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez utiliser PowerShell pour exécuter une tâche Hive pour répertorier certaines données à partir de la table Hive. 
+Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez utiliser Azure PowerShell pour exécuter une tâche Hive afin de répertorier certaines données à partir de la table Hive.
 
-**Exécution d'une tâche Hive avec PowerShell**
+**Envoi d’une tâche Hive avec Azure PowerShell**
 
-1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+1.	Ouvrez **Azure PowerShell**. Pour savoir comment ouvrir la fenêtre de la console Azure PowerShell, consultez [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
-2. Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
+2. Définissez les deux variables dans les commandes suivantes, puis exécutez-les :
 		
 		$subscriptionName = "<SubscriptionName>"   
 		$clusterName = "<HDInsightClusterName>"             
@@ -276,75 +270,79 @@ Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesa
 
 	$querystring est la requête HiveQL.
 
-3. Exécutez les commandes suivantes pour sélectionner un abonnement Azure et le cluster pour exécuter la tâche Hive :
+3. Exécutez la commande suivante pour sélectionner un abonnement Azure et le cluster pour exécuter la tâche Hive :
 
 		Select-AzureSubscription -SubscriptionName $subscriptionName
 
-4. Envoyez la tâche Hive :
+4. Exécutez la commande suivante pour envoyer la tâche Hive :
 
 		Use-AzureHDInsightCluster $clusterName
 		Invoke-Hive -Query $queryString
 
-	Vous pouvez utiliser le commutateur -File pour indiquer un fichier de script HiveQL sur HDFS.
+	Vous pouvez utiliser le commutateur **-File** pour spécifier un fichier de script HiveQL dans le système de fichiers distribué de Hadoop (HDFS).
 
-Pour plus d'informations sur Hive, consultez la rubrique [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
-
-## <a id="sqoop-powershell"></a>Envoi de tâches Sqoop avec PowerShell
-
-Consultez [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
-
-## <a id="mapreduce-sdk"></a> Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Les clusters HDInsight sont fournis avec un fichier .jar, situé sur *\example\jars\hadoop-examples.jar*, qui contient différents exemples MapReduce. L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à créer une application .NET pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution des tâches MapReduce, consultez l'article [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
+Pour plus d'informations sur Hive, consultez l'article [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
 
 
-Les procédures suivantes sont nécessaires pour configurer un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
+## Envoi de tâches Hive avec Visual Studio
+
+Consultez [Prise en main des outils HDInsight Hadoop pour Visual Studio][hdinsight-visual-studio-tools].
+
+##Envoi de tâches Sqoop avec Azure PowerShell
+
+Consultez l'article [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
+
+##Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
+Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèques clientes .NET, ce qui facilite l'utilisation des clusters HDInsight à partir de .NET. Les clusters HDInsight sont fournis avec un fichier JAR (situé sous *\\example\\jars\\hadoop-examples.jar*), qui contient différents exemples MapReduce. L'un des exemples suivants permet de compter les fréquences des mots dans les fichiers source. Dans cette session, vous apprendrez à créer une application .NET pour exécuter l'exemple de comptage des mots. Pour plus d'informations sur le développement et l'exécution de tâches MapReduce, consultez [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce].
+
+
+Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
 
 - Installation du Kit de développement logiciel (SDK) HDInsight
 - Création d'une application console
 - Exécution de l'application
 
 
-**Pour installer le SDK .NET HDInsight**
-Vous pouvez installer la dernière version publiée du Kit de développement logiciel (SDK) disponible sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
+**Installation du Kit de développement logiciel (SDK) .NET HDInsight** : vous pouvez installer la dernière version du SDK publiée sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
 
-**Création d'une application console Visual Studio**
+**Création d'une application console Visual Studio**
 
-1. Ouvrez Visual Studio 2012.
+1. Ouvrez Visual Studio.
 
-2. Dans le menu Fichier, cliquez sur **Nouveau**, puis sur **Projet**.
+2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
-3. Dans Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
+</table>
 
 4. Cliquez sur **OK** pour créer le projet.
 
 
-5. Dans le menu **Outils**, cliquez sur **Library Package Manager**, puis sur **Console du Gestionnaire de package**.
+5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis cliquez sur **Console du gestionnaire de package**.
 
 6. Exécutez les commandes suivantes dans la console pour installer les packages.
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
 
-	Cette commande ajoute des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours. La version doit être 0.11.0.1 ou plus récente.
+	Cette commande ajoute des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours. La version doit être 0.11.0.1 ou une version ultérieure.
 
-7. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir.
+7. Dans l'**Explorateur de solutions**, double-cliquez sur **Program.cs** pour l'ouvrir.
 
-8. Ajoutez les instructions using suivantes au début du fichier :
+8. Ajoutez les instructions using suivantes au début du fichier :
 
 		using System.IO;
 		using System.Threading;
@@ -356,7 +354,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
 
-9. Ajoutez la définition de fonction suivante à la classe. Cette fonction permet d'attendre la fin d'une tâche Hadoop :
+9. Ajoutez la définition de fonction suivante à la classe. Cette fonction permet d'attendre la fin d'une tâche Hadoop :
 
         private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
         {
@@ -368,7 +366,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
             }
         }
 	
-10. Dans la fonction Main(), copiez et collez le code suivant :
+10. Dans la fonction **Main()**, collez le code suivant :
 		
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
@@ -381,28 +379,28 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
 		string containerName = "<Blob container name>";
 		
 	
-	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir le nom de l'abonnement Azure à partir du [portail de gestion Azure][azure-management-portal]. 
+	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir le nom de l'abonnement Azure à partir du [portail Azure][azure-management-portal].
 
-	Pour plus d'informations sur les certificats, consultez la page [Créer et télécharger un certificat de gestion pour Microsoft Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell *Get-AzurePublishSettingsFile* et *Import-AzurePublishSettingsFile*. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté les cmdlets PowerShell, ouvrez *certmgr.msc* sur le poste de travail, puis recherchez le certificat en développant *Personal/Certificates*. Le certificat créé par les cmdlets PowerShell a *Azure Tools* pour les champs *Issued To* et *Issued By*.
+	Pour plus d'informations sur le certificat, consultez [Créer et télécharger un certificat de gestion pour Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell **Get-AzurePublishSettingsFile** et **Import-AzurePublishSettingsFile**. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté ces cmdlets, ouvrez **certmgr.msc** sur le poste de travail puis recherchez le certificat en développant **Personnel** > **Certificats** Le certificat qui est créé par les cmdlets d’Azure PowerShell dispose des outils Azure pour les champs **Émis à** et **Émis par**.
 
-	Le nom du compte Azure Storage est celui que vous avez indiqué durant la configuration du cluster HDInsight. Par défaut, le nom du conteneur est identique à celui du cluster HDInsight.
+	Le nom du compte Azure est celui que vous avez indiqué lors de l’approvisionnement du cluster HDInsight. Par défaut, le nom du conteneur est identique à celui du cluster HDInsight.
 	
-11. Dans la fonction Main(), ajoutez le code suivant pour définir la tâche MapReduce :
+11. Dans la fonction **Main()**, ajoutez le code suivant pour définir la tâche MapReduce :
 
 
         // Define the MapReduce job
         MapReduceJobCreateParameters mrJobDefinition = new MapReduceJobCreateParameters()
         {
-            JarFile = "wasb:///example/jars/hadoop-examples.jar",
+            JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
             ClassName = "wordcount"
         };
 
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+	Il y a deux arguments. Le premier est le nom du fichier source ; le deuxième est le chemin d'accès au fichier de sortie. Pour plus d'informations sur le préfixe wasb://, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 		
-12. Dans la fonction Main(), ajoutez le code suivant pour créer un objet JobSubmissionCertificateCredential :
+12. Dans la fonction **Main()**, ajoutez le code suivant pour créer un objet JobSubmissionCertificateCredential :
 
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -410,7 +408,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-13. Dans la fonction Main(), ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
+13. Dans la fonction **Main()**, ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
 
         // Create a hadoop client to connect to HDInsight
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -421,7 +419,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         // Wait for the job to complete
         WaitForJobCompletion(mrJobResults, jobClient);
 
-14. Dans la fonction Main(), ajoutez le code suivant pour imprimer le résultat de la tâche MapReduce :
+14. Dans la fonction **Main()**, ajoutez le code suivant pour imprimer le résultat de la tâche MapReduce :
 
 		// Print the MapReduce job output
 		Stream stream = new MemoryStream();
@@ -440,16 +438,16 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         Console.WriteLine("Press ENTER to continue.");
 		Console.ReadLine();
 
-	Le dossier de sortie est spécifié lorsque vous définissez la tâche MapReduce. Le nom de fichier du workflow par défaut est *part-r-00000*.
+	Le dossier de sortie est spécifié lorsque vous définissez la tâche MapReduce. Le nom de fichier par défaut est **part-r-00000**.
 
-**Pour exécuter l'application**
+**Exécution de l'application**
 
-Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application, ainsi que son résultat. 
+Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application, ainsi que son résultat.
 
-## <a id="streaming-sdk"></a> Envoi de tâches de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight
-Les clusters HDInsight sont fournis avec un programme de diffusion en continu Hadoop pour le comptage de mots développé en C#. Le programme de mappage et le programme de réduction sont, respectivement, */example/apps/cat.exe* et */example/apps/wc.exe*. Dans cette session, vous allez apprendre à créer une application .NET pour exécuter l'exemple de comptage des mots. 
+##Envoi de tâches de diffusion en continu Hadoop avec le Kit de développement logiciel (SDK) .NET HDInsight
+Les clusters HDInsight sont fournis avec un programme de diffusion en continu Hadoop pour le comptage de mots développé en C#. Le programme de mappage et le programme de réduction sont, respectivement, */example/apps/cat.exe* et */example/apps/wc.exe*. Dans cette session, vous allez apprendre à créer une application .NET pour exécuter l'exemple de comptage des mots.
 
-Pour des informations détaillées sur la création d'une application .Net pour l'envoi de tâches MapReduce, consultez la page [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight](#mapreduce-sdk).
+Pour des informations détaillées sur la création d'une application .NET pour l'envoi de tâches MapReduce, consultez la page [Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight](#mapreduce-sdk).
 
 Pour plus d'informations sur le développement et le déploiement de tâches de diffusion en continu Hadoop, consultez la page [Développement de programmes de diffusion en continu Hadoop en C# pour HDInsight][hdinsight-develop-streaming-jobs].
 
@@ -549,57 +547,56 @@ Pour plus d'informations sur le développement et le déploiement de tâches de 
 
 
 
-## <a id="hive-sdk"></a> Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight 
-Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez créer une application .NET pour exécuter une tâche Hive écoutant les tables Hive créées sur le cluster HDInsight. Pour plus d'informations sur l'utilisation de Hive, consultez la rubrique [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
+##Envoi de tâches Hive avec le Kit de développement logiciel (SDK) .NET HDInsight 
+Les clusters HDInsight sont fournis avec un exemple de table Hive nommé *hivesampletable*. Dans cette session, vous allez créer une application .NET pour exécuter une tâche Hive afin de répertorier les tables Hive créées dans un cluster HDInsight. Pour plus d'informations sur l’utilisation de Hive, consultez [Utilisation de Hive avec HDInsight][hdinsight-use-hive].
 
-Les procédures suivantes sont nécessaires pour configurer un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
+Les procédures suivantes sont nécessaires pour approvisionner un cluster HDInsight en utilisant le Kit de développement logiciel (SDK) :
 
 - Installation du Kit de développement logiciel (SDK) HDInsight
 - Création d'une application console
 - Exécution de l'application
 
 
-**Pour installer le SDK .NET HDInsight**
-Vous pouvez installer la dernière version publiée du Kit de développement logiciel (SDK) disponible sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
+**Installation du Kit de développement logiciel (SDK) .NET HDInsight** : vous pouvez installer la dernière version du Kit de développement logiciel (SDK) publiée sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
 
-**Création d'une application console Visual Studio**
+**Création d'une application console Visual Studio**
 
-1. Ouvrez Visual Studio 2012.
+1. Ouvrez Visual Studio.
 
-2. Dans le menu Fichier, cliquez sur **Nouveau**, puis sur **Projet**.
+2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
 
-3. Dans Nouveau projet, entrez ou sélectionnez les valeurs suivantes :
+3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
+</table>
 
 4. Cliquez sur **OK** pour créer le projet.
 
 
-5. Dans le menu **Outils**, cliquez sur **Library Package Manager**, puis sur **Console du Gestionnaire de package**.
+5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis cliquez sur **Console du gestionnaire de package**.
 
-6. Exécutez les commandes suivantes dans la console pour installer les packages.
+6. Exécutez la commande suivante dans la console pour installer le package :
 
 		Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
 
 	Cette commande ajoute des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
 
-7. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir.
+7. Dans l'**Explorateur de solutions**, double-cliquez sur **Program.cs** pour l'ouvrir.
 
-8. Ajoutez les instructions using suivantes au début du fichier :
+8. Ajoutez les instructions **using** suivantes au début du fichier :
 
 		using System.IO;
 		using System.Threading;
@@ -608,7 +605,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
 
-9. Ajoutez la définition de fonction suivante à la classe. Cette fonction permet d'attendre la fin d'une tâche Hadoop :
+9. Ajoutez la définition de fonction suivante à la classe. Cette fonction permet d'attendre la fin d'une tâche Hadoop :
 
         private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
         {
@@ -620,7 +617,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
             }
         }
 	
-10. Dans la fonction Main(), copiez et collez le code suivant :
+10. Dans la fonction **Main()**, collez le code suivant :
 		
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
@@ -628,11 +625,11 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
 		string certFriendlyName = "<certificate friendly name>";		
 		
 	
-	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir l'ID d'abonnement Azure auprès de votre administrateur système. 
+	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir l'ID d'abonnement Azure auprès de votre administrateur système.
 
-	Pour plus d'informations sur les certificats, consultez la page [Créer et télécharger un certificat de gestion pour Microsoft Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell *Get-AzurePublishSettingsFile* et *Import-AzurePublishSettingsFile*. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté les cmdlets PowerShell, ouvrez *certmgr.msc* sur le poste de travail, puis recherchez le certificat en développant *Personal/Certificates*. Le certificat créé par les cmdlets PowerShell a *Azure Tools* pour les champs *Issued To* et *Issued By*.
+	Pour plus d'informations sur le certificat, consultez [Créer et télécharger un certificat de gestion pour Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell **Get-AzurePublishSettingsFile** et **Import-AzurePublishSettingsFile**. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté ces cmdlets, ouvrez **certmgr.msc** sur le poste de travail puis recherchez le certificat en développant **Personnel** > **Certificats** Le certificat qui est créé par les cmdlets d’Azure PowerShell dispose des outils Azure pour les champs **Émis à** et **Émis par**.
 	
-11. Dans la fonction Main(), ajoutez le code suivant pour définir la tâche Hive :
+11. Dans la fonction **Main()**, ajoutez le code suivant pour définir la tâche Hive :
 
         // define the Hive job
         HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
@@ -642,7 +639,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
             Query = "show tables;"
         };
 
-	Vous pouvez également utiliser le paramètre File pour indiquer un fichier de script HiveQL sur HDFS. Par exemple :
+	Vous pouvez également utiliser le paramètre **File** pour indiquer un fichier de script HiveQL dans HDFS, par exemple :
 
         // define the Hive job
         HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
@@ -653,7 +650,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         };
 
 		
-12. Dans la fonction Main(), ajoutez le code suivant pour créer un objet JobSubmissionCertificateCredential :
+12. Dans la fonction **Main()**, ajoutez le code suivant pour créer un objet **JobSubmissionCertificateCredential** :
 	
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
@@ -661,7 +658,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-13. Dans la fonction Main(), ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
+13. Dans la fonction **Main()**, ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
 
         // Submit the Hive job
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -670,7 +667,7 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         // Wait for the job to complete
         WaitForJobCompletion(jobResults, jobClient);
 		
-14. Dans la fonction Main(), ajoutez le code suivant pour imprimer le résultat de la tâche Hive :
+14. Dans la fonction **Main()**, ajoutez le code suivant pour imprimer le résultat de la tâche Hive :
 
         // Print the Hive job output
         System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);
@@ -681,21 +678,21 @@ Vous pouvez installer la dernière version publiée du Kit de développement log
         Console.WriteLine("Press ENTER to continue.");
         Console.ReadLine();
 
-**Pour exécuter l'application**
+**Exécution de l'application**
 
-Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. Le résultat doit être :
+Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. La sortie doit être :
 
 	hivesampletable
 
 
 
 
-## <a id="nextsteps"></a> Étapes suivantes
-Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
+##Étapes suivantes
+Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d'Azure HDInsight][hdinsight-get-started]
-* [Approvisionnement de clusters HDInsight][hdinsight-provision]
-* [Administration de HDInsight à l'aide de PowerShell][hdinsight-admin-powershell]
+* [Approvisionnement des clusters HDInsight][hdinsight-provision]
+* [Gestion de HDInsight à l'aide de PowerShell][hdinsight-admin-powershell]
 * [Documentation de référence des cmdlets HDInsight][hdinsight-powershell-reference]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
@@ -704,23 +701,24 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-visual-studio-tools]: hdinsight-hadoop-visual-studio-tools-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
-[image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
+[image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
 
-<!--HONumber=42-->
+<!--HONumber=54-->

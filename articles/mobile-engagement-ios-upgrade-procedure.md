@@ -16,22 +16,20 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-# Procédures de mise à niveau
+#Procédures de mise à niveau
 
 Si vous avez déjà intégré une version antérieure d'Engagement dans votre application, vous devez prendre en compte les points suivants lors de la mise à niveau du Kit de développement logiciel.
 
 Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abord remplacer (supprimer et importer de nouveau dans xcode) les dossiers EngagementSDK et EngagementReach.
 
-## De 1.16.0 à 2.0.0
-La procédure qui suit décrit comment migrer une intégration du Kit de développement logiciel du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement. 
+##De 1.16.0 à 2.0.0
+La section qui suit décrit comment migrer une intégration du SDK à partir du service Capptain offert par Capptain SAS dans une application reposant sur Azure Mobile Engagement. Si vous effectuez une migration depuis une version antérieure, veuillez d’abord consulter le site web Capptain pour effectuer une migration vers la version 1.16, puis appliquer la procédure suivante.
 
->[Azure.IMPORTANT] Capptain et Mobile Engagement ne sont pas les mêmes services, et la procédure décrite ci-dessous explique uniquement la migration de l'application cliente. La migration du Kit de développement logiciel dans l'application NE migre PAS vos données des serveurs Capptain vers les serveurs Mobile Engagement
-
-Si vous effectuez une migration depuis une version antérieure, consultez le site Web Capptain pour migrer tout d'abord vers la version 1.16, puis appliquez la procédure suivante
+>[Azure.IMPORTANT]Capptain et Engagement Mobile ne sont pas les mêmes services et la procédure décrite ci-dessous explique uniquement comment migrer l'application cliente. La migration du SDK dans l'application ne migre PAS vos données des serveurs Capptain vers les serveurs Engagement Mobile.
 
 ### Agent
 
-La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. Votre délégué d'application doit être mis à jour en conséquence et utiliser la chaîne de connexion :
+La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. Votre délégué d'application doit être mis à jour en conséquence et utiliser la chaîne de connexion :
 
 			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 			{
@@ -40,25 +38,25 @@ La méthode `registerApp:` a été remplacée par la nouvelle méthode `init:`. 
 			  [...]
 			}
 
-Le suivi SmartAd a été supprimé du Kit de développement logiciel (SDK) ; vous devez uniquement supprimer toutes les instances de la classe `AETrackModule`
+Le suivi SmartAd a été supprimé du Kit de développement logiciel (SDK). Vous devez seulement supprimer toutes les instances de la classe `AETrackModule`
 
 ### Modifications de nom de classe
 
 Dans le cadre du repositionnement, quelques classes/noms de fichiers doivent être modifiés.
 
-Toutes les classes avec le préfixe " CP " sont renommées avec le préfixe " AE ".
+Toutes les classes avec le préfixe « CP » sont renommées avec le préfixe « AE ».
 
-Exemple :
+Exemple :
 
--   `CPModule.h`est renommé `AEModule.h`.
+-   `CPModule.h` est renommé `AEModule.h`.
 
-Toutes les classes avec le préfixe " Capptain " sont renommées avec le préfixe " Engagement ".
+Toutes les classes avec le préfixe « Capptain » sont renommées avec le préfixe « Engagement ».
 
-Exemples :
+Exemples :
 
--   La classe `CapptainAgent` est renommée `EngagementAgent`.
--   La classe `CapptainTableViewController` est renommée `EngagementTableViewController`.
--   La classe `CapptainUtils` est renommée `EngagementUtils`.
--   La classe `CapptainViewController` est renommée `EngagementViewController`.
+-   La classe `CapptainAgent` est renommée `EngagementAgent`.
+-   La classe `CapptainTableViewController` est renommée `EngagementTableViewController`.
+-   La classe `CapptainUtils` est renommée `EngagementUtils`.
+-   La classe `CapptainViewController` est renommée `EngagementViewController`.
 
-<!--HONumber=47-->
+<!--HONumber=54-->

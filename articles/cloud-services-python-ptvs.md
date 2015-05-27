@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Rôles Web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio" 
-	description="Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles Web et de travail." 
+<properties 
+	pageTitle="Rôles web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio" 
+	description="Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail." 
 	services="" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -19,37 +19,35 @@
 
 
 
-# Rôles Web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio
+# Rôles web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio
 
-Ce guide fournit un aperçu de l'utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][].
+Ce guide fournit un aperçu de l'utilisation des rôles web et de travail Python avec [Python Tools pour Visual Studio][].
 
 ## Configuration requise
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 pour Visual Studio][]
- - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012][]
- - [Python 2.7 32 bits][] ou [Python 3.4 32 bits][]
+ - Visual Studio 2012 ou 2013
+ - [Python Tools 2.1 pour Visual Studio][]
+ - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012][]
+ - [Python 2.7 32 bits][] ou [Python 3.4 32 bits][]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## Présentation des rôles Web et de travail Python
+## Présentation des rôles web et de travail Python
 
-Azure propose trois modèles de calcul pour l'exécution d'applications : [Azure Websites][sites Web de modèle d'exécution], [Azure Virtual Machines][machines virtuelles de modèle d'exécution] et [Azure Cloud Services][services cloud de modèle d'exécution]. Ils prennent tous les trois en charge Python. Cloud Services, qui contient des rôles Web et de travail, fournit *Platform as a Service (PaaS)*. Au sein d'un service cloud, un rôle Web fournit un serveur Web IIS (Internet Information Services) dédié permettant d'héberger des applications Web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment des interactions ou saisies des utilisateurs.
+Azure propose trois modèles de calcul pour l’exécution d’applications : [Sites Web Azure][execution model-web sites], [Azure Virtual Machines][execution model-vms], et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Cloud Services, qui inclut les rôles web et de travail, fournit *PaaS (Platform as a Service)*. Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment des interactions ou saisies des utilisateurs.
 
 Pour plus d'informations, consultez la page [Présentation d'un service cloud].
 
-> [AZURE.NOTE] **Vous voulez créer un simple site Web ?**
-Si votre scénario ne comporte qu'un simple composant frontal Web, envisagez d'utiliser un site Web Azure léger. Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins. Consultez le <a href="/fr-fr/develop/python/">Centre de développement Python</a> pour découvrir des articles abordant le développement pour les sites Web Azure.
-<br />
+> [AZURE.NOTE]**Vous voulez créer un simple site web ?** Si votre scénario ne comporte qu'un simple composant frontal web, envisagez d'utiliser un site web Azure léger. Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins. Consultez le <a href="/develop/python/">Centre de développement Python</a> pour découvrir des articles consacrés au développement de sites web Azure. <br />
 
 
 ## Création du projet
 
-Dans Visual Studio, vous pouvez sélectionner **Service cloud Azure** dans la boîte de dialogue **Nouveau projet**, sous **Python**. 
+Dans Visual Studio, vous pouvez sélectionner **Service cloud Azure** dans la boîte de dialogue **Nouveau projet**, sous **Python**.
 
-![New Project Dialog](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
+![Boîte de dialogue Nouveau projet](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
-Dans l'Assistant Service Cloud Azure, vous pouvez sélectionner les nouveaux rôles Web et de travail.
+Dans l'Assistant Service Cloud Azure, vous pouvez sélectionner les nouveaux rôles web et de travail.
 
 ![Azure Cloud Service Dialog](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
@@ -57,19 +55,19 @@ Le modèle de rôle de travail est fourni avec du code réutilisable permettant 
 
 ![Cloud Service Solution](./media/cloud-services-python-ptvs/worker.png)
 
-Vous pouvez ajouter des rôles Web ou des rôles de travail quand vous le souhaitez à un service cloud existant.  Vous pouvez choisir d'ajouter des projets existants à votre solution ou bien d'en créer de nouveaux. 
+Vous pouvez ajouter des rôles web ou des rôles de travail quand vous le souhaitez à un service cloud existant. Vous pouvez choisir d'ajouter des projets existants à votre solution ou bien d'en créer de nouveaux.
 
 ![Add Role Command](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
-Votre service cloud peut contenir des rôles dans différents langages.  Par exemple, vous pouvez avoir un rôle Web Python implémenté à l'aide de Django, avec des rôles de travail Python C#.  Vous pouvez assurer la communication entre les rôles grâce aux files d'attente du bus des services ou aux files d'attente de stockage.
+Votre service cloud peut contenir des rôles dans différents langages. Par exemple, vous pouvez avoir un rôle web Python implémenté à l'aide de Django, avec des rôles de travail Python C#. Vous pouvez assurer la communication entre les rôles grâce aux files d'attente du bus des services ou aux files d'attente de stockage.
 
 ## Exécution en local
 
 Si vous définissez votre projet de service cloud comme projet de démarrage et que vous appuyez sur F5, le service cloud s'exécute dans l'émulateur Azure local.
 
-Bien que PTVS puisse être lancé dans l'émulateur, le débogage (points d'arrêt, etc.) ne fonctionne pas.
+Bien que PTVS puisse être lancé dans l'émulateur, le débogage (points d'arrêt, etc) ne fonctionne pas.
 
-Pour déboguer vos rôles Web et vos rôles de travail, vous pouvez définir le projet de rôle comme projet de démarrage, et déboguer ce projet.  Vous pouvez aussi définir plusieurs projets de démarrage.  Cliquez avec le bouton droit sur la solution, puis sélectionnez **Définir les projets de démarrage**.
+Pour déboguer vos rôles web et vos rôles de travail, vous pouvez définir le projet de rôle comme projet de démarrage, et déboguer ce projet. Vous pouvez aussi définir plusieurs projets de démarrage. Cliquez avec le bouton droit sur la solution, puis sélectionnez **Définir comme projet de démarrage**.
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
@@ -97,48 +95,48 @@ La progression s'affiche alors dans la fenêtre de résultat, puis vous verrez l
 
 ![Microsoft Azure Activity Log Window](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Le déploiement prend plusieurs minutes. Ensuite, vos rôles Web et de travail sont exécutés sur Azure.
+Le déploiement prend plusieurs minutes. Ensuite, vos rôles web et de travail sont exécutés sur Azure.
 
 ## Étapes suivantes
 
-Pour plus d'informations sur l'utilisation des rôles Web et de travail dans les outils Python pour Visual Studio, consultez la documentation PTVS :
+Pour plus d'informations sur l'utilisation des rôles web et de travail dans les outils Python pour Visual Studio, consultez la documentation PTVS :
 
-- [Projets de Service cloud][]
+- [Projets de service cloud][]
 
-Pour plus de détails sur l'utilisation des services Azure à partir de vos rôles Web et de travail, par exemple pour utiliser le stockage Azure ou Service Bus, consultez les guides suivants :
+Pour plus de détails sur l'utilisation des services Azure à partir de vos rôles web et de travail, par exemple pour utiliser le stockage Azure ou Service Bus, consultez les guides suivants :
  
 - [Service BLOB][]
-- [Service de table][]
-- [Service de file d'attente][]
-- [Files d'attente Service Bus][]
-- [Rubriques Service Bus][]
+- [Service de Table][]
+- [Service de File d’attente][]
+- [Files d’attente de Service Bus][]
+- [Rubriques de Service Bus][]
 
 
 <!--Link references-->
 
-[Présentation d'un service cloud]: /fr-fr/manage/services/cloud-services/what-is-a-cloud-service/
-[sites Web de modèle d'exécution]: ../fundamentals-application-models/#WebSites
-[machines virtuelles de modèle d'exécution]: ../fundamentals-application-models/#VMachine
-[services cloud de modèle d'exécution]: ../fundamentals-application-models/#CloudServices
-[Centre de développement Python]: /fr-fr/develop/python/
+[Présentation d'un service cloud]: /manage/services/cloud-services/what-is-a-cloud-service/
+[execution model-web sites]: fundamentals-application-models.md#WebSites
+[execution model-vms]: fundamentals-application-models.md#VMachine
+[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[Python Developer Center]: /develop/python/
 
-[Service BLOB]: ../storage-python-how-to-use-blob-storage/
-[Service de file d'attente]: ../storage-python-how-to-use-queue-storage/
-[Service de table]: ../storage-python-how-to-use-table-storage/
-[Files d'attente Service Bus]: ../service-bus-python-how-to-use-queues/
-[Rubriques Service Bus]: ../service-bus-python-how-to-use-topics-subscriptions/
+[Service BLOB]: storage-python-how-to-use-blob-storage.md
+[Service de File d’attente]: storage-python-how-to-use-queue-storage.md
+[Service de Table]: storage-python-how-to-use-table-storage.md
+[Files d’attente de Service Bus]: service-bus-python-how-to-use-queues.md
+[Rubriques de Service Bus]: service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
 
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Documentation relative à Python Tools pour Visual Studio]: http://pytools.codeplex.com/documentation 
-[Projets de Service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Python Tools for Visual Studio Documentation]: http://pytools.codeplex.com/documentation
+[Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

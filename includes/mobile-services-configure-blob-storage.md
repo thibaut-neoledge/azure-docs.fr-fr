@@ -1,12 +1,10 @@
-﻿Un nouveau script pour la fonction insert est enregistré. Il génère une signature d'accès partagé (SAP) lorsqu'un nouvel élément Todo est inséré.
+Un nouveau script pour la fonction insert est enregistré. Il génère une signature d’accès partagé (SAP) lorsqu’un nouvel élément Todo est inséré.
 
-0. Si vous n'avez pas encore créé de compte de stockage, consultez la rubrique [Création d'un compte de stockage].
+0. Si vous n’avez pas encore créé de compte de stockage, consultez la rubrique [Création d’un compte de stockage].
 
-1. Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**. 
+1. Dans le portail de gestion, cliquez sur **Stockage**, sur le compte de stockage, puis sur **Gérer les clés**.
 
-  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
-
-2. Notez le **nom de compte de stockage** et la **clé d'accès**.
+2. Notez le **nom du compte de stockage** et la **clé d'accès**.
 
    	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
@@ -19,11 +17,9 @@
 
 	La clé d'accès du compte de stockage est chiffrée et stockée dans les paramètres de l'application. Vous pouvez y accéder à partir du script serveur lors de l'exécution. Pour plus d'informations, consultez l'article [Paramètres de l'application].
 
-4. Cliquez sur l'onglet **Données**, puis sur la table **TodoItem**. 
+4. Cliquez sur l’onglet **Données**, puis sur la table **TodoItem**.
 
-   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
-
-5.  Dans **todoitem**, cliquez sur l'onglet **Script**, sélectionnez **Insérer**, remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+5.  Dans **todoitem**, cliquez sur l’onglet **Script**, sélectionnez **Insérer**, remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
 		var azure = require('azure');
 		var qs = require('querystring');
@@ -37,7 +33,7 @@
 		
 		    if ((typeof item.containerName !== "undefined") && (
 		    item.containerName !== null)) {
-		        // Set the BLOB store container name on the item, qui doit être en minuscules.
+		        // Set the BLOB store container name on the item, which must be lowercase.
 		        item.containerName = item.containerName.toLowerCase();
 		
 		        // If it does not already exist, create the container 
@@ -78,12 +74,9 @@
 		    }
 		}
 
- 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
+   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour l’insertion, qui est valide 5 minutes, et affecte la valeur de la SAP générée à la propriété `sasQueryString` de l’élément renvoyé. La propriété `imageUri` est également définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
 
-   	Cela remplace la fonction appelée lors d'une insertion dans la table TodoItem avec le nouveau script. Ce nouveau script génère une nouvelle SAP pour la fonction insert, valide pendant 5 minutes, et attribue la valeur de la SAP générée à la propriété `sasQueryString` de l'élément renvoyé. La propriété `imageUri` est aussi définie sur le chemin d'accès de la ressource du nouvel objet blob pour permettre l'affichage de l'image lors de la liaison dans l'interface utilisateur du client.
-
-	>[AZURE.NOTE] Ce code crée une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la méthode <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">generateSharedAccessSignature method</a> avec un nom de ressource d'objet blob vide, comme ceci : 
-	<pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
+	>[AZURE.NOTE]Ce code crée une SAP pour un objet blob individuel. Si vous devez télécharger plusieurs objets blob sur un conteneur à l'aide de la même SAP, vous pouvez plutôt appeler la <a href="http://go.microsoft.com/fwlink/?LinkId=390455" target="_blank">méthode generateSharedAccessSignature</a> avec un nom de ressource d'objet blob vide, comme ceci : <pre><code>blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);</code></pre>
 
 Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajouter la fonctionnalité de téléchargement d'image à l'aide de la SAP générée sur la fonction insert.
  
@@ -92,9 +85,7 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- Images. -->
 
 <!-- URLs. -->
-[Création d'un compte de stockage]: /fr-FR/manage/services/storage/how-to-create-a-storage-account
+[Création d’un compte de stockage]: /manage/services/storage/how-to-create-a-storage-account
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

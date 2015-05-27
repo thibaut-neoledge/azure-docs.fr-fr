@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Connecteur Salesforce" 
    description="Utilisation du connecteur Salesforce" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="sutalasi"/>
 
 
-# Utilisation du connecteur Salesforce dans votre application logique#
+#Utilisation du connecteur Salesforce dans votre application logique#
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur Salesforce vous permet de créer et modifier différentes entités telles que des comptes, des prospects, etc. Voici les scénarios d'intégration classiques qui impliquent Salesforce.
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur Salesforce vous permet de créer et de modifier différentes entités, comme les comptes, les prospects, etc. Voici les scénarios d’intégration classiques qui impliquent Salesforce.
 
 - Synchronisation des comptes entre Salesforce et les systèmes ERP tels que SAP et QuickBooks	
 
@@ -28,19 +28,30 @@ Les applications logiques peuvent se déclencher selon diverses sources de donn�
 
 Dans le cadre des paramètres de package du connecteur, l'utilisateur peut spécifier les entités que le connecteur peut gérer et les actions, les paramètres d'entrée et de sortie sont renseignés de manière dynamique. Voici les différentes actions disponibles dans le connecteur Salesforce.
  
-- Créer une entité : utilisez cette action pour créer une entité Salesforce comme un compte et un cas.
+- Créer une entité : utilisez cette action pour créer une entité Salesforce comme un compte et un cas.
 
-- Mettre à jour une entité : utilisez cette action pour mettre à jour une entité Salesforce existante.
+- Mettre à jour une entité : utilisez cette action pour mettre à jour une entité Salesforce existante.
 
-- Upsert d'une entité : utilisez cette action pour mettre à jour une entité Salesforce existante ou en créer une si elle n'existe pas.
+- Upsert d'une entité : utilisez cette action pour mettre à jour une entité Salesforce existante ou en créer une si elle n'existe pas.
 
-- Supprimer une entité : utilisez cette action pour supprimer une entité Salesforce existante.
+- Supprimer une entité : utilisez cette action pour supprimer une entité Salesforce existante.
 
-- Exécuter une requête : utilisez cette action pour exécuter une requête SELECT écrite en langage SOQL (Salesforce Object Query Language).
+- Exécuter une requête : utilisez cette action pour exécuter une requête SELECT écrite en langage SOQL (Salesforce Object Query Language).
 
 
-## Créer une application logique##
-Pour utiliser un connecteur Salesforce dans votre application logique, l'application API du connecteur doit déjà avoir été créée ou vous pouvez en créer une à la volée dans l'application logique. Créons une application logique simple qui crée un compte dans Salesforce et met à jour les détails de l'adresse de facturation de ce même compte.
+##Créer une application API du connecteur Salesforce##
+1.	Ouvrez Azure Marketplace à l’aide de l’option « + NOUVEAU » en bas à droite du portail Azure.
+2.	Accédez à « Web et mobilité > Applications API » et recherchez « SalesForce ».
+3.	Configurez le connecteur SalesForce en indiquant les détails du plan d’hébergement, le groupe de ressources et en sélectionnant le nom de l’application API.
+
+	![][15]
+4. Configurez les entités SalesForce que vous souhaitez lire/écrire dans Paramètres du package.
+
+Vous pouvez maintenant créer une application API du connecteur SalesForce.
+
+
+##Créer une application logique##
+Créons une application logique simple qui crée un compte dans Salesforce et met à jour les détails de l'adresse de facturation de ce même compte.
 
 1.	Connectez-vous au portail Azure et cliquez sur Nouveau -> Web + mobile -> Application logique.
 
@@ -58,16 +69,12 @@ Pour utiliser un connecteur Salesforce dans votre application logique, l'applica
 
     ![][4]
 
-5.	Développez Créer dans la galerie pour afficher toutes les applications API disponibles. Sélectionnez Salesforce dans la galerie. Le connecteur Salesforce est ajouté au flux.
+5.	Développez « Applications API dans ce groupe de ressources » dans la galerie pour afficher toutes les applications API disponibles. Sélectionnez Salesforce dans la galerie. Le connecteur Salesforce est ajouté au flux.
 
-
-6.	La valeur par défaut des entités Salesforce est " Compte, Prospect, Opportunité, Cas, Contact ". Vous pouvez ajouter d'autres entités, notamment des entités personnalisées disponibles dans le compte Salesforce et cliquer sur ✓.
 
 	![][5]
 
-7.	Une nouvelle application API de connecteur Salesforce est alors créée dans le même groupe de ressources que l'application logique. Environ 30 secondes sont nécessaires pour créer l'application API.
-
-8.	Une fois l'application créée, cliquez sur Autoriser pour indiquer les informations d'identification Salesforce.
+8.	Pour autoriser votre application logique à accéder à votre compte SalesForce, cliquez sur « Autoriser » pour fournir les informations d’identification Salesforce.
 
 	![][6]
 
@@ -85,7 +92,7 @@ Pour utiliser un connecteur Salesforce dans votre application logique, l'applica
 
 	![][10]
 
-12.	Indiquez le nom du compte et cliquez sur ✓. 
+12.	Indiquez le nom du compte et cliquez sur ✓.
 
 	![][11]
 
@@ -95,7 +102,7 @@ Pour utiliser un connecteur Salesforce dans votre application logique, l'applica
 
 	![][12]
 
-15.	Cliquez sur + en regard de ID d'enregistrement pour sélectionner la valeur ID de la sortie de l'action Créer un compte. 
+15.	Cliquez sur + en regard de ID d'enregistrement pour sélectionner la valeur ID de la sortie de l'action Créer un compte.
 
 	![][13]
 
@@ -103,11 +110,11 @@ Pour utiliser un connecteur Salesforce dans votre application logique, l'applica
 
 	![][14]
 
-17. Cliquez sur OK dans l'écran de l'éditeur d'application logique, puis sur  'Create'. Environ 30 secondes sont nécessaires pour terminer la création.
+17. Cliquez sur OK dans l’éditeur d’application logique, puis cliquez sur Créer. Environ 30 secondes sont nécessaires pour terminer la création.
 
-18. Parcourez l'application logique nouvellement créée, puis cliquez sur  'Run' pour lancer une exécution.
+18. Accédez à l’application logique créée et cliquez sur Exécuter pour l’exécuter.
 
-19. Vous pouvez vérifier qu'un nouveau compte du nom  'Contoso' a été créé dans votre compte Salesforce.
+19. Vous pouvez constater qu’un nouveau compte portant le nom Contoso a été créé dans votre compte Salesforce.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
@@ -124,7 +131,8 @@ Pour utiliser un connecteur Salesforce dans votre application logique, l'applica
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

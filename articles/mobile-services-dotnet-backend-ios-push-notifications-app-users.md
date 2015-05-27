@@ -1,46 +1,28 @@
-﻿<properties 
-	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés" 
-	description="Découvrez comment envoyer des notifications Push à" 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Envoi de notifications Push aux utilisateurs authentifiés (backend .NET)"
+	description="Découvrez comment envoyer des notifications Push à"
+	services="mobile-services,notification-hubs"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="03/03/2015"
 	ms.author="krisragh"/>
 
 # Envoi de notifications Push aux utilisateurs authentifiés
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-<div class="dev-center-tutorial-subselector"><a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/" title=".NET backend" class="current">.NET principal</a> | <a href="/fr-fr/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/"  title="JavaScript backend">JavaScript principal</a></div>
+Dans cette rubrique, vous découvrez comment envoyer des notifications Push à un utilisateur authentifié sur iOS. Avant de commencer ce didacticiel, vous devez effectuer les didacticiels [Prise en main de l'authentification] et [Prise en main des notifications Push].
 
-Cette rubrique montre comment envoyer des notifications Push à un utilisateur authentifié sur un appareil iOS inscrit. Contrairement au précédent didacticiel relatif aux [notifications Push][Prise en main des notifications Push], celui-ci modifie votre service mobile pour exiger l'authentification des utilisateurs avant que le client puisse s'inscrire auprès du concentrateur de notification pour les notifications Push. L'inscription est également modifiée pour ajouter une balise en fonction de l'ID utilisateur assigné. Enfin, le script serveur est mis à jour pour envoyer une notification à l'utilisateur authentifié uniquement plutôt qu'à tous les utilisateurs inscrits.
-
-Ce didacticiel vous familiarise avec les procédures suivantes :
-
-+ [Mise à jour du service pour demander l'authentification pour l'inscription]
-+ [Mise à jour de l'application pour se connecter avant l'inscription]
-+ [Test de l'application]
-
-Ce didacticiel prend en charge les applications Windows Store et Windows Phone Store.
-
-##Conditions préalables
-
-Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
-
-+ [Prise en main de l'authentification]<br/>Ajoute une exigence de connexion à l'exemple d'application TodoList.
-
-+ [Prise en main des notifications Push]<br/>Configure l'exemple d'application TodoList pour les notifications Push à l'aide de Notification Hubs.
-
-Une fois ces deux didacticiels terminés, vous saurez comment empêcher les utilisateurs non authentifiés de s'inscrire pour recevoir les notifications Push de votre service mobile.
+Dans ce didacticiel, les utilisateurs s'authentifient, puis s'inscrivent auprès du concentrateur de notification pour les notifications Push, et les scripts serveur sont finalement mis à jour pour envoyer ces notifications à des utilisateurs authentifiés uniquement.
 
 ##<a name="register"></a>Mise à jour du service pour demander l'authentification pour l'inscription
 
@@ -55,19 +37,17 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
-[Mise à jour du service pour demander l'authentification pour l'inscription]: #register
-[Mise à jour de l'application pour se connecter avant l'inscription]: #update-app
-[Test de l'application]: #test
-[Étapes suivantes]:#next-steps
+[Updating the service to require authentication for registration]: #register
+[Updating the app to log in before registration]: #update-app
+[Testing the app]: #test
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
+[Prise en main de l'authentification]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Prise en main des notifications Push]: mobile-services-dotnet-backend-ios-get-started-push.md
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Guide de fonctionnement Mobile Services .NET]: /fr-fr/develop/mobile/how-to-guides/work-with-net-client-library
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

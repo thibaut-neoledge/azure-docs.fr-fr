@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Connecter une application mobile à une solution SaaS d'entreprise | Centre de développement mobile" 
 	description="Découvrez comment effectuer des appels à des ressources d'entreprise telles que SharePoint Online" 
 	documentationCenter="" 
@@ -18,26 +18,26 @@
 
 # Connecter une application mobile aux API SaaS
 
-Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l'application à partir de la page [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory] pour créer un document Word dans SharePoint Online, chaque fois qu'un nouvel élément TodoItem est ajouté.
+Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Active Directory] pour créer un document Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* Visual Studio 2013 s'exécutant sur Windows 8.1.
+* Visual Studio 2013 s'exécutant sous Windows 8.1.
 * Un abonnement actif à [SharePoint Online]
-* Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
+* Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
 
 ## <a name="configure-permissions"></a>Configuration de votre application pour un accès délégué à SharePoint
 Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour accéder à une ressource ou une application SaaS tierce telle que SharePoint Online, vous devez l'autoriser explicitement.
 
 1. Dans la section **Active Directory** du [portail de gestion Azure], sélectionnez votre client. Accédez à l'application web que vous avez créée pour le service App Service.
 
-2. Sous l'onglet **Configurer**, faites défiler la page jusqu'à la section Autorisations pour d'autres applications. Sélectionnez **Office 365 SharePoint Online** et accordez l'autorisation déléguée **Modifier ou supprimer les fichiers des utilisateurs**. Cliquez ensuite sur **Enregistrer**.
+2. Sous l'onglet **Configurer**, faites défiler la page jusqu'à la section Autorisations pour d'autres applications. Sélectionnez **Office 365 SharePoint Online** et accordez l'autorisation déléguée **Modifier ou supprimer les fichiers des utilisateurs**. Cliquez ensuite sur **Enregistrer**.
 
     ![][1]
 
 Vous avez maintenant configuré AAD pour émettre un jeton d'accès SharePoint au service App Service.
 
-## <a name="store-credentials"></a>Ajout d'informations SharePoint à votre application mobile
+## <a name="store-credentials"></a>Ajout d’informations SharePoint à votre application mobile
 
 Pour appeler SharePoint, vous devez spécifier les points de terminaison avec lesquels l'application mobile a besoin de communiquer. Vous devez également être capable de prouver l'identité de votre service d'application avec une paire ID client/clé secrète. Vous avez déjà obtenu et stocké l'ID client pour le service d'application pendant la configuration de la connexion AAD. Comme il s'agit d'informations d'identification sensibles, vous ne devez pas les stocker en clair dans votre code. Définissez plutôt ces valeurs en tant que paramètres d'application pour votre site Code de l'application mobile.
 
@@ -45,9 +45,9 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
 2. Sous Configurer, faites défiler l'écran jusqu'à la section Clés. Vous pouvez obtenir une clé secrète client en générant une nouvelle clé. Notez que lorsque vous créez une clé et quittez la page, il n'est plus possible de l'éliminer du portail. Une fois cette valeur créée, copiez-la et enregistrez-la dans un emplacement sûr. Sélectionnez une durée pour votre clé, puis cliquez sur Enregistrer et faites une copie de la valeur obtenue.
 
-3. Dans la section Code de l'application mobile du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l'application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
+3. Dans la section Code de l'application mobile du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l’application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
 
-* Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : `https://login.windows.net/contoso.onmicrosoft.com`
+* Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : `https://login.windows.net/contoso.onmicrosoft.com`
 
 * Définissez SP_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
 
@@ -55,7 +55,7 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
 Vous pouvez obtenir de nouveau ces valeurs dans votre code avec ApiServices.Settings.
 
-## <a name="obtain-token"></a>Obtention d'un jeton d'accès et appel de l'API SharePoint
+## <a name="obtain-token"></a>Obtention d’un jeton d’accès et appel de l’API SharePoint
 
 Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec SharePoint comme public cible. Pour obtenir ce jeton, vous devez effectuer un rappel dans AAD avec l'identité du service App Service et le jeton qui a été émis pour l'utilisateur.
 
@@ -63,7 +63,9 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. Dans votre projet Code de l'application mobile, créez une classe appelée SharePointUploadContext. Ajoutez-y le code suivant :
+2. Dans le gestionnaire de packages NuGet, cliquez sur **En ligne**. Entrez **Microsoft.Azure.Mobile.Server.AppService** comme terme de recherche. Cliquez ensuite sur **Installer** pour installer le package [Mobile Apps .NET Backend App Service Extension]. Ce package fournit des méthodes d’extension pour l’utilisation des informations sur l’utilisateur actuellement connecté.
+
+2. Dans votre projet Code de l’application mobile, créez une classe appelée SharePointUploadContext. Ajoutez une instruction `using Microsoft.Azure.Mobile.Server.AppService;` dans le fichier. Ajoutez ensuite le code suivant à la classe :
 
         private String accessToken;
         private String mySiteApiPath;
@@ -95,7 +97,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
             authority = settings["SP_Authority"];
         }
 
-3. Créez maintenant une méthode pour ajouter le fichier à la bibliothèque de documents de l'utilisateur :
+3. Créez maintenant une méthode pour ajouter le fichier à la bibliothèque de documents de l'utilisateur :
 
         public async Task<bool> UploadDocument(string docName, byte[] document)
         {
@@ -119,7 +121,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
             return true;
         }
 
-## <a name="create-document"></a>Création et téléchargement d'un document Word
+## <a name="create-document"></a>Création et téléchargement d’un document Word
 
 Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Installez ce package en ouvrant le gestionnaire du package NuGet et en recherchant DocumentFormat.OpenXml.
 
@@ -151,7 +153,7 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
             return document;
         }
 
-2. Remplacez PostTodoItem par le code suivant :
+2. Remplacez PostTodoItem par le code suivant :
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -164,9 +166,9 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-## <a name="test-application"></a>Test de l'application
+## <a name="test-application"></a>Testez l’application
 
-1. Publiez les modifications sur le backend, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
+1. Publiez les modifications sur le serveur principal, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
 
 2. Accédez à votre site SharePoint et connectez-vous avec le même nom d'utilisateur.
 
@@ -178,9 +180,11 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 
 <!-- URLs. -->
 
-[Version préliminaire du portail de gestion Azure]: https://portal.azure.com/
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/fr-fr/sharepoint/
-[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

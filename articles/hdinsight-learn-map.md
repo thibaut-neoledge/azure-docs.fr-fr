@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Carte d'apprentissage de HDInsight | Azure" 
 	description="Bénéficiez d'un parcours suggéré de ressources pour apprendre tout ce qu'il faut savoir sur HDInsight" 
 	services="hdinsight" 
@@ -18,13 +18,12 @@
 
 
 # Carte d'apprentissage de HDInsight
-Dans HDInsight, vous pouvez travailler avec des données volumineuses dans le cloud sur Hadoop, HBase et sur des clusters personnalisés. Suivez les instructions de cette page pour un suivre un parcours de formation efficace dans la documentation HDInsight.
+Dans HDInsight, vous pouvez travailler avec des données volumineuses dans le cloud avec Hadoop, HBase et des clusters personnalisés. Suivez les conseils figurant sur cette page pour un apprentissage efficace via la documentation HDInsight :
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">
-</object>
-
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=54-->

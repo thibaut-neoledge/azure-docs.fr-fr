@@ -1,34 +1,34 @@
 <properties 
 	pageTitle="" 
-	description="" 
+	description="Décrit les premières étapes de la prise en main d’Azure Mobile Services dans un projet Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Prise en main de Mobile Services (Projets Cordova)
 
 > [AZURE.SELECTOR]
-> - [Mise en route](vs-mobile-services-cordova-getting-started.md)
-> - [Que s'est-il passé ?](vs-mobile-services-cordova-what-happened.md)
-
-## Prise en main de Mobile Services (Projets Cordova)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 La première étape à effectuer pour suivre le code figurant dans ces exemples dépend du type de service mobile auquel vous êtes connecté.
 
-Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem.  Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez " TodoItem " comme nom de table.
+Dans le cas d'un service mobile principal JavaScript, créez une table nommée TodoItem. Pour créer une table, recherchez le service mobile sous le nœud Azure dans l'Explorateur de serveurs, cliquez avec le bouton droit sur le nœud du service mobile pour ouvrir le menu contextuel, puis choisissez **Créer une table**. Entrez « TodoItem » comme nom de table.
 
 Si vous disposez à la place d'un service mobile principal .NET, une table TodoItem existe déjà dans le modèle de projet par défaut créé par Visual Studio, mais vous devez la publier sur Azure. Pour cela, ouvrez le menu contextuel du projet de service mobile dans l'Explorateur de solutions, puis choisissez **Publier le site web**. Acceptez les valeurs par défaut, puis choisissez le bouton **Publier**.
   
->[AZURE.NOTE]**Dans les projets Cordova générés à l'aide de Visual Studio 2015 Preview, utilisez la [solution de contournement suivante](http://go.microsoft.com/fwlink/?LinkId=518765) pour travailler avec Azure Mobile Services. La solution de contournement n'est pas requise pour les projets utilisant des versions de Visual Studio 2015 ultérieures.**
+>[AZURE.NOTE]**Dans les projets Cordova créés à l’aide de Visual Studio 2015 Preview, utilisez cette [solution de contournement](http://go.microsoft.com/fwlink/?LinkId=518765) pour vous servir d’Azure Mobile Services. Cette solution de contournement n’est pas nécessaire pour les projets créés à l’aide de versions ultérieures à Visual Studio 2015.**
 
 #####Obtenir une référence pointant vers une table
 
@@ -36,7 +36,7 @@ Le code ci-dessous permet d'obtenir une référence pointant vers une table qui 
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
+Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](mobile-services-html-get-started-users.md).
 
 #####Ajouter une entrée 
 
@@ -63,7 +63,7 @@ Le code ci-dessous permet de lancer une requête sur tous les éléments d'une t
             });
         });
 
-Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemple qui permet de filtrer les éléments terminés :
+Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemple qui permet de filtrer les éléments terminés :
 
 	todoTable.where(function () {
                  return (this.complete === false);
@@ -72,7 +72,7 @@ Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemp
                 items = results.slice();
              });
 
-Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query]((http://msdn.microsoft.com/library/azure/jj613353.aspx)).
+Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Mettre une entrée à jour
 
@@ -91,7 +91,5 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
         items.splice(items.indexOf(todoItem), 1);
 	});
 
-[En savoir plus sur les services mobiles](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-<!--HONumber=42-->
+[En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
+<!--HONumber=54-->

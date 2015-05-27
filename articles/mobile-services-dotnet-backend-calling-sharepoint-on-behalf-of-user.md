@@ -1,19 +1,19 @@
-﻿<properties 
+<properties 
 	pageTitle="Accès à SharePoint pour l'utilisateur | Centre de développement mobile" 
 	description="Découvrez comment appeler SharePoint pour l'utilisateur" 
-	documentationCenter="windows" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/13/2015" 
 	ms.author="mahender"/>
 
 # Accès à SharePoint pour le compte de l'utilisateur
@@ -23,12 +23,12 @@
 <p>Cette rubrique explique comment accéder aux API SharePoint pour le compte de l'utilisateur actuellement connecté.</p>
 <p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel. Dans la vidéo, Mat Velloso vous montre comment mettre à jour une application Windows Store pour interagir avec SharePoint Online.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:51</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">12:51:00</span></div>
 </div>
 
-Dans ce didacticiel, vous allez mettre à jour l'application du didacticiel " Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory " de manière à créer un document Word dans SharePoint Online lorsqu'un nouveau TodoItem est ajouté.
+Dans ce didacticiel, vous allez mettre à jour l'application du didacticiel « Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory » de manière à créer un document Word dans SharePoint Online lorsqu'un nouveau TodoItem est ajouté.
 
-Ce didacticiel vous familiarise avec les étapes de base suivantes pour activer l'accès " pour le compte de " à SharePoint :
+Ce didacticiel vous familiarise avec les étapes de base suivantes pour activer l'accès « pour le compte de » à SharePoint :
 
 1. [Inscription de votre application pour un accès délégué à SharePoint]
 2. [Ajout d'informations SharePoint à votre service mobile]
@@ -36,11 +36,11 @@ Ce didacticiel vous familiarise avec les étapes de base suivantes pour activer 
 4. [Création et téléchargement d'un document Word]
 5. [Test de l'application]
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* Visual Studio 2013 s'exécutant sous Windows 8.1.
+* Visual Studio 2013 s'exécutant sous Windows 8.1.
 * Un abonnement actif à [SharePoint Online]
-* Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
+* Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
 
 ## <a name="configure-permissions"></a>Configuration de votre application pour un accès délégué à SharePoint
 Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour accéder à une ressource ou une application SaaS tierce telle que SharePoint Online, vous devez l'autoriser explicitement.
@@ -49,7 +49,7 @@ Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour
 
     ![][0]
 
-2. Sous l'onglet **Configurer**, faites défiler la page jusqu'à la section Autorisations pour d'autres applications. Sélectionnez **Office 365 SharePoint Online** et accordez l'autorisation déléguée **Modifier ou supprimer les fichiers des utilisateurs**. Cliquez ensuite sur **Enregistrer**.
+2. Sous l'onglet **Configurer**, faites défiler la page jusqu'à la section Autorisations pour d'autres applications. Sélectionnez **Office 365 SharePoint Online** et accordez l'autorisation déléguée **Modifier ou supprimer les fichiers des utilisateurs**. Cliquez ensuite sur **Enregistrer**.
 
     ![][1]
 
@@ -65,15 +65,15 @@ Pour appeler SharePoint, vous devez spécifier les points de terminaison avec le
 
     ![][2]
 
-3. Dans la section Mobile Services du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l'application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
+3. Dans la section Mobile Services du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l’application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
 
     ![][3]
 
-4. Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : https://login.windows.net/contoso.onmicrosoft.com
+4. Définissez SP_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : https://login.windows.net/contoso.onmicrosoft.com
 
 5. Définissez SP_ClientSecret sur la valeur de la clé secrète client que vous avez obtenue précédemment.
 
-6. Définissez SP_SharePointURL sur l'URL de votre site SharePoint. Elle aura la forme suivante : https://contoso-my.sharepoint.com
+6. Définissez SP_SharePointURL sur l'URL de votre site SharePoint. Il doit être de la forme https://contoso-my.sharepoint.com
 
 Vous pouvez obtenir de nouveau ces valeurs dans notre code avec ApiServices.Settings.
 
@@ -81,11 +81,11 @@ Vous pouvez obtenir de nouveau ces valeurs dans notre code avec ApiServices.Sett
 
 Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec SharePoint comme public cible. Pour obtenir ce jeton, vous devez effectuer un rappel dans AAD avec l'identité du service mobile et le jeton qui a été émis pour l'utilisateur.
 
-1. Ouvrez votre projet de service principal Mobile Services dans Visual Studio.
+1. Ouvrez votre projet de backend Mobile Services dans Visual Studio.
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-2. Dans votre projet de service principal Mobile Services, créez une classe appelée SharePointUploadContext. Ajoutez-y le code suivant :
+2. Dans votre projet de backend Mobile Services, créez une classe appelée SharePointUploadContext. Ajoutez-y le code suivant :
 
         private String accessToken;
         private String mySiteApiPath;
@@ -117,7 +117,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
             authority = settings["SP_Authority"];
         }
 
-3. Créez maintenant une méthode pour ajouter le fichier à la bibliothèque de documents de l'utilisateur :
+3. Créez maintenant une méthode pour ajouter le fichier à la bibliothèque de documents de l'utilisateur :
 
         public async Task<bool> UploadDocument(string docName, byte[] document)
         {
@@ -173,7 +173,7 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
             return document;
         }
 
-2. Remplacez PostTodoItem par le code suivant :
+2. Remplacez PostTodoItem par le code suivant :
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -188,7 +188,7 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 
 ## <a name="test-application"></a>Test de l'application
 
-1. Publiez les modifications sur le serveur principal, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
+1. Publiez les modifications sur le backend, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
 
 2. Accédez à votre site SharePoint et connectez-vous avec le même nom d'utilisateur.
 
@@ -214,9 +214,8 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Test de l'application]: #test-application
 
 <!-- URLs. -->
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/fr-fr/sharepoint/
-[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+[portail de gestion Azure]: https://manage.windowsazure.com/
+[SharePoint Online]: http://office.microsoft.com/sharepoint/
+[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

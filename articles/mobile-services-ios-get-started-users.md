@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Ajout de l'authentification à une application Azure Mobile Services existante (iOS) | Centre de développement mobile"
 	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application iOS par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft."
 	services="mobile-services"
@@ -22,7 +22,7 @@
 
 Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide en faisant appel à un fournisseur d'identité pris en charge.
 
-Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Mobile Services], que vous devez effectuer en premier.
+Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier.
 
 ##<a name="register"></a>Inscription de l'application pour l'authentification et configuration de Mobile Services
 
@@ -32,7 +32,7 @@ Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Mobile Service
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-Dans Xcode, ouvrez le projet. Appuyez sur le bouton **Exécuter** pour démarrer l'application. Vérifiez qu'une exception avec code d'état 401 (non autorisé) est générée après le démarrage de l'application. Cela se produit, car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ exige à présent l'authentification.
+Dans Xcode, ouvrez le projet. Appuyez sur le bouton **Exécuter** pour démarrer l'application. Vérifiez qu'une exception avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application. Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
@@ -47,11 +47,11 @@ Dans Xcode, ouvrez le projet. Appuyez sur le bouton **Exécuter** pour démarrer
 Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services], vous utiliserez la valeur d'ID utilisateur pour filtrer les données retournées.
 
 <!-- Anchors. -->
-[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
-[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
-[Ajout de l'authentification à l'application]: #add-authentication
-[Étapes suivantes]:#next-steps
-[Stockage des jetons d'authentification dans votre application]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- Images. -->
 
@@ -74,16 +74,16 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 <!-- URLs. -->
 [Autorisation côté service des utilisateurs Mobile Services]: mobile-services-javascript-backend-service-side-authorization.md
-[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Authentification unique pour les applications Windows Store à l'aide de Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Didacticiel Démarrage rapide de Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Prise en main des données]: /develop/mobile/tutorials/get-started-with-data-ios
-[Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-ios
-[Prise en main des notifications Push]: /develop/mobile/tutorials/get-started-with-push-ios
-[Autorisation des utilisateurs avec des scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Démarrage rapide de Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

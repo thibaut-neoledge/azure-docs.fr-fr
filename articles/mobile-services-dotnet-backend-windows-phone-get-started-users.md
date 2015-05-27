@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prise en main de l'authentification (Windows Phone) | Centre de développement mobile" 
 	description="Découvrez comment utiliser Mobile Services pour authentifier les utilisateurs de votre application Windows Phone via divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
 	services="mobile-services" 
@@ -10,83 +10,72 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="04/29/2015" 
 	ms.author="glenga"/>
 
-# Ajout d'une authentification à votre application Mobile Services
+# Ajout de l'authentification à votre application Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
+## Vue d'ensemble
+
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d'une application Windows Phone. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
->[AZURE.NOTE] Ce didacticiel concerne les applications Windows Phone 8.0 et Windows Phone 8.1 Silverlight. Si vous avez une application Windows Phone Store 8.1 ou une application Windows universelle, conformez-vous à la place à la [version d'application Windows universelle de cette rubrique](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
+>[AZURE.NOTE]Ce didacticiel concerne les applications Windows Phone 8.0 et Windows Phone 8.1 Silverlight. Si vous avez une application Windows Phone Store 8.1 ou une application Windows universelle, conformez-vous à la place à la [version d'application Windows universelle de cette rubrique](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez aussi d'abord suivre le didacticiel [Prise en main de Mobile Services].
 
-1. [Inscription de votre application pour l'authentification et configuration de Mobile Services]
-2. [Restriction des autorisations de table pour les utilisateurs authentifiés]
-3. [Ajout de l'authentification à l'application]
-4. [Stockage des jetons d'authentification sur le client]
-
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez également commencer par suivre le didacticiel [Prise en main de Mobile Services]. 
-
-
-##<a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services
+## Inscription de votre application pour l'authentification et configuration de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
+##  Restriction des autorisations pour les utilisateurs authentifiés
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
 <ol start="6">
 <li>Dans Visual Studio, ouvrez votre projet d'application cliente et assurez-vous que dans le fichier App.xaml.cs, l'instance de <strong>MobileServiceClient</strong> est configurée pour utiliser l'URL du cloud sur le service mobile.</li> 
-<li><p>Appuyez sur la touche F5 pour exécuter cette application basée sur le démarrage rapide ; vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application.</p>
+<li><p>Appuyez sur la touche&#160;F5 pour exécuter cette application basée sur le démarrage rapide&#160;; vérifiez qu'une exception non prise en charge avec le code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
    
-   	<p>Cela se produit, car l'application tente d'accéder à Mobile Services en tant qu'utilisateur non authentifié, alors que la table <em>TodoItem</em> exige à présent une authentification.</p></li>
+   	<p>Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table <em>TodoItem</em> requiert désormais l'authentification.</p></li>
 </ol>
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-##<a name="add-authentication"></a>Ajout de l'authentification à l'application
+## Ajout de l'authentification à l'application
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-##<a name="tokens"></a>Stockage des jetons d'authentification sur le client
+## Stockage de jetons d'authentification sur le client
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
-## <a name="next-steps"></a>Étapes suivantes
+##  Étapes suivantes
 
-Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Autorisation des utilisateurs avec des scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans le [Guide de fonctionnement Mobile Services .NET].
+Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobile Services][Authorize users with scripts], vous allez prendre la valeur d'ID utilisateur fournie par Mobile Services sur la base d'un utilisateur authentifié et l'utiliser pour filtrer les données renvoyées par Mobile Services. Obtenez plus d'informations sur Mobile Services avec .NET dans [le guide de fonctionnement Mobile Services .NET]
 
 <!-- Anchors. -->
-[Inscription de votre application pour l'authentification et configuration de Mobile Services]: #register
-[Restriction des autorisations de table pour les utilisateurs authentifiés]: #permissions
-[Ajout de l'authentification à l'application]: #add-authentication
-[Stockage des jetons d'authentification sur le client]: #tokens
-[Étapes suivantes]: #next-steps
 
 
 <!-- URLs. -->
-[Page Soumette une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mes Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Kit de développement logiciel (SDK) Live pour Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Authentification unique pour les applications Windows Phone à l'aide de Live Connect]: mobile-services-windows-phone-single-sign-on.md
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Phone apps by using Live Connect]: mobile-services-windows-phone-single-sign-on.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
-[Prise en main des données]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Prise en main de l'authentification]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
-[Prise en main des notifications Push]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[Autorisation des utilisateurs avec des scripts]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
-[JavaScript et HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Guide de fonctionnement Mobile Services .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Inscription du package de votre application Windows Store pour l'authentification Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[le guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

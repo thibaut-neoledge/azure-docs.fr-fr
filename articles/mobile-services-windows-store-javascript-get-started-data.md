@@ -1,11 +1,11 @@
-﻿<properties 
-	pageTitle="Prise en main des données (JavaScript Windows Store) | Centre de développement mobile" 
-	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application Windows Store JavaScript." 
+<properties 
+	pageTitle="Ajouter Mobile Services à une application existante (Windows Store JavaScript) | Centre de développement mobile" 
+	description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor=""/>	
+	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/19/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,36 +21,21 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/fr-fr/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET backend">.NET principal</a> | 
-	<a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/" title="JavaScript backend" class="current">JavaScript principal</a>
-</div>
+#Vue d'ensemble
+Cette rubrique vous présente l'utilisation d'Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2013 pour une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications effectuées sur les données lors de l'exécution de l'application.
 
+Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour utiliser les données dans une application Windows Store. Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2013 pour une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile avec l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications effectuées sur les données lors de l'exécution de l'application.
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Visual Studio 2013, que vous utilisez pour connecter votre projet d'application Windows Store à Mobile Services.
 
->[AZURE.NOTE]Cette rubrique montre comment utiliser Visual Studio 2013 pour ajouter Azure Mobile Services à un projet Windows Store. Vous pouvez ajouter le même service mobile principal JavaScript à un projet d'application Windows universelle. Pour plus d'informations, consultez la page [version application Windows universelle](mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md) de ce didacticiel.
+##Téléchargement du projet GetStartedWithData
 
-Ce didacticiel vous familiarise avec ces étapes de base :
-
-1. [Télécharger le projet d'application Windows Store][Obtenir l'application Windows Store]
-2. [Création du service mobile]
-3. [Ajout d'une table de données pour le stockage]
-4. [Mise à jour de l'application pour utiliser Mobile Services]
-5. [Test de l'application par rapport à Mobile Services]
-
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
-
-* un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
-* Visual Studio 2013, qui facilite la connexion de votre application Windows Store à Mobile Services. Pour effectuer la même procédure de base à l'aide de Visual Studio 2012, suivez la procédure de la rubrique <a href="/fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Prise en main des données dans Mobile Services à l'aide de Visual Studio 2012</a>. 
-
-<h2><a name="download-app"></a>Téléchargement du projet GetStartedWithData</h2>
-
-Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d'exemples de code développeur], qui est un projet d'application Windows Store dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.  
+Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][Developer Code Samples site], qui est un projet d'application Windows Store dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
 1. Téléchargez la version JavaScript de l'exemple d'application GetStartedWithData sur le [site d'exemples de code développeur]. 
 
-2. Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet téléchargé, développez le dossier **js** et examinez le fichier default.js.
+2. Dans Visual Studio 2012 Express pour Windows 8, ouvrez le projet téléchargé, développez le dossier **js** et examinez le fichier default.js.
 
    	Notez que les objets **TodoItem** ajoutés sont stockés dans un objet **List** en mémoire.
 
@@ -58,16 +43,16 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d
 
 4. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-   	![][0]  
+   	![][0]
 
-   	Notez que le texte enregistré est affiché dans la deuxième colonne sous **Query and update data**.
+   	Notez que le texte enregistré est affiché dans la deuxième colonne sous **Rechercher et mettre à jour des données**.
 
-##<a name="create-service"></a>Création d'un service mobile à partir de Visual Studio
+##<a name="create-service"></a>Créer un service mobile à partir de Visual Studio
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7">
-<li><p>Dans l'Explorateur de solutions, développez les dossiers **services**, **mobile services**, **&lt;your_service&gt;**, ouvrez le fichier de script service.js et notez la nouvelle variable globale, similaire à celle présentée dans l'exemple suivant :</p> 
+<li><p>Dans l'Explorateur de solutions, développez les dossiers **services**, **mobile services**, **&lt;your_service>**, ouvrez le fichier de script service.js, et notez la nouvelle variable globale, similaire à celle présentée dans l'exemple suivant&#160;:</p> 
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -77,17 +62,15 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d
 </li>
 </ol>
 
-##<a name="add-table"></a>Ajout d'une table pour le stockage des données
+##Ajout d'une table pour le stockage des données
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]Des tables sont créées avec les colonnes Id, __createdAt, __updatedAt et __version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
-
-#<a name="update-app"></a>Mise à jour de l'application pour utiliser le service mobile
+#Mise à jour de l'application pour utiliser le service mobile
 
 [AZURE.INCLUDE [mobile-services-windows-javascript-update-data-app](../includes/mobile-services-windows-javascript-update-data-app.md)]
 
-##<a name="test-app"></a>Test de l'application sur la base de votre nouveau service mobile
+##Test de l'application sur base de votre nouveau service mobile
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour exécuter l'application.
 
@@ -98,27 +81,22 @@ Ce didacticiel est basé sur l'[application GetStartedWithMobileServices][site d
 3. Dans le [portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile.
 
 4. Cliquez sur l'onglet **Données**, puis sur **Parcourir**.
-
-   	![][9]
   
-   	Notez que la table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et que des colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
+   	La table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
 
-5. Dans l'application, cochez un des éléments dans la liste, puis revenez à l'onglet Parcourir du portail et cliquez sur **Actualiser**. 
+5. Dans l'application, cochez un des éléments dans la liste, puis revenez à l'onglet Parcourir dans le portail et cliquez sur **Actualiser**.
 
-  	Notez que la valeur complète est passée de **false** à **true**.
+  	Notez que la valeur terminée est passée de **false** à **true**.
 
-6. Dans le fichier projet default.js, remplacez la fonction **RefreshTodoItems** existante par le code suivant qui filtre les éléments terminés :
+6. Dans le fichier projet default.js, remplacez la fonction **RefreshTodoItems** existante par le code suivant qui filtre les éléments terminés :
 
         var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed ite
-	ms. 
+            // More advanced query that filters out completed items. 
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
-                   listIte
-	ms.winControl.itemDataSource = todoIte
-	ms.dataSource;
+                   listItems.winControl.itemDataSource = todoItems.dataSource;
                });            
         };
 
@@ -130,33 +108,22 @@ Vous voici parvenu à la fin du didacticiel **Prise en main des données**.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Ce didacticiel a présenté les bases de l'activation d'une application Windows Store pour utiliser les données dans Mobile Services. Ensuite, pensez à suivre l'un des didacticiels suivants basés sur l'application GetStartedWithData que vous avez créée dans ce didacticiel :
+Ce didacticiel a présenté les bases de l'activation d'une application Windows Store pour utiliser les données dans Mobile Services. Vous pouvez ensuite consulter l'une de ces autres rubriques :
 
-* [Validation et modification de données à l'aide de scripts]
-  <br/>En savoir plus sur l'utilisation des scripts serveur dans Mobile Services pour valider et modifier les données envoyées à partir de votre application.
+* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Affinage des requêtes au moyen de la pagination]
-  <br/>Découvrez comment utiliser la pagination dans les requêtes pour contrôler la quantité de données traitées dans une seule requête.
+* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-Une fois que vous avez terminé les séries de données, essayez l'un de ces autres didacticiels :
-
-* [Prise en main de l'authentification]
-  <br/>Découvrez comment authentifier les utilisateurs de votre application.
-
-* [Prise en main des notifications Push] 
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
-
-* [Guide de fonctionnement de Mobile Services avec HTML/JavaScript]
-  <br/>En savoir plus sur l'utilisation de Mobile Services avec HTML et JavaScript
+* [Guide de fonctionnement Mobile Services HTML/JavaScript](mobile-services-html-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec HTML et JavaScript
 
 <!-- Anchors. -->
 
-[Obtention de l'application Windows Store]: #download-app
-[Création du service mobile]: #create-service
-[Ajout d'une table de données pour le stockage]: #add-table
-[Mise à jour de l'application pour utiliser Mobile Services]: #update-app
-[Test de l'application par rapport à Mobile Services]: #test-app
-[Étapes suivantes]:#next-steps
+[Get the Windows Store app]: #download-app
+[Create the mobile service]: #create-service
+[Add a data table for storage]: #add-table
+[Update the app to use Mobile Services]: #update-app
+[Test the app against Mobile Services]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2013/mobile-quickstart-startup.png
@@ -166,19 +133,18 @@ Une fois que vous avez terminé les séries de données, essayez l'un de ces aut
 
 
 <!-- URLs. -->
-[Validation et modification de données à l'aide de scripts]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Affinage des requêtes au moyen de la pagination]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
-[Prise en main de Mobile Services]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
-[Prise en main des données]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Prise en main de l'authentification]: /fr-fr/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Prise en main des notifications Push]: /fr-fr/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
+[Validate and modify data with scripts]: mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
+[Refine queries with paging]: mobile-services-windows-store-javascript-add-paging-data.md
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Prise en main de l'authentification]: mobile-services-windows-store-javascript-get-started-users.md
+[Prise en main des notifications Push]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Portail de gestion]: https://manage.windowsazure.com/
-[Kit de développement logiciel (SDK) Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Site d'exemples de code développeur]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Guide de fonctionnement de Mobile Services avec HTML/JavaScript]: /fr-fr/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion]: https://manage.windowsazure.com/
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
+[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=328660
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

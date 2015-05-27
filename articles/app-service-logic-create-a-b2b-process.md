@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Création d'un processus B2B dans Microsoft Azure App Service" 
-	description="Vue d'ensemble de la création d'un processus B2B (entreprise-entreprise)" 
-	services="app-service\logic" 
-	documentationCenter=".net,nodejs,java" 
-	authors="harishkragarwal" 
-	manager="dwrede" 
-	editor=""/>
+   pageTitle="Création d'un processus B2B dans Microsoft Azure App Service" 
+   description="Vue d'ensemble de la création d'un processus B2B (entreprise-entreprise)" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="harishkragarwal" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration" 
-	ms.date="03/22/2015"
-	ms.author="hariag"/>
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="03/22/2015"
+   ms.author="hariag"/>
 
 
 # Création d'un processus B2B
@@ -27,11 +27,11 @@ L'objectif de ce didacticiel consiste à déterminer comment Northwind peut éta
 
 
 ## Capacités démontrées 
-Ce didacticiel aide à illustrer les capacités suivantes : 
+Ce didacticiel aide à illustrer les capacités suivantes :
 
-- **Transport des messages** : le détaillant et le fournisseur peuvent utiliser différentes plateformes, mais ils peuvent toujours établir des communications entre ces plateformes. Dans ce didacticiel, ils communiquent via AS2 (Applicability Statement 2). AS2 est une norme couramment utilisée pour transporter des données entre des partenaires commerciaux lors de communications B2B.
-- **Persistance des données** : une fois le message reçu via AS2, Northwind souhaite le conserver avant tout traitement supplémentaire. Elle peut utiliser un connecteur pour conserver les messages dans son stockage cloud. Dans ce didacticiel, des objets blob Azure sont utilisés comme stockage cloud pour Northwind.
-- **Création d'un processus d'entreprise** : dans un flux, plusieurs applications API peuvent être assemblées pour obtenir un résultat semblable à celui illustré ici.
+- **Transport des messages** : le détaillant et le fournisseur peuvent utiliser différentes plateformes, mais ils peuvent toujours établir des communications entre ces plateformes. Dans ce didacticiel, ils communiquent via AS2 (Applicability Statement 2). AS2 est une norme couramment utilisée pour transporter des données entre des partenaires commerciaux lors de communications B2B.
+- **Persistance des données** :une fois le message reçu via AS2, Northwind souhaite le conserver avant tout traitement supplémentaire. Elle peut utiliser un connecteur pour conserver les messages dans son stockage cloud. Dans ce didacticiel, des objets blob Azure sont utilisés comme stockage cloud pour Northwind.
+- **Création d’un processus d’entreprise** : dans un flux, plusieurs applications API peuvent être assemblées pour obtenir un résultat semblable à celui illustré ici.
 
 
 ## Avant de commencer
@@ -41,22 +41,22 @@ Ce didacticiel part du principe que vous connaissez Azure App Services et que vo
 ## Étapes pour réaliser le scénario d'entreprise
 **Créer et configurer les applications API nécessaires**
 
-1. Créez une instance du **connecteur d'objets blob Azure Storage**. Vous devez pour cela connaître les informations d'identification d'un compte Azure Storage. Assurez-vous qu'il est prêt avant de commencer cette création.
-2. Créez une instance de **gestion des partenaires commerciaux BizTalk**. Cela nécessite une base de données SQL vide. Assurez-vous qu'elle est prête avant de commencer cette création.
+1. Créez une instance du **Connecteur d’objet blob de stockage Azure**. Vous devez pour cela connaître les informations d'identification d'un compte Azure Storage. Assurez-vous qu'il est prêt avant de commencer cette création.
+2. Créez une instance de **Gestion des partenaires commerciaux BizTalk**. Cela nécessite une base de données SQL vide. Assurez-vous qu'elle est prête avant de commencer cette création.
 3. Créez une instance du **connecteur AS2**. Cela nécessite également une base de données SQL vide. Assurez-vous qu'elle est prête avant de commencer cette création. En outre, si vous souhaitez archiver des messages dans le cadre du traitement AS2, vous pouvez fournir les informations d'identification d'un objet Blob Azure lors de sa création.
-4. Configurez le service de gestion des partenaires commerciaux créé :
+4. Configurez le service de gestion des partenaires commerciaux créé :
 	1. Accédez à l'instance du service de gestion des partenaires commerciaux créé dans le cadre de la procédure ci-dessus.
-	2. Utilisez l'option **Partenaires** sous *Components* pour **Ajouter** un nouveau partenaire nommé **Contoso** et, dans son profil, ajoutez l'identité AS2 nécessaire.
-	3. Utilisez l'option **Partenaires** sous *Components* pour **Ajouter** un nouveau partenaire nommé **Northwind** et, dans son profil, ajoutez l'identité AS2 nécessaire.
-	4. Utilisez l'option **Accords** sous *Components* pour **Ajouter** un nouvel accord AS2 entre Northwind et Contoso. Northwind sera ici le partenaire hébergé et Contoso sera le partenaire invité. Le cas échéant, configurez la signature, le chiffrement, la compression et les accusés de réception lors de la création de cet accord. Au cas où des certificats doivent être utilisés, vous pouvez les télécharger via l'option **Certificats** quand vous parcourez le service de gestion des partenaires commerciaux créé.
+	2. Utilisez l’option **Partenaires** sous *Composants* pour **Ajouter** un nouveau partenaire nommé **Contoso** et, dans son profil, ajoutez l’identité AS2 nécessaire.
+	3. Utilisez l’option **Partenaires** sous *Composants* pour **Ajouter** un nouveau partenaire nommé **Northwind** et, dans son profil, ajoutez l’identité AS2 nécessaire.
+	4. Utilisez l’option **Accords** sous *Composants* pour **Ajouter** un nouvel accord AS2 entre Northwind et Contoso. Northwind sera ici le partenaire hébergé et Contoso sera le partenaire invité. Le cas échéant, configurez la signature, le chiffrement, la compression et les accusés de réception lors de la création de cet accord. Au cas où des certificats doivent être utilisés, vous pouvez les télécharger via l’option **Certificats** quand vous parcourez le service de gestion des partenaires commerciaux créé.
 
 
 ## Créer un flux / processus d'entreprise
-1. Créez un flux dans lequel la première étape est AS2. Faites glisser-déplacer le **Connecteur AS2** et choisissez l'instance déjà créée. Choisissez Déclencheur comme fonctionnalité.
+1. Créez un flux dans lequel la première étape est AS2. Faites glisser le **Connecteur AS2** et choisissez l’instance déjà créée. Choisissez Déclencheur comme fonctionnalité.
 
 ![][1]
 
-2. Ensuite, faites glisser-déplacer **Connecteur d'objets blob Azure Storage** et choisissez l'instance déjà créée. Choisissez Action comme fonctionnalité et sélectionnez Charger l'objet blob comme fonctionnalité souhaitée. Configurez selon les besoins.
+2. Ensuite, faites glisser le **Connecteur d’objet blob de stockage Azure** et choisissez l’instance déjà créée. Choisissez Action comme fonctionnalité et sélectionnez Charger l'objet blob comme fonctionnalité souhaitée. Configurez selon les besoins.
 
 3. Maintenant, créez/déployez le flux.
 
@@ -72,4 +72,4 @@ Ce didacticiel part du principe que vous connaissez Azure App Services et que vo
 [1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
 
-<!--HONumber=49-->
+<!--HONumber=54-->

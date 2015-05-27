@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Intégration du Kit de développement logiciel (SDK) Azure Mobile Engagement dans Windows Phone" 
-	description="Intégration d'Engagement dans Windows Phone" 					
+	pageTitle="Intégration du Kit de développement logiciel (SDK) d’Engagement Windows Phone Silverlight" 
+	description="Intégration du module Azure Mobile Engagement avec des applications Windows Phone Silverlight" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,241 +11,238 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/02/2015" 
+	ms.author="piyushjo" />
 
+#Intégration du Kit de développement logiciel (SDK) d’Engagement Windows Phone Silverlight
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
 
-# Intégration d'Engagement dans Windows Phone
+Cette procédure décrit la méthode la plus simple pour activer les fonctions d’analyse et de surveillance d’Azure Mobile Engagement dans votre application Windows Phone Silverlight.
 
-Cette procédure décrit la méthode la plus simple pour activer l'analyse et la surveillance Engagement dans votre application Windows Phone.
+Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d'autres statistiques, telles que les événements, les erreurs et les tâches, doit être effectuée manuellement à l'aide de l'API Engagement (voir la section [Utilisation avancée de l'API de marquage Mobile Engagement dans votre application Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) ci-dessous), dans la mesure où ces statistiques dépendent de l'application.
 
-Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. La génération des journaux nécessaires au calcul d'autres statistiques telles que les événements, les erreurs et les tâches doit être effectuée manuellement à l'aide de l'API Engagement (voir la section  [Utilisation avancée de l'API de marquage Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)  ci-dessous) dans la mesure où ces statistiques dépendent de l'application.
+##Versions prises en charge
 
-## Versions prises en charge
+Le Kit de développement logiciel Mobile Engagement pour Windows Silverlight peut uniquement être intégré dans les applications ciblant :
 
-Le Kit de développement logiciel Engagement pour Windows Phone peut uniquement être intégré dans les applications ciblant :
+-   Windows Phone 8.0
+-   Windows Phone 8.1 Silverlight
 
--   Windows Phone 8.0
--   Windows Phone 8.1 avec Silverlight
+> [AZURE.NOTE]Si vous ciblez Windows Phone 8.1 (non-Silverlight), consultez la rubrique [Procédure d’intégration de Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
 
-Le SDK Engagement pour Windows Phone est compatible avec les périphériques Windows Phone 8.0 et 8.1.
+##Installer le Kit de développement logiciel Mobile Engagement Silverlight
 
-## Intégration du SDK Engagement dans votre projet Windows Phone
+Le Kit de développement Mobile Engagement pour Windows Silverlight est disponible comme package Nuget appelé *MicrosoftAzure.MobileEngagement*. Vous pouvez l'installer à partir du gestionnaire de package Nuget Visual Studio.
 
-Le package NuGet pour Mobile Engagement n'est pas encore disponible en ligne. Vous devez donc télécharger notre archive du SDK et le décompresser. Ensuite dans Visual Studio, cliquez avec le bouton droit sur votre projet pour accéder à " Gérer les packages NuGet ", à Paramètres, puis ajoutez le dossier lib comme une nouvelle source du package.
+##Ajouter les fonctionnalités
 
+Le SDK Engagement a besoin de certaines fonctionnalités du SDK Windows Phone Silverlight pour pouvoir fonctionner correctement.
 
-> [AZURE.IMPORTANT] NuGet est le principal gestionnaire de package pour les projets .net. Il téléchargera, ajoutera et copiera tout ce dont vous avez besoin pour utiliser le SDK Engagement. Sur Windows Phone 8, Engagement utilise des bibliothèques tierces (Microsoft.Bcl.Build v1.0.10 et pack de portabilité Microsoft.Bcl v1.1.3) à des fins de portabilité interplateforme. NuGet vous demande automatiquement de les installer également. Vous trouverez plus d'informations sur le [site Web de NuGet](http://docs.nuget.org/docs/start-here/overview).
-
-## Ajout de fonctionnalités
-
-Le SDK Engagement a besoin de certaines fonctionnalités du SDK Windows Phone pour pouvoir fonctionner correctement.
-
-Ouvrez votre fichier  `WMAppManifest.xml`  et assurez-vous que les fonctionnalités suivantes sont indiquées dans le volet `Capabilities`  :
+Ouvrez votre fichier `WMAppManifest.xml` et assurez-vous que les fonctionnalités suivantes sont indiquées dans le volet `Capabilities` :
 
 -   `ID_CAP_NETWORKING`
 -   `ID_CAP_IDENTITY_DEVICE`
 
-## Initialisation du SDK Engagement
+##Initialiser le SDK Engagement
 
 ### Configuration d'Engagement
 
-La configuration d'Engagement est centralisée dans le fichier  `Resources\EngagementConfiguration.xml` de votre projet.
+La configuration d'Engagement est centralisée dans le fichier `Resources\EngagementConfiguration.xml` de votre projet.
 
-Modifiez ce fichier pour spécifier :
+Modifiez ce fichier pour spécifier :
 
--   La chaîne de connexion de votre application entre les balises de `<connectionString>` et  `<\connectionString>`.
+-   Votre chaîne de connexion d'application entre les balises `<connectionString>` et `<\connectionString>`.
 
-Si vous souhaitez plutôt la spécifier lors de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
+Si vous souhaitez plutôt la spécifier au moment de l'exécution, vous pouvez appeler la méthode suivante avant l'initialisation de l'agent Engagement :
 
-			/* Engagement configuration. */
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+	/* Engagement configuration. */
+	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
-			/* Initialize Engagement agent with above configuration. */
-			EngagementAgent.Instance.Init(engagementConfiguration);
+	/* Initialize Engagement agent with above configuration. */
+	EngagementAgent.Instance.Init(engagementConfiguration);
 
-La chaîne de connexion pour votre application figure sur le portail Azure.
+La chaîne de connexion de votre application est affichée sur le portail de gestion Azure.
 
 ### Initialisation d'Engagement
 
-Lorsque vous créez un nouveau projet, un fichier `App.xaml.cs`  est généré. Cette classe hérite de  `Application` et contient de nombreuses méthodes importantes. Elle servira également à initialiser le SDK Engagement.
+Quand vous créez un projet, un fichier `App.xaml.cs` est généré. Cette classe hérite de `Application` et contient de nombreuses méthodes importantes. Son rôle consiste également à initialiser le SDK Engagement.
 
-Modifiez `App.xaml.cs` :
+Modifiez le fichier `App.xaml.cs` :
 
--   Ajoutez à vos instructions `using`  :
+-   Ajoutez à vos instructions `using` :
 
-			using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
--   Insérez `EngagementAgent.Instance.Init` dans la méthode `Application_Launching`  :
+-   Insérez `EngagementAgent.Instance.Init` dans la méthode `Application_Launching` :
 
-			private void Application_Launching(object sender, LaunchingEventArgs e)
-			{
-			  EngagementAgent.Instance.Init();
-			}
+		private void Application_Launching(object sender, LaunchingEventArgs e)
+		{
+		  EngagementAgent.Instance.Init();
+		}
 
--   Insérez `EngagementAgent.Instance.OnActivated` dans la méthode `Application_Activated` :
+-   Insérez `EngagementAgent.Instance.OnActivated` dans la méthode `Application_Activated` :
 
-			private void Application_Activated(object sender, ActivatedEventArgs e)
-			{
-			   EngagementAgent.Instance.OnActivated(e);
-			}
+		private void Application_Activated(object sender, ActivatedEventArgs e)
+		{
+		   EngagementAgent.Instance.OnActivated(e);
+		}
 
-> [AZURE.WARNING] Nous vous déconseillons fortement d'ajouter l'initialisation d'Engagement à un autre endroit de votre application. Toutefois, sachez que la méthode `EngagementAgent.Instance.Init` s'exécute sur un thread dédié et non sur le thread d'interface utilisateur.
+> [AZURE.WARNING]Nous vous déconseillons fortement d'ajouter l'initialisation d'Engagement à un autre endroit de votre application. Toutefois, sachez que la méthode `EngagementAgent.Instance.Init` s'exécute sur un thread dédié et non sur le thread d'interface utilisateur.
 
-## Création de rapports de base
+##Génération de rapports de base
 
-### Méthode recommandée : surchargement de vos classes `PhoneApplicationPage`
+### Méthode recommandée : surchargez vos classes `PhoneApplicationPage`
 
-Pour activer la génération de tous les journaux requis par Engagement pour calculer les informations relatives aux utilisateurs, sessions, activités, incidents et statistiques techniques, vous pouvez simplement faire en sorte que toutes vos sous-classes `PhoneApplicationPage` héritent des classes `EngagementPage`.
+Pour activer la génération de tous les journaux requis par Engagement pour calculer les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques, vous pouvez simplement configurer toutes vos sous-classes `PhoneApplicationPage` de manière à ce qu'elles héritent des classes `EngagementPage`.
 
-Voici un exemple de procédure à suivre pour une page de votre application. Vous pouvez reproduire la procédure pour toutes les pages de votre application.
+Voici un exemple qui montre comment procéder pour une page de votre application. Vous pouvez faire la même chose pour toutes les pages de votre application.
 
-#### Fichier source C\#
+#### Fichier source C#
 
-Modifiez le fichier `.xaml.cs` de votre page :
+Modifiez le fichier `.xaml.cs` de votre page :
 
--   Ajoutez à vos instructions `using` :
+-   Ajoutez à vos instructions `using` :
 
-			using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
--   Remplacez `PhoneApplicationPage` par `EngagementPage` :
+-   Remplacez `PhoneApplicationPage` par `EngagementPage` :
 
-**Sans Engagement :**
+**Sans Engagement :**
 
-			namespace Example
-			{
-			  public partial class ExamplePage : PhoneApplicationPage
-			  {
-			    [...]
-			  }
-			}
+		namespace Example
+		{
+		  public partial class ExamplePage : PhoneApplicationPage
+		  {
+		    [...]
+		  }
+		}
 
-**Avec Engagement :**
+**Avec Engagement :**
 
-			using Microsoft.Azure.Engagement;
-			
-			namespace Example
-			{
-			  public partial class ExamplePage : EngagementPage 
-			  {
-			    [...]
-			  }
-			}
+		using Microsoft.Azure.Engagement;
+		
+		namespace Example
+		{
+		  public partial class ExamplePage : EngagementPage 
+		  {
+		    [...]
+		  }
+		}
 
-> [AZURE.WARNING] Si votre page hérite de la méthode `OnNavigatedTo`, veillez à laisser l'appel `base.OnNavigatedTo(e)`. Sinon, l'activité ne sera pas signalée. En effet, l'appel`EngagementPage` invoque`StartActivity` à l'intérieur de la méthode `OnNavigatedTo`.
+> [AZURE.WARNING]Si votre page hérite de la méthode `OnNavigatedTo`, veillez à laisser l'appel `base.OnNavigatedTo(e)`. Sinon, l'activité ne sera pas signalée. En effet, l'appel `EngagementPage` invoque `StartActivity` à l'intérieur de la méthode `OnNavigatedTo`.
 
 #### Fichier XAML
 
-Modifiez le fichier `.xaml` de votre page :
+Modifiez le fichier `.xaml` de votre page :
 
--   Ajoutez à vos déclarations d'espaces de noms :
+-   Ajoutez à vos déclarations d'espaces de noms :
 
-			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
 
--   Remplacez `phone:PhoneApplicationPage` par `engagement:EngagementPage` :
+-   Remplacez `phone:PhoneApplicationPage` par `engagement:EngagementPage` :
 
-**Sans Engagement :**
+**Sans Engagement :**
 
-			<phone:PhoneApplicationPage>
-			    <!-- layout -->
-			</phone:PhoneApplicationPage>
+		<phone:PhoneApplicationPage>
+		    <!-- layout -->
+		</phone:PhoneApplicationPage>
 
-**Avec Engagement :**
+**Avec Engagement :**
 
-			<engagement:EngagementPage 
-			    xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP">
-			
-			    <!-- layout -->
-			</engagement:EngagementPage >
+		<engagement:EngagementPage 
+		    xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP">
+		
+		    <!-- layout -->
+		</engagement:EngagementPage >
 
 #### Remplacement du comportement par défaut
 
-Par défaut, le nom de classe de la page est identique au nom de l'activité, sans ajout. Si la classe utilise le suffixe " Page ", Engagement le supprimera également.
+Par défaut, le nom de classe de la page est signalé comme le nom de l'activité, sans informations supplémentaires. Si la classe utilise le suffixe « Page », Engagement le supprime également.
 
-Si vous souhaitez remplacer le comportement par défaut pour le nom, ajoutez simplement ceci à votre code :
+Si vous souhaitez remplacer le comportement par défaut pour le nom, ajoutez simplement ceci à votre code :
 
-			// in the .xaml.cs file
-			protected override string GetEngagementPageName()
-			{
-			   /* your code */
-			   return "new name";
-			}
+		// in the .xaml.cs file
+		protected override string GetEngagementPageName()
+		{
+		   /* your code */
+		   return "new name";
+		}
 
-Si vous souhaitez signaler des informations supplémentaires à votre activité, vous pouvez ajouter la portion suivante à votre code :
+Si vous souhaitez signaler des informations supplémentaires avec votre activité, vous pouvez ajouter ceci à votre code :
 
-			// in the .xaml.cs file
-			protected override Dictionary<object,object> GetEngagementPageExtra()
-			{
-			   /* your code */
-			   return extra;
-			}
+		// in the .xaml.cs file
+		protected override Dictionary<object,object> GetEngagementPageExtra()
+		{
+		   /* your code */
+		   return extra;
+		}
 
-Vous trouverez davantage de détails sur les informations supplémentaires [sur cette page](../mobile-engagement-windows-phone-use-engagement-api/#extras-parameters).
+Ces méthodes sont appelées depuis la méthode `OnNavigatedTo` de votre page.
 
-Ces méthodes sont appelées à partir de la méthode  `OnNavigatedTo` de votre page.
+### Autre méthode : appeler `StartActivity()` manuellement
 
-### Méthode alternative : appel  `StartActivity()` manuel
+Si vous ne pouvez pas ou ne souhaitez pas surcharger vos classes `PhoneApplicationPage`, vous pouvez démarrer vos activités en appelant directement les méthodes `EngagementAgent`.
 
-Si vous ne pouvez pas ou ne voulez pas surcharger vos classes  `PhoneApplicationPage`, vous pouvez démarrer vos activités en appelant directement les méthodes  `EngagementAgent`.
+Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode `OnNavigatedTo` de votre PhoneApplicationPage.
 
-Nous vous recommandons d'appeler  `StartActivity` à l'intérieur de la méthode  `OnNavigatedTo` de votre PhoneApplicationPage.
+		protected override void OnNavigatedTo(NavigationEventArgs e)
+		{
+		   base.OnNavigatedTo(e);
+		   EngagementAgent.Instance.StartActivity("MyPage");
+		}
 
-			protected override void OnNavigatedTo(NavigationEventArgs e)
-			{
-			   base.OnNavigatedTo(e);
-			   EngagementAgent.Instance.StartActivity("MyPage");
-			}
-
-> [AZURE.IMPORTANT] Assurez-vous de terminer votre session correctement.
+> [AZURE.IMPORTANT]Assurez-vous de terminer votre session correctement.
 >
-> Le SDK Windows Phone appelle automatiquement la méthode  `EndActivity` lors de la fermeture de l'application. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode  `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode  `EndActivity`, étant donné que l'appel de cette méthode entraînerait l'arrêt forcé de l'application en cours.
+> Le Kit de développement logiciel (SDK) appelle automatiquement la méthode `EndActivity` à la fermeture de l'application. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode `EndActivity`, étant donné que l'appel de cette méthode entraîne l'arrêt de la session en cours.
 
-## Création de rapports avancés
+##Génération de rapports avancés
 
-Vous pouvez choisir de signaler des événements, erreurs et tâches d'application spécifiques. Pour ce faire, utilisez les autres méthodes de la classe  `EngagementAgent`. L'API Engagement permet d'utiliser toutes les fonctionnalités avancées d'Engagement.
+Vous pouvez éventuellement signaler les événements, erreurs et tâches spécifiques à l'application. Pour cela, utilisez les autres méthodes disponibles dans la classe `EngagementAgent`. L'API Engagement permet d'utiliser toutes les fonctionnalités avancées d'Engagement.
 
-Pour plus d'informations, consultez [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone](mobile-engagement-windows-phone-use-the-engagement-api.md).
+Pour plus d'informations, consultez la rubrique [Utilisation de l'API de marquage avancée Mobile Engagement dans votre application Windows Phone Silverlight ](../mobile-engagement-windows-phone-use-engagement-api/).
 
-## Configuration avancée
+##Configuration avancée
 
-### Désactivation du signalement automatique d'incident
+### Désactiver le signalement automatique des incidents
 
-Vous pouvez désactiver la fonctionnalité de signalement automatique d'incident d'Engagement. Ainsi, lorsqu'une exception non prise en charge se produit, Engagement ne réagit pas.
+Vous pouvez désactiver la fonctionnalité de signalement automatique des incidents d'Engagement. Dans ce cas, si une exception non gérée se produit, Engagement ne fait rien.
 
-> [AZURE.WARNING] Si vous envisagez de désactiver cette fonctionnalité, sachez que si un incident non pris en charge se produit dans votre application, Engagement n'enverra pas l'incident **ET** ne fermera ni la session ni les tâches.
+> [AZURE.WARNING]Si vous envisagez de désactiver cette fonctionnalité, sachez que si un incident non pris en charge se produit dans votre application, Engagement n'enverra pas l'incident **ET** ne fermera ni la session ni les tâches.
 
-Pour désactiver le signalement automatique d'incident, il suffit de personnaliser votre configuration en fonction de la façon dont vous l'avez déclaré :
+Pour désactiver le signalement automatique d'incident, il suffit de personnaliser votre configuration en fonction de la façon dont vous l'avez déclaré :
 
-#### À partir du fichier  `EngagementConfiguration.xml`
+#### Dans le fichier `EngagementConfiguration.xml`
 
-Définissez le signalement d'incident sur  `false` entre les balises `<reportCrash>` et `</reportCrash>`.
+Affectez au signalement des incidents la valeur `false` entre les balises `<reportCrash>` et `</reportCrash>`.
 
-#### À partir de l'objet  `EngagementConfiguration` durant l'exécution
+#### Dans l'objet `EngagementConfiguration` au moment l'exécution
 
-Définissez le signalement d'incident sur false à l'aide de l'objet EngagementConfiguration.
+Affectez au signalement des incidents la valeur false à l'aide de votre objet EngagementConfiguration.
 
-			/* Engagement configuration. */
+		/* Engagement configuration. */
 
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-			/\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
+		EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+		/* Disable Engagement crash reporting. */ engagementConfiguration.Agent.ReportCrash = false;
 
-### Mode rafale [beta]
+### Mode rafale
 
-Par défaut, le service Engagement génère des journaux en temps réel. Si votre application génère des journaux très fréquemment, il est préférable de mettre les journaux en mémoire tampon et de générer tous les rapports en même temps à une fréquence définie (cela s'appelle le " mode rafale ").
+Par défaut, le service Engagement génère des journaux en temps réel. Si votre application génère très fréquemment des journaux, il est préférable de les mettre en mémoire tampon et de les générer tous en même temps à intervalles réguliers (« mode rafale »).
 
-Pour ce faire, appelez la méthode :
+Pour cela, appelez la méthode :
 
-			EngagementAgent.Instance.SetBurstThreshold(int everyMs);
+		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-L'argument est une valeur en **millisecondes**. À tout moment, si vous souhaitez réactiver la journalisation en temps réel, il vous suffit d'appeler la méthode sans paramètre ou avec la valeur 0.
+L'argument est une valeur en **millisecondes**. Si vous souhaitez réactiver la génération de journaux en temps réel, vous pouvez appeler à tout moment la méthode sans aucun paramètre ou avec la valeur 0.
 
-Le mode rafale permet d'augmenter légèrement l'autonomie de la batterie, mais a un impact sur l'analyse Engagement. En effet, toutes les durées de session et de tâches seront arrondies à la valeur de seuil de la rafale (par conséquent, les sessions et les tâches dont la durée est inférieure au seuil de rafale ne sont pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s).
+Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s).
 
-> [AZURE.WARNING] Il n'est pas possible de configurer un seuil de rafale inférieur à une seconde. Si vous essayez de le faire, le SDK affichera une erreur et réinitialisera automatiquement la valeur par défaut, c'est-à-dire zéro seconde. Cela amènera le SDK à générer des journaux en temps réel.
-
-<!--HONumber=47-->
+> [AZURE.WARNING]Il n'est pas possible de configurer un seuil de rafale inférieur à une seconde. Si vous essayez de le faire, le SDK affichera une erreur et réinitialisera automatiquement la valeur par défaut, c'est-à-dire zéro seconde. Le SDK génère alors les journaux en temps réel.
+<!--HONumber=54-->

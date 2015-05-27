@@ -1,34 +1,37 @@
-﻿<properties 
-	pageTitle="Ajout d'une application à votre site Web Java" 
-	description="Ce didacticiel vous montre comment ajouter une page ou une application sur votre site Web Java dans Microsoft Azure." 
-	services="web-sites" 
+<properties 
+	pageTitle="Ajouter une application Java dans Azure App Service Web Apps" 
+	description="Ce didacticiel vous montre comment ajouter une page ou une application à votre instance d’Azure App Service Web Apps déjà configurée pour utiliser Java." 
+	services="app-service\web" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="04/21/2015" 
 	ms.author="robmcm"/>
 
-# Ajout d'une application à votre site Web Java sur Azure
+# Ajouter une application Java dans Azure App Service Web Apps
 
-Une fois que vous avez initialisé votre site Web Java comme indiqué dans [Prise en main de Microsoft Azure Sites Web et de Java](web-sites-java-get-started.md), vous pouvez télécharger votre application en plaçant votre fichier WAR dans le dossier **Webapps**.
+Une fois que vous avez initialisé votre application web Java dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) comme indiqué dans [Créer une application web Java dans Azure App Service](web-sites-java-get-started.md), vous pouvez télécharger votre application en plaçant votre fichier WAR dans le dossier **webapps**.
 
-Le chemin d'accès au dossier **Webapps** varie en fonction de la configuration de votre site Web.
+Le chemin d’accès au dossier **webapps** varie en fonction de la configuration de votre instance Web Apps.
 
-- Si vous configurez votre site Web à l'aide de la galerie d'applications Azure, le chemin d'accès du dossier **Webapps** se présente sous la forme **d:\home\site\wwwroot\bin\application\_server\Webapps**, où **application\_server** est le nom du serveur d'applications de votre site Web. 
-- Si vous configurez votre site Web à l'aide de l'interface utilisateur de configuration Azure, le chemin d'accès du dossier **Webapps** se présente sous la forme **d:\home\site\wwwroot\Webapps**. 
+- Si vous configurez votre application web à l’aide d’Azure Marketplace, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\bin\\serveur_applications\\webapps**, où **serveur_applications** est le nom du serveur d’applications de votre instance Web Apps. 
+- Si vous configurez votre application web à l’aide de l’interface utilisateur d’Azure, le chemin d’accès au dossier **webapps** se présente sous la forme **d:\\home\\site\\wwwroot\\webapps**. 
 
-Notez que vous pouvez utiliser le contrôle de code source pour télécharger votre application ou vos pages Web, y compris dans des scénarios d'intégration continue. Pour obtenir les instructions d'utilisation du contrôle de code source avec votre site Web, consultez [Publication à partir du contrôle de code source dans Azure Web Sites](web-sites-publish-source-control.md). Le protocole FTP permet également de télécharger votre application ou des pages Web.
+Notez que vous pouvez utiliser le contrôle de code source pour télécharger votre application ou vos pages Web, y compris dans des scénarios d’intégration continue. Les instructions d’utilisation du contrôle de code source avec votre application web sont disponibles dans la page [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md). Le protocole FTP permet également de télécharger votre application ou des pages web.
 
-Remarque pour les sites Web Tomcat : une fois que vous avez téléchargé votre fichier WAR vers le dossier **Webapps**, le serveur d'applications Tomcat détecte que vous l'avez ajouté et le charge automatiquement. Notez que si vous copiez des fichiers (autres que des fichiers WAR) dans le répertoire ROOT, vous devez redémarrer le serveur d'applications avant d'utiliser ces fichiers. La fonctionnalité de chargement automatique des sites Web Java Tomcat exécutés sur Azure est basée sur l'ajout d'un fichier WAR, ou sur les fichiers ou répertoires ajoutés au dossier **Webapps**. 
+Remarque pour les applications web Tomcat : une fois que vous avez téléchargé votre fichier WAR dans le dossier **webapps**, le serveur d’applications Tomcat détecte que vous l’avez ajouté et le charge automatiquement. Notez que si vous copiez des fichiers (autres que des fichiers WAR) dans le répertoire ROOT, vous devez redémarrer le serveur d'applications avant d'utiliser ces fichiers. La fonctionnalité de chargement automatique des applications web Java Tomcat exécutées sur Azure repose sur l’ajout d’un fichier WAR ou de nouveaux fichiers ou répertoires dans le dossier **webapps**.
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

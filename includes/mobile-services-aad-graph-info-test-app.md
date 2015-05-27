@@ -1,16 +1,14 @@
-﻿
 
-Les instructions et les captures d'écran ci-dessous s'appliquent au test d'un client Windows Store, mais vous pouvez le tester sur n'importe quelle autre plateforme prise en charge par Azure Mobile Services. 
+
+Les instructions et les captures d’écran ci-dessous s’appliquent au test d’un client Windows Store, mais vous pouvez le tester sur n’importe quelle autre plateforme prise en charge par Azure Mobile Services.
 
 1. Lancez l'application et authentifiez-vous à l'aide d'un compte d'utilisateur dont les informations détaillées figurent dans l'annuaire. 
 
     ![](./media/mobile-services-aad-graph-info-test-app/bob-login.png)
 
-2. L'API personnalisée s'exécute en renvoyant les informations d'annuaire de l'utilisateur de manière personnalisée. Dans cet exemple, pour afficher son adresse, l'utilisateur doit disposer des informations suivantes : *streetAddress*, *city*, *state* et *postalCode*.
+2. L'API personnalisée s'exécute en renvoyant les informations d'annuaire de l'utilisateur de manière personnalisée.
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

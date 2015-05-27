@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="API de balisage du Kit de développement logiciel SDK Azure Mobile Engagement Windows Store" 
-	description="Dernières mises à jour et procédures pour le Kit de développement logiciel SDK Windows Store pour Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Comment utiliser l'API Engagement sur Windows Universal" 
+	description="Comment utiliser l'API Engagement sur Windows Universal"			
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,32 +11,32 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-#Comment utiliser l'API Engagement sur Windows
+#Comment utiliser l'API Engagement sur Windows Universal
 
-Ce document est un complément du document [Comment intégrer Engagement sur Windows](mobile-engagement-windows-store-integrate-engagement.md) : il explique en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de vos applications.
+Ce document est un complément du document [Comment intégrer Engagement sur Windows Universal](../mobile-engagement-windows-store-integrate-engagement/) : il explique en détail comment utiliser l'API Engagement pour créer des rapports sur les statistiques de vos applications.
 
-N'oubliez pas que si vous souhaitez seulement qu'Engagement signale les sessions, les activités, les pannes et les informations techniques de votre application, le plus simple consiste à faire en sorte que toutes vos  `Page`sous-classes héritent de la classe  `EngagementPage`.
+N'oubliez pas que si vous souhaitez seulement qu'Engagement signale les sessions, les activités, les incidents et les informations techniques de votre application, la méthode la plus simple consiste à configurer toutes vos sous-classes `Page` de manière à ce qu’elles héritent de la classe `EngagementPage`.
 
-Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des travaux spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une manière différente de celle implémentée dans les classes  `EngagementPage`, vous devez utiliser l'API Engagement.
+Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des travaux spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une manière différente de celle implémentée dans les classes `EngagementPage`, vous devez utiliser l'API Engagement.
 
-L'API Engagement est fournie par la classe  `EngagementAgent`. Vous pouvez accéder à ces méthodes par l'intermédiaire de  `EngagementAgent.Instance`.
+L'API Engagement est fournie par la classe `EngagementAgent`. Vous pouvez accéder à ces méthodes par l'intermédiaire de `EngagementAgent.Instance`.
 
 Même si le module de l'agent n'a pas été initialisé, chaque appel à l'API est différé et réexécuté une fois l'agent disponible.
 
 ##Concepts liés à Engagement
 
-Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engagement-concepts.md)  courants pour la plateforme Windows.
+Les sections qui suivent affinent les [concepts Mobile Engagement](../mobile-engagement-concepts/) courants pour la plateforme Windows Universal.
 
-### `Session` et  `Activité`
+### `Session` et `Activity`
 
-Une  *activité* est généralement associée à une page de l'application, c'est-à-dire que l' *activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le SDK Engagement est intégré à l'aide de la classe  `EngagementPage`.
+Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide de la classe `EngagementPage`.
 
-Mais les  *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
 
 ##Rapports d'activités
 
@@ -46,9 +46,9 @@ Mais les  *activités* peuvent également être contrôlées manuellement à l'a
 
 			void StartActivity(string name, Dictionary<object, object> extras = null)
 
-Vous devez appeler  `StartActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
+Vous devez appeler `StartActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
-> [AZURE.TIP] Vous n'avez pas besoin d'appeler  `EndActivity()` après chaque appel à  `StartActivity()`.
+> [AZURE.IMPORTANT]Le Kit de développement logiciel (SDK) appelle automatiquement la méthode EndActivity quand l'application est fermée. Par conséquent, il est FORTEMENT recommandé d'appeler la méthode StartActivity chaque fois que l'activité de l'utilisateur change et de ne JAMAIS appeler la méthode EndActivity, celle-ci forçant la fin de la session active.
 
 #### Exemple
 
@@ -56,7 +56,7 @@ Vous devez appeler  `StartActivity()` chaque fois que l'activité utilisateur ch
 
 ### L'utilisateur met fin à l'activité en cours
 
-#### Référence
+#### du SDK
 
 			void EndActivity()
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser le travail pour effectuer le suivi de certaines tâches sur
 
 ### Mettre fin à un travail
 
-#### Référence
+#### du SDK
 
 			void EndJob(string name)
 
@@ -97,14 +97,14 @@ Dès qu'une tâche suivie par un travail est terminée, vous devez appeler la m�
 
 #### Exemple
 
-			// In the previous section, we started an upload suivi avec un travail
+			// In the previous section, we started an upload tracking with a job
 			// Then, the upload ends
 			
 			EngagementAgent.Instance.EndJob("uploadData");
 
 ##Rapports d'événements
 
-Il existe trois types d'événements :
+Il existe trois types d'événements :
 
 -   Événements autonomes
 -   Événements de session
@@ -112,7 +112,7 @@ Il existe trois types d'événements :
 
 ### Événements autonomes
 
-#### Référence
+#### du SDK
 
 			void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -132,7 +132,7 @@ Les événements de session servent généralement à signaler les actions effec
 
 #### Exemple
 
-**Sans données :**
+**Sans données :**
 
 			EngagementAgent.Instance.SendSessionEvent("sessionEvent");
 			
@@ -140,7 +140,7 @@ Les événements de session servent généralement à signaler les actions effec
 			
 			EngagementAgent.Instance.SendSessionEvent("sessionEvent", null);
 
-**Avec données :**
+**Avec données :**
 
 			Dictionary<object, object> extras = new Dictionary<object,object>();
 			extras.Add("name", "data");
@@ -160,7 +160,7 @@ Les événements de travail servent généralement à signaler les actions effec
 
 ##Rapports d'erreurs
 
-Il existe trois types d'erreurs :
+Il existe trois types d'erreurs :
 
 -   Erreurs autonomes
 -   Erreurs de session
@@ -168,7 +168,7 @@ Il existe trois types d'erreurs :
 
 ### Erreurs autonomes
 
-#### Référence
+#### du SDK
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -196,7 +196,7 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-Les erreurs peuvent être associés à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
+Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
 
 #### Exemple
 
@@ -214,11 +214,11 @@ L'agent fournit deux méthodes pour gérer les incidents.
 
 #### Exemple
 
-Vous pouvez envoyer une exception à tout moment en appelant :
+Vous pouvez envoyer une exception à tout moment en appelant :
 
 			EngagementAgent.Instance.SendCrash(aCatchedException);
 
-Vous pouvez également utiliser un paramètre facultatif pour mettre fin à la session Engagement en même temps que l'envoi de l'incident. Pour ce faire, appelez :
+Vous pouvez également utiliser un paramètre facultatif pour mettre fin à la session Engagement en même temps que l'envoi de l'incident. Pour ce faire, appelez :
 
 			EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
@@ -226,7 +226,7 @@ Si vous procédez ainsi, la session et les travaux sont fermés juste après l'e
 
 ### Envoyer une exception non gérée
 
-#### Référence
+#### du SDK
 
 			void SendCrash(Exception e)
 
@@ -236,7 +236,7 @@ Cette méthode met **TOUJOURS** fin aux travaux et à la session Engagement apr�
 
 #### Exemple
 
-Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledExceptionEventArgs. Par exemple, ajoutez la méthode  `Current_UnhandledException` du fichier  `App.xaml.cs` :
+Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledExceptionEventArgs. Par exemple, ajoutez la méthode `Current_UnhandledException` du fichier `App.xaml.cs` :
 
 			// In your App.xaml.cs file
 			
@@ -246,7 +246,7 @@ Vous pouvez l'utiliser pour implémenter votre propre gestionnaire UnhandledExce
 			   EngagementAgent.Instance.SendCrash(e.Exception,false);
 			}
 
-Dans App.xaml.cs dans " Public App(){} ", ajoutez :
+Dans App.xaml.cs dans « Public App(){} », ajoutez :
 
 			Application.Current.UnhandledException += Current_UnhandledException;
 
@@ -260,11 +260,11 @@ Vous pouvez obtenir l'ID de périphérique Engagement en appelant cette méthode
 
 Des données arbitraires peuvent être associées à un événement, à une erreur, à une activité ou à un travail. Ces données peuvent être structurées à l'aide d'un dictionnaire. Les clés et les valeurs peuvent être de n'importe quel type.
 
-Les données de suppléments sont sérialisées ; par conséquent, si vous souhaitez insérer votre propre type dans des suppléments, vous devez ajouter un contrat de données pour ce type.
+Les données de suppléments sont sérialisées ; par conséquent, si vous souhaitez insérer votre propre type dans des suppléments, vous devez ajouter un contrat de données pour ce type.
 
 ### Exemple
 
-Nous créons une classe nommée " Person ".
+Nous créons une classe nommée « Person ».
 
 			using System.Runtime.Serialization;
 			
@@ -297,7 +297,7 @@ Nous créons une classe nommée " Person ".
 			  }
 			}
 
-Ensuite, nous ajoutons une instance  `Person` à un supplément.
+Ensuite, nous ajoutons une instance `Person` à un supplément.
 
 			Person person = new Person("Engagement Haddock", 51);
 			var extras = new Dictionary<object, object>();
@@ -305,21 +305,21 @@ Ensuite, nous ajoutons une instance  `Person` à un supplément.
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING] Si vous placez d'autres types d'objets, assurez-vous que leur méthode ToString() est implémentée pour retourner une chaîne explicite.
+> [AZURE.WARNING]Si vous placez d'autres types d'objets, assurez-vous que leur méthode ToString() est implémentée pour retourner une chaîne explicite.
 
 ### Limites
 
-#### Clés
+#### de clés symétriques
 
-Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
+Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
 
 #### Taille
 
-Les suppléments sont limités à **1024** caractères par appel.
+Les suppléments sont limités à **1 024** caractères par appel.
 
 ##Rapports d'informations sur l'application
 
@@ -329,7 +329,7 @@ Les suppléments sont limités à **1024** caractères par appel.
 
 Vous pouvez signaler manuellement les informations de suivi (ou toute autre information spécifique à l'application) à l'aide de la fonction SendAppInfo().
 
-Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary\<objet\,objet> pour joindre des informations.
+Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné. Comme pour les suppléments d'événements, utilisez un Dictionary<object, object> pour joindre des informations.
 
 ### Exemple
 
@@ -343,20 +343,20 @@ Notez que ces informations peuvent être envoyées de façon incrémentielle : s
 
 ### Limites
 
-#### Clés
+#### de clés symétriques
 
-Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
+Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
 
 #### Taille
 
-Les informations sur l'application sont limitées à **1024** caractères par appel.
+Les informations sur l'application sont limitées à **1 024** caractères par appel.
 
-Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
+Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"birthdate":"1983-12-07","gender":"female"}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

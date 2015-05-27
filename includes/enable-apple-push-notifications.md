@@ -1,9 +1,9 @@
 
-Le service de notification Push Apple \(APNS\) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
+Le service de notification Push Apple (APNS) utilise des certificats pour authentifier votre service mobile. Suivez ces instructions pour créer les certificats requis et les télécharger dans votre service mobile. Pour obtenir la documentation complète des fonctionnalités APNS, consultez la page [Service de notification Push Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 ## <a id="certificates"></a>Génération du fichier de demande de signature de certificat
 
-Vous devez d'abord générer le fichier de demande de signature de certificat \(CSR, Certificate Signing Request\), qu'Apple utilise pour générer un certificat signé.
+Vous devez d'abord générer le fichier de demande de signature de certificat (CSR, Certificate Signing Request), qu'Apple utilise pour générer un certificat signé.
 
 1. Dans le dossier Utilitaires, exécutez l'outil Trousseaux d'accès.
 
@@ -33,7 +33,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
 
 
-> [AZURE.NOTE] Si vous choisissez d'entrer une valeur <strong>Bundle Identifier</strong> autre que <i>MobileServices.Quickstart</i>, vous devez également mettre à jour la valeur d'identificateur de lot dans votre projet Xcode. Nous vous recommandons d’utiliser la valeur d’identificateur de lot exacte que vous avez déjà utilisée dans votre projet de démarrage rapide.
+> [AZURE.NOTE]Si vous choisissez d’entrer une valeur <strong>Bundle Identifier</strong> autre que <i>MobileServices.Quickstart</i>, vous devez également mettre à jour la valeur d’identificateur de lot dans votre projet Xcode. Nous vous recommandons d’utiliser la valeur d’identificateur de lot exacte que vous avez déjà utilisée dans votre projet de démarrage rapide.
 
 2. Entrez un nom pour votre application dans **Description**, entrez la valeur _MobileServices.Quickstart_ dans **Bundle Identifier**, activez l'option « Push Notifications » dans la section « App Services », puis cliquez sur **Continue**. Cet exemple utilise l'ID **MobileServices.Quickstart**, mais vous ne pouvez pas réutiliser le même ID, car chaque ID d'application doit être unique pour chaque utilisateur. Ainsi, nous vous recommandons d'ajouter votre nom complet ou vos initiales après le nom de l'application.
 
@@ -80,9 +80,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
   	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step9.png)
 
-    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps\_development.cer**.
+    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps_development.cer**.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
 
    	Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -122,7 +122,7 @@ Plus tard, vous devrez utiliser ce certificat pour générer un fichier .p12 et 
 
 7. Dans Xcode, ouvrez l'Organisateur, sélectionnez la vue Appareils, sélectionnez **Profils d'approvisionnement** dans la section **Bibliothèque** dans le volet de gauche, puis cliquez sur le bouton **Actualiser** en bas du volet du milieu.
 
-8. Ou bien, dans le menu Xcode, sélectionnez **Préférences**, puis **Comptes**. Dans le volet gauche, sélectionnez votre ID de développeur Apple. Cliquez sur le bouton **Afficher les détails** sur la droite. Dans la fenêtre indépendante, cliquez sur le bouton arrondi **Actualiser**. Cette action actualise la liste des profils de mise en service. Cette opération peut prendre quelques minutes. Nous vous recommandons de cliquer sur **Actualiser** 2 à 3 fois jusqu'à ce que votre nouveau profil d'approvisionnement apparaisse. En outre, vérifiez que l’identificateur de lot de ce projet Xcode est identique à l’identificateur de lot associé à l’ID d’application et au profil d’approvisionnement créé jusqu’à présent.
+8. Ou bien, dans le menu Xcode, sélectionnez **Préférences**, puis **Comptes**. Dans le volet gauche, sélectionnez votre ID de développeur Apple. Cliquez sur le bouton **Afficher les détails** sur la droite. Dans la fenêtre indépendante, cliquez sur le bouton arrondi **Actualiser**. Cette action actualise la liste des profils de mise en service. Cette opération peut prendre quelques minutes. Nous vous recommandons de cliquer sur **Actualiser** 2 à 3 fois jusqu’à ce que votre nouveau profil d’approvisionnement apparaisse. En outre, vérifiez que l’identificateur de lot de ce projet Xcode est identique à l’identificateur de lot associé à l’ID d’application et au profil d’approvisionnement créé jusqu’à présent.
 
     ![](./media/enable-apple-push-notifications/mobile-services-ios-push-01.png)
 

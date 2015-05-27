@@ -1,64 +1,63 @@
 <properties 
-	pageTitle="Authentification des utilisateurs de votre application iOS à l'aide de l'authentification unique Azure Active Directory" 
-	description="Découvrez comment connecter des utilisateurs dans votre application iOS à l'aide de la bibliothèque d'authentification Active Directory." 
-	documentationCenter="Mobile" 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	manager="dwrede" />
+        pageTitle="Authentification des utilisateurs de votre application iOS à l'aide de l'authentification unique Azure Active Directory" 
+        description="Découvrez comment connecter des utilisateurs dans votre application iOS à l'aide de la bibliothèque d'authentification Active Directory." 
+        documentationCenter="Mobile" 
+        authors="mattchenderson" 
+        services="app-service\mobile" 
+        manager="dwrede" />
 
-<tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
-	ms.author="mahender" />
+<tags ms.service="app-service"
+ms.workload="mobile"
+ms.tgt_pltfrm="mobile-ios" 
+ms.devlang="objective-c" 
+ms.topic="article" 
+ms.date="02/20/2015" 
+ms.author="mahender" />
 
 # Ajout de l'authentification unique Azure Active Directory à votre application iOS
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
-Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory.
+Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de la bibliothèque d'authentification Active Directory.
 
-Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire votre application auprès de votre client Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service App Service et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application iOS et lui accorder l'accès à ces autorisations.
+Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire votre application auprès de votre client Azure Active Directory (AAD). Cela se déroule en deux étapes : Vous devez d'abord inscrire votre service App Service et exposer les autorisations sur celui-ci. Vous devez ensuite inscrire votre application iOS et lui accorder l'accès à ces autorisations.
 
-Ce didacticiel requiert les éléments suivants :
+Ce didacticiel requiert les éléments suivants :
 
-* XCode 4.5 et iOS 6.0 (ou versions ultérieures)
+* XCode 4.5 et iOS 6.0 (ou versions ultérieures)
 * Exécution du didacticiel [Prise en main des applications mobiles]
 * Kit de développement logiciel (SDK) de Microsoft Azure Mobile Services
-* [Bibliothèque d'authentification Active Directory pour iOS]
+* [Bibliothèque d'authentification Active Directory pour iOS]
 
-## <a name="register-application"></a>Inscription de votre application auprès d'Azure Active Directory
+## <a name="register-application"></a>Inscription de votre application auprès d’Azure Active Directory
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
-## <a name="require-authentication"></a>Configuration de l'application afin d'exiger une authentification
+## <a name="require-authentication"></a>Configuration de l’application afin d’exiger une authentification
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
-## <a name="add-adal"></a>Ajout d'une référence à la bibliothèque d'authentification Active Directory
+## <a name="add-adal"></a>Ajout d’une référence à la bibliothèque d’authentification Active Directory
 
-1. Téléchargez la [bibliothèque d'authentification Active Directory pour iOS].
+1. Téléchargez la [bibliothèque d’authentification Active Directory pour iOS].
 
-2. Dans Xcode Navigator, sélectionnez votre projet, puis cliquez sur **File** et choisissez **Add Files to...**. Accédez à l'emplacement où vous avez téléchargé la bibliothèque et sélectionnez **ADALiOS.xcodeproj**.
+2. Dans Xcode Navigator, sélectionnez votre projet, puis cliquez sur **File** et choisissez **Add Files to...**. Accédez à l’emplacement où vous avez téléchargé la bibliothèque et sélectionnez **ADALiOS.xcodeproj**.
 
-3. Sélectionnez à nouveau votre projet et ouvrez l'onglet **Build Settings**. Accédez à la section **Linking** et ajoutez `-ObjC` à **Other Linker Flags**.
+3. Sélectionnez à nouveau votre projet et ouvrez l’onglet **Build Settings**. Accédez à la section **Linking** et ajoutez `-ObjC` à **Other Linker Flags**.
 
-4. Sélectionnez l'onglet **Build Phases**. Sous **Target Dependencies**, ajoutez `ADALiOS`.
+4. Sélectionnez l’onglet **Build Phases**. Sous **Target Dependencies**, ajoutez `ADALiOS`.
 
 5. Sous **Link Binary With Libraries**, ajoutez `libADALiOS.a`.
 
 Vous pourrez désormais faire référence à la bibliothèque d'authentification Active Directory dans votre projet.
 
-## <a name="add-authentication-code"></a>Ajout du code d'authentification à l'application cliente
+## <a name="add-authentication-code"></a>Ajout du code d’authentification à l’application cliente
 
-2. Dans le contrôleur QSTodoListViewController, incluez ADAL avec le code suivant :
+2. Dans le contrôleur QSTodoListViewController, incluez ADAL avec le code suivant :
 
         #import "ADALiOS/ADAuthenticationContext.h"
 
-3. Ajoutez ensuite la méthode suivante :
+3. Ajoutez ensuite la méthode suivante :
 
         - (void) loginAndGetData
         {
@@ -93,28 +92,29 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
             }];
         }
 
-4. Dans le code de la méthode  `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez configuré votre application. Le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
+4. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
 
-5. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-RESOURCE-URI-HERE** par l'**URI ID d'application** de votre application mobile. Si vous avez suivi les instructions de la rubrique [Comment configurer votre application mobile avec Azure Active Directory], votre URI ID d'application doit être similaire à https://contosogateway.azurewebsites.net/login/aad.
+5. Dans le code de la méthode `loginAndGetData`, remplacez **INSERT-RESOURCE-URI-HERE** par l’**URI ID d’application** de votre application mobile. Si vous avez suivi les instructions de la rubrique [Configuration de votre application mobile avec Azure Active Directory], votre URI ID d’application doit être semblable à https://contosogateway.azurewebsites.net/login/aad.
 
-6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-CLIENT-ID-HERE** par l'ID client que vous avez copié à partir de l'application cliente native.
+6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-CLIENT-ID-HERE**￼ par l’ID client que vous avez copié dans l’application cliente native.
 
-7. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison /login/done de votre passerelle App Service. Il doit être similaire à https://contosogateway.azurewebsites.net/login/done.
+7. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison /login/done de votre passerelle App Service. Cette valeur doit être semblable à https://contosogateway.azurewebsites.net/login/done.
 
-8. Dans le contrôleur QSTodoListViewController, modifiez `ViewDidLoad` en remplaçant `[self refresh]` par :
+8. Dans le contrôleur QSTodoListViewController, modifiez `viewDidLoad` en remplaçant `[self refresh]` par le code suivant :
 
         [self loginAndGetData];
 
-## <a name="test-client"></a>Test du client à l'aide de l'authentification
+## <a name="test-client"></a>Test du client à l’aide de l’authentification
 
 1. Dans le menu Produit, cliquez sur Exécuter pour démarrer l'application.
-2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.  
+2. Une invite s'affiche alors pour vous permettre de vous connecter à votre annuaire Azure Active Directory.  
 3. L'application authentifie et renvoie les tâches à effectuer.
 
 <!-- URLs. -->
-[Comment configurer votre application mobile avec Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
-[Portail de gestion Azure]: https://manage.windowsazure.com/
-[Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Configuration de votre application mobile avec Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
+[portail de gestion Azure]: https://manage.windowsazure.com/
+[Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+[bibliothèque d’authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+[Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

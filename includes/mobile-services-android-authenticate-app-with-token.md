@@ -1,10 +1,10 @@
-﻿
-L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur. 
+
+L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur.
 
 >[AZURE.NOTE]Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
 
-1. Ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes :
+1. Ouvrez le fichier ToDoActivity.java, puis ajoutez les instructions import suivantes :
 
         import android.content.Context;
         import android.content.SharedPreferences;
@@ -28,9 +28,9 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 	        editor.commit();
     	}	
   
-    Cette méthode stocke l'ID d'utilisateur et le jeton dans un fichier de préférences marqué comme privé. Ceci doit protéger l'accès au cache afin que les autres applications de l'appareil n'aient pas accès au jeton, car les préférences sont exécutées dans le bac à sable (sandbox) de l'application. Toutefois, si une personne tente d'accéder à l'appareil, il est possible qu'elle puisse accéder au cache du jeton par d'autres moyens. 
+    Cette méthode stocke l'ID d'utilisateur et le jeton dans un fichier de préférences marqué comme privé. Ceci doit protéger l'accès au cache afin que les autres applications de l'appareil n'aient pas accès au jeton, car les préférences sont exécutées dans le bac à sable (sandbox) de l'application. Toutefois, si une personne tente d'accéder à l'appareil, il est possible qu'elle puisse accéder au cache du jeton par d'autres moyens.
 
-    >[AZURE.NOTE]Vous pouvez protéger davantage le jeton avec chiffrement si le jeton accès à vos données est considéré comme très sensible et que quelqu'un peut accéder au périphérique. Toutefois, une solution sécurisée complète sort du cadre de ce didacticiel et dépend de vos besoins en matière de sécurité.
+    >[AZURE.NOTE]Vous pouvez protéger davantage le jeton avec chiffrement si le jeton accès à vos données est considéré comme très sensible et que quelqu’un peut accéder au périphérique. Toutefois, une solution sécurisée complète sort du cadre de ce didacticiel et dépend de vos besoins en matière de sécurité.
 
 
 4. Dans le fichier ToDoActivity.java, ajoutez la définition suivante pour la méthode `loadUserTokenCache`.
@@ -90,4 +90,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->
