@@ -18,13 +18,13 @@
 
 # Environnements de test de cloud hybride Azure
 
-Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure \(VNet\) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel \(VPN\) de site à site relative à votre emplacement sur Internet.
+Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure (VNet) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel (VPN) de site à site relative à votre emplacement sur Internet.
 
 ## Configuration de base de cloud hybride
 
 La [configuration de base de cloud hybride](virtual-networks-setup-hybrid-cloud-environment-testing.md) se compose des éléments suivants :
 
-- un réseau local simplifié avec quatre machines virtuelles \(un contrôleur de domaine, un serveur d’applications, un ordinateur client et un périphérique VPN exécutant Windows Server et un routage et accès distant\) ;
+- un réseau local simplifié avec quatre machines virtuelles (un contrôleur de domaine, un serveur d’applications, un ordinateur client et un périphérique VPN exécutant Windows Server et un routage et accès distant) ;
 - un réseau virtuel Azure avec un contrôleur de domaine de réplication ;
 - une connexion VPN de site à site.
 
@@ -34,9 +34,9 @@ La [batterie de serveurs SharePoint intranet dans un environnement de test de cl
 
 ## Application métier web dans un cloud hybride
 
-L’[application métier web dans un environnement de test de cloud hybride](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ajoute un serveur SQL Server 2014 et IIS \(Internet Information Services\) à la configuration de base de cloud hybride. Cela crée l’infrastructure dans laquelle vous pouvez déployer et tester une application métier web à plusieurs niveaux.
+L’[application métier web dans un environnement de test de cloud hybride](virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ajoute un serveur SQL Server 2014 et IIS (Internet Information Services) à la configuration de base de cloud hybride. Cela crée l’infrastructure dans laquelle vous pouvez déployer et tester une application métier web à plusieurs niveaux.
 
-## Serveur de synchronisation d’annuaires Office 365 \(DirSync\) dans un cloud hybride
+## Serveur de synchronisation d’annuaires Office 365 (DirSync) dans un cloud hybride
 
 Le [serveur Office 365 DirSync dans un environnement de test de cloud hybride](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) ajoute un serveur DirSync à la configuration de base de cloud hybride et illustre Office 365 DirSync avec synchronisation de mot de passe sur un abonnement d’évaluation d’Office 365.
 
@@ -51,7 +51,7 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [PDF du plan d’architecture des applications métier 3 D](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
-[Déploiement de la synchronisation d’annuaires \(DirSync\) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+[Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
 
 <!--HONumber=52-->

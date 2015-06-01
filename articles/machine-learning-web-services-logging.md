@@ -23,7 +23,7 @@ Ce document fournit des informations sur la fonctionnalité de journalisation de
 -	Comment activer la journalisation dans les services Web :   
 	-	Pour activer la journalisation, vous devez accéder au tableau de bord du service Web à partir du portail Azure. Cliquez sur le bouton « Oui » pour l'activer, puis cliquez sur « Enregistrer ».  
 -	Que se passe-t-il une fois la journalisation activée :  
-	-	Lorsque la journalisation est activée, tous les diagnostic et toutes les erreurs du point de terminaison par défaut sont enregistrés dans le compte de stockage Azure lié à l'espace de travail de l'utilisateur. Vous pouvez voir ce compte de stockage dans la vue Tableau de bord du portail Azure \(en bas de la section Aperçu rapide\) de son espace de travail.  
+	-	Lorsque la journalisation est activée, tous les diagnostic et toutes les erreurs du point de terminaison par défaut sont enregistrés dans le compte de stockage Azure lié à l'espace de travail de l'utilisateur. Vous pouvez voir ce compte de stockage dans la vue Tableau de bord du portail Azure (en bas de la section Aperçu rapide) de son espace de travail.  
 -	Disponibilité :  
 	-	Nous sommes actuellement en train d’activer la journalisation du point de terminaison par défaut du service Web. Nous serons bientôt en mesure de présenter cette fonctionnalité pour le point de terminaison que l’utilisateur peut créer dans le portail Azure.  
 -	Comment afficher les journaux :  

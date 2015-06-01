@@ -19,7 +19,7 @@
 
 Si vous exécutez une application web Java, vous pouvez afficher dans le portail Application Insights des informations sur les demandes HTTP envoyées à votre application, comme les ressources demandées, les demandes ayant échoué et les temps de réponse.
 
-Installez le [kit de développement logiciel \(SDK\) Application Insights pour Java][java], si ce n'est pas déjà fait.
+Installez le [kit de développement logiciel (SDK) Application Insights pour Java][java], si ce n'est pas déjà fait.
 
 
 ## Ajouter les fichiers binaires à votre projet
@@ -99,7 +99,7 @@ Exécutez votre application.
 
 Revenez à votre ressource Application Insights dans Microsoft Azure.
 
-Les données des demandes HTTP apparaissent dans le panneau Vue d'ensemble. \(Si elles n'y sont pas, attendez quelques secondes et puis cliquez sur Actualiser\).
+Les données des demandes HTTP apparaissent dans le panneau Vue d'ensemble. (Si elles n'y sont pas, attendez quelques secondes et puis cliquez sur Actualiser).
 
 ![](./media/app-insights-java-track-http-requests/5-results.png)
  

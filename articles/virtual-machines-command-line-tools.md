@@ -348,7 +348,7 @@ Une image de machine virtuelle ne peut être capturée que si l'état de la mach
 
 Cette commande permet d'exporter une image de machine virtuelle Azure vers un fichier.
 
-	~$ azure vm export "myvm" "C:\"
+	~$ azure vm export "myvm" "C:"
 	info:    Executing command vm export
 	+ Getting virtual machines
 	+ Exporting the VM

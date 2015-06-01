@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main des backends d&#39;applications mobiles pour les applications du Windows Store | Centre de développement mobile"
-	description="Suivez ce didacticiel pour commencer à utiliser des backends d&#39;applications mobiles Azure pour le développement d&#39;applications Windows Store en C#, VB ou JavaScript."
+	pageTitle="Prise en main des backends d'applications mobiles pour les applications du Windows Store | Centre de développement mobile"
+	description="Suivez ce didacticiel pour commencer à utiliser des backends d'applications mobiles Azure pour le développement d'applications Windows Store en C#, VB ou JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -44,7 +44,7 @@ Dans cette section, vous allez créer une application Windows universelle connec
 
 1. Dans le portail Azure, cliquez sur **Application mobile**, puis sur l'application mobile que vous venez de créer.
 
-2. En haut du panneau, cliquez sur **Ajouter un client** et développez **Windows \(C\#\)**.
+2. En haut du panneau, cliquez sur **Ajouter un client** et développez **Windows (C#)**.
 
    ![Étapes du démarrage rapide avec les applications mobiles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 

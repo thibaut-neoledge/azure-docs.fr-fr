@@ -36,6 +36,6 @@
 
 7. Une fois le redémarrage du premier contrôleur terminé, connectez-vous à l’autre contrôleur et suivez les étapes 1 à 6.
 
-8. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Consultez la rubrique [Pour quitter le mode Maintenance]\]\(\#to-exit-maintenance-mode\) afin d’obtenir des instructions.
+8. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Consultez la rubrique [Pour quitter le mode Maintenance]](#to-exit-maintenance-mode) afin d’obtenir des instructions.
 
 <!--HONumber=52-->

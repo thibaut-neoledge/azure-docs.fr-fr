@@ -112,7 +112,7 @@ Vous pouvez contourner cette obligation en n’utilisant que des chemins d’acc
 
 ####<a id="XDT"></a> Fichier applicationHost.xdt
 
-Le code de votre extension d’application web figure sous %HOME%\\SiteExtensions\\[nom-votre-extension]. Nous appellerons cela la racine d'extension.
+Le code de votre extension d’application web figure sous %HOME%\\SiteExtensions[nom-votre-extension]. Nous appellerons cela la racine d'extension.
 
 Pour inscrire votre extension d’application web dans le fichier applicationHost.config, vous devez placer un fichier intitulé ApplicationHost.xdt à la racine de l’extension. Le contenu du fichier ApplicationHost.xdt doit se présenter comme suit :
 

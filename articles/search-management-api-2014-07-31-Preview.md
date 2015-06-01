@@ -24,7 +24,7 @@ Avec l’API REST de gestion du service Azure Search, les administrateurs peuv
 - création, modification ou extraction de `api-keys` afin d’automatiser les modifications fréquemment effectuées sur les clés d’administration utilisées pour authentifier les opérations menées sur les données de recherche ; 
 - ajustement du service de recherche Azure Search par rapport aux nouvelles exigences en matière de stockage ou de volume des requêtes.
 
-Pour administrer intégralement votre service par programme, vous avez besoin de deux API : l’API REST de gestion d’Azure Search et l’[API REST commune Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx). L’API Resource Manager est utilisée dans le cadre d’opérations générales qui sont pas liées à un service spécifique, comme l’interrogation des données d’abonnement ou encore le recensement des géolocalisations. Pour créer et gérer des services Azure Search au sein de votre abonnement, votre requête HTTP doit inclure le point de terminaison de Resource Manager, l’ID d’abonnement, le fournisseur \(dans le cas présent, Azure Search\) et l’opération spécifique du service Search.
+Pour administrer intégralement votre service par programme, vous avez besoin de deux API : l’API REST de gestion d’Azure Search et l’[API REST commune Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx). L’API Resource Manager est utilisée dans le cadre d’opérations générales qui sont pas liées à un service spécifique, comme l’interrogation des données d’abonnement ou encore le recensement des géolocalisations. Pour créer et gérer des services Azure Search au sein de votre abonnement, votre requête HTTP doit inclure le point de terminaison de Resource Manager, l’ID d’abonnement, le fournisseur (dans le cas présent, Azure Search) et l’opération spécifique du service Search.
 
 La page [Prise en main de l’API REST de gestion Azure Search](http://go.microsoft.com/fwlink/p/?linkID=516968) détaille la procédure de l’exemple de code qui illustre les opérations de configuration de l’application et de gestion du service. L’exemple d’application envoie des demandes à l’API Azure Resource Manager ainsi qu’à l’API de gestion du service d’Azure Search, ce qui vous indique comment reconstituer une application cohésive à partir de deux API.
 
@@ -99,7 +99,7 @@ Les opérations incluent les API suivantes :
 <a name="ServiceOps"></a>
 ## Opérations de service ##
 
-Vous pouvez déployer ou annuler le déploiement de services Azure Search en émettant des requêtes HTTP sur votre abonnement Azure. Les scénarios induits par ces opérations incluent la création d’outils d’administration personnalisés ou la mise en place d’un environnement de production ou de développement de bout en bout \(de la création d’un service jusqu’au remplissage d’un index\). De même, les fournisseurs de solutions qui conçoivent et vendent des solutions cloud ont peut-être besoin d’une approche automatisée et reproductible permettant de déployer des services pour chaque nouveau client.
+Vous pouvez déployer ou annuler le déploiement de services Azure Search en émettant des requêtes HTTP sur votre abonnement Azure. Les scénarios induits par ces opérations incluent la création d’outils d’administration personnalisés ou la mise en place d’un environnement de production ou de développement de bout en bout (de la création d’un service jusqu’au remplissage d’un index). De même, les fournisseurs de solutions qui conçoivent et vendent des solutions cloud ont peut-être besoin d’une approche automatisée et reproductible permettant de déployer des services pour chaque nouveau client.
 
 **Opérations sur un service**
 
@@ -139,11 +139,11 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 
 ### Corps de la requête ###
 
-{ "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free \| standard \| standard2" }, "replicaCount": 1 \| 2 \| 3 \| 4 \| 5 \| 6, "partitionCount": 1 \| 2 \| 3 \| 4 \| 6 \| 12 } }
+{ "location": "location of search service", "tags": { "key": "value", ... }, "properties": { "sku": { "name": "free | standard | standard2" }, "replicaCount": 1 | 2 | 3 | 4 | 5 | 6, "partitionCount": 1 | 2 | 3 | 4 | 6 | 12 } }
 
 ### Paramètres du corps de la demande ###
 
-`location` : requis. L’une des zones géographiques Azure prises en charge et enregistrées \(par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.\). L’emplacement d’une ressource ne peut pas être modifié après la création de cette dernière.
+`location` : requis. L’une des zones géographiques Azure prises en charge et enregistrées (par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.). L’emplacement d’une ressource ne peut pas être modifié après la création de cette dernière.
 
 `tags` : facultatif. Liste de paires clé/valeur décrivant la ressource. Ces balises peuvent servir à l’affichage et au regroupement de ressources parmi tous les groupes de ressources. Un maximum de 10 balises peut être fourni pour une ressource. Chaque balise doit disposer d’une clé de 128 caractères maximum et d’une valeur de 256 caractères maximum.
 
@@ -156,7 +156,7 @@ L’opération **Création de service Search** déploie un nouveau service Sea
 
 ### Response ###
 
-HTTP 200 \(OK\) est renvoyé lorsqu’une définition de service est mise à jour. Le message HTTP 201 \(Created\) est renvoyé lorsqu’un service est créé.
+HTTP 200 (OK) est renvoyé lorsqu’une définition de service est mise à jour. Le message HTTP 201 (Created) est renvoyé lorsqu’un service est créé.
 
 
 ### En-têtes de réponse ###
@@ -195,11 +195,11 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 
 ### Éléments du corps de la réponse ###
 
-`id` : l’ID est l’URL \(à l’exception du nom d’hôte/modèle\) pour ce service Search.
+`id` : l’ID est l’URL (à l’exception du nom d’hôte/modèle) pour ce service Search.
 
 `name` : nom du service Search.
 
-`location` : l’une des zones géographiques Azure prises en charge et enregistrées \(par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.\).
+`location` : l’une des zones géographiques Azure prises en charge et enregistrées (par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.).
 
 `tags` : liste de paires clé/valeur décrivant la ressource utilisée pour l’affichage et le regroupement des ressources parmi les groupes de ressources.
 
@@ -232,7 +232,7 @@ Pour HTTP 200 et 201, le corps de la réponse contient la définition de servic
 - `provisioning` : le service est en cours de déploiement.
 - `failed` : le service n’a pas pu être déployé. 
 
-Le déploiement désigne un état intermédiaire pendant lequel la capacité de service est établie. Une fois que la capacité est paramétrée, le statut de `provisioningState` indique la réussite ou l’échec. Les applications clientes peuvent interroger l’état de déploiement \(fréquence d’interrogation recommandée comprise entre 30 secondes et une minute\) par le biais de l’opération **Obtention du service Search** afin de déterminer quand une opération est effectuée. Si vous utilisez le service gratuit, la valeur apparaît généralement comme réussie directement dans l’appel destiné à la création le service. Cela est dû au fait que le service gratuit utilise une capacité déjà configurée.
+Le déploiement désigne un état intermédiaire pendant lequel la capacité de service est établie. Une fois que la capacité est paramétrée, le statut de `provisioningState` indique la réussite ou l’échec. Les applications clientes peuvent interroger l’état de déploiement (fréquence d’interrogation recommandée comprise entre 30 secondes et une minute) par le biais de l’opération **Obtention du service Search** afin de déterminer quand une opération est effectuée. Si vous utilisez le service gratuit, la valeur apparaît généralement comme réussie directement dans l’appel destiné à la création le service. Cela est dû au fait que le service gratuit utilise une capacité déjà configurée.
 
 <a name="GetService"></a>
 ## Obtention du service Search  ##
@@ -247,7 +247,7 @@ L’opération **Obtention du service Search** renvoie les propriétés du serv
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -263,7 +263,7 @@ Aucun.
 
 ### Code du statut de réponse ###
 
-HTTP 200 \(OK\) si l’opération réussit.
+HTTP 200 (OK) si l’opération réussit.
 
 
 ### En-têtes de réponse ###
@@ -298,11 +298,11 @@ HTTP 200 \(OK\) si l’opération réussit.
 
 ### Éléments du corps de la réponse ###
 
-`id` : l’ID est l’URL \(à l’exception du nom d’hôte/modèle\) pour ce service Search.
+`id` : l’ID est l’URL (à l’exception du nom d’hôte/modèle) pour ce service Search.
 
 `name` : nom du service Search.
 
-`location` : emplacement de la ressource. Il s’agit de l’une des zones géographiques Azure prises en charge et enregistrées \(par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.\).
+`location` : emplacement de la ressource. Il s’agit de l’une des zones géographiques Azure prises en charge et enregistrées (par exemple, ouest des États-Unis, est des États-Unis, Asie du Sud-Est, etc.).
 
 `tags` : les balises désignent une liste de paires clé/valeur décrivant la ressource. Ces balises peuvent servir à l’affichage et au regroupement de ressources parmi tous les groupes de ressources.
 
@@ -361,7 +361,7 @@ Aucun.
 
 ###Response###
 
-Le code d’état est HTTP 200  \(OK\) si l’opération réussit.
+Le code d’état est HTTP 200  (OK) si l’opération réussit.
 
 ### En-têtes de réponse ###
 
@@ -438,7 +438,7 @@ L’opération **Suppression du service** supprime les données liées à la rec
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -452,7 +452,7 @@ Aucun.
 
 ###Response###
 
-Pour HTTP 200, le corps de la réponse est vide. Lorsque la ressource n’existe pas, HTTP 200 \(OK\) est la réponse appropriée.
+Pour HTTP 200, le corps de la réponse est vide. Lorsque la ressource n’existe pas, HTTP 200 (OK) est la réponse appropriée.
 
 Vous pouvez utiliser l’**API Obtention du service Search** pour interroger l’état du service de suppression. Nous vous recommandons des fréquences d’interrogation comprises entre 30 secondes et une minute.
 
@@ -483,7 +483,7 @@ Vous pouvez également utiliser la méthode PUT.
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -508,7 +508,7 @@ Vous pouvez également utiliser la méthode PUT.
 
 ###Paramètres du corps de la demande###
 
-`tags` : facultatif. Liste de paires clé/valeur décrivant la ressource. Ces balises peuvent servir à l’affichage et au regroupement des ressources \(parmi tous les groupes de ressources\). Un maximum de 10 balises peut être fourni pour une ressource. Chaque balise doit disposer d’une clé de 128 caractères maximum et d’une valeur de 256 caractères maximum.
+`tags` : facultatif. Liste de paires clé/valeur décrivant la ressource. Ces balises peuvent servir à l’affichage et au regroupement des ressources (parmi tous les groupes de ressources). Un maximum de 10 balises peut être fourni pour une ressource. Chaque balise doit disposer d’une clé de 128 caractères maximum et d’une valeur de 256 caractères maximum.
 
 `replicaCount` : facultatif. 1 constitue la valeur par défaut. Les valeurs valides vont de 1 à 6. Valide uniquement lorsque la `sku` est `standard`.
 
@@ -516,7 +516,7 @@ Vous pouvez également utiliser la méthode PUT.
 
 ###Response###
 
-HTTP 200 \(OK\) est renvoyé si l’opération a réussi. Vous pouvez utiliser l’**API Obtention du service Search** pour interroger l’état du service de mise à jour. Nous vous recommandons des fréquences d’interrogation comprises entre 30 secondes et une minute.
+HTTP 200 (OK) est renvoyé si l’opération a réussi. Vous pouvez utiliser l’**API Obtention du service Search** pour interroger l’état du service de mise à jour. Nous vous recommandons des fréquences d’interrogation comprises entre 30 secondes et une minute.
 
 
 ### En-têtes de réponse ###
@@ -535,14 +535,14 @@ Le corps de la réponse contient la définition de service mise à jour. Pour ob
 
 L’authentification auprès d’un service Azure Search requiert deux informations : une URL de service Search et une clé API. Les clés API sont générées au moment de la création du service et peuvent être régénérées à la demande une fois le service déployé. Il existe deux types de clé API.
 
-- clé d’administration, qui octroie un accès à toutes les opérations \(2 par service maximum\) ;
-- clé de requête, qui authentifie les demandes de requête uniquement \(50 par service maximum\).
+- clé d’administration, qui octroie un accès à toutes les opérations (2 par service maximum) ;
+- clé de requête, qui authentifie les demandes de requête uniquement (50 par service maximum).
 
 La gestion par programme des clés d’administration et de requête de votre service Azure Search permet de concevoir des outils personnalisés, en régénérant régulièrement les clés d’après une meilleure pratique de sécurité de routine, en régénérant les clés lorsqu’un employé quitte l’entreprise, en générant ou en acquérant des clés au moment du déploiement du service, effectué par programme ou par script.
 
 Les clés de requête peuvent être acquises, créées et supprimées. Les opérations sur les clés d’administration se limitent à l’acquisition et à la régénération de valeurs de clés existantes. La suppression d’une clé d’administration peut bloquer définitivement le service et rendre l’opération indisponible.
 
-Les clés désignent des chaînes composées d’une combinaison aléatoire de chiffres et de lettres en majuscules. Une clé API ne peut être utilisée qu’avec le service pour laquelle elle a été créée et elle peut changer régulièrement \(si vous choisissez la stratégie de régénération de clé pour des raisons de sécurité\).
+Les clés désignent des chaînes composées d’une combinaison aléatoire de chiffres et de lettres en majuscules. Une clé API ne peut être utilisée qu’avec le service pour laquelle elle a été créée et elle peut changer régulièrement (si vous choisissez la stratégie de régénération de clé pour des raisons de sécurité).
 
 Les clés API, et notamment les clés d’administration, sont des données sensibles. Toute personne faisant l’acquisition de votre clé d’administration a la possibilité de supprimer ou de lire les données de vos index.
 
@@ -572,7 +572,7 @@ Les clés d’administration sont créées avec le service. Il existe toujours d
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -588,7 +588,7 @@ Aucun.
 
 ###Response###
 
-HTTP 200 \(OK\) est renvoyé si l’opération a réussi.
+HTTP 200 (OK) est renvoyé si l’opération a réussi.
 
 ### En-têtes de réponse ###
 
@@ -617,7 +617,7 @@ L’opération **Régénération des clés d’administration** supprime et rég
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 	
@@ -640,7 +640,7 @@ Aucun.
 
 ###Response###
 
-HTTP 200 \(OK\) est renvoyé si l’opération a réussi.
+HTTP 200 (OK) est renvoyé si l’opération a réussi.
 
 ### En-têtes de réponse ###
 
@@ -676,7 +676,7 @@ L’opération **Création d’une clé de requête** génère une nouvelle clé
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -694,7 +694,7 @@ Aucun.
 
 ###Response###
 
-Le code d’état de la réponse est HTTP 200 \(OK\) si l’opération réussit.
+Le code d’état de la réponse est HTTP 200 (OK) si l’opération réussit.
 
 ### En-têtes de réponse ###
 
@@ -720,7 +720,7 @@ Le code d’état de la réponse est HTTP 200 \(OK\) si l’opération réussi
 ## Liste des clés de requête ##
 
 
-L’opération **Liste des clés de requête** renvoie les clés de requête du service Search spécifié. Les clés de requête permettent d’envoyer des appels d’API de requête \(en lecture seule\) vers un service Search. Chaque service peut comporter jusqu’à 50 clés de requête.
+L’opération **Liste des clés de requête** renvoie les clés de requête du service Search spécifié. Les clés de requête permettent d’envoyer des appels d’API de requête (en lecture seule) vers un service Search. Chaque service peut comporter jusqu’à 50 clés de requête.
 
     GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2014-07-31-Preview
 
@@ -730,7 +730,7 @@ L’opération **Liste des clés de requête** renvoie les clés de requête du 
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service de recherche dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 	
@@ -746,7 +746,7 @@ Aucun.
 
 ###Response###
 
-Le code d’état de la réponse est HTTP 200 \(OK\) si l’opération réussit.
+Le code d’état de la réponse est HTTP 200 (OK) si l’opération réussit.
 
 ### En-têtes de réponse ###
 
@@ -792,7 +792,7 @@ Contrairement aux clés d’administration, les clés de requête ne sont pas r�
 
 `resourceGroupName` : requis. Nom du groupe de ressources dans l’abonnement de l’utilisateur. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager ou du portail.
 
-`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search \(API Azure Search\).
+`serviceName` : requis. Nom du service Search dans le groupe de ressources spécifié. Si vous ne connaissez pas le nom du service, vous pouvez obtenir une liste par le biais de l’opération Liste des services Search (API Azure Search).
 
 `api-version` : requis. Indique la version du protocole utilisée pour cette demande. Lorsque des versions plus récentes sont disponibles, vous pouvez spécifier la version à utiliser pour chaque demande afin d’obtenir des comportements spécifiques.
 
@@ -810,7 +810,7 @@ Aucun.
 
 ###Response###
 
-Le code d’état de réponse est HTTP 200  \(OK\) si l’opération réussit.
+Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 ### En-têtes de réponse ###
 

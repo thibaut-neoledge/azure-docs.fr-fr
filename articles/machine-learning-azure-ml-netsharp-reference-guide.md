@@ -385,13 +385,13 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Le réseau contient une troisième couche masquée, Hid3, entièrement connectée à la deuxième couche masquée, Conv2.
 -	La couche de sortie, Digit, n'est connectée qu'à la troisième couche masquée, Hid3. Le mot clé **all** indique que la couche de sortie est entièrement connectée à l'élément Hid3.
 -	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
--	Le nombre de poids par noyau est de 1 + **KernelShape**\[0] x **KernelShape**\[1] x **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou : 26 x 50 = 1 300.
+-	Le nombre de poids par noyau est de 1 + **KernelShape**[0] x **KernelShape**[1] x **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou : 26 x 50 = 1 300.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : **MapCount** x **NodeCount**\[0] x **NodeCount**\[1] x **NodeCount**\[2] = 10 * 5 * 5 x 5
--	Étant donné que **Sharing**[d] a la valeur False uniquement pour d == 0, le nombre de noyaux est de **MapCount** x **NodeCount**\[0] = 10 x 5 = 50. 
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : **MapCount** x **NodeCount**[0] x **NodeCount**[1] x **NodeCount**[2] = 10 * 5 * 5 x 5
+-	Étant donné que **Sharing**[d] a la valeur False uniquement pour d == 0, le nombre de noyaux est de **MapCount** x **NodeCount**[0] = 10 x 5 = 50. 
 
 [1]:./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
 

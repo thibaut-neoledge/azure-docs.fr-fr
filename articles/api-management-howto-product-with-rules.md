@@ -145,7 +145,7 @@ Dans le produit en **version d'évaluation gratuite**, le quota est de 200 appe
     <quota calls="200" bandwidth="kilobytes" renewal-period="604800">
     </quota>
 
-> Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l'intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d'heures en une journée (24) par le nombre de minutes en une heure (60) par le nombre de secondes en une minute (60). 7 \* 24 \* 60 \* 60 = 604800.
+> Les intervalles de stratégie sont spécifiés en secondes. Pour calculer l'intervalle pour une semaine, vous pouvez multiplier le nombre de jours (7) par le nombre d'heures en une journée (24) par le nombre de minutes en une heure (60) par le nombre de secondes en une minute (60). 7 * 24 * 60 * 60 = 604800.
 
 Lorsque vous avez terminé la configuration de la stratégie, elle doit correspondre à l'exemple ci-dessous.
 

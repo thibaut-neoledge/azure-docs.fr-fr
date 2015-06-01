@@ -29,7 +29,7 @@ Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HD
 Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants :
 
 - **Un cluster HBase dans HDInsight**. Pour plus d'informations sur l'approvisionnement d'un cluster HBase, consultez [Prise en main d'Apache HBase dans HDInsight][hdinsight-hbase-get-started].
-- **Une connexion au cluster HBase à l'aide du protocole RDP \(Remote Desktop Protocol\)**. Pour des instructions, consultez [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure][hdinsight-manage-portal].
+- **Une connexion au cluster HBase à l'aide du protocole RDP (Remote Desktop Protocol)**. Pour des instructions, consultez [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure][hdinsight-manage-portal].
 
 **Pour déterminer le nom d'hôte**
 
@@ -102,13 +102,13 @@ Consultez [Configurer une connexion VPN de point à site à un réseau virtuel A
 
 #### Configurer un réseau virtuel et une passerelle de routage dynamique
 
-Assurez-vous d'avoir approvisionné un cluster HBase dans un réseau virtuel Azure \(voir la configuration requise pour cette section\). L'étape suivante consiste à configurer une connexion de point à site.
+Assurez-vous d'avoir approvisionné un cluster HBase dans un réseau virtuel Azure (voir la configuration requise pour cette section). L'étape suivante consiste à configurer une connexion de point à site.
 
 **Pour configurer la connexion de point à site**
 
 1. Connectez-vous au [portail Azure][azure-portal].
 2. Dans le volet gauche, cliquez sur **RÉSEAUX**.
-3. Cliquez sur le réseau virtuel que vous avez créé \(voir [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]\).
+3. Cliquez sur le réseau virtuel que vous avez créé (voir [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]).
 4. Cliquez sur **CONFIGURER** en haut.
 5. Dans la section **connectivité de point à site**, sélectionnez **Configurer la connectivité de point à site**. 
 6. Configurer **IP DE DÉPART** et **CIDR** pour spécifier la plage d'adresses IP qui déterminera l'adresse IP de vos clients VPN au moment de la connexion. La plage ne peut pas chevaucher les plages de votre réseau local et du réseau virtuel Azure auquel vous allez vous connecter. Par exemple, si vous avez sélectionné 10.0.0.0/20 pour le réseau virtuel, vous pouvez sélectionner 10.1.0.0/24 pour l'espace d'adressage du client. Consultez la page [Connectivité de point à site][vnet-point-to-site-connectivity] pour plus d'informations.
@@ -130,7 +130,7 @@ Assurez-vous d'avoir approvisionné un cluster HBase dans un réseau virtuel Azu
 
 #### Créer vos certificats
 
-L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil de création de certificats \(makecert.exe\) fourni avec [Microsoft Visual Studio Express 2013 pour Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil de création de certificats (makecert.exe) fourni avec [Microsoft Visual Studio Express 2013 pour Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 
 **Pour créer un certificat racine auto-signé**
@@ -149,17 +149,17 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 
 **Pour créer un certificat client**
 
-- Dans la même invite de commandes \(sur le même ordinateur que celui où vous avez créé le certificat racine, le certificat client doit être généré à partir du certificat racine\), exécutez la commande suivante :
+- Dans la même invite de commandes (sur le même ordinateur que celui où vous avez créé le certificat racine, le certificat client doit être généré à partir du certificat racine), exécutez la commande suivante :
 
   makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate is the root certificate name.  It has to match the root certificate name.  
+	HBaseVnetVPNRootCertificate désigne le nom du certificat racine.  Il doit correspondre au nom de ce certificat.  
 
-	Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
+	Le certificat racine et le certificat client sont tous deux stockés dans votre magasin de certificats Personnel sur votre ordinateur. Utilisez certmgr.msc pour vérifier ce point.
 
 	![Azure virtual network point-to-site vpn certificate][img-certificate]
 
-	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
+	Un certificat client doit être installé sur chaque ordinateur que vous souhaitez connecter au réseau virtuel. Nous vous recommandons de créer des certificats clients uniques pour chacun de ces ordinateurs. Pour exporter les certificats clients, utilisez certmgr.msc. 
 
 **Pour télécharger le certificat racine sur le portail Azure**
 
@@ -202,7 +202,7 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 
 **Pour installer SQuirrel**
 
-1. Télécharger le fichier jar du client SQuirrel SQL à l'adresse [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Télécharger le fichier jar du client SQuirrel SQL à l'adresse [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Ouvrez/exécutez le fichier jar. Pour cela, vous avez besoin de l'[environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Cliquez sur **Suivant** deux fois.
 4. Spécifiez un chemin d'accès pour lequel vous disposez de l'autorisation d'écriture, puis cliquez sur **Suivant**.
@@ -219,7 +219,7 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 Le fichier jar du pilote phoenix se trouve dans le cluster HBase. Le chemin d'accès ressemble au suivant selon les versions :
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-Vous devez le copier sur votre station de travail sous [Dossier d'installation SQuirrel]/lib. Le moyen le plus simple est d'ouvrir une session RDP sur le cluster, puis de copier et coller le fichier \(CTRL+C et CTRL+V\) pour le copier sur votre station de travail.
+Vous devez le copier sur votre station de travail sous [Dossier d'installation SQuirrel]/lib. Le moyen le plus simple est d'ouvrir une session RDP sur le cluster, puis de copier et coller le fichier (CTRL+C et CTRL+V) pour le copier sur votre station de travail.
 
 **Pour ajouter un pilote Phoenix à SQuirrel**
 

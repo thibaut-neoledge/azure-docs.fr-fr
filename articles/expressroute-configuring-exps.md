@@ -31,13 +31,13 @@ Avant de commencer la configuration, vérifiez que les conditions préalables su
 - Version la plus récente de Microsoft Azure PowerShell 
 - Conditions requises pour Virtual Network : 
 	- Un jeu de préfixes d'adresses IP à utiliser sur des réseaux virtuels dans Azure
-	- Un jeu de préfixes IP locaux \(pouvant contenir des adresses IP publiques\)
+	- Un jeu de préfixes IP locaux (pouvant contenir des adresses IP publiques)
 	- La passerelle de réseau virtuel doit être créée avec un sous-réseau /28.
-	- Un jeu supplémentaire de préfixes IP \(/ 28\) situé en dehors du réseau virtuel. Il sera utilisé pour la configuration de l'homologation BGP.
-	- Un numéro AS pour votre réseau. Pour plus d'informations sur les numéros AS, consultez [Numéros de système autonome \(AS\)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
+	- Un jeu supplémentaire de préfixes IP (/ 28) situé en dehors du réseau virtuel. Il sera utilisé pour la configuration de l'homologation BGP.
+	- Un numéro AS pour votre réseau. Pour plus d'informations sur les numéros AS, consultez [Numéros de système autonome (AS)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
 	- Un hachage MD5 si vous avez besoin d'une session BGP authentifiée
-	- Des ID pour le réseau local virtuel \(vLAN\) sur lequel le trafic sera envoyé. Vous aurez besoin de 2 ID vLAN par circuit : un pour les réseaux virtuels et l'autre pour les services hébergés sur des adresses IP publiques.
-	- Des [Numéros de système autonome \(AS\)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml) pour votre réseau.
+	- Des ID pour le réseau local virtuel (vLAN) sur lequel le trafic sera envoyé. Vous aurez besoin de 2 ID vLAN par circuit : un pour les réseaux virtuels et l'autre pour les services hébergés sur des adresses IP publiques.
+	- Des [Numéros de système autonome (AS)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml) pour votre réseau.
 	- Deux interconnexions 1 Gbit/s / 10 Gbits/s pour le réseau Ethernet Exchange du fournisseur Exchange.
 	- Une paire de routeurs capables de prendre en charge le protocole BGP pour le routage
 
@@ -59,7 +59,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Avant de créer un circuit, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante pour chaque emplacement. L'applet de commande PowerShell suivante renvoie ces informations. Vous les utiliserez dans les étapes ultérieures.
 
-    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 		
 		
@@ -116,7 +116,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande Get-AzureCircuit. L'appel sans paramètre répertorie tous les circuits. Votre clé de Service apparaît dans le champ ServiceKey.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -135,7 +135,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Cela vous permettra de savoir quand votre fournisseur aura activé votre circuit. Une fois le circuit activé, *ServiceProviderProvisioningState* s'affiche avec l’état *Provisioned* comme indiqué dans l'exemple ci-dessous.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -165,11 +165,11 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		#Removing BGP peering config
 		Remove-AzureBGPPeering -ServiceKey $ServiceKey –AccessType Private
 
-	Vous pouvez obtenir des informations de routage pour un circuit à l'aide de Get-AzureBGPPeering en fournissant la clé de service. Vous pouvez également mettre à jour les paramètres BGP à l'aide de Set-AzureBGPPeering. La session BGP ne sera pas créée lors de l’exécution de cette commande. Le circuit doit être lié à un réseau virtuel \(au minimum\) pour que la création de la session BGP fonctionne.
+	Vous pouvez obtenir des informations de routage pour un circuit à l'aide de Get-AzureBGPPeering en fournissant la clé de service. Vous pouvez également mettre à jour les paramètres BGP à l'aide de Set-AzureBGPPeering. La session BGP ne sera pas créée lors de l’exécution de cette commande. Le circuit doit être lié à un réseau virtuel (au minimum) pour que la création de la session BGP fonctionne.
 
 	La réponse ci-dessous vous fournira les informations dont vous aurez besoin pour les étapes suivantes. Utilisez le pair ASN pour la configuration BGP sur les VRF de votre routeur.
                     
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 				
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -200,11 +200,11 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		#Removing BGP peering config
 		Remove-AzureBGPPeering -ServiceKey $ServiceKey –AccessType Public
  
-	Vous pouvez obtenir des informations de routage pour un circuit à l'aide de Get-AzureBGPPeering en fournissant la clé de service. Vous pouvez également mettre à jour les paramètres BGP à l'aide de Set-AzureBGPPeering. La session BGP ne sera pas créée lors de l’exécution de cette commande. Le circuit doit être lié à un réseau virtuel \(au minimum\) pour que la création de la session BGP fonctionne.
+	Vous pouvez obtenir des informations de routage pour un circuit à l'aide de Get-AzureBGPPeering en fournissant la clé de service. Vous pouvez également mettre à jour les paramètres BGP à l'aide de Set-AzureBGPPeering. La session BGP ne sera pas créée lors de l’exécution de cette commande. Le circuit doit être lié à un réseau virtuel (au minimum) pour que la création de la session BGP fonctionne.
 
 	La réponse ci-dessous vous fournira les informations dont vous aurez besoin pour les étapes suivantes. Utilisez le pair ASN pour la configuration BGP sur les VRF de votre routeur.
 
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 		 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -223,6 +223,6 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 	 
-			PS C:\> $Vnet = "MyTestVNet"
+			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 <!--HONumber=54-->

@@ -101,7 +101,7 @@ Par exemple, l'adresse suivante peut être utilisée pour accéder à un objet b
 ## Initialiser l'émulateur de stockage à l'aide de l'outil de ligne de commande
 Vous pouvez utiliser l'outil en ligne de commande de l'émulateur de stockage pour initialiser l'émulateur de stockage afin qu'il pointe vers une autre instance de base de données que celle par défaut. Si vous souhaitez utiliser l'instance de base de données LocalDB par défaut, il n'est pas nécessaire d'exécuter une étape d'initialisation distincte.
 
-Cet outil est installé par défaut dans le répertoire C:\Program Files(x86)\Microsoft SDKs\Windows Azure\Storage Emulator\. L'initialisation s'exécute automatiquement la première fois que vous démarrez l'émulateur.
+Cet outil est installé par défaut dans le répertoire C:\Program Files(x86)\Microsoft SDKs\Windows Azure\Storage Emulator. L'initialisation s'exécute automatiquement la première fois que vous démarrez l'émulateur.
 
 > [AZURE.NOTE] Vous devez disposer de privilèges d'administrateur pour exécuter la commande " init " décrite ci-dessous.
 

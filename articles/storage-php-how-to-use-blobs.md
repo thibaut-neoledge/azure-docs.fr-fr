@@ -135,7 +135,7 @@ Un objet **BlobRestProxy** vous permet de créer un conteneur d'objets blob avec
 		echo $code.": ".$error_message."<br />";
 	}
 
-L'appel de **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)** rend le conteneur et les données d'objets blob accessibles via des demandes anonymes. L'appel à **setPublicAccess(PublicAccessType::BLOBS_ONLY)** ne rend que les données d'objets blob accessibles via des demandes anonymes. Pour plus d'informations sur les ACL de conteneur, consultez la page [Set Container ACL (API REST)][container-acl].
+L'appel de **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)** rend le conteneur et les données d'objets blob accessibles via des demandes anonymes. L'appel à **setPublicAccess(PublicAccessType::BLOBS_ONLY)** ne rend que les données d'objets blob accessibles via des demandes anonymes. Pour plus d'informations sur les ACL de conteneur, consultez la page [Set Container ACL (API REST)][container-acl].
 
 Pour plus d'informations sur les codes d'erreur des services BLOB, consultez la page [Codes d'erreur du service BLOB][error-codes].
 
@@ -168,7 +168,7 @@ Pour télécharger un fichier en tant qu'objet blob, utilisez la méthode **Blob
 		echo $code.": ".$error_message."<br />";
 	}
 
-Notez que l'exemple ci-dessus télécharge un objet blob en tant que flux. Toutefois, un objet blob peut également être téléchargé en tant que chaîne à l'aide, par exemple, de la fonction [file\_get\_contents][file_get_contents]. Pour ce faire, dans l'exemple ci-dessus, remplacez `$content = fopen("c:\myfile.txt", "r");` par `$content = file_get_contents("c:\myfile.txt");`.
+Notez que l'exemple ci-dessus télécharge un objet blob en tant que flux. Toutefois, un objet blob peut également être téléchargé en tant que chaîne à l'aide, par exemple, de la fonction [file_get_contents][file_get_contents]. Pour ce faire, dans l'exemple ci-dessus, remplacez `$content = fopen("c:\myfile.txt", "r");` par `$content = file_get_contents("c:\myfile.txt");`.
 
 ## Procédure : Création d'une liste d'objets blob dans un conteneur
 
@@ -230,7 +230,7 @@ Pour télécharger un objet blob, appelez la méthode **BlobRestProxy->getBlob**
 		echo $code.": ".$error_message."<br />";
 	}
 
-Notez que l'exemple ci-dessus télécharge un objet blob en tant que ressource de flux (comportement par défaut). Toutefois, vous pouvez utiliser la fonction [stream\_get\_contents][stream-get-contents] pour convertir le flux renvoyé en chaîne.
+Notez que l'exemple ci-dessus télécharge un objet blob en tant que ressource de flux (comportement par défaut). Toutefois, vous pouvez utiliser la fonction [stream_get_contents][stream-get-contents] pour convertir le flux renvoyé en chaîne.
 
 ## Procédure : Suppression d'un objet blob
 

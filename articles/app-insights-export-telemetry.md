@@ -35,7 +35,7 @@ Choisissez les types d’événement que vous souhaitez exporter :
 ![Cliquez sur Choisir les types d’événements.](./media/app-insights-export-telemetry/03-types.png)
 
 
-Une fois que vous avez créé l’exportation, elle démarre. \(Vous n’obtenez que les données qui arrivent après la création de l’exportation.\)
+Une fois que vous avez créé l’exportation, elle démarre. (Vous n’obtenez que les données qui arrivent après la création de l’exportation.)
 
 
 Si vous souhaitez modifier les types d’événement plus tard, modifiez simplement l’exportation :
@@ -70,7 +70,7 @@ Pour télécharger ces données par programme, utilisez l’[API REST du magasin
 
 Ou pensez à [DataFactory](http://azure.microsoft.com/services/data-factory/), qui permet de définir des pipelines pour gérer des données à grande échelle.
 
-Nous commençons l’écriture d’un nouvel objet blob toutes les heures \(en cas de réception d’événements\). Par conséquent, vous devez toujours traiter jusqu’à l’heure précédente, mais attendre que l’heure en cours se termine.
+Nous commençons l’écriture d’un nouvel objet blob toutes les heures (en cas de réception d’événements). Par conséquent, vous devez toujours traiter jusqu’à l’heure précédente, mais attendre que l’heure en cours se termine.
 
 [Exemple de code][exportcode]
 

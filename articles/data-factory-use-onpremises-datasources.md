@@ -208,7 +208,7 @@ Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie
 
 ### Créer une table d'entrée
 
-1.	Créez un fichier JSON pour une table Data Factory qui représente les données de la table **emp** dans la base de données SQL Server. Lancez le **Bloc-notes**, copiez le script JSON suivant et enregistrez-le comme **EmpOnPremSQLTable.json** dans le dossier C:\ADFGetStarted\**OnPrem**. Créez le sous-dossier **OnPrem** dans le dossier **C:\ADFGetStarted** s'il n'existe pas. 
+1.	Créez un fichier JSON pour une table Data Factory qui représente les données de la table **emp** dans la base de données SQL Server. Lancez le **Bloc-notes**, copiez le script JSON suivant et enregistrez-le comme **EmpOnPremSQLTable.json** dans le dossier C:\ADFGetStarted**OnPrem**. Créez le sous-dossier **OnPrem** dans le dossier **C:\ADFGetStarted** s'il n'existe pas. 
 
 
         {
@@ -437,7 +437,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l'aide des
 	**Exemple de commande et de sortie** :
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
 
 		Name            : MyGateway
 		Location        : West US
@@ -459,12 +459,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l'aide des
 	**Exemple de sortie de commande :**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, basculez vers le dossier : **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante pour enregistrer l'agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, basculez vers le dossier : **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key** comme indiqué dans la commande suivante pour enregistrer l'agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 

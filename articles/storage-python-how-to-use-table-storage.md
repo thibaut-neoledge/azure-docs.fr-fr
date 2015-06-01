@@ -50,12 +50,12 @@ Pour ajouter une entité, commencez par créer un dictionnaire définissant les 
 Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. La
 clé **RowKey** est l'identifiant unique de l'entité dans sa partition.
 
-Pour ajouter une entité à votre table, passez l'objet dictionnaire à la méthode **insert\_entity**.
+Pour ajouter une entité à votre table, passez l'objet dictionnaire à la méthode **insert_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-Vous pouvez également passer une instance de la classe **Entity** à la méthode **insert\_entity**.
+Vous pouvez également passer une instance de la classe **Entity** à la méthode **insert_entity**.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,7 +71,7 @@ Ce code montre comment remplacer l'ancienne version d'une entité existante par 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Si l'entité à remplacer n'existe pas, l'opération de mise à jour échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insert\_or\_replace_entity**. 
+Si l'entité à remplacer n'existe pas, l'opération de mise à jour échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insert_or_replace_entity**. 
 Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxième appel insère une nouvelle entité, car il n'existe aucune entité ayant les clés **PartitionKey** et **RowKey** spécifiées dans la table.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -82,7 +82,7 @@ Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxi�
 
 ## Modification d'un groupe d'entités
 
-Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez utiliser la méthode **begin\_batch** sur **TableService**, puis appeler les habituelles séries d'opérations. Lorsque vous devez soumettre le lot, appelez **commit\_batch**. Notez que toutes les entités doivent se trouver dans la même partition pour pouvoir être modifiées par lot. L'exemple ci-dessous permet d'ajouter deux entités dans un lot.
+Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez utiliser la méthode **begin_batch** sur **TableService**, puis appeler les habituelles séries d'opérations. Lorsque vous devez soumettre le lot, appelez **commit_batch**. Notez que toutes les entités doivent se trouver dans la même partition pour pouvoir être modifiées par lot. L'exemple ci-dessous permet d'ajouter deux entités dans un lot.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey' : '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -93,7 +93,7 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 
 ## Interrogation d'une entité
 
-Pour interroger une entité dans une table, utilisez la méthode **get\_entity** en passant les clés **PartitionKey** et **RowKey**.
+Pour interroger une entité dans une table, utilisez la méthode **get_entity** en passant les clés **PartitionKey** et **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

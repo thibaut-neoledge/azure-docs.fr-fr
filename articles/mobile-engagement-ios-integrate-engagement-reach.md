@@ -324,7 +324,7 @@ Pour créer une catégorie d'annonce, vous devez étendre **AEAnnouncementViewCo
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
+> [AZURE.NOTE]Chaque fois qu'un utilisateur clique sur une notification pour une annonce avec la catégorie « my\_category », votre contrôleur d'affichage enregistré (dans ce cas `MyCustomAnnouncementViewController`) sera initialisé en appelant la méthode `initWithAnnouncement:` et l'affichage sera ajouté à la fenêtre de l'application actuelle.
 
 Dans votre implémentation de la classe `AEAnnouncementViewController`, vous devez lire la propriété `announcement` pour initialiser vos sous-vues. Prenons l'exemple ci-dessous, dans lequel deux étiquettes sont initialisées à l'aide des propriétés `title` et `body` de la classe `AEReachAnnouncement` :
 

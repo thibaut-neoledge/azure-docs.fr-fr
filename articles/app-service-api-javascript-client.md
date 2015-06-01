@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Accéder à une application API Azure en utilisant HTML et JavaScript" 
-	description="Découvrez comment accéder à votre backend d&#39;application API en utilisant HTML et JavaScript." 
+	description="Découvrez comment accéder à votre backend d'application API en utilisant HTML et JavaScript." 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -32,11 +32,11 @@ Cet article s'appuie sur ces articles précédents en montrant comment vos appli
 
 ## Activation de CORS
 
-En règle générale, CORS \(Cross-Origin Resource Sharing\) est nécessaire dans les applications HTML qui seront traitées par des hôtes différents de l'API elle-même. Avec les applications API, il existe au moins deux options pour activer CORS. Cette section décrit ces options.
+En règle générale, CORS (Cross-Origin Resource Sharing) est nécessaire dans les applications HTML qui seront traitées par des hôtes différents de l'API elle-même. Avec les applications API, il existe au moins deux options pour activer CORS. Cette section décrit ces options.
 
 ### Activation de CORS pour les passerelles d'application API
 
-Les passerelles des applications API peuvent être configurées pour activer CORS à l'aide du portail Azure en version préliminaire. En ajoutant l'*appSetting* **MS\_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
+Les passerelles des applications API peuvent être configurées pour activer CORS à l'aide du portail Azure en version préliminaire. En ajoutant l'*appSetting* **MS_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
 
 1. Accédez au panneau du portail Azure en version préliminaire de l'application API pour laquelle vous voulez activer CORS. Une fois dans ce panneau, cliquez sur l'icône *Passerelle* pour votre application API. 
 
@@ -54,7 +54,7 @@ Les passerelles des applications API peuvent être configurées pour activer COR
 
 	![Paramètres de l'application de passerelle](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Ajoutez le paramètre d'application **MS\_CrossDomainOrigins**. Affectez comme valeur du paramètre la liste \(séparée par des virgules\) des hôtes HTTP auxquels vous voulez donner accès à votre application API. Si vous voulez fournir un accès à plusieurs hôtes, la valeur de l'*appSetting* peut être définie avec un code similaire au code ci-dessous.
+1. Ajoutez le paramètre d'application **MS_CrossDomainOrigins**. Affectez comme valeur du paramètre la liste (séparée par des virgules) des hôtes HTTP auxquels vous voulez donner accès à votre application API. Si vous voulez fournir un accès à plusieurs hôtes, la valeur de l'*appSetting* peut être définie avec un code similaire au code ci-dessous.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ Les passerelles des applications API peuvent être configurées pour activer COR
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-Le paramètre d'application **MS\_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
+Le paramètre d'application **MS_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
 
 ### Activation de CORS dans du code Web API
 
@@ -80,7 +80,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Ouvrez le fichier *App\_Start/WebApiConfig.cs*. Ajoutez la ligne de code ci-dessous à la méthode **Register** de la classe **WebApiConfig** dans le fichier.
+1. Ouvrez le fichier *App_Start/WebApiConfig.cs*. Ajoutez la ligne de code ci-dessous à la méthode **Register** de la classe **WebApiConfig** dans le fichier.
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 Dans cette section, vous allez créer une nouvelle application web vide, installer et y utiliser AngularJS, et lier une application frontale HTML simple à l'application API. Vous allez déployer cette application web dans Azure App Service. L'application web HTML se liera à l'application API et affichera des données extraites de celle-ci. Elle offrira aux utilisateurs une interface utilisateur simple pour l'API Contacts.
 
-1. Cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter \> Nouveau projet**.
+1. Cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter > Nouveau projet**.
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -171,7 +171,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/07-index-html.png)
 
-1. Ajoutez les fichiers de démarrage CSS et JavaScript AngularJS à la page HTML, utilisez un modèle d'amorçage simple \([comme celui-ci](http://getbootstrap.com/examples/starter-template/)\) et créez une balise de script vide pour préparer la page.
+1. Ajoutez les fichiers de démarrage CSS et JavaScript AngularJS à la page HTML, utilisez un modèle d'amorçage simple ([comme celui-ci](http://getbootstrap.com/examples/starter-template/)) et créez une balise de script vide pour préparer la page.
 	
 	> Remarque : les commentaires dans le code HTML et JavaScript ci-dessous sont des préludes aux étapes suivantes de cette section.
 

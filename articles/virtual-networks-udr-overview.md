@@ -54,7 +54,7 @@ Dans les scénarios ci-dessus, vous devez créer une table d’itinéraires et l
 Les sous-réseaux s’appuient sur les itinéraires par défaut jusqu’à ce qu’une table d’itinéraires soit associée au sous-réseau. Une fois que l’association existe, le routage se base sur la correspondance de préfixe la plus longue parmi les itinéraires définis par l’utilisateur et les itinéraires par défaut. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
 
 1. Itinéraire défini par l’utilisateur
-1. Itinéraire BGP \(lorsque ExpressRoute est utilisé\)
+1. Itinéraire BGP (lorsque ExpressRoute est utilisé)
 1. Itinéraire par défaut
 
 [AZURE.IMPORTANT]Les itinéraires définis par l’utilisateur sont appliqués uniquement aux machines virtuelles et services cloud Azure. Par exemple, si vous souhaitez ajouter une appliance virtuelle de pare-feu entre votre réseau local et Azure, vous devez créer un itinéraire défini par l’utilisateur pour vos tables d’itinéraires Azure qui transmettent tout le trafic allant vers l’espace d’adressage local à l’appliance virtuelle. Toutefois, le trafic entrant à partir de l’espace d’adressage local transite de votre passerelle VPN ou circuit ExpressRoute directement vers l’environnement Azure, en ignorant l’appliance virtuelle.

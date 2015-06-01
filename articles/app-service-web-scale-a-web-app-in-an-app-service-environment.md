@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Comment mettre à l&#39;échelle une application web dans un environnement App Service" 
-	description="Mise à l&#39;échelle d&#39;une application web dans un environnement App Service" 
+	pageTitle="Comment mettre à l'échelle une application web dans un environnement App Service" 
+	description="Mise à l'échelle d'une application web dans un environnement App Service" 
 	services="app-services\web" 
 	documentationCenter="" 
 	authors="ccompy" 
@@ -25,7 +25,7 @@
 La mise à l'échelle d'une application web dans un environnement App Service est très similaire à celle des applications web dans un environnement normal. Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
 
 - Plan de tarification
-- Taille du travail \(pour les instances dédiées\)
+- Taille du travail (pour les instances dédiées)
 - Nombre d'instances
 
 Dans un environnement App Service, il est inutile de sélectionner ou de modifier le plan de tarification. En termes de fonctionnalités, il est déjà au niveau de tarification Premium. Dans un environnement App Service, il n'existe pas non plus de travaux partagés. Ce sont tous des travaux dédiés. À la place de tailles fixes, l'administrateur de l'environnement App Service peut affecter la taille de la ressource de calcul à utiliser pour chaque pool de travaux. Cela signifie que vous pouvez avoir le pool de travaux 1 avec les ressources de calcul P4 et le pool de travaux 2 avec les ressources de calcul P1, si vous le souhaitez. Ils n'ont pas à être par ordre de taille. Pour plus d'informations sur les tailles et leurs tarifications, consultez le document [Tarification d'Azure App Service][AppServicePricing]. Les options de mise à l'échelle des applications web et des plans App Service d'un environnement App Service sont alors les suivantes :

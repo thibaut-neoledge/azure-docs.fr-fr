@@ -42,7 +42,7 @@ Notez que l’adresse IP virtuelle du proxy change chaque fois que le VPN est ac
 
 ## <a name="connect-vpn"> </a>Se connecter à un service web derrière un VPN
 
-Une fois que votre service Gestion des API est connecté au VPN, l’accès aux services web dans le réseau virtuel est similaire à l’accès aux services publics. Tapez simplement l’adresse locale ou le nom de l’hôte \(si un serveur DNS a été configuré pour ce réseau virtuel Azure\) de votre service web dans le champ **URL du service Web** lors de la création ou de la modification d’une API.
+Une fois que votre service Gestion des API est connecté au VPN, l’accès aux services web dans le réseau virtuel est similaire à l’accès aux services publics. Tapez simplement l’adresse locale ou le nom de l’hôte (si un serveur DNS a été configuré pour ce réseau virtuel Azure) de votre service web dans le champ **URL du service Web** lors de la création ou de la modification d’une API.
 
 ![Ajouter des API à partir du VPN][api-management-setup-vpn-add-api]
 

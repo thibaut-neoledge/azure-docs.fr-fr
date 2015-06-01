@@ -26,14 +26,14 @@ Avant de commencer, assurez-vous qu’Azure PowerShell est prêt à l’emploi.
 
 ## Présentation des groupes et des modèles de ressources Azure
 
-La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud \(au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un CDN\). *Les modèles Azure Resource Manager* permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
+La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud (au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un CDN). *Les modèles Azure Resource Manager* permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
 
 Une fois que vous avez défini un modèle de ressource basé sur JSON, vous pouvez l’exécuter de sorte que les ressources qui y sont définies soient déployées dans Azure à l’aide d’une commande PowerShell. Vous pouvez exécuter ces commandes soit de manière autonome dans l’interface de commande PowerShell soit dans un script qui contient la logique d’automatisation supplémentaire.
 
 Les ressources que vous créez à l’aide de modèles Azure Resource Manager seront déployées sur un groupe de ressources Azure nouveau ou existant. Un *groupe de ressources Azure* vous permet de gérer plusieurs ressources déployées ensemble sous forme de groupe logique ; cela vous permet de gérer le cycle de vie global de l’application/du groupe et de fournir des API de gestion qui vous donnent la possibilité d’effectuer les actions suivantes :
 
 - arrêter, démarrer ou supprimer d’un coup toutes les ressources au sein du groupe ; 
-- appliquer des règles de contrôle d’accès en fonction du rôle \(RBAC\) pour le verrouillage des autorisations de sécurité ; 
+- appliquer des règles de contrôle d’accès en fonction du rôle (RBAC) pour le verrouillage des autorisations de sécurité ; 
 - mener des opérations d’audit ; 
 - et baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi. 
 
@@ -292,7 +292,7 @@ Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWi
 
 ## Tâche courante : création d’une image de machine virtuelle personnalisée
 
-Utilisez les instructions de cette section pour créer une image de machine virtuelle personnalisée dans Azure avec un modèle du gestionnaire des ressources à l’aide d’Azure PowerShell. Ce modèle crée une seule machine virtuelle à partir d’un disque dur virtuel \(VHD\) spécifié.
+Utilisez les instructions de cette section pour créer une image de machine virtuelle personnalisée dans Azure avec un modèle du gestionnaire des ressources à l’aide d’Azure PowerShell. Ce modèle crée une seule machine virtuelle à partir d’un disque dur virtuel (VHD) spécifié.
 
 ### Étape 1 : Examen du fichier JSON pour obtenir le modèle
 
@@ -383,7 +383,7 @@ Dans le cas d’une machine virtuelle Linux, consultez la page [Création et té
 
 ### Étape 3 : Création de la machine virtuelle avec le modèle
 
-Pour créer une nouvelle machine virtuelle basée sur le disque dur virtuel, remplacez les éléments entre « \< \> » par vos informations spécifiques et exécutez ces commandes :
+Pour créer une nouvelle machine virtuelle basée sur le disque dur virtuel, remplacez les éléments entre « < > » par vos informations spécifiques et exécutez ces commandes :
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -417,7 +417,7 @@ Le type d’information suivant s’affiche :
 
 ## Tâche courante : déploiement d’une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge externe
 
-Suivez les instructions fournies dans ces sections pour déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge à l’aide d’un modèle du gestionnaire des ressources avec Azure PowerShell. Ce modèle crée deux machines virtuelles dans un réseau virtuel avec un seul sous-réseau dans un nouveau service cloud et les ajoute à un jeu d’équilibrage de charge externe pour le trafic entrant vers le port\|TCP 80.
+Suivez les instructions fournies dans ces sections pour déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge à l’aide d’un modèle du gestionnaire des ressources avec Azure PowerShell. Ce modèle crée deux machines virtuelles dans un réseau virtuel avec un seul sous-réseau dans un nouveau service cloud et les ajoute à un jeu d’équilibrage de charge externe pour le trafic entrant vers le port|TCP 80.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 

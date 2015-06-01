@@ -70,11 +70,11 @@ Avant d’approvisionner l’appareil virtuel, vous devez effectuer les prépara
 
 - Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
 - Vous pouvez utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. 
-- Les options de point à site et de site à site sont facultatives \(non obligatoires\). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
+- Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
 
 >[AZURE.IMPORTANT]**Assurez-vous que le réseau virtuel est situé dans la même région que les comptes de stockage cloud que vous allez utiliser avec l’appareil virtuel.**
 
-- Créez des [machines virtuelles Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) \(serveurs hôtes\) dans le réseau virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Créez des [machines virtuelles Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (serveurs hôtes) dans le réseau virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier
@@ -155,7 +155,7 @@ La section suivante décrit les paramètres de configuration d’appareil que vo
 
 #### Configuration de l’initiateur CHAP
 
-Ce paramètre contient les informations d’identification que votre appareil virtuel \(cible\) attend des initiateurs \(serveurs\) qui tentent d’accéder aux volumes. Les initiateurs fournissent un nom d’utilisateur et un mot de passe CHAP pour s’identifier auprès de votre appareil au cours de cette authentification.
+Ce paramètre contient les informations d’identification que votre appareil virtuel (cible) attend des initiateurs (serveurs) qui tentent d’accéder aux volumes. Les initiateurs fournissent un nom d’utilisateur et un mot de passe CHAP pour s’identifier auprès de votre appareil au cours de cette authentification.
 
 #### Configuration de la cible CHAP
 
@@ -171,7 +171,7 @@ Lorsque vous configurez un appareil dans le Gestionnaire d’instantanés StorSi
 
 Procédez comme suit pour configurer le Gestionnaire d’instantanés StorSimple lors de l’utilisation avec votre appareil virtuel StorSimple.
 
-1. Sur votre appareil virtuel, accédez à **Appareils \> Configurer**.
+1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
 
 - Accédez à la section **Gestionnaire d’instantanés**. Entrez un mot de passe 14 ou 15 caractères. Assurez-vous que le mot de passe contient une combinaison de caractères en majuscules, en minuscules, numériques et spéciaux.
 
@@ -187,7 +187,7 @@ Lorsque vous utilisez l’interface Windows PowerShell pour accéder à l’appa
 
 Procédez comme suit pour configurer le mot de passe Administrateur pour votre appareil virtuel StorSimple.
 
-1. Sur votre appareil virtuel, accédez à **Appareils \> Configurer**.
+1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
  
 1. Accédez à la section **Mot de passe Administrateur d’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en majuscules, en minuscules, numériques et spéciaux.
 
@@ -206,7 +206,7 @@ Vous pouvez choisir de vous connecter via HTTP ou HTTPS. Pour des raisons de sé
 Procédez comme suit pour configurer la gestion à distance de l’appareil virtuel StorSimple.
 
 
-1. Sur votre appareil virtuel, accédez à **Appareils \> Configurer**.
+1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
 
 2. Accédez à la section **Gestion à distance**.
 
@@ -236,7 +236,7 @@ Les sections suivantes présentent les différences que vous rencontrez lorsque 
 
 Comme il s’agit d’un appareil logiciel uniquement, la maintenance de l’appareil virtuel est minime par rapport à la maintenance de l’appareil physique. Vous disposez des options suivantes :
 
-- **Mises à jour automatiques** – Vous pouvez activer ou désactiver les mises à jour automatiques. Lorsque les mises à jour automatiques sont activées, l’appareil virtuel est automatiquement arrêté et redémarré \(si nécessaire\) pour appliquer les mises à jour publiées. Étant donné qu’il n’y a qu’une interface sur l’appareil virtuel, cela signifie qu’il y aura une brève interruption de service lors de l’application des mises à jour.
+- **Mises à jour automatiques** – Vous pouvez activer ou désactiver les mises à jour automatiques. Lorsque les mises à jour automatiques sont activées, l’appareil virtuel est automatiquement arrêté et redémarré (si nécessaire) pour appliquer les mises à jour publiées. Étant donné qu’il n’y a qu’une interface sur l’appareil virtuel, cela signifie qu’il y aura une brève interruption de service lors de l’application des mises à jour.
 - **Mises à jour logicielles** – Vous pouvez afficher la date de dernière mise à jour du logiciel, ainsi que les messages d’état de mise à jour. Vous pouvez utiliser le bouton Rechercher les mises à jour au bas de la page pour effectuer une recherche manuelle de nouvelles mises à jour.
 - **Package de prise en charge** – Vous pouvez créer et télécharger un package de prise en charge pour aider le support Microsoft à résoudre les problèmes que vous rencontrez avec votre appareil virtuel.
 
@@ -278,7 +278,7 @@ Procédez comme suit pour créer un point de terminaison public sur l’appareil
 
 - Cliquez sur **Endpoints**. La page Points de terminaison répertorie tous les points de terminaison de la machine virtuelle.
 
-- Cliquez sur \*\*Ajouter\*\*. La boîte de dialogue Ajouter un point de terminaison s’affiche. Cliquez sur la flèche pour continuer.
+- Cliquez sur **Ajouter**. La boîte de dialogue Ajouter un point de terminaison s’affiche. Cliquez sur la flèche pour continuer.
 
 - Pour le **Nom**, tapez le nom de point de terminaison suivant : **WinRMHttps**.
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connexion sécurisée à des ressources de backend à partir d’un environnement App Service" 
-	description="Découvrez comment connecter de façon sécurisée des ressources de backend à partir d&#39;un environnement App Service." 
+	description="Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
@@ -25,7 +25,7 @@ Par exemple, un serveur SQL Server peut être en cours d'exécution sur un clus
 
 De même, les points de terminaison sensibles peuvent s'exécuter localement et être connectés à Azure via des connexions [de site à site][SiteToSite] ou [Azure ExpressRoute][ExpressRoute]. Par conséquent, seules les ressources des réseaux virtuels connectés aux tunnels site à site ou ExpressRoute peuvent accéder aux points de terminaison locaux.
 
-Pour tous ces scénarios, les applications s'exécutant dans un environnement App Service peuvent se connecter de façon sécurisée aux différents serveurs et aux différentes ressources. Le trafic sortant à partir d'applications qui s'exécutent dans un environnement App Service vers des points de terminaison privés se trouvant sur le même réseau virtuel \(ou connectés au même réseau virtuel\) circulent uniquement sur le réseau virtuel. Le trafic sortant vers des points de terminaison privés ne circule pas via le réseau Internet public.
+Pour tous ces scénarios, les applications s'exécutant dans un environnement App Service peuvent se connecter de façon sécurisée aux différents serveurs et aux différentes ressources. Le trafic sortant à partir d'applications qui s'exécutent dans un environnement App Service vers des points de terminaison privés se trouvant sur le même réseau virtuel (ou connectés au même réseau virtuel) circulent uniquement sur le réseau virtuel. Le trafic sortant vers des points de terminaison privés ne circule pas via le réseau Internet public.
 
 
 ## Connexion à un serveur SQL Server
@@ -36,7 +36,7 @@ Une configuration courante de SQL Server comprend un point de terminaison qui �
 Pour limiter le trafic sur ce point de terminaison, vous avez le choix entre deux approches :
 
 
-- [Listes de contrôle d'accès réseau][NetworkAccessControlLists] \(ACL réseau\)
+- [Listes de contrôle d'accès réseau][NetworkAccessControlLists] (ACL réseau)
 
 - [Groupes de sécurité réseau][NetworkSecurityGroups]
 

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Mener à bien l&#39;installation minimale de l’appareil"
+   pageTitle="Mener à bien l'installation minimale de l’appareil"
    description="Explique comment effectuer la configuration minimale d’un appareil StorSimple."
    services="storsimple"
    documentationCenter="NA"
@@ -36,6 +36,6 @@
 
 5. Cliquez ensuite sur l'icône en forme de coche ![Icône en forme de coche StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png). Vous revenez à la page **Démarrage rapide** de l'appareil.
 
- \>[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
+ >[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
 <!--HONumber=52-->

@@ -47,15 +47,15 @@ Le code suivant permet de créer un objet **QueueService** en utilisant le nom e
 
 ## Procédure : Insertion d'un message dans une file d'attente
 
-Pour insérer un message dans une file d'attente, utilisez la méthode **put\_message** pour créer un nouveau message et l'ajouter à la file d'attente.
+Pour insérer un message dans une file d'attente, utilisez la méthode **put_message** pour créer un nouveau message et l'ajouter à la file d'attente.
 
 	queue_service.put_message('taskqueue', 'Hello World')
 
 
 ## Procédure : Lecture furtive du message suivant
 
-Vous pouvez lire le message en début de file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek\_messages**. Par défaut,
-**peek\_messages** permet de lire furtivement un seul message.
+Vous pouvez lire le message en début de file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek_messages**. Par défaut,
+**peek_messages** permet de lire furtivement un seul message.
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
@@ -65,7 +65,7 @@ Vous pouvez lire le message en début de file d'attente sans le supprimer de la 
 ## Procédure : Enlèvement du message suivant de la file d'attente
 
 Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vous appelez
-**get\_messages**, vous obtenez le message suivant dans une file d'attente par défaut. Un message renvoyé par **get\_messages** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez appeler **delete\_message**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message** juste après le traitement du message.
+**get_messages**, vous obtenez le message suivant dans une file d'attente par défaut. Un message renvoyé par **get_messages** devient invisible de tout autre code lisant les messages de cette file d'attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d'attente, vous devez appeler **delete_message**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete_message** juste après le traitement du message.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -75,7 +75,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vou
 
 ## Procédure : Modification du contenu d'un message en file d'attente
 
-Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code ci-dessous utilise la méthode **update\_message** pour mettre à jour un message.
+Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code ci-dessous utilise la méthode **update_message** pour mettre à jour un message.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -85,7 +85,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente.
 Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode
-**get\_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+**get_messages** pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle for. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
 	for message in messages:
@@ -95,7 +95,7 @@ Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmeme
 ## Procédure : Obtention de la longueur de la file d'attente
 
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La
-méthode **get\_queue\_metadata** demande au service de File d'attente de renvoyer des métadonnées sur la file d'attente ; **x-ms-approximate-messages-count** doit être utilisé comme index dans le dictionnaire renvoyé pour trouver le décompte.
+méthode **get_queue_metadata** demande au service de File d'attente de renvoyer des métadonnées sur la file d'attente ; **x-ms-approximate-messages-count** doit être utilisé comme index dans le dictionnaire renvoyé pour trouver le décompte.
 Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de File d'attente a répondu à votre demande.
 
 	queue_metadata = queue_service.get_queue_metadata('taskqueue')
@@ -104,7 +104,7 @@ Le résultat est seulement approximatif, car des messages peuvent être ajoutés
 ## Procédure : Suppression d'une file d'attente
 
 Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode
-**delete\_queue**.
+**delete_queue**.
 
 	queue_service.delete_queue('taskqueue')
 

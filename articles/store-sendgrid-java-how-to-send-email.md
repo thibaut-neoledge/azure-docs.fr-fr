@@ -124,7 +124,7 @@ Le code suivant permet d'ajouter une pièce jointe.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -142,11 +142,11 @@ SendGrid offre d'autres fonctionnalités de messagerie grâce à l'utilisation d
     l'affichage de texte HTML en bas du message électronique envoyé.
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+			"{"filters": 
+			{"footer": 
+			{"settings": 
+        	{"enable":1,"text/html": 
+			"<html><b>Thank you</b> for your business.</html>"}}}}");
 
 -   Parmi les exemples de filtres, on peut également citer le suivi des clics. Imaginons que le texte de votre courrier électronique contient un lien hypertexte comme celui qui suit, et que vous voulez suivre le taux de clics :
 
@@ -160,10 +160,10 @@ SendGrid offre d'autres fonctionnalités de messagerie grâce à l'utilisation d
 -   To enable the click tracking, use the following code:
 
         message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+			"{"filters": 
+			{"clicktrack": 
+			{"settings": 
+        	{"enable":1}}}}");
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>Procédure : Mise à jour des propriétés de courrier électronique
 

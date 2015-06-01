@@ -34,7 +34,7 @@ L’utilisation d’Operational Insights comme service associé nécessite de r�
 
 - System Center 2012 R2 : correctif cumulatif 2 d’Operations Manager, même si le correctif cumulatif 3 est préférable. Cette mise à jour doit être appliquée au serveur d’administration, aux agents et à la console Opérateur pour Operational Insights en tant que service associé.
 
-- Pour afficher les données de gestion de capacité, vous devez activer la connectivité d'Operations Manager avec Virtual Machine Manager \(VMM\). Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-fr/library/hh882396.aspx).
+- Pour afficher les données de gestion de capacité, vous devez activer la connectivité d'Operations Manager avec Virtual Machine Manager (VMM). Pour plus d’informations sur la connexion des systèmes, consultez [Connexion de VMM avec Operations Manager](https://technet.microsoft.com/fr-fr/library/hh882396.aspx).
 
 Consultez [Affichage des alertes Operational Insights](http://go.microsoft.com/fwlink/?LinkID=293793) pour obtenir des instructions d’installation et de configuration.
 
@@ -45,7 +45,7 @@ Si vous souhaitez afficher les alertes Operational Insights sur SharePoint Serv
 
 - [Définition du compte d’identification pour Lync Server](operational-insights-run-as.md)
 
-- [Définition du compte d’identification pour Virtual Machine Manager \(VMM\)](operational-insights-run-as.md)
+- [Définition du compte d’identification pour Virtual Machine Manager (VMM)](operational-insights-run-as.md)
 
 ### Systèmes d’exploitation Operations Manager
 

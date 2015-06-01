@@ -31,18 +31,18 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 ### Causes
 
 - Vous pouvez utiliser l'API Analytics, Monitor et Segments pour voir si des données manquantes dans l'IU sont visibles avec les API.
-- Si le Kit de développement logiciel \(SDK\) Azure Mobile Engagement n'est pas correctement intégrée dans votre application, vous ne serez pas en mesure de voir les informations dans Analyse, Segmentation, Surveillance ou Tableaux de bord.
-- Les segments ne peuvent pas être modifiée après avoir été créés, ils peuvent uniquement être « clonés » \(copiés\) ou « détruits » \(supprimés\). Les segments peuvent uniquement contenir 10 critères.
-- La meilleure façon de tester les informations manquantes de l'analyse \(configurer un périphérique de test, désinstaller et/ou réinstaller l'application sur le périphérique de test\).
+- Si le Kit de développement logiciel (SDK) Azure Mobile Engagement n'est pas correctement intégrée dans votre application, vous ne serez pas en mesure de voir les informations dans Analyse, Segmentation, Surveillance ou Tableaux de bord.
+- Les segments ne peuvent pas être modifiée après avoir été créés, ils peuvent uniquement être « clonés » (copiés) ou « détruits » (supprimés). Les segments peuvent uniquement contenir 10 critères.
+- La meilleure façon de tester les informations manquantes de l'analyse (configurer un périphérique de test, désinstaller et/ou réinstaller l'application sur le périphérique de test).
 - Les informations sont actualisées toutes les 24 heures pour l'analyse, la segmentation ou les tableaux de bord.
-- Les informations figurant dans les nouveaux segments ne peuvent pas être affichées au cours de 24 heures qui suivent leur création \(même si le segment est basé sur des informations antérieures\).
-- Le filtrage de vos données d’analyse, dans l’interface utilisateur, affiche tous les exemples de ce type, et ce, quelle que soit la version de votre application \(par exemple les « Incidents » filtrés par nom s’afficheront depuis la version 1 et la version 2 de votre application\).
+- Les informations figurant dans les nouveaux segments ne peuvent pas être affichées au cours de 24 heures qui suivent leur création (même si le segment est basé sur des informations antérieures).
+- Le filtrage de vos données d’analyse, dans l’interface utilisateur, affiche tous les exemples de ce type, et ce, quelle que soit la version de votre application (par exemple les « Incidents » filtrés par nom s’afficheront depuis la version 1 et la version 2 de votre application).
 - La période de l'analyse est basée sur la date des paramètres des périphériques des utilisateurs ; ainsi, un utilisateur dont le téléphone a une date incorrecte pourrait s'afficher dans une période incorrecte.
 - Aucune donnée côté serveur n'est enregistrée lorsque vous utilisez le bouton pour « tester » les notifications Push. Les données sont enregistrées uniquement pour les vraies campagnes de notification Push.
 
 ### Voir aussi
 
-- [Guide de dépannage - Kit de développement logiciel \(SDK\)][Link 25], [Documentation sur les API][Link 4], [Documentation sur l’interface utilisateur - Segments][Link 18]
+- [Guide de dépannage - Kit de développement logiciel (SDK)][Link 25], [Documentation sur les API][Link 4], [Documentation sur l’interface utilisateur - Segments][Link 18]
 
 ## Impossible de trouver des éléments dans l'interface utilisateur
 
@@ -68,12 +68,12 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 
 ### Causes
 
-- Pour résoudre les problèmes d'incident d'application dans Analyse, Surveillance ou Tableau de bord, veillez à consulter les notes de publication pour les problèmes connus avec les versions précédentes du Kit de développement logiciel \(SDK\).
+- Pour résoudre les problèmes d'incident d'application dans Analyse, Surveillance ou Tableau de bord, veillez à consulter les notes de publication pour les problèmes connus avec les versions précédentes du Kit de développement logiciel (SDK).
 - Pour mieux résoudre les incidents d'application, effectuez un événement à partir d'un périphérique de test avec votre application installée et recherchez l'ID de votre périphérique dans la section « Moniteur – Événements » de l'interface utilisateur d'Azure Mobile Engagement. Effectuez ensuite l'événement à l'origine de l'incident de votre application et cherchez des informations supplémentaires dans la section « Moniteur – Incident » de l'interface utilisateur d'Azure Mobile Engagement. 
 
 ### Voir aussi
 
-- [Concepts - FAQ][Link 6], [Concepts - Glossaire][Link 6], [Documentation de l’interface utilisateur][Link 1], [Documentation du Kit de développement logiciel \(SDK\) - Notes de publication][Link 5], [Documentation du Kit de développement logiciel \(SDK\) - Guides de mise à jour][Link 5]
+- [Concepts - FAQ][Link 6], [Concepts - Glossaire][Link 6], [Documentation de l’interface utilisateur][Link 1], [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5], [Documentation du Kit de développement logiciel (SDK) - Guides de mise à jour][Link 5]
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

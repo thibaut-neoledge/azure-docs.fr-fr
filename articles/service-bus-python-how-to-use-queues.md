@@ -55,9 +55,9 @@ Le nom et la valeur de la clé de signature d'accès partagé se trouvent dans l
 
 ## Envoi de messages à une file d'attente
 
-Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send\_queue\_message** de l'objet **ServiceBusService**.
+Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send_queue_message** de l'objet **ServiceBusService**.
 
-L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue using* à l'aide de la méthode **send\_queue\_message()** :
+L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue using* à l'aide de la méthode **send_queue_message()** :
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -66,17 +66,17 @@ Les files d'attente Service Bus prennent en charge une taille de message maximal
 
 ## Réception des messages d'une file d'attente
 
-La méthode **receive\_queue\_message** de l'objet **ServiceBusService** permet de recevoir les messages d'une file d'attente :
+La méthode **receive_queue_message** de l'objet **ServiceBusService** permet de recevoir les messages d'une file d'attente :
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-Les messages sont supprimés de la file d'attente au fur et à mesure de leur lecture, si le paramètre **peek\_lock** est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d'attente en définissant le paramètre **peek\_lock** sur **True**.
+Les messages sont supprimés de la file d'attente au fur et à mesure de leur lecture, si le paramètre **peek_lock** est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d'attente en définissant le paramètre **peek_lock** sur **True**.
 
 Le comportement de lecture et de suppression du message dans le cadre de l'opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
 
-Si le paramètre **peek\_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l'objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de la file d'attente.
+Si le paramètre **peek_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l'objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de la file d'attente.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
 	print(msg.body)

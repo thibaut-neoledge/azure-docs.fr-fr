@@ -171,7 +171,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s'affiche, cliquez sur **Connecter**.
 5.	Si des informations d'identification vous sont demandées, utilisez celles-ci :
-- Nom : **DC2\\**[Nom du compte de l'administrateur local]
+- Nom : **DC2**[Nom du compte de l'administrateur local]
 - Mot de passe : [Mot de passe du compte de l'administrateur local]
 6.	Lorsqu'une zone de message de connexion Bureau à distance faisant référence aux certificats s'ouvre, cliquez sur **Oui**.
 

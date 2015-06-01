@@ -2,7 +2,7 @@
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
-#Opérations de l'indexeur \(API REST du service Azure Search : 2014-10-20-Preview\)
+#Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)
 
 > [AZURE.NOTE]Cet article décrit un prototype de nouvelles fonctionnalités qui ne sont pas dans la version publiée de l'API. Pour plus d'informations sur les versions et la capacité de prise en charge, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx) sur MSDN. Pour plus d'informations sur les autres fonctionnalités dans cette API en version préliminaire, consultez [API REST du service Azure Search : version 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
@@ -10,7 +10,7 @@
 
 Azure Search peut s'intégrer directement à des sources de données courantes, ce qui évite d'avoir à écrire du code pour indexer vos données. Pour cela, vous pouvez appeler l'API Azure Search pour créer et gérer des **indexeurs** et des **sources de données**.
 
-Une **source de données** définit les données à indexer, les informations d'identification pour accéder aux données et les indications pour permettre à Azure Search d'identifier efficacement les modifications au niveau des données \(par exemple, des lignes modifiées ou supprimées dans une table de base de données\).
+Une **source de données** définit les données à indexer, les informations d'identification pour accéder aux données et les indications pour permettre à Azure Search d'identifier efficacement les modifications au niveau des données (par exemple, des lignes modifiées ou supprimées dans une table de base de données).
 
 Un **indexeur** décrit le flux de données de votre source de données dans un index de recherche. Un indexeur peut :
 
@@ -49,7 +49,7 @@ Les étapes classiques pour configurer l'indexation automatique sont les suivant
 Pour plus d'informations, consultez la page [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ## Opérations de source de données
-Vous pouvez créer et gérer des sources de données dans le service Azure Search via de simples requêtes HTTP \(POST, GET, PUT, DELETE\) sur une ressource de source de données indiquée.
+Vous pouvez créer et gérer des sources de données dans le service Azure Search via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource de source de données indiquée.
 
 ### Créer une source de données
 
@@ -69,7 +69,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 
 Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Data Source** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom de source de données dans le corps de la requête avec la définition de source de données. Avec la méthode PUT, le nom fait partie de l'URL. Si la source de données n'existe pas, elle est créée. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
 
-Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres, des chiffres et des tirets \(non consécutifs\).
+Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
 `api-version` est obligatoire. Les valeurs valables incluent `2014-10-20-Preview` ou une version ultérieure.
 
@@ -78,7 +78,7 @@ Le nom de source de données doit être en minuscules, commencer par une lettre 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. Définissez ceci sur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration \(par opposition à une clé de requête\). 
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
 
@@ -105,7 +105,7 @@ La requête peut contenir les propriétés suivantes :
 - `description` : une description facultative. 
 - `type` : obligatoire. Utilisez `azuresql` pour une source de données SQL Azure, `docdb` pour une source de données DocumentDB.
 - `container` : 
-	- La propriété `name` obligatoire spécifie la table ou vue \(pour la source de données SQL Azure\) ou la collection \(pour la source de données DocumentDB\) qui est indexée. 
+	- La propriété `name` obligatoire spécifie la table ou vue (pour la source de données SQL Azure) ou la collection (pour la source de données DocumentDB) qui est indexée. 
 	- Les sources de données DocumentDB prennent également en charge une propriété `query` facultative permettant de spécifier une requête qui aplanit une disposition de document JSON arbitraire dans un schéma plat qu'Azure Search peut indexer.   
 - Les stratégies facultatives `dataChangeDetectionPolicy` et `dataDeletionDetectionPolicy` sont décrites ci-dessous.
 
@@ -282,9 +282,9 @@ Code d'état : 204 Pas de contenu est retourné pour une réponse correcte.
 
 Un indexeur est la ressource qui connecte des sources de données à des index de recherche cibles. Vous devez prévoir de créer un indexeur pour chaque association source de données/index cible. Vous pouvez avoir plusieurs indexeurs qui écrivent dans le même index. Toutefois, un indexeur peut uniquement écrire dans un index unique.
 
-Vous pouvez créer et gérer des indexeurs via de simples requêtes HTTP \(POST, GET, PUT, DELETE\) sur une ressource d'indexeur donnée.
+Vous pouvez créer et gérer des indexeurs via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource d'indexeur donnée.
 
-Après avoir créé un indexeur, vous pouvez récupérer son état d'exécution à l'aide de l'opération [Get Indexer Status](#GetIndexerStatus). Vous pouvez également exécuter un indexeur à tout moment \(au lieu ou en plus de son exécution périodique planifiée\) à l'aide de l'opération [Run Indexer](#RunIndexer).
+Après avoir créé un indexeur, vous pouvez récupérer son état d'exécution à l'aide de l'opération [Get Indexer Status](#GetIndexerStatus). Vous pouvez également exécuter un indexeur à tout moment (au lieu ou en plus de son exécution périodique planifiée) à l'aide de l'opération [Run Indexer](#RunIndexer).
 
 ### Create Indexer
 
@@ -320,9 +320,9 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
 
 Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
 
-- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD \(un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). Le modèle utilisé est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
+- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle utilisé est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
 
-- `startTime` : obligatoire. Heure UTC \(temps universel coordonné\) à laquelle l'exécution de l'indexeur doit commencer.
+- `startTime` : obligatoire. Heure UTC (temps universel coordonné) à laquelle l'exécution de l'indexeur doit commencer.
 
 **Paramètres d'indexation**
 
@@ -462,7 +462,7 @@ L'opération **Get Indexer Status** récupère l'état actuel et l'historique d'
 
 Code d'état : 200 OK pour une réponse correcte.
 
-Le corps de la réponse contient des informations sur l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur, ainsi que l'historique des appels récents de l'indexeur \(le cas échéant\).
+Le corps de la réponse contient des informations sur l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur, ainsi que l'historique des appels récents de l'indexeur (le cas échéant).
 
 Un exemple de corps de réponse ressemble à ceci :
 
@@ -516,13 +516,13 @@ Le résultat d'exécution de l'indexeur contient les propriétés suivantes :
 
 - `errors` : liste d'éventuelles erreurs au niveau élément.
 
-- `itemsProcessed` : nombre d'éléments de source de données \(par exemple, lignes de table\) que l'indexeur a tenté d'indexer durant cette exécution.
+- `itemsProcessed` : nombre d'éléments de source de données (par exemple, lignes de table) que l'indexeur a tenté d'indexer durant cette exécution.
 
 - `itemsFailed` : nombre d'éléments dont l'exécution a échoué au cours de cette opération.
  
-- `initialTrackingState` : toujours `null` pour la première exécution de l'indexeur, ou si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Si une telle stratégie est activée, lors des exécutions suivantes, cette valeur est la première valeur \(la plus basse\) de suivi des modifications traitée par cette exécution.
+- `initialTrackingState` : toujours `null` pour la première exécution de l'indexeur, ou si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Si une telle stratégie est activée, lors des exécutions suivantes, cette valeur est la première valeur (la plus basse) de suivi des modifications traitée par cette exécution.
 
-- `finalTrackingState` : toujours `null` si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Sinon, indique la dernière valeur \(la plus élevée\) de suivi des modifications correctement traitée par cette exécution.
+- `finalTrackingState` : toujours `null` si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Sinon, indique la dernière valeur (la plus élevée) de suivi des modifications correctement traitée par cette exécution.
 
 <a name="IndexerExecutionStatus"></a> **État d'exécution de l'indexeur**
 
@@ -534,14 +534,14 @@ L'état d'exécution de l'indexeur reflète l'état d'une seule exécution. Il p
 
 - `transientFailure` Indique que l'appel de l'indexeur a échoué, mais l'échec peut être temporaire. Les appels de l'indexeur continuent conformément à la planification, si celle-ci est définie.
 
-- `persistentFailure` Indique que l'indexeur a échoué d'une manière telle qu'une intervention humaine est probablement nécessaire \(par exemple, en raison d'une incompatibilité de schéma entre la source de données et l'index cible\). Les exécutions planifiées de l'indexeur s'arrêtent ; une action de l'utilisateur est requise pour résoudre le problème \(décrit dans la propriété `errorMessage`\) et redémarrer l'exécution de l'indexeur.
+- `persistentFailure` Indique que l'indexeur a échoué d'une manière telle qu'une intervention humaine est probablement nécessaire (par exemple, en raison d'une incompatibilité de schéma entre la source de données et l'index cible). Les exécutions planifiées de l'indexeur s'arrêtent ; une action de l'utilisateur est requise pour résoudre le problème (décrit dans la propriété `errorMessage`) et redémarrer l'exécution de l'indexeur.
 
-- `reset` Indique que l'indexeur a été réinitialisé par un appel à l'API Reset Indexer \(voir ci-dessous\).
+- `reset` Indique que l'indexeur a été réinitialisé par un appel à l'API Reset Indexer (voir ci-dessous).
 
 <a name="ResetIndexer"></a>
 ### Reset Indexer
 
-L'opération **Reset Indexer** réinitialise l'état de suivi des modifications associé à l'indexeur. Cela vous permet de déclencher une réindexation complète \(par exemple, si votre schéma de source de données a changé\) ou de modifier la stratégie de détection des modifications de données pour une source de données associée à l'indexeur.
+L'opération **Reset Indexer** réinitialise l'état de suivi des modifications associé à l'indexeur. Cela vous permet de déclencher une réindexation complète (par exemple, si votre schéma de source de données a changé) ou de modifier la stratégie de détection des modifications de données pour une source de données associée à l'indexeur.
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]

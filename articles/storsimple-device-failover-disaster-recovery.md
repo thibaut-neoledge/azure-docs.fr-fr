@@ -56,7 +56,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+		>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et à des volumes hors connexion sont affichés.**
 
 	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
 
@@ -84,7 +84,7 @@ Procédez comme suit si vous disposez d’un seul appareil et devez effectuer un
 												
 	>[AZURE.IMPORTANT]**Si vous n’effectuez pas cette action en premier, la récupération d’urgence échoue en raison d’un bogue dans l’implémentation actuelle. Ce problème sera résolu dans une version ultérieure.**
 
-1. Sélectionnez l’ancien appareil \(état hors connexion\) et cliquez sur **Basculement**. Dans l’Assistant qui s’affiche, basculez cet appareil et spécifiez l’appareil cible en tant qu’appareil nouvellement inscrit. Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
+1. Sélectionnez l’ancien appareil (état hors connexion) et cliquez sur **Basculement**. Dans l’Assistant qui s’affiche, basculez cet appareil et spécifiez l’appareil cible en tant qu’appareil nouvellement inscrit. Pour obtenir des instructions détaillées, reportez-vous à la section [Basculer vers un autre appareil physique](#fail-over-to-another-physical-device).
 
 1. Un travail de restauration de l’appareil sera créé ; vous pouvez le surveiller à partir de la page **Travaux**.
 

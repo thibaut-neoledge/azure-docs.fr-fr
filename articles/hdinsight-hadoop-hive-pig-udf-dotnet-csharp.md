@@ -17,11 +17,11 @@
 	ms.author="larryfr"/>
 
 
-#Utilisation de C\# avec Hive et Pig dans HDInsight
+#Utilisation de C# avec Hive et Pig dans HDInsight
 
 Les langages Hive et Pig sont parfaits pour traiter des données dans Azure HDInsight, mais vous avez parfois besoin d’un langage plus généraliste. Hive et Pig vous permettent d’appeler le code externe via des fonctions définies par l’utilisateur ou la diffusion en continu.
 
-Dans ce document, découvrez comment utiliser C\# avec Hive et Pig.
+Dans ce document, découvrez comment utiliser C# avec Hive et Pig.
 
 ##Configuration requise
 
@@ -41,19 +41,19 @@ Dans ce document, découvrez comment utiliser C\# avec Hive et Pig.
 
 ##.NET sur HDInsight
 
-Le Common Language Runtime .NET \(CLR\) et les infrastructures sont installés par défaut sur les clusters HDInsight basés sur Windows. Cela vous permet d’utiliser des applications C\# avec une diffusion en continu Hive et Pig \(données transmises entre Hive/Pig et l’application C\# via stdout/stdin\).
+Le Common Language Runtime .NET (CLR) et les infrastructures sont installés par défaut sur les clusters HDInsight basés sur Windows. Cela vous permet d’utiliser des applications C# avec une diffusion en continu Hive et Pig (données transmises entre Hive/Pig et l’application C# via stdout/stdin).
 
 Il n’existe actuellement aucune prise en charge pour l’exécution des applications .NET Framework sur les clusters HDInsight basés sur Linux.
 
 ##.NET et diffusion en continu
 
-La diffusion en continu exige que Hive et Pig transmettent des données à une application externe via stdout et reçoivent les résultats via stdin. Pour les applications C\#, cela est plus facilement réalisable via `Console.ReadLine()` et `Console.WriteLine()`.
+La diffusion en continu exige que Hive et Pig transmettent des données à une application externe via stdout et reçoivent les résultats via stdin. Pour les applications C#, cela est plus facilement réalisable via `Console.ReadLine()` et `Console.WriteLine()`.
 
-Étant donné que Hive et Pig doivent appeler l’application au moment de l’exécution, le modèle **Application console** doit être utilisé pour vos projets C\#.
+Étant donné que Hive et Pig doivent appeler l’application au moment de l’exécution, le modèle **Application console** doit être utilisé pour vos projets C#.
 
-##Hive et C&\#35;
+##Hive et C&#35;
 
-###Création du projet C\#
+###Création du projet C#
 
 1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console**, puis nommez le nouveau projet **HiveCSharp**.
 
@@ -146,15 +146,15 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Cela permet de sélectionner les champs `clientid`, `devicemake` et `devicemodel` dans `hivesampletable`, puis de les transmettre à l’application HiveCSharp.exe. La requête s’attend à ce que l’application renvoie les trois champs, qui sont stockés en tant que `clientid`, `phoneLabel` et `phoneHash`. Elle s’attend également à trouver HiveCSharp.exe à la racine du conteneur de stockage par défaut \(`add file wasb:///HiveCSharp.exe`\).
+    Cela permet de sélectionner les champs `clientid`, `devicemake` et `devicemodel` dans `hivesampletable`, puis de les transmettre à l’application HiveCSharp.exe. La requête s’attend à ce que l’application renvoie les trois champs, qui sont stockés en tant que `clientid`, `phoneLabel` et `phoneHash`. Elle s’attend également à trouver HiveCSharp.exe à la racine du conteneur de stockage par défaut (`add file wasb:///HiveCSharp.exe`).
 
 5. Cliquez sur **Envoyer** pour envoyer la tâche au cluster HDInsight. La fenêtre **Résumé de la tâche Hive** s’ouvre.
 
 6. Cliquez sur **Actualiser** pour actualiser le résumé jusqu’à ce que **État du travail** soit défini sur **Terminé**. Pour afficher le résultat de la tâche, cliquez sur **Sortie de la tâche**.
 
-###Pig et C&\#35;
+###Pig et C&#35;
 
-###Création du projet C\#
+###Création du projet C#
 
 1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console**, puis nommez le nouveau projet **PigUDF**.
 
@@ -195,7 +195,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 1. La diffusion en continu Pig s’attend à ce que l’application soit locale sur le système de fichiers de cluster. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight avec RDP</a>.
 
-2. Une fois connecté, copiez **PigUDF.exe** du répertoire **bin/debug** vers le projet PigUDF sur votre ordinateur local, puis collez-le dans le répertoire **PIG\_HOME %** sur le cluster.
+2. Une fois connecté, copiez **PigUDF.exe** du répertoire **bin/debug** vers le projet PigUDF sur votre ordinateur local, puis collez-le dans le répertoire **PIG_HOME %** sur le cluster.
 
 ###Utilisation de l’application à partir de Pig Latin
 
@@ -218,7 +218,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 	L’instruction `DEFINE` crée l’alias `streamer` pour les applications pigudf.exe et `SHIP` le distribue entre les nœuds du cluster. Plus tard, `streamer` est utilisé avec l’opérateur `STREAM` pour traiter les lignes uniques contenues dans le journal et renvoyer les données sous forme de colonnes.
 
-> [AZURE.NOTE]Le nom d’application utilisé pour la diffusion en continu doit être entouré du caractère \` \(accent grave\) s’il s’agit d’un alias ou du caractère ’ \(apostrophe\) en cas d’utilisation avec `SHIP`.
+> [AZURE.NOTE]Le nom d’application utilisé pour la diffusion en continu doit être entouré du caractère ` (accent grave) s’il s’agit d’un alias ou du caractère ’ (apostrophe) en cas d’utilisation avec `SHIP`.
 
 3. Après avoir entré la dernière ligne, la tâche doit démarrer. Elle renvoie une sortie semblable à celle-ci :
 

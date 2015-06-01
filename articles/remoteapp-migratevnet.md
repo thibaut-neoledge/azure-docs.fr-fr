@@ -20,14 +20,14 @@
 
 # Comment migrer une collection hybride d’un réseau virtuel RemoteApp à un réseau virtuel Azure
 
-Bonne nouvelle ! Vous avez désormais la possibilité de déployer des collections RemoteApp hybrides directement sur vos réseaux virtuels \(VNET\) Azure existants au lieu de devoir créer des réseaux virtuels RemoteApp spécifiques. Cela vous permet de tirer parti des dernières fonctionnalités de réseau virtuel \(comme ExpressRoute\) et offre à vos collections hybrides un accès réseau direct à d’autres services Azure et ordinateurs virtuels déployés sur ce réseau virtuel. \(Ceci améliore les performances et facilite l’installation par rapport aux configurations de réseau virtuel à réseau virtuel\).
+Bonne nouvelle ! Vous avez désormais la possibilité de déployer des collections RemoteApp hybrides directement sur vos réseaux virtuels (VNET) Azure existants au lieu de devoir créer des réseaux virtuels RemoteApp spécifiques. Cela vous permet de tirer parti des dernières fonctionnalités de réseau virtuel (comme ExpressRoute) et offre à vos collections hybrides un accès réseau direct à d’autres services Azure et ordinateurs virtuels déployés sur ce réseau virtuel. (Ceci améliore les performances et facilite l’installation par rapport aux configurations de réseau virtuel à réseau virtuel).
 
 
 Supposons que vous avez déjà créé une collection RemoteApp hybride appelée *OriginalCollection* avec un réseau virtuel RemoteApp appelé *RemoteAppVNET*. Voici les étapes à suivre pour effectuer la migration vers un nouveau réseau virtuel Azure appelé *AzureVNET*.
 
-1.	Dans l’onglet **Réseaux** du [Portail de gestion](http://manage.windowsazure.com/), créez un réseau virtuel appelé *AzureVNET* en utilisant un emplacement, une configuration DNS et un espace d’adressage identiques \(pour au moins l’un des sous-réseaux *AzureVNET*\) à ceux utilisés pour *RemoteAppVNET*.
+1.	Dans l’onglet **Réseaux** du [Portail de gestion](http://manage.windowsazure.com/), créez un réseau virtuel appelé *AzureVNET* en utilisant un emplacement, une configuration DNS et un espace d’adressage identiques (pour au moins l’un des sous-réseaux *AzureVNET*) à ceux utilisés pour *RemoteAppVNET*.
 2.	Configurez *AzureVNET* de manière à héberger le déploiement d’Active Directory avec lequel la collection *OriginalCollection* est jointe au domaine, ou à établir une connectivité réseau avec ce dernier.
-3.	Dans l’onglet **RemoteApps**, créez une collection RemoteApp appelée *Nouvelle Collection*. \(Utilisez l’option **Créer avec VPN** plutôt que l’option **Création rapide**.\)
+3.	Dans l’onglet **RemoteApps**, créez une collection RemoteApp appelée *Nouvelle Collection*. (Utilisez l’option **Créer avec VPN** plutôt que l’option **Création rapide**.)
 3.	Configurez *NewCollection* de manière à être déployée sur un sous-réseau dans *AzureVNET*.
 4.	Configurez *NewCollection* de manière à utiliser la même image et les mêmes informations de jonction de domaine que celles utilisées pour *OriginalCollection*.
 5.	Après quelques heures, *NewCollection* apparaît dans la liste de collections avec le statut Actif.

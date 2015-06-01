@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d&#39;Azure Mobile Apps pour les applications Xamarin Android - Azure Mobile App"
-	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d&#39;applications Xamarin Android."
+	pageTitle="Prise en main d'Azure Mobile Apps pour les applications Xamarin Android - Azure Mobile App"
+	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="chrande"
@@ -84,15 +84,15 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application. Vous êtes invité à sélectionner un émulateur ou un périphérique USB connecté.
 
-	> [AZURE.NOTE]Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD \(appareil virtuel Android\). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
+	> [AZURE.NOTE]Afin d'exécuter le projet dans l'émulateur Android, vous devez définir au moins un AVD (appareil virtuel Android). Utilisez le gestionnaire AVD pour créer et gérer ces appareils.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus \(\*\*+\*\*\).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
 	Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
 
-	> [AZURE.NOTE]\> Vous pouvez vérifier le code qui se trouve dans le fichier C\# ToDoActivity.cs et qui accède à votre backend d'application mobile pour exécuter une requête et insérer des données.
+	> [AZURE.NOTE]> Vous pouvez vérifier le code qui se trouve dans le fichier C# ToDoActivity.cs et qui accède à votre backend d'application mobile pour exécuter une requête et insérer des données.
 
 
 

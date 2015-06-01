@@ -46,13 +46,13 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 
 ## À propos de l'exemple de scénario
 
-Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite \(indiquée en tant que **PercentSuccess** dans le portail Azure et dans les tables de mesures\) assure le suivi des opérations qui réussissent, mais qui retournent un code d'état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite (indiquée en tant que **PercentSuccess** dans le portail Azure et dans les tables de mesures) assure le suivi des opérations qui réussissent, mais qui retournent un code d'état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Les opérations d'Azure Storage peuvent renvoyer les codes d'état HTTP supérieurs à 299 dans le cadre de leur fonctionnement normal. Mais dans certains cas, ces erreurs indiquent que vous pouvez peut-être optimiser votre application cliente pour améliorer les performances.
 
 Dans ce scénario, nous allons considérer comme un faible taux de réussite tout ce qui est inférieur à 100 %. Vous pouvez cependant choisir un autre niveau de métrique, en fonction de vos besoins. Nous vous recommandons, pendant le test de votre application, d'établir une tolérance de référence pour les métriques de performances clés. Par exemple, vous pouvez déterminer, sur la base de tests, que votre application doit avoir un taux de réussite de 90 % ou 85 %. Si vos données métriques montrent que l'application s'écarte de cette valeur, vous pouvez rechercher ce qui est susceptible de provoquer l'augmentation.
 
-Pour notre exemple de scénario, une fois que nous avons établi que la métrique du taux de réussite est inférieure à 100 %, nous allons examiner les journaux afin de rechercher les erreurs correspondant aux métriques et les utiliser pour déterminer ce qui provoque le taux de réussite plus faible. Nous examinerons plus particulièrement les erreurs dans la plage 400. Ensuite, nous étudierons plus en détail les erreurs 404 \(Introuvable\).
+Pour notre exemple de scénario, une fois que nous avons établi que la métrique du taux de réussite est inférieure à 100 %, nous allons examiner les journaux afin de rechercher les erreurs correspondant aux métriques et les utiliser pour déterminer ce qui provoque le taux de réussite plus faible. Nous examinerons plus particulièrement les erreurs dans la plage 400. Ensuite, nous étudierons plus en détail les erreurs 404 (Introuvable).
 
 ### Certaines causes d'erreurs dans la plage 400
 
@@ -60,20 +60,20 @@ Les exemples ci-dessous présentent un échantillon d'erreurs dans la plage 400 
 
 Notez que les listes ci-dessous sont loin d'être complètes. Pour plus d'informations sur les erreurs générales dans Azure Storage et sur les erreurs propres à chacun des services de stockage, consultez la page [Codes d'état et d'erreur](http://msdn.microsoft.com/library/azure/dd179382.aspx) sur MSDN.
 
-**Exemples de code d'état 404 \(Introuvable\)**
+**Exemples de code d'état 404 (Introuvable)**
 
 Se produit lorsqu'une opération de lecture sur un conteneur ou un objet blob échoue parce que l'objet blob ou le conteneur est introuvable.
 
 - Se produit si un conteneur ou un objet blob a été supprimé par un autre client avant cette demande. 
 - Se produit si vous utilisez un appel d'API qui crée le conteneur ou l'objet blob après avoir vérifié s'il existe. Les API CreateIfNotExists effectuent un appel HEAD pour vérifier l'existence du conteneur ou de l'objet blob ; s'il n'existe pas, une erreur 404 est retournée, puis un second appel PUT est effectué pour écrire le conteneur ou l'objet blob.
 
-**Exemples de code d'état 409 \(Conflit\)**
+**Exemples de code d'état 409 (Conflit)**
 
 - Se produit si vous utilisez une API de création pour créer un conteneur ou un objet blob, sans vérification préalable de l'existence, et qu'un conteneur ou un objet blob avec ce nom existe déjà. 
 - Se produit si un conteneur est supprimé et que vous tentez de créer un nouveau conteneur portant le même nom avant que l'opération de suppression ne soit terminée.
 - Se produit si vous spécifiez un bail sur un conteneur ou un objet blob, alors qu'il existe déjà un bail.
  
-**Exemples de code d'état 412 \(Échec de la précondition\)**
+**Exemples de code d'état 412 (Échec de la précondition)**
 
 - Se produit lorsque la condition spécifiée par un en-tête conditionnel n'a pas été remplie.
 - Se produit lorsque l'ID de bail spécifié ne correspond pas à l'ID de bail sur le conteneur ou l'objet blob.
@@ -130,13 +130,13 @@ Pour commencer à utiliser PowerShell pour Azure, consultez la page [Installatio
 
 ### Configuration de la journalisation côté client .NET
 
-Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application \(web.config ou app.config\). Pour plus d'informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel \(SDK\) Microsoft Azure Storage pour Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
+Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d'informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
 
 Le journal côté client inclut des informations détaillées sur la manière dont le client prépare la demande, puis reçoit et traite la réponse.
 
 La journalisation côté client est configurée dans le fichier app.config ou web.config de votre application. Pour plus d'informations, consultez la page [Journalisation côté client avec la bibliothèque cliente de stockage .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) sur MSDN.
 
-La bibliothèque cliente de stockage stocke les données du journal côté client à l'emplacement spécifié dans le fichier de configuration de l'application \(web.config ou app.config\).
+La bibliothèque cliente de stockage stocke les données du journal côté client à l'emplacement spécifié dans le fichier de configuration de l'application (web.config ou app.config).
 
 ### Collecte d'un suivi réseau
 
@@ -144,19 +144,19 @@ Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS
 
 1. Installez [Fiddler](http://www.telerik.com/download/fiddler).
 2. Lancez Fiddler.
-2. Sélectionnez **Outils \| Options de Fiddler**.
+2. Sélectionnez **Outils | Options de Fiddler**.
 3. Dans la boîte de dialogue Options, vérifiez que **Capturer les CONNECT HTTPS** et **Déchiffrer le trafic HTTPS** sont tous deux activés, comme illustré ci-dessous.
 
 ![Configuration des options de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Dans le didacticiel, collectez et enregistrez d'abord un suivi réseau dans Message Analyzer, puis créez une session d'analyse pour analyser le suivi et les journaux. Pour collecter un suivi réseau dans Message Analyzer :
 
-1. Dans Message Analyzer, sélectionnez **Fichier \| Suivi rapide \| HTTPS non chiffré**.
+1. Dans Message Analyzer, sélectionnez **Fichier | Suivi rapide | HTTPS non chiffré**.
 2. Le suivi commence immédiatement. Cliquez sur **Arrêter** pour arrêter le suivi afin que nous puissions le configurer pour le suivi du trafic de stockage uniquement.
 3. Cliquez sur **Modifier** pour modifier la session de suivi.
 4. Cliquez sur le lien **Configurer** à droite du fournisseur ETW **Microsoft-performance-WebProxy**.
 5. Dans la boîte de dialogue **Paramètres avancés**, cliquez sur l'onglet **Fournisseur**.
-6. Dans le champ **Filtre de nom d'hôte**, indiquez vos points de terminaison de stockage séparés par des espaces. Par exemple, vous pouvez spécifier vos points de terminaison comme suit \(remplacez `storagesample` par le nom de votre compte de stockage\) :
+6. Dans le champ **Filtre de nom d'hôte**, indiquez vos points de terminaison de stockage séparés par des espaces. Par exemple, vous pouvez spécifier vos points de terminaison comme suit (remplacez `storagesample` par le nom de votre compte de stockage) :
 	
 	```	
 	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
@@ -178,7 +178,7 @@ Une fois que votre application a fonctionné pendant une période donnée, vous 
 
 ![Sélection des métriques](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
 
-Dans le portail, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées \(le graphique peut en afficher six à la fois\). Dans l'illustration ci-dessous, vous pouvez voir que le taux de pourcentage de réussite est légèrement inférieur à 100 %, ce qui correspond au scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer :
+Dans le portail, **Pourcentage de réussite** apparaît désormais dans le graphique de surveillance, ainsi que les autres métriques vous avez ajoutées (le graphique peut en afficher six à la fois). Dans l'illustration ci-dessous, vous pouvez voir que le taux de pourcentage de réussite est légèrement inférieur à 100 %, ce qui correspond au scénario que nous étudierons ensuite en analysant les journaux dans Message Analyzer :
 
 ![Graphique des métriques dans le portail](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
 
@@ -223,7 +223,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 
 ### Importation de vos fichiers journaux dans Message Analyzer
 
-Vous pouvez importer tous vos fichiers journaux enregistrés \(côté serveur, côté client et réseau\) dans une session de Microsoft Message Analyzer pour l'analyse.
+Vous pouvez importer tous vos fichiers journaux enregistrés (côté serveur, côté client et réseau) dans une session de Microsoft Message Analyzer pour l'analyse.
 
 1. Dans le menu **Fichier** de Microsoft Message Analyzer, cliquez sur **Nouvelle session**, puis sur **Session vide**. Dans la boîte de dialogue **Nouvelle session**, entrez un nom pour votre session d'analyse. Dans le panneau **Détails de la session**, cliquez sur le bouton **Fichiers**. 
 1. Pour charger les données de suivi du réseau générées par Message Analyzer, cliquez sur **Ajouter des fichiers**, accédez à l'emplacement où vous avez enregistré votre fichier .matp à partir de votre session de suivi web, sélectionnez le fichier .matp, puis cliquez sur **Ouvrir**. 
@@ -257,7 +257,7 @@ L'illustration ci-dessous présente le menu **Disposition de vue**, auquel vous 
 
 ![Menu Disposition de vue](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Pour commencer, sélectionnez **Regroupé par ClientRequestID et Module**. Cette disposition de vue regroupe les données des trois journaux, d'abord par ID de demande client, puis par fichier journal source \(ou **Module** dans Message Analyzer\). Avec cette vue, vous pouvez explorer de manière détaillée un ID de demande client particulier et afficher les données des trois fichiers journaux pour cette ID de demande client.
+Pour commencer, sélectionnez **Regroupé par ClientRequestID et Module**. Cette disposition de vue regroupe les données des trois journaux, d'abord par ID de demande client, puis par fichier journal source (ou **Module** dans Message Analyzer). Avec cette vue, vous pouvez explorer de manière détaillée un ID de demande client particulier et afficher les données des trois fichiers journaux pour cette ID de demande client.
 
 L'illustration ci-dessous présente cette disposition de vue appliquée à l'exemple de données de journal, avec l'affichage d'un sous-ensemble de colonnes. Vous pouvez voir que pour un ID de demande client particulier, la grille d'analyse affiche les données du journal du client, du journal du serveur et du suivi du réseau.
 
@@ -271,7 +271,7 @@ Outre les dispositions de vue Azure Storage, vous pouvez également définir et 
 
 Les ressources de stockage incluent également des règles de couleur, qui offrent un moyen visuel d'identifier les différents types d'erreur dans la grille d'analyse. Les règles de couleur prédéfinies s'appliquent aux erreurs HTTP et n'apparaissent par conséquent que pour le suivi du serveur et du réseau.
 
-Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à partir du ruban de la barre d'outils. Les règles de couleur Azure Storage apparaissent dans le menu. Pour le didacticiel, sélectionnez **Erreurs du client \(StatusCode entre 400 et 499\)**, comme illustré dans l'image ci-dessous.
+Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à partir du ruban de la barre d'outils. Les règles de couleur Azure Storage apparaissent dans le menu. Pour le didacticiel, sélectionnez **Erreurs du client (StatusCode entre 400 et 499)**, comme illustré dans l'image ci-dessous.
 
 ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -292,11 +292,11 @@ L'illustration ci-dessous montre les résultats du regroupement et du filtre. Si
 
 ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Après avoir appliqué ce filtre, vous verrez que les lignes du journal du client sont exclues, ce dernier n'incluant aucune colonne \*\*StatusCode\*\*. Pour commencer, nous allons revoir le serveur et les journaux de suivi du réseau pour rechercher les erreurs de la plage 404, puis revenir au journal du client pour examiner les opérations du client qui ont déclenché ces erreurs.
+Après avoir appliqué ce filtre, vous verrez que les lignes du journal du client sont exclues, ce dernier n'incluant aucune colonne **StatusCode**. Pour commencer, nous allons revoir le serveur et les journaux de suivi du réseau pour rechercher les erreurs de la plage 404, puis revenir au journal du client pour examiner les opérations du client qui ont déclenché ces erreurs.
 
 >[AZURE.NOTE]Vous pouvez filtrer sur la colonne **StatusCode** et continuer d'afficher les données des trois journaux, y compris du journal du client, si vous ajoutez au filtre une expression qui inclut des entrées de journal où le code d'état a la valeur null. Pour construire cette expression de filtre, utilisez :
 >
-> <code>&\#42;StatusCode \>= 400 or !&\#42;StatusCode</code>
+> <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
 > Ce filtre retourne toutes les lignes du journal du client et uniquement les lignes du journal du serveur et du journal HTTP où le code d'état est supérieur à 400. Si vous l'appliquez à la disposition de la vue regroupée par ID de demande client et module, vous pouvez rechercher ou faire défiler les entrées de journal pour rechercher celles où les trois journaux sont représentés.
 
@@ -305,7 +305,7 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux de suivi du serveur et du réseau pour rechercher les erreurs 404 et l'autre qui filtre les données sur une période spécifiée.
 
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Sur le ruban de la barre d'outils, sélectionnez **Fenêtres d'outil**, puis **Filtre d'affichage**.
-2. Dans la fenêtre Filtre d'affichage, sélectionnez **Bibliothèque** et effectuez une recherche sur `Azure Storage` pour rechercher les filtres Azure Storage. Sélectionnez le filtre pour **Messages 404 \(Introuvable\) dans tous les journaux**.
+2. Dans la fenêtre Filtre d'affichage, sélectionnez **Bibliothèque** et effectuez une recherche sur `Azure Storage` pour rechercher les filtres Azure Storage. Sélectionnez le filtre pour **Messages 404 (Introuvable) dans tous les journaux**.
 3. Affichez de nouveau le menu **Bibliothèque**, puis localisez et sélectionnez le **Filtre de temps global**.
 4. Modifiez l'horodatage indiqué dans le filtre en indiquant la plage que vous souhaitez afficher. Cela vous aidera à limiter la plage de données à analyser.
 5. Le filtre doit apparaître comme dans l'exemple ci-dessous. Cliquez sur **Appliquer** pour appliquer le filtre à la grille d'analyse.
@@ -344,12 +344,12 @@ Une fois que vous connaissez l'adresse de l'objet blob qui a généré l'erreur 
 
 Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos données de journal, vous pouvez analyser d'autres types d'erreur avec les dispositions de vue, les règles de couleur , la recherche et le filtrage. Les tableaux ci-dessous répertorient certains problèmes que vous pouvez rencontrer et les critères de filtre que vous pouvez utiliser pour les localiser. Pour plus d'informations sur la construction des filtres et le langage de filtrage de Message Analyzer, consultez la page [Filtrage des données de message](http://technet.microsoft.com/library/jj819365.aspx).
 
-| Pour examiner... | Utiliser l'expression de filtre... | L'expression s'applique au journal \(client, serveur, réseau, tout\) |
+| Pour examiner... | Utiliser l'expression de filtre... | L'expression s'applique au journal (client, serveur, réseau, tout) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
-| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &\#124;&\#124; HTTP.Response.StatusCode == 503 | Réseau |
+| HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError \(tous\) | *StatusCode == 500 \| All \| \| Increase in PercentNetworkError \| AzureStorageClientDotNetV4.EventLogEntry.Level \< 2 \| Client \| \| HTTP 403 \(Forbidden\) messages \| HTTP.Response.StatusCode == 403 \| Network \| \| HTTP 404 \(Not found\) messages \| HTTP.Response.StatusCode == 404 \| Network \| \| 404 \(all\) \| *StatusCode == 404 \| All \| \| Shared Access Signature \(SAS\) authorization issue \| AzureStorageLog.RequestStatus == "SASAuthorizationError" \| Network \| \| HTTP 409 \(Conflict\) messages \| HTTP.Response.StatusCode == 409 \| Network \| \| 409 \(all\) \| *StatusCode == 409 \| All \| \| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors \| AzureStorageLog.RequestStatus == "ClientOtherError" \| Server \| \| Nagle Warning \| \(\(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS\) \> \(AzureStorageLog.ServerLatencyMS \* 1.5\)\) and \(AzureStorageLog.RequestPacketSize \<1460\) and \(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS \>= 200\) \| Server \| \| Range of time in Server and Network logs \| \#Timestamp \>= 2014-10-20T16:36:38 and \#Timestamp \<= 2014-10-20T16:36:39 \| Server, Network \| \| Range of time in Server logs \| AzureStorageLog.Timestamp \>= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp \<= 2014-10-20T16:36:39 \| Server \|
+| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes

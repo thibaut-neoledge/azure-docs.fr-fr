@@ -34,7 +34,7 @@ Cet article vous apprendra les éléments suivants :
 3. Dans la page **Sécurité et audit**, lisez les informations contenues dans le panneau **PROBLÈMES IMPORTANTS**. L'image d'exemple présente aujourd'hui six problèmes importants, dont deux apparus hier. Dans cet exemple, un exécutable suspect a été détecté. Cliquez sur **Exécutables suspects** dans le panneau **PROBLÈMES IMPORTANTS**. ![Image de la page Sécurité et audit](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. La recherche affiche la requête et les résultats concernant l'exécutable suspect sur lequel vous avez cliqué. Dans cet exemple, un résultat est obtenu. Son hachage de fichier s'affiche. Cliquez sur l'ID **FILEHASH**. ![Image du hachage de fichier des résultats de la recherche](./media/operational-insights-security-audit/sec-audit-search01.png) 
 5. La recherche affiche des informations supplémentaires concernant le fichier exécutable, dont son chemin d'accès et le nom de son processus. Cliquez sur le **&lt;nom de fichier&gt; du processus**. Dans cet exemple, il s'agit de HEXEDIT. EXE. ![Image du processus des résultats de la recherche](./media/operational-insights-security-audit/sec-audit-search02.png) 
-6. La recherche ajoute le nom du processus entre guillemets à la requête \("\*\*HEXEDIT.EXE"\*\*, dans cet exemple\). ![Image de la requête de la recherche](./media/operational-insights-security-audit/sec-audit-search03.png)
+6. La recherche ajoute le nom du processus entre guillemets à la requête ("**HEXEDIT.EXE"**, dans cet exemple). ![Image de la requête de la recherche](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. Dans la zone de requête de la recherche, supprimez tous les éléments sauf le nom du processus et les guillemets. Cliquez ensuite sur l'icône de recherche. ![Image des informations détaillées de la recherche](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. La recherche affiche des informations détaillées concernant le processus, dont les ordinateurs sur lesquels il s'exécute, le compte d'utilisateur qu'il utilise, ainsi que la date et l'heure auxquelles un événement a été créé pour le processus.
 9. À l'aide des informations que vous trouvez, vous pouvez prendre des mesures correctives, si nécessaire. Par exemple, si vous déterminez que l'exécutable est un programme malveillant, alors vous souhaitez sans doute prendre des mesures pour le supprimer de tous les ordinateurs qu'il affecte. Lorsque le fichier exécutable est supprimé et qu'Operational Insights reçoit le journal des mises à jour et les événements d'audit de vos ordinateurs, les valeurs du panneau PROBLÈMES IMPORTANTS seront modifiées le lendemain.
@@ -51,9 +51,9 @@ Cependant, lorsque des utilisateurs accèdent à leur propre ordinateur sur plac
 
 Pour tirer le meilleur parti du pack d'analyse décisionnelle de sécurité et d'audit, vous devez configurer le niveau d'événements d'audit collectés par votre environnement Windows. Le but est qu'il soit adapté au mieux à vos besoins. Pour ce faire, vous pouvez utiliser les ressources suivantes.
 
-- [Comment configurer les paramètres de stratégie de sécurité](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx\)
+- [Comment configurer les paramètres de stratégie de sécurité](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
-- [Configuration de la stratégie d'audit avancée](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx\)
+- [Configuration de la stratégie d'audit avancée](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
 - [Recommandations pour la stratégie d'audit](https://technet.microsoft.com/library/dn487457.aspx)
 
@@ -85,13 +85,13 @@ Généralement les failles de sécurité proviennent d'informations d'identifica
 
 ## Meilleures pratiques relatives aux scénarios d'audit
 
-Votre organisation a certainement mis en place des réglementations et des stratégies de conformité relatives au réseau et aux ordinateurs que vous devez respecter. Cela nécessite d'importantes quantités d'enregistrements d'audit. Par exemple, si votre organisation est une société de financement, vous devez conserver des enregistrements qui vous permettent de retrouver l'utilisateur qui a effectué une opération spécifique sur le réseau, à un moment précis, et en obtenir la preuve. Vous pouvez également être amené à générer des rapports détaillés concernant l'activité d'un utilisateur en particulier ou d'un serveur choisi sur demande, et revenir plusieurs mois \(parfois même plusieurs années\) en arrière.
+Votre organisation a certainement mis en place des réglementations et des stratégies de conformité relatives au réseau et aux ordinateurs que vous devez respecter. Cela nécessite d'importantes quantités d'enregistrements d'audit. Par exemple, si votre organisation est une société de financement, vous devez conserver des enregistrements qui vous permettent de retrouver l'utilisateur qui a effectué une opération spécifique sur le réseau, à un moment précis, et en obtenir la preuve. Vous pouvez également être amené à générer des rapports détaillés concernant l'activité d'un utilisateur en particulier ou d'un serveur choisi sur demande, et revenir plusieurs mois (parfois même plusieurs années) en arrière.
 
 Vous pouvez utiliser le pack d'analyse décisionnelle de sécurité et d'audit pour collecter des données d'audit à travers l'ensemble de votre environnement informatique, que vos ordinateurs soient sur site ou dans le cloud. Toutes les données d'audit sont stockées et indexées. De plus, avec un abonnement de niveau Premium à Operational Insights, toutes les données sont stockées indéfiniment. Vous pouvez ensuite afficher les données d'audit, effectuer des recherches et mettre en corrélation différents types de données et ordinateurs pour obtenir des résultats complets, peu importe l'intervalle de temps dans la mesure où les données ont été collectées.
 
 **Utiliser une stratégie de groupe pour collecter des données d'audit**
 
-Toutes les données d'audit que vous pourriez souhaiter collecter et envoyer vers Operational Insights sont entièrement gérées par une stratégie de groupe. Vous pouvez ainsi définir des configurations de sécurité via des objets de stratégie de groupe \(GPO\), liés à des conteneurs Active Directory comme des sites, des domaines et des unités d'organisation. Ces GPO vous aident à gérer les paramètres de sécurité. Les données de la stratégie sont enregistrées et envoyées ultérieurement au service d'Operational Insights.
+Toutes les données d'audit que vous pourriez souhaiter collecter et envoyer vers Operational Insights sont entièrement gérées par une stratégie de groupe. Vous pouvez ainsi définir des configurations de sécurité via des objets de stratégie de groupe (GPO), liés à des conteneurs Active Directory comme des sites, des domaines et des unités d'organisation. Ces GPO vous aident à gérer les paramètres de sécurité. Les données de la stratégie sont enregistrées et envoyées ultérieurement au service d'Operational Insights.
 
 **Utiliser AppLocker pour collecter des données d'audit**
 

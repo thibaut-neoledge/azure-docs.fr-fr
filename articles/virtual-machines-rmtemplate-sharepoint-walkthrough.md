@@ -109,7 +109,7 @@ Voici un exemple :
 
 ### Microsoft.Network/virtualNetworks
 
-Cette section crée un réseau virtuel cloud uniquement avec quatre sous-réseaux \(un pour chaque niveau de déploiement\), dans lequel les machines virtuelles sont placées. Voici le code JSON :
+Cette section crée un réseau virtuel cloud uniquement avec quatre sous-réseaux (un pour chaque niveau de déploiement), dans lequel les machines virtuelles sont placées. Voici le code JSON :
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -130,7 +130,7 @@ Cette section crée un réseau virtuel cloud uniquement avec quatre sous-réseau
 
 ### Microsoft.Network/loadBalancers
 
-Ces sections créent des instances d’équilibrage de charge pour chaque machine virtuelle pour fournir des NAT et le filtrage pour le trafic entrant à partir d’Internet. Pour chaque équilibrage de charge, les paramètres configurent les règles NAT frontales, principales et entrantes. Par exemple, il existe des règles de trafic Bureau à distance pour chaque machine virtuelle et une règle pour autoriser le trafic web entrant \(port TCP 80\) à partir d’Internet pour les serveurs de la couche web. Voici l’exemple relatif au serveur de la couche web :
+Ces sections créent des instances d’équilibrage de charge pour chaque machine virtuelle pour fournir des NAT et le filtrage pour le trafic entrant à partir d’Internet. Pour chaque équilibrage de charge, les paramètres configurent les règles NAT frontales, principales et entrantes. Par exemple, il existe des règles de trafic Bureau à distance pour chaque machine virtuelle et une règle pour autoriser le trafic web entrant (port TCP 80) à partir d’Internet pour les serveurs de la couche web. Voici l’exemple relatif au serveur de la couche web :
 
         {
             "apiVersion": "2014-12-01-preview",
@@ -341,15 +341,15 @@ Les autres sections **"Microsoft.Compute/virtualMachines/extensions"** font appe
 
 Notez l’organisation générale des sous-sections de la **"resources"** section du fichier JSON :
 
-1.	Créez les éléments de l’infrastructure Azure requis pour prendre en charge plusieurs machines virtuelles \(un compte de stockage, des adresses IP publiques, des groupes à haute disponibilité, un réseau virtuel, des interfaces réseau, des instances de programme d’équilibrage de charge\).
+1.	Créez les éléments de l’infrastructure Azure requis pour prendre en charge plusieurs machines virtuelles (un compte de stockage, des adresses IP publiques, des groupes à haute disponibilité, un réseau virtuel, des interfaces réseau, des instances de programme d’équilibrage de charge).
 2.	Créez les machines virtuelles du contrôleur de domaine qui utilisent les éléments communs et spécifiques de l’infrastructure Azure créés préalablement, ajoutez des disques de données et exécutez les scripts PowerShell. De plus, mettez à jour le réseau virtuel de sorte qu’il utilise les adresses IP statiques des contrôleurs de domaine.
 3.	Créez les machines virtuelles du cluster SQL Server qui utilisent les éléments communs et spécifiques de l’infrastructure Azure créés préalablement pour les contrôleurs de domaine, ajoutez des disques de données et exécutez les scripts PowerShell pour configurer le cluster et les groupes de disponibilité AlwaysOn SQL Server.
 4.	Créez les machines virtuelles du serveur SharePoint qui utilisent les éléments communs et spécifiques de l’infrastructure Azure créés préalablement, ajoutez des disques de données et exécutez les scripts PowerShell pour configurer la batterie de serveurs SharePoint.
 
 Vous devez suivre les mêmes étapes pour votre propre modèle JSON visant à créer une infrastructure à plusieurs niveaux :
 
-1.	Créez les éléments communs \(compte de stockage, réseau virtuel\), propres au niveau \(groupes à haute disponibilité\) et propres à la machine virtuelle \(adresses IP publiques, groupes à haute disponibilité, interfaces réseau et instances d’équilibrage de charge\) de l’infrastructure Azure requis pour votre déploiement.
-2.	Pour chaque niveau de votre application \(par exemple l’authentification, la base de données, le web\), créez et configurez les serveurs de ce niveau à l’aide des éléments communs \(compte de stockage, réseau virtuel\), propres au niveau \(groupes à haute disponibilité\) et propres à la machine virtuelle \(adresses IP publiques, interfaces réseau et instances d’équilibrage de charge\).
+1.	Créez les éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, groupes à haute disponibilité, interfaces réseau et instances d’équilibrage de charge) de l’infrastructure Azure requis pour votre déploiement.
+2.	Pour chaque niveau de votre application (par exemple l’authentification, la base de données, le web), créez et configurez les serveurs de ce niveau à l’aide des éléments communs (compte de stockage, réseau virtuel), propres au niveau (groupes à haute disponibilité) et propres à la machine virtuelle (adresses IP publiques, interfaces réseau et instances d’équilibrage de charge).
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 

@@ -421,7 +421,7 @@ En principe, l'application doit maintenant être prête pour le déploiement.
 
 	Capistrano va se connecter à la machine virtuelle à l'aide de SSH, puis créer le répertoire (~/apps) sur lequel l'application sera déployée. S'il s'agit du premier déploiement, le maillon capistrano-postgresql créera également un rôle et une base de données dans PostgreSQL sur le serveur. Il créera également un fichier de configuration database.yml que Rails utilisera pour se connecter à la base de données.
 
-	> [AZURE.NOTE] Si vous recevez le message **Erreur lors de la lecture de la longueur de réponse du socket d'authentification** lors du déploiement, il se peut que vous deviez démarrer l'agent SSH sur votre environnement de développement à l'aide de la commande `ssh-agent`. En ajoutant par exemple `eval $(ssh-agent)` à votre fichier ~/.bash\_profile.
+	> [AZURE.NOTE] Si vous recevez le message **Erreur lors de la lecture de la longueur de réponse du socket d'authentification** lors du déploiement, il se peut que vous deviez démarrer l'agent SSH sur votre environnement de développement à l'aide de la commande `ssh-agent`. En ajoutant par exemple `eval $(ssh-agent)` à votre fichier ~/.bash_profile.
 	> 
 	> Il se peut également que vous deviez ajouter la clé SSH au cache d'agent à l'aide de la commande `ssh-add`.
 

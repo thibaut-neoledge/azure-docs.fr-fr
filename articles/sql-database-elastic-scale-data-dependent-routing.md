@@ -76,7 +76,7 @@ La méthode **OpenConnectionForKeyAsync** est également disponible si votre app
 
 ## Intégration de la gestion des erreurs temporaires 
 
-Une meilleure pratique dans le développement d'applications d'accès aux données dans le cloud consiste à garantir que les erreurs temporaires de connexion ou d'interrogation de la base de données sont interceptées par l'application, et que les opérations sont retentées plusieurs fois avant de générer un message d'erreur. La gestion des erreurs temporaires pour les applications de cloud est traitée à la page [Gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
+Une meilleure pratique dans le développement d'applications d'accès aux données dans le cloud consiste à garantir que les erreurs temporaires de connexion ou d'interrogation de la base de données sont interceptées par l'application, et que les opérations sont retentées plusieurs fois avant de générer un message d'erreur. La gestion des erreurs temporaires pour les applications de cloud est traitée à la page [Gestion des erreurs temporaires](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx). 
  
 La gestion des erreurs temporaires peut coexister naturellement avec le modèle de routage dépendant des données. La condition clé consiste à réessayer la demande d'accès aux données, notamment le bloc **using** qui a obtenu la connexion de routage dépendant des données. L'exemple précédent pourrait être réécrit comme suit (remarquez la modification mise en surbrillance). 
 

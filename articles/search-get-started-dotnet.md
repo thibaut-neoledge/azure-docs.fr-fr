@@ -18,7 +18,7 @@
 
 #Prise en main de votre première application Azure Search dans .NET#
 
-Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Le didacticiel utilise le [kit de développement logiciel \(SDK\) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exercice, ainsi que l'API REST du service Azure Search.
+Apprenez à créer une application de recherche .NET personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Le didacticiel utilise le [kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exercice, ainsi que l'API REST du service Azure Search.
 
 Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com).
 
@@ -26,7 +26,7 @@ Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auque
 
 ##À propos des données##
 
-Cet exemple d'application utilise des données provenant de [USGS \(United States Geological Services\)](http://geonames.usgs.gov/domestic/download_data.htm), filtrées en fonction de l'état de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments repères, tels que des hôpitaux et des écoles, ainsi que des caractéristiques géologiques, telles que des ruisseaux, des lacs et des sommets.
+Cet exemple d'application utilise des données provenant de [USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), filtrées en fonction de l'état de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments repères, tels que des hôpitaux et des écoles, ainsi que des caractéristiques géologiques, telles que des ruisseaux, des lacs et des sommets.
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Indexeur](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
@@ -36,7 +36,7 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** \| **Données + stockage** \| **Recherche**.
+2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
  
      ![][1]
 
@@ -53,7 +53,7 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 	
 	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
 	
-	- Le champ **Abonnement** vous permet de choisir parmi plusieurs abonnements \(le cas échéant\).
+	- Le champ **Abonnement** vous permet de choisir parmi plusieurs abonnements (le cas échéant).
 	
 	- Le champ **Emplacement** désigne la zone géographique du centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition des ressources entre plusieurs centres de données n'est pas prise en charge.
 
@@ -78,14 +78,14 @@ Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL ou
 
 Cette solution incluera deux projets :
 
-- **DataIndexer**, une application console Visual C\#, utilisée pour charger des données.
-- **SimpleSearchMVCApp**, une application Web Visual C\# ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche. 
+- **DataIndexer**, une application console Visual C#, utilisée pour charger des données.
+- **SimpleSearchMVCApp**, une application Web Visual C# ASP.NET MVC, utilisée pour interroger et renvoyer les résultats de la recherche. 
 
 Dans cette étape, vous allez créer les deux projets.
 
-1. Démarrez **Visual Studio** \| **Nouveau projet** \| **Visual C\#** \| **Application console**. 
+1. Démarrez **Visual Studio** | **Nouveau projet** | **Visual C#** | **Application console**. 
 2. Nommez le projet **DataIndexer** puis nommez la solution **AzureSearchDotNetDemo**.
-3. Dans l'Explorateur de solutions, cliquez avec le bouton droit de la souris sur la solution et sélectionnez **Ajouter** \| **Nouveau projet** \| **Visual C\#** \| **Application Web ASP.NET**. 
+3. Dans l'Explorateur de solutions, cliquez avec le bouton droit de la souris sur la solution et sélectionnez **Ajouter** | **Nouveau projet** | **Visual C#** | **Application Web ASP.NET**. 
 4. Nommez le projet **SimpleSearchMVCApp**.
 5. Dans le nouveau projet ASP.NET, choisissez le modèle MVC et désactivez les options pour éviter de créer des artefacts de programme que vous n'utiliserez pas dans ce didacticiel. 
 
@@ -100,7 +100,7 @@ Lorsque vous avez terminé la création des projets, votre solution doit ressemb
 ##Installation de la bibliothèque cliente .NET et mise à jour d'autres packages
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet**. 
-2. Spécifiez **Mises à jour** \| **Stable uniquement** \| **Tout mettre à jour**.
+2. Spécifiez **Mises à jour** | **Stable uniquement** | **Tout mettre à jour**.
 
    ![][11]
 
@@ -108,7 +108,7 @@ Lorsque vous avez terminé la création des projets, votre solution doit ressemb
 
 4. Ensuite, installez la bibliothèque cliente .NET Azure Search. Veillez à spécifier la recherche correctement ou vous ne trouverez pas facilement le package. Cliquez de nouveau avec le bouton droit sur **Gérer les packages NuGet**.
 
-5. Spécifiez **En ligne** \| **nuget.org** \| **Inclure la version préliminaire**, puis recherchez *azure.search* et installez la bibliothèque.
+5. Spécifiez **En ligne** | **nuget.org** | **Inclure la version préliminaire**, puis recherchez *azure.search* et installez la bibliothèque.
 
    ![][12]
 
@@ -120,7 +120,7 @@ Vous trouverez ci-dessous une liste partielle des assemblages utilisés dans cet
 
 **DataIndexer** utilise **System.Configuration** pour lire les paramètres de configuration dans app.config.
 
-1. Cliquez avec le bouton droit sur **DataIndexer** \| **Ajouter** \| **Référence** \| **Framework** \| **System.Configuration**. Activez la case à cocher. 
+1. Cliquez avec le bouton droit sur **DataIndexer** | **Ajouter** | **Référence** | **Framework** | **System.Configuration**. Activez la case à cocher. 
 2. Cliquez sur **OK**.
 
 ##Mise à jour des fichiers de configuration
@@ -282,7 +282,7 @@ Avant de pouvoir exécuter ce programme, vous allez effectuer deux modifications
 
 Le code qui appelle l'API REST doit inclure une classe qui gère les connexions, ainsi que la sérialisation et la désérialisation des requêtes et des réponses JSON. Dans les exemples fournis avec Azure Search, cette classe est généralement appelée **AzureSearchHelper.cs**. Vous pouvez créer cette classe et l'ajouter à **DataIndexer**, en utilisant le code suivant.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **DataIndexer** \| **Ajouter** \| **Nouvel élément** \| **Code** \| **Classe**.
+1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **DataIndexer** | **Ajouter** | **Nouvel élément** | **Code** | **Classe**.
 2. Nommez la classe **AzureSearchHelper**.
 3. Remplacez le code par défaut par le code suivant.
 
@@ -368,7 +368,7 @@ Le code qui appelle l'API REST doit inclure une classe qui gère les connexions,
 
 ###Mise à jour de Program.cs
 
-1. Dans l'Explorateur de solutions, ouvrez **DataIndexer** \| **Program.cs**
+1. Dans l'Explorateur de solutions, ouvrez **DataIndexer** | **Program.cs**
 2. Remplacez le contenu de Program.cs par le code suivant.
 
 		using Microsoft.Azure;
@@ -692,7 +692,7 @@ Remplacez le code par défaut par le code suivant.
 
 Ajoutez une classe qui fournit des fonctionnalités de recherche à votre application.
 
-1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SimpleSearchMVCApp** \| **Ajouter** \| **Nouvel élément** \| **Code** \| **Classe**.
+1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SimpleSearchMVCApp** | **Ajouter** | **Nouvel élément** | **Code** | **Classe**.
 2. Nommez la classe **FeaturesSearch**.
 3. Remplacez le code par défaut par le code suivant.
 
@@ -776,7 +776,7 @@ Vous pouvez également essayer les requêtes suivantes, en ajoutant ou en suppri
 
 Ceci est le premier didacticiel Azure Search basé sur .NET et le jeu de données USGS. Au fil du temps, nous étendrons ce didacticiel pour illustrer des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
-Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions \(requêtes prédictives ou à saisie semi-automatique\), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
+Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions (requêtes prédictives ou à saisie semi-automatique), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
 
 Vous êtes un nouvel utilisateur d'Azure Search ? Nous vous recommandons de consulter les autres didacticiels pour comprendre ce que vous pouvez créer. Visitez notre [page de documentation](http://azure.microsoft.com/documentation/services/search/) pour trouver d'autres ressources. Vous pouvez également afficher les liens dans notre [liste de vidéos et de didacticiels](https://msdn.microsoft.com/library/azure/dn798933.aspx) pour accéder à des informations supplémentaires.
 

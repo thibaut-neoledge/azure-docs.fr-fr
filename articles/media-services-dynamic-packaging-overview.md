@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vue d&#39;ensemble de l&#39;empaquetage dynamique" 
-	description="Cette rubrique donne une vue d&#39;ensemble de l&#39;empaquetage dynamique." 
+	pageTitle="Vue d'ensemble de l'empaquetage dynamique" 
+	description="Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique." 
 	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
@@ -21,7 +21,7 @@
 
 ##Vue d'ensemble
 
-Vous pouvez utiliser Microsoft Azure Media Services pour distribuer de nombreux formats de fichiers sources multimédias, formats de diffusion en continu de contenu multimédia et formats de protection de contenu à diverses technologies clientes \(par exemple, iOS, XBOX, Silverlight, Windows 8\). Ces clients comprennent différents protocoles. Par exemple, iOS nécessite un format HTTP Live Streaming \(HLS\) V4, tandis que Silverlight et Xbox nécessitent le format Smooth Streaming. Si vous voulez transmettre un ensemble de fichiers MP4 \(ISO Base Media 14496-12\) ou de fichiers Smooth Streaming à vitesse de transmission adaptative, à des clients qui utilisent le format MPEG DASH, HLS ou Smooth Streaming, nous vous recommandons de tirer profit de l'empaquetage dynamique Media Services.
+Vous pouvez utiliser Microsoft Azure Media Services pour distribuer de nombreux formats de fichiers sources multimédias, formats de diffusion en continu de contenu multimédia et formats de protection de contenu à diverses technologies clientes (par exemple, iOS, XBOX, Silverlight, Windows 8). Ces clients comprennent différents protocoles. Par exemple, iOS nécessite un format HTTP Live Streaming (HLS) V4, tandis que Silverlight et Xbox nécessitent le format Smooth Streaming. Si vous voulez transmettre un ensemble de fichiers MP4 (ISO Base Media 14496-12) ou de fichiers Smooth Streaming à vitesse de transmission adaptative, à des clients qui utilisent le format MPEG DASH, HLS ou Smooth Streaming, nous vous recommandons de tirer profit de l'empaquetage dynamique Media Services.
 
 Avec l'empaquetage dynamique, il vous suffit de créer un élément multimédia contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à vitesse de transmission adaptative. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de diffusion en continu à la demande s'assure que vous recevez le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
 
@@ -38,7 +38,7 @@ Le diagramme suivant illustre le flux d'empaquetage dynamique.
 
 ##Scénario courant
 
-1. Téléchargez un fichier d'entrée \(appelé fichier mezzanine\). Par exemple, H.264, MP4 ou WMV \(pour obtenir la liste des formats pris en charge, consultez Formats pris en charge par l'encodeur Media Services\).
+1. Téléchargez un fichier d'entrée (appelé fichier mezzanine). Par exemple, H.264, MP4 ou WMV (pour obtenir la liste des formats pris en charge, consultez Formats pris en charge par l'encodeur Media Services).
  
 1. Encodez votre fichier mezzanine en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264.
  
@@ -75,7 +75,7 @@ Cette tâche est généralement souhaitable si vous téléchargez un ensemble de
 
 ##Diffusion en continu de votre contenu aux clients
 
-Une fois que vous disposez des ensembles de fichiers à vitesse de transmission adaptative, vous pouvez publier votre élément multimédia en créant un localisateur à la demande et composer les URL de diffusion en continu pour le contenu Smooth Streaming, MPEG DASH, HLS et HDS \(pour les titulaires d'une licence Adobe PrimeTime/Access uniquement\).
+Une fois que vous disposez des ensembles de fichiers à vitesse de transmission adaptative, vous pouvez publier votre élément multimédia en créant un localisateur à la demande et composer les URL de diffusion en continu pour le contenu Smooth Streaming, MPEG DASH, HLS et HDS (pour les titulaires d'une licence Adobe PrimeTime/Access uniquement).
 
 Pour plus d'informations sur la création de localisateurs et l'utilisation de l'empaquetage dynamique pour diffuser en continu votre contenu, consultez les rubriques suivantes :
 
@@ -85,7 +85,7 @@ Configurer la stratégie de remise d'éléments multimédias à l'aide de **.NET
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publier des éléments multimédias \(en créant des localisateurs\) à l'aide du **portail de gestion Azure** ou de **.NET**.
+Publier des éléments multimédias (en créant des localisateurs) à l'aide du **portail de gestion Azure** ou de **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 

@@ -75,9 +75,9 @@ LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équ
 ### Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
 
 <<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
 =======
-    PS C:\> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
+    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
 >>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment

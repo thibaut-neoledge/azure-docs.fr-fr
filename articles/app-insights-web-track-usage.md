@@ -47,7 +47,7 @@ Dans Démarrage rapide, récupérez le script pour les pages web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
+Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared_Layout.cshtml
 
 ## <a name="usage"></a>Analyse de l'utilisation
 

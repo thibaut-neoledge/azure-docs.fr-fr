@@ -123,7 +123,7 @@ Les serveurs physiques ou ordinateurs virtuels VMWare protégés exécutant Wind
 
 - Un système d'exploitation 64 bits pris en charge : Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 avec au moins SP1.
 - Le nom d'hôte, les points de montage, les noms de périphériques, le chemin d'accès système Windows (par exemple : C:\Windows) doivent être uniquement en anglais.
-- Le système d'exploitation doit être installé sur le lecteur C:\.
+- Le système d'exploitation doit être installé sur le lecteur C:.
 - Les options de stockage standard pour les serveurs Windows sont prises en charge.
 - Les règles de pare-feu sur les ordinateurs protégés doivent leur permettre de joindre les serveurs de configuration et les serveurs cibles maîtres dans Azure. 
 - Après un basculement, si vous voulez vous connecter à des ordinateurs virtuels Windows dans Azure avec le Bureau à distance, assurez-vous que le Bureau à distance est activé pour l'ordinateur local. Si vous vous connectez via un VPN, les règles de pare-feu doivent autoriser les connexions Bureau à distance sur internet.

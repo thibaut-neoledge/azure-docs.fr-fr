@@ -1,10 +1,4 @@
-﻿<properties 
-	pageTitle="Créer et déployer une application API Node.js dans Azure App Service" 
-	description="Découvrez comment créer un package d'application API Node.js  et comment le déployer dans Azure App Service." 
-	services="app-service\api" 
-	documentationCenter="nodejs" 
-	authors="pkefal" 
-	manager="", editor=""/>
+<properties pageTitle="Créer et déployer une application API Node.js dans Azure App Service" description="Découvrez comment créer un package d'application API Node.js  et comment le déployer dans Azure App Service." services="app-service\\api" documentationCenter="nodejs" authors="pkefal" manager="", editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -31,7 +25,7 @@ Voici une capture d'écran de l'application terminée :
 
 2. Cliquez sur **NOUVEAU** dans la partie inférieure gauche du portail.
 
-3. Cliquez sur **Web + Mobile \> Application API**.
+3. Cliquez sur **Web + Mobile > Application API**.
 
 	![][portal-quick-create]
 
@@ -47,9 +41,9 @@ Voici une capture d'écran de l'application terminée :
 
 	Si vous avez laissé la case **Ajouter au Tableau d'accueil** cochée, le portail ouvre automatiquement le panneau de votre application API après sa création. Si vous avez décoché la case, cliquez sur **Notifications** dans la page d'accueil du portail pour voir l'état de la création de l'application API, puis cliquez sur la notification pour accéder au panneau de la nouvelle application API.
 
-7. Cliquez sur **Paramètres \> Paramètres de l'application**.
+7. Cliquez sur **Paramètres > Paramètres de l'application**.
 
-9. Définissez le niveau d'accès à **Public \(anonyme\)**.
+9. Définissez le niveau d'accès à **Public (anonyme)**.
 
 11. Cliquez sur **Enregistrer**.
 
@@ -69,7 +63,7 @@ Dans le portail, vous gérez les fonctionnalités spécifiques aux applications 
 
 	![][deployment-part]
 
-3. Cliquez sur **Choisir la source \> Référentiel Git local**.
+3. Cliquez sur **Choisir la source > Référentiel Git local**.
 
 5. Cliquez sur **OK**.
 
@@ -85,7 +79,7 @@ Dans le portail, vous gérez les fonctionnalités spécifiques aux applications 
 
 	![][deployment-credentials]
 
-1. Dans le panneau **Hôte d'application API**, cliquez sur **Paramètres \> Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous « URL GIT ».
+1. Dans le panneau **Hôte d'application API**, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous « URL GIT ».
 
 2. Copiez l'URL, qui sera à utiliser ultérieurement dans le didacticiel.
 
@@ -112,7 +106,7 @@ Dans cette section, vous allez télécharger et examiner le code fourni dans le 
 
 	Remarquez la propriété **apiDefinition**. Le chemin d'accès pour cette URL est relatif à l'URL de votre API et il pointe vers le point de terminaison Swagger 2.0. Azure App Service utilise cette propriété pour découvrir la définition de votre API et pour activer plusieurs fonctionnalités de l'application API App Service.
 
-	> [AZURE.NOTE]Le point de terminaison doit correspondre à la spécification de Swagger 2.0, car les versions antérieures \(par exemple 1.2\) ne sont pas prises en charge par la plateforme. L'exemple d'application utilise swaggerize-express pour créer un point de terminaison correspondant à la spécification Swagger 2.0.
+	> [AZURE.NOTE]Le point de terminaison doit correspondre à la spécification de Swagger 2.0, car les versions antérieures (par exemple 1.2) ne sont pas prises en charge par la plateforme. L'exemple d'application utilise swaggerize-express pour créer un point de terminaison correspondant à la spécification Swagger 2.0.
 
 4. Ouvrez le fichier **server.js** et examinez le code.
 
@@ -126,7 +120,7 @@ Dans cette section, vous allez télécharger et examiner le code fourni dans le 
 		    handlers: './handlers/'
 		}));
 
-	La propriété `api` pointe vers le fichier api.json qui contient la définition de la spécification Swagger 2.0 de votre API. Vous pouvez créer manuellement le fichier dans un éditeur de texte ou bien utiliser l'[éditeur de Swagger](http://editor.swagger.io) en ligne et télécharger le fichier JSON à partir de là. \(Le fichier *api.json* spécifie une propriété `host`, mais la valeur de cette propriété est déterminée et remplacée dynamiquement lors de l'exécution.\)
+	La propriété `api` pointe vers le fichier api.json qui contient la définition de la spécification Swagger 2.0 de votre API. Vous pouvez créer manuellement le fichier dans un éditeur de texte ou bien utiliser l'[éditeur de Swagger](http://editor.swagger.io) en ligne et télécharger le fichier JSON à partir de là. (Le fichier *api.json* spécifie une propriété `host`, mais la valeur de cette propriété est déterminée et remplacée dynamiquement lors de l'exécution.)
 
 	La propriété `docspath` pointe vers le point de terminaison Swagger 2.0. Cette URL est relative au chemin d'accès de base de votre API. Le chemin d'accès de base est déclaré dans le fichier api.json. Dans notre exemple, le chemin d'accès de base est */api/data*, et le chemin d'accès relatif au point de terminaison Swagger est donc */api/data/swagger*.
 
@@ -174,7 +168,7 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. Créez une référence distante pour envoyer les mises à jour vers l'application web \(l'hôte de l'application API\) que vous avez créée précédemment, en utilisant l'URL Git que vous avez copiée plus tôt :
+3. Créez une référence distante pour envoyer les mises à jour vers l'application web (l'hôte de l'application API) que vous avez créée précédemment, en utilisant l'URL Git que vous avez copiée plus tôt :
 
 		git remote add azure [URL for remote repository]
 
@@ -188,7 +182,7 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	\* [new branch] master -\> master
+	 	* [new branch]      master -> master
 
 ## Afficher la définition d'API dans le portail Azure en version préliminaire
 

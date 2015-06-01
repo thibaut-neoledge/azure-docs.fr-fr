@@ -18,7 +18,7 @@
 
 # Utilisation de io.js avec Azure App Service Web Apps
 
-L'embranchement \(ou « fork » en anglais\) bien connu de Node, [io.js], se différencie du projet Node.js de Joyent sur plusieurs points, avec notamment un modèle de gouvernance plus ouvert, un cycle de développement plus rapide et une adoption plus rapide des fonctionnalités nouvelles et expérimentales de JavaScript.
+L'embranchement (ou « fork » en anglais) bien connu de Node, [io.js], se différencie du projet Node.js de Joyent sur plusieurs points, avec notamment un modèle de gouvernance plus ouvert, un cycle de développement plus rapide et une adoption plus rapide des fonctionnalités nouvelles et expérimentales de JavaScript.
 
 Bien que de nombreuses versions de Node.js soient préinstallées dans  [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps, il accepte aussi les binaires Node.js fournis par les utilisateurs. Cet article décrit deux méthodes permettant l’utilisation de io.js sur App Service Web Apps : l'utilisation d'un script de déploiement étendu, qui configure automatiquement Azure pour utiliser la dernière version disponible de io.js, ainsi que le téléchargement manuel d'un binaire io.js.
 
@@ -31,7 +31,7 @@ Le [script de déploiement de io.js] est disponible sur GitHub. Pour activer io.
 
 Le premier fichier, **.deployment**, donne comme instruction à Web Apps d'exécuter **deploy.cmd** au moment du déploiement. Ce script exécute non seulement toutes les étapes habituelles pour une application Node.js, mais télécharge aussi la dernière version de io.js. Enfin, **IISNode.yml** configure le Web Apps pour qu'il utilise le binaire io.js que vous venez de télécharger à la place d'un binaire Node.js préinstallé.
 
-> [AZURE.NOTE] Pour mettre à jour le binaire io.js utilisé, il vous suffit de redéployer votre application \(le script télécharge une nouvelle version de io.js chaque fois que l'application est déployée\).
+> [AZURE.NOTE] Pour mettre à jour le binaire io.js utilisé, il vous suffit de redéployer votre application (le script télécharge une nouvelle version de io.js chaque fois que l'application est déployée).
 
 <a id="manualinstallation"></a>
 ## Utilisation de l'installation manuelle

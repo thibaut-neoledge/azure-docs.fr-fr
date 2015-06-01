@@ -53,7 +53,7 @@ Vous pouvez utiliser trois types de compte de stockage avec votre appareil StorS
 
 ## Ajout d’un compte de stockage
 
-Vous pouvez ajouter un compte de stockage en fournissant un nom convivial unique et les informations d’accès liées au compte de stockage \(du fournisseur de services cloud spécifié\). Vous avez également la possibilité d’activer le mode SSL \(Secure Sockets Layer\) afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
+Vous pouvez ajouter un compte de stockage en fournissant un nom convivial unique et les informations d’accès liées au compte de stockage (du fournisseur de services cloud spécifié). Vous avez également la possibilité d’activer le mode SSL (Secure Sockets Layer) afin de créer un canal sécurisé pour la communication réseau entre l’appareil et le cloud.
 
 Vous pouvez créer plusieurs comptes pour un fournisseur de services cloud donné. Veuillez noter toutefois qu’une fois qu’un compte de stockage a été créé, vous ne pouvez plus modifier le fournisseur de services cloud.
 
@@ -104,7 +104,7 @@ Vous pouvez modifier un compte de stockage utilisé par un conteneur de volumes.
 
 2. Dans le tableau de comptes de stockage, placez le pointeur sur le compte à supprimer.
 
-3. Une icône de suppression \(\*\*x\*\*\) s’affiche pour ce compte de stockage dans la colonne de droite. Cliquez sur l’icône **x** pour supprimer les informations d’identification.
+3. Une icône de suppression (**x**) s’affiche pour ce compte de stockage dans la colonne de droite. Cliquez sur l’icône **x** pour supprimer les informations d’identification.
 
 4. Lorsque vous êtes invité à confirmer la suppression, cliquez sur **Oui**. La liste du tableau est mise à jour pour refléter les modifications.
 
@@ -124,9 +124,9 @@ Les clés de compte de stockage sont toujours stockées dans le service sous for
 
 ## Workflow de rotation
 
-Un administrateur Microsoft Azure peut régénérer ou modifier la clé primaire ou secondaire en accédant directement au compte de stockage \(via le service Microsoft Azure Storage\). Le service StorSimple Manager ne voit pas automatiquement ce changement.
+Un administrateur Microsoft Azure peut régénérer ou modifier la clé primaire ou secondaire en accédant directement au compte de stockage (via le service Microsoft Azure Storage). Le service StorSimple Manager ne voit pas automatiquement ce changement.
 
-Pour informer le service StorSimple Manager de la modification, vous devez accéder au service StorSimple Manager et au compte de stockage, puis synchroniser la clé primaire ou secondaire \(selon celle qui a été modifiée\). Le service obtient alors la clé la plus récente, chiffre les clés, puis envoie la clé chiffrée à l’appareil.
+Pour informer le service StorSimple Manager de la modification, vous devez accéder au service StorSimple Manager et au compte de stockage, puis synchroniser la clé primaire ou secondaire (selon celle qui a été modifiée). Le service obtient alors la clé la plus récente, chiffre les clés, puis envoie la clé chiffrée à l’appareil.
 
 ### Pour synchroniser les clés des comptes de stockage associés au même abonnement que le service
 
@@ -137,7 +137,7 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 3. Dans la boîte de dialogue qui s’affiche, procédez comme suit :
 
   1. Sélectionnez le compte de stockage associé à la clé que vous souhaitez synchroniser. Les clés de compte de stockage sont affichées sous forme chiffrée.
-  2. Dans le service StorSimple Manager, vous devez mettre à jour la clé que vous avez précédemment modifiée dans le service Microsoft Azure Storage. Si vous avez modifié \(régénéré\) la clé primaire, cliquez sur **Synchroniser la clé primaire**. Si vous avez modifié la clé secondaire, cliquez sur **Synchroniser la clé secondaire**.
+  2. Dans le service StorSimple Manager, vous devez mettre à jour la clé que vous avez précédemment modifiée dans le service Microsoft Azure Storage. Si vous avez modifié (régénéré) la clé primaire, cliquez sur **Synchroniser la clé primaire**. Si vous avez modifié la clé secondaire, cliquez sur **Synchroniser la clé secondaire**.
 
     ![synchroniser les clés](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 

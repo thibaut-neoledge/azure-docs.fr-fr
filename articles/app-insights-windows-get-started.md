@@ -35,7 +35,7 @@ Vous devez avoir :
 * Un abonnement à [Microsoft Azure][azure].
 * Visual Studio 2013 ou une version ultérieure.
 
-## 1\. Création d’une ressource Application Insights dans Azure 
+## 1. Création d’une ressource Application Insights dans Azure 
 
 Dans le [portail Azure][portal], créez une ressource Application Insights.
 
@@ -45,14 +45,14 @@ Dans Azure, une [ressource][roles] correspond à l’instance d'un service. Cett
 
 #### Copie de la clé d'instrumentation
 
-Cette clé identifie la ressource. Vous en aurez besoin rapidement, pour configurer le Kit de développement logiciel \(SDK\) pour envoyer les données à la ressource.
+Cette clé identifie la ressource. Vous en aurez besoin rapidement, pour configurer le Kit de développement logiciel (SDK) pour envoyer les données à la ressource.
 
 ![Ouvrez le tiroir de liste déroulante Essentials et sélectionnez la clé d'instrumentation](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Ajout du Kit de développement logiciel \(SDK\) Application Insights à votre application
+## 2. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
 
-Dans Visual Studio, ajoutez le Kit de développement logiciel \(SDK\) approprié à votre projet.
+Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) approprié à votre projet.
 
 S’il s’agit d’une application Windows Universal, répétez les étapes pour le projet Windows Phone et le projet Windows.
 
@@ -68,9 +68,9 @@ S’il s’agit d’une application Windows Universal, répétez les étapes pou
    * Application Insights pour les applications Windows : *pour les applications Windows Store*
    * Application Insights pour les applications Windows Phone
    * Application Insights pour les applications Web : *à utiliser pour une application de bureau* 
-4. Modifiez ApplicationInsights.config \(qui a été ajouté par l'installation NuGet\). Insérez ceci juste avant la balise de fermeture :
+4. Modifiez ApplicationInsights.config (qui a été ajouté par l'installation NuGet). Insérez ceci juste avant la balise de fermeture :
 
-    `<InstrumentationKey>`\*la clé que vous avez copiée\*`</InstrumentationKey>`
+    `<InstrumentationKey>`*la clé que vous avez copiée*`</InstrumentationKey>`
 
 **Applications Windows Universal** : répétez ces étapes pour les projets Windows Phone et Windows Store.
 
@@ -116,7 +116,7 @@ Si vous préférez utiliser Visual Studio pour effectuer les étapes de configur
 
 Dans la boîte de dialogue Nouveau projet, sélectionnez Application Insights.
 
-Si vous êtes invité à le faire, utilisez les informations d'identification de votre compte Azure \(qui est distinct de votre compte Visual Studio Online\).
+Si vous êtes invité à le faire, utilisez les informations d'identification de votre compte Azure (qui est distinct de votre compte Visual Studio Online).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

@@ -39,13 +39,13 @@ Vous devez utiliser l'authentification par certificat pour exécuter les applets
 1. Obtenez la liste des bases de données récupérables en utilisant l'applet de commande [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Spécifiez le paramètre suivant :
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`PS C:>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Choisissez la base de données que vous souhaitez récupérer à l'aide de l'applet de commande [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Spécifiez les paramètres suivants :
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.
 	* **DatabaseName**, qui désigne la base de données à récupérer.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
+	`PS C:>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
 	 
 3. Lancez la récupération avec l'applet de commande [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Spécifiez les paramètres suivants :	
 	* **SourceDatabase**, qui désigne la base de données à récupérer.
@@ -54,14 +54,14 @@ Vous devez utiliser l'authentification par certificat pour exécuter les applets
 
 	Stockez les données retournées dans une variable appelée **$RestoreRequest**. Cette variable contient l'ID de demande de restauration qui est utilisé pour surveiller l'état de la restauration.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
+	`PS C:>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
 	
 Le processus de récupération d'une base de données peut prendre du temps. Pour surveiller l'état de la récupération, utilisez l'applet de commande [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) et spécifiez les paramètres suivants :
 
 * **ServerName**, qui désigne le serveur où se trouve la base de données dans laquelle vous effectuez la restauration.
 * **OperationGuid**, qui est l'ID de demande de restauration ayant été stocké dans la variable **$RecoveryRequest** à l'étape 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
 
 Les champs **State** et **PercentComplete** indiquent l'état de la restauration.
 

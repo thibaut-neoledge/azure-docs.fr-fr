@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Créer un package d&#39;application API" 
-	description="Découvrez comment créer un package d&#39;application API" 
+	pageTitle="Créer un package d'application API" 
+	description="Découvrez comment créer un package d'application API" 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"
@@ -27,7 +27,7 @@ Cet article montre comment créer un package d'application API que vous pourrez 
 
 ## Structure des dossiers
 
-Un package NuGet \(fichier \*.nupkg\*\) pour une application API a les fichiers et dossiers suivants sous le dossier *Content* :
+Un package NuGet (fichier *.nupkg*) pour une application API a les fichiers et dossiers suivants sous le dossier *Content* :
 
     apiapp.json
     Metadata
@@ -51,19 +51,19 @@ Les sections suivantes décrivent chaque fichier et chaque dossier de la structu
 
 Il s'agit du fichier manifeste de votre application API.
 
-|Nom \(en gras = requis\)|Type|Format|Description|
+|Nom (en gras = requis)|Type|Format|Description|
 |:---------------------|:-----|:-------|:------------|
-|**id**|string|[a-zA-Z0-9\_.]|ID de ce package. Doit être unique dans un espace de noms et peut contenir seulement des caractères alphanumériques, « \_ » et « . ». Doit commencer par un caractère alphanumérique.|
+|**id**|string|[a-zA-Z0-9_.]|ID de ce package. Doit être unique dans un espace de noms et peut contenir seulement des caractères alphanumériques, « _ » et « . ». Doit commencer par un caractère alphanumérique.|
 |**namespace**|string|nom de domaine|Espace de noms qui, avec la propriété **id**, identifie de façon univoque l'application API. Doit être un des noms de domaine du client AAD de l'éditeur.|
 |**version**|string|[semver](http://docs.nuget.org/Create/Versioning)|Version de ce package. Quand la mise à niveau automatique est activée par les utilisateurs pour ce package, elle s'applique seulement aux nouvelles versions de la même version principale.|
 |**gateway**|string|2015-01-14|Version de l'API de passerelle utilisée par ce package. Une passerelle est une application web spéciale à travers laquelle sont routées toutes les demandes adressées aux applications API d'un groupe de ressources. Une de ses fonctions principales consiste à gérer l'authentification. Actuellement, la seule version de passerelle est 2015-01-14. À l'avenir, quand de nouvelles versions de passerelles seront disponibles, cette propriété vous donnera la possibilité d'éviter les modifications avec rupture et de continuer à utiliser l'API de passerelle précédente.| 
 |**title**|string||Nom complet affiché de l'application API.|
 |**summary**|string|100 caractères au maximum|Bref résumé de l'application API.
-|description|string|1 500 caractères au maximum|Description complète de l'application API. Peut contenir du HTML. Les éléments et les attributs autorisés sont « h1 », « h2 », « h3 », « h4 », « h5 », « p », « ol », « ul », « li », « a[target\|href] », « br », « strong », « em », « b », « i ».|
+|description|string|1 500 caractères au maximum|Description complète de l'application API. Peut contenir du HTML. Les éléments et les attributs autorisés sont « h1 », « h2 », « h3 », « h4 », « h5 », « p », « ol », « ul », « li », « a[target|href] », « br », « strong », « em », « b », « i ».|
 |**author**|string|256 caractères au maximum|Le ou les auteurs de l'application API.|
 |homepage|string|URL|Page d'accueil de l'application API.|
 |endpoints|objet||Une liste de points de terminaison que la plateforme de l'application API peut interroger pour obtenir des informations sur les méthodes et les états de l'application API.|
-|endpoints.apiDefinition|string|Chemin d'accès de l'URL|URL relative d'une API exposée par l'application API, qui retourne une définition d'API Swagger 2.0 sur une demande GET \(par exemple, « /swagger/docs/v1 »\). Si ce paramètre est défini, il sera utilisé à la place du fichier apiDefinition.swagger.json statique dans le package, s'il en existe un.|
+|endpoints.apiDefinition|string|Chemin d'accès de l'URL|URL relative d'une API exposée par l'application API, qui retourne une définition d'API Swagger 2.0 sur une demande GET (par exemple, « /swagger/docs/v1 »). Si ce paramètre est défini, il sera utilisé à la place du fichier apiDefinition.swagger.json statique dans le package, s'il en existe un.|
 |endpoints.status|string|Chemin d'accès de l'URL|URL relative d'une API exposée par l'application API, qui retourne des informations d'état de l'exécution à propos de l'application API sur une demande GET.|
 |categories|string[]|community, social, enterprise, integration, protocol, app-datasvc, other|Catégorie Azure Marketplace dans laquelle apparaît ce package d'application API. Par défaut, l'application API apparaît toujours dans la catégorie community. Une fois l'application API approuvée, elle apparaît dans la catégorie spécifiée.|
 |license|objet||Licence de l'application API.|
@@ -83,9 +83,9 @@ Il s'agit du fichier manifeste de votre application API.
 
 Si vous le souhaitez, vous pouvez fournir ici un fichier JSON Swagger 2.0 pour exposer la définition de l'API de votre application API. La plateforme vérifie d'abord si la propriété **endpoints.apiDefinition** est configurée dans **apiapp.json**. Si oui, elle obtient la définition de l'API à partir de l'URL spécifiée dans la propriété. Si ce n'est pas le cas, elle tente de trouver ce fichier.
 
-- Pour plus d'informations sur la norme Swagger 2.0, consultez [http://swagger.io/](http://swagger.io/). \<!--todo fournir des URL
+- Pour plus d'informations sur la norme Swagger 2.0, consultez [http://swagger.io/](http://swagger.io/). <!--todo fournir des URL
 - Pour plus d'informations sur la façon de personnaliser la définition de l'API pour l'optimiser pour des applications logiques, consultez [titre du document]().
-- Pour plus d'informations sur la façon d'exposer une définition d'API dynamique, consultez [titre du document](). --\>
+- Pour plus d'informations sur la façon d'exposer une définition d'API dynamique, consultez [titre du document](). -->
 
 ## metadata/icons
 
@@ -107,13 +107,13 @@ Si vous le souhaitez, vous pouvez fournir jusqu'à 5 captures d'écran pour votr
 
 |Fichier|Largeur|Hauteur|Description|
 |:--------------------|:----|:-----|:----------|
-|metadata/screenshots/\*.png|533 px|324 px|Captures d'écran de votre package d'application API.|
+|metadata/screenshots/*.png|533 px|324 px|Captures d'écran de votre package d'application API.|
 
 ## metadata/deploymentTemplates
 
 Parfois, un package d'application API nécessite une configuration personnalisée lors du déploiement. Par exemple, le [connecteur d'objets blob Azure Storage](http://azure.microsoft.com/marketplace/partners/microsoft_com/azurestorageblobconnector/) requiert l'URI du conteneur d'objets blob Azure Storage. Si vous le souhaitez, vous pouvez également configurer une clé d'accès.
 
-Pour prendre en charge ce scénario, vous pouvez ajouter une liste de fichiers JSON de modèles ARM \(Azure Resource Manager\) dans ce dossier pour personnaliser le déploiement d'applications API. La plateforme d'applications API fusionne vos modèles ARM avec notre modèle système pour produire un modèle final pour le déploiement. Tous les paramètres définis dans vos modèles ARM personnalisés \(attendus pour **$system**\) seront également demandés automatiquement dans le panneau **Créer** du portail Azure en version préliminaire, pour que les utilisateurs de votre application API puissent entrer les valeurs.
+Pour prendre en charge ce scénario, vous pouvez ajouter une liste de fichiers JSON de modèles ARM (Azure Resource Manager) dans ce dossier pour personnaliser le déploiement d'applications API. La plateforme d'applications API fusionne vos modèles ARM avec notre modèle système pour produire un modèle final pour le déploiement. Tous les paramètres définis dans vos modèles ARM personnalisés (attendus pour **$system**) seront également demandés automatiquement dans le panneau **Créer** du portail Azure en version préliminaire, pour que les utilisateurs de votre application API puissent entrer les valeurs.
 
 Voici un exemple de modèle ARM montrant comment demander une URI de conteneur d'objets blob et une clé d'accès lors du déploiement d'une application API.
 
@@ -155,7 +155,7 @@ Voici un exemple de modèle ARM montrant comment demander une URI de conteneur d
       ]
     }
 
-Le panneau Créer du portail Azure en version préliminaire correspondant est illustré dans la capture d'écran ci-dessous. \(La capture d'écran montre un package d'application API utilisant UIDefinition.json pour améliorer le panneau de création.\) Pour plus d'informations, consultez [metadata/UIDefinition.json](#metadata-uidefinition-json).
+Le panneau Créer du portail Azure en version préliminaire correspondant est illustré dans la capture d'écran ci-dessous. (La capture d'écran montre un package d'application API utilisant UIDefinition.json pour améliorer le panneau de création.) Pour plus d'informations, consultez [metadata/UIDefinition.json](#metadata-uidefinition-json).
 
 ![Exemple de panneau de création de modèle ARM personnalisé](./media/app-service-api-create-package/custom-arm-template-create-blade-example.png)
 
@@ -258,7 +258,7 @@ Pour créer un package d'application API
 Cela permet de valider le contenu du package pour s'assurer que :
 
 - Il suit le format décrit ci-dessus.
-- Metadata\\apiDefinition.swagger.json \(s'il est fourni\) contient une définition d'API Swagger 2.0 valide.
+- Metadata\\apiDefinition.swagger.json (s'il est fourni) contient une définition d'API Swagger 2.0 valide.
 
 S'il y a un problème, il en affiche les détails pour vous permettre de le résoudre et de créer un package d'application API valide.
 

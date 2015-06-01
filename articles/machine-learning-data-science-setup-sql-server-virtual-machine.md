@@ -140,7 +140,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l'authentificat
 
     Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l'environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2.  À l'ouverture, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, tapez le nom de la machine virtuelle à connecter au moteur de base de données avec l'Explorateur d'objets. (Au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et conservez ***nom\_de\_votre\_machine\_virtuelle*\\votre\_administrateur\_local** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
+2.  À l'ouverture, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, tapez le nom de la machine virtuelle à connecter au moteur de base de données avec l'Explorateur d'objets. (Au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et conservez ***nom_de_votre_machine_virtuelle*\\votre_administrateur_local** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
     ![Connect to Server][6]
 
@@ -177,7 +177,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l'authentificat
 
 Pour vous connecter au moteur de base de données à partir d'un autre ordinateur, vous devez créer au moins une connexion d'authentification SQL Server.  
 
-> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l'authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <new user name\> et <new password\> par le nom d'utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l'exemple de code désactive la vérification de la stratégie et l'expiration du mot de passe). Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).  
+> [AZURE.TIP] Vous pouvez créer des connexions SQL Server par programme ou en utilisant SQL Server Management Studio. Pour créer un utilisateur sysadmin avec l'authentification SQL par programme, démarrez une **Nouvelle requête**, puis exécutez le script ci-après. Remplacez les variables <new user name> et <new password> par le nom d'utilisateur et le mot de passe de votre choix. Ajustez la stratégie de mot de passe selon vos besoins (l'exemple de code désactive la vérification de la stratégie et l'expiration du mot de passe). Pour plus d'informations sur les connexions SQL Server, consultez la page [Créer un compte de connexion](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go

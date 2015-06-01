@@ -32,7 +32,7 @@ Dans cette rubrique :
 3. Créez un certificat en suivant les instructions à la page [Créer un certificat de service pour Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx). Conservez l'empreinte numérique de certificat .pfx et RDP et téléchargez le certificat sur le service cloud cible.
 4. Utilisez les options suivantes dans la ligne de commande MSBuild pour générer et créer des packages en activant le débogage distant. Mettez à jour les chemins d'accès de vos fichiers système et projet.
 
-	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\\Remote Debugger\\x64\";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\\Users\\yourusername\\Documents\\visual studio 2013\\Projects\\WindowsAzure1\\WindowsAzure1.sln"
+	/TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\\Remote Debugger\\x64";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\\Users\\yourusername\\Documents\\visual studio 2013\\Projects\\WindowsAzure1\\WindowsAzure1.sln"
 
 5. Publiez sur le service cloud cible en utilisant le package et le fichier .cscfg générés à l'étape précédente.
 6. Importez le certificat (fichier .pfx) sur l'ordinateur sur lequel Visual Studio avec le Kit de développement logiciel (SDK) Azure SDK 2.4 est installé.

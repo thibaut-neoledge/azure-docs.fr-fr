@@ -257,12 +257,12 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 
 
             // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
+            var alert = "{"aps":{"alert":"Hello"}}";
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
 
 
             // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
+            var notif = "{ "data" : {"msg":"Hello"}}";
             await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
 
 

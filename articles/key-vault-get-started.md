@@ -18,7 +18,7 @@
 # Prise en main d’Azure Key Vault #
 
 ## Introduction  
-Ce didacticiel va vous aider à démarrer avec Azure Key Vault, actuellement en version préliminaire, pour créer un conteneur \(coffre\) renforcé dans Azure afin de stocker et de gérer des clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation de Windows PowerShell pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut ensuite utiliser cette clé ou ce mot de passe.
+Ce didacticiel va vous aider à démarrer avec Azure Key Vault, actuellement en version préliminaire, pour créer un conteneur (coffre) renforcé dans Azure afin de stocker et de gérer des clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation de Windows PowerShell pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut ensuite utiliser cette clé ou ce mot de passe.
 
 **Durée estimée :** 20 minutes
 
@@ -37,7 +37,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 
-Ce didacticiel s'adresse aux utilisateurs novices de Windows PowerShell, mais il part du principe que vous comprenez les concepts fondamentaux \(modules, cmdlets et sessions\). Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+Ce didacticiel s'adresse aux utilisateurs novices de Windows PowerShell, mais il part du principe que vous comprenez les concepts fondamentaux (modules, cmdlets et sessions). Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
 Pour accéder à l'aide détaillée de toute cmdlet présentée dans ce didacticiel, utilisez la cmdlet Get-Help.
 
@@ -154,7 +154,7 @@ Cette étape est généralement effectuée par un développeur et sur un ordinat
 Les applications qui utilisent un coffre de clés doivent s’authentifier à l’aide d’un jeton à partir d’Azure Active Directory. Pour ce faire, le propriétaire de l’application doit d’abord inscrire l’application dans Azure Active Directory. À la fin de l’inscription, le propriétaire de l’application obtient les valeurs suivantes :
 
 
-- Un **ID d’application** \(également appelé ID de client\) et une **clé d’authentification** \(également appelée secret partagé\). L’application doit présenter ces deux valeurs à Azure Active Directory afin d’obtenir un jeton. La manière dont l’application est configurée pour cela dépend de l’application en question. Pour l’exemple d’application de coffre de clés, le propriétaire de l’application définit ces valeurs dans le fichier app.config.
+- Un **ID d’application** (également appelé ID de client) et une **clé d’authentification** (également appelée secret partagé). L’application doit présenter ces deux valeurs à Azure Active Directory afin d’obtenir un jeton. La manière dont l’application est configurée pour cela dépend de l’application en question. Pour l’exemple d’application de coffre de clés, le propriétaire de l’application définit ces valeurs dans le fichier app.config.
 
 
 
@@ -165,11 +165,11 @@ Pour inscrire votre application auprès d’Azure Active Directory :
 
 3. Cliquez sur **APPLICATIONS**. Si aucune application n’a été ajoutée à votre répertoire, cette page affiche uniquement le lien **Ajouter une application**. Cliquez sur le lien. Vous pouvez également cliquer sur **AJOUTER** dans la barre de commandes.
 4.	Dans l’Assistant **AJOUTER UNE APPLICATION**, dans la page **Que voulez-vous faire ?**, cliquez sur **Ajouter une application développée par mon organisation**.
-5.	Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **APPLICATION WEB ET/OU API WEB** \(par défaut\). Cliquez sur l’icône Suivant.
-6.	Dans la page **Propriétés de l’application**, spécifiez l’**URL DE CONNEXION** et l’**URI ID D’APPLICATION** pour votre application web. Si votre application n’a pas ces valeurs, vous pouvez les créer pour cette étape \(par exemple, vous pouvez spécifier http://test1.contoso.com pour les deux zones\). Peu importe si ces sites existent. L’important est que l’URI d’ID d’application est différent pour chaque application dans votre répertoire. Le répertoire utilise cette chaîne pour identifier votre application.
+5.	Dans la page **Parlez-nous de votre application**, spécifiez un nom pour votre application et sélectionnez **APPLICATION WEB ET/OU API WEB** (par défaut). Cliquez sur l’icône Suivant.
+6.	Dans la page **Propriétés de l’application**, spécifiez l’**URL DE CONNEXION** et l’**URI ID D’APPLICATION** pour votre application web. Si votre application n’a pas ces valeurs, vous pouvez les créer pour cette étape (par exemple, vous pouvez spécifier http://test1.contoso.com pour les deux zones). Peu importe si ces sites existent. L’important est que l’URI d’ID d’application est différent pour chaque application dans votre répertoire. Le répertoire utilise cette chaîne pour identifier votre application.
 7.	Cliquez sur l’icône Terminé pour enregistrer vos modifications dans l’Assistant.
 8.	Dans la page Démarrage rapide, cliquez sur **CONFIGURER**. 
-9.	Accédez à la section **clés** , sélectionnez la durée, puis cliquez sur **ENREGISTRER**. La page est actualisée et affiche à présent une valeur de clé. Vous devez configurer votre application avec cette valeur de clé et la valeur d’**ID CLIENT**. \(Les instructions relatives à cette configuration sont propres à l’application\).
+9.	Accédez à la section **clés** , sélectionnez la durée, puis cliquez sur **ENREGISTRER**. La page est actualisée et affiche à présent une valeur de clé. Vous devez configurer votre application avec cette valeur de clé et la valeur d’**ID CLIENT**. (Les instructions relatives à cette configuration sont propres à l’application).
 10.	Copiez la valeur d’ID client à partir de cette page. Vous l’utiliserez à l’étape suivante pour définir des autorisations sur votre coffre.
 
 
@@ -186,9 +186,9 @@ Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application 
 
 
 
-## <a id="HSM"></a>Si vous souhaitez utiliser un module de sécurité matériel \(HSM\) ##
+## <a id="HSM"></a>Si vous souhaitez utiliser un module de sécurité matériel (HSM) ##
 
-Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels \(HSM\) qui ne franchissent jamais les limites HSM. Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
+Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
 
 Pour créer les clés protégées par HSM, vous devez avoir un [abonnement au coffre qui prend en charge les clés protégées par HSM](../../../pricing/free-trial).
 
@@ -197,7 +197,7 @@ Lorsque vous créez le coffre, ajoutez le paramètre « SKU » :
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-Vous pouvez ajouter des clés protégées par logiciel \(comme indiqué plus haut\) et des clés protégées par HSM dans ce coffre. Pour créer une clé protégée par HSM, définissez le paramètre Destination sur « HSM » :
+Vous pouvez ajouter des clés protégées par logiciel (comme indiqué plus haut) et des clés protégées par HSM dans ce coffre. Pour créer une clé protégée par HSM, définissez le paramètre Destination sur « HSM » :
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@ Vous pouvez utiliser la commande suivante pour importer une clé à partir d’u
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-La commande suivante importe un package BYOK \(Bring Your Own Key, Apporter votre propre clé\). Cela vous permet de générer votre clé dans votre module de sécurité matériel local et de la transférer vers les modules de sécurité matériels du service Key Vault, sans que la clé quitte la limite HSM :
+La commande suivante importe un package BYOK (Bring Your Own Key, Apporter votre propre clé). Cela vous permet de générer votre clé dans votre module de sécurité matériel local et de la transférer vers les modules de sécurité matériels du service Key Vault, sans que la clé quitte la limite HSM :
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@ Voici d’autres commandes qui peuvent être utiles pour la gestion d’Azure Ke
 
 Pour obtenir la liste des applets de commande Windows PowerShell pour Azure Key Vault, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C\# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 

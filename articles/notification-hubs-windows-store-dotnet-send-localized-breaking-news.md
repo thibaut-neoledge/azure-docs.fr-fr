@@ -66,8 +66,8 @@ Ensuite, nous allons nous assurer que les appareils s'inscrivent avec un modèle
 
 	<toast>
 	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">$(News_English)</text>
+	    <binding template="ToastText01">
+	      <text id="1">$(News_English)</text>
 	    </binding>
 	  </visual>
 	</toast>

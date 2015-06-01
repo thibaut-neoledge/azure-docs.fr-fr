@@ -138,15 +138,15 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     * **repositories** : référentiels contenant les fichiers de dépendance utilisés par le projet
 
-    * **scalding-core\_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
+    * **scalding-core_2.11** et **hadoop-core** : ce projet dépend des packages principaux Scalding et Hadoop
 
     * **maven-scala-plug-in** : plug-in pour compiler des applications scala
 
-    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded \(fat\) ». Ce plug-in applique des filtres et des transformations, en particulier :
+    * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **filters**: les filtres appliqués modifient les méta-informations qui figurent dans le fichier jar. Pour empêcher les exceptions de signature au moment de l'exécution, cette opération exclut différents fichiers de signature susceptibles d'être inclus avec des dépendances.
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **executions**:  la configuration de l'exécution de la phase package désigne la classe **com.twitter.scalding.Tool** comme étant la classe principale du package. Sans cela, vous devriez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d'application, lors de l'exécution de la tâche avec la commande hadoop.
 
 3. Supprimez le répertoire **src/test**, car vous n'allez pas créer de tests dans cet exemple.
 

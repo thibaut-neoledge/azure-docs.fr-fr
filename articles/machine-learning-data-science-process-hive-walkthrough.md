@@ -46,17 +46,17 @@ Pesant environ 20 Go au format compressé (ou 48 Go au format non compressé), l
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clé de jointure de trip\_data et trip\_fare se compose des champs medallion, hack\_licence et pickup\_datetime.
+La clé de jointure de trip_data et trip_fare se compose des champs medallion, hack_licence et pickup_datetime.
 
 Il y a 12 fichiers 'trip_data' et 12 fichiers 'trip_fare'. Dans les noms de fichier, les numéros 1 à 12 représentent les mois où les trajets ont été effectués. 
 
 ## <a name="mltasks"></a>Exemples de tâches de prévision
 Le fait de connaître le type de prévisions que vous souhaitez obtenir de l'analyse des données permet de clarifier les tâches à inclure dans votre processus.
-Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s'appuie sur le champ *tip\_amount* :
+Voici trois exemples de problèmes de prévisions que nous allons traiter dans ce guide et dont la formulation s'appuie sur le champ *tip_amount* :
 
-1. **Classification binaire** : pour prévoir si un pourboire a été payé pour un trajet, c'est-à-dire qu'une valeur de *tip\_amount* supérieure à 0 $ est un exemple positif alors qu'une valeur de *tip\_amount* de 0 $ est un exemple négatif.
+1. **Classification binaire** : pour prévoir si un pourboire a été payé pour un trajet, c'est-à-dire qu'une valeur de *tip_amount* supérieure à 0 $ est un exemple positif alors qu'une valeur de *tip_amount* de 0 $ est un exemple négatif.
 
-2. **Classification multiclasse** : pour prévoir la fourchette des montants de pourboire réglés pour le trajet. Nous divisons *tip\_amount* en cinq compartiments ou classes :
+2. **Classification multiclasse** : pour prévoir la fourchette des montants de pourboire réglés pour le trajet. Nous divisons *tip_amount* en cinq compartiments ou classes :
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -85,7 +85,7 @@ Pour créer l'environnement de science des données Azure correspondant à cette
 
 3. [Approvisionnez une machine virtuelle **Windows** de science des données](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] Les exemples de script seront téléchargés sur votre machine virtuelle de science des données pendant la configuration de celle-ci. Une fois le script de post-installation de la machine virtuelle exécutée, les exemples se trouveront dans la bibliothèque Documents de votre machine virtuelle, située dans *C:\Users\<user_name>\Documents\Data Science Scripts*  Ces dossiers exemples sont appelés **Sample Scripts** ci-après. Les exemples de requêtes Hive sont stockés dans des fichiers HQL situés dans le dossier **Sample Scripts**. Notez que l'élément *<user_name>* mentionné dans le chemin d'accès à ce dossier est le nom de connexion Windows de votre machine virtuelle, pas votre nom d'utilisateur Azure.
+	> [AZURE.NOTE] Les exemples de script seront téléchargés sur votre machine virtuelle de science des données pendant la configuration de celle-ci. Une fois le script de post-installation de la machine virtuelle exécutée, les exemples se trouveront dans la bibliothèque Documents de votre machine virtuelle, située dans *C:\Users<user_name>\Documents\Data Science Scripts*  Ces dossiers exemples sont appelés **Sample Scripts** ci-après. Les exemples de requêtes Hive sont stockés dans des fichiers HQL situés dans le dossier **Sample Scripts**. Notez que l'élément *<user_name>* mentionné dans le chemin d'accès à ce dossier est le nom de connexion Windows de votre machine virtuelle, pas votre nom d'utilisateur Azure.
 
 4. [Personnalisez les clusters Hadoop Azure HDInsight pour la science des données](machine-learning-data-science-customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Une fois le cluster Hadoop personnalisé créé, activez l'accès à distance au nœud principal du cluster Hadoop dans le portail Azure en suivant la procédure décrite dans cette rubrique de personnalisation.
 
@@ -211,7 +211,7 @@ Les tâches d'exploration des données et d'ingénierie des fonctionnalités pou
 - Affichez les 10 premiers enregistrements des deux tables.
 - Explorez les distributions des données de quelques champs dans différentes périodes.
 - Analysez la qualité des données des champs de longitude et de latitude.
-- Générez des libellés de classification binaire et multiclasse basés sur le champ **tip\_amount**.
+- Générez des libellés de classification binaire et multiclasse basés sur le champ **tip_amount**.
 - Générez des fonctionnalités en calculant les distances des trajets directs.
 - Créez une jointure entre les deux tables et extrayez un échantillon aléatoire qui sera utilisé pour créer des modèles.
 
@@ -363,7 +363,7 @@ Une fois la requête exécutée, vous pouvez utiliser le SDK Azure pour lire la 
 	
 ### Préparer les données pour la création de modèles
 
-La requête fournie dans cette section crée une jointure entre les tables **nyctaxidb.trip** et **nyctaxidb.fare**, génère le libellé de classification binaire **tipped** et le libellé de classification multiclasse **tip\_class**. Cette requête peut être copiée puis collée directement dans le module Reader d'[Azure Machine Learning Studio](https://studio.azureml.net) pour intégrer les données à partir de **Hive Query** dans Azure. Cette requête exclut également les enregistrements présentant des coordonnées de latitude ou de longitude incorrectes.
+La requête fournie dans cette section crée une jointure entre les tables **nyctaxidb.trip** et **nyctaxidb.fare**, génère le libellé de classification binaire **tipped** et le libellé de classification multiclasse **tip_class**. Cette requête peut être copiée puis collée directement dans le module Reader d'[Azure Machine Learning Studio](https://studio.azureml.net) pour intégrer les données à partir de **Hive Query** dans Azure. Cette requête exclut également les enregistrements présentant des coordonnées de latitude ou de longitude incorrectes.
 
 Elle applique directement les FDU Hive intégrées pour générer plusieurs fonctionnalités à partir des enregistrements Hive, dont l'heure, la semaine de l'année et le jour de la semaine (1 représentant lundi et 7, dimanche) du champ _pickup_datetime_. La liste complète des FDU Hive intégrées est disponible dans le document [FDU LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
@@ -496,7 +496,7 @@ La figure ci-dessous montre un exemple d'expérience de classification binaire q
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] Dans les exemples de modélisation de l'extraction des données et d'échantillonnage de requête fournis dans les précédentes sections, **tous les libellés des trois exercices de modélisation sont inclus dans la requête**. Une étape importante (et obligatoire) de chacun des exercices de modélisation consiste à **exclure** les libellés superflus des deux autres problèmes et les autres **fuites de données cibles**. Par exemple, si vous utilisez la classification binaire, utilisez le libellé **tipped** et excluez les champs **tip\_class**, **tip\_amount** et **total\_amount**. Les derniers sont des fuites de données cibles car ils impliquent le pourboire payé.
+> [AZURE.IMPORTANT] Dans les exemples de modélisation de l'extraction des données et d'échantillonnage de requête fournis dans les précédentes sections, **tous les libellés des trois exercices de modélisation sont inclus dans la requête**. Une étape importante (et obligatoire) de chacun des exercices de modélisation consiste à **exclure** les libellés superflus des deux autres problèmes et les autres **fuites de données cibles**. Par exemple, si vous utilisez la classification binaire, utilisez le libellé **tipped** et excluez les champs **tip_class**, **tip_amount** et **total_amount**. Les derniers sont des fuites de données cibles car ils impliquent le pourboire payé.
 
 > Dans cette expérience, le premier module **Metadata Editor** ajoute des noms de colonne dans les données affichées par le module Reader. Ce module est nécessaire, car le module Reader qui lit les données dans Hive Query ne crée aucun nom de colonne pour les données de sortie. 
 

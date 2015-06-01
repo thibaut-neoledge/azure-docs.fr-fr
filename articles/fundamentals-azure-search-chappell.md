@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation d&#39;Azure Search | Azure" 
+	pageTitle="Présentation d'Azure Search | Azure" 
 	description="Découvrez comment Azure Search peut vous aider à créer des applications de recherche avancées." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -39,5 +39,5 @@ Ce livre est une vue d'ensemble de la technologie, ainsi que des fonctionnalité
 
 **Téléchargements :**
 
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">« Présentation d'Azure Search » \(au format PDF\)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">« Présentation d'Azure Search » \(au format Microsoft Word\)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">« Présentation d'Azure Search » (au format PDF)</a>
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">« Présentation d'Azure Search » (au format Microsoft Word)</a> <!--HONumber=52-->

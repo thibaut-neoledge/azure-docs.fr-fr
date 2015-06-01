@@ -44,9 +44,9 @@ Si vous savez utiliser les modules Node.js, les fichiers **package.json** et **n
 
 Les modules sont des packages JavaScript chargeables qui fournissent une fonctionnalité spécifique à votre application. Un module est habituellement installé à l'aide de l'outil en ligne de commande **npm**. Néanmoins, certains modules (le module http, par exemple) sont intégrés au package Node.js principal.
 
-Lorsque les modules sont installés, ils sont stockés dans le répertoire **node\_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **node\_modules** conserve son propre répertoire **node\_modules** qui comporte tous les modules dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Ainsi, chaque module installé est doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
+Lorsque les modules sont installés, ils sont stockés dans le répertoire **node_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **node_modules** conserve son propre répertoire **node_modules** qui comporte tous les modules dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Ainsi, chaque module installé est doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
 
-Lors du déploiement du répertoire **node\_modules** dans votre application, la taille du déploiement est accrue comparée à l'utilisation du fichier **package.json** ou **npm-shrinkwrap.json**. Néanmoins, ce type de déploiement garantit que la version des modules utilisés en production est la même que ceux utilisés en développement.
+Lors du déploiement du répertoire **node_modules** dans votre application, la taille du déploiement est accrue comparée à l'utilisation du fichier **package.json** ou **npm-shrinkwrap.json**. Néanmoins, ce type de déploiement garantit que la version des modules utilisés en production est la même que ceux utilisés en développement.
 
 ###Modules natifs
 
@@ -58,7 +58,7 @@ Les modules natifs ne sont pas pris en charge par Sites Web Azure. Certains modu
 
 ###Utilisation du fichier package.json
 
-Le fichier **package.json** permet de spécifier les dépendances de niveau supérieur requises par votre application afin que la plateforme d'hébergement puisse installer les dépendances, plutôt que de vous obliger à inclure le dossier **node\_packages** dans le déploiement. Une fois que l'application a été déployée, la commande **npm install** permet d'analyser le fichier **package.json** et d'installer toutes les dépendances répertoriées.
+Le fichier **package.json** permet de spécifier les dépendances de niveau supérieur requises par votre application afin que la plateforme d'hébergement puisse installer les dépendances, plutôt que de vous obliger à inclure le dossier **node_packages** dans le déploiement. Une fois que l'application a été déployée, la commande **npm install** permet d'analyser le fichier **package.json** et d'installer toutes les dépendances répertoriées.
 
 Au cours du développement, vous pouvez utiliser les paramètres **--save**, **--save-dev** ou **--save-optional** lors de l'installation de modules afin d'ajouter automatiquement une entrée pour le module à votre fichier **package.json**. Pour plus d'informations, consultez la page [npm-install](https://npmjs.org/doc/install.html).
 
@@ -76,7 +76,7 @@ Un problème potentiel avec le fichier **package.json** est qu'il n'indique la v
 
 Le fichier **npm-shrinkwrap.json** tente de résoudre les limitations de contrôle de version des modules du fichier **package.json**. Alors que le fichier **package.json** n'inclut que des versions pour les modules de niveau supérieur, le fichier **npm-shrinkwrap.json** contient les exigences de version pour l'ensemble de la chaîne de dépendance des modules.
 
-Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node\_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d'informations, consultez la page [npm-install](https://npmjs.org/doc/install.html).
+Lorsque votre application est prête pour la production, vous pouvez verrouiller les exigences de version et créer un fichier **npm-shrinkwrap.json** à l'aide de la commande **npm shrinkwrap**. Elle utilise les versions actuellement installées dans le dossier **node_modules** et les enregistre dans le fichier **npm-shrinkwrap.json**. Une fois que l'application a été déployée vers l'environnement d'hébergement, la commande **npm install** permet d'analyser le fichier **npm-shrinkwrap.json** et d'installer toutes les dépendances répertoriées. Pour plus d'informations, consultez la page [npm-install](https://npmjs.org/doc/install.html).
 
 > [WACOM.NOTE]
 >Lors du déploiement sur un site web Azure, si votre fichier <b>npm-shrinkwrap.json</b> fait référence à un module natif, une erreur similaire à celle figurant ci-dessous s'affiche lors de la publication de l'application à l'aide de Git :

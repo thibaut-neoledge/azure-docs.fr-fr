@@ -36,11 +36,11 @@ Notre tâche consiste à attirer les clients grâce à une expérience de recher
 
  ![][7]
 
-Après avoir souscrit un abonnement, un revendeur reçoit un profil \(créé initialement par nous à partir de données achetées\) et le met à jour avec des informations supplémentaires concernant les promotions, les marques proposées ou les annonces. Les services internes, par exemple les langues parlées, les devises acceptées ou les produits détaxés peuvent être automatique signalés pour attirer plus facilement les clients qui recherchent ces services.
+Après avoir souscrit un abonnement, un revendeur reçoit un profil (créé initialement par nous à partir de données achetées) et le met à jour avec des informations supplémentaires concernant les promotions, les marques proposées ou les annonces. Les services internes, par exemple les langues parlées, les devises acceptées ou les produits détaxés peuvent être automatique signalés pour attirer plus facilement les clients qui recherchent ces services.
 
 ## Qui sommes-nous ?
 
-Je m'appelle Thomas Segato \(Microsoft Consulting\) et j'ai collaboré avec Jesper Boelling, développeur principal chez WhatToPedia, pour concevoir la solution.
+Je m'appelle Thomas Segato (Microsoft Consulting) et j'ai collaboré avec Jesper Boelling, développeur principal chez WhatToPedia, pour concevoir la solution.
 
 WhatToPedia est une start-up qui teste son nouveau portail d'entreprise en Suède, marché où la plupart des 60 000 revendeurs représentent des PME traditionnelles. Le client européen parle plusieurs langues et utilise différentes devises, et nous créons donc des solutions adaptées à ce type de client multilingue. Nous avons cherché - et trouvé - un moteur de recherche qui prend en charge nos besoins multilingues : Azure Search.
 
@@ -48,11 +48,11 @@ Azure Search a joué un rôle capital dans notre projet. Avant de découvrir Azu
 
 ## Comment nous l'avons fait
 
-Notre objectif était de créer une infrastructure complète uniquement basée sur des services de cloud. Microsoft a été choisi comme plateforme stratégique car il s'agit d'un fournisseur offrant les services nécessaires \(à la fois pour la collaboration et le développement\), une mise à l'échelle à la demande et un prix abordable.
+Notre objectif était de créer une infrastructure complète uniquement basée sur des services de cloud. Microsoft a été choisi comme plateforme stratégique car il s'agit d'un fournisseur offrant les services nécessaires (à la fois pour la collaboration et le développement), une mise à l'échelle à la demande et un prix abordable.
  
 ### Composants de haut niveau
 
-Nous avons créé une véritable entreprise, pas simplement un site. Tous ces efforts nécessitaient une gamme complète d'outils et d'applications. Nous avons adopté Visual Studio et Visual Studio Online pour le développement, Team Foundation Service \(TFS\) Online pour le contrôle de la source et la gestion des processus Scrum, Office 365 pour la communication et la collaboration, et bien entendu Microsoft Azure pour toutes les opérations liées au site et le stockage. L'ID de Visual Studio a fourni directement les données à Azure, tandis que l'intégration à TFS Online a permis d'accroître la productivité.
+Nous avons créé une véritable entreprise, pas simplement un site. Tous ces efforts nécessitaient une gamme complète d'outils et d'applications. Nous avons adopté Visual Studio et Visual Studio Online pour le développement, Team Foundation Service (TFS) Online pour le contrôle de la source et la gestion des processus Scrum, Office 365 pour la communication et la collaboration, et bien entendu Microsoft Azure pour toutes les opérations liées au site et le stockage. L'ID de Visual Studio a fourni directement les données à Azure, tandis que l'intégration à TFS Online a permis d'accroître la productivité.
 
 Le diagramme ci-dessous montre les composants de haut niveau utilisés dans l'infrastructure WhatToPedia.
 
@@ -87,9 +87,9 @@ La situation est différente avec les revendeurs. Dans ce cas, nous stockons dif
 
 Pour s'assurer que les revendeurs ne voient que les données qui leur appartiennent, nous leur avons attribué à chacun un ID, qui sera utilisé pour toutes les opérations de lecture et d'écriture impliquant des données spécifiques au revendeur. Avec cette approche, nous avons constaté que nous n'avions pas besoin d'accorder des autorisations de base de données aux revendeurs individuels. Tous les revendeurs interagissent avec le système en utilisant un rôle de base de données unique, l'ID revendeur étant notre technique d'isolation des données.
 
-Comme notre activité repose essentiellement sur des opérations effectuées en aval \(augmenter le chiffre d'affaires des revendeurs, créer des offres incitatives pour la publicité et les abonnements\), nous n'avons pas à gérer les achats en ligne. Vous ne trouverez donc aucun panier d'achat sur notre site, ce qui réduit nos exigences de sécurité.
+Comme notre activité repose essentiellement sur des opérations effectuées en aval (augmenter le chiffre d'affaires des revendeurs, créer des offres incitatives pour la publicité et les abonnements), nous n'avons pas à gérer les achats en ligne. Vous ne trouverez donc aucun panier d'achat sur notre site, ce qui réduit nos exigences de sécurité.
 
-Nous avons également simplifié nos processus en externalisant nos opérations de facturation et de comptabilité fournisseurs. En transmettant directement les informations de paiement clients à un tiers \([SveaWebPay](http://www.sveawebpay.se/)\), nous réduisons les risques liés au stockage et à la protection des données sensibles dans nos banques de données.
+Nous avons également simplifié nos processus en externalisant nos opérations de facturation et de comptabilité fournisseurs. En transmettant directement les informations de paiement clients à un tiers ([SveaWebPay](http://www.sveawebpay.se/)), nous réduisons les risques liés au stockage et à la protection des données sensibles dans nos banques de données.
 
 ### Moteur de recherche
 
@@ -110,26 +110,26 @@ Voici comment nous avons créé le prototype.
 
 **Configuration du service Azure Search**
 
-1. Connexion au portail Azure et ajout du service de recherche à notre abonnement. Nous avons utilisé la version partagée \(fournie gratuitement avec notre abonnement\).
-2. Création d'un index. Pour le prototype, nous avons utilisé l'interface utilisateur du portail pour définir les champs de recherche et pour créer les profils de score. Notre profil de score est basé sur des données de localisation : pays \| ville \| adresse \(voir : Ajout de profils de score\).
+1. Connexion au portail Azure et ajout du service de recherche à notre abonnement. Nous avons utilisé la version partagée (fournie gratuitement avec notre abonnement).
+2. Création d'un index. Pour le prototype, nous avons utilisé l'interface utilisateur du portail pour définir les champs de recherche et pour créer les profils de score. Notre profil de score est basé sur des données de localisation : pays | ville | adresse (voir : Ajout de profils de score).
 3. Copie de l'URL du service et de la clé api administrateur dans nos fichiers de configuration. Cette clé se trouve sur la page du service de recherche du portail, et sert à authentifier le service.
 	
 **Développement d'une tâche d'indexeur de recherche – Console Windows**
 
 1. Lecture de tous les revendeurs à partir de la base de données.
-2. Appel de l'API du service Azure Search pour télécharger un par un les revendeurs \(voir : http://msdn.microsoft.com/library/azure/dn798930.aspx).
-3. Définition dans la base de données d'une propriété indiquant que le revendeur est configuré pour l'indexation incrémentielle. Pour cela, nous avons ajouté un champ 'indexeur' qui stocke l'état de l'index de chaque profil \(indexé ou non\). 
+2. Appel de l'API du service Azure Search pour télécharger un par un les revendeurs (voir : http://msdn.microsoft.com/library/azure/dn798930.aspx).
+3. Définition dans la base de données d'une propriété indiquant que le revendeur est configuré pour l'indexation incrémentielle. Pour cela, nous avons ajouté un champ 'indexeur' qui stocke l'état de l'index de chaque profil (indexé ou non). 
 
 Consultation de l'annexe pour connaître l'extrait de code qui constitue la tâche de l'indexeur.
 
 **Développement d'un portail Web de recherche – MVC**
 
-1. Appel au service Azure Search pour obtenir tous les documents de la recherche \(voir : http://msdn.microsoft.com/library/azure/dn798927.aspx\)
-2. Extraction des éléments suivants à partir de la réponse du service de recherche \(en utilisant json.net http://james.newtonking.com/json\)
+1. Appel au service Azure Search pour obtenir tous les documents de la recherche (voir : http://msdn.microsoft.com/library/azure/dn798927.aspx)
+2. Extraction des éléments suivants à partir de la réponse du service de recherche (en utilisant json.net http://james.newtonking.com/json)
    - Résultats
    - Facettes
    - Nombre de résultats
-   - Développement d'une interface utilisateur pour l'affichage des résultats de la recherche, des facettes et des nombres \(informations déjà disponibles\).
+   - Développement d'une interface utilisateur pour l'affichage des résultats de la recherche, des facettes et des nombres (informations déjà disponibles).
 
 Voici le code que nous avons utilisé pour obtenir les résultats d'Azure Search :
 
@@ -156,7 +156,7 @@ Chacun de ces documents possède une propriété masquée appelée « cities �
 
 ###Stockage des données
 
-Toutes les données \(profil, abonnement et comptabilité\) sont stockées dans la base de données SQL. Tous les fichiers multimédias sont stockés dans le stockage Azure BLOB, y compris les images et vidéos fournies par le revendeur. L'utilisation d'un stockage BLOB distinct isole les effets du téléchargement de fichiers ; les fichiers ne résident jamais sur le site Web et il n'est donc pas nécessaire de reconstruire le site chaque fois que nous ajoutons des fichiers.
+Toutes les données (profil, abonnement et comptabilité) sont stockées dans la base de données SQL. Tous les fichiers multimédias sont stockés dans le stockage Azure BLOB, y compris les images et vidéos fournies par le revendeur. L'utilisation d'un stockage BLOB distinct isole les effets du téléchargement de fichiers ; les fichiers ne résident jamais sur le site Web et il n'est donc pas nécessaire de reconstruire le site chaque fois que nous ajoutons des fichiers.
 
 Autre avantage important qu'offre ce type de stockage : plusieurs développeurs peuvent partager un stockage de développement unique. L'une des exigences du projet WhatToPedia était de pouvoir créer un environnement de développement en moins de 15 minutes, y compris les vidéos, les images et les données des revendeurs. La récupération des dernières données de TFS Online, l'exécution d'un script SQL et l'exécution de la tâche d'importation permettent de créer rapidement un environnement complet. Cette méthode améliore également la mise en place d'un environnement intermédiaire.
 
@@ -175,11 +175,11 @@ La tâche est programmée pour s'exécuter toutes les 5 minutes comme une tâche
 
 ###Stratégie de sauvegarde
 
-Nous avons conçu une stratégie de sauvegarde à plusieurs niveaux pour récupérer les données dans différents scénarios, d'une panne très grave à la récupération d'une transaction individuelle. Les actifs à protéger incluent trois types de données \(site web, données des abonnés et fichiers multimédias\).
+Nous avons conçu une stratégie de sauvegarde à plusieurs niveaux pour récupérer les données dans différents scénarios, d'une panne très grave à la récupération d'une transaction individuelle. Les actifs à protéger incluent trois types de données (site web, données des abonnés et fichiers multimédias).
 
 Tout d'abord, en conservant le code source du site web dans TFS Online, nous savons que si le site tombe en panne, nous pouvons le recréer en le republiant à partir de TFS.
 
-Les données des abonnés stockées dans la base de données SQL Azure sont les informations les plus sensibles. Nous les stockons à l'aide de la fonctionnalité intégrée \(voir [Sauvegarde et restauration de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)\). La planification de la sauvegarde consiste en une sauvegarde complète de la base de données une fois par semaine, des sauvegardes différentielles de base de données une fois par jour, et des sauvegardes du journal des transactions toutes les 5 minutes. Étant donné la taille des données, cette solution est largement suffisante pour nos volumes de données actuels et planifiés.
+Les données des abonnés stockées dans la base de données SQL Azure sont les informations les plus sensibles. Nous les stockons à l'aide de la fonctionnalité intégrée (voir [Sauvegarde et restauration de la base de données SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)). La planification de la sauvegarde consiste en une sauvegarde complète de la base de données une fois par semaine, des sauvegardes différentielles de base de données une fois par jour, et des sauvegardes du journal des transactions toutes les 5 minutes. Étant donné la taille des données, cette solution est largement suffisante pour nos volumes de données actuels et planifiés.
 
 Troisièmement, nous stockons les fichiers image et vidéo dans le stockage Azure BLOB. Nous recherchons toujours le meilleur plan de sauvegarde pour ces données, en considérant Cloudberry Explorer for Azure comme une solution potentielle. Pour l'instant, nous utilisons un WebJob pour copier les images et les vidéos vers un autre emplacement.
 
@@ -187,7 +187,7 @@ Troisièmement, nous stockons les fichiers image et vidéo dans le stockage Azur
 
 Comme nous possédions déjà les données, la validation technique n'a posé aucun problème. En quelques heures, nous avions un prototype à facettes ainsi que des compteurs, une pagination, des profils classés et des résultats de recherche. Les résultats de la recherche étaient si précis que nous avons décidé de supprimer certains des filtres proposés au client final.
 
-La surprise plus importante pour nous a été la vitesse à laquelle nous avons assimilé Azure Search et les avantages que nous avons pu en tirer. La validation technique n'a littéralement demandé que quelques heures \(voir la remarque ci-dessous\), avec le remplacement de 500 lignes de code par 3 lignes de code dans l'application frontale \(plus un nouveau WebJob\) et de meilleurs résultats.
+La surprise plus importante pour nous a été la vitesse à laquelle nous avons assimilé Azure Search et les avantages que nous avons pu en tirer. La validation technique n'a littéralement demandé que quelques heures (voir la remarque ci-dessous), avec le remplacement de 500 lignes de code par 3 lignes de code dans l'application frontale (plus un nouveau WebJob) et de meilleurs résultats.
 
 Auparavant, notre code instaurait une pagination, des décomptes et d'autres comportements typiques d'une recherche. Avec Azure Search, les résultats que nous obtenons incluent les résultats de la recherche, les facettes, les données de pagination et les décomptes, c'est-à-dire tous les éléments nécessaires que nous devions nous-mêmes fournir. Cette solution a également introduit une navigation à facettes intégrée améliorée, ce que ne proposait pas notre solution d'origine.
 
@@ -207,7 +207,7 @@ Azure Search n'a pas été notre unique agréable surprise. Nous avons découver
 
 ###Azure BLOB Storage Explorer pour la mise à jour des images
 
-Nous avons constaté que l'utilisation d'[Azure BLOB Storage Explorer](https://azurestorageexplorer.codeplex.com/) \(disponible sur codeplex\) à être très utile pour la gestion des mises à jour des images et des vidéos sur le site. Nous l'utilisons comme un outil de développement pour mettre à jour manuellement les images et les vidéos qui composent notre site principal. Azure BLOB Storage Explorer offre plus de souplesse que le déploiement des modifications dans le portail et supprime une itération complète de test chaque fois que nous devons mettre à jour une image.
+Nous avons constaté que l'utilisation d'[Azure BLOB Storage Explorer](https://azurestorageexplorer.codeplex.com/) (disponible sur codeplex) à être très utile pour la gestion des mises à jour des images et des vidéos sur le site. Nous l'utilisons comme un outil de développement pour mettre à jour manuellement les images et les vidéos qui composent notre site principal. Azure BLOB Storage Explorer offre plus de souplesse que le déploiement des modifications dans le portail et supprime une itération complète de test chaque fois que nous devons mettre à jour une image.
 
 ##Un dernier mot
 

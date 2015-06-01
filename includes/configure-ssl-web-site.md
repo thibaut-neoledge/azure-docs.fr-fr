@@ -5,11 +5,11 @@
 
 Vous pouvez sécuriser les communications entre l'application web et le navigateur avec le protocole HTTPS, qui utilise le chiffrement SSL (Secure Socket Layer). Il s'agit de la méthode la plus courante en matière de sécurisation des données envoyées via Internet. Elle permet de garantir aux visiteurs que les transactions qu'ils réalisent avec votre application sont sécurisées. Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. 
 
-##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine \*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine *.azurewebsites.net
 
-Si vous n'envisagez pas d'utiliser un nom de domaine personnalisé, mais le domaine \*.azurewebsites.net attribué à votre application web par Azure (par exemple, contoso.azurewebsites.net), le protocole HTTPS est alors déjà activé sur votre site, avec un certificat fourni par Microsoft. Vous pouvez utiliser **https://mywebsite.azurewebsites.net** pour accéder à votre application. Cependant, \*.azurewebsites.net est un domaine générique. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n'est pas aussi sécurisé qu'un domaine personnalisé avec votre propre certificat. 
+Si vous n'envisagez pas d'utiliser un nom de domaine personnalisé, mais le domaine *.azurewebsites.net attribué à votre application web par Azure (par exemple, contoso.azurewebsites.net), le protocole HTTPS est alors déjà activé sur votre site, avec un certificat fourni par Microsoft. Vous pouvez utiliser **https://mywebsite.azurewebsites.net** pour accéder à votre application. Cependant, *.azurewebsites.net est un domaine générique. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n'est pas aussi sécurisé qu'un domaine personnalisé avec votre propre certificat. 
 
-Le reste de ce document fournit des détails sur l'activation du protocole HTTPS pour les domaines personnalisés, par exemple **contoso.com**, **www.contoso.com** ou **\*.contoso.com**
+Le reste de ce document fournit des détails sur l'activation du protocole HTTPS pour les domaines personnalisés, par exemple **contoso.com**, **www.contoso.com** ou ***.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Activer le chiffrement SSL pour votre domaine personnalisé
 
@@ -39,7 +39,7 @@ Pour obtenir un certificat SSL à utiliser avec Azure App Service, vous soumette
 - [Obtention d'un certificat SubjectAltName à l'aide d'OpenSSL](#bkmk_subjectaltname)
 - [Génération de certificats auto-signés (à des fins de test uniquement)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE] Lors de ces étapes, vous devez entrer un **nom commun**, tel que `www.contoso.com`. Pour les certificats génériques, cette valeur doit être \*.nomdedomaine (par exemple, \*.contoso.com). Pour prendre en charge un nom générique tel que \*.contoso.com et un nom de domaine racine tel que contoso.com, vous pouvez utiliser un certificat générique subjectAltName.
+> [AZURE.NOTE] Lors de ces étapes, vous devez entrer un **nom commun**, tel que `www.contoso.com`. Pour les certificats génériques, cette valeur doit être *.nomdedomaine (par exemple, *.contoso.com). Pour prendre en charge un nom générique tel que *.contoso.com et un nom de domaine racine tel que contoso.com, vous pouvez utiliser un certificat générique subjectAltName.
 >
 > Les certificats ECC (chiffrement à courbe elliptique) sont pris en charge par Azure App Service. Cependant, ils sont relativement nouveaux, et la procédure précise à suivre pour créer la demande de signature de certificat doit être déterminée avec votre autorité de certification.
 

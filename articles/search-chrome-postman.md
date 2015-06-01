@@ -48,7 +48,7 @@ Pour configurer Postman, procédez comme suit :
 
 ## Création d'un index Azure Search avec Postman ##
 
-Nous allons maintenant développer ce que nous effectué à la dernière étape en envoyant un appel REST pour créer un index Azure Search. Contrairement à l'appel précédent, la création de l'index nécessite un élément HTTP PUT ainsi qu'un document JSON contenant la définition du schéma d'index. Pour cet exemple, nous allons créer un index de différents chemins de randonnée \(trails\). Pour ce faire :
+Nous allons maintenant développer ce que nous effectué à la dernière étape en envoyant un appel REST pour créer un index Azure Search. Contrairement à l'appel précédent, la création de l'index nécessite un élément HTTP PUT ainsi qu'un document JSON contenant la définition du schéma d'index. Pour cet exemple, nous allons créer un index de différents chemins de randonnée (trails). Pour ce faire :
 
 1. Remplacez l'URL par `https://[SEARCH SERVICE].search.windows.net/indexes/trails?api-version=2015-02-28` en utilisant le nom de votre service de recherche.
 2. Remplacez le type de requête `GET` par `PUT`.
@@ -69,7 +69,7 @@ Nous allons maintenant développer ce que nous effectué à la dernière étape 
 ![][4]
  
 ## Envoi de documents vers un index Azure Search avec Postman ##
-Maintenant que l'index est créé, nous pouvons y charger des documents. Pour cela, nous allons envoyer un groupe de documents dans un lot en utilisant les données de cinq trails du jeu de données United States Geological Survey \(USGS\) :
+Maintenant que l'index est créé, nous pouvons y charger des documents. Pour cela, nous allons envoyer un groupe de documents dans un lot en utilisant les données de cinq trails du jeu de données United States Geological Survey (USGS) :
 
 1. Remplacez l'URL par `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28` en utilisant le nom de votre service de recherche. Notez que l'URL contient le chemin vers l'index que vous venez de créer.
 2. Remplacez le type HTTP par `POST`.
@@ -104,7 +104,7 @@ La réponse devrait afficher les résultats de la recherche JSON effectuée par 
 Maintenant que nous avons passé en revue les principes fondamentaux de l'utilisation d'Azure Search avec Postman, plusieurs éléments vous aideront dans les étapes suivantes :
 
 1. Postman prend en charge `Collections`, un moyen pratique d'enregistrer les requêtes fréquemment émises. Vous pouvez partager les collections avec d'autres personnes. Elles les recevront dans leur propre système Postman.
-2. Dans la documentation Azure Search, veillez à noter le type de requête HTTP \(`GET`, `PUT`, etc.\) associé à chaque appel et à le modifier si nécessaire dans Postman.
+2. Dans la documentation Azure Search, veillez à noter le type de requête HTTP (`GET`, `PUT`, etc.) associé à chaque appel et à le modifier si nécessaire dans Postman.
 
 Vous trouverez la documentation de l'API REST sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 

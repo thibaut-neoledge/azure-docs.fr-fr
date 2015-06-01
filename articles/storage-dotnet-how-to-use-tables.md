@@ -24,7 +24,7 @@
 ## Vue d'ensemble
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du 
-service de stockage de tables Azure. Les exemples ont été écrits en code C\# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent la **création et la suppression d'une table**, ainsi que l'**utilisation d'entités de table**.
+service de stockage de tables Azure. Les exemples ont été écrits en code C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent la **création et la suppression d'une table**, ainsi que l'**utilisation d'entités de table**.
 
 > [AZURE.NOTE] Ce guide cible la bibliothèque cliente de stockage Azure .NET 2.x et les versions ultérieures. Nous vous recommandons d'utiliser la version 4.x disponible via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) ou dans le [Kit de développement logiciel (SDK) Azure pour .NET] (/downloads/). Consultez la section [Accès au stockage d'objets blob par programme](#programmatically-access-table-storage) ci-dessous pour plus d'informations sur l'obtention de la bibliothèque cliente de stockage.
 
@@ -39,7 +39,7 @@ service de stockage de tables Azure. Les exemples ont été écrits en code C\# 
 ### Obtention de l'assembly
 Vous pouvez utiliser NuGet pour obtenir l'assembly `Microsoft.WindowsAzure.Storage.dll`. Cliquez avec le bouton droit de la souris sur votre projet dans l'**Explorateur de solutions** et sélectionnez **Gérer les packages NuGet**.  Effectuez une recherche en ligne sur " WindowsAzure.Storage ", puis cliquez sur **Installer** pour lancer l'installation du package Azure Storage et de ses dépendances.
 
-'Microsoft.WindowsAzure.Storage.dll' est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">Centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+'Microsoft.WindowsAzure.Storage.dll' est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">Centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Déclarations d'espace de noms
 Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
@@ -85,7 +85,7 @@ Un objet **CloudTableClient** vous permet d'obtenir les objets de référence po
 
 ## Ajout d'une entité à une table
 
-Les entités mappent vers les objets C\# en utilisant une classe personnalisée dérivée d'un élément
+Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d'un élément
 **TableEntity**. Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition. Ensemble, les clés de partition et de ligne d'une entité identifient l'entité de façon unique dans la table. Les requêtes d'entités dont les clés de partition sont identiques sont plus rapides que celles d'entités dont les clés de partition sont différentes, mais le fait d'utiliser différentes clés de partition améliore l'extensibilité des opérations parallèles.  Si une propriété doit être stockée dans le service de Table, ce doit être une propriété publique d'un type pris en charge qui expose à la fois `get` et `set`.
 De plus, votre type d'entité *must* expose un constructeur sans paramètre.
 

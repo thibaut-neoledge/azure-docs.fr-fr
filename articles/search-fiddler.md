@@ -73,7 +73,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
 
 Patientez quelques secondes pour voir s'afficher une réponse HTTP 201 dans la liste de sessions, ce qui indique que l'index a été créé correctement.
 
-Si vous obtenez HTTP 504, vérifiez que l'URL spécifie HTTPS. Si vous voyez HTTP 400 ou 404, contrôlez le corps de la demande pour vérifier l'absence d'erreurs de copier-coller. HTTP 403 indique normalement qu'il y a un problème avec la clé API \(soit la clé n'est pas valide, soit il y a un problème de syntaxe avec la façon dont elle est spécifiée\).
+Si vous obtenez HTTP 504, vérifiez que l'URL spécifie HTTPS. Si vous voyez HTTP 400 ou 404, contrôlez le corps de la demande pour vérifier l'absence d'erreurs de copier-coller. HTTP 403 indique normalement qu'il y a un problème avec la clé API (soit la clé n'est pas valide, soit il y a un problème de syntaxe avec la façon dont elle est spécifiée).
 
 ## Chargement de documents
 
@@ -83,7 +83,7 @@ Sous l'onglet Éditeur, votre demande de publication de documents se présente c
 
 1. Sélectionnez **POST**.
 
-2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/\<'indexname'\>/docs/index?api-version=2015-02-28 ». L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
+2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/<'indexname'>/docs/index?api-version=2015-02-28 ». L'URL complète doit être semblable à celle figurant dans l'exemple suivant :
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -169,7 +169,7 @@ Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des 
 
 1.	Sélectionnez **GET**.
 
-2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/\<'indexname'\>/docs? », suivie de paramètres de requête. Par exemple, utilisez l'URL suivante et remplacez l'exemple de nom d'hôte par celui qui convient à votre service.
+2.	Entrez une URL qui commence par HTTPS, suivie de votre URL de service, suivie de « /indexes/<'indexname'>/docs? », suivie de paramètres de requête. Par exemple, utilisez l'URL suivante et remplacez l'exemple de nom d'hôte par celui qui convient à votre service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -186,7 +186,7 @@ Le code de réponse doit correspondre à 200 et la sortie de réponse doit se pr
  
    ![][4]
 
-L'exemple de requête suivant provient de la page [Opération d'index de recherche \(API Azure Search\)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
+L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
 
 **Avant le remplacement des espaces :**
 
@@ -219,7 +219,7 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 5.	Cliquez sur **Exécuter**. Le code d'état HTTP 200 doit s'afficher dans la liste de sessions. Sélectionnez l'entrée publiée pour votre commande.
 
-6.	Cliquez sur l'onglet **Inspecteurs** \| **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage \(en Ko\) doivent s'afficher.
+6.	Cliquez sur l'onglet **Inspecteurs** | **En-têtes**, puis sélectionnez le format JSON. Le nombre de documents et la taille de stockage (en Ko) doivent s'afficher.
 
 ## Étapes suivantes
 

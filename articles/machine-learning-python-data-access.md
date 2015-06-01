@@ -111,7 +111,7 @@ Après l'exécution d'une expérience dans Machine Learning Studio, il est pos
 
 Les jeux de données intermédiaires sont accessibles tant que le format de données est compatible avec la bibliothèque cliente Python.
 
-Les formats suivants sont pris en charge \(ces constantes sont dans la classe `azureml.DataTypeIds`\) :
+Les formats suivants sont pris en charge (ces constantes sont dans la classe `azureml.DataTypeIds`) :
 
  - Texte brut
  - CSV générique
@@ -187,7 +187,7 @@ Pour énumérer uniquement les exemples de jeux de données :
     for ds in ws.example_datasets:
         print(ds.name)
 
-Vous pouvez accéder à un jeu de données par son nom \(qui respecte la casse\) :
+Vous pouvez accéder à un jeu de données par son nom (qui respecte la casse) :
 
     ds = ws.datasets['my dataset name']
 
@@ -198,7 +198,7 @@ Vous pouvez également y accéder par l'index :
 
 ### Metadata
 
-Les jeux de données ont des métadonnées, en plus du contenu. \(Les jeux de données intermédiaires sont une exception à cette règle et n'ont pas de métadonnées.\)
+Les jeux de données ont des métadonnées, en plus du contenu. (Les jeux de données intermédiaires sont une exception à cette règle et n'ont pas de métadonnées.)
 
 Certaines valeurs de métadonnées sont affectées par l'utilisateur lors de la création :
 
@@ -264,7 +264,7 @@ Si vos données sont déjà sérialisées, vous pouvez utiliser :
         description='my description'
     )
 
-La bibliothèque cliente Python est en mesure de sérialiser un DataFrame de Pandas aux formats suivants \(ces constantes sont dans la classe `azureml.DataTypeIds`\) :
+La bibliothèque cliente Python est en mesure de sérialiser un DataFrame de Pandas aux formats suivants (ces constantes sont dans la classe `azureml.DataTypeIds`) :
 
  - Texte brut
  - CSV générique

@@ -22,7 +22,7 @@
 
 # Utilisation des rubriques/abonnements Service Bus
 
-Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en C\# et utilisent l'API .NET. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements, création de filtres d'abonnement, envoi de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes][].
+Ce guide vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements, création de filtres d'abonnement, envoi de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes][].
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 

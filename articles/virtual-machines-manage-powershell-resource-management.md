@@ -54,7 +54,7 @@ Run these commands:
 	$svcName="<cloud service name>"
 	$vmName="<virtual machine name>"
 	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
+	$localFile=$localPath + "" + $vmname + ".rdp"
 	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch 
 -->
 
@@ -77,7 +77,7 @@ Exécutez cette commande :
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<virtual machine name>"
 
 ## Associer un disque de données
-Cette tâche nécessite de réaliser quelques étapes. Commencez par utiliser l’applet de commande \*\*\*\*Add-AzureDataDisk\*\*\*\* pour ajouter le disque à l’objet $vm, puis utilisez Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
+Cette tâche nécessite de réaliser quelques étapes. Commencez par utiliser l’applet de commande ****Add-AzureDataDisk**** pour ajouter le disque à l’objet $vm, puis utilisez Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
 
 Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
 

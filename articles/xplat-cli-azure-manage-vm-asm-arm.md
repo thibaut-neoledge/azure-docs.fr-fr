@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l&#39;interface de ligne de commande Azure pour Mac, Linux et Windows"
-	description="Affiche les commandes équivalentes de l&#39;interface de ligne de commande Azure pour créer et gérer des machines virtuelles Azure en modes Gestionnaire de ressources et Gestion des services"
+	pageTitle="Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows"
+	description="Affiche les commandes équivalentes de l'interface de ligne de commande Azure pour créer et gérer des machines virtuelles Azure en modes Gestionnaire de ressources et Gestion des services"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,7 +18,7 @@
 
 
 # Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows
-Cet article illustre les commandes équivalentes de l'interface de ligne de commande Azure \(Azure CLI\) pour créer et gérer des machines virtuelles Azure en mode Gestion des services \(asm\) et Gestionnaire de ressources \(arm\). Ces informations vous serviront de guide pratique pour migrer des scripts d'un mode de commande à l'autre.
+Cet article illustre les commandes équivalentes de l'interface de ligne de commande Azure (Azure CLI) pour créer et gérer des machines virtuelles Azure en mode Gestion des services (asm) et Gestionnaire de ressources (arm). Ces informations vous serviront de guide pratique pour migrer des scripts d'un mode de commande à l'autre.
 
 * Si vous n'avez pas déjà installé l'interface de ligne de commande Azure et si vous n'êtes pas encore connecté à votre abonnement, consultez les rubriques [Installation de l'interface de ligne de commande Azure pour Mac, Linux et Windows](xplat-cli-install.md) et [Connexion à un abonnement Azure à partir de l'interface de ligne de commande Azure pour Mac, Linux et Windows](xplat-cli-connect.md). Veillez à vous connecter à l'aide de la méthode de connexion lorsque vous utilisez les commandes de mode arm.
 

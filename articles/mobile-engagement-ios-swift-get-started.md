@@ -25,15 +25,15 @@
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md) 
 
-Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l'utilisation de votre application et envoyer des notifications push aux utilisateurs segmentés d'une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN \(Apple Push Notification Service\). Quand vous aurez terminé, vous serez en mesure de diffuser des notifications Push vers tous les appareils, ainsi que de cibler des utilisateurs spécifiques en fonction des propriétés de leurs appareils.
+Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l'utilisation de votre application et envoyer des notifications push aux utilisateurs segmentés d'une application iOS. Dans ce didacticiel, vous créez une application iOS vide qui collecte des données de base et reçoit des notifications push à l'aide du service APN (Apple Push Notification Service). Quand vous aurez terminé, vous serez en mesure de diffuser des notifications Push vers tous les appareils, ainsi que de cibler des utilisateurs spécifiques en fonction des propriétés de leurs appareils.
 
 Ce didacticiel montre un scénario de diffusion simple à l'aide de Mobile Engagement. Veillez à bien suivre le didacticiel qui suit pour savoir comment utiliser Mobile Engagement dans le but de cibler des utilisateurs et des groupes d'appareils spécifiques.
 
 Ce didacticiel requiert les éléments suivants :
 
 + XCode, que vous pouvez installer depuis votre boutique d’applications Mac
-+ Le [Kit de développement logiciel \(SDK\) iOS Mobile Engagement]
-+ Le certificat de notification push \(.p12\) que vous pouvez obtenir dans votre Centre de développement Apple
++ Le [Kit de développement logiciel (SDK) iOS Mobile Engagement]
++ Le certificat de notification push (.p12) que vous pouvez obtenir dans votre Centre de développement Apple
 
 Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications iOS.
 
@@ -58,15 +58,15 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
    	![][8]
 
 	- **Nom de l’application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible \(\*\*iOS\*\*\) de l’application \(si l’application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes\). 
+	- **Plateforme** : sélectionnez la plateforme cible (**iOS**) de l’application (si l’application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes). 
 	- **Nom de la ressource d’application** : nom utilisé dans les API et les URL pour faire référence à l’application. Vous devez utiliser uniquement des caractères d’URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d’ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
-	- **Emplacement** : sélectionnez le centre de données qui hébergera l’application \(et surtout sa collection\).
+	- **Emplacement** : sélectionnez le centre de données qui hébergera l’application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
 	- **Nom de collection** : correspond à votre groupe d’applications. Cela permet également de garantir que toutes vos applications font partie d’un groupe qui autorise les calculs agrégés de statistiques. Vous devez utiliser ici le nom de votre société ou service le cas échéant.
 
 4. Sélectionnez l’application que vous venez de créer sous l’onglet **Applications**.
 
-5. Ensuite, cliquez sur **Informations de connexion** pour afficher les paramètres de connexion que vous voulez ajouter à l’intégration de votre Kit de développement logiciel \(SDK\) dans votre application mobile.
+5. Ensuite, cliquez sur **Informations de connexion** pour afficher les paramètres de connexion que vous voulez ajouter à l’intégration de votre Kit de développement logiciel (SDK) dans votre application mobile.
  
    	![][10]
 
@@ -76,7 +76,7 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
 
 ##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 
-Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications Push. Vous trouverez la documentation complète d’intégration dans la [documentation du Kit de développement logiciel \(SDK\) iOS Mobile Engagement]
+Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications Push. Vous trouverez la documentation complète d’intégration dans la [documentation du Kit de développement logiciel (SDK) iOS Mobile Engagement]
 
 Nous allons créer une application de base à l’aide de XCode afin d’illustrer l’intégration :
 
@@ -100,13 +100,13 @@ Xcode crée l'application de démonstration à laquelle nous allons intégrer Mo
 
 ###Connexion de votre application au serveur principal Mobile Engagement 
 
-1. Téléchargez le [Kit de développement logiciel \(SDK\) iOS Mobile Engagement]
+1. Téléchargez le [Kit de développement logiciel (SDK) iOS Mobile Engagement]
 2. Extrayez le fichier .tar.gz dans un dossier de votre ordinateur
 3. Cliquez avec le bouton droit sur le projet et sélectionnez « Add files to ... »
 
 	![][17]
 
-4. Accédez au dossier dans lequel vous avez extrait le Kit de développement logiciel \(SDK\) et sélectionnez le dossier `EngagementSDK`, puis appuyez sur OK.
+4. Accédez au dossier dans lequel vous avez extrait le Kit de développement logiciel (SDK) et sélectionnez le dossier `EngagementSDK`, puis appuyez sur OK.
 
 	![][18]
 
@@ -114,7 +114,7 @@ Xcode crée l'application de démonstration à laquelle nous allons intégrer Mo
 
 	![][19]
 
-6. Créez un en-tête de pontage pour pouvoir utiliser les API Objective C du Kit de développement logiciel \(SDK\) en choisissant Fichier \> Nouveau \> Fichier \> iOS \> Source \> Fichier d’en-tête.
+6. Créez un en-tête de pontage pour pouvoir utiliser les API Objective C du Kit de développement logiciel (SDK) en choisissant Fichier > Nouveau > Fichier > iOS > Source > Fichier d’en-tête.
 
 	![][41]
 
@@ -130,7 +130,7 @@ Xcode crée l'application de démonstration à laquelle nous allons intégrer Mo
 		#import "EngagementViewController.h"
 		#import "AEIdfaProvider.h"
 
-8. Sous Paramètres de génération, assurez-vous que le paramètre de génération d’en-tête de pontage Objective-C sous Compilateur Swift- Génération de code a un chemin d’accès à cet en-tête. Voici un exemple de chemin d’accès : **$\(SRCROOT\)/MySuperApp/MySuperApp-Bridging-Header.h \(selon le chemin d’accès\)**
+8. Sous Paramètres de génération, assurez-vous que le paramètre de génération d’en-tête de pontage Objective-C sous Compilateur Swift- Génération de code a un chemin d’accès à cet en-tête. Voici un exemple de chemin d’accès : **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (selon le chemin d’accès)**
 
 9. De retour sur le portail Azure, dans la page *Informations de connexion* de votre application, copiez la chaîne de connexion.
 
@@ -147,7 +147,7 @@ Xcode crée l'application de démonstration à laquelle nous allons intégrer Mo
 
 ##<a id="monitor"></a>Activation de la surveillance en temps réel
 
-Pour commencer à envoyer des données et s'assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran \(activité\) au serveur principal Mobile Engagement.
+Pour commencer à envoyer des données et s'assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
 - Ouvrez le fichier `ViewController.h`, importez `EngagementViewController.h` et remplacez la super classe de l’interface `ViewController` par `EngagementViewController`.
 
@@ -306,7 +306,7 @@ Nous allons maintenant créer une campagne simple de notification push qui enver
 7. Vous devriez voir une notification push dans votre appareil !
 
 <!-- URLs. -->
-[Kit de développement logiciel \(SDK\) iOS Mobile Engagement]: http://go.microsoft.com/?linkid=9864553
+[Kit de développement logiciel (SDK) iOS Mobile Engagement]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
 
 <!-- Images. -->

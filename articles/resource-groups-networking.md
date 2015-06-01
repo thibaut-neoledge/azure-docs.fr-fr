@@ -16,17 +16,17 @@
    ms.author="telmos" />
 
 # Fournisseur de ressources réseau
-Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure \(ARM, Azure Resource Manager\) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
+Un besoin sous-jacent dans la réussite des entreprises aujourd'hui est la possibilité de créer et de gérer des applications prenant en charge des réseaux à grande échelle d'une manière flexible, souple, sécurisée et reproductible. Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications, sous la forme d'une collection unique de ressources dans des groupes de ressources. Ces ressources sont gérées via divers fournisseurs de ressources sous ARM.
 
-Le gestionnaire des ressources Azure \(ARM, Azure Resource Manager\) vous permet de créer de telles applications et la collection de ressources réseau associé sous la forme d'une collection unique de ressources dans des groupes de ressources. L'application et les ressources réseau s'exécutent comme une seule unité dans un groupe de ressources ARM.
+Le gestionnaire des ressources Azure (ARM, Azure Resource Manager) vous permet de créer de telles applications et la collection de ressources réseau associé sous la forme d'une collection unique de ressources dans des groupes de ressources. L'application et les ressources réseau s'exécutent comme une seule unité dans un groupe de ressources ARM.
 
 Vous pouvez gérer les ressources réseau à l'aide de l'une des interfaces de gestion suivantes :
 
 - API REST
 - PowerShell
-- Kit de développement logiciel \(SDK\) .NET
-- Kit de développement logiciel \(SDK\) Node.JS
-- Kit de développement logiciel \(SDK\) Java
+- Kit de développement logiciel (SDK) .NET
+- Kit de développement logiciel (SDK) Node.JS
+- Kit de développement logiciel (SDK) Java
 - Interface de ligne de commande Azure
 - Portail Azure
 - Langue du modèle ARM
@@ -36,13 +36,13 @@ Avec l'introduction de fournisseurs de ressources réseau, vous pouvez tirer par
 - **Métadonnées** : vous pouvez ajouter des informations aux ressources à l'aide de balises. Ces balises peuvent être utilisées pour suivre l'utilisation des ressources entre les groupes de ressources et les abonnements.
 - **Contrôle accru de votre réseau** : les ressources réseau sont faiblement couplées et vous pouvez les contrôler de manière plus précise. Cela signifie que vous disposez de davantage de flexibilité dans la gestion des ressources réseau.
 - **Configuration plus rapide** : étant donné que les ressources réseau sont faiblement couplées, vous pouvez créer et organiser les ressources réseau en parallèle. Cela a considérablement réduit le temps de configuration.
-- **Contrôle d'accès en fonction du rôle \(RBAC\) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée. 
+- **Contrôle d'accès en fonction du rôle (RBAC) ** : RBAC fournit des rôles par défaut, avec une étendue de sécurité spécifique, en plus de permettre la création de rôles personnalisés pour une gestion sécurisée. 
 - **Gestion et déploiement facilités** : il est plus facile de déployer et de gérer des applications dans la mesure où vous pouvez créer toute une pile d'applications sous la forme d'une collection unique de ressources dans un groupe de ressources. Le déploiement est également plus rapide, car vous pouvez l'effectuer en fournissant simplement une charge utile JSON de modèle.
 - **Personnalisation rapide** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements. 
 - **Personnalisation reproductible** : vous pouvez utiliser des modèles de style déclaratif pour activer la personnalisation rapide et reproductible des déploiements.
 
 ## Ressources réseau 
-Vous pouvez désormais gérer les ressources réseau indépendamment, au lieu qu'elles soient toutes gérées via une ressource de calcul unique \(un machine virtuelle\). Cela garantit un degré de flexibilité et de souplesse plus élevé dans la composition d'une infrastructure complexe et à grande échelle dans un groupe de ressources.
+Vous pouvez désormais gérer les ressources réseau indépendamment, au lieu qu'elles soient toutes gérées via une ressource de calcul unique (un machine virtuelle). Cela garantit un degré de flexibilité et de souplesse plus élevé dans la composition d'une infrastructure complexe et à grande échelle dans un groupe de ressources.
  
 Le diagramme ci-dessous illustre une vue générale du modèle de ressource réseau et de ses associations. Les ressources de niveau supérieur sont signalées par un contour bleu. En plus des ressources de niveau supérieur, vous pouvez voir les ressources enfants signalées par un contour gris. Vous pouvez gérer chaque ressource individuellement.
 
@@ -53,7 +53,7 @@ Une vue conceptuelle d'un exemple de déploiement impliquant une application mul
 ![Modèle de ressource réseau](./media/resource-groups-networking/Figure2.png)
 
 ## API REST 
-Comme mentionné précédemment, les ressources réseau peuvent être gérées via une variété d'interfaces, notamment l'API REST, le Kit de développement logiciel \(SDK\) .NET, le Kit de développement logiciel \(SDK\) Node.JS, le Kit de développement logiciel \(SDK\) Java, PowerShell, l'interface en ligne de commande, le portail Azure et des modèles.
+Comme mentionné précédemment, les ressources réseau peuvent être gérées via une variété d'interfaces, notamment l'API REST, le Kit de développement logiciel (SDK) .NET, le Kit de développement logiciel (SDK) Node.JS, le Kit de développement logiciel (SDK) Java, PowerShell, l'interface en ligne de commande, le portail Azure et des modèles.
 
 Les API Rest sont conformes à la spécification du protocole HTTP 1.1. La structure d'URI générale de l'API est présentée ci-dessous :
 
@@ -74,7 +74,7 @@ Les méthodes HTTP suivantes sont prises en charge lors des appels à l'API REST
 La demande et la réponse sont toutes les deux conformes à un format de charge utile JSON. Pour plus d'informations, consultez [API de gestion des ressources Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ## Langue du modèle ARM
-Outre la gestion des ressources de manière impérative \(via des API ou un Kit de développement logiciel \(SDK\)\), vous pouvez également utiliser un style de programmation déclaratif pour créer et gérer les ressources réseau en utilisant la langue du modèle ARM.
+Outre la gestion des ressources de manière impérative (via des API ou un Kit de développement logiciel (SDK)), vous pouvez également utiliser un style de programmation déclaratif pour créer et gérer les ressources réseau en utilisant la langue du modèle ARM.
 
 Un exemple de représentation d'un modèle est fourni ci-dessous :
 
@@ -204,7 +204,7 @@ Lorsqu'un modèle est utilisé, vous avez la possibilité de fournir manuellemen
 
 Les principaux avantages de l'utilisation de modèles sont les suivants :
 
-- Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L'orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par le gestionnaire des ressources Azure \(ARM\). 
+- Vous pouvez créer dans un style déclaratif une infrastructure complexe dans un groupe de ressources. L'orchestration de la création des ressources, notamment la gestion des dépendances, est gérée par le gestionnaire des ressources Azure (ARM). 
 - L'infrastructure peut être créée de manière reproductible entre diverses régions et dans une région en modifiant simplement les paramètres. 
 - Le style déclaratif entraîne un délai de création des modèles et de déploiement de l'infrastructure plus court. 
 
@@ -237,7 +237,7 @@ Un sous-réseau est une ressource enfant d'un réseau virtuel, et permet de déf
 
 Les propriétés clés d'une ressource de réseau virtuel sont les suivantes :
 
-- Espace d'adressage IP \(bloc CIDR\) 
+- Espace d'adressage IP (bloc CIDR) 
 - Nom du réseau virtuel
 - Sous-réseaux
 
@@ -275,7 +275,7 @@ Les propriétés clés d'une ressource d'adresse IP sont les suivantes :
 - **Méthode d'allocation d'adresse IP** : réservée ou dynamique. 
 
 ## Groupe de sécurité réseau
-Une ressource de groupe de sécurité réseau permet de créer des limites de sécurité pour les charges de travail, en implémentant des règles d'autorisation et de refus. Ces règles peuvent être appliquées au niveau de la carte d'interface réseau \(niveau des instances de machine virtuelle\) ou au niveau du sous-réseau \(groupe de machines virtuelles\).
+Une ressource de groupe de sécurité réseau permet de créer des limites de sécurité pour les charges de travail, en implémentant des règles d'autorisation et de refus. Ces règles peuvent être appliquées au niveau de la carte d'interface réseau (niveau des instances de machine virtuelle) ou au niveau du sous-réseau (groupe de machines virtuelles).
 
 Les propriétés clés d'une ressource de groupe de sécurité réseau sont les suivantes :
 

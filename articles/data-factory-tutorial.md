@@ -284,7 +284,7 @@ Le portail Azure n'autorise pas encore la création de jeux de données/tables, 
 
 #### Créer des tables
 
-1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\Tables\**) depuis l'emplacement où vous avez extrait les exemples. 
+1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\Tables**) depuis l'emplacement où vous avez extrait les exemples. 
 2.	Utilisez la cmdlet **New-AzureDataFactoryTable** pour créer les tables comme suit pour **RawGameEventsTable**.json	
 
 

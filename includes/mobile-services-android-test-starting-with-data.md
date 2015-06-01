@@ -2,7 +2,7 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 1. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet.
 
-	Cela permet d'exécuter votre application, créée avec le Kit de développement logiciel \(SDK\) Android, qui utilise la bibliothèque cliente pour envoyer une requête renvoyant des éléments à partir de votre service mobile.
+	Cela permet d'exécuter votre application, créée avec le Kit de développement logiciel (SDK) Android, qui utilise la bibliothèque cliente pour envoyer une requête renvoyant des éléments à partir de votre service mobile.
 
 5. Comme auparavant, tapez un texte explicite, puis cliquez sur **Ajouter**.
 

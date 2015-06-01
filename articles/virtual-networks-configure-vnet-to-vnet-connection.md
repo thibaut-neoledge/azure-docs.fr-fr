@@ -42,7 +42,7 @@ La connexion entre deux réseaux virtuels Azure est semblable à la connexion d�
   - La connectivité de réseau virtuel peut être utilisée simultanément avec des VPN multisite, avec un maximum de 10 tunnels VPN pour une passerelle VPN de réseau virtuel se connectant à d’autres réseaux virtuels ou à des sites locaux.
   - Les espaces d’adressage des réseaux virtuels et sur les sites de réseau locaux ne DOIVENT PAS se chevaucher. Le chevauchement des espaces d’adressage entraîne l’échec de la création de réseaux virtuels ou du téléchargement de fichiers de configuration netcfg.
   - Les réseaux virtuels peuvent être situés dans des abonnements identiques ou différents.
-  - Les réseaux virtuels peuvent être situés dans des régions \(emplacements\) identiques ou différentes.
+  - Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
   - Les tunnels redondants entre deux réseaux virtuels ne sont pas pris en charge.
   - Un service cloud ou un point de terminaison d’équilibrage de charge NE PEUT PAS s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
   - Tous les tunnels VPN du réseau virtuel, y compris les VPN de point à site, partagent la bande passante disponible sur la passerelle VPN Azure, ainsi que le même contrat SLA concernant le temps d’activité des passerelles VPN dans Azure.
@@ -64,7 +64,7 @@ Il existe 5 sections à planifier et à configurer. Configurez chaque section d
 
 ## Planification de vos plages d’adresses IP
 
-Il est important de choisir les plages que vous utiliserez pour configurer votre fichier de configuration réseau \(netcfg\). Du point de vue de VNet1, VNet2 est simplement une autre connexion VPN définie dans la plateforme Azure. Et pour VNet2, VNet1 est simplement une autre connexion VPN. Ils s’identifient mutuellement comme un site de réseau local. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
+Il est important de choisir les plages que vous utiliserez pour configurer votre fichier de configuration réseau (netcfg). Du point de vue de VNet1, VNet2 est simplement une autre connexion VPN définie dans la plateforme Azure. Et pour VNet2, VNet1 est simplement une autre connexion VPN. Ils s’identifient mutuellement comme un site de réseau local. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
 
 Le tableau 1 montre un exemple de la définition de vos réseaux virtuels. Utilisez les plages ci-dessous comme indication uniquement. Écrivez les plages que vous utiliserez pour vos réseaux virtuels. Vous aurez besoin de ces informations pour les étapes ultérieures.
 
@@ -72,8 +72,8 @@ Le tableau 1 montre un exemple de la définition de vos réseaux virtuels. Util
 
 |Réseau virtuel |Définition d’un site de réseau virtuel |Définition d’un site de réseau local|
 |:----------------|:-------------------------------|:----------------------------|
-|VNet1 |VNet1 \(10.1.0.0/16\) |VNet2 \(10.2.0.0/16\) |
-|VNet2 |VNet2 \(10.2.0.0/16\) |VNet1 \(10.1.0.0/16\) |
+|VNet1 |VNet1 (10.1.0.0/16) |VNet2 (10.2.0.0/16) |
+|VNet2 |VNet2 (10.2.0.0/16) |VNet1 (10.1.0.0/16) |
 
 ## Création de vos réseaux virtuels
 
@@ -92,7 +92,7 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
   ![Détails du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Nom** : nommez votre réseau virtuel. Par exemple : VNet1
-  - **Emplacement** : lorsque vous créez un réseau virtuel, vous l’associez à un emplacement Azure \(région\). Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région Ouest des États-Unis, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
+  - **Emplacement** : lorsque vous créez un réseau virtuel, vous l’associez à un emplacement Azure (région). Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région Ouest des États-Unis, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
 
 4. Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit. Pour plus d’informations sur les paramètres de cette page, consultez la [page Serveurs DNS et connectivité VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
@@ -171,11 +171,11 @@ Lorsque vous avez terminé les étapes précédentes, définissez les clés pré
 
 Pour VNet1
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
+````PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4````
 
 For VNet2
 
-````PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
+````PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4````
 
 Attendez l’initialisation des connexions. Une fois la passerelle initialisée, elle ressemble au graphique ci-dessous. Vos réseaux virtuels sont alors connectés.
 

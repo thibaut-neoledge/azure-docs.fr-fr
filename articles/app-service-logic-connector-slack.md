@@ -26,7 +26,7 @@ Le connecteur Slack vous permet de publier des messages dans des canaux Slack.
 Pour utiliser le connecteur Slack, vous devez d'abord créer une instance de l'application API de ce connecteur. Pour cela, procédez comme suit :
 
 1.	Ouvrez Azure Marketplace à l'aide de l'option « +NOUVEAU » située dans la partie inférieure gauche du portail Azure.
-2.	Accédez à « Web et mobilité \> Azure Marketplace » et recherchez « Connecteur Slack ».
+2.	Accédez à « Web et mobilité > Azure Marketplace » et recherchez « Connecteur Slack ».
 3.	Configurez le connecteur Slack comme suit :
  
 	![][1] - **Nom** : donnez un nom à votre connecteur Slack - **Plan App Service** : sélectionnez ou créez un plan App Service - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez que ce connecteur soit créé - **Emplacement** : choisissez l'emplacement géographique dans lequel vous souhaitez que le connecteur soit déployé
@@ -44,7 +44,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 3.	Le connecteur Slack apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
  
 	![][2]
-4.	Vous pouvez déposer l'application API du connecteur Slack dans l'éditeur en cliquant sur « Connecteur Slack ». Cliquez sur le bouton Autoriser. Indiquez vos informations d'identification Microsoft \(si vous n'êtes pas connecté automatiquement\). Connectez-vous à votre compte Slack en suivant les étapes indiquées. À la fin, vous serez invité à autoriser votre connecteur à accéder à votre compte Slack. Cliquez sur « Autoriser ».
+4.	Vous pouvez déposer l'application API du connecteur Slack dans l'éditeur en cliquant sur « Connecteur Slack ». Cliquez sur le bouton Autoriser. Indiquez vos informations d'identification Microsoft (si vous n'êtes pas connecté automatiquement). Connectez-vous à votre compte Slack en suivant les étapes indiquées. À la fin, vous serez invité à autoriser votre connecteur à accéder à votre compte Slack. Cliquez sur « Autoriser ».
  
 	![][3] ![][4] ![][5] ![][6]
 	
@@ -59,12 +59,12 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 	Configurez les propriétés d'entrée de l'action « Publier le message » comme suit :
 
  - **Texte** : spécifiez le texte du message à publier
- - **Nom du canal** : spécifiez le canal Slack vers lequel ce message doit être téléchargé. Si cette valeur n'est pas spécifiée, le message est publié dans \#general.
+ - **Nom du canal** : spécifiez le canal Slack vers lequel ce message doit être téléchargé. Si cette valeur n'est pas spécifiée, le message est publié dans #general.
 
  **Propriétés avancées** - **Nom d'utilisateur du robot** : nom du robot à utiliser pour ce message. Le message est publié en tant que « Robot » si cette valeur n'est pas spécifiée. - **URL de l'icône** : URL vers une image à utiliser comme icône pour ce message - **Emoji de l'icône** : Emoji à utiliser comme icône pour ce message. Remplace l'URL de l'icône.
  
 
-7. Pour utiliser le connecteur hors d'une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d'API, sélectionnez Parcourir -\> Application API -\> Connecteur Slack. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur.
+7. Pour utiliser le connecteur hors d'une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d'API, sélectionnez Parcourir -> Application API -> Connecteur Slack. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur.
 
 	![][9]
 

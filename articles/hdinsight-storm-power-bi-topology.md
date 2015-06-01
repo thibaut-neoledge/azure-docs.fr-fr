@@ -1,6 +1,6 @@
 <properties
- pageTitle="Écrire des données dans Power BI à partir d&#39;Apache Storm"
- description="Exemple montrant comment écrire des données dans Power BI à partir d&#39;une topologie C# s&#39;exécutant sur un cluster Apache Storm dans HDInsight. Après avoir écrit les données, vous allez découvrir comment créer un rapport et un tableau de bord en temps réel à l&#39;aide de Power BI."
+ pageTitle="Écrire des données dans Power BI à partir d'Apache Storm"
+ description="Exemple montrant comment écrire des données dans Power BI à partir d'une topologie C# s'exécutant sur un cluster Apache Storm dans HDInsight. Après avoir écrit les données, vous allez découvrir comment créer un rapport et un tableau de bord en temps réel à l'aide de Power BI."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Utilisation de Power BI \(version préliminaire\) pour visualiser les données d'une topologie Storm
+# Utilisation de Power BI (version préliminaire) pour visualiser les données d'une topologie Storm
 
 La version préliminaire de Power BI vous permet d'afficher visuellement des données sous forme de rapports ou de tableaux de bord. À l'aide de l'API REST de Power BI, vous pouvez facilement utiliser les données d'une topologie s'exécutant sur un cluster Apache Storm dans HDInsight pour Power BI.
 
@@ -28,7 +28,7 @@ Dans ce document, vous allez découvrir comment utiliser Power BI pour créer un
 
 * Un utilisateur Azure Active Directory avec un accès [Power BI](https://powerbi.com)
 
-* Visual Studio \(l'une des versions suivantes\)
+* Visual Studio (l'une des versions suivantes)
 
     * Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -40,7 +40,7 @@ Dans ce document, vous allez découvrir comment utiliser Power BI pour créer un
 
 ## Fonctionnement
 
-Cet exemple contient une topologie C\# Storm qui génère une phrase de manière aléatoire, la fractionne en mots, compte les mots et envoie les mots et le nombre de mots à l'API REST de Power BI. Le package NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) est utilisé pour communiquer avec Power BI.
+Cet exemple contient une topologie C# Storm qui génère une phrase de manière aléatoire, la fractionne en mots, compte les mots et envoie les mots et le nombre de mots à l'API REST de Power BI. Le package NuGet [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) est utilisé pour communiquer avec Power BI.
 
 Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifiques de Power BI :
 
@@ -48,7 +48,7 @@ Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifi
 
 * **Data.cs** : décrit la ligne/l'objet de données qui sera envoyé à Power BI
 
-> [AZURE.WARNING]Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 \(comme indiqué dans cet exemple\) ou créez le jeu de données avant de déployer la topologie.
+> [AZURE.WARNING]Power BI semble autoriser la création de plusieurs jeux de données de même nom. Cela peut se produire si le jeu de données n'existe pas et que votre topologie crée plusieurs instances du bolt Power BI. Pour éviter ce problème, définissez l'indicateur de parallélisme du bolt sur 1 (comme indiqué dans cet exemple) ou créez le jeu de données avant de déployer la topologie.
 >
 > L'application de console **CreateDataset** incluse dans cette solution est fournie en exemple pour montrer comment créer le jeu de données en dehors de la topologie.
 
@@ -62,7 +62,7 @@ Les fichiers suivants dans ce projet implémentent les fonctionnalités spécifi
 
 ## Télécharger l'exemple
 
-Téléchargez l'[exemple HDInsight C\# Storm Power BI]\] \(https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Pour le télécharger, clonez-le/répliquez-le à l'aide de [git](http://git-scm.com/) ou utilisez le lien **Télécharger** pour télécharger un fichier zip de l'archive.
+Téléchargez l'[exemple HDInsight C# Storm Power BI]] (https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Pour le télécharger, clonez-le/répliquez-le à l'aide de [git](http://git-scm.com/) ou utilisez le lien **Télécharger** pour télécharger un fichier zip de l'archive.
 
 ## Configurer l'exemple
 
@@ -74,7 +74,7 @@ Téléchargez l'[exemple HDInsight C\# Storm Power BI]\] \(https://github.com/Bl
 
     * **Mot de passe** : le mot de passe du compte Azure Active Directory.
 
-2. \(Facultatif\). Le nom du jeu de données par défaut utilisé par ce projet est **Words**. Pour le modifier, cliquez avec le bouton droit sur le projet **WordCount** dans l'**Explorateur de solutions**, sélectionnez **Propriétés**, puis **Paramètres**. Modifiez l'entrée **DatasetName** en ajoutant la valeur souhaitée.
+2. (Facultatif). Le nom du jeu de données par défaut utilisé par ce projet est **Words**. Pour le modifier, cliquez avec le bouton droit sur le projet **WordCount** dans l'**Explorateur de solutions**, sélectionnez **Propriétés**, puis **Paramètres**. Modifiez l'entrée **DatasetName** en ajoutant la valeur souhaitée.
 
 2. Enregistrez et fermez les fichiers.
 

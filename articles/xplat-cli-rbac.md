@@ -118,7 +118,7 @@ Utilisez ensuite " azure role assignment create " pour créer une attribution de
 
 - Cela créera une affectation de rôle au niveau d'un groupe de ressources
 
-    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - Cela créera une affectation de rôle au niveau d'une ressource
 
@@ -128,8 +128,8 @@ Utilisez ensuite " azure role assignment create " pour créer une attribution de
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Ces deux cmdlets renvoient uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation de lecture. Elles affichent également les autorisations dont vous disposez.
 

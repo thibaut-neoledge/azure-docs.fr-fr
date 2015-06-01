@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Utilisation du stockage de files d&#39;attente (C++) | Microsoft Azure" 
+    pageTitle="Utilisation du stockage de files d'attente (C++) | Microsoft Azure" 
     description="Découvrez comment utiliser le service de stockage de files d’attente dans Azure. Les exemples sont écrits en C++." 
     services="storage" 
     documentationCenter=".net" 
@@ -36,7 +36,7 @@ Pour ce faire, vous devez installer la bibliothèque cliente Azure Storage pour 
 Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez procéder comme suit :
 
 -	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows :** dans Visual Studio, cliquez sur **Outils \> Gestionnaire de package NuGet \> Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
+-	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
 
 		Install-Package wastorage -Pre  
  
@@ -53,7 +53,7 @@ Un client de stockage Azure utilise une chaîne de connexion de stockage pour st
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage Microsoft Azure](https://msdn.microsoft.com/library/azure/hh403989.aspx) installé avec le [Kit de développement logiciel \(SDK\) Azure](http://azure.microsoft.com/downloads/). L'émulateur de stockage est un utilitaire qui simule sur votre ordinateur de développement local les objets blob, les files d'attente et les services de Table disponibles dans Azure. L’exemple suivant vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion vers votre émulateur de stockage local :
+Pour tester votre application sur votre ordinateur Windows local, vous pouvez utiliser l’[émulateur de stockage Microsoft Azure](https://msdn.microsoft.com/library/azure/hh403989.aspx) installé avec le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/). L'émulateur de stockage est un utilitaire qui simule sur votre ordinateur de développement local les objets blob, les files d'attente et les services de Table disponibles dans Azure. L’exemple suivant vous montre comment déclarer un champ statique pour qu'il contienne une chaîne de connexion vers votre émulateur de stockage local :
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -63,13 +63,13 @@ Pour démarrer l'émulateur de stockage Azure, sélectionnez le bouton **Démarr
 Les exemples ci-dessous partent du principe que vous avez utilisé l'une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.
 
 ## Récupération de votre chaîne de connexion
-Vous pouvez utiliser la classe **cloud\_storage\_account** pour représenter vos informations de compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode **parse**.
+Vous pouvez utiliser la classe **cloud_storage_account** pour représenter vos informations de compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode **parse**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 ## Création d'une file d'attente
-Un objet **cloud\_queue\_client** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **cloud\_queue\_client**.
+Un objet **cloud_queue_client** vous permet d'obtenir les objets de référence pour les files d'attente. Le code suivant crée un objet **cloud_queue_client**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -77,16 +77,16 @@ Un objet **cloud\_queue\_client** vous permet d'obtenir les objets de référenc
 	// Create a queue client.
 	azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-Utilisez l'objet **cloud\_queue\_client** pour obtenir une référence pointant vers la file d'attente à utiliser. Si la file d'attente n'existe pas, vous pouvez la créer :
+Utilisez l'objet **cloud_queue_client** pour obtenir une référence pointant vers la file d'attente à utiliser. Si la file d'attente n'existe pas, vous pouvez la créer :
 
 	// Retrieve a reference to a queue.
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
- queue.create\_if\_not\_exists\(\);
+ queue.create_if_not_exists();
 
 ## Insertion d'un message dans une file d'attente
-Pour insérer un message dans une file d'attente existante, commencez par créer un **cloud\_queue\_message**. Appelez ensuite la méthode **add\_message**. Un **cloud\_queue\_message** peut être créé à partir d'une chaîne ou d'un tableau d'**octets**. Voici le code qui crée une file d'attente \(si elle n'existe pas\) et insère le message « Hello, World » :
+Pour insérer un message dans une file d'attente existante, commencez par créer un **cloud_queue_message**. Appelez ensuite la méthode **add_message**. Un **cloud_queue_message** peut être créé à partir d'une chaîne ou d'un tableau d'**octets**. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World » :
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -105,7 +105,7 @@ Pour insérer un message dans une file d'attente existante, commencez par créer
 	queue.add_message(message1);  
 
 ## Lecture furtive du message suivant
-Vous pouvez lire furtivement le message au début de la file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek\_messages**.
+Vous pouvez lire furtivement le message au début de la file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek_messages**.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -145,7 +145,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Suppression du message suivant dans la file d'attente
-Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **get\_message**, vous obtenez le message suivant dans une file d'attente. Un message renvoyé par **get\_message** devient invisible de tout autre code lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **delete\_message**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message** juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **get_message**, vous obtenez le message suivant dans une file d'attente. Un message renvoyé par **get_message** devient invisible de tout autre code lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **delete_message**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete_message** juste après le traitement du message.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -165,7 +165,7 @@ Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous
 
 
 ## Utilisation d'options supplémentaires pour l'enlèvement des messages
-Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages \(jusqu'à 32\). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get\_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for**. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l'appel de **get\_messages**, tous les messages n'ayant pas été supprimés redeviennent visibles.
+Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for**. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l'appel de **get_messages**, tous les messages n'ayant pas été supprimés redeviennent visibles.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -193,7 +193,7 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
 	}
 
 ## Obtention de la longueur de la file d'attente
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **download\_attributes** demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La méthode **approximate\_message\_count** obtient le nombre approximatif de messages dans la file d'attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **download_attributes** demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La méthode **approximate_message_count** obtient le nombre approximatif de messages dans la file d'attente.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -214,7 +214,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 	std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 
 ## Suppression d'une file d'attente
-Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete\_queue\_if\_exists** sur l'objet file d'attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete_queue_if_exists** sur l'objet file d'attente.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);

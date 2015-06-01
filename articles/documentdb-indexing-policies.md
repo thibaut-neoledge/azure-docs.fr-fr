@@ -74,7 +74,7 @@ L'exemple suivant montre comment définir une stratégie d'indexation personnali
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ L'exemple suivant montre comment définir une stratégie d'indexation personnali
 
 **Remarque** : la stratégie d'indexation d'une collection doit être spécifiée au moment de la création. Il n'est pas possible actuellement de modifier la stratégie d'indexation après la création de la collection, mais cette fonctionnalité sera prise en charge dans une future version de DocumentDB.
 
-**Remarque** : par défaut, DocumentDB indexe régulièrement tous les chemins d'accès au sein des documents avec un index de hachage. Le chemin d'accès interne Timestamp (\_ts) est stocké avec un index de plage.
+**Remarque** : par défaut, DocumentDB indexe régulièrement tous les chemins d'accès au sein des documents avec un index de hachage. Le chemin d'accès interne Timestamp (_ts) est stocké avec un index de plage.
 
 ### Indexation automatique
 
@@ -285,7 +285,7 @@ L'exemple suivant configure un chemin spécifique avec l'indexation de plage et 
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ caractère générique " * ".
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ Réglage des performances
 
 Lorsque vous évaluez différentes configurations de stratégie d'indexation, il convient de mesurer les implications de débit et de stockage de la stratégie via les API DocumentDB.
 
-Pour vérifier le quota de stockage et l'utilisation d'une collection, exécutez une demande HEAD ou GET sur la ressource de collection et examinez les en-têtes x-ms-request-quota et x-ms-request-usage. Dans le Kit de développement (SDK) .NET, les propriétés [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) et [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) dans [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contiennent ces valeurs correspondantes.
+Pour vérifier le quota de stockage et l'utilisation d'une collection, exécutez une demande HEAD ou GET sur la ressource de collection et examinez les en-têtes x-ms-request-quota et x-ms-request-usage. Dans le Kit de développement (SDK) .NET, les propriétés [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) et [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) dans [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contiennent ces valeurs correspondantes.
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ Pour vérifier le quota de stockage et l'utilisation d'une collection, exécutez
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Pour mesurer la charge de l'indexation de chaque opération d'écriture (création, mise à jour ou suppression), inspectez l'en-tête x-ms-request-charge (ou la propriété [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) équivalente dans [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) au sein du Kit de développement logiciel .NET) qui permet de mesurer le nombre d'unités de requête consommées par ces opérations.
+Pour mesurer la charge de l'indexation de chaque opération d'écriture (création, mise à jour ou suppression), inspectez l'en-tête x-ms-request-charge (ou la propriété [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) équivalente dans [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) au sein du Kit de développement logiciel .NET) qui permet de mesurer le nombre d'unités de requête consommées par ces opérations.
 
 
  	// Measure the performance (request units) of writes.     

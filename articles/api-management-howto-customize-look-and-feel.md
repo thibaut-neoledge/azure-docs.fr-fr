@@ -36,7 +36,7 @@ Chaque règle représente une propriété de style de l'élément sélectionné.
 
 > Si vous connaissez l'amorçage [<http://getbootstrap.com/>], ces règles sont en fait des [variables LESS][<http://getbootstrap.com/css/>] dans le thème d'amorçage utilisé par le portail des développeurs.
 
-Modifions la couleur du texte d'en-tête. Sélectionnez l'entrée dans le champ **@headings-color** et tapez \#000000. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, vous verrez un indicateur de couleur carré apparaître à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permettra de faire votre choix.
+Modifions la couleur du texte d'en-tête. Sélectionnez l'entrée dans le champ **@headings-color** et tapez #000000. Il s'agit du code hexadécimal pour la couleur noire. Suite à cette action, vous verrez un indicateur de couleur carré apparaître à la fin de la zone de texte. Si vous cliquez sur cet indicateur, un sélecteur de couleurs vous permettra de faire votre choix.
 
 ![Color picker][Color picker]
 

@@ -44,7 +44,7 @@
    
     > [AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
-8. \(Facultatif\) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
 9. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier pour les sessions ultérieures. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en minuscules, en majuscules, numériques et spéciaux.
 
@@ -73,7 +73,7 @@
    
     ![Page Appareils StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-  \>[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
+  >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
 
 
 <!--HONumber=52-->

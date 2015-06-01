@@ -42,13 +42,13 @@ Vous devez utiliser l'authentification par certificat pour exécuter les applets
 	* Utilisez le commutateur **RestorableDropped** et spécifiez le paramètre **ServerName** désignant le serveur où a été supprimée la base de données.
 	* Exécutez la commande suivante pour stocker les résultats dans une variable appelée **$RecoverableDBs**.
 	
-	`PS C:\>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
+	`PS C:>$RecoverableDBs = Get-AzureSqlDatabase -ServerName "myserver" -RestorableDropped`
 
 2. Dans la liste des bases de données supprimées, choisissez la base de données supprimée que vous voulez restaurer.
 
 	* Tapez le numéro de la base de données supprimée qui figure dans la liste **$RecoverableDBs**.  
 
-	`PS C:\>$Database = $RecoverableDBs[<deleted database number>]`
+	`PS C:>$Database = $RecoverableDBs[<deleted database number>]`
 
 	* Pour plus d'informations sur l'obtention d'une base de données supprimée pouvant être restaurée, consultez [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/dn546735.aspx).
 
@@ -58,14 +58,14 @@ Vous devez utiliser l'authentification par certificat pour exécuter les applets
 
 	Stockez les données retournées dans une variable appelée **$RestoreRequest**. Cette variable contient l'ID de demande de restauration qui est utilisé pour surveiller l'état de la restauration.
 	
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database -TargetDatabaseName "myrestoredDB"`
 
 Le processus de restauration peut prendre du temps. Pour surveiller l'état de la restauration, utilisez l'applet de commande [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) et spécifiez les paramètres suivants :
 
 * **ServerName**, qui désigne le serveur où se trouve la base de données dans laquelle vous effectuez la restauration.
 * **OperationGuid**, qui est l'ID de demande de restauration ayant été stocké dans la variable **$RestoreRequest** à l'étape 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "myserver" -OperationGuid $RestoreRequest.RequestID`
 
 Les champs **State** et **PercentComplete** indiquent l'état de la restauration.
 

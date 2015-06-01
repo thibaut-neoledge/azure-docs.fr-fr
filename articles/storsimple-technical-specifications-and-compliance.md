@@ -18,23 +18,23 @@
 
 ## Vue d'ensemble
 
-Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement \(PCM\), les lecteurs de disque et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
+Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
 > [AZURE.NOTE]Pour plus d’informations sur l’appareil StorSimple, téléchargez la [feuille de données sur les appareils StorSimple de la série 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx).
 
 ## Caractéristiques du module d’alimentation et de refroidissement  
 
-L’appareil StorSimple intègre deux modules d’alimentation et de refroidissement \(PCM\) conformes SBB à double ventilateur de 100-240 V. Cette configuration fournit une alimentation redondante. Si un PCM échoue, l’appareil continue à fonctionner normalement sur l’autre PCM jusqu’au remplacement du module défaillant.
+L’appareil StorSimple intègre deux modules d’alimentation et de refroidissement (PCM) conformes SBB à double ventilateur de 100-240 V. Cette configuration fournit une alimentation redondante. Si un PCM échoue, l’appareil continue à fonctionner normalement sur l’autre PCM jusqu’au remplacement du module défaillant.
 
 Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764 W. Les tableaux suivants répertorient les caractéristiques techniques des PCM.
  
-| Caractéristique | PCM 580 W \(EBOD\) | PCM 764 W \(principal\) |
+| Caractéristique | PCM 580 W (EBOD) | PCM 764 W (principal) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Puissance de sortie maximale | 580 W | 764 W |
 | Fréquence | 50/60 Hz | 50/60 Hz |
 | Sélection de la plage de tension | Détermination automatique : 90 à 264 V CA, 47/63 Hz | Détermination automatique : 90 à 264 V CA, 47/63 Hz |
 | Courant d’appel maximal | 20 A | 20 A |
-| Correction du facteur de puissance | \> 95 % de la tension d’entrée nominale | \> 95 % de la tension d’entrée nominale |
+| Correction du facteur de puissance | > 95 % de la tension d’entrée nominale | > 95 % de la tension d’entrée nominale |
 | Harmonique | Conforme à la norme EN61000-3-2 | Conforme à la norme EN61000-3-2 |
 | Sortie | Tension en mode veille 5 V à 2,0 A | Tension en mode veille 5 V à 2,7 A |
 | | + 5 V à 42 A | + 5 V à 40 A |
@@ -59,7 +59,7 @@ Le tableau suivant répertorie les données de consommation énergétique des di
 
 ## Caractéristiques des lecteurs de disque  
 
-L’appareil StorSimple prend en charge jusqu’à 12 disques SAS \(Serial Attached SCIS\) de 3,5 pouces. Les lecteurs réels peuvent être une combinaison de disques SSD ou de lecteurs de disque dur \(HDD\), selon la configuration du produit. Les 12 emplacements de disque se trouvent dans une configuration de 3 par 4 à l’avant du boîtier. Le boîtier EBOD permet le stockage de 12 autres lecteurs de disque. Il s’agit toujours de disques durs.
+L’appareil StorSimple prend en charge jusqu’à 12 disques SAS (Serial Attached SCIS) de 3,5 pouces. Les lecteurs réels peuvent être une combinaison de disques SSD ou de lecteurs de disque dur (HDD), selon la configuration du produit. Les 12 emplacements de disque se trouvent dans une configuration de 3 par 4 à l’avant du boîtier. Le boîtier EBOD permet le stockage de 12 autres lecteurs de disque. Il s’agit toujours de disques durs.
 
 ## Dimensions et poids des boîtiers  
 
@@ -83,36 +83,36 @@ Selon la configuration, un boîtier principal entièrement chargé peut peser de
  
 | Boîtier | Poids |
 |-----------|--------| 
-| Poids maximal \(dépend de la configuration\) |30 à 33 kg |
-| Vide \(aucun disque monté\) |21 à 23 kg |
+| Poids maximal (dépend de la configuration) |30 à 33 kg |
+| Vide (aucun disque monté) |21 à 23 kg |
 
 ## Caractéristiques ambiantes pour le boîtier  
 
-Cette section répertorie les caractéristiques liées à l’environnement du boîtier. La température, l’humidité, l’altitude, les chocs, les vibrations, l’orientation, la sécurité et la compatibilité électromagnétique \(CEM\) sont inclus dans cette catégorie.
+Cette section répertorie les caractéristiques liées à l’environnement du boîtier. La température, l’humidité, l’altitude, les chocs, les vibrations, l’orientation, la sécurité et la compatibilité électromagnétique (CEM) sont inclus dans cette catégorie.
 
 ### Température et humidité
 
 | Boîtier | Plage de températures ambiantes | Taux d’humidité ambiante | Température maximale du thermomètre mouillé |
 |------------------|----------------------------|---------------------------|--------------------|
-| En fonctionnement | 5 °C à 35 °C \(41 °F à 95 °F\) | 20 à 80 % sans condensation | 28 °C \(82 °F\) |
-| Hors fonctionnement | -40 °C à 70 °C \(40 °F à 158 °F\) | 5 à 100 % sans condensation | 29 °C \(84 °F\) |
+| En fonctionnement | 5 °C à 35 °C (41 °F à 95 °F) | 20 à 80 % sans condensation | 28 °C (82 °F) |
+| Hors fonctionnement | -40 °C à 70 °C (40 °F à 158 °F) | 5 à 100 % sans condensation | 29 °C (84 °F) |
 
 ### Ventilation, altitude, chocs, vibrations, orientation, sécurité et CEM
  
 | Boîtier | Caractéristiques en fonctionnement |
 |--------------------|---------------------------------------------------------------------------| 
-| Ventilation | La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. La contre-pression créée par les portes de rack et les obstacles ne doit pas dépasser 5 pascals \(0,5 mm de colonne d’eau\). |
-| Altitude, en fonctionnement | -30 mètres à 3 045 mètres \(-100 pieds à 10 000 pieds\) avec la température de service maximale réduite de 5 °C à plus de 7 000 mètres. |
-| Altitude, hors fonctionnement | -305 mètres à 12 192 mètres \(-1 000 pieds à 40 000 pieds\) |
+| Ventilation | La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. La contre-pression créée par les portes de rack et les obstacles ne doit pas dépasser 5 pascals (0,5 mm de colonne d’eau). |
+| Altitude, en fonctionnement | -30 mètres à 3 045 mètres (-100 pieds à 10 000 pieds) avec la température de service maximale réduite de 5 °C à plus de 7 000 mètres. |
+| Altitude, hors fonctionnement | -305 mètres à 12 192 mètres (-1 000 pieds à 40 000 pieds) |
 | Chocs, en fonctionnement | 5 g 10 ms ½ sinus | 
 | Chocs, hors fonctionnement | 30 g 10 ms ½ sinus |
 | Vibrations, en fonctionnement | Moyenne quadratique 0,21 g, 5-500 Hz aléatoire |
 | Vibrations, hors fonctionnement | Moyenne quadratique 1,04 g, 2-200 Hz aléatoire |
 | Vibrations, déplacement | 3 g 2-200 Hz sinus |
-| Orientation et montage | Montage en rack de 19" \(2 unités EIA\) |
-| Rails de rack | Convient pour une profondeur minimale de rack de 700 mm \(31,50 pouces\), conforme à la norme CEI 297 |
+| Orientation et montage | Montage en rack de 19" (2 unités EIA) |
+| Rails de rack | Convient pour une profondeur minimale de rack de 700 mm (31,50 pouces), conforme à la norme CEI 297 |
 | Sécurité et homologations |	CE et UL EN 61000-3, CEI 61000-3, UL 61000-3 |
-| CEM | EN55022 \(CISPR - A\), FCC A |
+| CEM | EN55022 (CISPR - A), FCC A |
 
 ## Conformité aux normes internationales
 L’appareil Microsoft Azure StorSimple est conforme aux normes internationales suivantes :
@@ -150,7 +150,7 @@ L’appareil est conforme à la norme EN55024.
   
 L’ensemble fiche-cordon d’alimentation doit être conforme aux  normes applicables dans le pays où l’appareil est utilisé et bénéficier de certifications de sécurité acceptables dans ce pays. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
 
-### Cordons d’alimentation secteur - États-Unis \(doivent être répertoriés par un laboratoire d’essai reconnu nationalement\)
+### Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
 
 | Composant | Caractéristique |
 | --------------- | ----------------------------------------------------------------- | 
@@ -167,7 +167,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux  normes appli
 
 ## Câbles réseau pris en charge  
 
-Pour les interfaces de réseau 10 GbE, DATA 2 et DATA 3, vous trouverez la liste des câbles réseau et modules pris en charge à la page suivante : [http://www.mellanox.com/page/cables?mtag=cable\_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+Pour les interfaces de réseau 10 GbE, DATA 2 et DATA 3, vous trouverez la liste des câbles réseau et modules pris en charge à la page suivante : [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
 
 
 <!--HONumber=52-->

@@ -70,7 +70,7 @@ Une fois l'application Bureau à distance Microsoft installée à partir du Goog
 
 ![Première page Azure Active Directory](./media/remoteapp-clients/Android3.png)
 
-4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft \(LiveID\) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
+4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
 ![Page des invitations](./media/remoteapp-clients/Android4.png)
 
@@ -98,7 +98,7 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 ![Invite de connexion](./media/remoteapp-clients/IOS2.png)
 
-3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft \(LiveID\) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
+3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
 ![Page des invitations](./media/remoteapp-clients/IOS3.png)
 
@@ -130,7 +130,7 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 ![Première page Azure Active Directory](./media/remoteapp-clients/Mac3.png)
 
-4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft \(LiveID\) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis fermez la boîte de dialogue.
+4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis fermez la boîte de dialogue.
 
 ![Page des invitations](./media/remoteapp-clients/Mac4.png)
 
@@ -146,7 +146,7 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 ![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
 
-## Windows \(Toutes les versions prises en charge sauf Windows Phone\)
+## Windows (Toutes les versions prises en charge sauf Windows Phone)
 
 Le client se lance automatiquement une fois son installation terminée. Cependant, pour y accéder à nouveau ultérieurement, vous le trouverez dans votre liste d'applications sous le nom **Azure RemoteApp**.
 
@@ -158,7 +158,7 @@ Le client se lance automatiquement une fois son installation terminée. Cependan
 
 ![Invite de la première page Azure Active Directory](./media/remoteapp-clients/Windows2.png)
 
-3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft \(LiveID\) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
+3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
 ![Page des invitations du client Azure RemoteApp](./media/remoteapp-clients/Windows3.png)
 
@@ -190,7 +190,7 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 ![Première page Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
 
-5. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft \(LiveID\) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Enregistrer**.
+5. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Enregistrer**.
 
 ![Page des invitations](./media/remoteapp-clients/WinPhone5.png)
 

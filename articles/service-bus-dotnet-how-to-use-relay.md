@@ -174,7 +174,7 @@ Vous pouvez également configurer l'hôte à l'aide du fichier App.config. Dans 
     Console.ReadLine();
     sh.Close();
 
-Les définitions de point de terminaison se déplacent dans le fichier App.config. Notez que le package **NuGet** a déjà ajouté une plage de définitions au fichier App.config. Elles correspondent aux extensions de configuration requises par Service Bus. L'extrait de code suivant, qui est l'équivalent exact du code présenté ci-dessus, doit figurer juste en dessous de l'élément **system.serviceModel**. Cet extrait de code suppose que le nom de l'espace de noms C\# de votre projet est " Service ". Remplacez les espaces réservés par l'espace de noms et la clé SAS du service Service Bus.
+Les définitions de point de terminaison se déplacent dans le fichier App.config. Notez que le package **NuGet** a déjà ajouté une plage de définitions au fichier App.config. Elles correspondent aux extensions de configuration requises par Service Bus. L'extrait de code suivant, qui est l'équivalent exact du code présenté ci-dessus, doit figurer juste en dessous de l'élément **system.serviceModel**. Cet extrait de code suppose que le nom de l'espace de noms C# de votre projet est " Service ". Remplacez les espaces réservés par l'espace de noms et la clé SAS du service Service Bus.
 
     <services>
         <service name="Service.ProblemSolver">

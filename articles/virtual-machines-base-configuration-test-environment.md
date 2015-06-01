@@ -54,13 +54,13 @@ Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai
 
 Tout d’abord, vous créez le réseau virtuel Azure TestLab qui hébergera le sous-réseau Corpnet de la configuration de base.
 
-1.	Dans la barre des tâches du portail de gestion Azure, cliquez sur **Nouveau \> Services réseau \> Réseau virtuel \> Création personnalisée**.
+1.	Dans la barre des tâches du portail de gestion Azure, cliquez sur **Nouveau > Services réseau > Réseau virtuel > Création personnalisée**.
 2.	Dans la page Détails du réseau virtuel, tapez **TestLab** dans **Nom**.
 3.	Dans **Emplacement**, sélectionnez la région souhaitée.
 4.	Cliquez sur la flèche Suivant.
 5.	Dans la page Serveurs DNS et connectivité VPN, dans **Serveurs DNS**, tapez **DC1** dans **Sélectionner ou entrer le nom**, tapez **10.0.0.4** dans **Adresse IP**, puis cliquez sur la flèche Suivant.
 6.	Dans la page Espaces d’adressage de réseau virtuel, dans **Sous-réseaux**, cliquez sur **Subnet-1** et remplacez le nom par **Corpnet**. 
-7.	Dans la colonne **CIDR \(nombre d’adresses\)** pour Corpnet, cliquez sur **/24 \(256\)**.
+7.	Dans la colonne **CIDR (nombre d’adresses)** pour Corpnet, cliquez sur **/24 (256)**.
 8.	Cliquez sur l’icône Terminer. Attendez que le réseau virtuel soit créé avant de continuer.
 
 Ensuite, suivez les instructions de la page [Installation et configuration d’Azure PowerShell](install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite de commandes Azure PowerShell.
@@ -76,7 +76,7 @@ Ensuite, vous créez un service cloud Azure. Le service cloud agit comme une lim
 
 Vous devez choisir un nom unique pour votre service cloud. *Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d’union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.*
 
-Par exemple, vous pouvez nommer votre service cloud TestLab-\*UniqueSequence\*, où *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
+Par exemple, vous pouvez nommer votre service cloud TestLab-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
 
 Vous pouvez vérifier si le nom est unique avec cette commande Azure PowerShell.
 
@@ -105,7 +105,7 @@ Ceci est votre configuration actuelle.
 
 ## Phase 2 : configuration de DC1
 
-DC1 est un contrôleur de domaine du domaine de Services de domaine Active Directory \(AD DS\) corp.contoso.com et un serveur DNS pour les machines virtuelles du réseau virtuel TestLab.
+DC1 est un contrôleur de domaine du domaine de Services de domaine Active Directory (AD DS) corp.contoso.com et un serveur DNS pour les machines virtuelles du réseau virtuel TestLab.
 
 Commencez par entrer le nom de votre service cloud et exécutez les commandes suivantes à partir de l’invite de commandes Azure PowerShell sur votre ordinateur local pour créer une machine virtuelle Azure pour DC1.
 
@@ -126,14 +126,14 @@ Ensuite, connectez-vous à la machine virtuelle DC1.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **DC1\\**[Nom du compte de l’administrateur local]
+- Nom : **DC1**[Nom du compte de l’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
 Ensuite, ajoutez le disque de données supplémentaire en tant que nouveau volume avec la lettre de lecteur F:.
 
 1.	Dans le volet gauche du Gestionnaire de serveur, cliquez sur **Services de fichiers et de stockage**, puis sur **Disques**.
-2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** \(avec la **Partition** définie sur **Inconnue**\).
+2.	Dans le volet Contenu, dans le groupe **Disques**, cliquez sur **disque 2** (avec la **Partition** définie sur **Inconnue**).
 3.	Cliquez sur **Tâches**, puis sur **Nouveau volume**.
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
 5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
@@ -155,7 +155,7 @@ Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **CORP\\**[Nom du compte de l’administrateur local]
+- Nom : **CORP**[Nom du compte de l’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -266,7 +266,7 @@ Pour arrêter les machines virtuelles avec Azure PowerShell, indiquez le nom du 
 	Stop-AzureVM -ServiceName $serviceName -Name "DC1" -Force -StayProvisioned
 
 
-Pour vous assurer que vos machines virtuelles fonctionnent correctement lorsque vous les démarrez toutes à partir de l’état Arrêtée \(Désallouée\), vous devez les démarrer dans l’ordre suivant :
+Pour vous assurer que vos machines virtuelles fonctionnent correctement lorsque vous les démarrez toutes à partir de l’état Arrêtée (Désallouée), vous devez les démarrer dans l’ordre suivant :
 
 1.	DC1
 2.	APP1

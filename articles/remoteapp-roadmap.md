@@ -29,8 +29,8 @@ Nous cherchons constamment à améliorer RemoteApp sur la base de vos commentair
 |Disponibilité dans les centres de données australiens| | |X| |
 |Applets de commande PowerShell et SDK RemoteApp pour le déploiement et la gestion| | |X| |
 |Créez et chargez une image à partir d’une machine virtuelle Azure| | |X| |
-|Effectuez des déploiements vers un réseau virtuel sans joindre de domaine \(connexion de la collection cloud aux machines virtuelles Azure\) \([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th)\)| | | |X|	
-|Réutilisez un réseau virtuel existant pour la collection hybride RemoteApp \(également compatible avec ExpressRoute\) \([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
-|ExpressRoute \([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi)\)| | | |X|
+|Effectuez des déploiements vers un réseau virtuel sans joindre de domaine (connexion de la collection cloud aux machines virtuelles Azure) ([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5928457-provide-ability-to-add-vnet-to-cloud-deloyment-th))| | | |X|	
+|Réutilisez un réseau virtuel existant pour la collection hybride RemoteApp (également compatible avec ExpressRoute) ([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
+|ExpressRoute ([commentaires](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| | | |X|
 
 <!--HONumber=52-->

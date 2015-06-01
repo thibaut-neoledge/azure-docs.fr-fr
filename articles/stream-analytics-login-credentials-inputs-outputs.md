@@ -70,7 +70,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 10. Cliquez sur la commande Gérer : ![graphic22][graphic22]
 11. Tapez votre nom d’utilisateur, votre mot de passe et cliquez sur Ouvrir une session : ![graphic23][graphic23]
 12. Cliquez sur Nouvelle requête : ![graphic24][graphic24]
-13. Tapez la requête suivante en remplaçant <user_name> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données \(vous pouvez fournir la même valeur que celle attribuée à <login_name>, par exemple\) et en remplaçant <login_name> par votre nouveau nom d’utilisateur : `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Tapez la requête suivante en remplaçant <user_name> par le nom avec lequel vous souhaitez identifier cette connexion dans le contexte de cette base de données (vous pouvez fournir la même valeur que celle attribuée à <login_name>, par exemple) et en remplaçant <login_name> par votre nouveau nom d’utilisateur : `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Cliquez sur Exécuter : ![graphic25][graphic25]
 15. Vous devez maintenant fournir à votre nouvel utilisateur les mêmes rôles et privilèges que ceux de l’utilisateur d’origine.
 16. Passez à la partie 2.
@@ -119,7 +119,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 4.	Passez à la partie 5.  
 
 ##Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes : \* Stockage d’objets Blob \* Concentrateurs d’événements \* Base de données SQL \* Stockage de tables
+Cette partie concerne les entrées/sorties suivantes : * Stockage d’objets Blob * Concentrateurs d’événements * Base de données SQL * Stockage de tables
 
 ###Stockage d’objets blob/de tables
 Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.

@@ -24,7 +24,7 @@ Un principal du service est un processus, une application ou un service automati
 Cette rubrique montre comment créer un nouveau principal du service à l’aide du portail Azure. Actuellement, vous devez utiliser le portail Microsoft Azure pour créer un nouveau principal du service. Cette possibilité sera ajoutée à la version préliminaire du portail Azure dans une version ultérieure.
 
 ## Concepts
-1. Azure Active Directory \(AAD\) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’Azure Active Directory ?](./active-directory-whatis/)
+1. Azure Active Directory (AAD) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’Azure Active Directory ?](./active-directory-whatis/)
 2. Principal du service : une instance d’application dans un annuaire.
 3. Application Active Directory : un enregistrement d’annuaire dans AAD qui identifie une application à AAD. Pour plus d’informations, consultez [Principes fondamentaux de l’authentification dans Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 

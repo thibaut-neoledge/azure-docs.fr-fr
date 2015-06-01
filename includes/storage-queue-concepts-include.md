@@ -14,11 +14,11 @@ Le service de file d’attente contient les composants suivants :
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **Format d’URL :** les files d’attente sont adressables à l’aide du format d’URL suivant : http://`<storage account>`.queue.core.windows.net/`<queue>\` 
+- **Format d’URL :** les files d’attente sont adressables à l’aide du format d’URL suivant : http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
 L'URL suivante désigne l'une des files d'attente du schéma : http://myaccount.queue.core.windows.net/imagesToDownload
 
-\-\*\*Compte de stockage :\*\* tous les accès au stockage Azure sont effectués via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](storage-scalability-targets.md).
+\-**Compte de stockage :** tous les accès au stockage Azure sont effectués via un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](storage-scalability-targets.md).
 
 - **File d’attente :** une file d’attente contient un ensemble de messages. Tous les messages doivent être dans une file d’attente.
 

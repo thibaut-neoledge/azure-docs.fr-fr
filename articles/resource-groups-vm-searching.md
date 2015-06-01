@@ -1,6 +1,6 @@
 <properties
    pageTitle="Recherche"
-   description="Description de l&#39;article qui sera affichée sur les pages de destination et dans la plupart des résultats de recherche"
+   description="Description de l'article qui sera affichée sur les pages de destination et dans la plupart des résultats de recherche"
    services="service-name"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -21,7 +21,7 @@
 
 ## Interface de ligne de commande Azure
 
-La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur \(qui ne respecte pas la casse\) et une offre \(si vous connaissez l'offre\). La liste suivante en est un petit exemple \(de nombreuses listes sont assez longues\) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
+La façon la plus simple et la plus rapide de rechercher une image à utiliser avec `azure vm quick-create` ou de créer un fichier de modèle de groupe de ressources consiste à appeler la commande `azure vm image list` et de passer l'emplacement, le nom de l'éditeur (qui ne respecte pas la casse) et une offre (si vous connaissez l'offre). La liste suivante en est un petit exemple (de nombreuses listes sont assez longues) si vous savez que « Canonical » est un éditeur pour l'offre « UbuntuServer ».
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@ La façon la plus simple et la plus rapide de rechercher une image à utiliser a
     
 La colonne **Urn** aura le même format que celui que vous passez à `azure vm quick-create`.
     
-Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en détectant d'abord les éditeurs à l'aide de la commande `azure vm image list-publishers` et en répondant à l'invite location avec un emplacement de centre de données que vous envisagez d'utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » \(passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard\).
+Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en détectant d'abord les éditeurs à l'aide de la commande `azure vm image list-publishers` et en répondant à l'invite location avec un emplacement de centre de données que vous envisagez d'utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -149,8 +149,8 @@ L'affichage de la commande **Get-AzureVMImageSku** donne toutes les informations
 
 Voici un exemple.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@ Voici un exemple.
 
 Pour l'éditeur « MicrosoftWindowsServer » :
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@ Pour l'éditeur « MicrosoftWindowsServer » :
 
 Pour l'offre « WindowsServer » :
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

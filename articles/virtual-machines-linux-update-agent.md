@@ -43,12 +43,12 @@ Généralement, c’est tout ce qu’il vous est demandé de faire. Toutefois, s
 
 Connectez-vous à votre machine virtuelle à l’aide du protocole SSH.
 
-Installez wget \(certaines versions ne l’installent pas par défaut, telles que Redhat, CentOS, et Oracle Linux versions 6.4 et 6.5\) en tapant `#sudo yum install wget` sur la ligne de commande.
+Installez wget (certaines versions ne l’installent pas par défaut, telles que Redhat, CentOS, et Oracle Linux versions 6.4 et 6.5) en tapant `#sudo yum install wget` sur la ligne de commande.
 
 
 ## Télécharger la version la plus récente
 
-Ouvrez [la version d’Azure Linux Agent dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page web et cherchez le dernier numéro de version, tel que : 2.0.12. \(Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.\)
+Ouvrez [la version d’Azure Linux Agent dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page web et cherchez le dernier numéro de version, tel que : 2.0.12. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 

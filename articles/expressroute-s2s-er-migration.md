@@ -20,25 +20,25 @@ Les clients Azure peuvent se connecter à leur réseau virtuel de deux manières
 
 Si vous avez déjà une connexion VPN de site à site à votre réseau virtuel, vous pouvez suivre les étapes ci-dessous pour passer à une connexion via ExpressRoute.
 
-1\) Connectez-vous au portail Azure
+1) Connectez-vous au portail Azure
 
-2\) Dans le volet de navigation, cliquez sur **RÉSEAUX**, puis sur le réseau virtuel associé à une connexion VPN
+2) Dans le volet de navigation, cliquez sur **RÉSEAUX**, puis sur le réseau virtuel associé à une connexion VPN
 
-3\) Cliquez sur **TABLEAU DE BORD**. En bas de la page, cliquez sur **SUPPRIMER LA PASSERELLE**, puis sur **OUI**.
+3) Cliquez sur **TABLEAU DE BORD**. En bas de la page, cliquez sur **SUPPRIMER LA PASSERELLE**, puis sur **OUI**.
 
   Cette étape permet de supprimer la passerelle VPN de site à site.
 
-4\) Lorsque le portail affiche « LA PASSERELLE N’A PAS ÉTÉ CRÉÉE » pour le réseau virtuel, cliquez sur la page **Configurer**.
+4) Lorsque le portail affiche « LA PASSERELLE N’A PAS ÉTÉ CRÉÉE » pour le réseau virtuel, cliquez sur la page **Configurer**.
 
-a\) Activez la case à cocher « Utiliser ExpressRoute »
+a) Activez la case à cocher « Utiliser ExpressRoute »
 
-b\) Définissez le CIDR du sous-réseau de passerelle sur /28
+b) Définissez le CIDR du sous-réseau de passerelle sur /28
 
 ![Partage d’abonnement](./media/expressroute-s2s-er-migration/expressroute-s2s-er.png)
 
-5\) En bas de la page, cliquez sur **ENREGISTRER**, puis sur **OUI**.
+5) En bas de la page, cliquez sur **ENREGISTRER**, puis sur **OUI**.
 
-6\) Cliquez sur **TABLEAU DE BORD**. En bas de la page, cliquez sur **CRÉER LA PASSERELLE**, puis sur **OUI**.
+6) Cliquez sur **TABLEAU DE BORD**. En bas de la page, cliquez sur **CRÉER LA PASSERELLE**, puis sur **OUI**.
 
  Cette étape permet de créer la passerelle ExpressRoute
  

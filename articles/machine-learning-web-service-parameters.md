@@ -35,7 +35,7 @@ Une fois le paramètre de service Web défini, il est disponible pour n'importe
 
 Vous pouvez décider de définir ou non une valeur par défaut pour le paramètre de service Web. Si vous en définissez une, le paramètre est facultatif pour l'utilisateur du service Web. Si vous ne le faites pas, l'utilisateur doit entrer une valeur au moment d’accéder au service Web.
 
-La documentation pour le service Web \(fourni par le biais du lien de la **page d'aide de l'API** dans le **TABLEAU DE BORD** du service Web dans Machine Learning Studio\) fournira à l'utilisateur de service Web des informations sur la façon de définir, en les programmant, les paramètres de service Web au moment d'accéder au service Web.
+La documentation pour le service Web (fourni par le biais du lien de la **page d'aide de l'API** dans le **TABLEAU DE BORD** du service Web dans Machine Learning Studio) fournira à l'utilisateur de service Web des informations sur la façon de définir, en les programmant, les paramètres de service Web au moment d'accéder au service Web.
 
 
 ##Exemple
@@ -60,7 +60,7 @@ Par exemple, supposons que nous avons une expérience avec un module [Writer][wr
 
 4.	Pour renommer le paramètre de service Web, cliquez sur son nom, entrez « Blob path », puis appuyez sur la touche **Entrée**.
  
-5.	Pour attribuer au paramètre de service Web une valeur par défaut, cliquez sur l'icône à droite du nom, sélectionnez « Fournir la valeur par défaut », entrez une valeur \(par exemple, « container1/output1.csv »\), puis appuyez sur la touche **Entrée**.
+5.	Pour attribuer au paramètre de service Web une valeur par défaut, cliquez sur l'icône à droite du nom, sélectionnez « Fournir la valeur par défaut », entrez une valeur (par exemple, « container1/output1.csv »), puis appuyez sur la touche **Entrée**.
 
 	![Paramètre de service Web][parameter]
 

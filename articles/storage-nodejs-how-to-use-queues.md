@@ -60,7 +60,7 @@ communiquent avec les services REST de stockage.
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier qu'un
-    dossier **node\_modules** a été créé. Dans ce dossier,
+    dossier **node_modules** a été créé. Dans ce dossier,
     recherchez le package **azure-storage** qui contient les bibliothèques dont vous avez besoin
     pour accéder au stockage.
 
@@ -73,7 +73,7 @@ communiquent avec les services REST de stockage.
 
 ## Configuration d'une connexion de stockage Azure
 
-Le module Azure lit les variables d'environnement AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY ou AZURE\_STORAGE\_CONNECTION\_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
+Le module Azure lit les variables d'environnement AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY ou AZURE_STORAGE_CONNECTION_STRING pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte lors de l'appel de **createQueueService**.
 
 Pour un exemple de définition des variables d'environnement dans le portail de gestion pour un site web Azure, consultez [Application web Node.js avec stockage]
 

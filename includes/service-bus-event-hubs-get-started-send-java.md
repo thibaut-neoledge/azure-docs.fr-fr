@@ -5,7 +5,7 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 
 2. Téléchargez la dernière version de la bibliothèque **Qpid JMS AMQP 1.0** [ici](http://qpid.apache.org/components/qpid-jms/index.html).
 
-3. Extrayez les fichiers de l'archive et copiez les fichiers JAR suivants à partir du répertoire d'archive `qpid-amqp-1-0-client-jms\<version>\lib`, dans votre projet Eclipse **Sender**.
+3. Extrayez les fichiers de l'archive et copiez les fichiers JAR suivants à partir du répertoire d'archive `qpid-amqp-1-0-client-jms<version>\lib`, dans votre projet Eclipse **Sender**.
 
 4. Dans l'Explorateur de Package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d'accès de la génération Java**, puis cliquez sur l'onglet **Bibliothèques** et sur le bouton **Ajouter des archives JAR**. Sélectionnez tous les fichiers JAR précédemment copiés, puis cliquez sur **OK**.
 

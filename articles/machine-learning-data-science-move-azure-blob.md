@@ -106,10 +106,10 @@ L'objet **BlobService** vous permet d'exploiter les conteneurs et les blobs. Le 
 
 Pour charger les données dans un blob, utilisez les méthodes suivantes :
  
-1. put\_block\_blob\_from\_path (charge le contenu d'un fichier situé à l'emplacement spécifié)
-2. put\_block_blob\_from\_file (charge le contenu d'un fichier/flux déjà ouvert)
-3. put\_block\_blob\_from\_bytes (charge un tableau d'octets)
-4. put\_block\_blob\_from\_text (charge la valeur de texte indiquée, dans l'encodage spécifié)
+1. put_block_blob_from_path (charge le contenu d'un fichier situé à l'emplacement spécifié)
+2. put_block_blob_from_file (charge le contenu d'un fichier/flux déjà ouvert)
+3. put_block_blob_from_bytes (charge un tableau d'octets)
+4. put_block_blob_from_text (charge la valeur de texte indiquée, dans l'encodage spécifié)
  
 L'exemple de code suivant charge un fichier local dans un conteneur :
 	
@@ -143,10 +143,10 @@ L'exemple de code suivant charge tous les fichiers (à l'exception des sous-rép
 ###Télécharger des données à partir d'un blob
 
 Pour télécharger des données à partir d'un blob, utilisez les méthodes suivantes :
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 Ces méthodes effectuent le traitement nécessaire lorsque les données dépassent 64 Mo. 
 
@@ -154,7 +154,7 @@ L'exemple de code suivant télécharge le contenu d'un blob d'un conteneur dans 
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-L'exemple de code suivant télécharge tous les blobs d'un conteneur. Il utilise list\_blobs pour obtenir la liste des blobs disponibles dans le conteneur et les télécharge dans un répertoire local. 
+L'exemple de code suivant télécharge tous les blobs d'un conteneur. Il utilise list_blobs pour obtenir la liste des blobs disponibles dans le conteneur et les télécharge dans un répertoire local. 
 
 	from azure.storage import BlobService
 	from os.path import join

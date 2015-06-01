@@ -60,7 +60,7 @@ avec le nom d’abonnement ou l’ID doté des ressources que vous souhaitez gé
 
 ### Étape 3 : passage en mode de groupe de ressources d’interface de ligne de commande Azure
 
-Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management \(mode \*\*asm\*\*\). Type
+Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Type
 
 	azure config mode arm
 
@@ -70,14 +70,14 @@ pour basculer en mode de groupe de ressources.
 
 ## Présentation des groupes et des modèles de ressources Azure
 
-La plupart des applications sont basées sur une combinaison de différents types de ressources \(au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un réseau de diffusion de contenu, ou un *CDN*\). L’API de gestion des services Azure par défaut et le portail Azure classique présentaient ces éléments en suivant une approche au cas par cas, ce qui nécessitait un déploiement et une gestion propres à chaque service \(ou l’obtention d’outils supplémentaires pour le faire\) et interdisait l’usage d’une seule unité logique de déploiement.
+La plupart des applications sont basées sur une combinaison de différents types de ressources (au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un réseau de diffusion de contenu, ou un *CDN*). L’API de gestion des services Azure par défaut et le portail Azure classique présentaient ces éléments en suivant une approche au cas par cas, ce qui nécessitait un déploiement et une gestion propres à chaque service (ou l’obtention d’outils supplémentaires pour le faire) et interdisait l’usage d’une seule unité logique de déploiement.
 
 Les *modèles du Gestionnaire de ressources Azure* permettent à présent de regrouper le déploiement et la gestion de ces différentes ressources en une seule unité logique de déploiement de manière déclarative. Au lieu de devoir utiliser une suite de commandes pour indiquer à Azure les éléments à déployer les uns après les autres, il vous suffit de décrire l’intégralité de votre déploiement dans un fichier JSON, comprenant toutes vos ressources, ainsi que les configurations et les paramètres de déploiement leur étant associés, puis d’indiquer à Azure de déployer ces ressources en tant que groupe.
 
 Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe en utilisant les commandes de gestion des ressources de l’interface de ligne de commande Azure pour :
 
 - arrêter, démarrer ou supprimer d’un coup toutes les ressources au sein du groupe ; 
-- appliquer des règles de contrôle d’accès en fonction du rôle \(RBAC\) pour le verrouillage des autorisations de sécurité ; 
+- appliquer des règles de contrôle d’accès en fonction du rôle (RBAC) pour le verrouillage des autorisations de sécurité ; 
 - mener des opérations d’audit ; 
 - baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi. 
 
@@ -107,21 +107,21 @@ Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide 
 
 | Éditeur | ImageOffer | ImageSku | ComputeImageVersion |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7\.0.201503 |
-| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
-| CoreOS | CoreOS | Bêta | 647\.0.0 |
-| CoreOS | CoreOS | Stable | 633\.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1\.0.0 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12\.0.2430 |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12\.0.2430 |
-| Canonical | UbuntuServer | 14\.04.1-LTS | 14\.04.201501230 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
-| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5\.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
+| OpenLogic | CentOS | 7 | 7.0.201503 |
+| OpenLogic | CentOS | 7.1 | 7.1.201504 |
+| CoreOS | CoreOS | Bêta | 647.0.0 |
+| CoreOS | CoreOS | Stable | 633.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1.0.0 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12.0.2430 |
+| MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12.0.2430 |
+| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
 
 Créez simplement votre machine virtuelle en entrant la commande `azure vm quick-create command` et préparez-vous à remplir les invites. Le résultat suivant doit s’afficher :
 
@@ -218,7 +218,7 @@ Suivez les instructions des sections suivantes pour déployer une machine virtue
 
 Voici le contenu du fichier JSON relatif au modèle. Ce modèle est également disponible sur GitHub, [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json).
 
-Le concepteur d’un modèle peut choisir de le rendre flexible en le dotant de nombreux paramètres modifiables, ou rigide, en le dotant uniquement de quelques paramètres. Pour collecter les informations, vous devez transmettre le modèle en tant que série de paramètres, ouvrir le fichier du modèle \(cette rubrique comporte un modèle inline, ci-dessous\) et examiner les valeurs **parameters**.
+Le concepteur d’un modèle peut choisir de le rendre flexible en le dotant de nombreux paramètres modifiables, ou rigide, en le dotant uniquement de quelques paramètres. Pour collecter les informations, vous devez transmettre le modèle en tant que série de paramètres, ouvrir le fichier du modèle (cette rubrique comporte un modèle inline, ci-dessous) et examiner les valeurs **parameters**.
 
 Dans ce cas, le modèle ci-dessous vous demandera :
 
@@ -432,10 +432,10 @@ Pour créer le groupe de ressources, tapez `azure group create <group name> <loc
 
 À présent, pour créer le déploiement, appelez `azure group deployment create` et transmettez :
 
-- le fichier du modèle \(si vous avez enregistré le modèle JSON précédent dans un fichier local\) ; 
-- un URI de modèle \(si vous souhaitez pointer vers le fichier dans Github ou une autre adresse web\) ;
+- le fichier du modèle (si vous avez enregistré le modèle JSON précédent dans un fichier local) ; 
+- un URI de modèle (si vous souhaitez pointer vers le fichier dans Github ou une autre adresse web) ;
 - le groupe de ressources dans lequel le déploiement à lieu ;
-- et un nom pour le déploiement \(facultatif\). 
+- et un nom pour le déploiement (facultatif). 
 
 Vous êtes invité à entrer les valeurs des paramètres dans la section **"parameters"** du fichier JSON. Lorsque vous avez indiqué toutes les valeurs des paramètres, votre déploiement commence.
 
@@ -693,7 +693,7 @@ Vous êtes maintenant prêt à créer une machine virtuelle basée sur le fichie
     data:    
     info:    group create command OK
     
-Puis créez le déploiement avec l’option `--template-uri` pour appeler directement le modèle \(ou utilisez l’option `--template-file` pour utiliser un fichier enregistré localement\). Notez que, comme le modèle a des valeurs par défaut, vous n’avez pas à renseigner beaucoup d’invites. Si vous déployez le modèle à différents endroits, il est possible que des conflits de noms se produisent vis-à-vis des valeurs par défaut \(notamment le nom DNS que vous avez créé\).
+Puis créez le déploiement avec l’option `--template-uri` pour appeler directement le modèle (ou utilisez l’option `--template-file` pour utiliser un fichier enregistré localement). Notez que, comme le modèle a des valeurs par défaut, vous n’avez pas à renseigner beaucoup d’invites. Si vous déployez le modèle à différents endroits, il est possible que des conflits de noms se produisent vis-à-vis des valeurs par défaut (notamment le nom DNS que vous avez créé).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1176,7 +1176,7 @@ Vous pouvez découvrir très rapidement ce qui pose problème, le corriger et re
 
     {
       "statusCode": "Conflict",
-      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+      "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
     
 
@@ -1289,7 +1289,7 @@ Pour associer un disque existant, exécutez cette commande :
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
     
-Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linux \(ou sous Windows\).
+Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linux (ou sous Windows).
 
 
 ## Étapes suivantes

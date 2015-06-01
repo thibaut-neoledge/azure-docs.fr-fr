@@ -20,7 +20,7 @@
 
 Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version bloquée actuelle, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
 
-- Les [processeurs de langage naturel](#LanguageSupport) de Microsoft \(les mêmes que ceux utilisés par Office et Bing\) offrent une plus grande précision sur les résultats de la requête et d'autres langages.
+- Les [processeurs de langage naturel](#LanguageSupport) de Microsoft (les mêmes que ceux utilisés par Office et Bing) offrent une plus grande précision sur les résultats de la requête et d'autres langages.
 - `moreLikeThis` est un paramètre de requête utilisé dans les [opérations de recherche](#SearchDocs) qui trouve des documents en rapport avec un autre document spécifique.
 
 Quelques fonctionnalités supplémentaires de `2015-02-28-Preview` sont documentées séparément. Vous avez notamment vu les points suivants :
@@ -32,7 +32,7 @@ Le service Azure Search est disponible dans plusieurs versions. Pour plus d'info
 
 ##API dans ce document
 
-L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'entités : une syntaxe OData simple et une autre syntaxe OData \(pour plus d'informations, consultez [Prise en charge d'OData \(API Azure Search\)](http://msdn.microsoft.com/library/azure/dn798932.aspx)\). La liste suivante présente la syntaxe simple.
+L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'entités : une syntaxe OData simple et une autre syntaxe OData (pour plus d'informations, consultez [Prise en charge d'OData (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798932.aspx)). La liste suivante présente la syntaxe simple.
 
 [Création d'index](#CreateIndex)
 
@@ -78,12 +78,12 @@ L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <a name="IndexOps"></a>
+________________________________________ <a name="IndexOps"></a>
 ## Opérations d'index
 
-Vous pouvez créer et gérer des index dans le service Azure Search via de simples requêtes HTTP \(POST, GET, PUT, DELETE\) sur une ressource d'index donnée. Pour créer un index, vous commencez par PUBLIER un document JSON décrivant le schéma d'index. Le schéma définit les champs de l'index, leurs types de données et comment les utiliser \(par exemple, dans des recherches en texte intégral, des filtres, des tris ou des facettes\). Il définit également des profils de calcul de score, des générateurs de suggestions et d'autres attributs permettant de configurer le comportement de l'index.
+Vous pouvez créer et gérer des index dans le service Azure Search via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource d'index donnée. Pour créer un index, vous commencez par PUBLIER un document JSON décrivant le schéma d'index. Le schéma définit les champs de l'index, leurs types de données et comment les utiliser (par exemple, dans des recherches en texte intégral, des filtres, des tris ou des facettes). Il définit également des profils de calcul de score, des générateurs de suggestions et d'autres attributs permettant de configurer le comportement de l'index.
 
-L'exemple suivant illustre un schéma utilisé pour effectuer une recherche sur des informations d'hôtel avec le champ Description défini dans deux langages. Remarquez comment les attributs contrôlent la manière dont le champ est utilisé. Par exemple le champ `hotelId` est utilisé comme clé de document \(`"key": true`\) et est exclu des recherches en texte intégral \(`"searchable": false`\).
+L'exemple suivant illustre un schéma utilisé pour effectuer une recherche sur des informations d'hôtel avec le champ Description défini dans deux langages. Remarquez comment les attributs contrôlent la manière dont le champ est utilisé. Par exemple le champ `hotelId` est utilisé comme clé de document (`"key": true`) et est exclu des recherches en texte intégral (`"searchable": false`).
 
     {
     "name": "hotels",  
@@ -118,7 +118,7 @@ Pour obtenir une présentation vidéo de l'indexation dans Azure Search, consult
 <a name="CreateIndex"></a>
 ### Création d'index
 
-Dans Azure Search, un index est le principal moyen d'organiser des documents et d'y faire des recherches, un peu comme une table permet d'organiser des enregistrements dans une base de données. Chaque index englobe un ensemble de documents tous conformes à un même schéma d'index \(noms de champ, types de données et propriétés\), mais il spécifie également des constructions supplémentaires \(générateurs de suggestions, profils de calcul de score et options CORS\) qui définissent d'autres comportements de recherche.
+Dans Azure Search, un index est le principal moyen d'organiser des documents et d'y faire des recherches, un peu comme une table permet d'organiser des enregistrements dans une base de données. Chaque index englobe un ensemble de documents tous conformes à un même schéma d'index (noms de champ, types de données et propriétés), mais il spécifie également des constructions supplémentaires (générateurs de suggestions, profils de calcul de score et options CORS) qui définissent d'autres comportements de recherche.
 
 Vous pouvez créer un index dans un service Azure Search à l'aide d'une requête HTTP POST ou PUT. Le corps de la requête est un schéma JSON qui spécifie les informations de configuration et d'index.
 
@@ -130,7 +130,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom d'index s
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
 
-La création d'un index détermine la structure des documents stockés et utilisés dans les opérations de recherche. Le remplissage de l'index est une opération distincte. Pour cette étape, vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/azure/mt183328.aspx) \(disponible pour les sources de données prises en charge\) ou une opération [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'index inversé est généré lors de la publication des documents.
+La création d'un index détermine la structure des documents stockés et utilisés dans les opérations de recherche. Le remplissage de l'index est une opération distincte. Pour cette étape, vous pouvez utiliser un [indexeur](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponible pour les sources de données prises en charge) ou une opération [Ajout, mise à jour ou suppression de documents](https://msdn.microsoft.com/library/azure/dn798930.aspx). L'index inversé est généré lors de la publication des documents.
 
 **Remarque** : le nombre maximal d'index que vous pouvez créer varie en fonction du niveau de tarification. Le service gratuit autorise jusqu'à 3 index. Le service standard autorise 50 index par service de recherche. Pour plus d'informations, consultez [Limites et contraintes](http://msdn.microsoft.com/library/azure/dn798934.aspx).
 
@@ -138,7 +138,7 @@ La création d'un index détermine la structure des documents stockés et utilis
 
 Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Index** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom d'index dans le corps de la requête, ainsi que la définition du schéma d'index. Avec une méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
 
-Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets \(non consécutifs\).
+Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
 Le paramètre `api-version` est obligatoire. La version actuelle est `api-version=2015-02-28`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -148,7 +148,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. Définissez ceci sur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour 
-- authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini sur votre clé d'administration \(par opposition à une clé de requête\). 
+- authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini sur votre clé d'administration (par opposition à une clé de requête). 
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -252,17 +252,17 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `sortable` : par défaut, le système trie les résultats par score, mais souvent les utilisateurs voudront effectuer un tri par champs dans les documents. Les champs de type `Collection(Edm.String)` ne peuvent pas être `sortable`. Tous les autres champs sont `sortable` par défaut.
 
-`facetable` : généralement utilisé dans une présentation des résultats de recherche qui inclut le nombre d'accès par catégorie \(par exemple, vous recherchez des appareils photo numériques et regardez le nombre d'accès par marque, mégapixels, prix, etc.\). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Tous les autres champs sont `facetable` par défaut.
+`facetable` : généralement utilisé dans une présentation des résultats de recherche qui inclut le nombre d'accès par catégorie (par exemple, vous recherchez des appareils photo numériques et regardez le nombre d'accès par marque, mégapixels, prix, etc.). Cette option ne peut pas être utilisée avec des champs de type `Edm.GeographyPoint`. Tous les autres champs sont `facetable` par défaut.
 
   - **Remarque** : les champs de type `Edm.String` qui sont `filterable`, `sortable` ou `facetable` ne doivent pas dépasser 32 Ko de longueur. En effet, ces champs sont traités en tant que terme de recherche unique, et la longueur maximale d'un terme dans Azure Search est 32 Ko. Si vous devez stocker plus de texte dans un champ de chaîne unique, définissez explicitement `filterable`, `sortable` et `facetable` avec la valeur `false` dans votre définition d'index.
 
-  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` \(`searchable`, `filterable`, `sortable` ou `facetable`\), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
+  - **Remarque** : si aucun des attributs ci-dessus dans un champ n'est défini avec la valeur `true` (`searchable`, `filterable`, `sortable` ou `facetable`), le champ est exclu de l'index inversé. Cette option est utile pour les champs qui ne sont pas utilisés dans les requêtes, mais qui sont nécessaires dans les résultats de recherche. L'exclusion de ces champs de l'index améliore les performances.
 
   - `suggestions` : les versions précédentes de l'API incluaient une propriété `suggestions`. Cette propriété booléenne est maintenant déconseillée et n'est plus disponible dans `2015-02-28` ni `2015-02-28-Preview`. Utilisez l'[API Suggesters](#Suggesters) à la place. Dans la version `2014-07-31`, la propriété `suggestions` était utilisée pour spécifier si la saisie semi-automatique en cours de frappe pouvait être utilisée pour les champs de type `Edm.String` ou `Collection(Edm.String)`. La propriété `suggestions` avait la valeur `false` par défaut, car elle nécessitait un espace supplémentaire dans votre index mais, si vous l'avez activée, consultez [Transition de la version préliminaire à la version générale dans Azure Search](../search-transition-from-preview/) pour obtenir des instructions sur la transition vers la nouvelle API.
 
 `key` : marque le champ comme contenant des identificateurs uniques pour les documents de l'index. Un seul champ doit être choisi comme champ `key` et il doit être de type `Edm.String`. Les champs clés peuvent servir à rechercher des documents directement via l'[API de recherche](#LookupAPI).
 
-`retrievable` : définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ \(par exemple, la marge\) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu'il soit visible par l'utilisateur final. Cet attribut doit avoir la valeur `true` pour les champs `key`.
+`retrievable` : définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ (par exemple, la marge) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu'il soit visible par l'utilisateur final. Cet attribut doit avoir la valeur `true` pour les champs `key`.
 
 `analyzer` : définit le nom de l'analyseur de texte à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, consultez la rubrique [Support multilingue](#LanguageSupport). Cette option peut être utilisée uniquement avec les champs `searchable`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
 
@@ -284,7 +284,7 @@ Certains développeurs peuvent préférer la solution open source, plus familiè
 
 ***Comparatif***
 
-L'analyseur Lucene pour l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif \(le « 's »\) à la fin des mots, applique la recherche de radical conformément à l'[algorithme de recherche de radical de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais. L'interrogation et l'indexation avec les analyseurs Lucene sont très rapides.
+L'analyseur Lucene pour l'anglais est une extension de l'analyseur standard. Il supprime la marque du possessif (le « 's ») à la fin des mots, applique la recherche de radical conformément à l'[algorithme de recherche de radical de Porter](http://tartarus.org/~martin/PorterStemmer/) et supprime les [mots vides](http://en.wikipedia.org/wiki/Stop_words) de l'anglais. L'interrogation et l'indexation avec les analyseurs Lucene sont très rapides.
 
 En comparaison, l'analyseur Microsoft implémente un outil de recherche de radical élargie qui génère au moment de la requête toutes les formes de mots possibles de chaque terme de la requête, ce qui entraîne une plus grande précision des résultats, mais également plus de latence. Des performances en matière de requête réduites sont courantes pour les outils de recherche de radical élargie. L'indexation avec les analyseurs Microsoft est en moyenne trois fois plus lente qu'avec leurs équivalents Lucene.
 
@@ -1100,17 +1100,17 @@ Tous les analyseurs dont les noms sont annotés avec <i>lucene</i> s'appuient su
 
 **Options CORS**
 
-Le code Javascript côté client ne peut pas appeler les API par défaut, car le navigateur empêche toutes les requêtes cross-origin. Activez le service Partage des ressources cross-origin \(CORS\) en définissant l'attribut `corsOptions` pour autoriser les requêtes cross-origin dans l'index. Notez que, pour des raisons de sécurité, seules les API de requête prennent en charge CORS. Les options suivantes peuvent être définies pour CORS :
+Le code Javascript côté client ne peut pas appeler les API par défaut, car le navigateur empêche toutes les requêtes cross-origin. Activez le service Partage des ressources cross-origin (CORS) en définissant l'attribut `corsOptions` pour autoriser les requêtes cross-origin dans l'index. Notez que, pour des raisons de sécurité, seules les API de requête prennent en charge CORS. Les options suivantes peuvent être définies pour CORS :
 
-- `allowedOrigins` \(obligatoire\) : il s'agit d'une liste d'origines pouvant accéder à votre index. Cela signifie que le code Javascript distribué à partir de ces origines peut interroger votre index \(en supposant qu'il fournisse la clé API appropriée\). Chaque origine se présente généralement sous la forme `protocol://fully-qualified-domain-name:port`, bien que le port soit souvent omis. Consultez [cet article](http://go.microsoft.com/fwlink/?LinkId=330822) pour plus de détails.
+- `allowedOrigins` (obligatoire) : il s'agit d'une liste d'origines pouvant accéder à votre index. Cela signifie que le code Javascript distribué à partir de ces origines peut interroger votre index (en supposant qu'il fournisse la clé API appropriée). Chaque origine se présente généralement sous la forme `protocol://fully-qualified-domain-name:port`, bien que le port soit souvent omis. Consultez [cet article](http://go.microsoft.com/fwlink/?LinkId=330822) pour plus de détails.
  - Si vous voulez autoriser l'accès à toutes les origines, incluez `*` en tant qu'élément unique dans le tableau `allowedOrigins`. Notez que **cette pratique est déconseillée pour les services de recherche de production.** Toutefois, elle peut être utile à des fins de développement ou de débogage.
-- `maxAgeInSeconds` \(facultatif\) : les navigateurs utilisent cette valeur pour déterminer la durée \(en secondes\) de mise en cache des réponses CORS préliminaires. Il doit s'agir d'un entier non négatif. Plus cette valeur est importante, meilleures sont les performances, mais plus il faut de temps pour que les modifications apportées à la stratégie CORS prennent effet. Si la valeur n'est pas définie, une durée par défaut de 5 minutes est utilisée.
+- `maxAgeInSeconds` (facultatif) : les navigateurs utilisent cette valeur pour déterminer la durée (en secondes) de mise en cache des réponses CORS préliminaires. Il doit s'agir d'un entier non négatif. Plus cette valeur est importante, meilleures sont les performances, mais plus il faut de temps pour que les modifications apportées à la stratégie CORS prennent effet. Si la valeur n'est pas définie, une durée par défaut de 5 minutes est utilisée.
 
 <a name="Suggesters"></a> **Générateurs de suggestions**
 
 Un générateur de suggestions permet la saisie semi-automatique dans les recherches. En général, les chaînes recherchées partielles sont envoyées à l'[API Suggestions](#Suggestions) pendant que l'utilisateur tape une requête de recherche, et l'API retourne un ensemble d'expressions suggérées. Un générateur de suggestions que vous définissez dans l'index détermine si et comment les suggestions sont retournées.
 
-Si vous avez utilisé la version préliminaire publique d'Azure Search, `suggesters` remplace une propriété booléenne \(`"suggestions": false`\) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes \(de 3 à 25 caractères\). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. Il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n'est pas opérationnelle dans la version `2015-02-28` d'Azure Search.
+Si vous avez utilisé la version préliminaire publique d'Azure Search, `suggesters` remplace une propriété booléenne (`"suggestions": false`) plus ancienne qui prenait en charge uniquement des suggestions de préfixe pour les chaînes courtes (de 3 à 25 caractères). Son remplacement, `suggesters`, prend en charge la correspondance infixe qui recherche des termes correspondants au début ou au milieu du contenu du champ, avec une meilleure tolérance pour les erreurs dans les chaînes recherchées. Il s'agit de la seule implémentation de l'API des suggestions. La propriété `suggestions` introduite dans `api-version=2014-07-31-Preview` continue de fonctionner dans cette version, mais n'est pas opérationnelle dans la version `2015-02-28` d'Azure Search.
 
 **Important :** `Suggesters` fonctionne de façon optimale quand il s'agit de suggérer des documents spécifiques plutôt que des expressions ou termes isolés. Les champs les plus appropriés sont les titres, les noms et d'autres expressions relativement courtes qui peuvent identifier un élément. Les champs les moins efficaces sont les champs répétitifs, tels que les catégories et les balises, ou les champs très longs, tels que les champs des descriptions ou des commentaires.
 
@@ -1153,7 +1153,7 @@ Vous pouvez actuellement avoir uniquement un générateur de suggestions dans le
 
 Pour une requête correcte : « 201 Créé ».
 
-Par défaut, le corps de la réponse contient le code JSON de la définition d'index qui a été créée. Si l'en-tête de la requête `Prefer` est défini avec la valeur `return=minimal`, le corps de la réponse est vide et le code d'état de réussite est « 204 Pas de contenu » au lieu de « 201 Créé ». Cela est vrai quelle que soit la méthode utilisée \(PUT ou POST\) pour créer l'index.
+Par défaut, le corps de la réponse contient le code JSON de la définition d'index qui a été créée. Si l'en-tête de la requête `Prefer` est défini avec la valeur `return=minimal`, le corps de la réponse est vide et le code d'état de réussite est « 204 Pas de contenu » au lieu de « 201 Créé ». Cela est vrai quelle que soit la méthode utilisée (PUT ou POST) pour créer l'index.
 
 **Notes**
 
@@ -1176,16 +1176,16 @@ Quand vous ajoutez un nouveau champ à un index, tous les documents existants de
 
 Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Update Index** est construite à l'aide de HTTP PUT. Avec une méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
 
-Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets \(non consécutifs\).
+Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. Définissez ceci sur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1279,13 +1279,13 @@ L'opération **List Indexes** retourne une liste des index actuellement utilisé
 
 Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **List Indexes** peut être construite à l'aide de la méthode GET.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **List Indexes** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **List Indexes** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1346,13 +1346,13 @@ Le protocole HTTPS est requis pour les requêtes de service. La requête **Get I
  
 Le [nom de l'index] dans l'URI de la requête spécifie l'index à retourner à partir de la collection d'index.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
-- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1380,13 +1380,13 @@ Le protocole HTTPS est requis pour les requêtes de service. La requête **Delet
  
 Le [nom de l'index] dans l'URI de la requête spécifie l'index à supprimer dans la collection d'index.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Delete Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Delete Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1412,14 +1412,14 @@ Le protocole HTTPS est requis pour toutes les requêtes de services. La requête
 
 Le [nom de l'index] dans l'URI de la requête indique au service de retourner des statistiques d'index pour l'index spécifié.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
-- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index Statistics** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index Statistics** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1438,7 +1438,7 @@ Le corps de la réponse a le format suivant :
 	  "storageSize": number (size of the index in bytes)
     }
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <a name="DocOps"></a>
+________________________________________ <a name="DocOps"></a>
 ## Opérations de document
 
 Dans Azure Search,un index est rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
@@ -1457,7 +1457,7 @@ Avant de pouvoir télécharger des documents, vous devez avoir déjà créé l'i
 <a name="AddOrUpdateDocuments"></a>
 ### Ajout, mise à jour ou suppression de documents
 
-Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST. Pour un grand nombre de mises à jour, le traitement par lot des documents \(jusqu'à 1 000 documents par lot ou 16 Mo par lot\) est recommandé.
+Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST. Pour un grand nombre de mises à jour, le traitement par lot des documents (jusqu'à 1 000 documents par lot ou 16 Mo par lot) est recommandé.
 
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
@@ -1469,14 +1469,14 @@ Le protocole HTTPS est requis pour toutes les requêtes de service. Vous pouvez 
 
 L'URI de la requête inclut le [nom de l'index], qui spécifie l'index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. Définissez ceci sur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration \(par opposition à une clé de requête\).
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](../search-create-service-portal/).
 
@@ -1505,7 +1505,7 @@ Le corps de la requête contient un ou plusieurs documents à indexer. Les docum
 
 **Réponse**
 
-Code d'état : 200 OK est retourné pour une réponse correcte, ce qui signifie que tous les éléments ont été indexés \(comme indiqué par le champ « status » défini avec la valeur true pour tous les éléments\) :
+Code d'état : 200 OK est retourné pour une réponse correcte, ce qui signifie que tous les éléments ont été indexés (comme indiqué par le champ « status » défini avec la valeur true pour tous les éléments) :
 
     {
       "value": [
@@ -1517,7 +1517,7 @@ Code d'état : 200 OK est retourné pour une réponse correcte, ce qui signifie
       ]
     }  
 
-Code d'état : 207 est retourné quand au moins un élément n'a pas été indexé \(comme indiqué par le champ « status » avec la valeur false pour les éléments qui n'ont pas été indexés\) :
+Code d'état : 207 est retourné quand au moins un élément n'a pas été indexé (comme indiqué par le champ « status » avec la valeur false pour les éléments qui n'ont pas été indexés) :
  
     {
       "value": [
@@ -1582,7 +1582,7 @@ Code d'état : 429 indique que vous avez dépassé votre quota du nombre de doc
         }
       ]
     }
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ <a name="SearchDocs"></a>
+________________________________________ <a name="SearchDocs"></a>
 ### Recherche dans des documents
 
 Une opération **Search** est émise en tant que requête GET et spécifie les paramètres de requête qui donnent les critères de sélection des documents correspondants.
@@ -1605,61 +1605,61 @@ Il est recommandé d'[encoder par URL](https://msdn.microsoft.com/library/system
 - `search`
 - `moreLikeThis`
 
-L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière \(tout ce qui figure après ?\), les requêtes sont interrompues.
+L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
 En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST. L'utilisation de la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) permet de gérer l'encodage des URL pour vous.
 
 **Paramètres de requête**
 
-`search=[string]` \(facultatif\) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc \(par exemple : `search=hello world`\). Pour faire correspondre n'importe quel terme, utilisez `*` \(qui peut être utile pour les requêtes de filtre booléen\). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section « Syntaxe de requête simple » ci-dessous.
+`search=[string]` (facultatif) - le texte à rechercher. Tous les champs `searchable` sont interrogés par défaut, sauf si `searchFields` est spécifié. Lors de l'interrogation des champs `searchable`, le texte de recherche est tokenisé, plusieurs termes peuvent donc être séparés par un espace blanc (par exemple : `search=hello world`). Pour faire correspondre n'importe quel terme, utilisez `*` (qui peut être utile pour les requêtes de filtre booléen). L'omission de ce paramètre a le même effet que s'il est défini avec la valeur `*`. Pour obtenir des détails sur la syntaxe de recherche, consultez la section « Syntaxe de requête simple » ci-dessous.
 
   - **Remarque** : les résultats peuvent parfois être surprenants lors de l'interrogation de champs `searchable`. Le générateur de jetons inclut une logique pour gérer les cas courants dans le texte anglais tels que les apostrophes, les virgules des nombres, etc. Par exemple, `search=123,456` correspond à un seul terme 123,456 plutôt qu'aux termes individuels 123 et 456, étant donné que les virgules sont utilisées comme séparateurs de milliers dans les grands nombres en anglais. Pour cette raison, nous vous recommandons d'utiliser un espace blanc au lieu des signes de ponctuation pour séparer les termes du paramètre `search`.
 
-`searchMode=any|all` \(facultatif, la valeur par défaut est `any`\) : indique si certains ou l'ensemble des termes de recherche doivent correspondre pour que le document soit considéré comme une correspondance.
+`searchMode=any|all` (facultatif, la valeur par défaut est `any`) : indique si certains ou l'ensemble des termes de recherche doivent correspondre pour que le document soit considéré comme une correspondance.
 
-`searchFields=[string]` \(facultatif\) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être marqués comme `searchable`.
+`searchFields=[string]` (facultatif) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être marqués comme `searchable`.
 
-`moreLikeThis=[key]` \(facultatif\) **Important :** cette fonctionnalité est uniquement disponible dans `2015-02-28-Preview`. Cette option ne peut pas être utilisée dans une requête qui contient le paramètre de recherche de texte, `search=[string]`. Le paramètre `moreLikeThis` trouve les documents qui sont similaires au document spécifié par la clé de document. Quand une requête de recherche est effectuée avec `moreLikeThis`, une liste de termes de recherche est générée en fonction de la fréquence et de la rareté des termes dans le document source. Ces termes sont ensuite utilisés pour effectuer la requête. Par défaut, le contenu de tous les champs `searchable` est pris en compte sauf si `searchFields` est utilisé pour restreindre les champs faisant l'objet de recherches.
+`moreLikeThis=[key]` (facultatif) **Important :** cette fonctionnalité est uniquement disponible dans `2015-02-28-Preview`. Cette option ne peut pas être utilisée dans une requête qui contient le paramètre de recherche de texte, `search=[string]`. Le paramètre `moreLikeThis` trouve les documents qui sont similaires au document spécifié par la clé de document. Quand une requête de recherche est effectuée avec `moreLikeThis`, une liste de termes de recherche est générée en fonction de la fréquence et de la rareté des termes dans le document source. Ces termes sont ensuite utilisés pour effectuer la requête. Par défaut, le contenu de tous les champs `searchable` est pris en compte sauf si `searchFields` est utilisé pour restreindre les champs faisant l'objet de recherches.
 
-`$skip=#` \(facultatif\) : nombre de résultats de recherche à ignorer. Ne peut pas être supérieur à 100 000. Si vous avez besoin d'analyser des documents dans l'ordre, mais que vous ne pouvez pas utiliser `$skip` en raison de cette limitation, utilisez plutôt `$orderby` sur une clé totalement ordonnée et `$filter` avec une requête de plage de données.
+`$skip=#` (facultatif) : nombre de résultats de recherche à ignorer. Ne peut pas être supérieur à 100 000. Si vous avez besoin d'analyser des documents dans l'ordre, mais que vous ne pouvez pas utiliser `$skip` en raison de cette limitation, utilisez plutôt `$orderby` sur une clé totalement ordonnée et `$filter` avec une requête de plage de données.
 
-`$top=#` \(facultatif\) : nombre de résultats de recherche à récupérer. Par défaut, la valeur est 50. Si vous spécifiez une valeur supérieure à 1 000 et que vous obtenez plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi qu'un lien vers la page suivante des résultats \(consultez `@odata.nextLink` dans [l'exemple ci-dessous](#SearchResponse)\).
+`$top=#` (facultatif) : nombre de résultats de recherche à récupérer. Par défaut, la valeur est 50. Si vous spécifiez une valeur supérieure à 1 000 et que vous obtenez plus de 1 000 résultats, seuls les 1 000 premiers résultats sont retournés, ainsi qu'un lien vers la page suivante des résultats (consultez `@odata.nextLink` dans [l'exemple ci-dessous](#SearchResponse)).
 
-`$count=true|false` \(facultatif, la valeur par défaut est `false`\) : indique s'il faut extraire le nombre total de résultats. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
+`$count=true|false` (facultatif, la valeur par défaut est `false`) : indique s'il faut extraire le nombre total de résultats. La valeur `true` peut avoir un impact sur les performances. Notez que le nombre retourné est une approximation.
 
-`$orderby=[string]` \(facultatif\) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Les liens seront rompus par les scores de correspondance des documents. Si aucun `$orderby` n'est spécifié, l'ordre de tri par défaut est décroissant par score de correspondance de documents. Il existe une limite de 32 clauses pour `$orderby`.
+`$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Les liens seront rompus par les scores de correspondance des documents. Si aucun `$orderby` n'est spécifié, l'ordre de tri par défaut est décroissant par score de correspondance de documents. Il existe une limite de 32 clauses pour `$orderby`.
 
-`$select=[string]` \(facultatif\) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, tous les champs marqués comme récupérables dans le schéma sont inclus. Vous pouvez aussi demander explicitement tous les champs en définissant ce paramètre avec la valeur `*`.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, tous les champs marqués comme récupérables dans le schéma sont inclus. Vous pouvez aussi demander explicitement tous les champs en définissant ce paramètre avec la valeur `*`.
 
-`facet=[string]` \(zéro ou plus\) : champ à utiliser pour les facettes. La chaîne peut éventuellement contenir des paramètres pour personnaliser les facettes exprimées sous forme de paires `name:value` séparées par des virgules. Les paramètres valides sont les suivants :
+`facet=[string]` (zéro ou plus) : champ à utiliser pour les facettes. La chaîne peut éventuellement contenir des paramètres pour personnaliser les facettes exprimées sous forme de paires `name:value` séparées par des virgules. Les paramètres valides sont les suivants :
 
-- `count` \(nombre maximal de termes de facette. La valeur par défaut est 10\). Il n'y a pas de valeur maximale, mais les valeurs supérieures ont un impact négatif sur les performances, en particulier si le champ à facettes contient un grand nombre de termes uniques.
+- `count` (nombre maximal de termes de facette. La valeur par défaut est 10). Il n'y a pas de valeur maximale, mais les valeurs supérieures ont un impact négatif sur les performances, en particulier si le champ à facettes contient un grand nombre de termes uniques.
   - Par exemple : `facet=category,count:5` obtient les cinq premières catégories des résultats de facette.  
   - **Remarque** : si le paramètre `count` est inférieur au nombre de termes uniques, les résultats seront peut-être inexacts. Cela s'explique par la manière dont les requêtes de facettes sont distribuées entre les partitions. L'attribution d'une valeur supérieure pour `count` augmente généralement la précision du nombre de termes, mais au détriment des performances. 
-- `sort` \(`count` pour effectuer un tri par nombre par ordre *décroissant*, `-count` pour effectuer un tri par nombre par ordre *croissant*, `value` pour effectuer un tri par valeur par ordre *croissant* ou `-value` pour effectuer un tri par valeur par ordre *décroissant*\)
+- `sort` (`count` pour effectuer un tri par nombre par ordre *décroissant*, `-count` pour effectuer un tri par nombre par ordre *croissant*, `value` pour effectuer un tri par valeur par ordre *croissant* ou `-value` pour effectuer un tri par valeur par ordre *décroissant*)
   - Par exemple : `facet=category,count:3,sort:count` obtient les trois premières catégories des résultats de facette triées par ordre décroissant du nombre de documents de chaque ville. Par exemple, si les trois premières catégories sont Budget, Motel et Luxe, que Budget a 5 accès, Motel en a 6 et Luxe en a 4, les compartiments apparaîtront dans l'ordre Motel, Budget et Luxe.
   - Par exemple : `facet=rating,sort:-value` génère des compartiments pour tous les classements possibles, triés par ordre décroissant des valeurs. Par exemple, si les classements vont de 1 à 5, les compartiments apparaissent dans l'ordre 5, 4, 3, 2, 1, quel que soit le nombre de documents qui correspond à chaque classement.
-- `values` \(valeur numérique délimitée une barre verticale ou valeurs `Edm.DateTimeOffset` qui spécifient un ensemble dynamique de valeurs d'entrée de facette\)
+- `values` (valeur numérique délimitée une barre verticale ou valeurs `Edm.DateTimeOffset` qui spécifient un ensemble dynamique de valeurs d'entrée de facette)
   - Par exemple : `facet=baseRate,values:10|20` génère trois compartiments : un pour le taux de base compris entre 0 et 10 exclus, un de 10 à 20 exclus et un pour 20 et plus.
   - Par exemple : `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` génère deux compartiments : un pour les hôtels rénovés avant février 2010 et un pour les hôtels rénovés à partir du 1er février 2010.
-- `interval` \(intervalle d'entiers supérieur à 0 pour les nombres ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` pour les valeurs de date et heure\)
+- `interval` (intervalle d'entiers supérieur à 0 pour les nombres ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` pour les valeurs de date et heure)
   - Par exemple : `facet=baseRate,interval:100` génère des compartiments basés sur des plages de taux de base comprenant 100 valeurs. Par exemple, si les taux de base sont tous compris entre 60 dollars et 600 dollars, il y aura les compartiments suivants : 0-100, 100-200, 200-300, 300-400, 400-500 et 500-600.
   - Par exemple : `facet=lastRenovationDate,interval:year` génère un compartiment pour chaque année de rénovation des hôtels.
 - **Remarque** : `count` et `sort` peuvent être combinés dans la même spécification de facette, mais ils ne peuvent pas être combinés avec `interval` ou `values`, et `interval` et `values` ne peuvent pas être combinés ensemble.
 
-`$filter=[string]` \(facultatif\) : expression de recherche structurée avec une syntaxe OData standard. Consultez la section [Syntaxe d'expression OData](#ODataExpressionSyntax) pour plus d'informations sur le sous-ensemble de la grammaire d'expression OData pris en charge par Azure Search.
+`$filter=[string]` (facultatif) : expression de recherche structurée avec une syntaxe OData standard. Consultez la section [Syntaxe d'expression OData](#ODataExpressionSyntax) pour plus d'informations sur le sous-ensemble de la grammaire d'expression OData pris en charge par Azure Search.
 
-`highlight=[string]` \(facultatif\) : ensemble de noms de champ séparés par des virgules pour la mise en surbrillance des correspondances. Seuls les champs `searchable` peuvent être utilisés pour la mise en surbrillance des correspondances.
+`highlight=[string]` (facultatif) : ensemble de noms de champ séparés par des virgules pour la mise en surbrillance des correspondances. Seuls les champs `searchable` peuvent être utilisés pour la mise en surbrillance des correspondances.
 
-  `highlightPreTag=[string]` \(facultatif, la valeur par défaut est `<em>`\) : balise de chaîne qui ajoute un préfixe aux mises en surbrillance des correspondances. Doit être défini avec `highlightPostTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage \(par exemple, %23 au lieu de \#\).
+  `highlightPreTag=[string]` (facultatif, la valeur par défaut est `<em>`) : balise de chaîne qui ajoute un préfixe aux mises en surbrillance des correspondances. Doit être défini avec `highlightPostTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
-  `highlightPostTag=[string]` \(facultatif, la valeur par défaut est `</em>`\) : balise de chaîne qui ajoute un élément aux mises en surbrillance des correspondances. Doit être défini avec `highlightPreTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage \(par exemple, %23 au lieu de \#\).
+  `highlightPostTag=[string]` (facultatif, la valeur par défaut est `</em>`) : balise de chaîne qui ajoute un élément aux mises en surbrillance des correspondances. Doit être défini avec `highlightPreTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
-`scoringProfile=[string]` \(facultatif\) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
+`scoringProfile=[string]` (facultatif) : nom d'un profil de calcul de score pour évaluer les scores de correspondance des documents afin de trier les résultats.
 
-`scoringParameter=[string]` \(zéro ou plus\) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score \(par exemple, `referencePointParameter`\) au format nom:valeur. Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l'option de chaîne de requête est &scoringParameter=mylocation:-122.2,44.8
+`scoringParameter=[string]` (zéro ou plus) : indique la valeur de chaque paramètre défini dans une fonction de calcul de score (par exemple, `referencePointParameter`) au format nom:valeur. Par exemple, si le profil de calcul de score définit une fonction avec un paramètre appelé « mylocation » l'option de chaîne de requête est &scoringParameter=mylocation:-122.2,44.8
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Remarque : pour cette opération, `api-version` est spécifié en tant que paramètre de requête.
 
@@ -1712,61 +1712,61 @@ Code d'état : 200 OK est retourné pour une réponse correcte.
 
 Vous trouverez d'autres exemples dans la page [Syntaxe d'expression OData pour Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
-1\) Effectuer une recherche dans l'index trié par date par ordre décroissant.
+1) Effectuer une recherche dans l'index trié par date par ordre décroissant.
 
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
-2\) Dans une recherche à facettes, interroger l'index et récupérer des facettes pour des catégories, des classements, des balises, ainsi que des éléments avec une valeur de baseRate comprise dans des plages spécifiques :
+2) Dans une recherche à facettes, interroger l'index et récupérer des facettes pour des catégories, des classements, des balises, ainsi que des éléments avec une valeur de baseRate comprise dans des plages spécifiques :
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
-3\) À l'aide d'un filtre, limiter les résultats de la précédente requête à facettes une fois que l'utilisateur a cliqué sur le classement 3 et la catégorie « Motel » :
+3) À l'aide d'un filtre, limiter les résultats de la précédente requête à facettes une fois que l'utilisateur a cliqué sur le classement 3 et la catégorie « Motel » :
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
-4\) Dans une recherche à facettes, définir une limite supérieure sur des termes uniques retournés dans une requête. La valeur par défaut est 10, mais vous pouvez augmenter ou diminuer cette valeur à l'aide du paramètre `count` sur l'attribut `facet` :
+4) Dans une recherche à facettes, définir une limite supérieure sur des termes uniques retournés dans une requête. La valeur par défaut est 10, mais vous pouvez augmenter ou diminuer cette valeur à l'aide du paramètre `count` sur l'attribut `facet` :
 
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
-5\) Effectuer une recherche dans des champs spécifiques de l'index. Par exemple, un champ propre à la langue :
+5) Effectuer une recherche dans des champs spécifiques de l'index. Par exemple, un champ propre à la langue :
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
-6\) Effectuer une recherche dans plusieurs champs de l'index. Par exemple, vous pouvez stocker et interroger des champs pouvant faire l'objet d'une recherche en plusieurs langues, le tout dans le même index. Si des descriptions en anglais et en français coexistent dans le même document, vous pouvez en retourner certaines ou la totalité dans les résultats de la requête :
+6) Effectuer une recherche dans plusieurs champs de l'index. Par exemple, vous pouvez stocker et interroger des champs pouvant faire l'objet d'une recherche en plusieurs langues, le tout dans le même index. Si des descriptions en anglais et en français coexistent dans le même document, vous pouvez en retourner certaines ou la totalité dans les résultats de la requête :
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 	
 Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas plusieurs index pour chaque langue, sauf si vous prévoyez d'interroger un seul index à la fois.
 
-7\) Pagination : obtenir la 1ère page d'éléments \(la taille de la page est 10\) :
+7) Pagination : obtenir la 1ère page d'éléments (la taille de la page est 10) :
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
-8\) Pagination : obtenir la 2ème page d'éléments \(la taille de la page est 10\) :
+8) Pagination : obtenir la 2ème page d'éléments (la taille de la page est 10) :
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
-9\) Récupérer un ensemble spécifique de champs :
+9) Récupérer un ensemble spécifique de champs :
 
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
-10\) Récupérer les documents correspondant à une expression de filtre spécifique
+10) Récupérer les documents correspondant à une expression de filtre spécifique
 
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
-11\) Effectuer une recherche dans l'index et retourner des fragments avec des mises en surbrillance des correspondances
+11) Effectuer une recherche dans l'index et retourner des fragments avec des mises en surbrillance des correspondances
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
     
-12\) Effectuer une recherche dans l'index et retourner des documents triés du plus proche au plus éloigné par rapport à un emplacement de référence
+12) Effectuer une recherche dans l'index et retourner des documents triés du plus proche au plus éloigné par rapport à un emplacement de référence
 
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
 
-13\) Effectuer une recherche dans l'index en supposant qu'il existe un profil de calcul de score appelé « geo » avec deux fonctions de calcul de score de distance : l'une définit un paramètre appelé « currentLocation » et l'autre un paramètre appelé « lastLocation »
+13) Effectuer une recherche dans l'index en supposant qu'il existe un profil de calcul de score appelé « geo » avec deux fonctions de calcul de score de distance : l'une définit un paramètre appelé « currentLocation » et l'autre un paramètre appelé « lastLocation »
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
-14\) Recherche de documents dans l'index à l'aide d'une syntaxe de requête simple. Cette requête renvoie les hôtels où les champs pouvant faire l'objet d'une recherche contiennent les termes « confort » et « emplacement », mais pas « motel » :
+14) Recherche de documents dans l'index à l'aide d'une syntaxe de requête simple. Cette requête renvoie les hôtels où les champs pouvant faire l'objet d'une recherche contiennent les termes « confort » et « emplacement », mais pas « motel » :
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1795,9 +1795,9 @@ L'URI de la requête inclut un [nom d'index] et une [clé], qui spécifient le d
 
 **Paramètres de requête**
 
-`$select=[string]` \(facultatif\) : liste de champs séparés par des virgules à récupérer. Si la valeur n'est pas spécifiée ou est `*`, tous les champs marqués comme récupérables dans le schéma sont inclus dans la projection.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si la valeur n'est pas spécifiée ou est `*`, tous les champs marqués comme récupérables dans le schéma sont inclus dans la projection.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Remarque : pour cette opération, `api-version` est spécifié en tant que paramètre de requête.
 
@@ -1846,7 +1846,7 @@ Le protocole HTTPS est requis pour les requêtes de service. La requête **Count
 
 Le [nom de l'index] dans l'URI de la requête indique au service de retourner le nombre de tous les éléments dans la collection de documents de l'index spécifié.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 **En-têtes de requête**
 
@@ -1872,7 +1872,7 @@ Le corps de la réponse contient la valeur du nombre sous forme d'entier en text
 
 L'opération **Suggestions** récupère des suggestions basées sur une entrée de recherche partielle. Elle est généralement utilisée dans les zones de recherche pour fournir des suggestions à mesure que les utilisateurs entrent des termes de recherche.
 
-Les requêtes de suggestions visent à suggérer des documents cibles, le texte suggéré peut donc être répété si plusieurs documents candidats correspondent à la même entrée de recherche. Vous pouvez utiliser `$select` pour récupérer d'autres champs du document \(y compris la clé de document\) afin de savoir quel document est la source de chaque suggestion.
+Les requêtes de suggestions visent à suggérer des documents cibles, le texte suggéré peut donc être répété si plusieurs documents candidats correspondent à la même entrée de recherche. Vous pouvez utiliser `$select` pour récupérer d'autres champs du document (y compris la clé de document) afin de savoir quel document est la source de chaque suggestion.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
     api-key: [admin key]
@@ -1891,7 +1891,7 @@ Il est recommandé d'[encoder par URL](https://msdn.microsoft.com/library/system
 - `highlightPostTag`
 - `search`
 
-L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière \(tout ce qui figure après ?\), les requêtes sont interrompues.
+L'encodage des URL est recommandé uniquement pour les paramètres de requête ci-dessus. Si vous encodez par URL par inadvertance la chaîne de requête entière (tout ce qui figure après ?), les requêtes sont interrompues.
 
 En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct de l'API REST. L'utilisation de la [bibliothèque cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) permet de gérer l'encodage des URL pour vous.
 
@@ -1899,25 +1899,25 @@ En outre, l'encodage des URL est nécessaire uniquement lors de l'appel direct d
 
 `search=[string]` : texte de recherche à utiliser pour suggérer des requêtes. Doit comprendre 3 caractères au minimum et 25 caractères au maximum.
 
-`highlightPreTag=[string]` \(facultatif\) : balise de chaîne qui ajoute un préfixe aux résultats de la recherche. Doit être défini avec `highlightPostTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage \(par exemple, %23 au lieu de \#\).
+`highlightPreTag=[string]` (facultatif) : balise de chaîne qui ajoute un préfixe aux résultats de la recherche. Doit être défini avec `highlightPostTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
-`highlightPostTag=[string]` \(facultatif\) : balise de chaîne qui ajoute un élément aux résultats de la recherche. Doit être défini avec `highlightPreTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage \(par exemple, %23 au lieu de \#\).
+`highlightPostTag=[string]` (facultatif) : balise de chaîne qui ajoute un élément aux résultats de la recherche. Doit être défini avec `highlightPreTag`. Les caractères réservés dans l'URL doivent être codés en pourcentage (par exemple, %23 au lieu de #).
 
 `suggesterName=[string]` : nom du générateur de suggestions, comme spécifié dans la collection `suggesters` qui fait partie de la définition d'index. Un `suggester` détermine les champs qui sont analysés pour les termes de requête suggérés. Pour plus d'informations, consultez [Générateurs de suggestions](#Suggesters).
 
-`fuzzy=[boolean]` \(facultatif, valeur par défaut = false\) : quand elle est définie avec la valeur true, cette API trouve des suggestions même si un caractère est remplacé ou manquant dans le texte de recherche. Bien qu'il en résulte une meilleure expérience, dans certains cas cela a un impact négatif sur les performances, car les recherches de suggestions approximatives sont plus lentes et consomment davantage de ressources.
+`fuzzy=[boolean]` (facultatif, valeur par défaut = false) : quand elle est définie avec la valeur true, cette API trouve des suggestions même si un caractère est remplacé ou manquant dans le texte de recherche. Bien qu'il en résulte une meilleure expérience, dans certains cas cela a un impact négatif sur les performances, car les recherches de suggestions approximatives sont plus lentes et consomment davantage de ressources.
 
-`searchFields=[string]` \(facultatif\) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être activés pour les suggestions.
+`searchFields=[string]` (facultatif) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être activés pour les suggestions.
 
-`$top=#` \(facultatif, valeur par défaut = 5\) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
+`$top=#` (facultatif, valeur par défaut = 5) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
 
-`$filter=[string]` \(facultatif\) : expression qui filtre les documents pris en compte pour les suggestions.
+`$filter=[string]` (facultatif) : expression qui filtre les documents pris en compte pour les suggestions.
 
-`$orderby=[string]` \(facultatif\) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Il existe une limite de 32 clauses pour `$orderby`.
+`$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Il existe une limite de 32 clauses pour `$orderby`.
 
-`$select=[string]` \(facultatif\) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
 
-`api-version=[string]` \(obligatoire\). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
+`api-version=[string]` (obligatoire). La version préliminaire est `api-version=2015-02-28-Preview`. Pour plus d'informations, y compris sur d'autres versions, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
 Remarque : pour cette opération, `api-version` est spécifié en tant que paramètre de requête.
 

@@ -53,7 +53,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ## Configuration d'une connexion de stockage Azure
 
-Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont as définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::QueueService** avec le code suivant :
+Le module Azure lit les variables d'environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont as définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::QueueService** avec le code suivant :
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -87,7 +87,7 @@ Pour insérer un message dans une file d'attente, utilisez la méthode **create_
 
 ## Procédure : Lecture furtive du message suivant
 
-Vous pouvez lire le message en début de file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek\_messages**. Par défaut, **peek\_messages()** permet de lire furtivement un seul message. Vous pouvez également spécifier le nombre de messages que vous souhaitez lire furtivement.
+Vous pouvez lire le message en début de file d'attente sans le supprimer de la file d'attente en appelant la méthode **peek_messages**. Par défaut, **peek_messages()** permet de lire furtivement un seul message. Vous pouvez également spécifier le nombre de messages que vous souhaitez lire furtivement.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -96,11 +96,11 @@ Vous pouvez lire le message en début de file d'attente sans le supprimer de la 
 
 Vous pouvez supprimer un message d'une file d'attente en deux étapes.
 
-1. Lorsque vous appelez **list\_messages()**, vous obtenez le message suivant dans une file d'attente par défaut. Vous pouvez également spécifier le nombre de messages que vous souhaitez obtenir. Les messages renvoyés par **list\_messages()** deviennent invisible de tout autre code lisant les messages de cette file d'attente. Vous transmettez le délai d'expiration de la visibilité en secondes en tant que paramètre.
+1. Lorsque vous appelez **list_messages()**, vous obtenez le message suivant dans une file d'attente par défaut. Vous pouvez également spécifier le nombre de messages que vous souhaitez obtenir. Les messages renvoyés par **list_messages()** deviennent invisible de tout autre code lisant les messages de cette file d'attente. Vous transmettez le délai d'expiration de la visibilité en secondes en tant que paramètre.
 
 2. Pour finaliser la suppression du message de la file d'attente, vous devez aussi appeler **delete_message()**.
 
-Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message()** juste après le traitement du message.
+Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete_message()** juste après le traitement du message.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -123,7 +123,7 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 
 2. Vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message.
 
-L'exemple de code suivant utilise la méthode **list\_messages()** pour obtenir 15 messages en un appel. Ensuite, il imprime et supprime chaque message. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+L'exemple de code suivant utilise la méthode **list_messages()** pour obtenir 15 messages en un appel. Ensuite, il imprime et supprime chaque message. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -133,14 +133,14 @@ L'exemple de code suivant utilise la méthode **list\_messages()** pour obtenir 
 
 ## Procédure : Obtention de la longueur de la file d'attente
 
-Vous pouvez obtenir une estimation du nombre de messages dans la file d'attente. La méthode **get\_queue\_metadata()** demande au service de File d'attente de renvoyer le nombre de messages approximatif et les métadonnées relatives à la file d'attente.
+Vous pouvez obtenir une estimation du nombre de messages dans la file d'attente. La méthode **get_queue_metadata()** demande au service de File d'attente de renvoyer le nombre de messages approximatif et les métadonnées relatives à la file d'attente.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## Procédure : Suppression d'une file d'attente
 
-Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete\_queue()** sur l'objet file d'attente.
+Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez la méthode **delete_queue()** sur l'objet file d'attente.
 
 	azure_queue_service.delete_queue("test-queue")
 

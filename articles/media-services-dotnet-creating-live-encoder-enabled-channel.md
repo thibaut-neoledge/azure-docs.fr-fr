@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples" 
-	description="Ce didacticiel vous guide tout au long des étapes de création d&#39;un canal qui reçoit un flux continu à vitesse de transmission unique et qui l&#39;encode en flux à vitesses de transmission multiples." 
+	description="Ce didacticiel vous guide tout au long des étapes de création d'un canal qui reçoit un flux continu à vitesse de transmission unique et qui l'encode en flux à vitesses de transmission multiples." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Utiliser le Kit de développement logiciel \(SDK\) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples \(version préliminaire\)
+#Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)
 
 ##Vue d'ensemble
 
@@ -29,7 +29,7 @@ Ce didacticiel vous guide tout au long des étapes de création d'un **canal** q
 
 Les étapes suivantes décrivent les tâches impliquées dans la création d'applications courantes de vidéo en flux continu.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur en temps réel local capable de générer un flux à vitesse de transmission unique dans l'un des protocoles suivants : RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Pour plus d'informations, consultez [Prise en charge de RTMP et encodeurs en temps réel dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur en temps réel local capable de générer un flux à vitesse de transmission unique dans l'un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d'informations, consultez [Prise en charge de RTMP et encodeurs en temps réel dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Cette étape peut également être effectuée après la création du canal.
 
@@ -47,7 +47,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d'app
 	
 	1. 	Créez une clé de contenu. 
 	1. 	Configurez la stratégie d'autorisation de la clé de contenu.
-1. Configurez la stratégie de remise d'éléments multimédias \(utilisée par l'empaquetage dynamique et le chiffrement dynamique\).
+1. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
 3. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
 1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.  
 
@@ -55,16 +55,16 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d'app
 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l'archivage.
 2. Un signal peut éventuellement être envoyé à l'encodeur en temps réel pour qu'il démarre une publicité. La publicité est insérée dans le flux de sortie.
 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l'événement.
-1. Supprimez le programme \(et éventuellement l'élément multimédia\).   
+1. Supprimez le programme (et éventuellement l'élément multimédia).   
 
 ##Dans cette rubrique
 
-Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l'aide du Kit de développement logiciel \(SDK\) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
+Cette rubrique montre comment exécuter différentes opérations sur des canaux et des programmes à l'aide du Kit de développement logiciel (SDK) .NET Media Services. Bon nombre d'opérations étant de longue durée, les API .NET qui gèrent les opérations de ce type sont utilisées.
 
 La rubrique montre comment effectuer les opérations suivantes :
 
 1. Créer et démarrer un canal. Des API de longue durée sont utilisées.
-1. Obtenir le point de terminaison de réception \(entrée\) du canal. Ce point de terminaison doit être fourni à l'encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
+1. Obtenir le point de terminaison de réception (entrée) du canal. Ce point de terminaison doit être fourni à l'encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 1. Obtenir le point de terminaison d'aperçu. Ce point de terminaison permet d'afficher un aperçu de votre flux. 
 1. Créer un élément multimédia qui sera utilisé pour stocker votre contenu. Les stratégies de remise d'éléments multimédias doivent également être configurées, comme le montre cet exemple.
 1. Créer un programme et spécifier l'utilisation de l'élément multimédia créé précédemment. Démarrer le programme. Des API de longue durée sont utilisées.
@@ -80,10 +80,10 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Visual Studio 2010 SP1 ou version ultérieure.
 - Une webcam et un encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 
-##Configurer le développement avec le Kit de développement logiciel \(SDK\) Media Services pour .NET
+##Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
  
 1. Créer une application console à l'aide de Visual Studio.
-1. Ajouter le Kit de développement logiciel \(SDK\) Media Services pour .NET à votre application console à l'aide du package NuGet Media Services.
+1. Ajouter le Kit de développement logiciel (SDK) Media Services pour .NET à votre application console à l'aide du package NuGet Media Services.
 
 ##Connexion à Media Services
 Il est recommandé d'utiliser un fichier app.config pour stocker le nom et la clé du compte Media Services.

@@ -113,7 +113,7 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
 7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**. 
 8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : 
-- *ComputerName*\\*LocalAdministratorAccountName*
+- *ComputerName**LocalAdministratorAccountName*
 9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
 10.	Cliquez sur **OK**.
 11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.

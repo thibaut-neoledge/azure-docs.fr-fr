@@ -36,7 +36,7 @@ Il se peut que votre application ait besoin de stocker des données. Pour ce fai
 
 Chaque machine virtuelle créée est également associée à un *disque de ressources* local temporaire. Étant donné que les données qui y figurent risquent de ne pas résister aux redémarrages, le disque de ressources est souvent utilisé par les applications et les processus exécutés dans la machine virtuelle pour le stockage temporaire des données, ainsi que pour stocker les fichiers de pagination ou d’échange du système d’exploitation.
 
-Sous Linux, le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** \(ou **/mnt** pour les images Ubuntu\). Notez que le disque de ressources est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Par contre, sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau, et les utilisateurs devront partitionner, formater et monter cette ressource. Pour plus d’informations, consultez le [guide d’utilisation de l’agent Linux Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/).
+Sous Linux, le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Notez que le disque de ressources est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Par contre, sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau, et les utilisateurs devront partitionner, formater et monter cette ressource. Pour plus d’informations, consultez le [guide d’utilisation de l’agent Linux Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/).
 
 
 
@@ -127,7 +127,7 @@ Une fois ajouté, le disque de données que vous venez d’attacher à la machin
 
 11. Ajoutez le nouveau lecteur à /etc/fstab :
 
-	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID \(identificateur global unique\) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement \(par exemple, /dev/sdc1\). Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
+	Pour vous assurer que le lecteur est remonté automatiquement après un redémarrage, vous devez l’ajouter au fichier /etc/fstab. En outre, il est vivement recommandé d’utiliser l’UUID (identificateur global unique) dans /etc/fstab comme référence au lecteur, plutôt que le nom d’appareil uniquement (par exemple, /dev/sdc1). Pour rechercher l’UUID du nouveau lecteur, vous pouvez vous servir de l’utilitaire **blkid** :
 	
 		`sudo -i blkid`
 

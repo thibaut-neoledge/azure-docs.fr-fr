@@ -20,7 +20,7 @@
 # Procédure pas à pas : copier des données sur l’efficacité d’une campagne vers une base de données SQL Server locale. 
 Dans cette procédure pas à pas, vous allez apprendre à configurer l'environnement permettant d'activer l'utilisation de vos données locales sur le pipeline.
  
-Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -\> Enrichir -\> Analyser le flux de travail, la sortie de l'efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l'analyser au sein de votre organisation.
+Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -> Enrichir -> Analyser le flux de travail, la sortie de l'efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l'analyser au sein de votre organisation.
  
 Pour copier les données d'efficacité de la campagne marketing depuis un objet blob Azure vers une base de données SQL Server locale, vous devez créer en supplément un service lié local, une table et un pipeline utilisant le même jeu de cmdlets présenté dans la première procédure pas à pas.
 
@@ -28,7 +28,7 @@ Pour copier les données d'efficacité de la campagne marketing depuis un objet 
 
 Vous **devez** suivre la procédure pas à pas du didacticiel : [Déplacement et traitement des fichiers journaux à l'aide du service Azure Data Factory][datafactorytutorial] avant de suivre la procédure pas à pas de cet article.
 
-**\(recommandé\)** Consultez et pratiquez la procédure pas à pas de l'article [Activation de vos pipelines pour les utiliser avec des données locales][useonpremisesdatasources] pour manier la création d'un pipeline servant à déplacer les données SQL Server locales vers un magasin d'objets blob Azure.
+**(recommandé)** Consultez et pratiquez la procédure pas à pas de l'article [Activation de vos pipelines pour les utiliser avec des données locales][useonpremisesdatasources] pour manier la création d'un pipeline servant à déplacer les données SQL Server locales vers un magasin d'objets blob Azure.
 
 
 Dans cette procédure pas à pas, vous allez effectuer les étapes suivantes :
@@ -52,17 +52,17 @@ Vous devez avoir installé au moins une passerelle dans votre environnement d'en
 Si vous disposez déjà d'une passerelle de données, ignorez cette étape.
 
 1.	Créer une passerelle de données logique. Dans la **version préliminaire du portail Azure**, cliquez sur **Services liés** sur le volet **DATA FACTORY** de votre fabrique de données.
-2.	Cliquez sur **Ajouter \(+\) Passerelle de données** sur la barre de commandes.  
+2.	Cliquez sur **Ajouter (+) Passerelle de données** sur la barre de commandes.  
 3.	Dans le panneau **Nouvelle passerelle de données**, cliquez sur **CRÉER**.
 4.	Dans le panneau **Créer**, entrez **MyGateway** comme **nom** pour la passerelle de données.
 5.	Cliquez sur **SÉLECTIONNER UNE RÉGION** et modifiez-la au besoin. 
 6.	Cliquez sur **OK** dans le volet **Créer**. 
 7.	Vous devez voir le panneau **Configurer**. 
-8.	Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cela permet de télécharger, d'installer et de configurer la passerelle sur votre ordinateur et d'inscrire la passerelle auprès du service. Si une passerelle est déjà installée sur votre ordinateur et que vous souhaitez créer un lien vers cette passerelle logique sur le portail, vous pouvez utiliser la clé sur ce panneau pour réinscrire votre passerelle à l'aide du Gestionnaire de configuration de la passerelle de gestion des données \(version préliminaire\).
+8.	Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cela permet de télécharger, d'installer et de configurer la passerelle sur votre ordinateur et d'inscrire la passerelle auprès du service. Si une passerelle est déjà installée sur votre ordinateur et que vous souhaitez créer un lien vers cette passerelle logique sur le portail, vous pouvez utiliser la clé sur ce panneau pour réinscrire votre passerelle à l'aide du Gestionnaire de configuration de la passerelle de gestion des données (version préliminaire).
 
 	![Gestionnaire de configuration de la passerelle de gestion des données][image-data-factory-datamanagementgateway-configuration-manager]
 
-9. Cliquez sur **OK** pour fermer le volet **Configurer** et sur **OK** pour fermer le volet **Créer**. Attendez que l'état de **MyGateway** dans le volet **Services liés** passe sur **CORRECT**. Vous pouvez également lancer l'outil **Gestionnaire de configuration de la passerelle de gestion des données \(version préliminaire\)** pour vérifier que le nom de la passerelle correspond à celui du portail et que l'**état** est **Enregistré**. Vous devrez peut-être fermer et rouvrir le panneau Services liés pour afficher le dernier état. L'actualisation de l'écran sur l'état le plus récent peut prendre quelques minutes.
+9. Cliquez sur **OK** pour fermer le volet **Configurer** et sur **OK** pour fermer le volet **Créer**. Attendez que l'état de **MyGateway** dans le volet **Services liés** passe sur **CORRECT**. Vous pouvez également lancer l'outil **Gestionnaire de configuration de la passerelle de gestion des données (version préliminaire)** pour vérifier que le nom de la passerelle correspond à celui du portail et que l'**état** est **Enregistré**. Vous devrez peut-être fermer et rouvrir le panneau Services liés pour afficher le dernier état. L'actualisation de l'écran sur l'état le plus récent peut prendre quelques minutes.
 
 ## <a name="OnPremStep2"></a>Étape 2 : création d’un service lié pour le serveur SQL Server local
 
@@ -72,15 +72,15 @@ Dans cette étape, vous créez d'abord la base de données et la table requises 
 
 Pour commencer, vous devez créer la base de données SQL Server, la table, les types définis par l'utilisateur et les procédures stockées. Cela permettra de passer les résultats **MarketingCampaignEffectiveness** de l'objet blob Azure dans la base de données SQL Server.
 
-1.	Dans l'**Explorateur Windows**, accédez au sous-dossier **OnPremises** dans le dossier **C:\\ADFWalkthrough** \(ou à l'emplacement où vous avez extrait les exemples\).
-2.	Ouvrez **prepareOnPremDatabase&Table.ps1** dans votre éditeur favori, remplacez l'élément en surbrillance par vos informations SQL Server et enregistrez le fichier \(fournissez les informations d'**authentification SQL**\). Dans le cadre du didacticiel, activez l'authentification SQL pour votre base de données. 
+1.	Dans l'**Explorateur Windows**, accédez au sous-dossier **OnPremises** dans le dossier **C:\\ADFWalkthrough** (ou à l'emplacement où vous avez extrait les exemples).
+2.	Ouvrez **prepareOnPremDatabase&Table.ps1** dans votre éditeur favori, remplacez l'élément en surbrillance par vos informations SQL Server et enregistrez le fichier (fournissez les informations d'**authentification SQL**). Dans le cadre du didacticiel, activez l'authentification SQL pour votre base de données. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
 3. Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**.
-4.	Exécutez **prepareOnPremDatabase&Table.ps1** **\(soit & entre guillemets doubles soit comme illustré ci-dessous\)**.
+4.	Exécutez **prepareOnPremDatabase&Table.ps1** **(soit & entre guillemets doubles soit comme illustré ci-dessous)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
 
@@ -104,10 +104,10 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 	2.	Remplacez **<databasename>** par **MarketingCampaigns**.
 	3.	Si vous utilisez l’**authentification SQL** :
 		1.	Spécifiez **<username>** et **<password>** dans les **connectionString**.
-		2.	Supprimez les deux dernières lignes \(les propriétés JSON \*\*username\*\* et **password** sont nécessaires uniquement si vous utilisez l'authentification Windows\). 
-		3.	Supprimez **, \(virgule\) **à la fin de la ligne **gatewayName**. 
-		**Si vous utilisez l’authentification Windows : ** 1. Définissez la valeur de **Integrated Security** sur **True** dans **connectionString**. Supprimez « \*\*User ID=<username>;Password=<password>;\*\* » de connectionString. 2. Spécifiez le nom de l'utilisateur ayant accès à la base de données dans la propriété **username**. 3. Spécifiez le mot de passe du compte d’utilisateur dans la propriété **password**.   
-	4. Spécifiez le nom du portail \(\*\*MyGateway\*\*\) dans la propriété gatewayName. 		  	 
+		2.	Supprimez les deux dernières lignes (les propriétés JSON **username** et **password** sont nécessaires uniquement si vous utilisez l'authentification Windows). 
+		3.	Supprimez **, (virgule) **à la fin de la ligne **gatewayName**. 
+		**Si vous utilisez l’authentification Windows : ** 1. Définissez la valeur de **Integrated Security** sur **True** dans **connectionString**. Supprimez « **User ID=<username>;Password=<password>;** » de connectionString. 2. Spécifiez le nom de l'utilisateur ayant accès à la base de données dans la propriété **username**. 3. Spécifiez le mot de passe du compte d’utilisateur dans la propriété **password**.   
+	4. Spécifiez le nom du portail (**MyGateway**) dans la propriété gatewayName. 		  	 
 3.	Cliquez sur **Déployer** sur la barre d'outils pour déployer le service lié. 
 
 ## <a name="OnPremStep3"></a>Étape 3 : création d’une table et d’un pipeline
@@ -116,14 +116,14 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 
 1.	Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** sur la barre d'outils, puis sélectionnez **SQL local**. 
 2. Remplacez le script JSON du volet de droite par le script JSON du fichier **MarketingCampaignEffectivenessOnPremSQLTable.json** à partir du dossier **C:\\ADFWalkthrough\\OnPremises**.
-3. Remplacez le nom du service lié \(propriété \*\*linkedServiceName\*\*\) **OnPremSqlServerLinkedService** par **SqlServerLinkedService**.
+3. Remplacez le nom du service lié (propriété **linkedServiceName**) **OnPremSqlServerLinkedService** par **SqlServerLinkedService**.
 4. Cliquez sur **Déployer** sur la barre d'outils pour déployer la table. 
 	 
 #### Créer le pipeline pour copier les données d'un objet blob Azure dans SQL Server
 
-1.	1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d'outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... \(points de suspension\)**. Vous pouvez également cliquer sur **Pipelines** dans l'arborescence, puis sur **Nouveau pipeline**.
+1.	1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d'outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l'arborescence, puis sur **Nouveau pipeline**.
 2. Remplacez le script JSON du volet de droite par le script JSON du fichier  **EgressDataToOnPremPipeline.json** à partir du dossier **C:\\ADFWalkthrough\\OnPremises**.
-3. Ajouter une **virgule \(« , »\)** à la fin du **crochet fermant \(« \] »\)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
+3. Ajouter une **virgule (« , »)** à la fin du **crochet fermant (« ] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
 
         "start": "2014-05-01T00:00:00Z",
         "end": "2014-05-05T00:00:00Z",

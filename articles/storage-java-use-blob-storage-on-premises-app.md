@@ -53,8 +53,8 @@ Déclarez une classe nommée **StorageSample**, puis incluez le crochet ouvrant
 
     public class StorageSample {
 
-Dans la classe **StorageSample**, déclarez une variable de chaîne qui contient le protocole du point de terminaison par défaut, le nom de votre compte de stockage et votre clé d'accès de stockage, commespécifié dans votre compte de stockage Azure. Remplacez les valeurs des espaces réservés **your\_account\_name** et
-**your\_account\_key** par votre nom de compte et votre clé de compte.
+Dans la classe **StorageSample**, déclarez une variable de chaîne qui contient le protocole du point de terminaison par défaut, le nom de votre compte de stockage et votre clé d'accès de stockage, commespécifié dans votre compte de stockage Azure. Remplacez les valeurs des espaces réservés **your_account_name** et
+**your_account_key** par votre nom de compte et votre clé de compte.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Fermez **MakeHTMLPage** en insérant un crochet fermant : **}**
 
 Fermez **StorageSample** en insérant un crochet fermant : **}**
 
-Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs d'espace réservé **your\_account\_name** et
-**your\_account\_key** pour utiliser votre nom de compte et votre clé de compte.
+Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs d'espace réservé **your_account_name** et
+**your_account_key** pour utiliser votre nom de compte et votre clé de compte.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation de Blitline pour le traitement d&#39;image - Guide des fonctionnalités Azure" 
-	description="Apprenez à utiliser le service Blitline pour traiter les images au sein d&#39;une application Microsoft Azure." 
+	pageTitle="Utilisation de Blitline pour le traitement d'image - Guide des fonctionnalités Azure" 
+	description="Apprenez à utiliser le service Blitline pour traiter les images au sein d'une application Microsoft Azure." 
 	services="" 
 	documentationCenter=".net" 
 	authors="blitline-dev" 
@@ -73,7 +73,7 @@ Dans cet exemple, JSON prendra une image « src » « ...boys.jpeg » et la 
 
 Vous trouverez l'ID d'application dans votre onglet **INFORMATIONS DE CONNEXION** ou **GÉRER** sur Azure. Il s'agit de votre identifiant secret qui vous permet d'exécuter des tâches sur Blitline.
 
-Le paramètre « save » identifie les informations relatives à l'endroit où vous souhaitez placer l'image après l'avoir traitée. Dans cet exemple sans importance, nous n'avons pas défini d'endroit. Si aucun endroit n'est défini, Blitline la stockera localement \(et temporairement\) dans un emplacement de cloud unique. Vous pourrez obtenir cet emplacement grâce au JSON renvoyé par Blitline lorsque vous effectuez le Blitline. L'identificateur « image » est requis et vous est renvoyé pour l'identification de cette image sauvegardée particulière.
+Le paramètre « save » identifie les informations relatives à l'endroit où vous souhaitez placer l'image après l'avoir traitée. Dans cet exemple sans importance, nous n'avons pas défini d'endroit. Si aucun endroit n'est défini, Blitline la stockera localement (et temporairement) dans un emplacement de cloud unique. Vous pourrez obtenir cet emplacement grâce au JSON renvoyé par Blitline lorsque vous effectuez le Blitline. L'identificateur « image » est requis et vous est renvoyé pour l'identification de cette image sauvegardée particulière.
 
 Vous trouverez plus d’informations sur les *fonctions* prises en charge à l’adresse suivante :<http://www.blitline.com/docs/functions>
 
@@ -95,11 +95,11 @@ Le JSON renvoyé ressemblera à ceci :
     }
 
 
-Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle est disponible à l’adresse suivante : **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+Ceci vous indique que Blitline a reçu votre requête et qu’il l’a placée dans une file d’attente de traitement. Une fois l’image terminée, elle est disponible à l’adresse suivante : **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Enregistrement d’une image sur votre compte Azure Storage
 
-Si vous possédez un compte Azure Storage, vous pouvez facilement demander à Blitline d'envoyer les images traitées sur votre conteneur Azure. En ajoutant un paramètre « azure\_destination », vous définissez l'emplacement et les autorisations pour l'envoi par Blitline.
+Si vous possédez un compte Azure Storage, vous pouvez facilement demander à Blitline d'envoyer les images traitées sur votre conteneur Azure. En ajoutant un paramètre « azure_destination », vous définissez l'emplacement et les autorisations pour l'envoi par Blitline.
 
 Voici un exemple :
 

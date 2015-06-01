@@ -19,7 +19,7 @@
 
 # Création d'un service Azure Search dans le portail
 
-Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se fait à l'aide d'un Kit de développement logiciel \(SDK\) .NET ou d'une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes et le support multilingue. Pour plus d'informations sur le processus de recherche, consultez [Présentation d'Azure Search](../fundamentals-azure-search-chappell/).
+Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se fait à l'aide d'un Kit de développement logiciel (SDK) .NET ou d'une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes et le support multilingue. Pour plus d'informations sur le processus de recherche, consultez [Présentation d'Azure Search](../fundamentals-azure-search-chappell/).
 
 ##Ajout d'un service à votre abonnement  
 
@@ -27,7 +27,7 @@ En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnemen
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** \| **Données + stockage** \| **Recherche**.
+2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
  
      ![][1]
 
@@ -44,7 +44,7 @@ En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnemen
 	
 	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
 	
-	- Le champ **Abonnement** vous permet de choisir parmi plusieurs abonnements \(le cas échéant\).
+	- Le champ **Abonnement** vous permet de choisir parmi plusieurs abonnements (le cas échéant).
 	
 	- Le champ **Emplacement** désigne la zone géographique de centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition des ressources entre plusieurs centres de données n'est pas prise en charge.
 

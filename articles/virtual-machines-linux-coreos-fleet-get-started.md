@@ -31,7 +31,7 @@ Pour ces exemples, commencez par paramétrer un cluster CoreOS exécutant trois 
 
 Voici une application « Hello World » simple qui s’exécute dans un conteneur Docker unique. Cet exemple utilise l’[image Docker Hub busybox].
 
-Sur votre ordinateur client Linux, créez le fichier d’unité **systemd** suivant à l’aide d’un éditeur de texte, puis nommez-le `helloworld.service`. Pour plus d’informations sur la syntaxe, consultez l’article [Fichiers d’unité] \(en anglais\).
+Sur votre ordinateur client Linux, créez le fichier d’unité **systemd** suivant à l’aide d’un éditeur de texte, puis nommez-le `helloworld.service`. Pour plus d’informations sur la syntaxe, consultez l’article [Fichiers d’unité] (en anglais).
 
 ```
 [Unit]
@@ -60,7 +60,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 start helloworld.service
 Unit helloworld.service launched on 62f0f66e.../100.79.86.62
 ```
 
->[AZURE.NOTE]Pour exécuter vos commandes **fleetctl** sans le paramètre **--tunnel**, vous pouvez définir la variable d’environnement FLEETCTL\_TUNNEL afin de transférer les demandes. Par exemple : `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
+>[AZURE.NOTE]Pour exécuter vos commandes **fleetctl** sans le paramètre **--tunnel**, vous pouvez définir la variable d’environnement FLEETCTL_TUNNEL afin de transférer les demandes. Par exemple : `export FLEETCTL_TUNNEL=coreos-cluster.cloudapp.net:22`.
 
 
 Vous pouvez vous connecter au conteneur pour afficher la sortie du service :
@@ -90,9 +90,9 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 ## <a id='highavail'>Exemple 2 : serveur Apache hautement disponible</a>
 
-L’utilisation de CoreOS, de Docker et de **fleet** facilite l’exécution des services en mode haute disponibilité. Dans cet exemple, vous déployez un service qui se compose de trois conteneurs identiques exécutant le serveur Web Apache. Les conteneurs s’exécutent sur les trois machines virtuelles du cluster. Cet exemple ressemble à l’exemple présenté sur la page [Lancement de conteneurs avec fleet] \(en anglais\) et utilise l’[image CoreOS Apache Docker Hub].
+L’utilisation de CoreOS, de Docker et de **fleet** facilite l’exécution des services en mode haute disponibilité. Dans cet exemple, vous déployez un service qui se compose de trois conteneurs identiques exécutant le serveur Web Apache. Les conteneurs s’exécutent sur les trois machines virtuelles du cluster. Cet exemple ressemble à l’exemple présenté sur la page [Lancement de conteneurs avec fleet] (en anglais) et utilise l’[image CoreOS Apache Docker Hub].
 
->[AZURE.NOTE]Pour exécuter le serveur Apache hautement disponible, vous devez configurer un point de terminaison HTTP avec équilibrage de charge sur les machines virtuelles \(port public 80, port privé 80\). Vous pouvez le faire après la création du cluster CoreOS à l’aide du portail de gestion Azure ou de la commande **azure vm endpoint**. Consultez [Configuration d’un équilibrage de charge] pour plus d’informations.
+>[AZURE.NOTE]Pour exécuter le serveur Apache hautement disponible, vous devez configurer un point de terminaison HTTP avec équilibrage de charge sur les machines virtuelles (port public 80, port privé 80). Vous pouvez le faire après la création du cluster CoreOS à l’aide du portail de gestion Azure ou de la commande **azure vm endpoint**. Consultez [Configuration d’un équilibrage de charge] pour plus d’informations.
 
 Sur votre ordinateur client, créez un fichier d’unité modèle **systemd** à l’aide d’un éditeur de texte, puis nommez-le apache@.service. Vous utiliserez ce modèle pour ouvrir trois instances distinctes, nommés apache@1.service, apache@2.service et apache@3.service :
 
@@ -114,7 +114,7 @@ ExecStop=/usr/bin/docker stop apache1
 X-Conflicts=apache@*.service
 ```
 
->[AZURE.NOTE]L’attribut `X-Conflicts` indique à CoreOS qu’une seule instance de ce conteneur peut être exécutée sur un hôte CoreOS donné. Pour plus d’informations, consultez l’article [Fichiers d’unité] \(en anglais\).
+>[AZURE.NOTE]L’attribut `X-Conflicts` indique à CoreOS qu’une seule instance de ce conteneur peut être exécutée sur un hôte CoreOS donné. Pour plus d’informations, consultez l’article [Fichiers d’unité] (en anglais).
 
 Ouvrez à présent les instances de l’unité sur le cluster CoreOS. Normalement, elles doivent s’exécuter sur trois ordinateurs distincts :
 
@@ -133,10 +133,10 @@ Pour atteindre le serveur Apache en cours d’exécution sur l’une des unités
 Le message par défaut renvoyé à partir du serveur Apache, s’affiche. Il ressemble au message suivant :
 
 ```
-\<htm\l>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<htm\l><body><h1>It works!</h1>
+<p>This is the default web page for this server.</p>
+<p>The web server software is running but no content has been added, yet.</p>
+</body></html>
 ```
 
 Vous pouvez essayer d’arrêter une ou plusieurs machines virtuelles de votre cluster afin de vérifier que le service Apache continue à s’exécuter.

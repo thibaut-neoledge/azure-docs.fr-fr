@@ -50,7 +50,7 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
 1.  Si Visual Studio est installé sur le serveur de builds, cliquez sur **Démarrer**, sur **Tous les programmes**, puis sélectionnez **Visual Studio Command Prompt** dans le dossier **Visual Studio Tools**.
 
-    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework\\*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
+    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -64,7 +64,7 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
     Vous pouvez aussi spécifier le nom du projet comme paramètre MSBuild. S'il n'est pas spécifié, le répertoire actif est utilisé. Pour plus d’informations sur les options de ligne de commande MSBuild, consultez la page [Référence de la ligne de commande MSBuild][1].
 
-4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *<ProjectDir>*\\bin\\*Configuration*\\app.publish\. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
+4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *<ProjectDir>*\\bin*Configuration*\\app.publish. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -99,7 +99,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 5.  Cliquez sur l'onglet **Processus**. Sous l’onglet Processus, choisissez le modèle par défaut, sous **Build**, choisissez le projet s’il n’est pas déjà sélectionné et développez la section **Avancé** dans la section **Build** de la grille.
 
-6.  Choisissez **Arguments MSBuild** et définissez les arguments de ligne de commande MSBuild comme décrit à l'étape 2 plus haut. Par exemple, entrez **/t:Publish /p:PublishDir=\\\\myserver\\drops\** pour générer un package et copier les fichiers associés dans \\\\myserver\\drops\\ :
+6.  Choisissez **Arguments MSBuild** et définissez les arguments de ligne de commande MSBuild comme décrit à l'étape 2 plus haut. Par exemple, entrez **/t:Publish /p:PublishDir=\\\\myserver\\drops** pour générer un package et copier les fichiers associés dans \\\\myserver\\drops\\ :
 
     ![][2]
 
@@ -129,7 +129,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
     Ceci affiche les informations sur votre abonnement. Vérifiez que tout est correct.
 
-4.  Enregistrez le modèle de script fourni à la [fin de cet article][] dans votre dossier de scripts sous c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Enregistrez le modèle de script fourni à la [fin de cet article][] dans votre dossier de scripts sous c:\\scripts\\WindowsAzure**PublishCloudService.ps1**.
 
 5.  Vérifiez la section des paramètres de ce script. Ajoutez des valeurs ou modifiez les valeurs par défaut. Ces valeurs peuvent de toute manière être ignorées en indiquant des paramètres explicites.
 

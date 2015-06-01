@@ -33,7 +33,7 @@ Pour créer une base de données MySQL à partir de l’[Azure Store], procédez
 
 	![Gérer une base de données MySQL dans le portail Azure](./media/create-mysql-db/manage-mysql-add-on.png)
 
-7. Pour obtenir les informations de connexion à la base de données, cliquez sur **CONNECTION INFO** en bas de la page \(comme illustré ci-dessus\).
+7. Pour obtenir les informations de connexion à la base de données, cliquez sur **CONNECTION INFO** en bas de la page (comme illustré ci-dessus).
 
 	![Informations de connexion MySql](./media/create-mysql-db/mysql-conn-info.png)
 
@@ -51,7 +51,7 @@ Pour créer une base de données MySQL comme ressource liée lors de la créatio
 
 	![Détails du site Web](./media/create-mysql-db/provide-website-details.png)
 
-4. Indiquez le **NOM** de la base de données, sélectionnez sa **RÉGION** \(elle doit être identique à celle du site web\), acceptez les conditions juridiques de ClearDB, puis cliquez sur la coche en bas du cadre.
+4. Indiquez le **NOM** de la base de données, sélectionnez sa **RÉGION** (elle doit être identique à celle du site web), acceptez les conditions juridiques de ClearDB, puis cliquez sur la coche en bas du cadre.
 
 	![Fournir des détails MySQL](./media/create-mysql-db/provide-mysql-details.png)
 

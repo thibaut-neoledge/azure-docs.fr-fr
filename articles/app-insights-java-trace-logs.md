@@ -17,9 +17,9 @@
 
 # Exploration du suivi des journaux Java dans Application Insights
 
-Si vous utilisez Logback ou Log4J \(v1.2 ou v2.0\) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
+Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
 
-Installez le [kit de développement logiciel \(SDK\) Application Insights pour Java][java], si ce n’est pas déjà fait.
+Installez le [kit de développement logiciel (SDK) Application Insights pour Java][java], si ce n’est pas déjà fait.
 
 
 ## Ajouter des bibliothèques de journalisation à votre projet
@@ -87,9 +87,9 @@ Téléchargez et décompressez l’appender approprié, puis ajoutez la biblioth
 
 Enregistreur | Télécharger | Bibliothèque
 ----|----|----
-Logback|[Kit de développement logiciel \(SDK\) avec appender Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[Kit de développement logiciel \(SDK\) avec appender Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Kit de développement logiciel \(SDK\) avec appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Kit de développement logiciel (SDK) avec appender Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,7 +130,7 @@ Pour recevoir le suivi, fusionnez l’extrait de code approprié dans le fichier
       <appender-ref ref="aiAppender" />
     </root>
 
-Les appenders Application Insights peuvent être référencés par n’importe quel enregistreur configuré et pas nécessairement par l’enregistreur racine \(comme indiqué dans les exemples de code ci-dessus\).
+Les appenders Application Insights peuvent être référencés par n’importe quel enregistreur configuré et pas nécessairement par l’enregistreur racine (comme indiqué dans les exemples de code ci-dessus).
 
 ## Explorer le suivi dans le portail Application Insights
 

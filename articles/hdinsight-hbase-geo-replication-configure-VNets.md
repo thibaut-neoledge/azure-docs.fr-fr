@@ -33,7 +33,7 @@ Pour plus d'informations, consultez [Configuration d'une connexion de réseau vi
 
 Ce didacticiel fait partie de la [série][hdinsight-hbase-replication] portant sur la création d'une géo-réplication HBase.
 
-- Configurer une connexion VPN entre deux réseaux virtuels \(ce didacticiel\)
+- Configurer une connexion VPN entre deux réseaux virtuels (ce didacticiel)
 - [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-geo-replication-DNS]
 - [Configurer la géo-réplication HBase][hdinsight-hbase-geo-replication]
 
@@ -74,18 +74,18 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- **NOM** : Contoso-VNet-EU
 	- **EMPLACEMENT** : Europe du Nord
 
-		This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
+		Ce didacticiel utilise les centres de données d'Europe du Nord et de l'Est des États-Unis, mais vous pouvez choisir vos propres centres de données.
 4.	Entrez :
 
-	- **SERVEUR DNS** : \(laisser vide\) 
+	- **SERVEUR DNS** : (laisser vide) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		Vous aurez besoin de votre propre serveur DNS pour la tâche de résolution de noms dans les réseaux virtuels. Pour déterminer s'il convient d'utiliser la méthode de résolution de noms fournie par Azure ou votre propre serveur DNS, voir l'article [Résolution de noms (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Pour connaître la procédure à suivre pour configurer la résolution de noms entre réseaux virtuels, voir l'article [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
   
-	- **Configurer un réseau VPN de point à site** : \(décoché\)
+	- **Configurer un réseau VPN de point à site** : (décoché)
 
 		Point-to-site doesn't apply to this scenario.
 
- **Configurer un réseau VPN de site à site** : \(décoché\)
+ **Configurer un réseau VPN de site à site** : (décoché)
  	
 		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
 5.	Entrez :
@@ -104,9 +104,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- **NOM** : Contoso-VNet-US
 	- **EMPLACEMENT** : Est des États-Unis
 	 
-	- **SERVEUR DNS** : \(laisser vide\)
-	- **Configurer un réseau VPN de point à site** : \(décoché\)
-	- **Configurer un réseau VPN de site à site** : \(décoché\)
+	- **SERVEUR DNS** : (laisser vide)
+	- **Configurer un réseau VPN de point à site** : (décoché)
+	- **Configurer un réseau VPN de site à site** : (décoché)
 	 
 	- **ADRESSE IP DE DÉPART DE L'ESPACE D'ADRESSAGE** : 10.2.0.0
 	- **CIDR DE L'ESPACE D'ADRESSAGE** : /16
@@ -144,7 +144,7 @@ Quand vous créez une configuration de réseau virtuel à réseau virtuel, vous 
 3. Entrez :
 
 	- **NOM** : Contoso-LNet-EU
-	- **ADRESSE IP DU PÉRIPHÉRIQUE VPN** : 192.168.0.1 \(cette adresse sera actualisée ultérieurement\)
+	- **ADRESSE IP DU PÉRIPHÉRIQUE VPN** : 192.168.0.1 (cette adresse sera actualisée ultérieurement)
 
 		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
 4.	Entrez :
@@ -159,7 +159,7 @@ Quand vous créez une configuration de réseau virtuel à réseau virtuel, vous 
 - Répétez la procédure précédente avec les paramètres suivants :
 
 	- **NOM** : Contoso-LNet-US
-	- **ADRESSE IP DU PÉRIPHÉRIQUE VPN** : 192.168.0.1 \(cette adresse sera actualisée ultérieurement\)
+	- **ADRESSE IP DU PÉRIPHÉRIQUE VPN** : 192.168.0.1 (cette adresse sera actualisée ultérieurement)
 	 
 	- **ADRESSE IP DE DÉPART DE L'ESPACE D'ADRESSAGE** : 10.2.0.0
 	- **CIDR DE L'ESPACE D'ADRESSAGE** : /16
@@ -214,7 +214,7 @@ Dans la dernière section, vous avez créé une passerelle VPN pour chacun des r
 
 ###Définir des clés de passerelle de réseau virtuel
 
-Les passerelles de réseau virtuel utilisent une clé partagée pour authentifier les connexions entre les réseaux virtuels. La clé ne peut pas être configurée dans le portail Azure. Vous devez utiliser PowerShell ou le Kit de développement logiciel \(SDK\) .NET.
+Les passerelles de réseau virtuel utilisent une clé partagée pour authentifier les connexions entre les réseaux virtuels. La clé ne peut pas être configurée dans le portail Azure. Vous devez utiliser PowerShell ou le Kit de développement logiciel (SDK) .NET.
 
 **Pour définir les clés**
 

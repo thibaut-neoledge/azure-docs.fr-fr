@@ -53,7 +53,7 @@ Pour utiliser Azure Service Bus, vous devez télécharger et utiliser le package
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier qu'un dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure** qui contient les bibliothèques dont vous avez besoin pour accéder aux files d'attente Service Bus.
+3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier qu'un dossier **node_modules** a été créé. Dans ce dossier, recherchez le package **azure** qui contient les bibliothèques dont vous avez besoin pour accéder aux files d'attente Service Bus.
 
 ### Importation du module
 
@@ -63,7 +63,7 @@ Utilisez le Bloc-notes ou un autre éditeur de texte pour ajouter le code suivan
 
 ### Configuration d'une connection Service Bus Azure
 
-Le module azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE et AZURE\_SERVICEBUS\_ACCESS\_KEY pour obtenir les informations permettant de se connecter à votre compte Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte pendant l'appel de **createServiceBusService**.
+Le module azure lit les variables d'environnement AZURE_SERVICEBUS_NAMESPACE et AZURE_SERVICEBUS_ACCESS_KEY pour obtenir les informations permettant de se connecter à votre compte Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte pendant l'appel de **createServiceBusService**.
 
 Pour un exemple de définition des variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez [Service cloud Node.js avec stockage].
 

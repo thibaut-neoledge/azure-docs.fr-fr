@@ -32,20 +32,20 @@ Sinon, examinez votre projet dans l'Explorateur de solutions Visual Studio et so
 1. Ouvrez le projet dans Visual Studio 2013 Update 3 ou version ultérieure.
 2. Supprimez ApplicationInsights.config. 
 3. Supprimez les packages Application Insights NuGet du projet. Cliquez avec le bouton droit sur votre projet dans l'Explorateur de solutions, puis sélectionnez Gérer les packages NuGet.
-4. SDK : cliquez avec le bouton droit et [sélectionnez Ajouter Application Insights][greenbrown]. Cette opération ajoute le Kit de développement logiciel \(SDK\) à votre projet et crée également une ressource Application Insights dans Azure.
-5. Journalisation : si votre code comprend des appels à l'ancienne API, comme LogEvent\(\), vous les découvrirez lorsque vous essayez de générer la solution. Mettez-le à jour pour pouvoir [utiliser la nouvelle API][track].
+4. SDK : cliquez avec le bouton droit et [sélectionnez Ajouter Application Insights][greenbrown]. Cette opération ajoute le Kit de développement logiciel (SDK) à votre projet et crée également une ressource Application Insights dans Azure.
+5. Journalisation : si votre code comprend des appels à l'ancienne API, comme LogEvent(), vous les découvrirez lorsque vous essayez de générer la solution. Mettez-le à jour pour pouvoir [utiliser la nouvelle API][track].
 6. Pages web : si votre projet comprend des pages web, remplacez les scripts dans les sections <head>. En général, il n'y a qu'une seule copie de la page maître, comme Views\\Shared\_Layout.cshtml. [Obtenir le nouveau script à partir du panneau de démarrage rapide dans vos ressources Application Insights dans Azure][usage]. Si vos pages web incluent des appels de télémétrie, comme logEvent ou logPage, [mettez-les à jour pour qu'ils utilisent la nouvelle API][track].
 7. Surveillance du serveur : si votre application est un service s'exécutant sur IIS, désinstallez l'Agent de surveillance Microsoft du serveur, puis [installez Application Insights Status Monitor][redfield].
 8. Tests web : si vous utilisiez des tests de disponibilité du site web, [recréez-les sur le nouveau portail][availability], avec leurs alertes.
 9. Alertes : configurer des [alertes sur des mesures][alerts] dans le portail Azure.
-10. Compteurs de performances : si vous avez utilisé des compteurs de performances, vous pouvez écrire votre propre code pour échantillonner régulièrement les compteurs et les envoyer avec [TrackMetric\(\)][track].
+10. Compteurs de performances : si vous avez utilisé des compteurs de performances, vous pouvez écrire votre propre code pour échantillonner régulièrement les compteurs et les envoyer avec [TrackMetric()][track].
 
 ## Si vous disposez d'un service web Java...
 
 1. Sur votre serveur, désactivez l'ancien agent en supprimant les références à l'agent APM dans le fichier de démarrage du service web. Sur les serveurs TomCat, modifiez Catalina.bat. Sur les serveurs JBoss, modifiez Run.bat. 
 2. Redémarrez le service web.
-3. Dans le portail Microsoft Azure, [ajoutez une nouvelle ressource Application Insights][java]. Sur votre ordinateur de développement, ajoutez le [kit de développement logiciel \(SDK\) Java][java] à votre projet web. Vous pouvez maintenant [envoyer de la télémétrie personnalisé][track] à partir du code serveur.
-4. Remplacez les scripts dans les sections <head> de vos pages web. \(Il peut y avoir une seule copie côté serveur.\) [Obtenir le nouveau script à partir du panneau de démarrage rapide dans vos nouvelles ressources Application Insights dans Azure][usage]. Si vos pages web incluent des appels de télémétrie, comme logEvent ou logPage, [mettez-les à jour pour qu'ils utilisent la nouvelle API][track].
+3. Dans le portail Microsoft Azure, [ajoutez une nouvelle ressource Application Insights][java]. Sur votre ordinateur de développement, ajoutez le [kit de développement logiciel (SDK) Java][java] à votre projet web. Vous pouvez maintenant [envoyer de la télémétrie personnalisé][track] à partir du code serveur.
+4. Remplacez les scripts dans les sections <head> de vos pages web. (Il peut y avoir une seule copie côté serveur.) [Obtenir le nouveau script à partir du panneau de démarrage rapide dans vos nouvelles ressources Application Insights dans Azure][usage]. Si vos pages web incluent des appels de télémétrie, comme logEvent ou logPage, [mettez-les à jour pour qu'ils utilisent la nouvelle API][track].
 
 
 

@@ -27,7 +27,7 @@ Pour effectuer cette tâche, assurez-vous que vous disposez d'un service Azure S
 
 2. Cliquez sur le tableau de bord de votre service Azure Search. Voici quelques façons d'afficher le tableau de bord.
 	- Dans la barre de lancement, cliquez sur **Accueil**. La page d'accueil comporte des vignettes pour chaque service de votre abonnement. Cliquez sur la vignette pour ouvrir le tableau de bord des services.
-	- Dans la barre de lancement, cliquez sur **Parcourir** \| **Filtrer par** \| **Rechercher des services** pour trouver votre service de recherche dans la liste. 
+	- Dans la barre de lancement, cliquez sur **Parcourir** | **Filtrer par** | **Rechercher des services** pour trouver votre service de recherche dans la liste. 
 
 3. Une barre de commande apparaît en haut du tableau de bord des services, avec notamment l'option **Ajouter un index**.
 	
@@ -45,7 +45,7 @@ Pour effectuer cette tâche, assurez-vous que vous disposez d'un service Azure S
 
 6. Cliquez sur *hôtels* pour ouvrir le panneau de définition d'index.
 
-	Lorsque vous créez un index dans le portail, un champ requis \(id\) est créé pour vous. Il s'agit du champ clé permettant d'identifier de façon unique chaque document. Il n'existe qu'un seul champ par clé \(aucune clé composite\), et il s'agit toujours d'une chaîne.
+	Lorsque vous créez un index dans le portail, un champ requis (id) est créé pour vous. Il s'agit du champ clé permettant d'identifier de façon unique chaque document. Il n'existe qu'un seul champ par clé (aucune clé composite), et il s'agit toujours d'une chaîne.
 
 	Si vous souhaitez renommer le champ clé, il est important d'effectuer cette étape maintenant, lors de la création de l'index. Vous ne pourrez plus renommer le champ après la création de l'index.
 
@@ -55,11 +55,11 @@ Pour effectuer cette tâche, assurez-vous que vous disposez d'un service Azure S
 
 8. Remplacez *id* par *hotelId*.
 
-9. Cliquez sur **OK** dans chaque panneau \(champs et index\) pour créer l'index.
+9. Cliquez sur **OK** dans chaque panneau (champs et index) pour créer l'index.
 
 ##Ajouter des champs
 
-Dans Azure Search, les attributs d'index comme ceux pouvant faire l'objet de recherches, de facettes et de tris sont activés par défaut. En règle générale, lorsque vous définissez ces attributs, ils servent à empêcher des opérations de recherche illogiques \(par exemple, les tris ou les facettes sur une description\).
+Dans Azure Search, les attributs d'index comme ceux pouvant faire l'objet de recherches, de facettes et de tris sont activés par défaut. En règle générale, lorsque vous définissez ces attributs, ils servent à empêcher des opérations de recherche illogiques (par exemple, les tris ou les facettes sur une description).
 
 Le portail est différent. Dans le portail, les opérations de recherche sont désactivées par défaut pour vous permettre de sélectionner toutes les opérations qui s'appliquent, champ par champ.
 

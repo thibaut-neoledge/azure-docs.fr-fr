@@ -326,7 +326,7 @@ Ouvrez le fichier *Controllers\\HomeController.cs* dans l'**Explorateur de solut
 	}
 
 ## Configuration des styles ##
-Pour modifier le titre du haut de la page, ouvrez le fichier *Views\\Shared\\_Layout.cshtml* dans l'**Explorateur de solutions** et remplacez « Application name » dans le titre de la barre de navigation par « My Task List Application » de manière à afficher ce qui suit :
+Pour modifier le titre du haut de la page, ouvrez le fichier *Views\\Shared\_Layout.cshtml* dans l'**Explorateur de solutions** et remplacez « Application name » dans le titre de la barre de navigation par « My Task List Application » de manière à afficher ce qui suit :
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ Pour configurer le menu Liste des tâches, ouvrez le fichier *\\Views\\Home\\Ind
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home\* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
+Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
 
 	@model MyTaskListApp.Models.MyTask
 	

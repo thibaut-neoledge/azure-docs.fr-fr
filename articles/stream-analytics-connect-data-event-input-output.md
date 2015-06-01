@@ -97,11 +97,11 @@ Les tables Azure peuvent être utilisées pour stocker des données structurées
  
 Pour utiliser un stockage de tables Azure, vous devez avoir les informations suivantes sur votre table :
 
-1. Nom de compte de stockage \(si ce système de stockage est dans un autre abonnement que votre travail de diffusion\).
-2. Clé de compte de stockage \(si ce système de stockage est dans un autre abonnement que votre travail de diffusion\).
-3. Nom de table de sortie \(sera créé s’il n’existe pas\).
-4. Clé de partition \(obligatoire\).
-5.   Clé de ligne \(actuellement ce paramètre est obligatoire, mais nous projetons de le rendre facultatif suite aux commentaires des clients\)
+1. Nom de compte de stockage (si ce système de stockage est dans un autre abonnement que votre travail de diffusion).
+2. Clé de compte de stockage (si ce système de stockage est dans un autre abonnement que votre travail de diffusion).
+3. Nom de table de sortie (sera créé s’il n’existe pas).
+4. Clé de partition (obligatoire).
+5.   Clé de ligne (actuellement ce paramètre est obligatoire, mais nous projetons de le rendre facultatif suite aux commentaires des clients)
 
 Pour une meilleure conception de la clé de partition et de la clé de ligne, veuillez vous référer à l’article ci-dessous [Conception d’une stratégie de partitionnement évolutive pour Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

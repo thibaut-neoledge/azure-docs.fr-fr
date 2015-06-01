@@ -18,7 +18,7 @@
 
 ## Vue d'ensemble
 
-Votre appareil StorSimple comprend des diodes électroluminescentes \(LED\) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
+Votre appareil StorSimple comprend des diodes électroluminescentes (LED) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
 
 Les LED peuvent prendre trois états pour indiquer l’état d’un module : vert, clignotant en alternance du vert au rouge-orange ou rouge-orange.
 
@@ -37,9 +37,9 @@ Le panneau avant, également appelé *panneau de commande*, ** indique l’état
 Le panneau avant comprend les indicateurs suivants :
 
 1. Bouton d’alimentation
-2. Voyant LED d’alimentation \(vert/rouge-orange\)
-3. Voyant LED de panne de module \(ALLUMÉ rouge-orange/ÉTEINT\)
-4. Voyant LED d’erreur logique \(ALLUMÉ rouge-orange/ÉTEINT\)
+2. Voyant LED d’alimentation (vert/rouge-orange)
+3. Voyant LED de panne de module (ALLUMÉ rouge-orange/ÉTEINT)
+4. Voyant LED d’erreur logique (ALLUMÉ rouge-orange/ÉTEINT)
 5. Affichage de l’ID de l’unité  
 
 La principale différence entre les LED du panneau avant de l’appareil et celles du boîtier EBOD est le **numéro d’identification de l’unité système** indiqué sur l’affichage à LED. L’ID d’unité par défaut affiché sur l’appareil est **00**, alors que l’ID d’unité par défaut affiché sur le boîtier EBOD est **01**. Cela vous permet de faire rapidement la différence entre l’appareil et le boîtier EBOD lorsque l’appareil est mis sous tension. Si votre appareil est hors tension, utilisez les informations fournies sous [Mise sous tension d’un nouvel appareil](https://msdn.microsoft.com/library/azure/dn772378.aspx) pour différencier l’appareil du boîtier EBOD.
@@ -51,16 +51,16 @@ Utilisez le tableau suivant pour identifier l’état indiqué par les LED du pa
 |Alimentation du système | Panne de module | Erreur logique | Alarme | État|
 |-------------|---------------|-----------------|-------|-------|
 |Rouge-orange | ÉTEINT | ÉTEINT | N/A | Alimentation secteur coupée, fonctionnement sur l’alimentation de secours ou alimentation secteur activée mais les modules de contrôleur ont été retirés.|
-|Vert | ALLUMÉ | ALLUMÉ | N/A | État de test panneau de commande à la mise sous tension \(5 s\)|
+|Vert | ALLUMÉ | ALLUMÉ | N/A | État de test panneau de commande à la mise sous tension (5 s)|
 |Vert | ÉTEINT | ÉTEINT | N/A | Mise sous tension, tout fonctionne correctement|
 |Vert | ALLUMÉ |N/A | LED de panne de PCM, LED de panne de ventilateur | Panne de PCM, panne de ventilateur, surchauffe ou température insuffisante|
 | Vert | ALLUMÉ | N/A | LED de module d’E/S | Panne de module de contrôleur|
 | Vert | ALLUMÉ | N/A | N/A | Erreur logique du boîtier|
-| Vert | Clignote | N/A | LED d’état du module sur le module de contrôleur. LED de panne de PCM, LED de panne de ventilateur | Type de module de contrôleur installé inconnu, défaillance du bus I2C, erreur de configuration des données VPD \(Vital Product Data\) du module de contrôleur |
+| Vert | Clignote | N/A | LED d’état du module sur le module de contrôleur. LED de panne de PCM, LED de panne de ventilateur | Type de module de contrôleur installé inconnu, défaillance du bus I2C, erreur de configuration des données VPD (Vital Product Data) du module de contrôleur |
 
-## Voyants LED du module d’alimentation et de refroidissement \(PCM\)   
+## Voyants LED du module d’alimentation et de refroidissement (PCM)   
 
-Vous trouverez les voyants LED du module d’alimentation et de refroidissement \(PCM\) à l’arrière du boîtier principal ou du boîtier EBOD de chaque module PCM. Cette rubrique explique comment utiliser les LED suivantes pour analyser l’état de votre appareil StorSimple.
+Vous trouverez les voyants LED du module d’alimentation et de refroidissement (PCM) à l’arrière du boîtier principal ou du boîtier EBOD de chaque module PCM. Cette rubrique explique comment utiliser les LED suivantes pour analyser l’état de votre appareil StorSimple.
 
 - LED de PCM du boîtier principal
 - LED de PCM du boîtier EBOD
@@ -82,26 +82,26 @@ L’appareil StorSimple est équipé d’un module PCM de 764 W, avec une batte
 L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de l’appareil comprend six LED. Quatre de ces LED indiquent l’état de l’alimentation et du ventilateur. Les deux autres LED indiquent l’état du module de batterie de secours du PCM. Vous pouvez utiliser les tableaux suivants pour déterminer l’état du PCM.
 
 ### Voyants LED du PCM relatifs à l’alimentation et au ventilateur
-| État | PCM OK \(vert\) | Panne d’alimentation secteur \(orange\) | Panne de ventilateur \(orange\) | Panne d’alimentation CC \(orange\) |
+| État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 |--------|----------------|-----------------------|------------------|----------------------|
-| Absence d’alimentation secteur \(vers le boîtier\) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT|
-| Absence d’alimentation secteur \(ce PCM uniquement\) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
+| Absence d’alimentation secteur (vers le boîtier) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT|
+| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
 | PCM alimenté sur secteur - OK | ALLUMÉ | ÉTEINT | ÉTEINT | ÉTEINT |
-| Panne de PCM \(panne de ventilateur\) | ÉTEINT | ÉTEINT | ALLUMÉ | N/A |
-| Panne de PCM \(surampérage, surtension, surintensité\) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
-| PCM \(ventilateur hors tolérance\) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
+| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ALLUMÉ | N/A |
+| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
+| PCM (ventilateur hors tolérance) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
 | Mode veille | Clignote | ÉTEINT | ÉTEINT | ÉTEINT |
 | Téléchargement du microprogramme de PCM | ÉTEINT | Clignote | Clignote | Clignote |
 
 ### Voyants LED du PCM relatifs à la batterie de secours  
 
-| État | Batterie en bon état \(vert\) | Panne de batterie \(orange\) |
+| État | Batterie en bon état (vert) | Panne de batterie (orange) |
 |--------|----------------------|-----------------------|
 | Batterie non présente | ÉTEINT | ÉTEINT |
 | Batterie présente et chargée | ALLUMÉ | ÉTEINT |
 | Batterie en charge ou décharge de maintenance | Clignote | ÉTEINT |
-| Erreur logicielle de batterie \(récupérable\) | ÉTEINT | Clignote |
-| Erreur matérielle de batterie \(non récupérable\) | ÉTEINT | ALLUMÉ |
+| Erreur logicielle de batterie (récupérable) | ÉTEINT | Clignote |
+| Erreur matérielle de batterie (non récupérable) | ÉTEINT | ALLUMÉ |
 | Batterie désamorcée | Clignote | ÉTEINT |
 
 ## LED de PCM du boîtier EBOD  
@@ -112,14 +112,14 @@ Le boîtier EBOD est équipé d’un module PCM de 580 W,  sans batterie suppl�
  
 Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.
 
-| État | PCM OK \(vert\) | Panne d’alimentation secteur \(orange\) | Panne de ventilateur \(orange\) | Panne d’alimentation CC \(orange\) |
+| État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 |--------|---------------|------------------------|------------------|----------------------|
-| Absence d’alimentation secteur \(vers le boîtier\) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT |
-| Absence d’alimentation secteur \(ce PCM uniquement\) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
+| Absence d’alimentation secteur (vers le boîtier) | ÉTEINT | ÉTEINT | ÉTEINT | ÉTEINT |
+| Absence d’alimentation secteur (ce PCM uniquement) | ÉTEINT | ALLUMÉ | ÉTEINT | ALLUMÉ |
 | PCM alimenté sur secteur - OK | ALLUMÉ | ÉTEINT | ÉTEINT | ÉTEINT |
-| Panne de PCM \(panne de ventilateur\) | ÉTEINT | ÉTEINT | ALLUMÉ | X |
-| Panne de PCM \(surampérage, surtension, surintensité\) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
-| PCM \(ventilateur hors tolérance\) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
+| Panne de PCM (panne de ventilateur) | ÉTEINT | ÉTEINT | ALLUMÉ | X |
+| Panne de PCM (surampérage, surtension, surintensité) | ÉTEINT | ALLUMÉ | ALLUMÉ | ALLUMÉ |
+| PCM (ventilateur hors tolérance) | ALLUMÉ | ÉTEINT | ÉTEINT | ALLUMÉ |
 | Mode veille | Clignote | ÉTEINT | ÉTEINT | ÉTEINT |
 | Téléchargement du microprogramme de PCM | ÉTEINT | Clignote | Clignote | Clignote |
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.
 L’appareil StorSimple comprend des LED pour le contrôleur principal et les modules de contrôleur EBOD.
 
 ### LED d’analyse pour le contrôleur principal
-L’illustration suivante vous aide à identifier les LED du contrôleur principal. \(Tous les composants sont répertoriés pour faciliter la compréhension.\)
+L’illustration suivante vous aide à identifier les LED du contrôleur principal. (Tous les composants sont répertoriés pour faciliter la compréhension.)
 
    ![][4]
  
@@ -138,17 +138,17 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctio
 
 | LED | Description                                                                            
 |---- | ----------- |
-| LED d’ID \(bleue\) | Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
-| LED de panne \(orange\) | Indique une panne du contrôleur.        
-| LED OK \(verte\) | Une LED verte indique que le contrôleur est OK. Une LED verte clignotante indique une erreur de configuration de données VPD du contrôleur. |
-| LED d’activité SAS \(vertes\) | Le vert fixe indique une connexion sans activité en cours. Le vert clignotant indique une activité continue sur la connexion. |
-| LED d’état Ethernet | Le côté droit indique l’activité lien/réseau : \(vert fixe\) lien actif, \(vert clignotant\) activité réseau. Le côté gauche indique la vitesse du réseau: \(jaune\) 1 000 Mbits/s, \(vert\) 100 Mbits/s \(vert\) et \(ÉTEINT\) 10 Mbits/s. Selon le modèle de composant, ce voyant peut clignoter même si l’interface réseau n’est pas activée. |
+| LED d’ID (bleue) | Indique que le module est en cours d’identification. Si la LED bleue clignote sur un contrôleur en marche, cela signifie que ce contrôleur est le contrôleur actif et que l’autre est le contrôleur de secours. Pour plus d’informations, consultez la page [Identification d’un contrôleur actif sur votre appareil](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
+| LED de panne (orange) | Indique une panne du contrôleur.        
+| LED OK (verte) | Une LED verte indique que le contrôleur est OK. Une LED verte clignotante indique une erreur de configuration de données VPD du contrôleur. |
+| LED d’activité SAS (vertes) | Le vert fixe indique une connexion sans activité en cours. Le vert clignotant indique une activité continue sur la connexion. |
+| LED d’état Ethernet | Le côté droit indique l’activité lien/réseau : (vert fixe) lien actif, (vert clignotant) activité réseau. Le côté gauche indique la vitesse du réseau: (jaune) 1 000 Mbits/s, (vert) 100 Mbits/s (vert) et (ÉTEINT) 10 Mbits/s. Selon le modèle de composant, ce voyant peut clignoter même si l’interface réseau n’est pas activée. |
 | LED POST | Indique la progression du démarrage lorsque le contrôleur est mis sous tension. Si l’appareil StorSimple ne démarre pas, cette LED aide le support technique Microsoft à identifier à quel point du démarrage la panne s’est produite. |
 
 >[AZURE.IMPORTANT]Si la LED de panne est allumée, le module de contrôleur présente un problème que vous pouvez peut-être résoudre en redémarrant le contrôleur. Contactez le support technique Microsoft si le redémarrage du contrôleur ne résout pas ce problème.
 
 
-###Analyse des LED de l’EBOD \(boîtier EBOD\)  
+###Analyse des LED de l’EBOD (boîtier EBOD)  
 
 Chaque contrôleur EBOD SAS de 6 Gbits/s possède des LED qui indiquent son état, comme illustré ci-dessous.
 
@@ -158,9 +158,9 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fo
 
 ###Voyants LED du module de contrôleur EBOD  
 
-|État | Module d’E/S OK \(vert\) | Panne du module d’E/S \(orange\) | Activité sur les ports de l’hôte \(vert\) |
+|État | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
 |-------|----------------------|-------------------------------|----------------------------|
-\| Module de contrôleur OK \| ALLUMÉ \|ÉTEINT \| - \| \| Panne du module de contrôleur \| ÉTEINT \| ALLUMÉ \| - \| \| Aucune connexion au port hôte externe \| - \| - \| ÉTEINT \|\| Connexion au port hôte externe – aucune activité \| - \| - \| ALLUMÉ \|\| Connexion au port hôte externe - activité \| - \| - \| Clignote \|\| Erreur de métadonnées du module de contrôleur \| Clignote \| - \| - \|
+| Module de contrôleur OK | ALLUMÉ |ÉTEINT | - | | Panne du module de contrôleur | ÉTEINT | ALLUMÉ | - | | Aucune connexion au port hôte externe | - | - | ÉTEINT || Connexion au port hôte externe – aucune activité | - | - | ALLUMÉ || Connexion au port hôte externe - activité | - | - | Clignote || Erreur de métadonnées du module de contrôleur | Clignote | - | - |
 
 ## Voyants LED du lecteur de disque relatifs au boîtier principal et au boîtier EBOD
 
@@ -174,17 +174,17 @@ Utilisez le tableau suivant pour déterminer l’état de chaque lecteur de disq
 
 ### Voyants LED du lecteur de disque relatifs au boîtier EBOD  
 
-| État | LED d’activité OK \(verte\) | LED de panne \(rouge-orange\) | LED associées du panneau de commande |
+| État | LED d’activité OK (verte) | LED de panne (rouge-orange) | LED associées du panneau de commande |
 |-------|--------------------------|----------------------|-------------------------|
 | Aucun disque installé | ÉTEINT | ÉTEINT | Aucun |
 | Disque installé et opérationnel | Clignotement avec l’activité | X | Aucun |
-| Identité de l’appareil SES \(SCSI Enclosure Services\) définie | ALLUMÉ | Clignotement 1 seconde allumé/1 seconde éteint | Aucun |
-| Erreur de bit de l’appareil SES définie | ALLUMÉ | ALLUMÉ | Erreur logique \(rouge\) |
-| Panne du circuit d’alimentation | ÉTEINT | ALLUMÉ | Panne de module \(rouge\) |
+| Identité de l’appareil SES (SCSI Enclosure Services) définie | ALLUMÉ | Clignotement 1 seconde allumé/1 seconde éteint | Aucun |
+| Erreur de bit de l’appareil SES définie | ALLUMÉ | ALLUMÉ | Erreur logique (rouge) |
+| Panne du circuit d’alimentation | ÉTEINT | ALLUMÉ | Panne de module (rouge) |
 
 ## Alarmes sonores  
 
-Un appareil StorSimple contient des alarmes sonores associées au boîtier principal et au boîtier EBOD. Le panneau avant \(également appelé panneau de commande\) des deux boîtiers intègre une alarme sonore. L’alarme sonore se déclenche en présence d’une condition d’erreur/de panne. Les conditions suivantes déclenchent l’alarme :
+Un appareil StorSimple contient des alarmes sonores associées au boîtier principal et au boîtier EBOD. Le panneau avant (également appelé panneau de commande) des deux boîtiers intègre une alarme sonore. L’alarme sonore se déclenche en présence d’une condition d’erreur/de panne. Les conditions suivantes déclenchent l’alarme :
 
 - Panne ou défaillance du ventilateur
 - Tension hors plage
@@ -193,7 +193,7 @@ Un appareil StorSimple contient des alarmes sonores associées au boîtier princ
 - Erreur système
 - Erreur logique
 - Panne d’alimentation
-- Retrait d’un module d’alimentation et de refroidissement \(PCM\)  
+- Retrait d’un module d’alimentation et de refroidissement (PCM)  
 
 Le tableau suivant décrit les différents états d’alarme.
 
@@ -202,7 +202,7 @@ Le tableau suivant décrit les différents états d’alarme.
 | État d’alarme | Action | Action avec bouton muet enfoncé |
 |------------|---------|---------------------------------|
 | S0 | Mode normal : silencieux | Deux bips sonores |
-| S1 | Mode d’erreur : 1 seconde activée/1 seconde désactivée | Transition vers S2 ou S3 \(voir remarques\) |
+| S1 | Mode d’erreur : 1 seconde activée/1 seconde désactivée | Transition vers S2 ou S3 (voir remarques) |
 | S2 | Mode rappel : signal sonore par intermittence | Aucune |
 | S3 | Mode muet : silencieux | Aucun |
 | S4 | Mode erreur/panne critique : signal sonore continu | Non disponible : le mode muet est désactivé |
@@ -231,7 +231,7 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 | Alerte de température élevée | Avertissement | S1 | Panne de module |
 | Alarme de surchauffe | Erreur : critique | S1 | Panne de module |
 | Défaillance du bus I2C | Erreur : perte de redondance | S1 | Panne de module |
-| Erreur de communication \(I2C\) du panneau de commande | Erreur : critique | S1 | Panne de module |
+| Erreur de communication (I2C) du panneau de commande | Erreur : critique | S1 | Panne de module |
 | Erreur de contrôleur | Erreur : critique | S1 | Panne de module |
 | Panne de module d’interface SBB | Erreur : critique | S1 | Panne de module |
 | Panne de module d’interface SBB : aucun module opérationnel | Erreur : critique | S4 | Panne de module |
@@ -239,7 +239,7 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 | Erreur de contrôle d’alimentation du lecteur | Avertissement : aucune perte d’alimentation du disque | S1 | Panne de module |
 | Erreur de contrôle d’alimentation du lecteur | Erreur : critique ; perte d’alimentation du lecteur | S1 | Panne de module |
 | Lecture retiré | Avertissement | Aucune | Panne de module |
-| Alimentation insuffisante | Avertissement | \(aucun\) | Panne de module |
+| Alimentation insuffisante | Avertissement | (aucun) | Panne de module |
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png

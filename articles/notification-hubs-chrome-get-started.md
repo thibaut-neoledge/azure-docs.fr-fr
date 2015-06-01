@@ -325,10 +325,10 @@ L'application Chrome est créée à l'aide de JavaScript et vous pouvez utiliser
 		function sendNHRegistrationRequest()
 		{
 		  var registrationPayload = 
-		  "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-		  "<entry xmlns=\"http://www.w3.org/2005/Atom\">" + 
-		      "<content type=\"application/xml\">" + 
-		          "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
+		  "<?xml version="1.0" encoding="utf-8"?>" +
+		  "<entry xmlns="http://www.w3.org/2005/Atom">" + 
+		      "<content type="application/xml">" + 
+		          "<GcmRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">" +
 		              "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
 		          "</GcmRegistrationDescription>" +
 		      "</content>" +
@@ -433,7 +433,7 @@ Pour découvrir un exemple de la procédure d'envoi de notifications à l'aide d
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            String message = "{\"data\":{\"message\":\"Hello Chrome from Azure Notification Hubs\"}}";
+            String message = "{"data":{"message":"Hello Chrome from Azure Notification Hubs"}}";
             await hub.SendGcmNativeNotificationAsync(message);
         }
 

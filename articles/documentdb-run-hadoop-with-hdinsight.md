@@ -207,7 +207,7 @@ Ce didacticiel utilise Script Action du portail de gestion Azure pour personnali
     <p>Commençons par créer une table Hive à partir de notre collection DocumentDB. Ajoutez l'extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l'extrait de code 1. Veillez à inclure le paramètre DocumentDB.query facultatif pour réduire vos documents à _ts et _rid. </p>
 
     > [AZURE.NOTE] **L'affectation d'un nom à DocumentDB.inputCollections n'était pas une erreur.** En effet, nous autorisons l'ajout de plusieurs collections en tant qu'entrée : </br>
-    '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
+    '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -223,7 +223,7 @@ Ce didacticiel utilise Script Action du portail de gestion Azure pour personnali
 3.  Créons maintenant une table Hive pour la collection de sortie. Les propriétés des documents de sortie seront le mois, le jour, l'heure, les minutes et le nombre total d'occurrences.
 
 	> [AZURE.NOTE] **Encore une fois, l'affectation d'un nom à DocumentDB.outputCollections n'était pas une erreur.** En effet, nous autorisons l'ajout de plusieurs collections en tant que sortie : </br>
-    '*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br>
+    '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br></br>
     Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -303,7 +303,7 @@ Ce didacticiel utilise Script Action du portail de gestion Azure pour personnali
     <p>Chargez d'abord des documents DocumentDB dans HDInsight. Ajoutez l'extrait de code suivant dans le volet Script PowerShell <strong>après</strong> l'extrait de code 1. Veillez à ajouter une requête DocumentDB au paramètre de requête DocumentDB facultatif pour réduire vos documents à _ts et _rid.</p>
 
     > [AZURE.NOTE] Oui, nous autorisons l'ajout de plusieurs collections en tant qu'entrée : </br>
-    '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
+    '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </b>
 
 	Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
@@ -324,7 +324,7 @@ Ce didacticiel utilise Script Action du portail de gestion Azure pour personnali
 4. Pour terminer, nous allons stocker les résultats dans notre nouvelle collection de sortie.
 
     > [AZURE.NOTE] Oui, nous autorisons l'ajout de plusieurs collections en tant que sortie : </br>
-    '\<nom de collection de sortie DocumentDB 1\>,\<nom de collection de sortie DocumentDB 2\>'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.</br>
+    '<nom de collection de sortie DocumentDB 1>,<nom de collection de sortie DocumentDB 2>'</br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule.</br>
     Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Store output data to DocumentDB.

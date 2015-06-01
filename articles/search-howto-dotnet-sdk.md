@@ -105,7 +105,7 @@ Nous allons le détailler, étape par étape. Tout d’abord, nous devons créer
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]Si vous fournissez une clé incorrecte \(par exemple, une clé de requête là où une clé d’administration était demandée\), `SearchServiceClient` génère une `CloudException` avec le message d’erreur « Forbidden » la première fois que vous invoquez une méthode d'opération dessus, comme `Indexes.Create`. Si cette situation se produit, vérifiez la clé API.
+> [AZURE.NOTE]Si vous fournissez une clé incorrecte (par exemple, une clé de requête là où une clé d’administration était demandée), `SearchServiceClient` génère une `CloudException` avec le message d’erreur « Forbidden » la première fois que vous invoquez une méthode d'opération dessus, comme `Indexes.Create`. Si cette situation se produit, vérifiez la clé API.
 
 Les quelques lignes suivantes appellent des méthodes pour créer un index nommé « hotels », en le supprimant s’il existe déjà. Nous étudierons ces méthodes un peu plus tard.
 
@@ -200,7 +200,7 @@ Ensuite, `Main` crée un index « hotels » en appelant cette méthode :
         serviceClient.Indexes.Create(definition);
     }
 
-Cette méthode crée un objet `Index` avec une liste d’objets `Field` qui définit le schéma du nouvel index. Chaque champ a un nom, un type de données et plusieurs attributs qui définissent son comportement de recherche. En plus des champs, vous pouvez ajouter des profils de notation, des générateurs de suggestions ou des options CORS à l'index \(éléments supprimés de l'exemple pour des raisons de concision\). Vous trouverez plus d'informations sur l'objet Index et ses composants dans la référence du SDK sur [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), ainsi que dans l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Cette méthode crée un objet `Index` avec une liste d’objets `Field` qui définit le schéma du nouvel index. Chaque champ a un nom, un type de données et plusieurs attributs qui définissent son comportement de recherche. En plus des champs, vous pouvez ajouter des profils de notation, des générateurs de suggestions ou des options CORS à l'index (éléments supprimés de l'exemple pour des raisons de concision). Vous trouverez plus d'informations sur l'objet Index et ses composants dans la référence du SDK sur [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), ainsi que dans l’[API REST Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ### Remplissage de l'index ###
 
@@ -374,7 +374,7 @@ Examinons comment cette méthode est appelée :
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « \* », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+Dans le premier appel, nous recherchons tous les documents contenant les termes « fancy » ou « wifi ». Dans le deuxième appel, le texte à rechercher est « * », ce qui signifie « rechercher tous les éléments ». Pour plus d’informations sur la syntaxe des requêtes de recherche, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
 Le deuxième appel utilise une expression `$filter` OData, `category eq 'Luxury'`. Celle-ci limite la recherche et ne renvoie que les documents dont le champ `category` correspond exactement à la chaîne « Luxury ». Pour plus d’informations sur la syntaxe OData prise en charge par Azure Search, cliquez [ici](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 

@@ -43,7 +43,7 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
 - [Node.js][] version v0.10.29 ou supérieure.
-- [Générateur Express](http://www.expressjs.com/starter/generator.html) \(installation possible via `npm install express-generator -g`\)
+- [Générateur Express](http://www.expressjs.com/starter/generator.html) (installation possible via `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Étape 1 : création d'un compte de base de données DocumentDB
@@ -93,7 +93,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
 
 	![Capture d'écran de l'onglet package.json](./media/documentdb-nodejs-application/image17.png)
 
-Ce code indique à Node \(et à Azure ultérieurement\) que votre application dépend de ces modules supplémentaires.
+       Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
 
 ## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
 
@@ -176,7 +176,8 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut.
+> Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 		
 3. Enregistrez et fermez le fichier **docdbUtils.js**.
 
@@ -311,7 +312,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = TaskList;
 
-3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches \(showTasks\), ajouter les tâches \(addTask\)** et **marquer les tâches comme terminées \(completeTasks\)** :
+3. Continuez à modifier le fichier **tasklist.js** en ajoutant les méthodes utilisées pour **afficher les tâches (showTasks), ajouter les tâches (addTask)** et **marquer les tâches comme terminées (completeTasks)** :
 		
 		TaskList.prototype = {
 		    showTasks: function (req, res) {
@@ -389,7 +390,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = config;
 
-3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH\_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
+3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
 
 4. Enregistrez et fermez le fichier **config.js**.
  
@@ -423,7 +424,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB \(à l'aide des valeurs lues dans **config.js**\), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
+6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l'aide des valeurs lues dans **config.js**), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
 
 7. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
  
@@ -450,8 +451,8 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 
 
-	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
-	Save and close this **layout.jade** file.
+	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu.
+	Enregistrez et fermez ce fichier **layout.jade**.
 
 4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
@@ -495,7 +496,9 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Ce code étend la mise en page et fournit du contenu pour l'espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
 	
-	Dans cette mise en page, nous avons créé deux fichiers HTML. Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
+	Dans cette mise en page, nous avons créé deux fichiers HTML. 
+	Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **completetask** de notre contrôleur.
+	Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **addtask** de notre contrôleur.
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
@@ -528,7 +531,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 	![Capture d'écran de l'application MyTodo List dans une fenêtre de navigateur](./media/documentdb-nodejs-application/image18.png)
 
 
-2. Utilisez les champs Item \(Élément\), Item Name \(Nom de l'élément\) et Category \(Catégorie\) pour entrer les informations, puis cliquez sur **Add Item** \(Ajouter l'élément\).
+2. Utilisez les champs Item (Élément), Item Name (Nom de l'élément) et Category (Catégorie) pour entrer les informations, puis cliquez sur **Add Item** (Ajouter l'élément).
 
 3. La page doit se mettre à jour et afficher le nouvel élément créé dans la liste des tâches.
 

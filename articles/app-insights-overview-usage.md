@@ -25,7 +25,7 @@ Application Insights peut offrir un aperçu clair de l'utilisation de votre appl
  
 Ajoutez [Application Insights][start] à votre projet et sans aucun effort supplémentaire, vous obtenez des graphiques vous indiquant le nombre d'utilisateurs et bien plus encore.
 
-![Dans Azure, sélectionnez Parcourir \> Application Insights \> votre projet, puis faites défiler vers le bas.](./media/app-insights-overview-usage/01-overview.png)
+![Dans Azure, sélectionnez Parcourir > Application Insights > votre projet, puis faites défiler vers le bas.](./media/app-insights-overview-usage/01-overview.png)
  
 Placez le pointeur dans la partie vide au-dessus d'un graphique pour afficher les nombres à un moment donné. Dans le cas contraire, les chiffres indiquent la valeur agrégée sur la période, par exemple une moyenne, un total ou le nombre d'utilisateurs distincts sur la période.
 
@@ -37,7 +37,7 @@ Cliquez sur n'importe quel graphique pour afficher plus de détails. Par exemple
 
 ![Dans le panneau Vue d'ensemble, cliquez sur le graphique des sessions.](./media/app-insights-overview-usage/02-sessions.png)
  
-\(Cet exemple est issu d'un site web, mais les graphiques sont similaires pour les applications qui s'exécutent sur des appareils\).
+(Cet exemple est issu d'un site web, mais les graphiques sont similaires pour les applications qui s'exécutent sur des appareils).
 
 Comparez avec la semaine précédente pour voir si les choses évoluent :
 
@@ -47,7 +47,7 @@ Comparez deux mesures, par exemple les utilisateurs et les nouveaux utilisateurs
 
 ![Sélectionnez un graphique, recherchez des mesures et activez les mesures ou désactivez-les.](./media/app-insights-overview-usage/031-dual.png)
 
-Regroupez \(segmentez\) les données par une propriété, comme le navigateur, le système d'exploitation ou la ville :
+Regroupez (segmentez) les données par une propriété, comme le navigateur, le système d'exploitation ou la ville :
 
 ![Sélectionnez un graphique qui affiche une seule mesure, passez sur le regroupement et choisissez une propriété](./media/app-insights-overview-usage/03-browsers.png)
 
@@ -77,16 +77,16 @@ Mais vous voulez qu'Application Insights continue de consigner le nombre de fois
 
 Vous pouvez utiliser la télémétrie de différentes manières pour comprendre l'utilisation de votre application. Mais vous ne voulez pas mélanger les messages avec les affichages de page. Utilisez plutôt des événements personnalisés. Vous pouvez les envoyer à partir d'applications de l'appareil, des pages web ou du serveur web :
 
-\(JavaScript\)
+(JavaScript)
 
     telemetryClient.trackEvent("GameEnd");
 
-\(C\#\)
+(C#)
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-\(VB\)
+(VB)
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -130,7 +130,7 @@ Nous pouvons filtrer tous les types de télémétrie, à l'exception des afficha
 
 ![](./media/app-insights-overview-usage/10-filter.png)
  
-Et nous pouvons voir que cet utilisateur s'est connecté pour tout simplement voir les derniers résultats. Peut-être devrions envisager de développer un parcours utilisateur qui facilite cette opération. \(Et nous devrons alors mettre en place un événement personnalisé pour signaler ce qui se produit quand ce parcours est activé.\)
+Et nous pouvons voir que cet utilisateur s'est connecté pour tout simplement voir les derniers résultats. Peut-être devrions envisager de développer un parcours utilisateur qui facilite cette opération. (Et nous devrons alors mettre en place un événement personnalisé pour signaler ce qui se produit quand ce parcours est activé.)
 
 ## Filtrage, recherche et segmentation des données grâce à des propriétés
 Vous pouvez joindre des balises arbitraires et des valeurs numériques aux événements.
@@ -145,7 +145,7 @@ JavaScript côté client
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
 
-C\# côté serveur
+C# côté serveur
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -189,15 +189,15 @@ Utilisez le champ de recherche pour voir les occurrences de l'événement prése
 ![Tapez une valeur dans le champ de recherche](./media/app-insights-overview-usage/12-searchEvents.png)
 
 
-## Test A \| B
+## Test A | B
 
 Si vous ne savez pas quelle variante de la fonctionnalité sera la plus efficace, publiez les deux versions et mettez-les à disposition de différents utilisateurs. Mesurer le taux de réussite de chaque version et créez-en une version unifiée.
 
 Pour cette technique, vous joignez des balises à toute la télémétrie envoyée par chaque version de votre application. Pour cela, vous définissez des propriétés dans le contexte TelemetryContext actif. Ces propriétés par défaut sont ajoutées à chaque message de télémétrie que l'application envoie, non seulement vos messages personnalisés, mais aussi la télémétrie standard.
 
-Dans le portail Application Insights, vous pourrez ensuite filtrer et regrouper \(segmenter\) vos données sur les balises, afin de comparer les différentes versions.
+Dans le portail Application Insights, vous pourrez ensuite filtrer et regrouper (segmenter) vos données sur les balises, afin de comparer les différentes versions.
 
-C\# côté serveur
+C# côté serveur
 
     using Microsoft.ApplicationInsights.DataContracts;
 

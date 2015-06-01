@@ -37,7 +37,7 @@ Assurez-vous que les conditions préalables suivantes sont remplies avant de met
 - Vérifiez que les deux contrôleurs de l’appareil sont actifs avant de rechercher des mises à jour. Si un des contrôleurs n’est pas actif, la recherche échoue. Pour vérifier que les contrôleurs fonctionnent correctement, accédez à **État de matériel** à la page **Maintenance**. Si des composants **nécessitent une attention**, contactez le support technique de Microsoft avant de continuer.
 - Vérifiez que les adresses IP fixes des contrôleurs 0 et 1 prennent le routage en charge et permettent la connexion à Internet, car elles sont utilisées pour installer les mises à jour sur l’appareil. Vous pouvez utiliser l’[applet de commande Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) pour effectuer un test ping sur une adresse connue en dehors du réseau, telle que outlook.com, afin de vérifier que le contrôleur peut se connecter au réseau externe.
 - Vérifiez que les ports 80 et 443 sont disponibles pour la communication sortante sur l’appareil StorSimple. Pour plus d’informations, consultez la rubrique [Configuration réseau requise pour un appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
-- Si la version logicielle de l’appareil est supérieure à 6.3.9600.17312 \(mise à jour d’octobre 2014\), désactivez les ports de données 2 et 3, le cas échéant, avant de commencer la mise à jour. Si vous laissez le port de données 2 ou 3 activé lors de la mise à jour, le contrôleur de l’appareil risque de passer en mode de récupération. Veuillez noter que lorsque vous désactivez les interfaces réseau, tous les volumes associés sont mis hors connexion, et les E/S sont interrompues pendant toute la durée de la mise à jour.  
+- Si la version logicielle de l’appareil est supérieure à 6.3.9600.17312 (mise à jour d’octobre 2014), désactivez les ports de données 2 et 3, le cas échéant, avant de commencer la mise à jour. Si vous laissez le port de données 2 ou 3 activé lors de la mise à jour, le contrôleur de l’appareil risque de passer en mode de récupération. Veuillez noter que lorsque vous désactivez les interfaces réseau, tous les volumes associés sont mis hors connexion, et les E/S sont interrompues pendant toute la durée de la mise à jour.  
   
 ## Nouveautés dans la version de février
 
@@ -51,7 +51,7 @@ Le tableau suivant décrit le problème résolu dans cette mise à jour.
  
 | N° | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|---------------------------------|-------------------------------|
-| 1 | Réinitialisation aux paramètres d’usine | Vous essayez de restaurer les paramètres d’usine sur un appareil sur lequel la version mise à la disposition générale \(version 6.3.9600.17215\) était initialement installée et qui a été mis à jour vers la version d’octobre \(version 6.3.9600.17312\). La réinitialisation aux paramètres d’usine échoue et l’appareil devient instable. | Oui | Non |
+| 1 | Réinitialisation aux paramètres d’usine | Vous essayez de restaurer les paramètres d’usine sur un appareil sur lequel la version mise à la disposition générale (version 6.3.9600.17215) était initialement installée et qui a été mis à jour vers la version d’octobre (version 6.3.9600.17312). La réinitialisation aux paramètres d’usine échoue et l’appareil devient instable. | Oui | Non |
 
 
 ## Problèmes connus dans la version de février
@@ -60,7 +60,7 @@ Le tableau suivant récapitule les problèmes connus dans cette version.
  
 | N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|-----------------------------|--------------------------|
-| 1 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuez une réinitialisation aux paramètres d’usine, l’appareil StorSimple peut se bloquer et afficher le message suivant : **La réinitialisation aux paramètres d’usine est en cours \(phase 8\)**. Cela se produit si vous appuyez sur Ctrl+C alors que l’applet de commande est en cours. | N’appuyez pas sur Ctrl+C après avoir lancé une réinitialisation aux paramètres d’usine. Si vous avez déjà effectué cette opération, contactez le support technique Microsoft. | Oui | Non |
+| 1 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuez une réinitialisation aux paramètres d’usine, l’appareil StorSimple peut se bloquer et afficher le message suivant : **La réinitialisation aux paramètres d’usine est en cours (phase 8)**. Cela se produit si vous appuyez sur Ctrl+C alors que l’applet de commande est en cours. | N’appuyez pas sur Ctrl+C après avoir lancé une réinitialisation aux paramètres d’usine. Si vous avez déjà effectué cette opération, contactez le support technique Microsoft. | Oui | Non |
 | 2 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 3 | Échec des instantanés cloud | Dans de rares cas, un instantané cloud peut échouer et renvoyer l’erreur **Limite de sauvegarde maximale atteinte**. Cela se produit si vous avez plus de 255 clones en ligne sur un même appareil, provenant du volume d’origine qui a été supprimé. | | Oui | Oui |
 | 4 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |
@@ -70,15 +70,15 @@ Le tableau suivant récapitule les problèmes connus dans cette version.
 | 8 | Installation | Lors de l’installation de l’adaptateur StorSimple pour SharePoint, vous devez fournir une adresse IP d’appareil pour que l’installation s’effectue correctement. | | Oui | Non |
 | 9 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. En savoir plus sur la [configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
 | 10 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
-| 11 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées \(de l’ordre de quelques secondes\) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
+| 11 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
 
 ## Mises à jour de l’appareil physique dans la version de février
 
 Cette mise à jour contient un correctif pour le problème de réinitialisation aux paramètres d’usine rencontré sur les appareils qui ont été mis à niveau vers la version d’octobre 2014 à partir de la version mise à la disposition générale. Elle ne contient aucune autre mise à jour pour l’appareil StorSimple.
 
-## Mises à jour pour le microprogramme et le contrôleur SAS \(Serial Attached SCSI\) dans la version de février
+## Mises à jour pour le microprogramme et le contrôleur SAS (Serial Attached SCSI) dans la version de février
 
-Cette version ne contient aucune mise à jour pour le microprogramme ou le contrôleur série SAS \(Serial Attached SCSI\). Le pilote a été mis à jour dans la version d’octobre 2014.
+Cette version ne contient aucune mise à jour pour le microprogramme ou le contrôleur série SAS (Serial Attached SCSI). Le pilote a été mis à jour dans la version d’octobre 2014.
 
 ## Mises à jour pour l’appareil virtuel dans la version de février
 

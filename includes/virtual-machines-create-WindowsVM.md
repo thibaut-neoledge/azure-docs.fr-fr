@@ -6,7 +6,7 @@
 
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 	
-4. Le premier écran vous propose de **Choisir une image** pour votre machine virtuelle à partir de l'une des listes de la galerie d'images. \(Les images disponibles dépendent de l’abonnement que vous utilisez.\) Cliquez sur la flèche pour continuer.
+4. Le premier écran vous propose de **Choisir une image** pour votre machine virtuelle à partir de l'une des listes de la galerie d'images. (Les images disponibles dépendent de l’abonnement que vous utilisez.) Cliquez sur la flèche pour continuer.
 
 	![Choose an image](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 

@@ -37,7 +37,7 @@ La liste suivante présente les ports utilisés par un environnement App Service
 - 80 : Port par défaut pour le trafic HTTP entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 443 : Port par défaut pour le trafic SSL entrant vers des applications s'exécutant dans plans App Service d'un environnement App Service.
 - 21 : Canal de contrôle pour FTP. Ce port peut être bloqué en toute sécurité si FTP n'est pas utilisé.
-- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n'est pas utilisé \(\*\*Remarque :\*\* les canaux de données FTP peuvent changer dans la version préliminaire\).
+- 10001-10020 : Canaux de données pour FTP. Comme avec le canal de contrôle, ces ports peuvent être bloqués en toute sécurité si FTP n'est pas utilisé (**Remarque :** les canaux de données FTP peuvent changer dans la version préliminaire).
 - 4016 : Utilisé pour le débogage à distance avec Visual Studio 2012. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4018 : Utilisé pour le débogage à distance avec Visual Studio 2013. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
 - 4020 : Utilisé pour le débogage à distance avec Visual Studio 2015. Ce port peut être bloqué en toute sécurité si la fonctionnalité n'est pas utilisée.
@@ -59,21 +59,21 @@ L'exemple ci-dessous montre une règle qui accorde explicitement l'accès aux po
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
 
-Lors du verrouillage de l'accès aux ports 80 et 443 pour « masquer » un environnement App Service derrière des appareils ou services en amont, vous devez connaître l'adresse IP en amont. Par exemple, si vous utilisez un pare-feu d'applications web \(WAF\), ce pare-feu aura sa propre adresse IP \(ou ses propres adresses IP\) qu'il utilise lors de l'acheminement du trafic proxy vers un environnement App Service d'application en aval. Vous devez utiliser cette adresse IP dans le paramètre *SourceAddressPrefix* d'une règle de sécurité réseau.
+Lors du verrouillage de l'accès aux ports 80 et 443 pour « masquer » un environnement App Service derrière des appareils ou services en amont, vous devez connaître l'adresse IP en amont. Par exemple, si vous utilisez un pare-feu d'applications web (WAF), ce pare-feu aura sa propre adresse IP (ou ses propres adresses IP) qu'il utilise lors de l'acheminement du trafic proxy vers un environnement App Service d'application en aval. Vous devez utiliser cette adresse IP dans le paramètre *SourceAddressPrefix* d'une règle de sécurité réseau.
 
-Dans l'exemple ci-dessous, le trafic entrant à partir d'une adresse IP en amont spécifique est explicitement autorisé. L'adresse *1.2.3.4* est utilisée comme un espace réservé pour l'adresse IP d'un pare-feu d'applications web \(WAF\) en amont. Modifiez la valeur pour la faire correspondre à l'adresse utilisée par votre service ou appareil en amont.
+Dans l'exemple ci-dessous, le trafic entrant à partir d'une adresse IP en amont spécifique est explicitement autorisé. L'adresse *1.2.3.4* est utilisée comme un espace réservé pour l'adresse IP d'un pare-feu d'applications web (WAF) en amont. Modifiez la valeur pour la faire correspondre à l'adresse utilisée par votre service ou appareil en amont.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTP" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
     
-Si la prise en charge FTP est souhaitée, les règles suivantes peuvent être utilisées comme modèle pour accorder l'accès au port de contrôle FTP et aux ports du canal de contrôle. Étant donné que FTP est un protocole avec état, il se peut que vous ne puissiez pas acheminer le trafic FTP via un pare-feu HTTP/HTTPS ou un appareil proxy traditionnel. Dans ce cas, vous devez définir le paramètre *SourceAddressPrefix* sur une autre valeur \(par exemple, la plage d'adresses IP de machines de développement ou de déploiement sur lesquelles s'exécutent les clients FTP.
+Si la prise en charge FTP est souhaitée, les règles suivantes peuvent être utilisées comme modèle pour accorder l'accès au port de contrôle FTP et aux ports du canal de contrôle. Étant donné que FTP est un protocole avec état, il se peut que vous ne puissiez pas acheminer le trafic FTP via un pare-feu HTTP/HTTPS ou un appareil proxy traditionnel. Dans ce cas, vous devez définir le paramètre *SourceAddressPrefix* sur une autre valeur (par exemple, la plage d'adresses IP de machines de développement ou de déploiement sur lesquelles s'exécutent les clients FTP.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-\(\*\*Remarque :\*\* la plage de ports du canal de données peut changer pendant la durée de la version préliminaire.\)
+(**Remarque :** la plage de ports du canal de données peut changer pendant la durée de la version préliminaire.)
 
-Si le débogage à distance avec Visual Studio est utilisé, les règles suivantes montrent comment accorder l'accès. Il existe une règle distincte pour chaque version prise en charge de Visual Studio, car chaque version utilise un port différent pour le débogage à distance. Comme avec l'accès FTP, il est possible que le trafic du débogage à distance ne transite pas correctement via un pare-feu d'applications web \(WAF\) ou un appareil proxy traditionnel. À la place, le paramètre *SourceAddressPrefix* peut être défini sur la plage d'adresses IP des machines de développement exécutant Visual Studio.
+Si le débogage à distance avec Visual Studio est utilisé, les règles suivantes montrent comment accorder l'accès. Il existe une règle distincte pour chaque version prise en charge de Visual Studio, car chaque version utilise un port différent pour le débogage à distance. Comme avec l'accès FTP, il est possible que le trafic du débogage à distance ne transite pas correctement via un pare-feu d'applications web (WAF) ou un appareil proxy traditionnel. À la place, le paramètre *SourceAddressPrefix* peut être défini sur la plage d'adresses IP des machines de développement exécutant Visual Studio.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2012" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4016' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2013" -Type Inbound -Priority 700 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4018' -Protocol TCP
@@ -89,7 +89,7 @@ L'exemple ci-dessous présente un groupe de sécurité réseau attribué à un s
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-Une fois l'affectation du groupe de sécurité réseau réussie \(l'affectation est une opération longue qui peut prendre quelques minutes\), seul le trafic entrant respectant les règles *Autoriser* peut atteindre des applications de l'environnement App Service.
+Une fois l'affectation du groupe de sécurité réseau réussie (l'affectation est une opération longue qui peut prendre quelques minutes), seul le trafic entrant respectant les règles *Autoriser* peut atteindre des applications de l'environnement App Service.
 
 Par souci d'exhaustivité, l'exemple suivant montre comment supprimer, et donc dissocier, le groupe de sécurité réseau du sous-réseau :
 

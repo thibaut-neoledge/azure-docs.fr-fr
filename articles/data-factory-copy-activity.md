@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Copie de données avec Azure Data Factory" 
-	description="Découvrez comment utiliser l&#39;activité de copie dans Azure Data Factory pour copier des données d&#39;une source de données à une autre." 
+	description="Découvrez comment utiliser l'activité de copie dans Azure Data Factory pour copier des données d'une source de données à une autre." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,15 +16,15 @@
 	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
-# Copie de données avec Azure Data Factory \(activité de copie\)
+# Copie de données avec Azure Data Factory (activité de copie)
 ## Vue d'ensemble
-Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur \(destination\) au sein d'un lot. L'activité de copie peut être utilisée dans les scénarios suivants :
+Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les données d'une source vers un récepteur (destination) au sein d'un lot. L'activité de copie peut être utilisée dans les scénarios suivants :
 
-- **Entrée vers Azure**. Dans ce scénario, les données sont copiées à partir d'une source de données locale \(par exemple, un serveur SQL\) vers un magasin de données Azure \(par exemple : un objet blob Azure, une table Azure ou une base de données SQL Azure\) pour les scénarios secondaires suivants :
+- **Entrée vers Azure**. Dans ce scénario, les données sont copiées à partir d'une source de données locale (par exemple, un serveur SQL) vers un magasin de données Azure (par exemple : un objet blob Azure, une table Azure ou une base de données SQL Azure) pour les scénarios secondaires suivants :
 	- Collecte de données dans un emplacement centralisé sur Azure pour un traitement ultérieur.
 	- Migration de données à partir de plateformes locales ou de clouds non-Azure vers Azure.
 	- Archivage ou sauvegarde de données sur Azure pour un stockage hiérarchisé économique.
-- **Sortie depuis Azure**. Dans ce scénario, les données sont copiées depuis Azure \(par exemple : un objet blob Azure, une table Azure ou une base de données SQL Azure\) vers des mini-Data Warehouse et un entrepôt de données locaux \(par exemple, un serveur SQL\) pour les scénarios secondaires suivants :
+- **Sortie depuis Azure**. Dans ce scénario, les données sont copiées depuis Azure (par exemple : un objet blob Azure, une table Azure ou une base de données SQL Azure) vers des mini-Data Warehouse et un entrepôt de données locaux (par exemple, un serveur SQL) pour les scénarios secondaires suivants :
 	- Transfert de données vers des systèmes locaux à cause d'un manque de prise en charge d'entrepôt de données sur le cloud.
 	- Transfert de données vers des systèmes locaux pour tirer parti d'une solution locale ou d'une infrastructure de création de rapports existante.
 	- Archive ou sauvegarde de données vers un système local pour un stockage hiérarchisé
@@ -125,12 +125,12 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 
 </table>
 
-### SQL sur une infrastructure en tant que service \(IaaS\)
+### SQL sur une infrastructure en tant que service (IaaS)
 Pour SQL sur IaaS, Azure est pris en charge en tant que fournisseur IaaS. Les topologies VPN et le réseau qui suivent sont pris en charge. Notez que la passerelle de gestion des données est nécessaire pour les cas n° 2 et n° 3, mais pas pour le cas n° 1. Pour plus d'informations sur la passerelle de gestion des données, consultez [Permettre à vos pipelines d'accéder à des données locales][use-onpremises-datasources].
 
 1.	Machine virtuelle avec un nom DNS public et un port public statique : mappage de port privé
 2.	Machine virtuelle avec un nom DNS public sans point de terminaison SQL exposé
-3.	Réseau virtuel <ol type='a'> <li> Réseau privé virtuel de cloud Azure doté de la topologie suivante en fin de liste. </li> <li>Machine virtuelle avec un réseau privé virtuel de site à site \(ou d'emplacement local au cloud\) utilisant Azure Virtual Network</li> </ol> ![Data Factory avec l'activité de copie][image-data-factory-copy-actvity]
+3.	Réseau virtuel <ol type='a'> <li> Réseau privé virtuel de cloud Azure doté de la topologie suivante en fin de liste. </li> <li>Machine virtuelle avec un réseau privé virtuel de site à site (ou d'emplacement local au cloud) utilisant Azure Virtual Network</li> </ol> ![Data Factory avec l'activité de copie][image-data-factory-copy-actvity]
 
 ## Composants de l'activité de copie
 L'activité de copie contient les composants suivants :
@@ -253,7 +253,7 @@ Le script JSON suivant définit une table d'entrée qui fait référence à la 
     	"properties":
    { "location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
 
-L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table \(\*\*MyOnPremTable\*\*\) dans une fabrique de données Azure : **CopyFactory**.
+L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyOnPremTable**) dans une fabrique de données Azure : **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -265,18 +265,18 @@ Le script JSON suivant définit la table de sortie **MyDemoBlob**, qui fait ré
 	{
    "name": "MyDemoBlob", "properties": { "location": { "type": "AzureBlobLocation", "folderPath": "MyContainer/MySubFolder", "fileName": "MyBlob", "linkedServiceName": "MyAzureStorage", "format": { "type": "TextFormat", "columnDelimiter": ",", "rowDelimiter": ";", "EscapeChar": "$", "NullValue": "NaN" } }, "availability": { "frequency": "Hour", "interval": 1 } } }
 
-L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table \(\*\*MyDemoBlob\*\*\) dans une fabrique de données Azure : **CopyFactory**.
+L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyDemoBlob**) dans une fabrique de données Azure : **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
-### Pipeline \(avec activité de copie\) JSON
+### Pipeline (avec activité de copie) JSON
 Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des propriétés suivantes :
 
 - La propriété **type** est définie sur **CopyActivity**.
-- **MyOnPremTable** est spécifié en tant que balise d'entrée \(\*\*inputs\*\*\).
-- **MyAzureBlob** est spécifié en tant que balise de sortie \(\*\*outputs\*\*\) 
-- La section **Transformation** contient deux sections secondaires : **source** et **récepteur**. Le type de la source est défini sur **SqlSource**, tandis que celui du récepteur est défini sur **BlobSink**. **sqlReaderQuery** définit la transformation \(projection\) qui doit être effectuée sur la source. Pour plus d'informations sur toutes les propriétés, consultez [Référence de script JSON][json-script-reference].
+- **MyOnPremTable** est spécifié en tant que balise d'entrée (**inputs**).
+- **MyAzureBlob** est spécifié en tant que balise de sortie (**outputs**) 
+- La section **Transformation** contient deux sections secondaires : **source** et **récepteur**. Le type de la source est défini sur **SqlSource**, tandis que celui du récepteur est défini sur **BlobSink**. **sqlReaderQuery** définit la transformation (projection) qui doit être effectuée sur la source. Pour plus d'informations sur toutes les propriétés, consultez [Référence de script JSON][json-script-reference].
 
          
 		{
@@ -286,10 +286,10 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
 				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
         		"activities":
         		[
-      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select \* from MyTable" }, "sink": { "type": "BlobSink" } } } \] } }
+      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select * from MyTable" }, "sink": { "type": "BlobSink" } } } ] } }
 
 
- L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryPipeline** qui utilise un fichier JSON contenant le script précédent pour créer un pipeline \(\*\*CopyActivityPipeline\*\*\) dans une fabrique de données Azure : **CopyFactory**.
+ L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryPipeline** qui utilise un fichier JSON contenant le script précédent pour créer un pipeline (**CopyActivityPipeline**) dans une fabrique de données Azure : **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -300,9 +300,9 @@ Cette section comprend des instructions et des méthodes conseillées concernant
 
 Pour les magasins de données qui autorisent les connexions HTTPS, choisissez la connexion HTTPS pour que l'activité de copie établisse une communication sécurisée sur le réseau. Par exemple, pour **Azure Storage**, utilisez **DefaultEndpointsProtocol=https** dans la chaîne de connexion.
 
-Pour **Azure SQL Database**, demandez explicitement une connexion chiffrée et ne faites pas confiance aux certificats de serveur pour éviter une attaque de l'intercepteur \(« man in the middle »\). Pour ce faire, utilisez **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Instructions de sécurité et limitations d'Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394108.aspx).
+Pour **Azure SQL Database**, demandez explicitement une connexion chiffrée et ne faites pas confiance aux certificats de serveur pour éviter une attaque de l'intercepteur (« man in the middle »). Pour ce faire, utilisez **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Instructions de sécurité et limitations d'Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activer les connexions chiffrées dans le moteur de base de données] \(https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx\) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
+Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activer les connexions chiffrées dans le moteur de base de données] (https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scénarios avancés
 - **Filtrage de colonne à l'aide de la définition de structure**. En fonction du type de table, il est possible de spécifier un sous-ensemble de colonnes à partir de la source en indiquant un nombre de colonnes dans la définition de **Structure** de la définition de table inférieur à celles qui se trouvent dans la source de données sous-jacente.

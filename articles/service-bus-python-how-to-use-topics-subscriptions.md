@@ -45,7 +45,7 @@ Le nom et la valeur de la clé de signature d'accès partagé se trouvent dans l
 
 	bus_service.create_topic('mytopic')
 
-**create\_topic** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut comme la durée de vie du message ou la taille maximale de la rubrique. L'exemple suivant montre comment définir la taille maximale de la rubrique sur 5 Go et la durée de vie de message sur une minute :
+**create_topic** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut comme la durée de vie du message ou la taille maximale de la rubrique. L'exemple suivant montre comment définir la taille maximale de la rubrique sur 5 Go et la durée de vie de message sur une minute :
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -71,9 +71,9 @@ Vous pouvez également configurer des filtres pour spécifier quels sont les mes
 
 Parmi les types de filtre pris en charge par les abonnements, **SqlFilter**, est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][].
 
-Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create\_rule** de l'objet **ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
+Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **create_rule** de l'objet **ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
 
-**Remarque** : Le filtre par défaut étant appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord le supprimer, sinon le filtre **MatchAll** remplacera tous les filtres que vous spécifiez. Vous pouvez supprimer la règle par défaut en utilisant la méthode **delete\_rule** de l'objet **ServiceBusService**.
+**Remarque** : Le filtre par défaut étant appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord le supprimer, sinon le filtre **MatchAll** remplacera tous les filtres que vous spécifiez. Vous pouvez supprimer la règle par défaut en utilisant la méthode **delete_rule** de l'objet **ServiceBusService**.
 
 Dans l'exemple ci-dessous, l'abonnement 'HighMessages' est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
@@ -101,7 +101,7 @@ De même, l'exemple suivant crée un abonnement nommé " LowMessages " avec un f
 
 ## Envoi de messages à une rubrique
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode **send\_topic\_message** de l'objet **ServiceBusService**.
+Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode **send_topic_message** de l'objet **ServiceBusService**.
 
 L'exemple suivant montre comment envoyer cinq messages de test à 'mytopic'. Notez que la valeur de la propriété **messagenumber** de chaque message varie au niveau de l'itération de la boucle (ce qui détermine les abonnements qui le reçoivent) :
 
@@ -113,17 +113,17 @@ Les rubriques Service Bus prennent en charge une taille de message maximale de 2
 
 ## Réception des messages d'un abonnement
 
-Les messages sont reçus d'un abonnement à l'aide de la méthode **receive\_subscription\_message** sur l'objet **ServiceBusService** :
+Les messages sont reçus d'un abonnement à l'aide de la méthode **receive_subscription_message** sur l'objet **ServiceBusService** :
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-Les messages sont supprimés de l'abonnement lorsqu'ils sont lus si le paramètre **peek\_lock** est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d'attente en définissant le paramètre **peek\_lock** sur **True**.
+Les messages sont supprimés de l'abonnement lorsqu'ils sont lus si le paramètre **peek_lock** est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d'attente en définissant le paramètre **peek_lock** sur **True**.
 
 Le comportement de lecture et de suppression du message dans le cadre de l'opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d'un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
 
-Si le paramètre **peek\_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l'objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de l'abonnement.
+Si le paramètre **peek_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l'objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de l'abonnement.
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 	print(msg.body)

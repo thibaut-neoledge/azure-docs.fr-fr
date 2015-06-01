@@ -31,11 +31,11 @@ Un site web de médias souhaite obtenir un avantage sur ses concurrents en prés
 
 ## Création d’une entrée de concentrateur d’événements et d’un groupe de consommateurs
 
-L’exemple d’application génère des événements et les transmet vers une instance de concentrateurs d’événements \(ou simplement « concentrateur d’événement » pour faire plus court\). Les concentrateurs d’événements Service Bus constituent la méthode la plus efficace pour la réception d’événements dans Stream Analytics. Consultez la documentation relative aux concentrateurs d’événements dans la [documentation de Service Bus](/documentation/services/service-bus/)
+L’exemple d’application génère des événements et les transmet vers une instance de concentrateurs d’événements (ou simplement « concentrateur d’événement » pour faire plus court). Les concentrateurs d’événements Service Bus constituent la méthode la plus efficace pour la réception d’événements dans Stream Analytics. Consultez la documentation relative aux concentrateurs d’événements dans la [documentation de Service Bus](/documentation/services/service-bus/)
 
 Procédez comme suit pour créer un concentrateur d’événements.
 
-1.	Dans le portail Azure, cliquez sur **NOUVEAU** \> **SERVICES D’APPLICATION** \> **SERVICE BUS** \> **CONCENTRATEUR D’ÉVÉNEMENTS** \> **CRÉATION RAPIDE**, puis entrez un nom, une région et un nouvel espace de noms \(ou un qui existe déjà\) pour créer un concentrateur d’événements.  
+1.	Dans le portail Azure, cliquez sur **NOUVEAU** > **SERVICES D’APPLICATION** > **SERVICE BUS** > **CONCENTRATEUR D’ÉVÉNEMENTS** > **CRÉATION RAPIDE**, puis entrez un nom, une région et un nouvel espace de noms (ou un qui existe déjà) pour créer un concentrateur d’événements.  
 2.	Nous vous recommandons de faire en sorte que chaque travail Stream Analytics lise les événements à partir d’un seul groupe de consommateurs de concentrateurs d’événements. Nous verrons plus loin comment créer un groupe de consommateurs et vous pourrez alors en savoir plus sur ce point. Pour créer un groupe de consommateurs, accédez au concentrateur d’événements nouvellement créé et cliquez sur l’onglet **GROUPES DE CONSOMMATEURS**, puis sur **CRÉER** en bas de la page, et entrez un nom pour votre groupe de consommateurs.
 3.	Pour accorder l’accès au concentrateur d’événements, vous devez créer une stratégie d’accès partagé. Cliquez sur l’onglet **CONFIGURER** de votre concentrateur d’événements.
 4.	Sous **STRATÉGIES D’ACCÈS PARTAGÉ**, créez une stratégie ayant les autorisations **GÉRER**.
@@ -49,18 +49,18 @@ Procédez comme suit pour créer un concentrateur d’événements.
 
 ## Configuration et démarrage de l’application de génération d’événements
 
-Nous vous proposons une application cliente capable d’exploiter les données de Twitter via les [API REST de Twitter](https://dev.twitter.com/rest/public) pour collecter les événements Tweet sur un ensemble de sujets paramétrable. L’outil open source tiers [Sentiment140](http://help.sentiment140.com/) est utilisé pour affecter une valeur de sentiment à chaque tweet \(0 : négatif, 2 : neutre, 4 : positif\), puis les événements Tweet sont envoyés vers un concentrateur d’événements.
+Nous vous proposons une application cliente capable d’exploiter les données de Twitter via les [API REST de Twitter](https://dev.twitter.com/rest/public) pour collecter les événements Tweet sur un ensemble de sujets paramétrable. L’outil open source tiers [Sentiment140](http://help.sentiment140.com/) est utilisé pour affecter une valeur de sentiment à chaque tweet (0 : négatif, 2 : neutre, 4 : positif), puis les événements Tweet sont envoyés vers un concentrateur d’événements.
 
 Procédez comme suit pour configurer l’application :
 
 1.	[Téléchargez la solution TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Ouvrez le fichier App.config et remplacez oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret par les jetons Twitter avec vos valeurs.  
+2.	Ouvrez le fichier App.config et remplacez oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret par les jetons Twitter avec vos valeurs.  
 
 	[Procédure de génération d’un jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Notez que vous devez créer une application vide pour générer un jeton.
 3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier App.config par la chaîne de connexion et le nom de votre concentrateur d’événements.
-4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter\_keywords dans App.config.
+4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter_keywords dans App.config.
 5.	Générez la solution.
 6.	Lancez l’application. Vous voyez s’afficher les événements de Tweet tandis que les valeurs CreatedAt, Topic et SentimentScore sont transmises à votre concentrateur d’événements :
 
@@ -72,7 +72,7 @@ Maintenant que nous avons un flux d’événements Tweet, nous pouvons configure
 
 ### Configuration d'un travail Stream Analytics
 
-1.	Dans le portail [Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** \> **SERVICES DE DONNÉES** \> **STREAM ANALYTICS** \> **CRÉATION RAPIDE**.
+1.	Dans le portail [Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **SERVICES DE DONNÉES** > **STREAM ANALYTICS** > **CRÉATION RAPIDE**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
 
 	* **NOM DU TRAVAIL** : entrez un nom pour le travail.
@@ -135,7 +135,7 @@ Pour commencer, nous allons effectuer une simple requête directe qui projette t
 
 #### Nombre de tweets par sujet : fenêtre bascule avec agrégation
 
-Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [fenêtre bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) \(élément TumblingWindow\) pour obtenir le nombre de mentions par sujet toutes les 5 secondes.
+Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [fenêtre bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) (élément TumblingWindow) pour obtenir le nombre de mentions par sujet toutes les 5 secondes.
 
 1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
@@ -151,7 +151,7 @@ Pour comparer le nombre de mentions entre les sujets, nous allons utiliser une [
 
 #### Identification des tendances : fenêtre glissante
 
-Pour identifier les tendances, nous allons rechercher des sujets dépassant une valeur de seuil de mention dans un laps de temps donné. Dans le cadre de ce didacticiel, nous allons vérifier les sujets mentionnés plus de 20 fois en 5 secondes en utilisant une [fenêtre glissante](https://msdn.microsoft.com/library/azure/dn835051.aspx) \(élément SlidingWindow\).
+Pour identifier les tendances, nous allons rechercher des sujets dépassant une valeur de seuil de mention dans un laps de temps donné. Dans le cadre de ce didacticiel, nous allons vérifier les sujets mentionnés plus de 20 fois en 5 secondes en utilisant une [fenêtre glissante](https://msdn.microsoft.com/library/azure/dn835051.aspx) (élément SlidingWindow).
 
 1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
@@ -166,7 +166,7 @@ Pour identifier les tendances, nous allons rechercher des sujets dépassant une 
 
 #### Nombre de mentions et sentiment : fenêtre bascule avec agrégation
 
-La dernière requête que nous allons tester utilise une fenêtre bascule \(élément TumblingWindow\) pour obtenir le nombre de mentions et la moyenne, le minimum, le maximum et l’écart type de score de sentiment de chaque sujet toutes les 5 secondes.
+La dernière requête que nous allons tester utilise une fenêtre bascule (élément TumblingWindow) pour obtenir le nombre de mentions et la moyenne, le minimum, le maximum et l’écart type de score de sentiment de chaque sujet toutes les 5 secondes.
 
 1.	Modifiez la requête dans l’éditeur de code comme ceci :
 
@@ -185,7 +185,7 @@ Maintenant que nous avons défini un flux d’événements, un concentrateur d�
 
 Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, procédez comme suit pour en créer un :
 
-1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **NOUVEAU** \> **SERVICES DE DONNÉES** \> **STOCKAGE** \> **CRÉATION RAPIDE**, puis suivez les instructions qui s’affichent.
+1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **NOUVEAU** > **SERVICES DE DONNÉES** > **STOCKAGE** > **CRÉATION RAPIDE**, puis suivez les instructions qui s’affichent.
 2.	Sélectionnez le compte de stockage, puis, en haut de la page, cliquez sur **CONTENEURS**, puis sur **AJOUTER**.
 3.	Entrez un **NOM** pour votre conteneur et définissez son **ACCÈS** sur Objet blob public.
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Comment créer une application web dans un environnement App Service" 
-	description="Flux de création pour les applications web et les plans App Service examinés d&#39;un environnement App Service" 
+	description="Flux de création pour les applications web et les plans App Service examinés d'un environnement App Service" 
 	services="app-services\web" 
 	documentationCenter="" 
 	authors="ccompy" 
@@ -22,7 +22,7 @@ La création d'applications web est pratiquement identique dans un environnement
 
 Pour créer une application web dans un environnement App Service, vous devez commencer par en avoir un. Pour plus d'informations sur la création d'un environnement App Service, consultez [Comment créer un environnement App Service][HowtoCreateASE].
 
-La première étape pour créer une application web consiste à créer ou à sélectionner un plan App Service. La création d'un plan App Service dans un environnement App Service commence normalement, sous forme d'un flux de création d'application web via Nouveau -\> Web + Mobile -\> Application web.
+La première étape pour créer une application web consiste à créer ou à sélectionner un plan App Service. La création d'un plan App Service dans un environnement App Service commence normalement, sous forme d'un flux de création d'application web via Nouveau -> Web + Mobile -> Application web.
 
 ![][1]
 

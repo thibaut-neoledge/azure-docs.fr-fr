@@ -1,4 +1,4 @@
-\<properties pageTitle="Création d’une sauvegarde manuelle" description="Explique comment lancer un travail de sauvegarde manuel et à la demande." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito\*\*r="tysonn" /\> <tags 
+<properties pageTitle="Création d’une sauvegarde manuelle" description="Explique comment lancer un travail de sauvegarde manuel et à la demande." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -19,7 +19,7 @@
  
     Cette action lance un travail pour la création d’un instantané. Vous verrez une notification au bas de la page lorsque le travail aura été créé avec succès.
 
-4. Pour surveiller le travail, cliquez sur **Afficher le travail** dans la zone de notification \(en bas de la page\).
+4. Pour surveiller le travail, cliquez sur **Afficher le travail** dans la zone de notification (en bas de la page).
 
     ![Création d’une sauvegarde manuelle2](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 

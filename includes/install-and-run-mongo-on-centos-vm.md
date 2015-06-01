@@ -2,7 +2,7 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
 > [AZURE.WARNING]Les fonctionnalités de sécurité MongoDB, comme l'authentification et la liaison d'adresse IP, ne sont pas activées par défaut. Elles doivent être activées avant le déploiement de MongoDB dans un environnement de production. Pour plus d'informations, consultez la page [Sécurité et authentification](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
-1. Configurez le système de gestion de packages \(YUM\) pour pouvoir installer MongoDB. Créez un fichier */etc/yum.repos.d/10gen.repo* pour conserver les informations liées au référentiel et ajoutez ce qui suit :
+1. Configurez le système de gestion de packages (YUM) pour pouvoir installer MongoDB. Créez un fichier */etc/yum.repos.d/10gen.repo* pour conserver les informations liées au référentiel et ajoutez ce qui suit :
 
 		[10gen]
 		name=10gen Repository

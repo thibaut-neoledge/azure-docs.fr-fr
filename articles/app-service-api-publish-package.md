@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Créer un package d&#39;application API" 
-	description="Découvrir comment publier un package d&#39;application API sur Azure Marketplace" 
+	pageTitle="Créer un package d'application API" 
+	description="Découvrir comment publier un package d'application API sur Azure Marketplace" 
 	services="app-service\api" 
 	documentationCenter=".net"
 	authors="guangyang"
@@ -58,7 +58,7 @@ Au bout de quelques minutes, votre package d'application API sera synchronisé a
 
 ## Déployer votre package d'application API dans le portail Azure en version préliminaire
 
-Vous pouvez également vous connecter au [portail Azure en version préliminaire](https://portal.azure.com) en utilisant votre compte Azure \(il peut s'agir d'un compte différent de celui que vous utilisez pour publier le package d'application API\). Vous pouvez vérifier ici l'expérience de création du portail Azure en version préliminaire pour votre package d'application API. Si vous devez modifier quelque chose, changez-le simplement dans votre package d'application API et publiez-le à nouveau.
+Vous pouvez également vous connecter au [portail Azure en version préliminaire](https://portal.azure.com) en utilisant votre compte Azure (il peut s'agir d'un compte différent de celui que vous utilisez pour publier le package d'application API). Vous pouvez vérifier ici l'expérience de création du portail Azure en version préliminaire pour votre package d'application API. Si vous devez modifier quelque chose, changez-le simplement dans votre package d'application API et publiez-le à nouveau.
 
 Pour des détails sur la façon de déployer un package d'application API dans le portail Azure, vous pouvez consulter un exemple de déploiement DropboxConnector [ici](app-service-api-connnect-your-app-to-saas-connector.md).
 

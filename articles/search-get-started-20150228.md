@@ -18,9 +18,9 @@
 
 #Création de votre première application Azure Search dans .NET#
 
-Ce didacticiel permet de créer une application de recherche Web personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Le didacticiel utilise le [kit de développement logiciel \(SDK\) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exemple.
+Ce didacticiel permet de créer une application de recherche Web personnalisée dans Visual Studio 2013 ou version ultérieure qui utilise Azure Search pour son expérience de recherche. Le didacticiel utilise le [kit de développement logiciel (SDK) .NET Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx) pour générer des classes pour les objets et les opérations utilisés dans cet exemple.
 
-Vous pouvez télécharger l'exemple à partir de codeplex à la rubrique [Démo Azure Search à l'aide de données USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) pour suivre les étapes de ce didacticiel. Cet exemple d'application utilise des données de l'[USGS \(United States Geological Services\)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Washington. Nous utiliserons ces informations pour créer une application de recherche basée sur des données de bâtiments repères, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
+Vous pouvez télécharger l'exemple à partir de codeplex à la rubrique [Démo Azure Search à l'aide de données USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) pour suivre les étapes de ce didacticiel. Cet exemple d'application utilise des données de l'[USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Washington. Nous utiliserons ces informations pour créer une application de recherche basée sur des données de bâtiments repères, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
 Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Vous pouvez commencer par l'étape [Création d'un service dans le portail](../s
 
 ##Création de l'index##
 
-1. Copiez le nom du service et la clé administrateur à partir du [portail Azure](https://portal.azure.com) et collez-les dans **DataIndexer** \| **App.config**.
+1. Copiez le nom du service et la clé administrateur à partir du [portail Azure](https://portal.azure.com) et collez-les dans **DataIndexer** | **App.config**.
 1. Cliquez avec le bouton droit sur le projet **DataIndexer** pour le définir comme projet de démarrage.
 1. Créez et exécutez le projet.
 
@@ -45,7 +45,7 @@ Le portail devrait afficher un index des nouvelles fonctionnalités xx et xx. La
 ##Création de l'application##
 
 
-1. Copiez le nom du service et la clé administrateur à partir du [portail Azure](https://portal.azure.com) et collez-les dans **SimpleSearchMVCApp** \| **Web.config**.
+1. Copiez le nom du service et la clé administrateur à partir du [portail Azure](https://portal.azure.com) et collez-les dans **SimpleSearchMVCApp** | **Web.config**.
 1. Cliquez avec le bouton droit sur le projet **SimpleSearchMVCApp** pour le définir comme projet de démarrage.
 1. Créez et exécutez le projet.
 
@@ -66,7 +66,7 @@ Vous pouvez également essayer les termes suivants :
 - Seattle
 - Rainier
 - Seattle and Rainier
-- Seattle +Rainier -Mount \(permet d'obtenir les résultats incluant Rainier avenue et Rainier club, dans les limites de la ville de Seattle\).
+- Seattle +Rainier -Mount (permet d'obtenir les résultats incluant Rainier avenue et Rainier club, dans les limites de la ville de Seattle).
 
 ##Exploration du code##
 
@@ -76,7 +76,7 @@ La suite de cette section aborde quelques points sur chaque projet. Le cas éch�
 
 **Projet DataIndexer**
 
-Pour simplifier les choses, les données sont incorporées à la solution, dans un fichier texte généré à partir des données du site Web [United States Geological Services \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm).
+Pour simplifier les choses, les données sont incorporées à la solution, dans un fichier texte généré à partir des données du site Web [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
 Les alternatives à l'incorporation de données incluent les [indexeurs pour DocumentDB](documentdb-search-indexer.md) ou les [indexeurs pour base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Les indexeurs injectent les données dans votre index Azure Search, simplifiant considérablement l'écriture et la mise à jour du code.
 
@@ -90,13 +90,13 @@ Le projet MVC utilise une vue et un contrôleur pour acheminer les entrées et l
 
 Les connexions à Azure Search ainsi que l'exécution d'une requête de recherche sont définies dans le fichier **FeatureSearch.cs**.
 
-Pour finir, si vous n'êtes pas encore convaincu de la valeur et de la simplicité du kit de développement logiciel \(SDK\) .NET, comparez les fichiers source de cet exemple avec ceux de l'API REST : [Azure Search Adventure Works Demo](https://azuresearchadventureworksdemo.codeplex.com/). La version du kit de développement .NET décrite dans ce didacticiel est beaucoup plus simple, avec moins de lignes de code.
+Pour finir, si vous n'êtes pas encore convaincu de la valeur et de la simplicité du kit de développement logiciel (SDK) .NET, comparez les fichiers source de cet exemple avec ceux de l'API REST : [Azure Search Adventure Works Demo](https://azuresearchadventureworksdemo.codeplex.com/). La version du kit de développement .NET décrite dans ce didacticiel est beaucoup plus simple, avec moins de lignes de code.
 
 ##Étapes suivantes##
 
 Il s'agit du premier didacticiel Azure Search basé sur le jeu de données USGS. Au fil du temps, nous compléterons ce didacticiel et en préparerons de nouveaux présentant des fonctionnalités de recherche que vous pourrez utiliser dans vos solutions personnalisées.
 
-Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions \(requêtes prédictives ou à saisie semi-automatique\), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
+Si vous connaissez déjà Azure Search, vous pouvez utiliser cet exemple comme tremplin pour tester des générateurs de suggestions (requêtes prédictives ou à saisie semi-automatique), des filtres et la navigation à facettes. Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
 
 Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](http://azure.microsoft.com/documentation/services/search/). Vous pouvez également cliquer sur les liens dans notre [liste de vidéos et de didacticiels](https://msdn.microsoft.com/library/azure/dn798933.aspx) pour obtenir des informations supplémentaires.
 

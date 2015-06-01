@@ -22,7 +22,7 @@
 
 # Utilisation des files d'attente Service Bus
 
-<span>Ce guide décrit l'utilisation des files d'attente Service Bus. Les exemples sont écrits en C\# et utilisent l'API .NET. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes]. </span>
+<span>Ce guide décrit l'utilisation des files d'attente Service Bus. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes]. </span>
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 

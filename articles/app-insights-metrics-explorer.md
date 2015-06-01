@@ -76,11 +76,11 @@ Les différentes mesures sont agrégées de différentes façons :
 
  * Pour mesurer le temps de réponse, la **moyenne** des valeurs est calculée sur la période du graphique.
  * Pour le nombre d'événements comme les demandes ayant échoué, l'agrégat est la **somme** des nombres sur la période.
- * Pour le nombre d'utilisateurs, l'agrégat est le nombre d'utilisateurs **uniques** sur la période. \(Si un utilisateur est suivi plusieurs fois pendant la période, il est compté une seule fois.\)
+ * Pour le nombre d'utilisateurs, l'agrégat est le nombre d'utilisateurs **uniques** sur la période. (Si un utilisateur est suivi plusieurs fois pendant la période, il est compté une seule fois.)
 
 Pour déterminer si la valeur est une somme, une moyenne ou une valeur unique, cliquez sur le graphique et faites défiler jusqu'à la valeur sélectionnée. Vous pouvez également obtenir une brève description de la mesure.
 
-![Placez le pointeur sur \(i\)](./media/app-insights-metrics-explorer/06-total.png)
+![Placez le pointeur sur (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -96,7 +96,7 @@ Sélectionnez un graphique existant ou un nouveau graphique pour modifier ce qu'
 
 Vous pouvez afficher plusieurs mesures dans un graphique, bien qu'il existe des restrictions sur les combinaisons affichables. Dès que vous sélectionnez une mesure, certaines autres sont désactivées.
 
-Si vous avez ajouté des [mesures personnalisées][track] au code de votre application \(appels à TrackMetric et TrackEvent\), elles sont répertoriées ici.
+Si vous avez ajouté des [mesures personnalisées][track] au code de votre application (appels à TrackMetric et TrackEvent), elles sont répertoriées ici.
 
 ## Segmenter vos données
 

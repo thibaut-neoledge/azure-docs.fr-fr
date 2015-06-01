@@ -18,7 +18,8 @@
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
 
-Version : 1.0<br> La dernière version peut être trouvée [ici](machine-learning-recommendation-api-quick-start-guide.md)
+Version : 1.0<br>
+La dernière version peut être trouvée [ici](machine-learning-recommendation-api-quick-start-guide.md)
 
 Ce document décrit comment intégrer votre service ou application pour utiliser Azure ML Recommendations.
 
@@ -32,7 +33,7 @@ Pour utiliser Azure ML Recommendations, procédez comme suit :
 * Importez des données de catalogue : il s'agit d'une étape facultative. Un catalogue contient des métadonnées sur les éléments. Si vous ne téléchargez pas les données de catalogue, les services de recommandations découvriront implicitement votre catalogue à partir des données d'utilisation.
 * Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
 	* En téléchargeant un fichier qui contient les données d'utilisation.
-	* En envoyant des événements d'acquisition de données. Généralement, vous téléchargez un fichier d'utilisation pour pouvoir créer un modèle de recommandation initial \(démarrage\) et l'utiliser jusqu'à ce que le système rassemble suffisamment de données en utilisant le format d'acquisition de données.
+	* En envoyant des événements d'acquisition de données. Généralement, vous téléchargez un fichier d'utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l'utiliser jusqu'à ce que le système rassemble suffisamment de données en utilisant le format d'acquisition de données.
 * Générez un modèle de recommandation : il s'agit d'une opération asynchrone dans laquelle le système de recommandation prend toutes les données d'utilisation et crée un modèle de recommandation. Cette opération peut prendre plusieurs minutes, voire plusieurs heures, selon la taille des données et les paramètres de configuration de génération. Lors du déclenchement de la génération, vous recevez un identifiant de génération. Utilisez-le pour vérifier à quel moment s'est terminé le processus de génération et ce, avant de commencer à utiliser les recommandations. 
 * Utilisez des recommandations : obtenez des recommandations pour un élément spécifique ou pour une liste d'éléments.
 
@@ -43,7 +44,7 @@ Toutes les étapes ci-dessus sont effectuées via les API Azure ML Recommendat
 * Nombre maximal de modèles par abonnement : 10
 * Nombre maximal d'éléments qu'un catalogue peut contenir : 100 000
 * La quantité maximale de points d'utilisation conservée est d'environ 5 000 000. Le plus ancien est supprimé quand des nouveaux sont téléchargés ou signalés.
-* La taille maximale des données pouvant être envoyées dans POST \(par exemple, importation des données de catalogue ou des données d'utilisation\) est de 200 Mo.
+* La taille maximale des données pouvant être envoyées dans POST (par exemple, importation des données de catalogue ou des données d'utilisation) est de 200 Mo.
 * Le nombre de transactions par seconde pour un modèle de recommandation créé mais non actif est d'environ 2 TPS ; seul un modèle de recommandation créé mais actif peut contenir jusqu'à 20 TPS.
 
 ##Intégration
@@ -68,9 +69,10 @@ Création d'une requête « Créer un modèle » :
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	modelName |	Seuls les lettres \(A-Z, a-z\), les chiffres \(0-9\), les tirets \(-\) et les traits de soulignement \(\_\) sont autorisés.<br>Longueur maximale : 20 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corps de la demande \| AUCUNE \|
+|	modelName |	Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et les traits de soulignement (_) sont autorisés.<br>Longueur maximale : 20 |
+|	apiVersion | 1.0 |
+|||
+| Corps de la demande | AUCUNE |
 
 
 **Réponse** :
@@ -121,9 +123,10 @@ Si vous téléchargez plusieurs fichiers de catalogue dans le même modèle avec
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	L'identificateur unique du modèle. |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres \(A-Z, a-z\), les chiffres \(0-9\), les tirets \(-\) et le tiret bas \(\_\) sont autorisés.<br>Longueur maximale : 50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corps de la demande \| Les données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID de l'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 50</td><td>Identificateur unique d'un élément</td></tr><tr><td>Nom de l'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 255</td><td>Nom de l'élément</td></tr><tr><td>Catégorie d'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 255</td><td>La catégorie à laquelle cet élément appartient \(par exemple, livres de cuisine, œuvre dramatique...\)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur max.4 000 </td><td>Une description de cet élément</td></tr></table><br>Taille maximale de fichier 200 Mo<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, livre<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction \(Byzantium Book\), livre<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, livre<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, livre</pre> \|
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et le tiret bas (_) sont autorisés.<br>Longueur maximale : 50 |
+|	apiVersion | 1.0 |
+|||
+| Corps de la demande | Les données du catalogue. Format :<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>ID de l'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 50</td><td>Identificateur unique d'un élément</td></tr><tr><td>Nom de l'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 255</td><td>Nom de l'élément</td></tr><tr><td>Catégorie d'élément</td><td>Oui</td><td>Alphanumérique, longueur max. 255</td><td>La catégorie à laquelle cet élément appartient (par exemple, livres de cuisine, œuvre dramatique...)</td></tr><tr><td>Description</td><td>Non</td><td>Alphanumérique, longueur max.4 000 </td><td>Une description de cet élément</td></tr></table><br>Taille maximale de fichier 200 Mo<br><br>Exemple :<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, livre<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, The Forgetting Room: A Fiction (Byzantium Book), livre<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23, Spadework, livre<br>552a1940-21e4-4399-82bb-594b46d7ed54, Restraint of Beasts, livre</pre> |
 
 
 **Réponse** :
@@ -169,10 +172,10 @@ Cette section présente comment télécharger des données d'utilisation à l'ai
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 |	modelId |	L'identificateur unique du modèle. |
-| filename | Identificateur textuel du catalogue.<br>Seuls les lettres \(A-Z, a-z\), les chiffres \(0-9\), les tirets \(-\) et le tiret bas \(\_\) sont autorisés.<br>Longueur maximale : 50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Corps de la requête \| Données d'utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>Identifiant de l'utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identifiant unique d'un utilisateur</td></tr><tr><td>Identifiant de l'élément</td><td>Oui</td><td>Alphanumérique, Longueur maximale : 50</td><td>Identifiant unique d'un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : JJ/MM/AAAATHH:MM:SS
-\(p. ex. 20/06/2013T10:00:00\)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, s'il est fourni, alors la date doit l'être aussi</td><td>L'un des suivant :<br>• Cliquer<br>• Clic recommandation<br>• Ajouter au panier<br>• Retirer du panier<br>• Achat</td><td></td></tr></table><br>Taille maximum du fichier 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+| filename | Identificateur textuel du catalogue.<br>Seuls les lettres (A-Z, a-z), les chiffres (0-9), les tirets (-) et le tiret bas (_) sont autorisés.<br>Longueur maximale : 50 |
+|	apiVersion | 1.0 |
+|||
+| Corps de la requête | Données d'utilisation. Format :<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nom</th><th>Obligatoire</th><th>Type</th><th>Description</th></tr><tr><td>Identifiant de l'utilisateur</td><td>Oui</td><td>Alphanumérique</td><td>Identifiant unique d'un utilisateur</td></tr><tr><td>Identifiant de l'élément</td><td>Oui</td><td>Alphanumérique, Longueur maximale : 50</td><td>Identifiant unique d'un élément.</td></tr><tr><td>Heure</td><td>Non</td><td>Date au format : JJ/MM/AAAATHH:MM:SS (p. ex. 20/06/2013T10:00:00)</td><td>Heure des données.</td></tr><tr><td>Événement</td><td>Non, s'il est fourni, alors la date doit l'être aussi</td><td>L'un des suivant :<br>• Cliquer<br>• Clic recommandation<br>• Ajouter au panier<br>• Retirer du panier<br>• Achat</td><td></td></tr></table><br>Taille maximum du fichier 200 Mo<br><br>Exemple :<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Réponse** :
 
@@ -217,7 +220,7 @@ Cette section présente comment envoyer des événements en temps réel à Azure
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
+|	apiVersion | 1.0 |
 
 Corps de la demande
 
@@ -310,7 +313,8 @@ Corps de la demande
   	</EventData>
 	</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** :
+Code d'état HTTP : 200
 
 ###Génération d'un modèle de recommandation
 
@@ -322,8 +326,9 @@ Corps de la demande
 |:--------			|:--------								|
 | modelId |	L'identificateur unique du modèle. |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
-| apiVersion | 1\.0 |
-\|\|\| \| Corps de la demande \| AUCUNE \|
+| apiVersion | 1.0 |
+|||
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -394,7 +399,7 @@ Code d'état HTTP : 200
 |:--------			|:--------								|
 |	modelId |	L'identificateur unique du modèle. |
 |	onlyLastBuild |	Indique s'il faut retourner l'historique de build du modèle en totalité ou uniquement l'état de la build la plus récente. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **Réponse** :
@@ -459,7 +464,7 @@ Code d'état HTTP : 200
 | itemIds | Liste des éléments séparés par des virgules faisant l'objet d'une recommandation pour.<br>Longueur maximale : 200 |
 | numberOfResults | Le nombre de résultats requis. |
 | includeMetatadata | Utilisation ultérieure, indiquez toujours la valeur false. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Réponse** :
 
@@ -622,7 +627,8 @@ Code d'état HTTP : 200
 	</feed>
 
 ###Mise à jour du modèle
-Vous pouvez mettre à jour la description du modèle ou l'identifiant de génération actif. *ID de build active* : chaque build de chaque modèle possède un ID de build. L'« identifiant de génération » actif est le premier de chaque nouveau modèle à être généré. Une fois que vous avez un identifiant de génération actif et que vous effectuez d'autres générations pour le même modèle, vous devez le définir explicitement comme identifiant par défaut si vous le souhaitez. Lorsque vous utilisez Recommendations, si vous ne spécifiez pas l'identifiant de génération que vous souhaitez utiliser, un identifiant par défaut sera automatiquement utilisé.
+Vous pouvez mettre à jour la description du modèle ou l'identifiant de génération actif.
+*ID de build active* : chaque build de chaque modèle possède un ID de build. L'« identifiant de génération » actif est le premier de chaque nouveau modèle à être généré. Une fois que vous avez un identifiant de génération actif et que vous effectuez d'autres générations pour le même modèle, vous devez le définir explicitement comme identifiant par défaut si vous le souhaitez. Lorsque vous utilisez Recommendations, si vous ne spécifiez pas l'identifiant de génération que vous souhaitez utiliser, un identifiant par défaut sera automatiquement utilisé.
 
 Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
@@ -634,8 +640,9 @@ Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommanda
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | id | L'identificateur unique du modèle. |
-| apiVersion | 1\.0 |
-\|\|\| \| Corps de la demande \| `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne voulez pas définir Description ou ActiveBuildId, supprimez la balise entière.\|
+| apiVersion | 1.0 |
+||| 
+| Corps de la demande | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Notez que les balises XML Description et ActiveBuildId sont facultatives. Si vous ne voulez pas définir Description ou ActiveBuildId, supprimez la balise entière.|
 
 **Réponse** :
 
@@ -652,6 +659,9 @@ Code d'état HTTP : 200
 	</feed>
 
 ##Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.
+Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. 
+Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.
+© 2014 Microsoft. Tous droits réservés.
 
 <!--HONumber=54-->

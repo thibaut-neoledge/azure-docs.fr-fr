@@ -123,7 +123,7 @@ Afin d'effectuer des opérations de gestion, comme la création d'une file d'att
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
 1. Sur votre ordinateur de développement (qui n'est pas nécessairement celui sur lequel se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/develop/java/).
-2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
+2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your_service_bus_namespace**, **your_service_bus_owner** et **your_service_bus_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
 <p/>
@@ -313,7 +313,7 @@ Afin d'effectuer des opérations de gestion, comme la création d'une file d'att
 
 ## Création d'une application Java surveillant la progression de la tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.java** pour désigner le fichier Java. Comme précédemment, modifiez les espaces réservés **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** et **your\_service\_bus\_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
+1. Sur votre ordinateur de développement, créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.java** pour désigner le fichier Java. Comme précédemment, modifiez les espaces réservés **your_service_bus_namespace**, **your_service_bus_owner** et **your_service_bus_key** pour utiliser vos valeurs d'**Espace de noms**, d'**Émetteur par défaut** et de **Clé par défaut** Service Bus, respectivement.
 2. Exportez l'application dans un fichier JAR exécutable et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPClient.jar** pour désigner le fichier JAR généré.
 
 <p/>

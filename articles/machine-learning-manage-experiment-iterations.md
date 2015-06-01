@@ -30,7 +30,7 @@ Vous pouvez consulter les précédentes exécutions de vos expériences à tout 
 
 Lorsqu'une expérience que vous avez exécutée au moins une fois est ouverte, vous pouvez afficher l'exécution précédente de l'expérience en cliquant sur **Exécution précédente** dans le volet Propriétés.
 
-Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience \(11:55\) et que vous cliquez sur **Exécution précédente**, la version que vous avez exécutée à 11:42 est ouverte.
+Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience (11:55) et que vous cliquez sur **Exécution précédente**, la version que vous avez exécutée à 11:42 est ouverte.
 
 ##Affichage de l'historique d'exécution
 
@@ -40,10 +40,10 @@ Supposons par exemple que vous créez une expérience à l'aide du module [Régr
 
 | Valeur du taux d'apprentissage | Heure de début de l'exécution |
 | ------------------- | -------------- |
-| 0\.1 | 11/9/2014 16:18:58
-| 0\.2 | 11/9/2014 16:24:33
-| 0\.4 | 11/9/2014 16:28:36
-| 0\.5 | 11/9/2014 16:33:31
+| 0.1 | 11/9/2014 16:18:58
+| 0.2 | 11/9/2014 16:24:33
+| 0.4 | 11/9/2014 16:28:36
+| 0.5 | 11/9/2014 16:33:31
 
 Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
 
@@ -53,7 +53,7 @@ Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience
 
 > [AZURE.TIP]Pour documenter les itérations de votre expérience, vous pouvez modifier le titre à chaque fois que vous l'exécutez, mettre à jour le **Résumé** de l'expérience dans le volet Propriétés et ajouter ou mettre à jour des commentaires sur les modules individuels pour enregistrer vos modifications. Le titre, le résumé et les commentaires du module sont enregistrés chaque fois que l'expérience est exécutée.
 
-La liste des expériences de l'onglet **EXPÉRIENCES** dans ML Studio affiche toujours la version la plus récente d'une expérience. Si vous ouvrez une exécution précédente de l'expérience \(via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**\), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
+La liste des expériences de l'onglet **EXPÉRIENCES** dans ML Studio affiche toujours la version la plus récente d'une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
 
 ##Itération sur une exécution précédente
 
@@ -64,7 +64,7 @@ Si vous souhaitez lancer une itération du début de votre expérience, configur
 Supposons par exemple que l'historique d'exécution d'une expérience est indiqué dans la section précédente. Vous souhaitez découvrir ce qui se passe lorsque vous définissez le **Taux d'apprentissage** paramètre sur 0,4, et essayer différentes valeurs pour le paramètre **Nombre d'époques de formation**.
 
 
-1. Cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et ouvrez l'itération de l'expérience que vous avez exécutée à 16:28:36 \(pour laquelle vous définissez la valeur de paramètre sur 0,4\). 
+1. Cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et ouvrez l'itération de l'expérience que vous avez exécutée à 16:28:36 (pour laquelle vous définissez la valeur de paramètre sur 0,4). 
 
 2. Cliquez sur **ENREGISTRER SOUS**.
 

@@ -299,7 +299,7 @@ pour transmettre les paramètres de requête attendus par le service principal e
 | exists-action="override" | remplace la valeur du paramètre, s'il est présent dans la demande |
 | exists-action="skip"     | ne fait rien si le paramètre est présent dans la demande          |
 | exists-action="append"   | ajoute la valeur au paramètre existant de la demande              |
-| exists-action="delete"   | supprime le paramètre de la demande\*                             |
+| exists-action="delete"   | supprime le paramètre de la demande*                             |
 | value="value"            | définit la valeur du paramètre dans l'élément de fermeture        |
 
 ## <a name="caching-policies"> </a>Stratégies de mise en cache
@@ -390,9 +390,9 @@ la mise en cache de la réponse réduit les besoins en bande passante et en calc
 
 | Élément/attribut                                  | Description                                                                                                                                                                                                                                                |
 |---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vary-by-developer="true | false"                  | Définir sur \*true\* pour commencer la mise en cache des réponses selon la clé de développeur. \*false\* par défaut.                                                                                                                                       |
-| vary-by-developer-groups="true | false"           | Définir sur \*true\* pour commencer la mise en cache des réponses selon le rôle de l'utilisateur. \*false\* par défaut.                                                                                                                                    |
-| downstream-caching-type="none | private | public" | \*none\* - la mise en cache en aval n'est pas autorisée ; valeur par défaut | \*private\* - mise en cache privée en aval autorisée | \*public\* - mise en cache privée et partagée en aval autorisée.                                                      |
+| vary-by-developer="true | false"                  | Définir sur *true* pour commencer la mise en cache des réponses selon la clé de développeur. *false* par défaut.                                                                                                                                       |
+| vary-by-developer-groups="true | false"           | Définir sur *true* pour commencer la mise en cache des réponses selon le rôle de l'utilisateur. *false* par défaut.                                                                                                                                    |
+| downstream-caching-type="none | private | public" | *none* - la mise en cache en aval n'est pas autorisée ; valeur par défaut | *private* - mise en cache privée en aval autorisée | *public* - mise en cache privée et partagée en aval autorisée.                                                      |
 | vary-by-header : "Accept"                         | Commencer la mise en cache des réponses selon la valeur de l'en-tête `Accept`                                                                                                                                                                              |
 | vary-by-header : Accept-Charset"                  | Commencer la mise en cache des réponses selon la valeur de l'en-tête `Accept-Charset`                                                                                                                                                                      |
 | vary-by-header : "header name"                    | Commencer la mise en cache des réponses selon la valeur de l'en-tête, par exemple `Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match`                                                          |
@@ -537,7 +537,7 @@ CORS permet à un navigateur et à un serveur d'interagir et de déterminer si l
 
 | Attribut             | Description                                                                                                                                     |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| <origin>\*</origin>  | Autoriser n'importe quel URI ou une liste spécifique d'URI                                                                                      |
+| <origin>*</origin>  | Autoriser n'importe quel URI ou une liste spécifique d'URI                                                                                      |
 | <origin>URI</origin> | L'URI doit comprendre un modèle, un hôte et un port. Si le port n'est pas spécifié, le port 80 est utilisé pour HTTP et le port 443 pour HTTPS. |
 
   [Stratégies dans Gestion des API]: ../api-management-howto-policies

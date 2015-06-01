@@ -17,11 +17,11 @@
    ms.author="juliako"/>
 
 
-# Notes de publication du Kit de développement logiciel \(SDK\) Azure pour .NET 2.6
+# Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6
 
-Ce document contient les notes de publication du Kit de développement logiciel \(SDK\) Azure pour .NET version 2.6.
+Ce document contient les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET version 2.6.
 
-Grâce au Kit de développement logiciel \(SDK\) Azure pour .NET 2.6, vous pouvez développer des applications de service cloud \(PaaS\) ciblant .NET 4.5.2 ou .NET 4.6 si vous installez manuellement le .NET Framework cible sur le rôle de service cloud. Consultez [Installer .NET sur un rôle de service cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
+Grâce au Kit de développement logiciel (SDK) Azure pour .NET 2.6, vous pouvez développer des applications de service cloud (PaaS) ciblant .NET 4.5.2 ou .NET 4.6 si vous installez manuellement le .NET Framework cible sur le rôle de service cloud. Consultez [Installer .NET sur un rôle de service cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
 
 
 ##Mises à jour Service Bus
@@ -36,7 +36,7 @@ Grâce au Kit de développement logiciel \(SDK\) Azure pour .NET 2.6, vous pou
 
 - **Amélioration d'IntelliSense** : suggestion de métadonnées distantes
 
-	Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT \* FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
+	Les outils HDInsight pour Visual Studio prennent en charge l'obtention de métadonnées distantes pendant la modification d'un script Hive. Par exemple, vous pouvez taper **SELECT * FROM** pour afficher tous les noms de tables. Si vous spécifiez une table, les noms des colonnes s'afficheront également.
 
 - **Prise en charge de l'émulateur HDInsight**
 
@@ -44,7 +44,7 @@ Grâce au Kit de développement logiciel \(SDK\) Azure pour .NET 2.6, vous pou
 
 	Pour plus d'informations, reportez-vous à [ce manuel](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
-- **Prise en charge des clusters Hadoop génériques par les outils HDInsight pour Visual Studio** \(version préliminaire\)
+- **Prise en charge des clusters Hadoop génériques par les outils HDInsight pour Visual Studio** (version préliminaire)
 
 	Les outils HDInsight pour Visual Studio prennent en charge les clusters Hadoop génériques. Les outils HDInsight pour Visual Studio vous permettront donc d'effectuer les opérations suivantes :
 
@@ -56,7 +56,7 @@ Grâce au Kit de développement logiciel \(SDK\) Azure pour .NET 2.6, vous pou
 
 ##Mises à jour d'In-Role Cache
 
-- **In-Role Cache** a été mis à jour pour utiliser la version 4.3 du **Kit de développement logiciel \(SDK\) Microsoft Azure Storage**. Jusqu'à présent, **In-Role Cache** la version 1.7 du SDK.
+- **In-Role Cache** a été mis à jour pour utiliser la version 4.3 du **Kit de développement logiciel (SDK) Microsoft Azure Storage**. Jusqu'à présent, **In-Role Cache** la version 1.7 du SDK.
 
 	Les clients qui utilisent la version 2.5 du SDK Azure ou une version antérieure doivent effectuer une mise à jour vers la version 2.6 et passer à la nouvelle version du SDK Azure Storage. Notez que la version 2011-08-18 d'Azure Storage sera supprimée le 9 décembre 2015. Pour plus d'informations, lisez [cette annonce](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/).
 
@@ -64,12 +64,12 @@ Grâce au Kit de développement logiciel \(SDK\) Azure pour .NET 2.6, vous pou
 
 ##Outils Azure App Service
 
-Les éléments suivants ont été mis à jour avec la version 2.6 du Kit de développement logiciel \(SDK\) Azure.
+Les éléments suivants ont été mis à jour avec la version 2.6 du Kit de développement logiciel (SDK) Azure.
 
 - La publication Azure a été améliorée pour inclure Azure API Apps comme une cible de déploiement.
 - La fonctionnalité d'approvisionnement d'API Apps permet désormais aux utilisateurs de créer et d'approvisionner des applications API.
 - L'Explorateur de serveurs a été modifié pour refléter le nouveau nœud Service d'application. Les applications web, mobiles et API sont maintenant regroupées par groupe de ressources.
-- La fonctionnalité Ajouter un client d'application API Azure a été ajoutée à la plupart des projets C\# qui permettront la génération automatique des applications API avec prise en charge Swagger exécutées au sein d'un abonnement Azure.
+- La fonctionnalité Ajouter un client d'application API Azure a été ajoutée à la plupart des projets C# qui permettront la génération automatique des applications API avec prise en charge Swagger exécutées au sein d'un abonnement Azure.
 - Les outils API Apps et les nœuds App Service de l'Explorateur de serveurs sont uniquement disponibles dans Visual Studio 2013. 
 
 ##Mises à jour des outils du gestionnaire des ressources Azure
@@ -78,9 +78,9 @@ Les outils du gestionnaire des ressources Azure ont été mis à jour et incluen
 
 ##Amélioration des diagnostics pour Cloud Services
 
-Le Kit de développement logiciel \(SDK\) Azure version 2.6 prend en charge la collecte des journaux de diagnostic dans l'émulateur de calcul Azure, ainsi que le transfert de ces journaux vers le stockage de développement. Les journaux de diagnostic \(y compris les journaux de suivi d'application, les journaux ETW, les compteurs de performances, les journaux d'infrastructure et les journaux d'événements Windows\) générés pendant l'exécution de l'application dans l'émulateur peuvent être transférés vers le stockage de développement pour vérifier que la journalisation des diagnostics fonctionne sur votre ordinateur local.
+Le Kit de développement logiciel (SDK) Azure version 2.6 prend en charge la collecte des journaux de diagnostic dans l'émulateur de calcul Azure, ainsi que le transfert de ces journaux vers le stockage de développement. Les journaux de diagnostic (y compris les journaux de suivi d'application, les journaux ETW, les compteurs de performances, les journaux d'infrastructure et les journaux d'événements Windows) générés pendant l'exécution de l'application dans l'émulateur peuvent être transférés vers le stockage de développement pour vérifier que la journalisation des diagnostics fonctionne sur votre ordinateur local.
 
-Le compte de stockage Diagnostics peut désormais être spécifié dans le fichier de configuration de service \(.cscfg\), ce qui facilite l'utilisation de différents comptes de stockage de diagnostics dans différents environnements. Des différences notables existent entre le SDK Azure version 2.4 et version 2.6 au niveau du fonctionnement de la chaîne de connexion. Pour plus d'informations sur l'utilisation de la chaîne de connexion du compte de stockage Diagnostics et son impact sur les projets, consultez [Configuration des diagnostics pour Azure Cloud Services et Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkID=532784).
+Le compte de stockage Diagnostics peut désormais être spécifié dans le fichier de configuration de service (.cscfg), ce qui facilite l'utilisation de différents comptes de stockage de diagnostics dans différents environnements. Des différences notables existent entre le SDK Azure version 2.4 et version 2.6 au niveau du fonctionnement de la chaîne de connexion. Pour plus d'informations sur l'utilisation de la chaîne de connexion du compte de stockage Diagnostics et son impact sur les projets, consultez [Configuration des diagnostics pour Azure Cloud Services et Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkID=532784).
 
 ##Dernières modifications
 

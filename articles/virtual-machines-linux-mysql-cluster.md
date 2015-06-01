@@ -152,7 +152,7 @@ Si vous ne prévoyez pas de faire basculer DRBD maintenant, la première option,
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **Avertissement** : cette dernière instruction désactive de manière efficace l'authentification de l'utilisateur racine dans ce tableau. Elle doit être remplacée par vos instructions GRANT de production et n'est incluse qu'à titre d'exemple.
 

@@ -29,7 +29,7 @@ Découvrez comment ajouter et configurer des serveurs DNS sur des réseaux virtu
 Ce didacticiel est la deuxième partie de la [série][hdinsight-hbase-geo-replication] portant sur la création d'une géo-réplication HBase :
 
 - [Configurer une connexion VPN entre deux réseaux virtuels][hdinsight-hbase-geo-replication-vnet]
-- Configurer des serveurs DNS pour les réseaux virtuels \(ce didacticiel\)
+- Configurer des serveurs DNS pour les réseaux virtuels (ce didacticiel)
 - [Configurer la géo-réplication HBase][hdinsight-hbase-geo-replication]
 
 
@@ -61,7 +61,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 **Pour créer une machine virtuelle au sein de Contoso-VNet-EU, appelée Contoso-DNS-EU**
 
-1.	Cliquez sur **NOUVEAU** \> **CALCUL** \> **MACHINE VIRTUELLE** \> **À PARTIR DE LA GALERIE**.
+1.	Cliquez sur **NOUVEAU** > **CALCUL** > **MACHINE VIRTUELLE** > **À PARTIR DE LA GALERIE**.
 2.	Choisissez **Windows Server 2012 R2 Datacenter**.
 3.	Entrez :
 	- **NOM DE LA MACHINE VIRTUELLE** : Contoso-DNS-EU
@@ -69,14 +69,14 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- **NOUVEAU MOT DE PASSE** : 
 4.	Entrez :
 	- **SERVICE CLOUD** : créez un service cloud
-	- **RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL** : \(sélectionnez Contoso-VNet-EU\)
+	- **RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL** : (sélectionnez Contoso-VNet-EU)
 	- **SOUS-RÉSEAUX DU RÉSEAU VIRTUEL** : Subnet-1
 	- **COMPTE DE STOCKAGE** : utilisez un compte de stockage généré automatiquement
 	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+		Le nom du service cloud sera identique au nom de la machine virtuelle. Dans notre cas, il s'agit de Contoso-DNS-EU. Pour les machines virtuelles suivantes, je peux choisir d'utiliser le même service cloud. Toutes les machines virtuelles figurant sous le même service cloud partagent le même réseau virtuel et le même suffixe de domaine.
 
-		The storage account is used to store the virtual machine image file. 
-	- **POINTS DE TERMINAISON** : \(faites défiler vers le bas et sélectionnez **DNS**\) 
+		Le compte de stockage est utilisé pour stocker le fichier image de la machine virtuelle. 
+	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**) 
 
 Une fois la machine virtuelle créée, recherchez les adresses IP interne et externe.
 
@@ -94,7 +94,7 @@ Une fois la machine virtuelle créée, recherchez les adresses IP interne et ex
 	- RÉGION/GROUPE D'AFFINITÉ/RÉSEAU VIRTUEL : sélectionnez Contoso-VNet-US
 	- SOUS-RÉSEAUX DU RÉSEAU VIRTUEL : Subnet-1
 	- COMPTE DE STOCKAGE : utilisez un compte de stockage généré automatiquement
-	- POINTS DE TERMINAISON : \(sélectionnez DNS\)
+	- POINTS DE TERMINAISON : (sélectionnez DNS)
 
 ##Définir les adresses IP statiques pour les deux machines virtuelles
 
@@ -129,7 +129,7 @@ Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut p
 4.	Cliquez sur **Ajouter des rôles et fonctionnalités**.
 5.	Cliquez sur **Suivant**
 6.	Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.
-7.	Sélectionnez votre machine virtuelle DNS \(elle doit être mise en surbrillance\), puis cliquez sur **Suivant**.
+7.	Sélectionnez votre machine virtuelle DNS (elle doit être mise en surbrillance), puis cliquez sur **Suivant**.
 8.	Vérifiez le **Serveur DNS** :
 9.	Cliquez sur **Ajouter des fonctionnalités**, puis sur **Continuer**.
 10.	Cliquez sur **Suivant** trois fois de suite, puis sur **Installer**. 
@@ -202,7 +202,7 @@ Pour configurer le redirecteur conditionnel, vous devez connaître les suffixes 
 
 ##Tester la résolution de noms sur les réseaux virtuels
 
-Vous pouvez maintenant tester la résolution du nom d'hôte sur les réseaux virtuels. La commande ping est bloquée par le pare-feu par défaut. Vous pouvez utiliser nslookup pour résoudre les machines virtuelles de serveur DNS \(vous devez utiliser le nom de domaine complet\) dans les réseaux pair à pair.
+Vous pouvez maintenant tester la résolution du nom d'hôte sur les réseaux virtuels. La commande ping est bloquée par le pare-feu par défaut. Vous pouvez utiliser nslookup pour résoudre les machines virtuelles de serveur DNS (vous devez utiliser le nom de domaine complet) dans les réseaux pair à pair.
 
 
 ##Étapes suivantes

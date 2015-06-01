@@ -59,7 +59,7 @@ Pour utiliser le stockage Azure, vous avez besoin du Kit de développement logic
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  Vous pouvez exécuter manuellement la commande **ls** pour vérifier qu'un
-    dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package
+    dossier **node_modules** a été créé. Dans ce dossier, recherchez le package
     **azure-storage** qui contient les bibliothèques dont vous avez besoin pour accéder
     au stockage.
 

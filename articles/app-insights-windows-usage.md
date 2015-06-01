@@ -32,7 +32,7 @@ Si vous ne l'avez pas encore fait, ajoutez [Application Insights à votre proje
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 * Les **utilisateurs** sont suivis de façon anonyme, il est donc possible qu’un utilisateur interagissant avec différents appareils soit comptabilisé deux fois.
-* Une **session** est comptée lorsque l'application est interrompue \(pendant une durée supérieure à un bref laps de temps, afin d'éviter de comptabiliser des interruptions accidentelles\).
+* Une **session** est comptée lorsque l'application est interrompue (pendant une durée supérieure à un bref laps de temps, afin d'éviter de comptabiliser des interruptions accidentelles).
 
 #### Segmentation
 

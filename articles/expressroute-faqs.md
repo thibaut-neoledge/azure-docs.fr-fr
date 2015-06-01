@@ -44,7 +44,7 @@ Oui. Les circuits ExpressRoute sont configurés pour prendre en charge les cas o
 ### Puis-je utiliser la même connexion de réseau privé avec un réseau virtuel et d’autres services Azure simultanément ?
 Oui. Un circuit ExpressRoute, une fois installé, vous permettra d’accéder simultanément à des services au sein d’un réseau virtuel et à d’autres services Azure. Vous allez vous connecter à des réseaux virtuels sur le chemin d’accès d’homologation privée et à d’autres services sur le chemin d’accès d’homologation publique.
 
-### ExpressRoute offre-t-il un contrat de niveau de service \(SLA\) ?
+### ExpressRoute offre-t-il un contrat de niveau de service (SLA) ?
 Pour plus d’informations, consultez la [page sur les contrats de niveau de service ExpressRoute](http://azure.microsoft.com/support/legal/sla/).
 
 ## Prise en charge des services Azure
@@ -105,7 +105,7 @@ Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de ser
 Les étapes de base sont décrites ci-dessous.
 
 - Vous devez établir un circuit ExpressRoute, que le fournisseur de services activera.
-- Vous devez configurer le protocole BGP pour l’homologation privée \(si vous utilisez un fournisseur Exchange\).
+- Vous devez configurer le protocole BGP pour l’homologation privée (si vous utilisez un fournisseur Exchange).
 - Vous devez lier le réseau virtuel au circuit ExpressRoute.
 
 Les didacticiels suivants vous aideront dans ce sens :
@@ -132,10 +132,10 @@ Non. Tous les réseaux virtuels liés à un même circuit ExpressRoute font part
 Oui. Vous pouvez lier un seul réseau virtuel à 4 circuits ExpressRoute au plus. Tous les circuits ExpressRoute doivent être situés dans le même continent. Ils peuvent être commandés via différents fournisseurs de services et dans différents emplacements.
 
 ### Puis-je accéder à Internet à partir de mes réseaux virtuels qui sont connectés à des circuits ExpressRoute ?
-Oui. Si vous n’avez pas publié les itinéraires par défaut \(0.0.0.0/0\) ou les préfixes des itinéraires Internet via la session BGP, vous pouvez vous connecter à Internet à partir d’un réseau virtuel lié à un circuit ExpressRoute.
+Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou les préfixes des itinéraires Internet via la session BGP, vous pouvez vous connecter à Internet à partir d’un réseau virtuel lié à un circuit ExpressRoute.
 
 ### Puis-je bloquer la connectivité Internet à des réseaux virtuels qui sont connectés à des circuits ExpressRoute ?
-Oui. Vous pouvez publier des itinéraires par défaut \(0.0.0.0/0\) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute. Notez que si vous publiez des itinéraires par défaut, nous forçons le trafic des services offerts sur l’homologation publique \(comme le stockage Azure et la base de données SQL\) en local. Vous devez configurer vos routeurs pour renvoyer le trafic vers Azure via le chemin d’accès d’homologation publique ou via Internet.
+Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute. Notez que si vous publiez des itinéraires par défaut, nous forçons le trafic des services offerts sur l’homologation publique (comme le stockage Azure et la base de données SQL) en local. Vous devez configurer vos routeurs pour renvoyer le trafic vers Azure via le chemin d’accès d’homologation publique ou via Internet.
 
 ### Les réseaux virtuels liés à un même circuit ExpressRoute peuvent-ils communiquer entre eux ?
 Oui. Les machines virtuelles qui sont déployées dans des réseaux virtuels connectés à un même circuit ExpressRoute peuvent communiquer entre elles.
@@ -153,20 +153,20 @@ Vous devez établir un circuit ExpressRoute et configurer des itinéraires pour 
 Oui. Nous acceptons jusqu’à 4 000 préfixes d’itinéraires pour l’homologation privée et l’homologation publique. Vous pouvez augmenter le nombre d’itinéraires jusqu’à 10 000 si vous activez la fonctionnalité Premium d’ExpressRoute.
 
 ### Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
-Les préfixes publiés via BGP doivent être /29 ou plus \(/28 à /8\).
+Les préfixes publiés via BGP doivent être /29 ou plus (/28 à /8).
 
-Nous filtrons les préfixes privés \(RFC1918\) dans la session BGP d’homologation publique.
+Nous filtrons les préfixes privés (RFC1918) dans la session BGP d’homologation publique.
 
 ### Que se passe-t-il si je dépasse les limites du protocole BGP ?
 Les sessions BGP sont supprimées. Elles sont ensuite réinitialisées lorsque le nombre de préfixes tombe en dessous de la limite.
 
-### Une fois que je publie l’itinéraire par défaut \(0.0.0.0/0\) sur mes réseaux virtuels, je ne peux pas activer Windows qui est en cours d’exécution sur mes machines virtuelles Azure. Que puis-je faire ?
+### Une fois que je publie l’itinéraire par défaut (0.0.0.0/0) sur mes réseaux virtuels, je ne peux pas activer Windows qui est en cours d’exécution sur mes machines virtuelles Azure. Que puis-je faire ?
 Les étapes suivantes aideront Azure à reconnaître la demande d’activation :
 
 1. Établissez l’homologation publique pour votre circuit ExpressRoute.
 2. Effectuez une recherche DNS et recherchez l’adresse IP de **kms.core.windows.net**
 3. Effectuez ensuite l’une des deux actions suivantes afin que le service de gestion de clés reconnaisse que la demande d’activation provient d’Azure et respecte la demande.
-	- Sur votre réseau local, réacheminez le trafic destiné à l’adresse IP \(obtenue à l’étape 2\) vers Azure via l’homologation publique.
+	- Sur votre réseau local, réacheminez le trafic destiné à l’adresse IP (obtenue à l’étape 2) vers Azure via l’homologation publique.
 	- Faites en sorte que votre fournisseur de services réseau renvoie le trafic vers Azure via l’homologation publique. 
 
 ### Puis-je modifier la bande passante d’un circuit ExpressRoute ?
@@ -181,7 +181,7 @@ Vous pouvez mettre à jour la bande passante du circuit ExpressRoute à l’aide
 ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-dessous.
  
  - Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation publique et l’homologation privée.
- - Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute \(la valeur par défaut est 10\). Pour plus d’informations, consultez le tableau ci-dessous.
+ - Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau ci-dessous.
  - Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région. **Exemple :** vous pouvez lier un réseau virtuel créé en Europe de l’Ouest à un circuit ExpressRoute créé dans la Silicon Valley. 
 
 ### Combien de réseaux virtuels est-il possible de lier à un circuit ExpressRoute en cas d’abonnement à ExpressRoute Premium ?
@@ -196,7 +196,7 @@ Le tableau ci-dessous fournit les limites augmentées du nombre de réseaux virt
 | 100 Mbits/s | 10 | 25 |
 | 500 Mbits/s | 10 | 40 |
 | 1 Gbit/s | 10 | 50                                                                                     
-\|
+|
 
 
 **Limites pour les circuits créés via des fournisseurs Exchange**
@@ -269,7 +269,7 @@ Les didacticiels suivants vous aideront dans ce sens :
 - Yammer
 - Téléchargements du client Office 365 ProPlus
 - Connexion du fournisseur d’identité local 
-- Office 365 \(opéré par 21 Vianet\) en Chine
+- Office 365 (opéré par 21 Vianet) en Chine
 
 Vous pouvez vous connecter à ces services via Internet.
 

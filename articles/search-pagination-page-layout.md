@@ -90,13 +90,13 @@ Les options de navigation de recherche sont communes à toutes les pages de rés
 
 ## Filtres au niveau de la page ##
 
-Si votre solution inclut des pages de recherche dédiées à certains types de contenu \(par exemple, une application de vente au détail en ligne avec des départements figurant en haut de la page\), vous pouvez associer une expression de filtre à un événement **onClick** pour ouvrir une page préfiltrée.
+Si votre solution inclut des pages de recherche dédiées à certains types de contenu (par exemple, une application de vente au détail en ligne avec des départements figurant en haut de la page), vous pouvez associer une expression de filtre à un événement **onClick** pour ouvrir une page préfiltrée.
 
 Vous pouvez envoyer un filtre avec ou sans expression de recherche. Par exemple, la demande suivante applique un filtre en fonction du nom de la marque et ne renvoie que les documents correspondants.
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consultez [Recherche de documents \(API Azure Search\)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour en savoir plus sur les expressions `$filter`.
+Consultez [Recherche de documents (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx) pour en savoir plus sur les expressions `$filter`.
 
 ## Voir aussi ##
 

@@ -18,17 +18,17 @@
 
 #Connexion d’Azure SQL Database à Azure Search à l’aide d’indexeurs#
 
-Le service Azure Search permet d’obtenir facilement une expérience de recherche exceptionnelle, mais pour pouvoir effectuer des recherches, vous devez créer un index Azure Search avec vos données. Si les données résident dans une base de données SQL Azure, la nouvelle fonctionnalité d’**indexeur Azure Search pour Azure SQL Database** \(ou **indexeur SQL Azure**\) dans Azure Search peut automatiser le processus d'indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
+Le service Azure Search permet d’obtenir facilement une expérience de recherche exceptionnelle, mais pour pouvoir effectuer des recherches, vous devez créer un index Azure Search avec vos données. Si les données résident dans une base de données SQL Azure, la nouvelle fonctionnalité d’**indexeur Azure Search pour Azure SQL Database** (ou **indexeur SQL Azure**) dans Azure Search peut automatiser le processus d'indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
 Actuellement, les indexeurs ne fonctionnent qu’avec Azure SQL Database, SQL Server on Azure VMs et Azure DocumentDB. Dans cet article, nous allons nous concentrer sur les indexeurs qui fonctionnent avec Azure SQL Database. Si vous voulez voir comment d’autres sources de données sont prises en charge, indiquez vos souhaits sur le [forum Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
-Cet article décrit l’utilisation des indexeurs, mais nous allons également examiner les fonctionnalités et comportements propres aux bases de données SQL \(par exemple, le suivi intégré des modifications\).
+Cet article décrit l’utilisation des indexeurs, mais nous allons également examiner les fonctionnalités et comportements propres aux bases de données SQL (par exemple, le suivi intégré des modifications).
 
 ## Indexeurs et sources de données ##
 
 Pour installer et configurer l’indexeur Azure SQL, vous pouvez appeler l'[API REST d’Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528173) afin de créer et de gérer des **indexeurs** et des **sources de données**. À l'avenir, cette fonctionnalité sera également disponible dans le portail de gestion Azure et dans le SDK .NET d’Azure Search.
 
-Une **source de données** spécifie les données à indexer, les informations d'identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d'identifier efficacement les changements dans les données \(telles que des lignes modifiées ou supprimées\). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
+Une **source de données** spécifie les données à indexer, les informations d'identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d'identifier efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
 
 Un **indexeur** est une ressource qui connecte des sources de données à des index de recherche cibles. Un indexeur est utilisé pour :
  
@@ -45,7 +45,7 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 - L’indexeur prend en charge les types de données utilisés dans la source de données. Mais certains types SQL ne sont pas pris en charge. Pour plus d'informations, consultez la section [Mappage des types de données dans Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - Il n’est pas utile de mettre à jour l’index en quasi-temps réel, lorsqu'une ligne est modifiée. 
 	- L'indexeur peut réindexer votre table toutes les 5 minutes au plus. Si vos données changent fréquemment et si les modifications doivent être intégrées dans l'index en quelques secondes ou minutes, nous vous recommandons d'utiliser l’[API d’index Azure Search](https://msdn.microsoft.com/library/azure/dn798930.aspx) directement. 
-- Si vous avez un jeu de données important et que vous comptez exécuter l'indexeur selon une planification, votre schéma nous permet d’identifier efficacement les lignes modifiées \(et éventuellement supprimées\). Pour plus d’informations, consultez la section « Capture des lignes modifiées et supprimées ». 
+- Si vous avez un jeu de données important et que vous comptez exécuter l'indexeur selon une planification, votre schéma nous permet d’identifier efficacement les lignes modifiées (et éventuellement supprimées). Pour plus d’informations, consultez la section « Capture des lignes modifiées et supprimées ». 
 - La taille des champs indexés sur une ligne ne dépasse pas la taille maximale d'une requête d’indexation Azure Search, soit 16 Mo. 
 
 ## Créer et utiliser un indexeur Azure SQL ##
@@ -68,7 +68,7 @@ Récupérez la chaîne de connexion sur le [portail Azure](https://portal.azure.
 
 Ensuite, créez l’index Azure Search cible si vous n’en avez pas un. Pour ce faire, utilisez l'[interface utilisateur du portail](https://portal.azure.com) ou l’[API de création d’index](https://msdn.microsoft.com/library/azure/dn798941.aspx). Assurez-vous que le schéma de votre index cible est compatible avec celui de la table source. Consultez le tableau suivant pour le mappage entre les types de données SQL et Azure Search.
 
-**Mappage entre les types de données SQL et les types de données Azure Search** <table style="font-size:12"> <tr> <td>Type de données SQL</td> <td>Types de champ d’index cible autorisés</td> <td>Remarques</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>décimal<br/>numérique </td> <td>Edm.String</td> <td>Azure Search ne prend pas en charge la conversion des types décimaux Edm.Double, car la précision serait perdue.</td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection\(Edm.String\)</td> <td>La transformation d’une colonne de chaîne en Collection\(Edm.String\) requiert l’utilisation d’une API d’aperçu version 2015-02-28-Preview. Pour plus d’informations, lisez [cet article](search-api-indexers-2015-02-28-Preview.md#create-indexer).</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>Seules les instances geography de type POINT avec le SRID 4326 \(valeur par défaut\) sont prises en charge.</td> </tr> <tr> <td>rowversion</td> <td>S.O.</td> <td>Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais elles peuvent servir au suivi des modifications.</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, types CLR</td> <td>S.O.</td> <td>Non pris en charge</td> </tr> </table>
+**Mappage entre les types de données SQL et les types de données Azure Search** <table style="font-size:12"> <tr> <td>Type de données SQL</td> <td>Types de champ d’index cible autorisés</td> <td>Remarques</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>décimal<br/>numérique </td> <td>Edm.String</td> <td>Azure Search ne prend pas en charge la conversion des types décimaux Edm.Double, car la précision serait perdue.</td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>La transformation d’une colonne de chaîne en Collection(Edm.String) requiert l’utilisation d’une API d’aperçu version 2015-02-28-Preview. Pour plus d’informations, lisez [cet article](search-api-indexers-2015-02-28-Preview.md#create-indexer).</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>Seules les instances geography de type POINT avec le SRID 4326 (valeur par défaut) sont prises en charge.</td> </tr> <tr> <td>rowversion</td> <td>S.O.</td> <td>Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais elles peuvent servir au suivi des modifications.</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, types CLR</td> <td>S.O.</td> <td>Non pris en charge</td> </tr> </table>
 
 Enfin, créez l'indexeur en lui attribuant un nom et en référençant les sources de données source et cible :
 
@@ -89,7 +89,7 @@ Un indexeur créé de cette façon n’a pas de planification. Il s'exécute aut
  
 Il se peut que vous deviez autoriser des services Azure pour vous connecter à votre base de données. Pour plus d’informations sur la marche à suivre, consultez la section [Connexion à partir de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure).
 
-Pour surveiller l’état et l’historique d’exécution de l'indexeur \(nombre d’éléments indexés, échecs, etc.\), utilisez une requête **indexer status** :
+Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status** :
 
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key
@@ -127,7 +127,7 @@ La réponse doit être semblable à ce qui suit :
 		]
 	}
 
-L'historique d'exécution contient jusqu’à 50 exécutions les plus récentes, classées par ordre antichronologique \(la dernière exécution apparaît en premier dans la réponse\). Vous trouverez des informations supplémentaires sur la réponse dans [Obtenir l’état de l’indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528198).
+L'historique d'exécution contient jusqu’à 50 exécutions les plus récentes, classées par ordre antichronologique (la dernière exécution apparaît en premier dans la réponse). Vous trouverez des informations supplémentaires sur la réponse dans [Obtenir l’état de l’indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528198).
 
 ## Exécuter des indexeurs selon une planification ##
 
@@ -143,7 +143,7 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit se présenter sous la forme d’une valeur « dayTimeDuration » XSD \(un sous-ensemble limité d'une [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
+Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit se présenter sous la forme d’une valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
 Le paramètre **startTime** facultatif indique quand les exécutions planifiées doivent commencer ; s'il est omis, l'heure UTC actuelle est utilisée. Cette heure peut être passée, auquel cas la première exécution est planifiée comme si l'indexeur s’exécutait en continu depuis l'heure de début.
 
@@ -156,9 +156,9 @@ Pour être plus clair, prenons un exemple. Supposons que nous avons configuré l
 Voici ce qui se passe :
 
 1. La première exécution de l'indexeur commence à ou autour du 1er mars 2015 à 0 heure UTC.
-1. Supposons que cette exécution prend 20 minutes \(ou en tout cas, moins de 1 heure\).
+1. Supposons que cette exécution prend 20 minutes (ou en tout cas, moins de 1 heure).
 1. La deuxième exécution commence à ou autour du 1er mars 2015 à 1 heure. 
-1. Supposons maintenant que cette exécution dure plus d'une heure \(ce qui nécessiterait un nombre important de documents, mais passons...\) – par exemple, 70 minutes – de sorte qu'elle se termine à environ 2 h 10.
+1. Supposons maintenant que cette exécution dure plus d'une heure (ce qui nécessiterait un nombre important de documents, mais passons...) – par exemple, 70 minutes – de sorte qu'elle se termine à environ 2 h 10.
 1. Il est maintenant 2 h 00, heure du début de la troisième exécution. Mais, comme la deuxième exécution débutée à 1 h est toujours en cours, la troisième est ignorée. Elle commence à 3 h 00.
 
 Vous pouvez ajouter, modifier ou supprimer une planification d’indexeur en utilisant une requête **PUT indexer**.
@@ -235,9 +235,9 @@ Notez que **softDeleteMarkerValue** doit être une chaîne. Utilisez la représe
 
 ## Personnaliser l’indexeur Azure SQL  ##
  
-Vous pouvez personnaliser certains aspects du comportement des indexeurs \(par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.\). Pour plus d'informations, consultez la  [documentation des API d'indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus d'informations, consultez la  [documentation des API d'indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528173).
 
-## Forum Aux Questions \(FAQ\) ##
+## Forum Aux Questions (FAQ) ##
 
 **Q. :** Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?
 

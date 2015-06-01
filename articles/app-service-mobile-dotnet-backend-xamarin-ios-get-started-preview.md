@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main de Mobile Apps dans Xamarin iOS"
-	description="Commencez à utiliser Xamarin iOS pour générer une application Azure Mobile App à l&#39;aide d&#39;Azure App Service."
+	description="Commencez à utiliser Xamarin iOS pour générer une application Azure Mobile App à l'aide d'Azure App Service."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="christopheranderson"
@@ -78,13 +78,13 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet client et démarrer l'application dans l'émulateur iPhone.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus \(\*\*+\*\*\).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
 	Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
 
->[AZURE.NOTE]Vous pouvez vérifier le code \(se trouvant dans le fichier C\# QSTodoService.cs\) qui accède à votre backend d'application mobile pour exécuter une requête et insérer des données.
+>[AZURE.NOTE]Vous pouvez vérifier le code (se trouvant dans le fichier C# QSTodoService.cs) qui accède à votre backend d'application mobile pour exécuter une requête et insérer des données.
 
 
 <!-- Anchors. -->

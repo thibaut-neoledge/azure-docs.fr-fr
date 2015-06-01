@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Comment configurer un environnement App Service" 
-	description="Configuration, gestion et surveillance d&#39;environnements App Service" 
+	description="Configuration, gestion et surveillance d'environnements App Service" 
 	services="app-services\web" 
 	documentationCenter="" 
 	authors="ccompy" 
@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble ##
 
-La fonctionnalité Environnements App Service est une nouvelle fonctionnalité de niveau Premium proposée en version préliminaire. Elle offre de nouvelles possibilités de mise à l'échelle et d'accès réseau. Cette nouvelle fonctionnalité de mise à l'échelle permet de placer une instance d'Azure App Service dans votre réseau virtuel. Si vous n'êtes pas familiarisé avec la fonctionnalité Environnement App Service \(ASE\), lisez le document disponible ici [Présentation d'un environnement App Service][WhatisASE]. Pour plus d'informations sur la création d'un environnement App Service, consultez le document disponible ici [Comment créer un environnement App Service][HowtoCreateASE].
+La fonctionnalité Environnements App Service est une nouvelle fonctionnalité de niveau Premium proposée en version préliminaire. Elle offre de nouvelles possibilités de mise à l'échelle et d'accès réseau. Cette nouvelle fonctionnalité de mise à l'échelle permet de placer une instance d'Azure App Service dans votre réseau virtuel. Si vous n'êtes pas familiarisé avec la fonctionnalité Environnement App Service (ASE), lisez le document disponible ici [Présentation d'un environnement App Service][WhatisASE]. Pour plus d'informations sur la création d'un environnement App Service, consultez le document disponible ici [Comment créer un environnement App Service][HowtoCreateASE].
 
 Globalement, un environnement App Service se compose de plusieurs composants principaux :
 
@@ -30,7 +30,7 @@ Globalement, un environnement App Service se compose de plusieurs composants pri
 - Réseau virtuel avec au moins un sous-réseau
 - Sous-réseau sur lequel s'exécute le service hébergé d'environnement Azure App
 
-Pour vous aider à gérer et à surveiller vos environnements App Service, vous pouvez accéder à l'interface utilisateur destinée à cet effet en choisissant Parcourir -\> Environnements App Service dans le portail Azure. La version initiale dispose des éléments nécessaires pour gérer le système et continuera à s'améliorer avec des fonctionnalités supplémentaires au cours des prochaines semaines.
+Pour vous aider à gérer et à surveiller vos environnements App Service, vous pouvez accéder à l'interface utilisateur destinée à cet effet en choisissant Parcourir -> Environnements App Service dans le portail Azure. La version initiale dispose des éléments nécessaires pour gérer le système et continuera à s'améliorer avec des fonctionnalités supplémentaires au cours des prochaines semaines.
 
 ![][1]
 
@@ -38,7 +38,7 @@ Pour vous aider à gérer et à surveiller vos environnements App Service, vous 
 
 Les fonctionnalités de métriques disponibles dans la version préliminaire initiale ne sont pas nombreuses, mais elles seront déployées prochainement. Ces fonctionnalités de métriques permettront aux administrateurs système de prendre des décisions sur les opérations et la mise à l'échelle du système.
 
-Déjà maintenant dans le portail, vous pouvez répertorier tous les plans App Service de l'environnement App Service \(ASE\), ainsi que toutes les applications web de l'environnement App Service. Pour voir l'une de des listes, accédez à Paramètres, puis sélectionnez l'élément qui vous intéresse.
+Déjà maintenant dans le portail, vous pouvez répertorier tous les plans App Service de l'environnement App Service (ASE), ainsi que toutes les applications web de l'environnement App Service. Pour voir l'une de des listes, accédez à Paramètres, puis sélectionnez l'élément qui vous intéresse.
 
 ![][3]
 
@@ -96,7 +96,7 @@ Le [réseau virtuel][virtualnetwork] et le sous-réseau sont tous les deux contr
  
 L'administration de votre réseau virtuel s'effectue via l'interface utilisateur normale de Virtual Network.
 
-Étant donné que cette fonctionnalité place Azure App Service sur votre réseau virtuel, vos applications hébergées dans votre environnement App Service \(ASE\) peuvent désormais accéder aux ressources rendues disponibles directement via des VPN ExpressRoute ou site à site. Les applications de vos environnements App Service ne nécessitent pas de fonctionnalités de mise en réseau supplémentaires pour accéder aux ressources disponibles sur le réseau virtuel qui héberge votre environnement App Service.
+Étant donné que cette fonctionnalité place Azure App Service sur votre réseau virtuel, vos applications hébergées dans votre environnement App Service (ASE) peuvent désormais accéder aux ressources rendues disponibles directement via des VPN ExpressRoute ou site à site. Les applications de vos environnements App Service ne nécessitent pas de fonctionnalités de mise en réseau supplémentaires pour accéder aux ressources disponibles sur le réseau virtuel qui héberge votre environnement App Service.
 
 Si vous le souhaitez, vous pouvez désormais également contrôler l'accès à l'aide de groupes de sécurité réseau. Cette fonctionnalité vous permet de verrouiller votre environnement App Service pour autoriser uniquement les adresses IP auxquelles vous souhaitez le restreindre. Pour plus d'informations sur la façon de procéder, consultez le document disponible ici [Comment contrôler le trafic entrant dans un environnement App Service][ControlInbound].
 

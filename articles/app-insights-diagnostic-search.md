@@ -42,11 +42,11 @@ Sélectionnez un élément de télémétrie pour afficher les champs clés et le
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
-Pour obtenir l’ensemble des champs, utilisez des chaînes de texte brut \(sans caractères génériques\). Les champs disponibles dépendent du type de télémétrie.
+Pour obtenir l’ensemble des champs, utilisez des chaînes de texte brut (sans caractères génériques). Les champs disponibles dépendent du type de télémétrie.
 
 ## Filtrer les types d’événement
 
-Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhaitez afficher. \(Si vous souhaitez restaurer plus tard les filtres avec lesquels vous avez ouvert le panneau, cliquez sur Réinitialiser\).
+Ouvrez le panneau Filtre et choisissez les types d’événement que vous souhaitez afficher. (Si vous souhaitez restaurer plus tard les filtres avec lesquels vous avez ouvert le panneau, cliquez sur Réinitialiser).
 
 
 ![Choisissez le filtre et sélectionnez les types de télémétrie](./media/app-insights-diagnostic-search/02-filter-req.png)
@@ -57,8 +57,8 @@ Les types d'événements sont :
 * **Suivi** : les journaux de diagnostic comprennent les appels TrackTrace, log4Net, NLog et System.Diagnostic.Trace.
 * **Demandes** : demandes HTTP reçues par votre serveur d’applications, dont les pages, les scripts, les images, les fichiers de style et les données. Ces événements sont utilisés pour créer les graphiques de présentation de la demande et la réponse.
 * **Affichage de page** : télémétrie envoyée par le client web et utilisée pour créer les rapports d’affichage des pages. 
-* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent\(\) pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
-* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException\(\).
+* **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation][track], vous pouvez les rechercher ici.
+* **Exception** : exceptions non interceptées sur le serveur et celles que vous enregistrez avec TrackException().
 
 ## Filtrer des valeurs de propriétés
 
@@ -115,13 +115,13 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
-Recherchez des termes, et non des sous-chaînes. Les termes sont des chaînes alphanumériques comprenant des signes de ponctuation \(comme « . » et « \_ »\). Par exemple :
+Recherchez des termes, et non des sous-chaînes. Les termes sont des chaînes alphanumériques comprenant des signes de ponctuation (comme « . » et « _ »). Par exemple :
 
 terme|*non* trouvé en recherchant|mais en recherchant
 ---|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
+HomeController.About|about<br/>home|h*about<br/>home*
+IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
+New Delay|w d|new<br/>delay<br/>n* AND d*
 
 
 Expressions de recherche utilisables :
@@ -130,12 +130,12 @@ Exemple de requête | Résultat
 ---|---
 slow|Trouve tous les événements dont la période comprend le terme « slow »
 database??|Renvoie database01, databaseAB,...<br/>? n’est pas autorisé au début du terme à rechercher.
-database\*|Renvoie database, database01, databaseNNNN<br/>\* n’est pas autorisé au début du terme à rechercher.
-apple AND banana|Trouve les événements qui contiennent les deux termes. Utilisez « AND » en lettres majuscules \(et non « and » en lettres minuscules\).
+database*|Renvoie database, database01, databaseNNNN<br/>* n’est pas autorisé au début du terme à rechercher.
+apple AND banana|Trouve les événements qui contiennent les deux termes. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules).
 apple OR banana<br/>apple banana|Trouve les événements qui contiennent un des deux termes. Utilisez « OR » et non « or ».</br/>Forme abrégée.
 apple NOT banana<br/>apple -banana|Trouve les événements qui contiennent un terme, mais pas l’autre.<br/>Forme abrégée.
-app\* AND banana -\(grape pear\)|Opérateurs logiques et utilisation des parenthèses.
-"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
+app* AND banana -(grape pear)|Opérateurs logiques et utilisation des parenthèses.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
 
 
 ## Enregistrer votre recherche
@@ -154,7 +154,7 @@ Si vous avez enregistré une période relative, le panneau rouvert comporte les 
 
 ## Envoyer plus de télémétrie à Application Insights
 
-En plus de la télémétrie fournie par le Kit de développement logiciel \(SDK\) Application Insights, vous pouvez :
+En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) Application Insights, vous pouvez :
 
 * Capturer le suivi du journal dans votre infrastructure de journalisation favorite dans [.NET][netlogs] ou [Java][javalogs]. Cela signifie que vous pouvez effectuer des recherches dans le suivi du journal et les mettre en corrélation avec les pages vues, les exceptions et autres événements. 
 * [Écrire du code][track] pour envoyer les événements personnalisés, les pages vues et les exceptions. 

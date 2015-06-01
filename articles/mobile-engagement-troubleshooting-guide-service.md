@@ -29,10 +29,10 @@ Les éléments suivants sont des problèmes potentiels liés à l’exécution d
 ### Causes
 - Problèmes qui semblent provenir d'Azure Mobile Engagement des interruptions de Service peuvent être dû à plusieurs problèmes différents :
     - Problèmes isolés systémiques à l'origine sur l'ensemble d'Azure Mobile Engagement
-    - Problèmes connus provoqués par des pannes de serveur \(ne s'affichent pas toujours dans l'état du serveur\) :
+    - Problèmes connus provoqués par des pannes de serveur (ne s'affichent pas toujours dans l'état du serveur) :
 	- Retards de planification, erreurs de ciblage, problèmes de mise à jour de Badge, arrêt de la collecte des statistiques, arrêt du fonctionnement des notifications Push, arrêt du fonctionnement des API, impossibilité de créer des applications ou des utilisateurs, erreurs DNS et erreurs de délai d’attente dans l’interface utilisateur, les API ou les applications sur un périphérique.
-    - Pannes de dépendance du cloud [État du service Azure](http://status.azure.com/), [État des services Amazon Web Services \(AWS\)](http://status.aws.amazon.com/) 
-    - Pannes des dépendances des services de notification Push \(PNS\) [Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APN](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
+    - Pannes de dépendance du cloud [État du service Azure](http://status.azure.com/), [État des services Amazon Web Services (AWS)](http://status.aws.amazon.com/) 
+    - Pannes des dépendances des services de notification Push (PNS) [Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service](http://www.apple.com/support/systemstatus/), [Android - Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APN](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - Pannes de l’App Store [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/)
 
 *Pour savoir si le problème est systémique, vous pouvez tester la même fonction à partir de différents emplacements :*
@@ -73,7 +73,7 @@ Pour tester si le problème avec les mises à niveau du système d'exploitation 
 
     - Test your application on different devices with different versions of the OS.
     - Confirm that you are using the most recent version of the SDK.
-[Guide de dépannage - Kit de développement logiciel \(SDK\)][Link 2]
+[Guide de dépannage - Kit de développement logiciel (SDK)][Link 2]
  
 ## Problèmes de connectivité et informations incorrectes
 
@@ -91,8 +91,8 @@ Pour tester si le problème avec les mises à niveau du système d'exploitation 
     - Vérifiez que le problème n'est pas isolé sur un seul ordinateur ou votre réseau local.
     - Vérifiez que que le service Azure Mobile Engagement n'a pas signalé d'interruptions.
     - Vérifiez que vos fichiers de balise d'informations d'application respectent toutes ces règles :
-        - Utilisez uniquement le jeu de caractères UTF8 \(le jeu de caractères ANSI n'est pas pris en charge\).
-        - Utilisez une virgule « , » comme caractère de séparation \(vous pouvez ouvrir une demande de service pour modifier le caractère de séparation .csv afin que ce ne soit plus une virgule \(« , »\) mais un autre caractère, par exemple un point-virgule « ; »\).
+        - Utilisez uniquement le jeu de caractères UTF8 (le jeu de caractères ANSI n'est pas pris en charge).
+        - Utilisez une virgule « , » comme caractère de séparation (vous pouvez ouvrir une demande de service pour modifier le caractère de séparation .csv afin que ce ne soit plus une virgule (« , ») mais un autre caractère, par exemple un point-virgule « ; »).
         - Utilisez des minuscules pour les valeurs booléennes « true » et « false ».
         - Utilisez un fichier d'une taille inférieure à la taille maximale de 35 Mo.
 

@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Avertissement ! Après l'installation, le mot de passe racine MySQL est vide par défaut.  Il est recommandé d'exécuter le script **mysql\_secure\_installation**, qui permet de sécuriser MySQL. Lors de l'exécution de **mysql\_secure\_installation**, vous êtes invité à modifier le mot de passe racine MySQL, à supprimer les comptes d'utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. Il est recommandé de répondre oui à toutes ces options et de modifier le mot de passe racine. Pour exécuter le script, saisissez la commande suivante :
+5. Avertissement ! Après l'installation, le mot de passe racine MySQL est vide par défaut.  Il est recommandé d'exécuter le script **mysql_secure_installation**, qui permet de sécuriser MySQL. Lors de l'exécution de **mysql_secure_installation**, vous êtes invité à modifier le mot de passe racine MySQL, à supprimer les comptes d'utilisateurs anonymes, à désactiver les connexions racine à distance, à supprimer les bases de données de test et à recharger la table des privilèges. Il est recommandé de répondre oui à toutes ces options et de modifier le mot de passe racine. Pour exécuter le script, saisissez la commande suivante :
 
 		$ mysql_secure_installation
 

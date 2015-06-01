@@ -136,7 +136,7 @@ Lors du développement d'une application, il est utile de visualiser des informa
 
 > [AZURE.NOTE]Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 
-> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\** sont également diffusées.
+> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles** sont également diffusées.
 
 ### Diffusion d'informations en continu avec Azure PowerShell
 

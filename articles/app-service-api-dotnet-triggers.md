@@ -47,7 +47,7 @@ Deux types de déclencheurs sont actuellement pris en charge :
 
 ### Déclencheur d'interrogation :
 
-Un déclencheur d'interrogation est implémenté sous la forme d'une API REST normale et il attend que ses clients \(comme une application Logic\) l'interrogent pour obtenir une notification. Alors que le client est susceptible de gérer les états, le déclencheur d'interrogation lui-même est sans état.
+Un déclencheur d'interrogation est implémenté sous la forme d'une API REST normale et il attend que ses clients (comme une application Logic) l'interrogent pour obtenir une notification. Alors que le client est susceptible de gérer les états, le déclencheur d'interrogation lui-même est sans état.
 
 Les informations suivantes concernant les paquets de demande et de réponse montrent certains aspects essentiels du contrat du déclencheur d'interrogation :
 
@@ -108,7 +108,7 @@ Les informations suivantes concernant les paquets de demande et de réponse mont
 - Demande
     - Méthode HTTP : PUT
     - Paramètres
-        - triggerId : obligatoire. Chaîne Opaque \(comme un GUID\) qui représente l'inscription d'un déclencheur d'émission.
+        - triggerId : obligatoire. Chaîne Opaque (comme un GUID) qui représente l'inscription d'un déclencheur d'émission.
         - callbackUrl : obligatoire. URL du rappel à appeler quand l'événement se déclenche. L'appel est un simple appel HTTP POST.
         - Paramètres spécifiques de l'API
 - Réponse
@@ -227,7 +227,7 @@ Si vous cliquez sur le bouton **Télécharger Swagger** et que vous ouvrez le fi
       }
     }
 
-La propriété d'extension **x-ms-schedular-trigger** indique comment les déclencheurs sont décrits dans la définition de l'API, et elle est automatiquement ajoutée à la passerelle d'application API quand vous demandez la définition de l'API via la passerelle, si la demande satisfait à un des critères suivants. \(Vous pouvez également ajouter cette propriété manuellement.\)
+La propriété d'extension **x-ms-schedular-trigger** indique comment les déclencheurs sont décrits dans la définition de l'API, et elle est automatiquement ajoutée à la passerelle d'application API quand vous demandez la définition de l'API via la passerelle, si la demande satisfait à un des critères suivants. (Vous pouvez également ajouter cette propriété manuellement.)
 
 - Déclencheur d'interrogation :
     - Si la méthode HTTP est **GET**.

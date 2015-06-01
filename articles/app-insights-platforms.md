@@ -24,7 +24,7 @@
 
 ## Langages :
 
-+ [C\#, VB](app-insights-start-monitoring-app-health-usage.md)
++ [C#, VB](app-insights-start-monitoring-app-health-usage.md)
 + [Pages web JavaScript](app-insights-web-track-usage.md)
 + [Applications JavaScript Windows Store](#cordova)
 + [Java](app-insights-java.md)
@@ -55,7 +55,7 @@
 
 ## Projets
 
-Consultez également le projet du [Kit de développement logiciel \(SDK\) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home)
+Consultez également le projet du [Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home)
 
 
 ### <a name="cordova"></a>Applications JavaScript Cordova et Windows Store

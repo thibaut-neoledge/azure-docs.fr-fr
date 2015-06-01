@@ -39,7 +39,7 @@ Selon l'édition que vous choisissez, tous les paramètres du service BizTalk pe
 <br/>
     ![Sélectionnez le bouton Nouveau][Sélectionnez le bouton Nouveau]
 
-3.  Sélectionnez **APP SERVICES** \> **BIZTALK SERVICE** \> **CRÉATION PERSONNALISÉE** :
+3.  Sélectionnez **APP SERVICES** > **BIZTALK SERVICE** > **CRÉATION PERSONNALISÉE** :
 <br/>
     ![Sélectionnez BizTalk Service, puis Création personnalisée][Sélectionnez BizTalk Service, puis Création personnalisée]
 

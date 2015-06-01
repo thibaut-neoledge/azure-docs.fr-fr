@@ -39,11 +39,11 @@ L'interface principale de Python dans Azure Machine Learning Studio est acces
 
 Figure 1 : Module **Exécuter le script Python**
 
-Le module [Exécuter le script Python][execute-python-script] accepte jusqu'à trois entrées et génère jusqu'à deux sorties \(voir ci-dessous\), comme son analogue R, le module [Exécuter le script R][execute-r-script]. Le code Python, qui doit être exécuté, est saisi dans la boîte de paramètres en tant que fonction de point d'entrée spécialement nommée, appelée `azureml_main`. Vous trouverez ici les principes de conception clés utilisés pour implémenter ce module :
+Le module [Exécuter le script Python][execute-python-script] accepte jusqu'à trois entrées et génère jusqu'à deux sorties (voir ci-dessous), comme son analogue R, le module [Exécuter le script R][execute-r-script]. Le code Python, qui doit être exécuté, est saisi dans la boîte de paramètres en tant que fonction de point d'entrée spécialement nommée, appelée `azureml_main`. Vous trouverez ici les principes de conception clés utilisés pour implémenter ce module :
 
 1.	*Doit être idiomatique pour les utilisateurs de Python.* La plupart des utilisateurs de Python factorisent leur code en tant que fonctions au sein des modules. De ce fait, le placement de nombreuses instructions exécutables dans un module de niveau supérieur est relativement rare. La boîte de script utilise également une fonction Python spécialement nommée plutôt qu'une séquence d'instructions. Les objets exposés dans la fonction sont des types de bibliothèques standards Python, tels que des trames de données [Pandas](http://pandas.pydata.org/) et des tableaux [NumPy](http://www.numpy.org/).
 2.	*Doit disposer d'une haute fidélité entre les exécutions locales et les exécutions du cloud.* Le serveur principal utilisé pour exécuter le code Python est basé sur [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, une distribution scientifique interplateforme Python, largement utilisée. Il est fourni avec près de 200 des principaux packages Python. Par conséquent, un scientifique de données peut déboguer et qualifier leur code sur son environnement local Azure Machine Learning compatible Anaconda en utilisant des environnements de développement existants tels que le notebook [IPython](http://ipython.org/) ou [Python Tools for Visual Studio](http://pytools.codeplex.com/), et l'exécuter dans le cadre d'une expérience Azure Machine Learning en toute confiance. De plus, le point d'entrée `azureml_main` est une fonction Python vanille qui peut être créée sans code Azure Machine Learning spécifique ou kit de développement logiciel installé.
-3.	*Doit être composé, de manière transparente, d'autres modules Azure Machine Learning.* Le module [Exécuter le script Python][execute-python-script] accepte en tant qu'entrées et sorties, les ensembles de données Azure Machine Learning standard. L'infrastructure sous-jacente établit efficacement et en toute transparence un pont entre les runtimes Azure Machine Learning et Python \(prenant en charge des fonctionnalités telles que des valeurs manquantes\). Python peut donc être utilisé en combinaison avec des flux de travail Azure Machine Learning existants, y compris ceux qui font appel à R et SQLite. Vous pouvez donc envisager des flux de travail qui :
+3.	*Doit être composé, de manière transparente, d'autres modules Azure Machine Learning.* Le module [Exécuter le script Python][execute-python-script] accepte en tant qu'entrées et sorties, les ensembles de données Azure Machine Learning standard. L'infrastructure sous-jacente établit efficacement et en toute transparence un pont entre les runtimes Azure Machine Learning et Python (prenant en charge des fonctionnalités telles que des valeurs manquantes). Python peut donc être utilisé en combinaison avec des flux de travail Azure Machine Learning existants, y compris ceux qui font appel à R et SQLite. Vous pouvez donc envisager des flux de travail qui :
   * utilisent Python et Pandas pour le prétraitement et le nettoyage de données, 
   * alimentent des données pour une transformation SQL, en joignant plusieurs ensembles de données dans le but de former des fonctionnalités, 
   * forment des modèles à l'aide de nombreux algorithmes dans Azure Machine Learning, et 
@@ -51,7 +51,7 @@ Le module [Exécuter le script Python][execute-python-script] accepte jusqu'à t
 
 
 ## Utilisation de base
-Dans cette section, nous examinons certaines utilisations courantes du module [Exécuter le script Python][execute-python-script]. Comme mentionné précédemment, des entrées vers le module Python sont exposées sous forme de trames de données Pandas. Pour en savoir plus sur Pandas et découvrir comment il peut être utilisé pour manipuler efficacement des données dans *Python for Data Analysis* \(Sebastopol, CA. : O'Reilly, 2012\) par W. McKinney. La fonction doit renvoyer une seule image de données Pandas empaquetée dans une [séquence](https://docs.python.org/2/c-api/sequence.html) Python telle qu'un tuple, une liste ou un tableau NumPy. Le premier élément de cette séquence est ensuite renvoyé dans le premier port de sortie du module. Ce schéma est illustré dans la Figure 2.
+Dans cette section, nous examinons certaines utilisations courantes du module [Exécuter le script Python][execute-python-script]. Comme mentionné précédemment, des entrées vers le module Python sont exposées sous forme de trames de données Pandas. Pour en savoir plus sur Pandas et découvrir comment il peut être utilisé pour manipuler efficacement des données dans *Python for Data Analysis* (Sebastopol, CA. : O'Reilly, 2012) par W. McKinney. La fonction doit renvoyer une seule image de données Pandas empaquetée dans une [séquence](https://docs.python.org/2/c-api/sequence.html) Python telle qu'un tuple, une liste ou un tableau NumPy. Le premier élément de cette séquence est ensuite renvoyé dans le premier port de sortie du module. Ce schéma est illustré dans la Figure 2.
 
 ![image3](./media/machine-learning-execute-python-scripts/figure2.png) Figure 2. Mappage des ports d'entrée vers des paramètres et valeur de renvoi vers le port de sortie.
 
@@ -61,14 +61,14 @@ Les sémantiques plus détaillées qui décrivent la procédure à adopter pour 
 
 Tableau 1. Mappage des ports d'entrée vers les paramètres de fonction.
 
-Notez que le mappage entre les ports d'entrée et les paramètres de fonction est positionnel, c'est-à-dire que le premier port d'entrée connecté est mappé vers le premier paramètre de la fonction et la seconde entrée \(si celle-ci est connectée\) est mappée vers le deuxième paramètre de la fonction.
+Notez que le mappage entre les ports d'entrée et les paramètres de fonction est positionnel, c'est-à-dire que le premier port d'entrée connecté est mappé vers le premier paramètre de la fonction et la seconde entrée (si celle-ci est connectée) est mappée vers le deuxième paramètre de la fonction.
 
 ## Conversion des types d'entrée et de sortie
 Comme expliqué précédemment, les ensembles de données d'entrée dans Azure Machine Learning sont convertis en trames de données dans Pandas et les trames de données de sortie sont reconverties en ensembles de données Azure Machine Learning. Les conversions à exécuter sont les suivantes :
 
-1.	Les colonnes numériques et celles sous forme de chaîne sont converties telles quelles et les valeurs manquantes dans un ensemble de données sont converties en valeurs « NA » dans Pandas. Cette conversion s'effectue également dans l'autre sens \(les valeurs NA dans Pandas sont converties en valeurs manquantes dans Azure Machine Learning\).
+1.	Les colonnes numériques et celles sous forme de chaîne sont converties telles quelles et les valeurs manquantes dans un ensemble de données sont converties en valeurs « NA » dans Pandas. Cette conversion s'effectue également dans l'autre sens (les valeurs NA dans Pandas sont converties en valeurs manquantes dans Azure Machine Learning).
 2.	Les vecteurs d'index dans Pandas ne sont pas pris en charge dans Azure Machine Learning et toutes les trames de données d'entrée dans la fonction Python bénéficieront toujours d'un index numérique 64 bits compris entre 0 et le nombre de lignes moins 1. 
-3.	Les ensembles de données Azure Machine Learning ne peuvent pas comporter de noms de colonnes dupliqués et de noms de colonnes autres que des chaînes. Si une trame de données de sortie contient des colonnes non numériques, l'infrastructure appelle `str` sur les noms de colonnes. De même, les noms de colonnes dupliqués sont automatiquement tronqués pour que chaque nom soit unique. Le suffixe \(2\) est ajouté au premier doublon, le suffixe \(3\) au deuxième, et ainsi de suite.
+3.	Les ensembles de données Azure Machine Learning ne peuvent pas comporter de noms de colonnes dupliqués et de noms de colonnes autres que des chaînes. Si une trame de données de sortie contient des colonnes non numériques, l'infrastructure appelle `str` sur les noms de colonnes. De même, les noms de colonnes dupliqués sont automatiquement tronqués pour que chaque nom soit unique. Le suffixe (2) est ajouté au premier doublon, le suffixe (3) au deuxième, et ainsi de suite.
 
 ## Mise en place des scripts Python
 Tout module [Exécuter le script Python][execute-python-script] dans une expérience d'évaluation est appelé lorsque celui-ci est publié en tant que service web. Par exemple, la Figure 3 illustre une expérience de notation qui détient le code permettant d'évaluer une seule expression Python.
@@ -79,7 +79,7 @@ Tout module [Exécuter le script Python][execute-python-script] dans une expéri
 
 Figure 3. Service web pour l'évaluation d'une expression Python.
 
-Un service web créé à partir de cette expérience utilise comme entrée une expression Python \(sous forme de chaîne\), l'envoie à l'interpréteur Python et renvoie une table contenant l'expression et le résultat.
+Un service web créé à partir de cette expérience utilise comme entrée une expression Python (sous forme de chaîne), l'envoie à l'interpréteur Python et renvoie une table contenant l'expression et le résultat.
 
 ## Importation des modules Python existants
 De nombreux scientifiques de données intègrent les scripts Python existants dans des expériences Azure Machine Learning. Au lieu de concaténer et de coller tout le code dans une boîte de script unique, le module [Exécuter le script Python][execute-python-script] accepte un troisième port d'entrée auquel un fichier zip contenant les modules Python peut être connecté. Le fichier est ensuite décompressé par le framework d'exécution lors de l'exécution et le contenu est ajouté au chemin de bibliothèque de l'interpréteur Python. La fonction du point d'entrée `azureml_main` peut ensuite importer ces modules directement.
@@ -118,7 +118,7 @@ Pour générer des images à partir de MatplotLib, vous devez suivre la procédu
 * obtenir l'axe et générer sur celui-ci tous les graphiques 
 * enregistrer la figure dans un fichier PNG 
 
-Ce processus est mentionné dans la Figure 8 ci-dessous, qui crée une matrice de nuages de points à l'aide de la fonction scatter\_matrix dans Pandas.
+Ce processus est mentionné dans la Figure 8 ci-dessous, qui crée une matrice de nuages de points à l'aide de la fonction scatter_matrix dans Pandas.
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -153,10 +153,10 @@ Figure 11. Expérience permettant de classer des fonctionnalités dans l'ensemb
 ## Limites 
 Le module [Exécuter le script Python][execute-python-script] présente actuellement les limites suivantes :
 
-1.	*Exécution dans un bac à sable \(sandbox\).* Le runtime Python est actuellement exécuté dans un bac à sable \(sandbox\) et, par conséquent, n'autorise pas l'accès au réseau ou au système de fichiers local de façon permanente. Tous les fichiers enregistrés localement sont isolés et supprimés une fois que le module se termine. Le code Python ne peut pas accéder à la plupart des répertoires sur la machine qui les exécute, excepté le répertoire actuel et ses sous-répertoires.
+1.	*Exécution dans un bac à sable (sandbox).* Le runtime Python est actuellement exécuté dans un bac à sable (sandbox) et, par conséquent, n'autorise pas l'accès au réseau ou au système de fichiers local de façon permanente. Tous les fichiers enregistrés localement sont isolés et supprimés une fois que le module se termine. Le code Python ne peut pas accéder à la plupart des répertoires sur la machine qui les exécute, excepté le répertoire actuel et ses sous-répertoires.
 2.	*Manque de support de développement et de débogage sophistiqué.* Le module Python ne prend pas en charge les fonctionnalités IDE telles que Intellisense et Débogage. En outre, si le module échoue lors de l'exécution, l'arborescence complète des appels de procédure Python est disponible, mais elle doit être affichée dans le journal de sortie du module. Nous recommandons aux utilisateurs de développer et de déboguer leurs scripts Python dans un environnement tel que IPython et d'importer ensuite le code dans le module.
 3.	*Sortie de trame de données unique.* Le point d'entrée Python n'est autorisé qu'à renvoyer une trame de données unique en tant que sortie. Il est pour l'instant impossible de renvoyer des objets arbitraires Python tels que les modèles formés directement lors de l'exécution d'Azure Machine Learning. Comme avec [Exécuter le script R][execute-r-script], qui présente les mêmes restrictions, il est toutefois possible, dans de nombreux cas, de stocker des objets dans un tableau d'octets et de les renvoyer ensuite dans une trame de données.
-4.	*Personnalisation de l'installation de Python impossible*. L'ajout de modules Python personnalisés n'est, à l'heure actuelle, possible qu'à l'aide du mécanisme de fichiers zip décrit précédemment. Bien que ceci soit faisable pour les petits modules, la procédure est assez lourde pour les gros modules \(notamment ceux constitués de DLL natives\) ou un grand nombre de modules. 
+4.	*Personnalisation de l'installation de Python impossible*. L'ajout de modules Python personnalisés n'est, à l'heure actuelle, possible qu'à l'aide du mécanisme de fichiers zip décrit précédemment. Bien que ceci soit faisable pour les petits modules, la procédure est assez lourde pour les gros modules (notamment ceux constitués de DLL natives) ou un grand nombre de modules. 
 
 
 ##Conclusions

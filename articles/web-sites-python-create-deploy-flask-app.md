@@ -89,7 +89,7 @@ Nous suivrons ces instructions dans les sections suivantes.
 
 Voici une vue d'ensemble des fichiers que vous trouverez dans le référentiel Git initial, que nous allons cloner dans la section suivante.
 
-    \FlaskWebProject\__init__.py
+    \FlaskWebProject__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\

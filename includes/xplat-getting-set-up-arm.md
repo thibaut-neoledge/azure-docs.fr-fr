@@ -9,9 +9,9 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## Utilisation de l'interface xplat-cli avec Azure Resource Manager \(ARM\)
+## Utilisation de l'interface xplat-cli avec Azure Resource Manager (ARM)
 
-Avant de pouvoir utiliser l'interface xplat-cli avec les commandes et les modèles du Gestionnaire de ressources pour déployer des ressources et des charges de travail Azure à l'aide de groupes de ressources, vous devez disposer d'un compte Azure \(naturellement\). Si vous ne disposez pas d'un compte, vous pouvez obtenir un [essai d'Azure gratuit ici](http://azure.microsoft.com/pricing/free-trial/).
+Avant de pouvoir utiliser l'interface xplat-cli avec les commandes et les modèles du Gestionnaire de ressources pour déployer des ressources et des charges de travail Azure à l'aide de groupes de ressources, vous devez disposer d'un compte Azure (naturellement). Si vous ne disposez pas d'un compte, vous pouvez obtenir un [essai d'Azure gratuit ici](http://azure.microsoft.com/pricing/free-trial/).
 
 > [AZURE.NOTE] Si vous ne disposez pas d'un compte Azure, mais d'un abonnement MSDN, vous pouvez obtenir des crédits Azure gratuits en activant vos [avantages d'abonné MSDN ici](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ; ou vous pouvez utiliser le compte gratuit. Les deux possibilités fonctionneront pour accéder à Azure.
 
@@ -26,7 +26,7 @@ Si vous devez mettre à jour votre version de l'interface xplat-cli, consultez l
 
 ### Étape 2 : vérification de l'utilisation d'une identité professionnelle ou scolaire avec Azure
 
-Vous pouvez uniquement utiliser le mode de commande ARM si vous utilisez un [client Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) ou un [nom du principal du service](https://msdn.microsoft.com/library/azure/dn132633.aspx). \(Ils sont également appelés *ID professionnels*.\)
+Vous pouvez uniquement utiliser le mode de commande ARM si vous utilisez un [client Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) ou un [nom du principal du service](https://msdn.microsoft.com/library/azure/dn132633.aspx). (Ils sont également appelés *ID professionnels*.)
 
 Pour voir si vous en disposez, connectez-vous en tapant `azure login` et en indiquant votre nom d'utilisateur de l'établissement et votre mot de passe lorsque vous y êtes invité. Si vous n'en avez pas, voici ce que vous devez voir :
 
@@ -41,7 +41,7 @@ Pour voir si vous en disposez, connectez-vous en tapant `azure login` et en indi
     +
     info:    login command OK
     
-Si vous ne voyez pas cette option, vous devez créer un client \(ou principal du service\) avec votre identité de compte Microsoft. \(Cela est souvent le cas avec les abonnements MSDN personnels ou les abonnements d'essai gratuits.\) Pour créer un id professionnel ou scolaire à partir de votre compte Azure créé avec un id Microsoft, consultez la page [Association d'un annuaire Azure AD à un nouvel abonnement Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si vous pensez déjà posséder un id professionnel, vous devrez contacter la personne qui a créé le compte pour vous.
+Si vous ne voyez pas cette option, vous devez créer un client (ou principal du service) avec votre identité de compte Microsoft. (Cela est souvent le cas avec les abonnements MSDN personnels ou les abonnements d'essai gratuits.) Pour créer un id professionnel ou scolaire à partir de votre compte Azure créé avec un id Microsoft, consultez la page [Association d'un annuaire Azure AD à un nouvel abonnement Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si vous pensez déjà posséder un id professionnel, vous devrez contacter la personne qui a créé le compte pour vous.
 
 ### Étape 3 : choix de votre abonnement Azure
 
@@ -57,7 +57,7 @@ Le résultat suivant pourrait s'afficher :
     
 ### Étape 4 : placement de votre interface xplat-cli en mode ARM
 
-Pour utiliser le mode de gestion de ressources Azure \(ARM, Azure Resource Management\) avec l'interface xplat-cli, tapez `azure config mode arm`. Le résultat suivant pourrait s'afficher :
+Pour utiliser le mode de gestion de ressources Azure (ARM, Azure Resource Management) avec l'interface xplat-cli, tapez `azure config mode arm`. Le résultat suivant pourrait s'afficher :
 
     $ azure config mode arm
     info:    New mode is arm

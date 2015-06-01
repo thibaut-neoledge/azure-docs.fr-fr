@@ -68,7 +68,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 
 | Nom du package | Description du package |
 | ------------ | ------------------- |
-| abc | Outils de calcul bayésien approximatif \(ABC\) |
+| abc | Outils de calcul bayésien approximatif (ABC) |
 | abind | Combinaison de tableaux multidimensionnels |
 | actuar | Fonctions actuarielles |
 | ade4 | Analyse de données écologiques : méthodes exploratoires et euclidiennes en sciences environnementales |
@@ -83,13 +83,13 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | assertthat | Pré et post-assertions faciles |
 | AtelieR | Interface utilisateur graphique GTK pour enseigner les concepts fondamentaux de l'inférence statistique et tests bayésiens élémentaires |
 | BaBooN | Correspondance moyenne prédictive d'amorçage bayésienne : imputation multiple et unique pour données discrètes |
-| BACCO | Analyse bayésienne de sortie de code d'ordinateur \(BACCO\) |
+| BACCO | Analyse bayésienne de sortie de code d'ordinateur (BACCO) |
 | BaM | Fonctions et jeux de données pour livres de Jeff Gill |
 | bark | Noyaux de régression additifs bayésiens |
 | BAS | Moyenne de modèle bayésien avec échantillonnage adaptatif bayésien |
 | base | Package de Base R |
 | BayesDA | Fonctions et jeux de données pour le livre Bayesian Data Analysis |
-| bayesGARCH | Estimation bayésienne du modèle GARCH\(1,1\) avec innovations Student-t |
+| bayesGARCH | Estimation bayésienne du modèle GARCH(1,1) avec innovations Student-t |
 | bayesm | Inférence bayésienne pour marketing/micro-économétrie |
 | bayesmix | Modèles de mélange bayésien avec JAGS |
 | bayesQR | Régression quantile bayésienne |
@@ -101,7 +101,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | BayHaz | Fonctions R pour l'estimation du taux de risque bayésien |
 | bbemkr | Estimation de la bande passante bayésienne pour la régression du noyau multicritère avec erreur gaussienne |
 | BCBCSF | Classification bayésienne de correction de décalage avec fonctionnalités sélectionnées |
-| BCE | Estimateur de composition bayésien : estimation de la composition \(taxonomique\) d'échantillon pour données de biomarqueur |
+| BCE | Estimateur de composition bayésien : estimation de la composition (taxonomique) d'échantillon pour données de biomarqueur |
 | bclust | Clustering bayésien utilisant un modèle hiérarchique de type spike-and-slab, compatible avec le clustering de données de grande dimension |
 | bcp | Package pour réaliser une analyse bayésienne de problèmes de point de modification |
 | BenfordTests | Tests statistiques pour évaluer la conformité de la loi de Benford |
@@ -115,9 +115,9 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | Bmix | Échantillonnage bayésien pour mélanges de ruptures de tige |
 | BMS | Bibliothèque de moyenne de modèle bayésien |
 | bnlearn | Apprentissage de la structure réseau bayésienne, apprentissage des paramètres et inférence |
-| boa | Programme d'analyse de sortie bayésienne \(BOA\) pour MCMC |
+| boa | Programme d'analyse de sortie bayésienne (BOA) pour MCMC |
 | Bolstad | Fonctions Bolstad |
-| boot | Fonctions d'amorçage \(à l'origine par Angelo Canty pour S\) |
+| boot | Fonctions d'amorçage (à l'origine par Angelo Canty pour S) |
 | bootstrap | Fonctions pour le livre An Introduction to the Bootstrap |
 | bqtl | Kit de ressources de mappage QTL bayésien |
 | BradleyTerry2 | Modèles Bradley-Terry |
@@ -142,7 +142,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | colorspace | Manipulation de l'espace colorimétrique |
 | combinat | Utilitaires de combinatoires |
 | compiler | Package du compilateur R |
-| corpcor | Estimation efficace de la covariance et de la corrélation \(partielle\) |
+| corpcor | Estimation efficace de la covariance et de la corrélation (partielle) |
 | cslogistic | Régression logistique spécifique de façon conditionnelle |
 | ctv | Vues des tâches CRAN |
 | cubature | Intégration multicritère adaptative sur hypercubes |
@@ -153,9 +153,9 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | deal | Apprentissage des réseaux bayésiens avec variables mixtes |
 | Deducer | Deducer : interface utilisateur graphique pour l'analyse des données pour R |
 | DeducerExtras | Boîtes de dialogue et fonctions supplémentaires pour Deducer |
-| deldir | Triangulation de Delaunay et tesselation de Dirichlet \(Voronoi\). |
+| deldir | Triangulation de Delaunay et tesselation de Dirichlet (Voronoi). |
 | DEoptimR | Optimisation de l'évolution différentielle dans R pur |
-| deSolve | Solutionneurs généraux pour les problèmes de valeur initiale d'équations dérivées ordinaires \(ODE\), équations aux dérivées partielles \(PDE\), équations algébriques dérivées \(DAE\) et équations dérivées avec retard \(DDE\) |
+| deSolve | Solutionneurs généraux pour les problèmes de valeur initiale d'équations dérivées ordinaires (ODE), équations aux dérivées partielles (PDE), équations algébriques dérivées (DAE) et équations dérivées avec retard (DDE) |
 | devtools | Outils pour faciliter le développement de code R |
 | dichromat | Thèmes de couleurs pour Dichromats |
 | digest | Créer des résumés de hachage cryptographique d'objets R |
@@ -164,8 +164,8 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | doSNOW | Adaptateur parallèle Foreach pour le package snow |
 | dplyr | dplyr : grammaire de manipulation de données |
 | DPpackage | Modélisation non paramétrique bayésienne dans R |
-| dse | Estimation de systèmes dynamiques \(package de série chronologique\) |
-| e1071 | Fonctions diverses du département de statistiques \(e1071\) de l'Université technique de Vienne |
+| dse | Estimation de systèmes dynamiques (package de série chronologique) |
+| e1071 | Fonctions diverses du département de statistiques (e1071) de l'Université technique de Vienne |
 | EbayesThresh | Seuil de Bayes empirique et méthodes associées |
 | ebdbNet | Estimation de Bayes empirique des réseaux bayésiens dynamiques |
 | effects | Affichages des effets pour les modèles linéaires, linéaires généralisés, multinomiaux Logit, Odds proportionnels Logit et les modèles à effets mixtes |
@@ -194,7 +194,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | foreign | Lire des données stockées par Minitab, S, SAS, SPSS, Stata, Systat, Weka, dBase... |
 | formatR | Mettre en forme du code R automatiquement |
 | Formula | Formules de modèle étendu |
-| fracdiff | ARIMA différenciés de façon fractionnelle, aussi connus sous le nom de modèles ARFIMA\(p,d,q\) |
+| fracdiff | ARIMA différenciés de façon fractionnelle, aussi connus sous le nom de modèles ARFIMA(p,d,q) |
 | gam | Modèles additifs généralisés |
 | gamlr | Régression Gamma Lasso |
 | gbm | Modèles de régression augmentés et généralisés |
@@ -250,7 +250,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | JavaGD | Appareil graphique Java |
 | JGR | JGR : interface utilisateur graphique Java pour R |
 | kernlab | Laboratoire Machine Learning basé sur le noyau |
-| KernSmooth | Fonctions de lissage de noyau pour Wand et Jones \(1995\) |
+| KernSmooth | Fonctions de lissage de noyau pour Wand et Jones (1995) |
 | KFKSDS | Filtre de Kalman, lisseur et lisseur de perturbations |
 | kinship2 | Fonctions d'ascendance |
 | kknn | K plus proches voisins pondérés |
@@ -272,7 +272,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | lmPerm | Tests de permutation pour modèles linéaires |
 | lmtest | Test de modèles de régression linéaire |
 | locfit | Régression locale, probabilité et estimation de densité |
-| lpSolve | Interface Lp\_solve v. 5.5 pour résoudre des programmes linéaires/entiers |
+| lpSolve | Interface Lp_solve v. 5.5 pour résoudre des programmes linéaires/entiers |
 
 
 ###Modules R commençant par les lettres M à R
@@ -296,7 +296,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | maxLik | Estimation de la probabilité maximale |
 | mcmc | Monte Carlo par chaînes de Markov |
 | MCMCglmm | Modèles mixtes linéaires généralisés MCMC |
-| MCMCpack | Package Monte Carlo par chaînes de Markov \(MCMC\) |
+| MCMCpack | Package Monte Carlo par chaînes de Markov (MCMC) |
 | memoise | Fonctions memoise |
 | methods | Méthodes et classes formelles |
 | mgcv | Véhicule de calcul GAM mixte avec estimation de lissage GCV/AIC/REML |
@@ -317,7 +317,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | mombf | Facteurs de Bayes de moment inverse et de moment |
 | monomvn | Estimation de données Student t et normales mulitvariables avec absence monotone |
 | monreg | Régression monotone non paramétrique |
-| mosaic | Utilitaires d'apprentissage de statistiques et de mathématiques de projet MOSAIC \(mosaic-web.org\) |
+| mosaic | Utilitaires d'apprentissage de statistiques et de mathématiques de projet MOSAIC (mosaic-web.org) |
 | MSBVAR | Modèles de commutation de Markov, d'autorégression de vecteur et modèles bayésiens |
 | msm | Modèles de Markov multiétat et modèles de Markov masqués dans le temps en continu |
 | multcomp | Inférence simultanée dans les modèles paramétriques généraux |
@@ -351,7 +351,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | PottsUtils | Fonctions utilitaires des modèles Potts |
 | predmixcor | Règle de classification basée sur des modèles de mélange bayésien avec sélection de correction de décalage |
 | PresenceAbsence | Évaluation du modèle d'absence de présence |
-| prodlim | Estimation de la limite de produit. Méthode Kaplan-Meier et Aalen-Johansson pour l'analyse de l'historique \(survie\) d'événements censurés |
+| prodlim | Estimation de la limite de produit. Méthode Kaplan-Meier et Aalen-Johansson pour l'analyse de l'historique (survie) d'événements censurés |
 | profdpm | Mélanges de processus Dirichlet de profil |
 | profileModel | Outils de profilage des fonctions d'inférence pour diverses classes de modèle |
 | proto | Programmation orientée objet de prototype |
@@ -380,13 +380,13 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | rcppbugs | Liaison R pour cppbugs |
 | RcppEigen | Intégration Rcpp pour la bibliothèque algébrique linéaire basée sur Eigen |
 | RcppExamples | Exemples d'utilisation de Rcpp pour connecter R et C++ |
-| RCurl | Interface client de réseau général \(HTTP/FTP /...\) pour R |
+| RCurl | Interface client de réseau général (HTTP/FTP /...) pour R |
 | relimp | Contribution relative des effets dans un modèle de régression |
 | reshape | Données de réorganisation de flexibilité |
 | reshape2 | Données de réorganisation de flexibilité : recréation du package de réorganisation |
 | rgdal | Liaisons pour la bibliothèque d'abstraction de données géospatiales |
-| rgeos | Interface de Geometry Engine : Open Source \(GEOS\) |
-| rgl | Dispositif de visualisation 3D \(OpenGL\) |
+| rgeos | Interface de Geometry Engine : Open Source (GEOS) |
+| rgl | Dispositif de visualisation 3D (OpenGL) |
 | RGraphics | Données et fonctions du livre R Graphics, Second Edition |
 | RGtk2 | Liaisons R pour Gtk 2.8.0 et versions ultérieures |
 | RJaCGH | Saut réversible MCMC pour l'analyse de tableaux CGH |
@@ -401,9 +401,9 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | roxygen2 | Documentation dans la source pour R |
 | rpart | Partition récursive et arbres de régression |
 | rrcov | Estimations fiables et évolutives avec point de rupture élevé |
-| rscproxy | statconn : fournit une interface de style C portable pour R \(StatConnector\) |
+| rscproxy | statconn : fournit une interface de style C portable pour R (StatConnector) |
 | RSGHB | Fonctions d'estimation bayésienne hiérarchique : approche flexible |
-| RSNNS | Réseaux neuronaux dans R utilisant le simulateur de réseaux de neurones de Stuttgart \(SNNS, Stuttgart Neural Network Simulator\) |
+| RSNNS | Réseaux neuronaux dans R utilisant le simulateur de réseaux de neurones de Stuttgart (SNNS, Stuttgart Neural Network Simulator) |
 | RTextTools | Classification de texte automatique via apprentissage contrôlé |
 | RUnit | Infrastructure de développement de test unitaire R |
 | runjags | Utilitaires d'interface, méthodes de calcul parallèle et distributions supplémentaires pour les modèles MCMC dans JAGS |
@@ -427,7 +427,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | segmented | Relations segmentées dans les modèles de régression avec estimation de points d'arrêt/de changement |
 | sem | Modèles d'équations structurelles |
 | seriation | Infrastructure de sériation |
-| setRNG | Définir un générateur et une graine de nombres aléatoires \(normal\) |
+| setRNG | Définir un générateur et une graine de nombres aléatoires (normal) |
 | sgeostat | Infrastructure de développement orientée objet pour la modélisation géostatistique dans S+ |
 | shapefiles | Lire et écrire des fichiers de mise en forme ESRI |
 | shiny | Infrastructure de développement d'applications web pour R |
@@ -450,7 +450,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | spTimer | Modélisation bayésienne spatio-temporelle utilisant R |
 | stats | Package de statistiques R |
 | stats4 | Fonctions statistiques utilisant des classes S4 |
-| stochvol | Inférence bayésienne efficace pour modèles de volatilité stochastique \(SV\) |
+| stochvol | Inférence bayésienne efficace pour modèles de volatilité stochastique (SV) |
 | stringr | Faciliter l'utilisation de chaînes |
 | strucchange | Test, surveillance et modifications structurelles de dates |
 | stsm | Modèles de séries chronologiques structurelles |
@@ -478,7 +478,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | tseries | Analyse de séries chronologiques et finance mathématique |
 | tsfa | Analyse de facteurs de séries chronologiques |
 | tsoutliers | Détection automatique de valeurs aberrantes dans des séries chronologiques |
-| TSP | Problème du voyageur de commerce \(TSP\) |
+| TSP | Problème du voyageur de commerce (TSP) |
 | UsingR | Jeux de données pour le texte utilisant R pour la présentation de statistiques |
 | utils | Package d'utilitaires R |
 | varSelectIP | Sélection de modèles de Bayes objectif |
@@ -495,7 +495,7 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 | yaml | Méthodes de conversion de données R vers YAML et inversement |
 | zic | Inférence bayésienne pour les modèles de comptes à zéro inflation |
 | zipfR | Modèles de statistiques pour les distributions de fréquence de mots |
-| zoo | Infrastructure S3 pour séries chronologiques régulières et irrégulières \(observations ordonnées Z\) |
+| zoo | Infrastructure S3 pour séries chronologiques régulières et irrégulières (observations ordonnées Z) |
 
 
 <!-- Module References -->

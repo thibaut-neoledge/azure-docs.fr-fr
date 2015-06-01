@@ -9,21 +9,21 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 5. Cliquez avec le bouton droit sur le fichier .zip, puis sélectionnez **Extraire tout...**  Spécifiez " C: ", puis cliquez sur **Extraire**.  Une fois les fichiers extraits, vous pouvez renommer le dossier d'installation pour lui donner un nom plus simple.  " MongoDB ", par exemple.
 6. Créez les répertoires des données et des journaux MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans le menu **Démarrer**, sélectionnez **Invite de commande** pour ouvrir une fenêtre d'invite de commandes.  Type :
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+		C:> F:
+		F:> mkdir \MongoData
+		F:> mkdir \MongoLogs
 
 7. Pour exécuter la base de données, entrez : 
 
-		F:\> C:
-		C:\> cd \MongoDB\bin
+		F:> C:
+		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
 	Tous les messages du journal sont dirigés vers le fichier *F:\MongoLogs\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
 
 8. Pour lancer l'interpréteur de commandes d'administration de MongoDB, ouvrez une autre fenêtre de commande à partir du menu **Démarrer** et tapez le texte suivant :
 
-		C:\> cd \my_mongo_dir\bin  
+		C:> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test  	  

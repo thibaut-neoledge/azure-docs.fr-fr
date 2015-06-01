@@ -146,11 +146,11 @@ Windows se reconnectera à votre partage de fichiers lorsque la machine virtuell
 
 Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l'aide de la syntaxe suivante. Remplacez `<storage-account>` par le nom de votre compte de stockage, et `<share-name>` par le nom de votre partage de stockage de fichiers.
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+	net use z: <storage-account>.file.core.windows.net<share-name>
 
 > [AZURE.NOTE] Comme vous avez conservé les informations d'identification de votre compte de stockage à l'étape précédente, vous n'avez pas besoin de les préciser avec la commande `net use`. Si vous n'avez pas conservé vos informations d'identification, incluez-les en les transmettant comme paramètres dans la commande `net use`. Remplacez `<storage-account>` par le nom de votre compte de stockage, `<share-name>` par le nom du partage de stockage de fichiers et `<account-key>` par la clé du compte de stockage :
 	   
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	net use z: <storage-account>.file.core.windows.net<share-name> /u:<storage-account> <account-key>
 
 Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n'importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l'invite de commandes ou afficher le partage monté et son contenu à partir de l'Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l'aide d'API d'E/S de fichiers Windows standard, telles que celles fournies par les espaces de noms [System.IO ](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) dans .NET Framework. 
 

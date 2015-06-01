@@ -50,7 +50,7 @@ Application Insights fonctionne pour les applications mobiles et les application
 
 Marcela Markova est la spécialiste de test de l'équipe OBS et elle est responsable de la surveillance des performances en ligne. Elle crée plusieurs [tests web][availability] :
 
-* Un test d'URL unique pour la page d'accueil principale de l'application, http://fabrikambank.com/onlinebanking/. Elle définit des critères de code HTTP 200 et le texte « Bienvenue ! ». Si ce test échoue, il y a un sérieux problème de réseau ou un problème sur les serveurs, voire un problème de déploiement. \(Ou bien quelqu'un a modifié sans l'informer le message de bienvenue sur la page d'accueil.\) 
+* Un test d'URL unique pour la page d'accueil principale de l'application, http://fabrikambank.com/onlinebanking/. Elle définit des critères de code HTTP 200 et le texte « Bienvenue ! ». Si ce test échoue, il y a un sérieux problème de réseau ou un problème sur les serveurs, voire un problème de déploiement. (Ou bien quelqu'un a modifié sans l'informer le message de bienvenue sur la page d'accueil.) 
 
 
 * Un test en plusieurs étapes plus en profondeur, qui se connecte et obtient la liste des comptes actuels, en vérifiant quelques détails importants sur chaque page. Ce test vérifie que le lien vers la base de données des comptes fonctionne. Elle utilise un ID de client fictif : elle en conserve quelques-uns pour ses tests.
@@ -103,7 +103,7 @@ Il est également possible de définir des alertes sur un grand nombre d'autres 
 ## Détection des exceptions
 
 
-Les exceptions sont signalées à Application Insights via [TrackException\(\)][api] :
+Les exceptions sont signalées à Application Insights via [TrackException()][api] :
 
     var telemetry = new TelemetryClient();
     ...
@@ -126,7 +126,7 @@ Les exceptions sont signalées à Application Insights via [TrackException\(\)][
 
 L'équipe de la banque Fabrikam a pour règle de toujours envoyer la télémétrie en cas d'exception, sauf s'il existe une solution évidente.
 
-En fait, la stratégie de l'équipe est encore plus large : elle envoie la télémétrie dans tous les cas où le client ne peut pas faire ce qu'il veut, que cela corresponde à une exception dans le code ou non. Par exemple, si le système de transfert interbancaire externe renvoie un message « Impossible d'effectuer cette transaction » pour une raison quelconque \(aucune erreur du client\), cet événement est suivi.
+En fait, la stratégie de l'équipe est encore plus large : elle envoie la télémétrie dans tous les cas où le client ne peut pas faire ce qu'il veut, que cela corresponde à une exception dans le code ou non. Par exemple, si le système de transfert interbancaire externe renvoie un message « Impossible d'effectuer cette transaction » pour une raison quelconque (aucune erreur du client), cet événement est suivi.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -153,7 +153,7 @@ L'équipe de développement Fabrikam souhaite voir les événements heureux auss
 Par exemple, le parcours de la plupart des utilisateurs est clairement balisé : nombreux d’entre eux consultent les taux de différents types de prêt, certains remplissent le formulaire de devis et parmi ceux qui reçoivent le devis, certains contractent un emprunt.
 
 
-L'équipe de développement insère des appels TrackMetric\(\) à chaque étape. Dans Metrics Explorer, Brian, l'architecte système, peut comparer les valeurs de chaque mesure, pour évaluer comment le système vend les emprunts.
+L'équipe de développement insère des appels TrackMetric() à chaque étape. Dans Metrics Explorer, Brian, l'architecte système, peut comparer les valeurs de chaque mesure, pour évaluer comment le système vend les emprunts.
 
 
 Ursula, la spécialiste de l'expérience utilisateur, garde également un œil sur les mesures positives. Si le graphique montre une chute soudaine à un des stades du processus, cela indique un problème. Peut-être qu'il est difficile de trouver le bon bouton ou peut-être que le texte n'est pas très encourageant. Peut-être qu'il y a un bogue : les utilisateurs cliquent sur le bouton, mais rien ne se produit.
@@ -217,10 +217,10 @@ Certains problèmes de dépendances lentes sont dus à des problèmes de géoloc
 **Qu'avons-nous fait ?** Si le problème ne paraît pas venir d'une dépendance, et s’il n'a pas toujours été là, il est probablement dû à une modification récente. La perspective historique fournie par les graphiques des mesures et des événements facilite la mise en corrélation de changements soudains avec les déploiements. Cela permet de réduire le champ de la recherche du problème.
 
 
-**Que se passe-t-il ?** Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace\(\) ou TrackEvent\(\).
+**Que se passe-t-il ?** Certains problèmes se produisent rarement et peuvent être difficiles à détecter en cas de test hors connexion. Tout ce que nous pouvons faire, c'est essayer de capturer le bogue lorsqu'il se produit en temps réel. Vous pouvez inspecter les vidages de pile dans les rapports d'exceptions. En outre, vous pouvez écrire les appels de suivi, soit avec votre infrastructure de journalisation favorite, soit avec TrackTrace() ou TrackEvent().
 
 
-Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace\(\) à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
+Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace() à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
 
 
 ## Gestion du problème 

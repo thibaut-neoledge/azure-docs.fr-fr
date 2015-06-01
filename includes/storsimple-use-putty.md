@@ -16,7 +16,7 @@
 
 ### Pour établir une connexion via la console série
 
-1. Connectez votre câble série à l’appareil \(directement ou via un adaptateur USB série\).
+1. Connectez votre câble série à l’appareil (directement ou via un adaptateur USB série).
 
 2. Ouvrez le **Panneau de configuration**, puis ouvrez le **Gestionnaire de périphériques**.
 

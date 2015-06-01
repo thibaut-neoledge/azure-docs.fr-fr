@@ -76,7 +76,7 @@ Pour afficher ou télécharger une facture :
 
  **NOM DE L'OFFRE** | **TYPE DE L'OFFRE** | **INCLUT LES SERVICES GRATUITS** | **TÉLÉCHARGER** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Programme des avantages | Oui\* | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Azure MSDN-Visual Studio Ultimate| Programme des avantages | Oui* | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Paiement à l’utilisation | Consommation | Non| [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
 Utilisation détaillée - csv | N/A | N/A | [Exemple de fichier](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
@@ -95,7 +95,7 @@ Durée pendant laquelle l'utilisation a eu lieu.
 Date à laquelle la facture a été générée.
 
 ### Mode de paiement
-Type de paiement utilisé sur le compte \(facture ou carte de crédit\).
+Type de paiement utilisé sur le compte (facture ou carte de crédit).
 
 ### Facturer à
 Adresse des paiements Microsoft Azure.
@@ -118,8 +118,8 @@ Le solde précédent est le montant total dû sur votre dernière facture.
 ### Paiements
 Les paiements correspondent au total des paiements appliqués à votre dernière facture.
 
-### Solde dû \(depuis le cycle de facturation précédent\)
-Tout ajustement de facturation \(crédits ou soldes\) appliqué à votre compte depuis votre dernière facture.
+### Solde dû (depuis le cycle de facturation précédent)
+Tout ajustement de facturation (crédits ou soldes) appliqué à votre compte depuis votre dernière facture.
 
 
 ## Comprendre les frais actuels
@@ -168,7 +168,7 @@ Le service Azure peut aussi être défini par type dans cette colonne, ce qui pe
 Identifie l'unité de mesure de la ressource consommée.
 
 ### Région
-Régions auxquelles l'utilisation s'applique et qui concerne principalement les services de cloud, les machines virtuelles et les transferts de données \(à l'exclusion du réseau de distribution de contenu\), car ces tarifs peuvent varier selon les régions. Région du mappage du réseau de distribution du contenu et de l'emplacement du centre de données où le trafic a été traité.
+Régions auxquelles l'utilisation s'applique et qui concerne principalement les services de cloud, les machines virtuelles et les transferts de données (à l'exclusion du réseau de distribution de contenu), car ces tarifs peuvent varier selon les régions. Région du mappage du réseau de distribution du contenu et de l'emplacement du centre de données où le trafic a été traité.
 
 ### Consommé
 Contient la quantité de la ressource consommée pendant la période de facturation.
@@ -203,7 +203,7 @@ Période de facturation | Période de facturation pendant laquelle la ressource 
 Nom | Identifie le nom du service utilisé.
 Type | Dans certains cas, le service Azure peut aussi être défini par type dans cette colonne, ce qui peut affecter le tarif.
 Ressource | Identifie le type de ressource consommé. Par exemple, le transfert de données, les heures de calcul et les transactions de stockage sont des types de ressources.
-Région | Identifie l'emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement \(transferts de données, par exemple\).
+Région | Identifie l'emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement (transferts de données, par exemple).
 SKU | Identifie l'identificateur système unique de chaque ressource Azure.
 Unité | Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s
 Consommé | Contient la quantité de la ressource consommée ce jour-là.
@@ -225,7 +225,7 @@ Date à laquelle l'utilisation a été émise
 GUID du compteur facturé
 
 ### Sous-région
-Identifie l'emplacement spécifique du service omis \(à savoir l'emplacement du centre de données\).
+Identifie l'emplacement spécifique du service omis (à savoir l'emplacement du centre de données).
 
 ### Service
 Cette colonne est utilisée pour suivre le service individuel de plateforme Azure qui ne peut pas être spécifiquement identifié dans la colonne Nom. La colonne Service colonne indique à quel service spécifique l'utilisation se rapporte.
@@ -247,7 +247,7 @@ Pour plus d'informations, consultez les sources supplémentaires du fichier d'in
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 
 
-Pour rechercher la version la plus actuelle, entrez l'année et le mois \(pour le fichier de mai 2015, entrez **052015** dans la section _**« MMAAAA »**_ de l'URL ci-dessus\). Cette feuille de calcul fournit la liste de toutes les combinaisons possibles des champs associés au service dans le **Rapport de téléchargement de l'utilisation**.
+Pour rechercher la version la plus actuelle, entrez l'année et le mois (pour le fichier de mai 2015, entrez **052015** dans la section _**« MMAAAA »**_ de l'URL ci-dessus). Cette feuille de calcul fournit la liste de toutes les combinaisons possibles des champs associés au service dans le **Rapport de téléchargement de l'utilisation**.
 
 
 <!--Image references-->

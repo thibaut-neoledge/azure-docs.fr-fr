@@ -17,16 +17,16 @@
 	ms.author="spelluru"/>
 
 # Création d'alertes pour les événements Azure
-Les événements Azure fournissent des explications utiles sur ce qui se passe dans vos ressources Azure. Azure consigne les événements utilisateur lorsqu'une ressource Azure \(par exemple, une fabrique de données\) est créée, mise à jour ou supprimée. Lors de l'utilisation du service Azure Data Factory, les événements sont générés lorsque :
+Les événements Azure fournissent des explications utiles sur ce qui se passe dans vos ressources Azure. Azure consigne les événements utilisateur lorsqu'une ressource Azure (par exemple, une fabrique de données) est créée, mise à jour ou supprimée. Lors de l'utilisation du service Azure Data Factory, les événements sont générés lorsque :
  
 1.	Azure Data Factory est créé, mis à jour ou supprimé.
-2.	Le traitement des données \(appelé au démarrage\) est démarré ou terminé.
+2.	Le traitement des données (appelé au démarrage) est démarré ou terminé.
 3.	Lorsqu'un cluster HDInsight à la demande est créé et supprimé.
 
 Vous pouvez créer des alertes relatives à ces événements utilisateur et les configurer pour envoyer des notifications par courrier électronique à l'administrateur et aux coadministrateurs de l'abonnement. De plus, vous pouvez spécifier des adresses de messagerie supplémentaires pour les utilisateurs devant recevoir des notifications par courrier électronique lorsque les conditions sont remplies.
 
 ## Spécification d'une définition d'alerte
-Pour spécifier une définition d'alerte, vous devez créer un fichier JSON décrivant les opérations pour lesquelles vous souhaitez être alerté. Dans l'exemple ci-dessous, l'alerte envoie une notification par courrier électronique pour l’opération **RunFinished**. Pour être plus précis, une notification par courrier électronique est envoyée lorsqu'une exécution de la fabrique de données est terminée en ayant échoué \(État = FailedExecution\).
+Pour spécifier une définition d'alerte, vous devez créer un fichier JSON décrivant les opérations pour lesquelles vous souhaitez être alerté. Dans l'exemple ci-dessous, l'alerte envoie une notification par courrier électronique pour l’opération **RunFinished**. Pour être plus précis, une notification par courrier électronique est envoyée lorsqu'une exécution de la fabrique de données est terminée en ayant échoué (État = FailedExecution).
 
 	{
     	"contentVersion": "1.0.0.0",
@@ -67,7 +67,7 @@ Pour spécifier une définition d'alerte, vous devez créer un fichier JSON déc
 
 Si vous ne voulez pas recevoir d’alerte relative à un échec spécifique, supprimez **subStatus** de la définition JSON précédente.
 
-Pour obtenir la liste des opérations et états \(et états secondaires\), consultez la section [Opérations et états disponibles](#AvailableOperationsStatuses).
+Pour obtenir la liste des opérations et états (et états secondaires), consultez la section [Opérations et états disponibles](#AvailableOperationsStatuses).
 
 ## Déploiement de l’alerte
 Pour déployer l'alerte, utilisez l'applet de commande Azure PowerShell : **New-AzureResourceGroupDeployment**, comme indiqué dans l'exemple suivant :

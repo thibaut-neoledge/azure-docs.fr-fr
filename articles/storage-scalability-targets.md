@@ -24,7 +24,7 @@ Cet article décrit l’extensibilité et les performances de Microsoft Azure 
 
 >[AZURE.IMPORTANT]Les objectifs d’extensibilité et de performances répertoriés ici sont des objectifs haut de gamme mais réalisables. Dans tous les cas, le taux de demande et la bande passante atteints par votre compte de stockage dépendent de la taille des objets stockés, des modèles d’accès utilisés et du type de charge de travail de votre application. Veillez à tester votre service afin de déterminer si ses performances répondent à vos besoins. Dans la mesure du possible, évitez les pics soudains de trafic et assurez-vous que le trafic est bien réparti sur toutes les partitions.
 
->Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Azure Storage commence à renvoyer des codes d’erreur 503 \(Serveur occupé\) ou 500 \(Délai d’expiration de l’opération\). Quand cela se produit, l’application doit utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
+>Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Azure Storage commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Quand cela se produit, l’application doit utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
 
 Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, concevez votre application de sorte qu’elle utilise plusieurs comptes de stockage et partitionnez vos objets de données sur ces comptes. Un seul abonnement Azure permet l’utilisation de 100 comptes de stockage. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
@@ -58,9 +58,9 @@ Le tableau suivant décrit les objectifs d’extensibilité des comptes de stock
 </tr>
 </table>
 
-*Les données entrantes représentent toutes les données \(demandes\) envoyées à un compte de stockage. 
+*Les données entrantes représentent toutes les données (demandes) envoyées à un compte de stockage. 
 
-*Les données sortantes représentent toutes les données \(réponses\) reçues d’un compte de stockage. 
+*Les données sortantes représentent toutes les données (réponses) reçues d’un compte de stockage. 
 
 ### Objectifs d’extensibilité des comptes de stockage standard en Europe et en Asie
 
@@ -86,9 +86,9 @@ Le tableau suivant décrit les objectifs d’extensibilité des comptes de stock
 </tr>
 </table>
 
-*Les données entrantes représentent toutes les données \(demandes\) envoyées à un compte de stockage. 
+*Les données entrantes représentent toutes les données (demandes) envoyées à un compte de stockage. 
 
-*Les données sortantes représentent toutes les données \(réponses\) reçues d’un compte de stockage. 
+*Les données sortantes représentent toutes les données (réponses) reçues d’un compte de stockage. 
 
 ### Objectifs d’extensibilité pour les comptes de stockage Premium
 
@@ -106,9 +106,9 @@ Le tableau suivant décrit les objectifs d’extensibilité des comptes de stock
 <td>Jusqu'à 50&#160;Go par seconde pour les données entrantes/sortantes</td>
 </table>
 
-*Les données entrantes représentent toutes les données \(demandes\) envoyées à un compte de stockage. 
+*Les données entrantes représentent toutes les données (demandes) envoyées à un compte de stockage. 
 
-*Les données sortantes représentent toutes les données \(réponses\) reçues d’un compte de stockage.
+*Les données sortantes représentent toutes les données (réponses) reçues d’un compte de stockage.
 
 Pour plus d’informations sur les disques de stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
@@ -128,7 +128,7 @@ Le tableau suivant décrit les objectifs de performances pour une seule partitio
 <td>Jusqu’à 60&#160;Mo par seconde</td>
 </table>
 
-Chaque objet contenant des données stockées dans Azure Storage \(blobs, messages, entités et fichiers\) appartient à une partition et est identifié par une clé de partition. La partition détermine la manière dont Azure Storage équilibre la charge des blobs, des messages, des entités et des fichiers sur les serveurs pour répondre aux besoins de trafic de ces objets. La clé de partition est unique dans le compte de stockage. Elle permet de localiser un blob, un message ou une entité.
+Chaque objet contenant des données stockées dans Azure Storage (blobs, messages, entités et fichiers) appartient à une partition et est identifié par une clé de partition. La partition détermine la manière dont Azure Storage équilibre la charge des blobs, des messages, des entités et des fichiers sur les serveurs pour répondre aux besoins de trafic de ces objets. La clé de partition est unique dans le compte de stockage. Elle permet de localiser un blob, un message ou une entité.
 
 Pour les tables, toutes les entités affichant la même valeur de clé de partition sont regroupées dans la même partition et sont stockées sur le même serveur de partition. Il s’agit d’un point important de la conception de votre application. Votre application doit offrir un parfait équilibre entre les avantages de l’extensibilité de la répartition des entités sur plusieurs partitions et les avantages d’accès aux données du regroupement des entités en une seule partition. Grâce au regroupement des entités en partitions, il est possible de mener des opérations atomiques sur les entités d’une même partition, car une partition existe sur un serveur unique.
 

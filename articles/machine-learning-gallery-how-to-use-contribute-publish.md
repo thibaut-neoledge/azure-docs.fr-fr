@@ -22,7 +22,7 @@ La galerie Azure Machine Learning est un site communautaire destiné à la dé
 
 La galerie permet également aux utilisateurs de parcourir et de copier des expériences partagées par l'équipe de Microsoft Azure Machine Learning.
 
-**[ALLER À LA GALERIE \>\>](http://gallery.azureml.net)**
+**[ALLER À LA GALERIE >>](http://gallery.azureml.net)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ La galerie Azure Machine Learning vous permet de copier facilement des expéri
 
 Procédez comme suit :
 
-- Connectez-vous au studio à l'aide de votre compte Microsoft \(veillez à ce que votre image de profil et votre nom dans les paramètres de profil de votre compte Microsoft s'affichent comme vous le souhaitez\)
+- Connectez-vous au studio à l'aide de votre compte Microsoft (veillez à ce que votre image de profil et votre nom dans les paramètres de profil de votre compte Microsoft s'affichent comme vous le souhaitez)
 - Créez votre expérience et exécutez-la
 - Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur Publier dans la galerie dans la barre noire inférieure de Studio. ![Publier](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Vous n'avez plus qu'à l'utiliser !
 
@@ -65,7 +65,7 @@ Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utili
 
 ![Commentaires](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Forum Aux Questions \(FAQ\) ##
+## Forum Aux Questions (FAQ) ##
 **Je souhaite apporter des modifications au flux de travail de l'expérience que j'ai envoyée à la galerie. Comment faire ?**
 
 À partir de maintenant, nous ne prenons pas en charge les mises à jour des flux de travail des expériences que vous avez déjà publiées dans la galerie. Vous pouvez publier ces modifications en tant que nouvelle expérience dans la galerie et supprimer l'ancienne. Nous travaillons activement à un moyen de publier des mises à jour de publication pour les flux de travail déjà partagés dans la galerie. Restez connecté.
@@ -78,7 +78,7 @@ Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utili
 - Balises
 - Images
 
-Pour modifier ces champs, cliquez sur l'expérience spécifique que vous souhaitez modifier \(assurez-vous que vous êtes connecté avec votre compte Microsoft\). Vous accéderez à la page de détails de l'expérience où vous pouvez afficher les options à modifier ou supprimer. En cliquant sur « Modifier », vous pouvez modifier l'un des champs ci-dessus.
+Pour modifier ces champs, cliquez sur l'expérience spécifique que vous souhaitez modifier (assurez-vous que vous êtes connecté avec votre compte Microsoft). Vous accéderez à la page de détails de l'expérience où vous pouvez afficher les options à modifier ou supprimer. En cliquant sur « Modifier », vous pouvez modifier l'un des champs ci-dessus.
 
 **Je viens de publier mon expérience dans la galerie Azure Machine Learning. Je ne vois pas mon image de profil s'afficher avec mon nom**
 
@@ -86,7 +86,7 @@ Vous utilisez peut-être un autre compte que @outlook, @msn, @live ou @hotmail. 
 
 **J'ai mis à jour ma photo de profil dans les paramètres de configuration de mon compte Microsoft. Pourquoi mes expériences partagées existantes ne montrent-elles pas cette nouvelle photo de profil ?**
 
-Si vous souhaitez montrer la modification de profil la plus récente \(la photo de profil, le prénom ou le nom de famille\) pour toutes vos expériences, vous devez envoyer à nouveau les anciennes expériences à la galerie. En faisant cela, vous devrez supprimer les anciennes copies qui montrent les anciens paramètres de profil.
+Si vous souhaitez montrer la modification de profil la plus récente (la photo de profil, le prénom ou le nom de famille) pour toutes vos expériences, vous devez envoyer à nouveau les anciennes expériences à la galerie. En faisant cela, vous devrez supprimer les anciennes copies qui montrent les anciens paramètres de profil.
 
 **Quelle est la configuration requise de l'image lors de l'envoi ou de la modification d'une image de mon expérience ?**
 
@@ -108,6 +108,6 @@ La tabulation vous permet de délimiter des balises.
 
 Le rendu de la description complète n'est pas disponible de façon étendue à tous les utilisateurs de la galerie. Nous travaillons activement à rendre cette fonctionnalité disponible via la prise en charge du rendu de texte.
 
-**[ALLER À LA GALERIE \>\>](http://gallery.azureml.net)**
+**[ALLER À LA GALERIE >>](http://gallery.azureml.net)**
 
 <!--HONumber=54-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Déploiement d&#39;un modèle à l&#39;aide de l&#39;interface de ligne de commande Azure pour Mac, Linux et Windows"
-   description="Décrit les étapes de base pour déployer ou mettre à jour n&#39;importe quel modèle."
+   pageTitle="Déploiement d'un modèle à l'aide de l'interface de ligne de commande Azure pour Mac, Linux et Windows"
+   description="Décrit les étapes de base pour déployer ou mettre à jour n'importe quel modèle."
    services="virtual-machines"
    documentationCenter=""
    authors="squillace"
@@ -21,7 +21,7 @@
 ## Installer curl, wget ou un autre outil de téléchargement
 Cette rubrique utilise **curl**. Utilisez le gestionnaire de package de votre système d'exploitation ou téléchargez-le [ici](http://curl.haxx.se/download.html).
 
-## Télécharger le fichier de paramètres du modèle \(ou le modèle, si nécessaire\)
+## Télécharger le fichier de paramètres du modèle (ou le modèle, si nécessaire)
 
 Les étapes suivantes vous permettront de déployer un modèle Azure, même s'il est complexe. Cette rubrique utilise le modèle qui crée un serveur de base Ubuntu avec l'extension de machine virtuelle customscript installée comme exemple. Les fichiers figurent également à la fin de la rubrique pour référence.
 
@@ -33,7 +33,7 @@ Téléchargez le fichier azuredeploy-parameters.json s'il existe pour le modèle
     
 ## Entrer les informations de déploiement du groupe de ressources
     
-Ouvrez ce fichier dans votre éditeur favori. Vous verrez que vous devez spécifier une valeur pour plusieurs clés, en particulier **adminUsername**, **adminPassword** \(n'oubliez pas les règles de complexité !\) et le nom du compte de stockage ainsi que les noms DNS de votre choix.
+Ouvrez ce fichier dans votre éditeur favori. Vous verrez que vous devez spécifier une valeur pour plusieurs clés, en particulier **adminUsername**, **adminPassword** (n'oubliez pas les règles de complexité !) et le nom du compte de stockage ainsi que les noms DNS de votre choix.
     
     {
       "newStorageAccountName": {
@@ -71,7 +71,7 @@ Ouvrez ce fichier dans votre éditeur favori. Vous verrez que vous devez spécif
       }
     }
     
-Ajoutez les nouvelles valeurs \(Azure va créer les ressources de stockage et DNS à votre place, si cela est possible\) ou utilisez les ressources que vous avez déjà créées. Voici un exemple avec le fichier azuredeploy-parameters.json :
+Ajoutez les nouvelles valeurs (Azure va créer les ressources de stockage et DNS à votre place, si cela est possible) ou utilisez les ressources que vous avez déjà créées. Voici un exemple avec le fichier azuredeploy-parameters.json :
 
 
 
@@ -89,7 +89,7 @@ Les paramètres sont à définir, ou ils peuvent déjà faire partie du modèle 
 Si votre modèle contient ses paramètres directement, ou vous souhaitez extraire les données des paramètres vous-même. Pour plus d'informations sur la structure des modèles, consultez la rubrique [Langue de modèle de gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (ou simplement le fichier azuredeploy-parameters.json\) Vous pouvez soit extraire la section des paramètres du modèle ; dans ce cas, vous devrez l'enregistrer dans le modèle lui-même OU dans un fichier azuredeploy-parameters.json distinct. Vous devrez obtenir les valeurs à placer dans les paramètres.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (ou simplement le fichier azuredeploy-parameters.json) Vous pouvez soit extraire la section des paramètres du modèle ; dans ce cas, vous devrez l'enregistrer dans le modèle lui-même OU dans un fichier azuredeploy-parameters.json distinct. Vous devrez obtenir les valeurs à placer dans les paramètres.
 
 ## Modifier le fichier azuredeploy-templates.json
 

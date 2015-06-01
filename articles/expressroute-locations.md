@@ -17,7 +17,7 @@
 # Partenaires ExpressRoute et emplacements d’homologation
 Ce tableau fournit des détails sur :
 
-1. Fournisseurs de connectivité ExpressRoute \(fournisseurs Exchange et fournisseurs de services réseau\)
+1. Fournisseurs de connectivité ExpressRoute (fournisseurs Exchange et fournisseurs de services réseau)
 2. Couverture géographique ExpressRoute
 3. Services cloud Microsoft pris en charge via ExpressRoute
 4. Intégrateurs système ExpressRoute
@@ -36,7 +36,7 @@ Vous aurez accès aux services Azure dans toutes les régions au sein d’une un
 |**Europe**|Europe du Nord, Europe de l’Ouest|Amsterdam, Londres|
 |**Asie**|Asie orientale, Asie du Sud-Est|Hong Kong, Singapour|
 |**Japon**|Ouest du Japon, Est du Japon|Tokyo|
-|**Australie**|Sud-est de l’Australie \|Est de l’Australie|Sydney|
+|**Australie**|Sud-est de l’Australie |Est de l’Australie|Sydney|
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge. Vous pouvez travailler avec votre fournisseur de connectivité pour étendre la connectivité entre les régions géopolitiques à l’aide de leur réseau.
 
@@ -58,7 +58,7 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Demandez à votre fournisseur de connectivité d’étendre votre réseau à l’emplacement Exchange de prédilection.
 	- Vérifiez que votre fournisseur de connectivité étend votre connectivité avec une haute disponibilité pour éviter tout point de défaillance unique.
-	- Les fournisseurs de connectivité \(en particulier les fournisseurs Ethernet\) peuvent vous obliger à acquérir une paire de circuits pour les échanges Ethernet afin de garantir une haute disponibilité. 
+	- Les fournisseurs de connectivité (en particulier les fournisseurs Ethernet) peuvent vous obliger à acquérir une paire de circuits pour les échanges Ethernet afin de garantir une haute disponibilité. 
 - Commandez un circuit ExpressRoute via le fournisseur Exchange pour vous connecter à Azure.
 	- Suivez les étapes de la rubrique [Configurer votre connexion au fournisseur Exchange](expressroute-configuring-exps.md) pour configurer la connectivité.
 
@@ -82,7 +82,7 @@ Les tableaux ci-dessous fournissent des informations sur les fournisseurs de con
 |**TeleCity Group**|Pris en charge||
 |**Zayo Group**|Pris en charge||
 
-**Fournisseurs de services réseau \(NSP\)**
+**Fournisseurs de services réseau (NSP)**
 
 |**Fournisseur de services**|**Services Microsoft Azure**|**Services Office 365**|
 |---|---|---|

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Interface utilisateur d&#39;Azure Mobile Engagement - Moniteur" 
+   pageTitle="Interface utilisateur d'Azure Mobile Engagement - Moniteur" 
    description="En savoir plus sur la surveillance des données en temps réel de votre application à l’aide d’Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
@@ -28,23 +28,23 @@ Vous pouvez afficher le nombre d'utilisateurs actuellement dans une session, les
 ![Moniteur1][14]
 
 ## Résolution des problèmes liés à la section Surveillance - Événements - Détails
-La génération d'un événement dans votre application à partir de votre appareil de test et sa recherche dans Surveillance - Événements - Détails est l'un des moyens les plus faciles pour trouver l'ID de votre appareil pour votre appareil de test et pour confirmer que l'intégration des sections Analyse, Surveillance et Segments par Azure Mobile Engagement fonctionne à partir de votre application. Une fois que vous avez l'ID de l'appareil de votre appareil de test, vous pouvez l'ajouter à vos appareils de test dans « Mon compte - Appareils ». Si vous ne parvenez pas à générer un événement, assurez-vous qu'Azure Mobile Engagement est bien intégré à votre application Android, iOS, Web, Windows ou Windows Phone à l'aide du Kit de développement logiciel \(SDK\).
+La génération d'un événement dans votre application à partir de votre appareil de test et sa recherche dans Surveillance - Événements - Détails est l'un des moyens les plus faciles pour trouver l'ID de votre appareil pour votre appareil de test et pour confirmer que l'intégration des sections Analyse, Surveillance et Segments par Azure Mobile Engagement fonctionne à partir de votre application. Une fois que vous avez l'ID de l'appareil de votre appareil de test, vous pouvez l'ajouter à vos appareils de test dans « Mon compte - Appareils ». Si vous ne parvenez pas à générer un événement, assurez-vous qu'Azure Mobile Engagement est bien intégré à votre application Android, iOS, Web, Windows ou Windows Phone à l'aide du Kit de développement logiciel (SDK).
 
 ### Voir aussi
--  [Documentation du Kit de développement logiciel \(SDK\)][Link 5]
+-  [Documentation du Kit de développement logiciel (SDK)][Link 5]
 
 ![Moniteur2][15]
 
 ## Résolution des problèmes liés à la section Surveillance - Incidents - Détails
-Vous pouvez consulter les informations relatives à l'incident de votre application dans Surveillance - Incidents - Détails pour vous aider à déterminer les raisons de l'incident survenu dans votre application. Nous vous invitons à chercher également des problèmes connus avec chaque version du Kit de développement logiciel \(SDK\) dans les notes de publication pour chaque version du Kit de développement logiciel \(SDK\) pour Android, iOS, Web, Windows et Windows Phone.
+Vous pouvez consulter les informations relatives à l'incident de votre application dans Surveillance - Incidents - Détails pour vous aider à déterminer les raisons de l'incident survenu dans votre application. Nous vous invitons à chercher également des problèmes connus avec chaque version du Kit de développement logiciel (SDK) dans les notes de publication pour chaque version du Kit de développement logiciel (SDK) pour Android, iOS, Web, Windows et Windows Phone.
 
 ### Voir aussi
--  [Documentation du Kit de développement logiciel \(SDK\) - Notes de publication][Link 5]
+-  [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5]
 
 ![Moniteur3][16]
 
 ## Analyse - Alertes
-Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. \(Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge\). Les alertes sont basées sur un seuil de détection prédéfini supérieur \(\>\) ou inférieur à \(\<\) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique. Vous pouvez également indiquer un taux de détection minimum qui correspond au temps minimum entre deux notifications pour la même alerte afin de vous assurer que lorsque l'alerte est déclenchée, vous ne recevez qu'une notification toutes les X minutes.
+Vous pouvez également indiquer des conditions pour des alertes qui vous seront automatiquement envoyées par courrier électronique ou message instantané. (Tout les services conformes à XMPP tels que Google Talk de Google ou iChat d'Apple sont pris en charge). Les alertes sont basées sur un seuil de détection prédéfini supérieur (>) ou inférieur à (<) un nombre spécifique de sessions, de tâches, d'événements, d'erreurs ou d'incidents par seconde, par minute ou par heure. Les alertes peuvent surveiller toutes les activités d'un type donné ou simplement surveiller l'activité d'une tâche, d'un événement ou d'une erreur spécifique. Vous pouvez également indiquer un taux de détection minimum qui correspond au temps minimum entre deux notifications pour la même alerte afin de vous assurer que lorsque l'alerte est déclenchée, vous ne recevez qu'une notification toutes les X minutes.
  
 ![Moniteur4][17]
 

@@ -131,7 +131,7 @@ exécuter des requêtes sur la base de données master permettant de gérer des 
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Utilisez la procédure stockée **sp\_addrolemember** pour donner au compte d'utilisateur le niveau d'autorisations approprié pour la base de données. Pour plus d'informations, consultez la rubrique [sp_addrolemember (Transact-SQL)][]. L'instruction ci-dessous donne à l'utilisateur **login1User** les autorisations en lecture seule pour la base de données en ajoutant **login1User** au rôle **db\_datareader**.
+-   Utilisez la procédure stockée **sp_addrolemember** pour donner au compte d'utilisateur le niveau d'autorisations approprié pour la base de données. Pour plus d'informations, consultez la rubrique [sp_addrolemember (Transact-SQL)][]. L'instruction ci-dessous donne à l'utilisateur **login1User** les autorisations en lecture seule pour la base de données en ajoutant **login1User** au rôle **db_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -147,7 +147,7 @@ exécuter des requêtes sur la base de données master permettant de gérer des 
 
         DROP LOGIN login1;
 
--   La base de données master possède la vue **sys.sql\_logins** que vous pouvez utiliser pour afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l'instruction suivante :
+-   La base de données master possède la vue **sys.sql_logins** que vous pouvez utiliser pour afficher les connexions. Pour afficher toutes les connexions existantes, exécutez l'instruction suivante :
 
         SELECT * FROM sys.sql_logins;
 
@@ -159,12 +159,12 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamiques que
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calculez la taille de la base de données à l'aide de la vue **sys.dm\_db\_partition\_stats**. La vue **sys.dm\_db\_partition\_stats** renvoie les informations de nombre de pages et de lignes pour chaque partition dans la base de données que vous pouvez utiliser pour calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
+-   Calculez la taille de la base de données à l'aide de la vue **sys.dm_db_partition_stats**. La vue **sys.dm_db_partition_stats** renvoie les informations de nombre de pages et de lignes pour chaque partition dans la base de données que vous pouvez utiliser pour calculer la taille de la base de données. La requête suivante renvoie la taille de votre base de données en mégaoctets :
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Utilisez les vues **sys.dm\_exec\_connections** et **sys.dm\_exec\_sessions** pour récupérer les informations sur les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
+-   Utilisez les vues **sys.dm_exec_connections** et **sys.dm_exec_sessions** pour récupérer les informations sur les connexions utilisateur actuelles et les tâches internes associées à la base de données. La requête suivante renvoie des informations sur la connexion actuelle :
 
         SELECT
             e.connection_id,
@@ -177,7 +177,7 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamiques que
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Utilisez la vue **sys.dm\_exec\_query\_stats** pour récupérer l'agrégat de statistiques de performances pour les plans de requête mis en cache. La requête suivante renvoie des informations relatives aux cinq premières requêtes, classées sur la base du temps processeur moyen.
+-   Utilisez la vue **sys.dm_exec_query_stats** pour récupérer l'agrégat de statistiques de performances pour les plans de requête mis en cache. La requête suivante renvoie des informations relatives aux cinq premières requêtes, classées sur la base du temps processeur moyen.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",

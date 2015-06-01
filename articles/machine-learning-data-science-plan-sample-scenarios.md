@@ -39,7 +39,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 - [Scénario n°4 : jeu de données petit à moyen dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](#smalllocaltodb)
 - [Scénario n°5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](#largelocaltodb)
 - [Scénario n°6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server dans une machine virtuelle Azure](#largedbtodb)
-- [Scénario n°7 : données volumineuses \(« Big Data »\) dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight](#largedbtohive)
+- [Scénario n°7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight](#largedbtohive)
 
 ## <a name="smalllocal"></a>Scénario n°1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
 
@@ -57,7 +57,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Fichiers locaux petits à moyens avec traitement][2]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
 
 1.  Créez une machine virtuelle Azure exécutant IPython Notebook.
 
@@ -79,7 +79,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Fichiers locaux volumineux][3]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
 
 1.  Créez une machine virtuelle Azure exécutant IPython Notebook.
 
@@ -106,7 +106,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Fichiers locaux petits à moyens vers une base de données SQL dans Azure][4]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(SQL Server / serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 
 1.  Créez une Machine virtuelle Azure exécutant SQL Server + IPython Notebook.
 
@@ -116,22 +116,22 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 4.  Le cas échéant, transformez les données sous forme de tableau nettoyé.
 
-5.  Enregistrez les données dans des fichiers locaux de la machine virtuelle \(IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle\).
+5.  Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 
 6.  Chargez des données dans la base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 
     a. Option n°1 : utilisation de SQL Server Management Studio.
 
-		i.  Login to SQL Server VM
-        ii. Run SQL Server Management Studio.
-        iii. Create database and target tables.
-        iv. Use one of the bulk import methods to load the data from VM-local files.
+		i.  Connectez-vous à la machine virtuelle SQL Server.
+        ii. Exécutez SQL Server Management Studio.
+        iii. Créez la base de données et les tables cibles.
+        iv. Utilisez une des méthodes d’importation en bloc pour charger les données à partir des fichiers locaux de la machine virtuelle.
 
-    b. Option \#2: utilisation d’IPython Notebook – pas recommandé pour les jeux de données de tailles moyenne et supérieure
+    b. Option #2: utilisation d’IPython Notebook – pas recommandé pour les jeux de données de tailles moyenne et supérieure
 
-        i.  Use ODBC connection string to access SQL Server on VM.
-        ii. Create database and target tables.
-        iii. Use one of the bulk import methods to load the data from VM-local files.
+        i.  Utilisez la chaîne de connexion ODBC pour accéder à SQL Server sur la machine virtuelle.
+        ii. Créez la base de données et les tables cibles.
+        iii. Utilisez une des méthodes d’importation en bloc pour charger les données à partir des fichiers locaux de la machine virtuelle.
 
 7.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -147,19 +147,19 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Fichiers locaux volumineux vers une base de données SQL dans Azure][5]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(SQL Server / serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 
 1.  Créez une machine virtuelle Azure exécutant SQL Server et le serveur IPython Notebook.
 
 2.  Téléchargez des données vers un conteneur de stockage Azure.
 
-3.  \(Facultatif\) Pré-traitez et nettoyez les données.
+3.  (Facultatif) Pré-traitez et nettoyez les données.
 
     a. Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données des objets blob Azure.
 
     b. Le cas échéant, transformez les données sous forme de tableau nettoyé.
 
-    c. Enregistrez les données dans des fichiers locaux de la machine virtuelle \(IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle\).
+    c. Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 
 4.  Chargez des données dans la base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 
@@ -175,7 +175,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
     f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
- \>[AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -191,13 +191,13 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Base de données SQL volumineuse sur site vers une base de données SQL dans Azure][6]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(SQL Server / serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 
 1.  Créez une machine virtuelle Azure exécutant SQL Server et le serveur IPython Notebook.
 
 2.  Utilisez l’une des méthodes d’exportation des données pour exporter les données à partir de SQL Server vers des fichiers de vidage.
 
-    a. Remarque : si vous décidez de déplacer toutes les données à partir de la base de données locale, il existe une autre méthode \(plus rapide\) pour déplacer la base de données entière vers l’instance SQL Server dans Azure. Ignorez les étapes d’exportation des données, de création de la base de données et de chargement/importation des données dans la base de données cible, et suivez l’autre méthode.
+    a. Remarque : si vous décidez de déplacer toutes les données à partir de la base de données locale, il existe une autre méthode (plus rapide) pour déplacer la base de données entière vers l’instance SQL Server dans Azure. Ignorez les étapes d’exportation des données, de création de la base de données et de chargement/importation des données dans la base de données cible, et suivez l’autre méthode.
 
 3.  Téléchargez les fichiers de vidage vers le conteneur de stockage Azure.
 
@@ -231,7 +231,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 ![Détacher la base de données locale et l’attacher à la base de données SQL dans Azure][7]
 
-#### Autres ressources Azure : Machine virtuelle Azure \(SQL Server / serveur IPython Notebook\)
+#### Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 
 Pour répliquer l’ensemble de la base de données SQL Server dans votre machine virtuelle SQL Server, vous devez copier une base de données à partir d’un emplacement/serveur vers un autre, en supposant que la base de données puisse être mise temporairement hors connexion. Pour cela, utilisez l’interface utilisateur graphique de l’Explorateur d’objets SQL Server Management Studio ou les commandes Transact-SQL équivalentes.
 
@@ -239,25 +239,25 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 2. Dans l’Explorateur Windows ou l’invite de commandes Windows, copiez les fichiers de la base de données détachée et les fichiers journaux à l’emplacement cible sur la machine virtuelle SQL Server dans Azure.
 3. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez la rubrique [Attacher une base de données](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx). 
 
-[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement \(Transact-SQL\)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx\)
+[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
-## <a name="largedbtohive"></a>Scénario n°7 : données volumineuses \(« Big Data »\) dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
+## <a name="largedbtohive"></a>Scénario n°7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
 
-![Données volumineuses \(« Big Data »\) dans la base de données Hive cible locale][9]
+![Données volumineuses (« Big Data ») dans la base de données Hive cible locale][9]
 
-#### Autres ressources Azure : cluster Hadoop Azure HDInsight et machine virtuelle Azure \(serveur IPython Notebook\)
+#### Autres ressources Azure : cluster Hadoop Azure HDInsight et machine virtuelle Azure (serveur IPython Notebook)
 
 1.  Créez une machine virtuelle Azure exécutant le serveur IPython Notebook.
 
 2.  Créez un cluster Hadoop Azure HDInsight.
 
-3.  \(Facultatif\) Pré-traitez et nettoyez les données.
+3.  (Facultatif) Pré-traitez et nettoyez les données.
 
     a. Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données des objets blob Azure.
 
     b. Le cas échéant, transformez les données sous forme de tableau nettoyé.
 
-    c. Enregistrez les données dans des fichiers locaux de la machine virtuelle \(IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle\).
+    c. Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 
 4.  Téléchargez des données vers le conteneur par défaut du cluster Hadoop sélectionné à l’étape 2.
 
@@ -294,7 +294,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 Résumé des exemples de scénarios
 ------------------------
 
-Le schéma suivant résume les scénarios décrits ci-dessus ainsi que les choix du processus de science des données cloud effectués dans chaque scénario. Notez que le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un\(e\) ou plusieurs méthodes/environnements \(dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible\) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement certains des flux possibles.
+Le schéma suivant résume les scénarios décrits ci-dessus ainsi que les choix du processus de science des données cloud effectués dans chaque scénario. Notez que le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un(e) ou plusieurs méthodes/environnements (dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement certains des flux possibles.
 
 ![Exemples de scénarios de procédure pas à pas pour le processus DS][8]
 

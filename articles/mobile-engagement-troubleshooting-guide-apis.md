@@ -23,15 +23,15 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 ## Problèmes de syntaxe
 
 ### Problème
-- Erreurs de syntaxe lors de l'utilisation de l'API \(ou comportement inattendu\).
+- Erreurs de syntaxe lors de l'utilisation de l'API (ou comportement inattendu).
 
 ### Causes
 
 - Problèmes de syntaxe :
     - Veillez à vérifier la syntaxe de l'API spécifique que vous utilisez pour vérifier que l'option est disponible.
-    - Un problème courant avec l'utilisation de l'API est la confusion entre l'API Reach et l'API Push \(la plupart des tâches doivent être effectuées avec l'API Reach et non l'API Push\). 
+    - Un problème courant avec l'utilisation de l'API est la confusion entre l'API Reach et l'API Push (la plupart des tâches doivent être effectuées avec l'API Reach et non l'API Push). 
     - Un autre problème courant avec l'intégration du SDK et l'utilisation de l'API est la confusion entre la clé du Kit de développement logiciel et la clé d'API.
-    - Les scripts qui se connectent aux API doivent envoyer des données au moins 10 minutes, ou la connexion expire \(fréquent surtout dans les scripts d'analyse API écoute pour les données\). Pour éviter les délais d'attente, faites en sorte que votre script envoie une commande ping XMPP toutes les 10 minutes afin que la session avec le serveur reste active.
+    - Les scripts qui se connectent aux API doivent envoyer des données au moins 10 minutes, ou la connexion expire (fréquent surtout dans les scripts d'analyse API écoute pour les données). Pour éviter les délais d'attente, faites en sorte que votre script envoie une commande ping XMPP toutes les 10 minutes afin que la session avec le serveur reste active.
 
 ### Voir aussi
  
@@ -95,7 +95,7 @@ Les problèmes suivants sont des problèmes que vous pouvez rencontrer lorsque d
 
 ### Voir aussi
 
-- [Guide de résolution des problèmes : kit de développement logiciel \(SDK\)][Link 25], [Documentation sur les kits de développement logiciel \(SDK\)][Link 5]
+- [Guide de résolution des problèmes : kit de développement logiciel (SDK)][Link 25], [Documentation sur les kits de développement logiciel (SDK)][Link 5]
  
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

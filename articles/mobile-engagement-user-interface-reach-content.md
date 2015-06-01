@@ -18,13 +18,13 @@
 
 # Gestion du contenu unique des différents types de campagnes de notifications Push
  
-Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes \(Windows Phone uniquement\). Le paramètre du contenu des campagnes Push est spécifique au type de campagne.
+Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modifier le contenu de vos annonces, sondages, Push de données et vignettes (Windows Phone uniquement). Le paramètre du contenu des campagnes Push est spécifique au type de campagne.
  
 ### Types de contenu :
 - Annonces
 - Sondages
 - Push de données
-- Vignettes \(Windows Phone uniquement\)
+- Vignettes (Windows Phone uniquement)
  
 ## Contenu des annonces
  ![Reach-Content1][30]
@@ -38,64 +38,64 @@ Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modif
 - [Reach - Procédures - Annonces][Link 3] 
 
 ### À propos des annonces d'affichage Web :
-Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet. Si vous souhaitez créé un affichage Web plein écran \(sans utiliser les boutons par défaut Action et Quitter que nous offrons\), vous pouvez utiliser les fonctions suivantes depuis le code JavaScript de votre annonce d'affichage Web :
+Les occurrences du modèle « {deviceid} » dans le code HTML ou le code JavaScript que vous fournissez ici seront automatiquement remplacées par l'identificateur de l'appareil qui affiche l'annonce. Il s'agit d'un moyen simple pour récupérer les identificateurs d'appareil Azure Mobile Engagement dans un service Web externe hébergé dans votre arrière-guichet. Si vous souhaitez créé un affichage Web plein écran (sans utiliser les boutons par défaut Action et Quitter que nous offrons), vous pouvez utiliser les fonctions suivantes depuis le code JavaScript de votre annonce d'affichage Web :
 
--    effectuer l’action de l’annonce : ReachContent.actionContent\(\)
--    quitter l’annonce : ReachContent.actionContent\(\)
+-    effectuer l’action de l’annonce : ReachContent.actionContent()
+-    quitter l’annonce : ReachContent.actionContent()
  
 ### Choisissez votre action :
 
 ### À propos des URL d'action :
-Toute URL qui peut être interprétée par le système d'exploitation d'un appareil cible peut être utilisée comme une URL d'action. Toute URL dédiée pouvant être prise en charge par votre application \(par exemple pour permettre à vos utilisateurs de passer à un écran spécifique\) peut également être utilisée comme URL d'action. Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'identificateur de l'appareil réalisant l'action. Cela peut être utilisé pour récupérer facilement des identificateurs d'appareil Azure Mobile Engagement via un service Web externe hébergé dans votre arrière-guichet.
+Toute URL qui peut être interprétée par le système d'exploitation d'un appareil cible peut être utilisée comme une URL d'action. Toute URL dédiée pouvant être prise en charge par votre application (par exemple pour permettre à vos utilisateurs de passer à un écran spécifique) peut également être utilisée comme URL d'action. Chaque occurrence du modèle {deviceid} est automatiquement remplacée par l'identificateur de l'appareil réalisant l'action. Cela peut être utilisé pour récupérer facilement des identificateurs d'appareil Azure Mobile Engagement via un service Web externe hébergé dans votre arrière-guichet.
 
 - **Actions Android et iOS**
     - Ouvrir une page Web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
-    - mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
+    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
     - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Envoyer un SMS
-    - sms:\[numéro de téléphone\] 
+    - sms:[numéro de téléphone] 
     - Exemple :sms:2125551212
     - Composer un numéro de téléphone
-    - tel:\[numéro de téléphone\] 
+    - tel:[numéro de téléphone] 
     - Exemple :tel:2125551212
 - **Actions Android uniquement**
     - Télécharger une application du Play Store
-    - market://details?id=\[app package\] 
+    - market://details?id=[app package] 
     - Exemple :market://details?id=com.microsoft.office.word
     - Démarrer une recherche géolocalisée
-    - geo:0,0?q=\[requête de recherche\] 
+    - geo:0,0?q=[requête de recherche] 
     - Exemple :geo:0,0?q=starbucks,paris
 - **Actions iOS uniquement**
     - Télécharger une application depuis le Magasin d'applications
-    - http://itunes.apple.com/[country]/app/[app name\]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
     - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Actions Windows
     - Ouvrir une page Web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
-    - mailto:\[destinataire-e-mail\]?subject=\[objet\]&body=\[message\] 
+    - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
     - Exemple : mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Envoyer un SMS \(application Skype du Store requise\)
-    - sms:\[numéro de téléphone\] 
+    - Envoyer un SMS (application Skype du Store requise)
+    - sms:[numéro de téléphone] 
     - Exemple :sms:2125551212
-    - Composer un numéro de téléphone \(application Skype du Store requise\)
-    - tel:\[numéro de téléphone\] 
+    - Composer un numéro de téléphone (application Skype du Store requise)
+    - tel:[numéro de téléphone] 
     - Exemple :tel:2125551212
     - Télécharger une application du Play Store
-    - ms-windows-store:PDP?PFN=\[ID de package d’application\] 
+    - ms-windows-store:PDP?PFN=[ID de package d’application] 
     - Exemple :ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Démarrer une recherche Bing Cartes
-    - bingmaps:?q=\[requête de recherche\] 
+    - bingmaps:?q=[requête de recherche] 
     - Exemple :bingmaps:?q=starbucks,paris
     - Utiliser un modèle personnalisé
-    - \[schéma personnalisé\]://\[paramètres du schéma personnalisé\] 
+    - [schéma personnalisé]://[paramètres du schéma personnalisé] 
     - Exemple :myCustomProtocol://myCustomParams
-    - Utiliser un package de données \(application du Store pour la lecture d'extension requise\)
-    - \[dossier\]\[données\].\[extension\] 
+    - Utiliser un package de données (application du Store pour la lecture d'extension requise)
+    - [dossier][données].[extension] 
     - Exemple :myfolderdata.txt
  
 ### Génération d'une URL de suivi :
@@ -129,11 +129,11 @@ Remplissez le titre, le contenu et le texte des boutons de votre annonce. Vous p
 ### Voir aussi
 - [Documentation sur l’interface utilisateur - Reach - Nouveau critère Push][Link 28]
 
-## Contenu des vignettes \(Windows Phone uniquement\)
+## Contenu des vignettes (Windows Phone uniquement)
 ![Reach-Content4][33]
 
 ### Définition du contenu de vos vignettes
-La charge utile de la vignette correspond au texte qui s'affichera dans la vignette de votre application sur les appareils Windows Phone. Un Push de vignette est la version du service de notifications Push de Microsoft \(MPNS\) d'un Push natif pour Windows Phone. Ce type de Push de vignette est le seul type de push qui n'a pas de réponse. L'audience des futures campagnes ne peut donc pas être déterminée en fonction des résultats d'une campagne de Push de vignette.
+La charge utile de la vignette correspond au texte qui s'affichera dans la vignette de votre application sur les appareils Windows Phone. Un Push de vignette est la version du service de notifications Push de Microsoft (MPNS) d'un Push natif pour Windows Phone. Ce type de Push de vignette est le seul type de push qui n'a pas de réponse. L'audience des futures campagnes ne peut donc pas être déterminée en fonction des résultats d'une campagne de Push de vignette.
 
 ### Voir aussi
 - [Documentation sur les API- API Reach - Push natif][Link 4]

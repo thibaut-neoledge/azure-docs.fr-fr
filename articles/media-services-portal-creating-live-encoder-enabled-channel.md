@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple \(version préliminaire\)
+#Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple (version préliminaire)
 
 
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
@@ -28,7 +28,7 @@ Ce didacticiel vous guide tout au long des étapes de création d’un **canal**
 
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Cette étape peut également être effectuée après la création du canal.
 
@@ -41,14 +41,14 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
-3. Créez un programme \(ce qui crée également une ressource\).
-1. Publiez le programme \(ce qui crée un localisateur OnDemand pour la ressource associée\).  
+3. Créez un programme (ce qui crée également une ressource).
+1. Publiez le programme (ce qui crée un localisateur OnDemand pour la ressource associée).  
 
 	Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-1. Supprimez le programme \(et éventuellement la ressource\).   
+1. Supprimez le programme (et éventuellement la ressource).   
 
 ##Dans ce didacticiel
 
@@ -57,7 +57,7 @@ Dans ce didacticiel, le portail de gestion Azure est utilisé pour effectuer les
 2.  Configurez les points de terminaison de diffusion en continu.
 3.  Créez un canal qui est activé pour effectuer un encodage en temps réel.
 1.  Obtenez l’URL de réception afin de la fournir à l’encodeur dynamique. L’encodeur dynamique utilise cette URL pour recevoir le flux dans le canal.
-1.  Créez un programme \(et une ressource\).
+1.  Créez un programme (et une ressource).
 1.  Publiez la ressource et obtenez les URL de diffusion en continu.  
 1.  Lecture de votre contenu 
 2.  Nettoyage
@@ -71,9 +71,9 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 ##Configurer un point de terminaison de diffusion en continu à l’aide du portail
 
-Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH et HDS \(pour licences Adobe PrimeTime/Access uniquement\).
+Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Lorsque vous utilisez la diffusion en continu dynamique, un encodeur dynamique local \(dans notre cas Wirecast\) reçoit un flux dynamique à débit binaire multiple dans votre canal. Lorsque le flux est demandé par un utilisateur, Media Services utilise l’empaquetage dynamique pour empaqueter à nouveau le flux source dans le flux à débit binaire adaptatif demandé \(TLS, DASH ou Smooth\).
+Lorsque vous utilisez la diffusion en continu dynamique, un encodeur dynamique local (dans notre cas Wirecast) reçoit un flux dynamique à débit binaire multiple dans votre canal. Lorsque le flux est demandé par un utilisateur, Media Services utilise l’empaquetage dynamique pour empaqueter à nouveau le flux source dans le flux à débit binaire adaptatif demandé (TLS, DASH ou Smooth).
 
 Pour tirer parti de l’empaquetage dynamique, vous devez obtenir au moins une unité de diffusion en continu pour le **point de terminaison de diffusion en continu** à partir duquel vous envisagez de distribuer votre contenu.
 
@@ -109,9 +109,9 @@ Choisissez les types d’encodage **Standard**. Ce type spécifie que vous souha
 
 Pour le type d’encodage **Standard**, les options de protocole de réception valides sont les suivantes :
 
-- MP4 fragmenté \(Smooth Streaming\) à débit binaire unique
+- MP4 fragmenté (Smooth Streaming) à débit binaire unique
 - RTMP à débit binaire unique
-- RTP \(MPEG-TS\) : flux de transport MPEG-2 via RTP.
+- RTP (MPEG-TS) : flux de transport MPEG-2 via RTP.
 
 Pour obtenir une explication détaillée de chaque protocole, consultez [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -129,7 +129,7 @@ Dans la page **Présélection d’encodage**, vous pouvez sélectionner des pré
 
 ![standard3][standard3]
 
-Dans la page **Création de canal**, vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques \(par exemple, 10.0.0.1\), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR \(par exemple, 10.0.0.1/22\), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points \(par exemple, 10.0.0.1\[255.255.252.0\]\).
+Dans la page **Création de canal**, vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
 
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
@@ -216,7 +216,7 @@ Si vous basculez vers la page **CONTENU**, vous verrez les ressources qui ont é
 
 ##Lecture de contenu
 
-Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu, vous devez d’abord « publier » votre ressource \(comme indiqué dans la section précédente\) en créant un localisateur \(lorsque vous publiez une ressource à l’aide du portail, des localisateurs sont créés pour vous\). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
+Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu, vous devez d’abord « publier » votre ressource (comme indiqué dans la section précédente) en créant un localisateur (lorsque vous publiez une ressource à l’aide du portail, des localisateurs sont créés pour vous). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
 
 En fonction du protocole de diffusion en continu à utiliser pour lire votre contenu, vous devrez peut-être modifier l’URL que vous obtenez à partir du lien **URL DE PUBLICATION** du canal/programme.
 
@@ -226,11 +226,11 @@ Par défaut, les URL de diffusion en continu que vous pouvez utiliser pour lire
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Pour créer une URL de diffusion en continu HLS, ajoutez \(format=m3u8-aapl\) à l’URL.
+Pour créer une URL de diffusion en continu HLS, ajoutez (format=m3u8-aapl) à l’URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Pour créer une URL de diffusion en continu MPEG DASH, ajoutez \(format=mpd-time-csf\) à l’URL.
+Pour créer une URL de diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) à l’URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

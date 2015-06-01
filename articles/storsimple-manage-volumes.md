@@ -28,7 +28,7 @@ Le service StorSimple Manager est une extension du portail de gestion Azure qui
 
 ## Page Volumes
 
-La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l’appareil Microsoft Azure StorSimple pour vos initiateurs \(serveurs\). Elle comprend la liste des volumes de votre appareil StorSimple.
+La page **Volumes** vous permet de gérer les volumes de stockage alloués sur l’appareil Microsoft Azure StorSimple pour vos initiateurs (serveurs). Elle comprend la liste des volumes de votre appareil StorSimple.
 
  ![page volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
@@ -36,11 +36,11 @@ Un volume est constitué d’une série d’attributs :
 
 - **Nom** : nom descriptif qui doit être unique et vous aide à identifier le volume. Ce nom est également utilisé dans les rapports d’analyse lorsque vous filtrez sur un volume particulier.
 
-- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs \(serveurs\) qui sont autorisés à l’utiliser.
+- **État** : peut être en ligne ou hors connexion. Si un volume est hors connexion, il n’est pas visible pour les initiateurs (serveurs) qui sont autorisés à l’utiliser.
 
-- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur \(serveur\). La capacité correspond au volume total de données qui peut être stocké par l’initiateur \(serveur\). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
+- **Capacité** : indique la taille du volume, telle qu’elle est perçue par l’initiateur (serveur). La capacité correspond au volume total de données qui peut être stocké par l’initiateur (serveur). Les volumes sont alloués dynamiquement et les données dédupliquées. Cela suppose que l’appareil ne préalloue pas de capacité de stockage physique localement ou sur le cloud en fonction de la capacité de volume configurée. La capacité du volume est allouée et utilisée à la demande.
 
-- **Accès** : indique les initiateurs \(serveurs\) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès \(ACR\) associé au volume ne voient pas le volume.
+- **Accès** : indique les initiateurs (serveurs) autorisés à accéder à ce volume. Les initiateurs qui ne sont pas membres de l’enregistrement de contrôle d’accès (ACR) associé au volume ne voient pas le volume.
 
 - **Analyse** : indique si un volume est ou non en cours d’analyse. Par défaut, l’analyse est activée au moment de la création du volume. Toutefois, elle est désactivée pour un volume cloné. Pour activer l’analyse pour un volume, suivez les instructions données dans Analyse d’un volume.
 
@@ -75,9 +75,9 @@ Vous [avez créé un volume](storsimple-deployment-walkthrough.md#step-6:-create
 
      ![add-volume](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
-5. Sous **Paramètres supplémentaires**, ajoutez un enregistrement de contrôle d’accès \(ACR\) :
+5. Sous **Paramètres supplémentaires**, ajoutez un enregistrement de contrôle d’accès (ACR) :
   
-  1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès \(ACR\). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement.
+  1. Dans la liste déroulante, sélectionnez un enregistrement de contrôle d’accès (ACR). Vous pouvez également ajouter un nouvel enregistrement de contrôle d’accès. Les enregistrements de contrôle d’accès déterminent quels hôtes peuvent accéder à vos volumes en faisant correspondre le nom qualifié de l’hôte à celui répertorié dans l’enregistrement.
   2. Sous **Sauvegarde par défaut pour ce volume**, nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer**.
    3. Cliquez sur l’icône en forme de coche ![icône-coche](./media/storsimple-manage-volumes/HCS_CheckIcon.png) pour créer le volume avec les paramètres spécifiés.
 

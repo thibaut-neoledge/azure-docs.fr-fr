@@ -2,7 +2,7 @@
 
 2. Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
 
-3. Dans **Choose an Image**, sélectionnez une image dans l’une des listes. \(Les images disponibles dépendent de l’abonnement que vous utilisez.\) Cliquez sur la flèche pour continuer.
+3. Dans **Choose an Image**, sélectionnez une image dans l’une des listes. (Les images disponibles dépendent de l’abonnement que vous utilisez.) Cliquez sur la flèche pour continuer.
 
 4. Si plusieurs versions de l’image sont disponibles, dans **Version Release Date**, choisissez la version à utiliser.
 
@@ -16,7 +16,7 @@
 
 9. Bien qu’il soit possible de rassembler plusieurs machines virtuelles dans le service cloud, vous n’allez en créer qu’une seule dans le cadre de ce didacticiel. Pour ce faire, sélectionnez **Create a new cloud service**.
 
-10. Dans **Cloud Service DNS Name**, tapez un nom comprenant entre 3 et 24 caractères \(minuscules et chiffres uniquement\). Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Le nom du service cloud fait alors partie de l'URI servant à contacter la machine virtuelle via le service cloud.
+10. Dans **Cloud Service DNS Name**, tapez un nom comprenant entre 3 et 24 caractères (minuscules et chiffres uniquement). Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Le nom du service cloud fait alors partie de l'URI servant à contacter la machine virtuelle via le service cloud.
 
 11. Dans **Region/Affinity Group/Virtual Network**, sélectionnez l’emplacement de la machine virtuelle.
 
@@ -24,7 +24,7 @@
 
 13. Sous **Availability Set**, utilisez le paramètre par défaut **None**.
 
-14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH \(Secure Shell\) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d’autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines-set-up-endpoints.md).
+14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d’autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines-set-up-endpoints.md).
 
 15.  Sous **Agent de machine virtuelle**, consultez les extensions disponibles. Ces extensions proposent différentes fonctionnalités qui facilitent l'utilisation et la gestion des machines virtuelles. Pour plus d'informations, consultez la page [Extensions de machine virtuelle Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

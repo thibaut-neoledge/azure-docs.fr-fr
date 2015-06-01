@@ -23,7 +23,7 @@
 ## Vue d'ensemble
 
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
-service de stockage de files d'attente Azure. Les exemples ont été écrits en code C\# et utilisent le client Azure Storage pour .NET. Les scénarios traités incluent l'**insertion**,
+service de stockage de files d'attente Azure. Les exemples ont été écrits en code C# et utilisent le client Azure Storage pour .NET. Les scénarios traités incluent l'**insertion**,
 la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que
 la **création et la suppression des files d'attente**. 
 
@@ -40,7 +40,7 @@ la **création et la suppression des files d'attente**.
 ### Obtention de l'assembly
 Vous pouvez utiliser NuGet pour obtenir l'assembly `Microsoft.WindowsAzure.Storage.dll`. Cliquez avec le bouton droit de la souris sur votre projet dans l'**Explorateur de solutions** et sélectionnez **Gérer les packages NuGet**.  Effectuez une recherche en ligne sur " WindowsAzure.Storage ", puis cliquez sur **Installer** pour lancer l'installation du package Azure Storage et de ses dépendances.
 
-'Microsoft.WindowsAzure.Storage.dll' est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">Centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+'Microsoft.WindowsAzure.Storage.dll' est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">Centre de développement .NET</a>. L'assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Déclarations d'espace de noms
 Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :

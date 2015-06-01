@@ -16,14 +16,14 @@
 	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
-#Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services \(version préliminaire\)
+#Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services (version préliminaire)
 
 ##Vue d'ensemble
 
 Dans Azure Media Services, un **canal** représente un pipeline de traitement du contenu de diffusion dynamique. Un **canal** reçoit des flux d’entrée dynamiques de l’une des deux manières suivantes :
 
-- Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** \(MP4 fragmenté\) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
-- Un flux à débit binaire unique \(dans l’un des formats suivants : **RTP** \[MPEG-TS\], **RTMP** ou **Smooth Streaming** \[MP4 fragmenté\]\) est envoyé au **canal** qui est activé pour effectuer un encodage en temps réel avec Media Services. Le **canal** procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple \(adaptatif\). Lorsqu’il y est invité, Media Services fournit le flux aux clients. 
+- Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+- Un flux à débit binaire unique (dans l’un des formats suivants : **RTP** [MPEG-TS], **RTMP** ou **Smooth Streaming** [MP4 fragmenté]) est envoyé au **canal** qui est activé pour effectuer un encodage en temps réel avec Media Services. Le **canal** procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients. 
 
 	L’encodage d’un flux dynamique avec Media Services est actuellement en mode **Aperçu**.
 
@@ -31,13 +31,13 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 
 - **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
-- **Standard** \(aperçu\) : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple.
+- **Standard** (aperçu) : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple.
 
 	L’encodage d’un flux dynamique avec Media Services est actuellement en mode Aperçu.
 
->[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel \(type d’encodage \*\*standard\*\*\). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage **standard**). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
-Le diagramme suivant représente un flux de travail de diffusion en continu dynamique où un canal reçoit un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Il encode ensuite le flux dans un flux à débit binaire multiple.
+Le diagramme suivant représente un flux de travail de diffusion en continu dynamique où un canal reçoit un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Il encode ensuite le flux dans un flux à débit binaire multiple.
 
 ![Flux de travail en direct][live-overview]
 
@@ -52,7 +52,7 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP \(MPEG-TS\). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Cette étape peut également être effectuée après la création du canal.
 
@@ -69,31 +69,31 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 	Lors de l’utilisation du portail de gestion Azure, la création d’un programme crée également une ressource.
 
-	Lors de l’utilisation du Kit de développement logiciel \(SDK\) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme.
+	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme.
 1. Publiez la ressource associée au programme.   
 
 	Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-1. Supprimez le programme \(et éventuellement la ressource\).   
+1. Supprimez le programme (et éventuellement la ressource).   
 
 La section [Tâches de diffusion en continu dynamique](media-services-manage-channels-overview.md#tasks) offre des liens vers des rubriques expliquant comment effectuer les tâches décrites ci-dessus.
 
 
-##<a id="channel"></a>Configurations de l’entrée \(réception\) du canal
+##<a id="channel"></a>Configurations de l’entrée (réception) du canal
 
 ###<a id="Ingest_Protocols"></a>Protocole de diffusion en continu de réception
 
 Si le **Type d’encodeur** est défini sur **Standard**, les options valides sont les suivantes :
 
-- **RTP** \(MPEG-TS\) : flux de transport MPEG-2 via RTP.  
+- **RTP** (MPEG-TS) : flux de transport MPEG-2 via RTP.  
 - **RTMP** à débit binaire unique
-- **MP4 fragmenté** \(Smooth Streaming\) à débit binaire unique
+- **MP4 fragmenté** (Smooth Streaming) à débit binaire unique
 
 Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-####RTP \(MPEG-TS\) : flux de transport MPEG-2 via RTP.  
+####RTP (MPEG-TS) : flux de transport MPEG-2 via RTP.  
 
 Cas d’utilisation classique :
 
@@ -101,7 +101,7 @@ Les diffuseurs professionnels utilisent généralement des encodeurs dynamiques 
 
 Considérations :
 
-- L’utilisation d’une entrée SPTS \(Single Program Transport Stream\) est vivement recommandée. Néanmoins, l’utilisation de pistes audio multilingues est prise en charge.
+- L’utilisation d’une entrée SPTS (Single Program Transport Stream) est vivement recommandée. Néanmoins, l’utilisation de pistes audio multilingues est prise en charge.
 - Le flux vidéo doit avoir un débit binaire moyen inférieur à 15 Mbits/s.
 - La somme des débits binaires moyens des flux audio doit être inférieure à 1 Mbits/s.
 - Voici les codecs pris en charge :
@@ -174,7 +174,7 @@ Considérations :
 	- Flash Media Live Encoder
 	- Tricaster
 
-####MP4 fragmenté \(Smooth Streaming\) à débit binaire unique
+####MP4 fragmenté (Smooth Streaming) à débit binaire unique
 
 Cas d’utilisation classique :
 
@@ -190,17 +190,17 @@ Identique au flux [RTMP à débit binaire unique](media-services-manage-live-enc
 - La résolution maximale pour le flux vidéo entrant est définie sur 1920x1080. Si le flux vidéo est entrelacé, elle est définie au plus sur 60 champs par seconde. S’il est progressif, elle est définie sur 30 images/seconde.
 
 
-###URL \(points de terminaison\) de réception 
+###URL (points de terminaison) de réception 
 
-Un canal fournit un point de terminaison d’entrée \(URL de réception\) que vous spécifiez dans l’encodeur dynamique pour que ce dernier puisse envoyer les flux vers vos canaux.
+Un canal fournit un point de terminaison d’entrée (URL de réception) que vous spécifiez dans l’encodeur dynamique pour que ce dernier puisse envoyer les flux vers vos canaux.
 
 Vous pouvez obtenir les URL de réception dès que vous avez créé un canal. Pour les obtenir, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**. Lorsque vous êtes prêt à commencer l’envoi de données dans le canal, ce dernier doit être à l’état **En cours d’exécution**. Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux via l’URL d’aperçu.
 
-Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté \(Smooth Streaming\) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS.
+Vous avez la possibilité de recevoir un flux dynamique au format MP4 fragmenté (Smooth Streaming) via une connexion SSL. Pour assurer la réception via SSL, veillez à mettre à jour l’URL de réception pour HTTPS.
 
 ###Adresses IP autorisées
 
-Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques \(par exemple, 10.0.0.1\), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR \(par exemple, 10.0.0.1/22\), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points \(par exemple, 10.0.0.1\[255.255.252.0\]\).
+Vous pouvez définir les adresses IP autorisées à publier du contenu vidéo sur ce canal. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
 
 Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP n’est autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.
 
@@ -209,17 +209,17 @@ Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définiti
 
 ###URL d’aperçu
 
-Les canaux fournissent un point de terminaison d’aperçu \(URL d’aperçu\) permettant de prévisualiser et de valider le flux avant de lui appliquer un traitement supplémentaire et de le distribuer.
+Les canaux fournissent un point de terminaison d’aperçu (URL d’aperçu) permettant de prévisualiser et de valider le flux avant de lui appliquer un traitement supplémentaire et de le distribuer.
 
 Vous pouvez obtenir l’URL d’aperçu lors de la création du canal. Pour obtenir l’URL, il n’est pas nécessaire que le canal soit à l’état **En cours d’exécution**.
 
 Une fois que le canal commence à recevoir les données, vous pouvez prévisualiser votre flux.
 
-**Remarque** Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté \(Smooth Streaming\), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail de gestion Azure pour afficher votre flux.
+**Remarque** Actuellement, le flux d’aperçu ne peut être distribué qu’au format MP4 fragmenté (Smooth Streaming), quel que soit le type d’entrée spécifié. Vous pouvez utiliser le lecteur [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) pour tester la diffusion au format Smooth Streaming. Vous pouvez également utiliser un lecteur hébergé dans le portail de gestion Azure pour afficher votre flux.
 
 ###Adresses IP autorisées
 
-Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques \(par exemple, 10.0.0.1\), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR \(par exemple, 10.0.0.1/22\), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points \(par exemple, 10.0.0.1\[255.255.252.0\]\).
+Vous pouvez définir les adresses IP autorisées à se connecter au point de terminaison d’aperçu. Si aucune adresse IP n’est spécifiée, alors toutes les adresses IP seront autorisées. Les adresses IP autorisées peuvent être spécifiées en tant qu’adresses IP uniques (par exemple, 10.0.0.1), une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau CIDR (par exemple, 10.0.0.1/22), ou une plage d’adresses IP utilisant une adresse IP et un masque de sous-réseau décimal séparé par des points (par exemple, 10.0.0.1[255.255.252.0]).
 
 ##Paramètres d’encodage en temps réel
 
@@ -229,39 +229,39 @@ Cette section décrit comment les paramètres de l’encodeur dynamique dans le 
 
 Vous pouvez spécifier la source des signaux des marqueurs de publicité. La valeur par défaut est **Api**, qui indique que l’encodeur dynamique dans le canal doit écouter une **API de marqueur de publicité** asynchrone.
 
-L’autre option valide est **Scte35** \(autorisée uniquement si le protocole de diffusion en continu de réception est défini sur RTP \(MPEG-TS\). Si l’option Scte35 est spécifiée, l’encodeur dynamique analyse les signaux SCTE-35 du flux d’entrée RTP \(MPEG-TS\).
+L’autre option valide est **Scte35** (autorisée uniquement si le protocole de diffusion en continu de réception est défini sur RTP (MPEG-TS). Si l’option Scte35 est spécifiée, l’encodeur dynamique analyse les signaux SCTE-35 du flux d’entrée RTP (MPEG-TS).
 
 ###Sous-titres CEA-708
 
-Indicateur facultatif qui spécifie à l’encodeur dynamique d’ignorer les données des sous-titres CEA-708 intégrées à la vidéo entrante. Lorsque l’indicateur est défini sur false \(par défaut\), l’encodeur détecte et réinsère les données CEA-708 dans les flux vidéo de sortie.
+Indicateur facultatif qui spécifie à l’encodeur dynamique d’ignorer les données des sous-titres CEA-708 intégrées à la vidéo entrante. Lorsque l’indicateur est défini sur false (par défaut), l’encodeur détecte et réinsère les données CEA-708 dans les flux vidéo de sortie.
 
 ###Flux vidéo
 
-facultatif. Décrit le flux vidéo d’entrée. Si ce champ n’est pas spécifié, la valeur par défaut est utilisée. Ce paramètre est autorisé uniquement si le protocole de diffusion en continu d’entrée est défini sur RTP \(MPEG-TS\).
+facultatif. Décrit le flux vidéo d’entrée. Si ce champ n’est pas spécifié, la valeur par défaut est utilisée. Ce paramètre est autorisé uniquement si le protocole de diffusion en continu d’entrée est défini sur RTP (MPEG-TS).
 
 ####Index
 
-Index de base zéro qui précise le flux vidéo d’entrée qui doit être traité par l’encodeur dynamique dans le canal. Ce paramètre s’applique uniquement si le protocole de diffusion en continu de réception est défini sur RTP \(MPEG-TS\).
+Index de base zéro qui précise le flux vidéo d’entrée qui doit être traité par l’encodeur dynamique dans le canal. Ce paramètre s’applique uniquement si le protocole de diffusion en continu de réception est défini sur RTP (MPEG-TS).
 
-La valeur par défaut est zéro. L’envoi dans un flux SPTS est recommandé. Si le flux d’entrée contient plusieurs programmes, l’encodeur dynamique analyse la table de mappage de programmes \(PMT\) dans l’entrée, identifie les entrées dont le nom de type de flux est Vidéo MPEG-2 ou H.264, puis les réorganise en suivant l’ordre spécifié dans la table PMT. L’index de base zéro permet ensuite de choisir la nième entrée dans cette disposition.
+La valeur par défaut est zéro. L’envoi dans un flux SPTS est recommandé. Si le flux d’entrée contient plusieurs programmes, l’encodeur dynamique analyse la table de mappage de programmes (PMT) dans l’entrée, identifie les entrées dont le nom de type de flux est Vidéo MPEG-2 ou H.264, puis les réorganise en suivant l’ordre spécifié dans la table PMT. L’index de base zéro permet ensuite de choisir la nième entrée dans cette disposition.
 
 ###Flux audio
 
-facultatif. Décrit les flux audio d’entrée. Si ce champ n’est pas spécifié, les valeurs par défaut spécifiées s’appliquent. Ce paramètre est autorisé uniquement si le protocole de diffusion en continu d’entrée est défini sur RTP \(MPEG-TS\).
+facultatif. Décrit les flux audio d’entrée. Si ce champ n’est pas spécifié, les valeurs par défaut spécifiées s’appliquent. Ce paramètre est autorisé uniquement si le protocole de diffusion en continu d’entrée est défini sur RTP (MPEG-TS).
 
 ####Index
 
-L’envoi dans un flux SPTS est recommandé. Si le flux d’entrée contient plusieurs programmes, l’encodeur dynamique au sein du canal analyse la table de mappage de programmes \(PMT\) dans l’entrée, identifie les entrées dont le nom de type de flux est Audio MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 ou MPEG-2, puis les réorganise en suivant l’ordre spécifié dans la table PMT. L’index de base zéro permet ensuite de choisir la nième entrée dans cette disposition.
+L’envoi dans un flux SPTS est recommandé. Si le flux d’entrée contient plusieurs programmes, l’encodeur dynamique au sein du canal analyse la table de mappage de programmes (PMT) dans l’entrée, identifie les entrées dont le nom de type de flux est Audio MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 ou MPEG-2, puis les réorganise en suivant l’ordre spécifié dans la table PMT. L’index de base zéro permet ensuite de choisir la nième entrée dans cette disposition.
 
 ####Langage
 
-Identificateur de langue du flux audio, conformément à la norme ISO 639-2, par exemple ENG. En son absence, la valeur par défaut est UND \(non définie\).
+Identificateur de langue du flux audio, conformément à la norme ISO 639-2, par exemple ENG. En son absence, la valeur par défaut est UND (non définie).
 
 Jusqu’à 8 jeux de flux audio peuvent être spécifiés si l’entrée du canal est définie sur MPEG-2 TS via RTP. Toutefois, deux entrées ne peuvent pas posséder la même valeur d’index.
 
 ###<a id="preset"></a>Présélection du système
 
-Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** \(par défaut\).
+Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
 **Default720p** encode la vidéo dans les 7 couches suivantes.
 
@@ -285,18 +285,18 @@ Le flux audio est encodé au format stéréo AAC-LC à 64 Kbits/s, avec un tau
 
 ##Signalisation des annonces
 
-Si le paramètre Encodage en temps réel du canal est activé, vous possédez un composant dans votre pipeline qui traite les vidéos et peut les manipuler. Vous pouvez indiquer au canal d’insérer des ardoises et/ou des annonces dans le flux à débit binaire adaptatif sortant. Les ardoises sont des images fixes que vous pouvez utiliser pour couvrir le flux d’entrée dynamique dans certains cas \(par exemple pendant une pause publicitaire\). Les signaux publicitaires sont des signaux synchronisés que vous intégrez au flux sortant pour indiquer au lecteur vidéo d’effectuer une action spéciale, par exemple de basculer vers une annonce au moment approprié. Consultez ce [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) pour obtenir une vue d’ensemble du mécanisme de signalisation SCTE-35 utilisé à cet effet. Ci-dessous figure un scénario standard que vous pouvez implémenter dans votre événement en direct.
+Si le paramètre Encodage en temps réel du canal est activé, vous possédez un composant dans votre pipeline qui traite les vidéos et peut les manipuler. Vous pouvez indiquer au canal d’insérer des ardoises et/ou des annonces dans le flux à débit binaire adaptatif sortant. Les ardoises sont des images fixes que vous pouvez utiliser pour couvrir le flux d’entrée dynamique dans certains cas (par exemple pendant une pause publicitaire). Les signaux publicitaires sont des signaux synchronisés que vous intégrez au flux sortant pour indiquer au lecteur vidéo d’effectuer une action spéciale, par exemple de basculer vers une annonce au moment approprié. Consultez ce [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) pour obtenir une vue d’ensemble du mécanisme de signalisation SCTE-35 utilisé à cet effet. Ci-dessous figure un scénario standard que vous pouvez implémenter dans votre événement en direct.
 
 1. Avant le début de l’événement, faites que vos observateurs obtiennent une image ANTÉRIEURE À L’ÉVÉNEMENT
 1. À l’issue de l’événement, faites que vos observateurs obtiennent une image POST-ÉVÉNEMENT.
-1. Faites que vos observateurs obtiennent une image ÉVÉNEMENT AVEC ERREUR si un problème se produit au cours de l’événement \(par exemple, une panne de courant dans un stade\).
+1. Faites que vos observateurs obtiennent une image ÉVÉNEMENT AVEC ERREUR si un problème se produit au cours de l’événement (par exemple, une panne de courant dans un stade).
 1. Envoyez une image PAUSE PUBLICITAIRE pour masquer le flux d’événements en direct pendant une pause publicitaire.
 
 Ci-après figurent les propriétés que vous pouvez définir pour la signalisation des annonces :
 
 ###Durée
 
-Durée \(en secondes\) de la pause publicitaire. Pour que la pause publicitaire commence, ce doit être une valeur positive différente de zéro. Si une pause publicitaire est en cours et que la durée est définie sur zéro avec la propriété ID de file d’attente correspondant à la pause publicitaire en cours, alors cette pause est annulée.
+Durée (en secondes) de la pause publicitaire. Pour que la pause publicitaire commence, ce doit être une valeur positive différente de zéro. Si une pause publicitaire est en cours et que la durée est définie sur zéro avec la propriété ID de file d’attente correspondant à la pause publicitaire en cours, alors cette pause est annulée.
 
 ###ID de file d’attente
 
@@ -316,7 +316,7 @@ L’encodeur dynamique peut être configuré pour basculer vers une image d’ar
 
 ###Durée
 
-Durée \(en secondes\) de l’affichage de l’ardoise. Pour que l’affichage de l’ardoise commence, ce doit être une valeur positive différente de zéro. Si une ardoise est en cours d’affichage et que la durée zéro est spécifiée, cette ardoise en cours va se terminer.
+Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de l’ardoise commence, ce doit être une valeur positive différente de zéro. Si une ardoise est en cours d’affichage et que la durée zéro est spécifiée, cette ardoise en cours va se terminer.
 
 ###Insérer une ardoise dans le marqueur de publicité
 
@@ -326,7 +326,7 @@ S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null.
 
-**Remarque** : avant de créer le canal, l’image d’ardoise d’une résolution maximale de 1 920x1 080, au format JPEG et à une taille maximale de 3 Mo, doit être chargée en tant que ressource dédiée \(aucun autre fichier ne doit exister dans cette ressource\). Le nom de fichier doit disposer d’une extension *.jpg et ce fichier doit être marqué comme fichier principal pour cette ressource. Cette ressource ne peut pas être de type stockage chiffré.
+**Remarque** : avant de créer le canal, l’image d’ardoise d’une résolution maximale de 1 920x1 080, au format JPEG et à une taille maximale de 3 Mo, doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). Le nom de fichier doit disposer d’une extension *.jpg et ce fichier doit être marqué comme fichier principal pour cette ressource. Cette ressource ne peut pas être de type stockage chiffré.
 
 Si l’**ID de ressource d’ardoise par défaut** n’est pas spécifié, et que le paramètre **Insérer une ardoise dans le marqueur de publicité** est défini sur **true**, une image d’Azure Media Services par défaut est utilisée pour masquer le flux vidéo d’entrée. Le son est également désactivé pendant l’affichage de l’ardoise.
 
@@ -425,7 +425,7 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 ###Protection des ressources
 
-Si vous souhaitez chiffrer une ressource associée à un programme avec la norme AES \(Advanced Encryption Standard\) \(à l’aide de clés de chiffrement 128 bits\) ou avec PlayReady DRM, vous devez créer une clé de contenu.
+Si vous souhaitez chiffrer une ressource associée à un programme avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) ou avec PlayReady DRM, vous devez créer une clé de contenu.
 
 Utilisez **.NET** ou l’**API REST** pour créer des clés.
 
@@ -446,7 +446,7 @@ Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publiez des ressources \(en créant des localisateurs\) à l’aide du **portail de gestion Azure** ou de **.NET**.
+Publiez des ressources (en créant des localisateurs) à l’aide du **portail de gestion Azure** ou de **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 

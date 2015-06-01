@@ -1,4 +1,4 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Création d&#39;une machine virtuelle exécutant Windows Server" description="Décrit comment créer une machine virtuelle Windows, ajouter un disque de données et se connecter à distance" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
+<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Création d'une machine virtuelle exécutant Windows Server" description="Décrit comment créer une machine virtuelle Windows, ajouter un disque de données et se connecter à distance" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
 # Création d’une machine virtuelle exécutant Windows Server #
 
@@ -35,7 +35,7 @@ Cette section explique comment se connecter à la machine virtuelle de manière 
 
 	![Se connecter à MonTestVM](./media/CreateVirtualMachineWindowsTutorial/commandbarconnect.png)
 	
-4. Cliquez sur **Open** pour utiliser le fichier de protocole RDP \(Remote Desktop Protocol\) qui a été créé automatiquement pour la machine virtuelle.
+4. Cliquez sur **Open** pour utiliser le fichier de protocole RDP (Remote Desktop Protocol) qui a été créé automatiquement pour la machine virtuelle.
 
 	![Ouvrir le fichier RDP](./media/CreateVirtualMachineWindowsTutorial/openrdp.png)
 	
@@ -91,7 +91,7 @@ Cette section explique comment associer un disque de données vide à la machine
 
 	![Développer Services de fichiers et de stockage dans le Gestionnaire de serveur](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. Dans la section **Disques**, la liste comprend trois disques : le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d’exploitation, le disque 1 est un disque de ressources temporaires \(qui ne doit pas être utilisé pour le stockage des données\) et le disque 2 est le disque de données que vous avez attaché à la machine virtuelle. Notez que le disque de données a une capacité de 5 Go, comme indiqué plus haut. Cliquez avec le bouton droit sur le disque 2, puis sélectionnez **Initialiser**.
+10. Dans la section **Disques**, la liste comprend trois disques : le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d’exploitation, le disque 1 est un disque de ressources temporaires (qui ne doit pas être utilisé pour le stockage des données) et le disque 2 est le disque de données que vous avez attaché à la machine virtuelle. Notez que le disque de données a une capacité de 5 Go, comme indiqué plus haut. Cliquez avec le bouton droit sur le disque 2, puis sélectionnez **Initialiser**.
 
 	![Démarrer l'initialisation](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 

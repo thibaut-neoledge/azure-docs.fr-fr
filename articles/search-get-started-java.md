@@ -22,7 +22,7 @@ Apprenez à créer une application Java personnalisée, qui utilise Azure Search
 
 Nous avons utilisé les logiciels suivants pour générer et tester cet exemple :
 
-- [Environnement de développement intégré \(IDE\) Eclipse pour développeurs Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Veillez à télécharger la version EE. Une des étapes de vérification nécessite une fonctionnalité présente uniquement dans cette édition.
+- [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Veillez à télécharger la version EE. Une des étapes de vérification nécessite une fonctionnalité présente uniquement dans cette édition.
 
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -34,7 +34,7 @@ Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auque
 
 ## À propos des données
 
-Cet exemple d'application utilise des données de l’[USGS \(United States Geological Services\)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
+Cet exemple d'application utilise des données de l’[USGS (United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
 Dans cette application, le programme **SearchServlet.java** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré à partir d’une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Pour accéder aux données, aucune configuration supplémentaire n'est nécessaire.
 
@@ -45,7 +45,7 @@ Dans cette application, le programme **SearchServlet.java** crée et charge l'in
 La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 
 - Search.jsp : fournit l'interface utilisateur.
-- SearchServlet.java : fournit des méthodes \(semblables à un contrôleur dans MVC\).
+- SearchServlet.java : fournit des méthodes (semblables à un contrôleur dans MVC).
 - SearchServiceClient.java : gère les descripteurs HTTP.
 - SearchServiceHelper.java : classe d’utilitaire qui fournit des méthodes statiques.
 - Document.Java : fournit le modèle de données.
@@ -57,7 +57,7 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans la barre de lancement, cliquez sur **Nouveau** \| **Données + stockage** \| **Recherche**.
+2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
  
      ![][1]
 
@@ -107,7 +107,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 ## Importer le projet
 
-1. Dans Eclipse, choisissez **File** \| **Import** \| **General** \| **Existing Projects into Workspace**.
+1. Dans Eclipse, choisissez **File** | **Import** | **General** | **Existing Projects into Workspace**.
 
     ![][4]
 
@@ -117,7 +117,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 3. Cliquez sur **Terminer**.
 
-4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** \| **Show View** \| **Project Explorer** ou utilisez le raccourci.
+4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** | **Show View** | **Project Explorer** ou utilisez le raccourci.
 
 ## Configurer l'URL et la clé API du service
 
@@ -125,13 +125,13 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
  
 2. Reportez-vous aux étapes précédentes dans cet article, où vous avez trouvé l'URL et la clé API du service dans le [portail Azure](https://portal.azure.com), afin d'obtenir les valeurs que vous devez maintenant saisir dans **config.properties**.
 
-3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service \(le premier composant de l'URL http://servicename.search.windows.net\) remplace « ServiceName » dans le même fichier.
+3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service (le premier composant de l'URL http://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
 
 	![][5]
 
 ## Configuration des environnements de projet, de génération et d'exécution
 
-1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit de la souris sur le projet, puis cliquez sur **Properties** \| **Project Facets**.
+1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit de la souris sur le projet, puis cliquez sur **Properties** | **Project Facets**.
 
 2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
 
@@ -139,7 +139,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 3. Cliquez sur **Apply**.
 
-4. Sélectionnez **Window** \| **Preferences** \| **Server** \| **Runtime Environments** \| **Add...**.
+4. Sélectionnez **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add...**.
 
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
 
@@ -149,7 +149,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 6. Cliquez sur **Terminer**.
  
-7. Sélectionnez **Window** \| **Preferences** \| **Java** \| **Installed JREs** \| **Add**.
+7. Sélectionnez **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
 
 8. Dans **Add JRE**, sélectionnez **Standard VM**.
 
@@ -157,13 +157,13 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
  
 11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
 
-12. Accédez à **Program Files** \| **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
+12. Accédez à **Program Files** | **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
 
 13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
 
     ![][9]
 
-14. Si vous le souhaitez, sélectionnez **Window** \| **Web Browser** \| **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
+14. Si vous le souhaitez, sélectionnez **Window** | **Web Browser** | **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ La phase de configuration est maintenant terminée. Vous allez maintenant créer
 
 ## Créer le projet
  
-1. Dans Project Explorer, cliquez avec le bouton droit de la souris sur le nom du projet et sélectionnez **Run As** \| **Maven build...** pour configurer le projet.
+1. Dans Project Explorer, cliquez avec le bouton droit de la souris sur le nom du projet et sélectionnez **Run As** | **Maven build...** pour configurer le projet.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution d
 
 1. Dans Project Explorer, développez **WebContent**.
 
-5. Cliquez avec le bouton droit de la souris sur **Search.jsp**, puis sélectionnez **Run As** \| **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
+5. Cliquez avec le bouton droit de la souris sur **Search.jsp**, puis sélectionnez **Run As** | **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
 
-> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez probablement désigner cet emplacement dans  **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit de la souris sur **Search.jsp**, puis cliquez sur **Run As** \| **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
+> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez probablement désigner cet emplacement dans  **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit de la souris sur **Search.jsp**, puis cliquez sur **Run As** | **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
 
 Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche  permettant d'entrer des termes.
 

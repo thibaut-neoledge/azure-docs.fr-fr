@@ -59,9 +59,9 @@ Après cette modification, tous les utilisateurs d'Internet peuvent afficher les
 
 ## Procédure : Téléchargement d'un objet blob dans un conteneur
 
-Pour charger des données dans un objet blob, utilisez les méthodes **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** ou **put\_block\_blob\_from\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour charger des données dans un objet blob, utilisez les méthodes **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** ou **put_block_blob_from_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
-**put\_block\_blob\_from\_path** charge le contenu d'un fichier à partir du chemin d'accès spécifié ; **put\_block\_blob\_from\_file** charge le contenu à partir d'un flux/fichier déjà ouvert. **put\_block\_blob\_from\_bytes** charge un tableau d'octets ; **put\_block\_blob\_from\_text** charge la valeur de texte spécifiée à l'aide de l'encodage spécifié (par défaut, UTF-8).
+**put_block_blob_from_path** charge le contenu d'un fichier à partir du chemin d'accès spécifié ; **put_block_blob_from_file** charge le contenu à partir d'un flux/fichier déjà ouvert. **put_block_blob_from_bytes** charge un tableau d'octets ; **put_block_blob_from_text** charge la valeur de texte spécifiée à l'aide de l'encodage spécifié (par défaut, UTF-8).
 
 L'exemple suivant charge le contenu du fichier **sunset.png** dans l'objet blob **myblob**.
 
@@ -74,7 +74,7 @@ L'exemple suivant charge le contenu du fichier **sunset.png** dans l'objet blob 
 
 ## Procédure : Création d'une liste d'objets blob dans un conteneur
 
-Pour énumérer les objets blob dans un conteneur, utilisez la méthode **list\_blobs** avec une boucle
+Pour énumérer les objets blob dans un conteneur, utilisez la méthode **list_blobs** avec une boucle
 **for** pour afficher le nom de chaque objet blob du conteneur. Le code suivant génère le nom (**name**) et l'URL (**url**) de chaque objet blob d'un conteneur sur la console.
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@ Pour énumérer les objets blob dans un conteneur, utilisez la méthode **list\_
 
 ## Procédure : Téléchargement d'objets blob
 
-Pour télécharger des données à partir d'un objet blob, utilisez **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** ou **get\_blob\_to\_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
+Pour télécharger des données à partir d'un objet blob, utilisez **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** ou **get_blob_to_text**. Il s'agit de méthodes de haut niveau qui effectuent la segmentation nécessaire lorsque la taille des données est supérieure à 64 Mo.
 
-L'exemple suivant illustre l'utilisation de **get\_blob\_to\_path** pour télécharger le contenu de l'objet blob **myblob** et le stocker dans le fichier **out-sunset.png** :
+L'exemple suivant illustre l'utilisation de **get_blob_to_path** pour télécharger le contenu de l'objet blob **myblob** et le stocker dans le fichier **out-sunset.png** :
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

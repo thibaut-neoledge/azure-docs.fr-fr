@@ -137,7 +137,7 @@ Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires
 
 - Emplacement où sont enregistrés les journaux de l'application ; chemin relatif à la racine du serveur Web.
 
-- Valeur par défaut : ..\..\\LogFiles\\Application
+- Valeur par défaut : ....\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

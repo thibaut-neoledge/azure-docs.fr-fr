@@ -21,7 +21,7 @@
 
 Si vos utilisateurs rencontrent des incidents lors de l’utilisation de votre application, vous devez le savoir rapidement et obtenir le plus d’informations sur les conditions de ces incidents. Avec Application Insights, vous pouvez surveiller la fréquence à laquelle se produisent ces incidents, recevoir des alertes lorsqu’ils surviennent et étudier des rapports les concernant.
 
-Le terme « incident » signifie que l'application s'arrête en raison d'une exception non interceptée. Si votre application intercepte une exception, vous pouvez l’intégrer dans un rapport avec l’API TrackException\(\) tout en continuant l’exécution de l’application. Dans ce cas, cette exception ne sera pas enregistrée comme un incident.
+Le terme « incident » signifie que l'application s'arrête en raison d'une exception non interceptée. Si votre application intercepte une exception, vous pouvez l’intégrer dans un rapport avec l’API TrackException() tout en continuant l’exécution de l’application. Dans ce cas, cette exception ne sera pas enregistrée comme un incident.
 
 
 ## Surveillance de la fréquence d'incident

@@ -154,15 +154,15 @@ L'exemple pour Amazon Kindle Fire ressemble à ceci :
 Si vous souhaitez le mettre à jour : 
 
 	installation.addTag("foo");
-	installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
-	installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
+	installation.addTemplate("template1", new InstallationTemplate("{"data":{"key1":"$(value1)"}}","tag-for-template1"));
+	installation.addTemplate("template2", new InstallationTemplate("{"data":{"key2":"$(value2)"}}","tag-for-template2"));
 	hub.createOrUpdateInstallation(installation);
 
 pour des scénarios avancés, nous avons des capacités de mise à jour partielle qui permettent de modifier uniquement des propriétés particulières de l'objet d'installation. La mise à jour partielle est un sous-ensemble d'opérations de correction JSON que vous pouvez exécuter sur l'objet de l'Installation.
 
 	PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
 	PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
-	PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{\"data\":{\"key3\":\"$(value3)\"}}","tag-for-template1")).toJson());
+	PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{"data":{"key3":"$(value3)"}}","tag-for-template1")).toJson());
 	hub.patchInstallation("installation-id", addChannel, addTag, replaceTemplate);
 
 Supprimer l'Installation :
@@ -234,26 +234,26 @@ L'objet de Notification est simplement un corps avec des en-têtes. Certaines m�
 
 * **Windows Store et Windows Phone 8.1 (non Silverlight)**
 
-		String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+		String toast = "<toast><visual><binding template="ToastText01"><text id="1">Hello from Java!</text></binding></visual></toast>";
 		Notification n = Notification.createWindowsNotification(toast);
 		hub.sendNotification(n);
 
 * **iOS**
 
-		String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
+		String alert = "{"aps":{"alert":"Hello from Java!"}}";
 		Notification n = Notification.createAppleNotification(alert);
 		hub.sendNotification(n);
 
 * **Android**
 
-		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		String message = "{"data":{"msg":"Hello from Java!"}}";
 		Notification n = Notification.createGcmNotification(message);
 		hub.sendNotification(n);
 
 * **Windows Phone 8.0 et 8.1 Silverlight**
 
-		String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-			        "<wp:Notification xmlns:wp=\"WPNotification\">" +
+		String toast = "<?xml version="1.0" encoding="utf-8"?>" +
+			        "<wp:Notification xmlns:wp="WPNotification">" +
 			           "<wp:Toast>" +
 			                "<wp:Text1>Hello from Java!</wp:Text1>" +
 			           "</wp:Toast> " +
@@ -263,7 +263,7 @@ L'objet de Notification est simplement un corps avec des en-têtes. Certaines m�
 
 * **Kindle Fire**
 
-		String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+		String message = "{"data":{"msg":"Hello from Java!"}}";
 		Notification n = Notification.createAdmNotification(message);
 		hub.sendNotification(n);
 

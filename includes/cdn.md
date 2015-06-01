@@ -106,7 +106,7 @@ lorsque la durée de vie du contenu mis en cache arrive à expiration.
 
 Pour accéder au contenu mis en cache sur le CDN, utilisez l'URL CDN fournie dans le portail. L'adresse d'un objet blob mis en cache est au format suivant :
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>Étape 4 : Suppression du contenu du CDN</h2>

@@ -18,12 +18,12 @@
 	
 #Azure Stream Analytics & Power BI : tableau de bord en direct sur l’analyse en temps réel des flux de données
 
-Un des usages courants d’Azure Stream Analytics consiste à analyser des volumes élevés de flux de données en temps réel et obtenir l’analyse dans un tableau de bord en direct \(qui se met à jour en temps réel sans que les utilisateurs n’aient à réactualiser le navigateur\). [Microsoft Power BI](https://powerbi.com/) est parfait pour générer un tableau de bord en temps réel sans délai. [Voici une vidéo d’exemple pour illustrer le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA). Dans cet article, découvrez comment utiliser Power BI comme sortie pour votre travail Azure Stream Analytics. Remarque - Bien qu’Azure Stream Analytics est disponible, la sortie Power BI est au stade de fonctionnalité en version préliminaire.
+Un des usages courants d’Azure Stream Analytics consiste à analyser des volumes élevés de flux de données en temps réel et obtenir l’analyse dans un tableau de bord en direct (qui se met à jour en temps réel sans que les utilisateurs n’aient à réactualiser le navigateur). [Microsoft Power BI](https://powerbi.com/) est parfait pour générer un tableau de bord en temps réel sans délai. [Voici une vidéo d’exemple pour illustrer le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA). Dans cet article, découvrez comment utiliser Power BI comme sortie pour votre travail Azure Stream Analytics. Remarque - Bien qu’Azure Stream Analytics est disponible, la sortie Power BI est au stade de fonctionnalité en version préliminaire.
 
 ##Configuration requise
 
-* Un compte Microsoft Azure utilisant un ID d’organisation \(Power BI fonctionne avec un ID d’organisation uniquement. L’ID d’organisation est l’adresse de messagerie professionnelle, par exemple xyz@mycompany.com. Les adresses de messagerie personnelles comme xyz@hotmail.com ne sont pas des ID d’organisation. [Plus d’informations sur les ID d’organisation](https://www.arin.net/resources/request/org.html) \).
-* Un flux d’entrée pour alimenter un travail ASA \(Azure Stream Analytics\) en flux de données. À ce stade, ASA accepte les entrées depuis un concentrateur d’événements Azure ou un magasin d’objets blob Azure.  
+* Un compte Microsoft Azure utilisant un ID d’organisation (Power BI fonctionne avec un ID d’organisation uniquement. L’ID d’organisation est l’adresse de messagerie professionnelle, par exemple xyz@mycompany.com. Les adresses de messagerie personnelles comme xyz@hotmail.com ne sont pas des ID d’organisation. [Plus d’informations sur les ID d’organisation](https://www.arin.net/resources/request/org.html) ).
+* Un flux d’entrée pour alimenter un travail ASA (Azure Stream Analytics) en flux de données. À ce stade, ASA accepte les entrées depuis un concentrateur d’événements Azure ou un magasin d’objets blob Azure.  
 
 ##Création d’un travail Azure Stream Analytics
 
@@ -72,7 +72,7 @@ Pour ce didacticiel, nous supposons que vous utilisez EventHub comme entrée ave
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Remarque : la sortie Power BI est disponible uniquement pour les comptes Azure utilisant des ID d’organisation. Si vous n’utilisez pas un ID d’organisation pour votre compte Azure \(par exemple, votre ID Windows Live/compte personnel Microsoft\), l’option de sortie Power BI ne s’affiche pas.
+> [AZURE.NOTE]Remarque : la sortie Power BI est disponible uniquement pour les comptes Azure utilisant des ID d’organisation. Si vous n’utilisez pas un ID d’organisation pour votre compte Azure (par exemple, votre ID Windows Live/compte personnel Microsoft), l’option de sortie Power BI ne s’affiche pas.
 
 2.  Sélectionnez **Power BI**, puis cliquez avec le bouton droit.
 3.  Un écran de ce type s’affiche :
@@ -130,7 +130,7 @@ Pour créer le tableau de bord, cliquez sur l’option Tableaux de bord et crée
 
 Dans cet exemple, nous l’appellerons « Tableau de bord de démonstration ».
 
-Cliquez maintenant sur le jeu de données créé par votre travail ASA \(pbidemo dans notre exemple\). Vous accédez alors à une page pour créer un graphique sur ce jeu de données. Voici un des exemples de rapports que vous pouvez créer :
+Cliquez maintenant sur le jeu de données créé par votre travail ASA (pbidemo dans notre exemple). Vous accédez alors à une page pour créer un graphique sur ce jeu de données. Voici un des exemples de rapports que vous pouvez créer :
 
 Sélectionnez les champs Σ temp et heure. Ils vont automatiquement dans Valeur et Axe sur le graphique :
 
@@ -148,7 +148,7 @@ Vous obtenez un graphique en courbes de la moyenne dans le temps. En utilisant l
 
 ![graphic10][graphic10]
 
-Lorsque vous affichez le tableau de bord avec ce rapport épinglé, vous constatez que celui-ci est mis à jour en temps réel. Essayez de modifier les données de vos événements \(par exemple, le pic de température\). L’effet apparaît alors en temps réel sur votre tableau de bord.
+Lorsque vous affichez le tableau de bord avec ce rapport épinglé, vous constatez que celui-ci est mis à jour en temps réel. Essayez de modifier les données de vos événements (par exemple, le pic de température). L’effet apparaît alors en temps réel sur votre tableau de bord.
 
 Notez que ce didacticiel ne vous a montré la création que d’un seul type de graphique pour un jeu de données. Toutefois, les possibilités de Power BI sont illimitées. Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [mise en route avec Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 

@@ -18,7 +18,7 @@
 
 # Utilisation de Service de cache géré Azure
 
-Ce guide décrit la prise en main du **Service de cache géré Azure**. Les exemples sont écrits en C\# et utilisent l'API .NET. Les scénarios couverts incluent la **création et la configuration d'un cache**, la **configuration des clients du cache**, l'**ajout et la suppression d'objets dans le cache, le stockage de l'état de session ASP.NET dans le cache** et l'**activation de la mise en cache de sortie de pages ASP.NET avec le cache**. Pour plus d'informations sur l'utilisation d'Azure Cache, consultez la section [Étapes suivantes][].
+Ce guide décrit la prise en main du **Service de cache géré Azure**. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios couverts incluent la **création et la configuration d'un cache**, la **configuration des clients du cache**, l'**ajout et la suppression d'objets dans le cache, le stockage de l'état de session ASP.NET dans le cache** et l'**activation de la mise en cache de sortie de pages ASP.NET avec le cache**. Pour plus d'informations sur l'utilisation d'Azure Cache, consultez la section [Étapes suivantes][].
 
 >Pour obtenir des informations sur le choix de l'offre Azure Cache appropriée pour votre application, consultez [Quel type de mise en cache me convient ?][].
 
@@ -95,12 +95,12 @@ Une fois l'applet de commande PowerShell appelée, la création du cache peut pr
 
 Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure PowerShell. Une fois que le cache est prêt à l'emploi, l'applet de commande [New-AzureManagedCache][] affiche les informations relatives à ce dernier, comme le montre l'exemple suivant.
 
-	PS C:\> Add-AzureAccount
+	PS C:> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure Power
 
 
 
-	PS C:\>
+	PS C:>
 
 
 
@@ -259,7 +259,7 @@ Si votre projet est un projet Web, la référence d'assembly suivante est égale
 
 -	Microsoft.Web.DistributedCache.dll.
 
->Ces assemblys se trouvent dans le dossier C:\\Program Files\\Microsoft SDKs\\Microsoft Azure\\.NET SDK\\[version du Kit de développement logiciel (SDK)]\\ref\\Caching\\.
+>Ces assemblys se trouvent dans le dossier C:\\Program Files\\Microsoft SDKs\\Microsoft Azure\.NET SDK[version du Kit de développement logiciel (SDK)]\\ref\\Caching.
 
 Une fois que votre projet client est configuré pour la mise en cache, vous pouvez utiliser les techniques décrites dans les sections suivantes pour utiliser votre cache.
 

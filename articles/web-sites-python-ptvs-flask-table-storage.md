@@ -164,7 +164,7 @@ Dans cette section, vous allez configurer des variables d'environnement pour le 
 
   	![Menu supérieur](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  Accédez à la section **Paramètres de l'application** et définissez les valeurs **REPOSITORY\_NAME**, **STORAGE\_NAME** et **STORAGE\_KEY** comme décrit dans la section ci-dessus.
+1.  Accédez à la section **Paramètres de l'application** et définissez les valeurs **REPOSITORY_NAME**, **STORAGE_NAME** et **STORAGE_KEY** comme décrit dans la section ci-dessus.
 
   	![Paramètres de l'application](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

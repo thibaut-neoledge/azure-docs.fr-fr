@@ -16,7 +16,7 @@
 	ms.date="03/05/2015" 
 	ms.author="heidist"/>
 
-#Transition de la version préliminaire api-version=2014\* vers api-version=2015\*#
+#Transition de la version préliminaire api-version=2014* vers api-version=2015*#
 
 Les instructions suivantes sont destinées aux clients ayant créé des applications personnalisées sur les versions préliminaires d’Azure Search et migrant actuellement vers la version mise à la disposition générale, 2015-02-28.
 
@@ -37,13 +37,13 @@ Nous déployons également la prochaine version préliminaire, [2015-02-28-Previ
 - Effectuez le déploiement en production.
 - Évaluez les nouvelles fonctionnalités pour l’adoption des fonctionnalités futures. Passez de nouveau à la version 2015-02-28-Preview pour tester les processeurs de langage naturel Microsoft ou `morelikethis`.
 
-##Dernières modifications dans api-version=2015\*##
+##Dernières modifications dans api-version=2015*##
 
 La version initiale d’API incluait une fonctionnalité de suggestions prédictives ou de saisie semi-automatique. Bien qu’utile, elle se limitait à la mise en correspondance des préfixes et traitait les premiers caractères du terme de recherche uniquement. L’implémentation était une propriété booléenne appelée `suggestions` que vous deviez définir sur `true` pour permettre la correspondance des préfixes sur un champ spécifique.
 
 Cette implémentation initiale est désormais remplacée par une nouvelle construction `Suggesters` définie dans la fonctionnalité d’[index](https://msdn.microsoft.com/fr-fr/library/azure/dn798941.aspx) qui offre une correspondance des infixes et une correspondance approximative. Comme leur nom l’indique, la correspondance des infixes et la correspondance approximative offrent une capacité beaucoup plus vaste de correspondance. La correspondance des infixes englobe la correspondance des préfixes : elle permet de faire correspondre les caractères de début et étend cette correspondance au reste de la chaîne.
 
-Nous avons choisi d’interrompre l’implémentation précédente \(propriété booléenne\), qui sera donc totalement indisponible dans les versions 2015 sans compatibilité descendante, afin d’éviter que les clients ne l’adoptent par inadvertance lors de la conception de nouvelles solutions. Si vous utilisez `2015-02-28` ou `2015-02-28-Preview`, vous devrez recourir à la nouvelle construction `Suggesters` pour les saisies semi-automatiques.
+Nous avons choisi d’interrompre l’implémentation précédente (propriété booléenne), qui sera donc totalement indisponible dans les versions 2015 sans compatibilité descendante, afin d’éviter que les clients ne l’adoptent par inadvertance lors de la conception de nouvelles solutions. Si vous utilisez `2015-02-28` ou `2015-02-28-Preview`, vous devrez recourir à la nouvelle construction `Suggesters` pour les saisies semi-automatiques.
 
 ##Transfert de code existant##
 
@@ -54,15 +54,15 @@ Les applications personnalisées ayant implémenté les suggestions doivent perm
 1. Mise à jour de tous les packages NuGet.
 1. Transition de la version API vers `2015-02-28`. Si vous utilisez l’exemple de code ci-dessous, la version d’API fait partie de la classe **AzureSearchHelper**.
 1. Suppression de l’attribut `Suggestions={true | false}` du schéma JSON qui définit votre index.
-1. Ajout d’une construction au bas de l’index pour `Suggesters` \(comme indiqué dans le paragraphe [Après](#after)\).
-1. Vérification de la possibilité d’effectuer des publications sur votre service \(vous devrez peut-être renommer l’index pour éviter les conflits de nommage\).
+1. Ajout d’une construction au bas de l’index pour `Suggesters` (comme indiqué dans le paragraphe [Après](#after)).
+1. Vérification de la possibilité d’effectuer des publications sur votre service (vous devrez peut-être renommer l’index pour éviter les conflits de nommage).
 1. Régénération de la solution et déploiement dans un environnement de test.
 1. Exécution de tous les tests pour vérifier le comportement de la solution.
 1. Exécution du déploiement en production.
 
 L’exemple de code tiré de l’[exemple Adventure Works sur CodePlex](https://azuresearchadventureworksdemo.codeplex.com/) présente l’implémentation `Suggestions` initiale. Vous voudrez peut-être utiliser cet exemple pour faire migrer le code vers l’exemple de code.
 
-Dans la section suivante, nous allons décrire la situation [avant](#before) et [après](#after) implémentation des suggestions. Vous pouvez remplacer la méthode **CreateCatalogIndex\(\)** méthode par la version présente dans la section [Après](#after), puis concevoir et déployer une solution afin de tester la nouvelle fonctionnalité.
+Dans la section suivante, nous allons décrire la situation [avant](#before) et [après](#after) implémentation des suggestions. Vous pouvez remplacer la méthode **CreateCatalogIndex()** méthode par la version présente dans la section [Après](#after), puis concevoir et déployer une solution afin de tester la nouvelle fonctionnalité.
 
 <a name="before"></a>
 ###Avant###
@@ -134,7 +134,7 @@ Une définition de schéma migré omet la propriété `Suggestions` et ajoute un
 
 Une fois que vous avez transféré votre solution et vérifié son bon fonctionnement, vous pouvez utiliser ces liens pour en savoir plus sur les nouvelles fonctionnalités.
 
-- [Azure Search est mis à la disposition générale \(billet de blog\)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
+- [Azure Search est mis à la disposition générale (billet de blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
 - [Nouveautés de la dernière mise à jour d’Azure Search](../search-latest-updates/)
 - [Vue d’ensemble d’Azure Search](https://msdn.microsoft.com/fr-fr/library/azure/dn798933.aspx)
 

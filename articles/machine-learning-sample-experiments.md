@@ -29,7 +29,7 @@ Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expéri
 5.  Connectez-vous avec les informations d'identification de votre compte Microsoft. Si vous n'avez pas encore d'espace de travail Machine Learning, un espace de travail d'essai gratuit est créé. [Que comprend l'essai gratuit de Machine Learning ?](http://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Utiliser comme modèle dans Studio
-1. Connectez-vous avec vos informations d'identification de compte Microsoft pour le [Studio](https://studio.azureml.net), puis cliquez sur **Nouveau**\* pour créer une nouvelle expérience 
+1. Connectez-vous avec vos informations d'identification de compte Microsoft pour le [Studio](https://studio.azureml.net), puis cliquez sur **Nouveau*** pour créer une nouvelle expérience 
 2. Parcourez les exemples de contenu et sélectionnez-en un à utiliser comme modèle.
 
 ## Étapes suivantes

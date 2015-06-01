@@ -122,7 +122,7 @@ Le fichier **myCert.pem** est la clé publique à utiliser pour déployer une ma
 
 4. Cliquez sur le menu : Fichier > Charger une clé privée
 
-5. Recherchez votre clé privée, que nous avons nommée  `myPrivateKey_rsa` plus haut. Vous devrez modifier le filtre de fichiers pour afficher **Tous les fichiers (\*.\*)**
+5. Recherchez votre clé privée, que nous avons nommée  `myPrivateKey_rsa` plus haut. Vous devrez modifier le filtre de fichiers pour afficher **Tous les fichiers (*.*)**
 
 6. Cliquez sur **Ouvrir**. Vous devez voir apparaître une boîte de dialogue ressemblant à ceci :
 

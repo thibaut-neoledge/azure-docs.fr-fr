@@ -22,7 +22,7 @@ Un enregistrement CNAME mappe un domaine *specific*, tel que **contoso.com** ou 
 
 ### Enregistrement A
 
-Un enregistrement A mappe un domaine, tel que **contoso.com** ou **www.contoso.com** *or a wildcard domain* comme **\.contoso.com**, à une adresse IP. Dans le cas d'un service cloud Azure, il s'agit de l'adresse IP virtuelle du service. Par conséquent, l'avantage principal d'un enregistrement A sur un enregistrement CNAME est que vous pouvez avoir une entrée utilisant un caractère générique, par exemple, ***.contoso.com**, qui permet de traiter les requêtes pour plusieurs sous-domaines tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
+Un enregistrement A mappe un domaine, tel que **contoso.com** ou **www.contoso.com** *or a wildcard domain* comme **.contoso.com**, à une adresse IP. Dans le cas d'un service cloud Azure, il s'agit de l'adresse IP virtuelle du service. Par conséquent, l'avantage principal d'un enregistrement A sur un enregistrement CNAME est que vous pouvez avoir une entrée utilisant un caractère générique, par exemple, ***.contoso.com**, qui permet de traiter les requêtes pour plusieurs sous-domaines tels que **mail.contoso.com**, **login.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]
 > L'enregistrement A étant associé à une adresse IP statique, les changements d'adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L'adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l'emplacement, l'adresse IP est publiée par Azure et tout déploiement futur dans l'emplacement peut recevoir une nouvelle adresse IP.

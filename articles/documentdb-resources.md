@@ -104,7 +104,7 @@ Les ressources (telles que les comptes de base de données, les bases de donnée
 DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON ou des codages spéciaux ; l'application fonctionne avec les documents JSON standard.  
  
 ###Adressage d'une ressource
-Toutes les ressources sont adressables via des URI. La valeur de la propriété **_self** d'une ressource représente l'URI relatif de la ressource. Le format de l'URI est composé des segments de chemin d'accès /\<flux\>/{_rid} :  
+Toutes les ressources sont adressables via des URI. La valeur de la propriété **_self** d'une ressource représente l'URI relatif de la ressource. Le format de l'URI est composé des segments de chemin d'accès /<flux>/{_rid} :  
 
 |Valeur de la propriété _self	|Description
 |-------------------|-----------

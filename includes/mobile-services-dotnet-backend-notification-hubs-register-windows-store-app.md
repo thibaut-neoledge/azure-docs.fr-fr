@@ -26,7 +26,7 @@
 
    Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
 
-7. \(Facultatif\) Répétez les étapes 4 à 6 pour inscrire aussi le projet Windows Phone Store d'une application Windows universelle.
+7. (Facultatif) Répétez les étapes 4 à 6 pour inscrire aussi le projet Windows Phone Store d'une application Windows universelle.
 
 8. De retour sur la page du centre de développement Windows pour la nouvelle application, cliquez sur **Services**.
 
@@ -36,7 +36,7 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Cliquez sur **Authentification de votre service** et notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité \(SID\) du package**.
+10. Cliquez sur **Authentification de votre service** et notez les valeurs des options **Clé secrète client** et **Identificateur de sécurité (SID) du package**.
 
    ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 

@@ -50,9 +50,9 @@ De plus, lorsque vous envisagez d'apporter des modifications à un site web en l
 
 Vous pouvez utiliser gratuitement le domaine App Service Web Apps, ou effectuer un mappage vers le nom de domaine enregistrer, puis sécuriser votre marque au moyen du certificat SSL signé par une autorité de certification.
 
-Le domaine **\*.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu
+Le domaine ***.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu
 
-Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec [HTTPS]. Le nom de domaine **\*.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, voir [Détails de la tarification - App Service].
+Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec [HTTPS]. Le nom de domaine ***.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, voir [Détails de la tarification - App Service].
 
 ## Optez pour l'international !
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main d&#39;Azure Automation" 
-	description="Découvrez comment importer et exécuter une tâche d&#39;automatisation dans Azure." 
+	pageTitle="Prise en main d'Azure Automation" 
+	description="Découvrez comment importer et exécuter une tâche d'automatisation dans Azure." 
 	services="automation" 
 	documentationCenter="" 
 	authors="bwren" 
@@ -56,7 +56,7 @@ La [galerie de Runbooks](http://aka.ms/runbookgallery) inclut des exemples de Ru
 
 	![Onglet Runbooks](./media/automation/automation_04_RunbooksTab.png)
   
-6.	Cliquez sur **Nouveau** \> **Runbook** \> **À partir de la galerie**.
+6.	Cliquez sur **Nouveau** > **Runbook** > **À partir de la galerie**.
 
 	![Galerie de Runbooks](./media/automation/automation_05_ImportGallery.png)
 

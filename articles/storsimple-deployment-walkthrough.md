@@ -39,9 +39,9 @@ La liste de contrôle préalable à l’installation suivante présente les info
 | 3 | Accès série | Configuration initiale de l’appareil | Oui/Non |
 | 4 | Adresses IP du serveur DNS | Requises pour se connecter à Microsoft Azure : 2 requises pour la haute disponibilité | |
 | 5 | Adresses IP du serveur NTP | Requises pour la synchronisation d’heure avec Azure : 1 obligatoire, 1 facultative | |
-| 6 | Serveur proxy \(facultatif\) | Adresse IP/nom de domaine complet du serveur proxy, port à utiliser | |
+| 6 | Serveur proxy (facultatif) | Adresse IP/nom de domaine complet du serveur proxy, port à utiliser | |
 | 7 | un compte Azure Storage ; | Permet d’accéder aux informations d’identification telles que le nom du compte et la clé d’accès, pour chaque compte de stockage | |
-| 8 | Clé de chiffrement de stockage cloud \(recommandé\) | Par conteneur de volumes | |
+| 8 | Clé de chiffrement de stockage cloud (recommandé) | Par conteneur de volumes | |
 | 9 | Nom qualifié de l’hôte | Par hôte | |
 
 ## Conditions préalables au déploiement
@@ -194,7 +194,7 @@ Procédez comme suit dans le portail de gestion pour créer une sauvegarde manue
 
 ## Configuration de solution MPIO
 
-La solution MPIO \(Multipath I/O\) est une fonctionnalité facultative qui n’est pas installée sur Windows Server par défaut. Elle doit être installée en tant que fonctionnalité via le Gestionnaire de serveur.
+La solution MPIO (Multipath I/O) est une fonctionnalité facultative qui n’est pas installée sur Windows Server par défaut. Elle doit être installée en tant que fonctionnalité via le Gestionnaire de serveur.
 
 > [AZURE.NOTE]La solution MPIO n’est pas prise en charge sur un appareil virtuel StorSimple.
 

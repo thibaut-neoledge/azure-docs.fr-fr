@@ -35,9 +35,9 @@ Lorsque vous ouvrez une demande de service Azure Mobile Engagement, fournissez l
 
 
 ## Code : veuillez fournir les informations de codage applicables liées à votre problème
-- La version du Kit de développement logiciel \(SDK\) et la plate-forme de votre application \(Android SDK 2.4.1, iOS 1.16.2, etc.\)
-- L'emplacement de téléchargement de votre application de production \(ou les fichiers APK/TGZ de votre application de développement\)
-- Le fichier « AndroidManifest.xml » et/ou tout extrait de code de votre application liée à Azure Mobile Engagement \(pour le dépannage avancé\)
+- La version du Kit de développement logiciel (SDK) et la plate-forme de votre application (Android SDK 2.4.1, iOS 1.16.2, etc.)
+- L'emplacement de téléchargement de votre application de production (ou les fichiers APK/TGZ de votre application de développement)
+- Le fichier « AndroidManifest.xml » et/ou tout extrait de code de votre application liée à Azure Mobile Engagement (pour le dépannage avancé)
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

@@ -34,16 +34,16 @@ La barre d'outils comporte quatre boutons, permettant de créer des entités Azu
 - **Nouveau magasin de données** : permet de créer un service de magasin de données liées. Lorsque vous cliquez sur ce bouton, un menu s’affiche en présentant les options suivantes : stockage Azure, base de données SQL Azure, base de données SQL Server locale.
 - **Nouveau calcul** : permet de créer un service de calcul lié. Lorsque vous cliquez sur ce bouton, un menu s’affiche en présentant les options suivantes : cluster HDInsight à la demande, cluster HDInsight, service AzureML lié.      
 - **Nouveau jeu de données** : permet de créer un jeu de données. Lorsque vous cliquez sur ce bouton, les options suivantes s’affichent : table d’objet blob, table Azure SQL, table locale.  
-- **Nouveau pipeline** : permet de créer un pipeline. Si ce bouton n’apparaît pas dans la barre d’outils, cliquez sur **... \(points de suspension\)**.
+- **Nouveau pipeline** : permet de créer un pipeline. Si ce bouton n’apparaît pas dans la barre d’outils, cliquez sur **... (points de suspension)**.
  
 ### Création d'un service de stockage lié
 1. Cliquez sur **Nouveau magasin de données**, puis sur une des options du menu.
  
 	![Menu Nouveau magasin de données][new-data-store-menu] 
 2. Le modèle JSON pour la création d'un service de stockage lié s’affiche dans la **zone Éditeur** sur la droite. Vous verrez également qu'un nœud de brouillon apparaît sous **Brouillons**. Effectuez les actions suivantes :
-	1. Pour **Stockage Azure** : remplacez **\<accountname\>** et **\<accountkey\>** par le nom et la clé de votre compte de stockage Azure.
-	2. Pour **Base de données SQL Azure** : remplacez **\<servername\>** par le nom de votre serveur SQL Azure, **\<databasename\>** par le nom de la base de données, **\<username\>@\<servername\>** par le nom de l'utilisateur et **\<password\>** par le mot de passe du compte d'utilisateur. 
-	3. Pour **Base de données SQL Server locale** : remplacez **\<servername\>** par le nom de votre serveur SQL Azure, **\<databasename\>** par le nom de la base de données, **\<username\>** par le nom de l'utilisateur et **\<password\>** par le mot de passe du compte d'utilisateur.
+	1. Pour **Stockage Azure** : remplacez **<accountname>** et **<accountkey>** par le nom et la clé de votre compte de stockage Azure.
+	2. Pour **Base de données SQL Azure** : remplacez **<servername>** par le nom de votre serveur SQL Azure, **<databasename>** par le nom de la base de données, **<username>@<servername>** par le nom de l'utilisateur et **<password>** par le mot de passe du compte d'utilisateur. 
+	3. Pour **Base de données SQL Server locale** : remplacez **<servername>** par le nom de votre serveur SQL Azure, **<databasename>** par le nom de la base de données, **<username>** par le nom de l'utilisateur et **<password>** par le mot de passe du compte d'utilisateur.
 4. Cliquez sur **Déployer** sur la barre d'outils pour déployer le service lié. Vous pouvez cliquer sur **Ignorer** pour supprimer le brouillon JSON que vous avez créé.
  
 	![Bouton déployer][deploy-button]
@@ -64,9 +64,9 @@ La barre d'outils comporte quatre boutons, permettant de créer des entités Azu
 		1. Pour la propriété **clusterSize**, indiquez la taille du cluster HDInsight que le service Data Factory doit créer lors de l'exécution. 
 		2. Pour **jobsContainer**, spécifiez le nom du conteneur d'objets blob par défaut où vous souhaitez stocker les journaux du cluster.
 		3. Pour la propriété **timeToLive**, spécifiez la durée d'inactivité autorisée pour le cluster HDInsight avant sa suppression. Par exemple : 00:05:00 indique que le cluster doit être supprimé après 5 minutes d'inactivité.
-		4. Pour la propriété **version**, spécifiez la version de HDInsight pour le cluster \(par défaut : version 3.1\).
+		4. Pour la propriété **version**, spécifiez la version de HDInsight pour le cluster (par défaut : version 3.1).
 		5. Pour la propriété **linkedServiceName**, spécifiez le service de stockage Azure lié à associer avec le cluster HDInsight. 
-	6. Pour **Cluster HDInsight** \(BYO\), spécifiez les valeurs des propriétés suivantes :
+	6. Pour **Cluster HDInsight** (BYO), spécifiez les valeurs des propriétés suivantes :
 		1. Pour la propriété **clusterUri**, spécifiez l'URL de votre cluster HDInsight. 
 		2. Pour la propriété **userName**, spécifiez le compte d'utilisateur que le service Data Factory doit utiliser pour se connecter à votre cluster HDInsight. 
 		3. Pour la propriété **password**, spécifiez le mot de passe du compte d’utilisateur. 
@@ -87,7 +87,7 @@ La barre d'outils comporte quatre boutons, permettant de créer des entités Azu
 			2. Pour la propriété **linkedServiceName**, spécifiez le nom du service lié pointant vers votre base de données Azure SQL/SQL Server locale.
 			2. Pour la propriété **tableName**, spécifiez le nom de la table dans l’instance de base de données Azure SQL/SQL Server locale vers laquelle pointe le service lié.
 		3. Dans la section **disponibilité** :
-			1. Pour la propriété **frequency**, spécifiez l'unité de temps pour la production de tranches de données. Les valeurs prises en charge pour le paramètre frequency sont : Minute, Hour, Day, Week, Month \(minute, heure, jour, semaine, mois\).
+			1. Pour la propriété **frequency**, spécifiez l'unité de temps pour la production de tranches de données. Les valeurs prises en charge pour le paramètre frequency sont : Minute, Hour, Day, Week, Month (minute, heure, jour, semaine, mois).
 			2. Pour la propriété **interval**, spécifiez l'intervalle de la fréquence définie. Si le paramètre **frequency** est défini sur **Hour** et que le paramètre **interval** est défini sur **1**, cela indique que les nouvelles tranches de données doivent être générées toutes les heures. 
 		3. Dans la section **structure** : 
 			1. Spécifiez les noms et les types de colonnes, comme illustré dans l'exemple suivant :
@@ -101,7 +101,7 @@ La barre d'outils comporte quatre boutons, permettant de créer des entités Azu
 > [AZURE.NOTE]Consultez la rubrique [Tables][msdn-tables-reference] dans la bibliothèque MSDN pour obtenir une description des éléments JSON qui servent à définir une table Azure Data Factory.
  		           
 ### Création et activation d’un pipeline 
-1. Cliquez sur **Nouveau pipeline** sur la barre d'outils. Si le nouveau bouton **Nouveau pipeline** ne s’affiche pas, cliquez sur **... \(points de suspension\)** pour l'afficher.   
+1. Cliquez sur **Nouveau pipeline** sur la barre d'outils. Si le nouveau bouton **Nouveau pipeline** ne s’affiche pas, cliquez sur **... (points de suspension)** pour l'afficher.   
 2. Le modèle JSON pour la création d'un pipeline s’affiche dans la zone Éditeur sur la droite. Effectuez les actions suivantes : 
 	1. Pour la propriété **description**, entrez une description du pipeline.
 	2. Pour la section **activités**, ajoutez des activités au pipeline. Exemple :
@@ -190,14 +190,14 @@ Brouillons vous permet d'enregistrer temporairement votre travail en cas de chan
 Vous pouvez supprimer la définition JSON d'une entité Azure Data Factory en cliquant sur le bouton **Ignorer** dans la barre d'outils.
 
 ## Clonage d’une entité Data Factory
-Vous pouvez cloner une entité Azure Data Factory existante \(service lié, table ou pipeline\) en sélectionnant l'entité dans l'arborescence, puis en cliquant sur le **Cloner** dans la barre d'outils.
+Vous pouvez cloner une entité Azure Data Factory existante (service lié, table ou pipeline) en sélectionnant l'entité dans l'arborescence, puis en cliquant sur le **Cloner** dans la barre d'outils.
 
 ![Clonage d’une entité Data Factory][clone-datafactory-entity]
 
 Vous verrez un nouveau brouillon créé sous le nœud **Brouillons** dans l'arborescence.
 
 ## Suppression d’une entité Data Factory
-Vous pouvez supprimer une entité Azure Data Factory \(service lié, table ou pipeline\) en la sélectionnant dans l'arborescence, puis en cliquant sur **Supprimer** dans la barre d'outils, ou en cliquant avec le bouton droit sur l'entité, puis en cliquant sur **Supprimer**.
+Vous pouvez supprimer une entité Azure Data Factory (service lié, table ou pipeline) en la sélectionnant dans l'arborescence, puis en cliquant sur **Supprimer** dans la barre d'outils, ou en cliquant avec le bouton droit sur l'entité, puis en cliquant sur **Supprimer**.
 
 ![Suppression d’une entité Data Factory][delete-datafactory-entity]
 

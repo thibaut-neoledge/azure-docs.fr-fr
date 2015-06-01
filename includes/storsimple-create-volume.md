@@ -26,12 +26,12 @@
 
      ![Ajouter un volume](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
-3. Dans la boîte de dialogue **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d’accès \(ACR\) :
+3. Dans la boîte de dialogue **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d’accès (ACR) :
    1. Saisissez un **Nom** pour votre ACR.
    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI  de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
-   3. Sous **Sauvegarde par défaut pour ce volume ?**, sélectionnez la case à cocher **Activer**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour \(heure de l’appareil\) et crée un instantané de cloud de ce volume.
+   3. Sous **Sauvegarde par défaut pour ce volume ?**, sélectionnez la case à cocher **Activer**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
 
-     \>[AZURE.NOTE]Une fois la sauvegarde activée ici, elle ne peut pas être annulée. Vous devez modifier le volume pour modifier ce paramètre.
+     >[AZURE.NOTE]Une fois la sauvegarde activée ici, elle ne peut pas être annulée. Vous devez modifier le volume pour modifier ce paramètre.
 
      ![Ajouter un volume](./media/storsimple-create-volume/HCs_AddVolume2M-include.png)
 

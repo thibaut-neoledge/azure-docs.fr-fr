@@ -18,7 +18,7 @@
 
 ## Vue d'ensemble
 
-Les notes suivantes identifient les problèmes critiques de la version finale \(GA\) de juillet 2014 de Microsoft Azure StorSimple. Cette version correspond à la version logicielle n° 6.3.9600.17215.
+Les notes suivantes identifient les problèmes critiques de la version finale (GA) de juillet 2014 de Microsoft Azure StorSimple. Cette version correspond à la version logicielle n° 6.3.9600.17215.
 
 Sauf indication contraire, ces notes s’appliquent à tous les modèles d’appareil StorSimple. Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Avant de déployer votre solution Microsoft Azure StorSimple, tenez compte des informations suivantes.
 
@@ -27,7 +27,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
  
 | N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
-| 1 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuez une réinitialisation aux paramètres d’usine, l’appareil StorSimple peut se bloquer et afficher le message suivant : **La réinitialisation aux paramètres d’usine est en cours \(phase 8\)**. Cela se produit si vous appuyez sur Ctrl+C alors que l’applet de commande est en cours. | N’appuyez pas sur Ctrl+C après avoir lancé une réinitialisation aux paramètres d’usine. Si vous avez déjà effectué cette opération, contactez le support technique Microsoft. | Oui | Non |
+| 1 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuez une réinitialisation aux paramètres d’usine, l’appareil StorSimple peut se bloquer et afficher le message suivant : **La réinitialisation aux paramètres d’usine est en cours (phase 8)**. Cela se produit si vous appuyez sur Ctrl+C alors que l’applet de commande est en cours. | N’appuyez pas sur Ctrl+C après avoir lancé une réinitialisation aux paramètres d’usine. Si vous avez déjà effectué cette opération, contactez le support technique Microsoft. | Oui | Non |
 | 2 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 3 | Échec des instantanés cloud | Dans de rares cas, un instantané cloud peut échouer et renvoyer l’erreur **Limite de sauvegarde maximale atteinte**. Cela se produit si vous avez plus de 255 clones en ligne sur un même appareil, provenant du volume d’origine qui a été supprimé. | | Oui | Oui |
 | 4 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. | Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |

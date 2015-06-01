@@ -228,7 +228,7 @@ Si une application fournit la valeur d’un ID, Mobile Services la stocke en l�
 La valeur d'`id` doit être unique et ne contenir aucun caractère présent dans les ensembles suivants :
 
 + Caractères de contrôles : [0x0000-0x001F] et [0x007F-0x009F]. Pour plus d'informations, consultez la page [Codes de contrôle ASCII C0 et C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
++  Caractères imprimables : **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
 +  Les ID « . » et « .. »
 
 Vous pouvez également utiliser des ID d’entier pour vos tables. Pour pouvoir utiliser un ID d'entier, vous devez créer votre table avec la commande `mobile table create` et l'option `--integerId`. Cette commande s'utilise avec l'interface de ligne de commande (CLI) pour Azure. Pour plus d'informations sur l'utilisation de l'interface de ligne de commande, consultez la page [Interface de ligne de commande pour la gestion des tables Mobile Services](virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -537,7 +537,7 @@ Dans l'exemple suivant, un script de table est enregistré pour une opération i
  
 Dans un script, les fonctions d'assistance doivent être déclarées après la fonction principale. Vous devez déclarer toutes les variables dans votre script. Les variables non déclarées provoquent une erreur.
 
-Les fonctions d'assistance peuvent aussi être définies une fois et partagées entre les scripts serveur. Pour partager une fonction entre des scripts, les fonctions doivent être exportées et le fichier de script doit exister dans le répertoire `.\service\shared\`. Ce qui suit est un modèle d'exportation d'une fonction partagée dans un fichier `.\services\shared\helpers.js` :
+Les fonctions d'assistance peuvent aussi être définies une fois et partagées entre les scripts serveur. Pour partager une fonction entre des scripts, les fonctions doivent être exportées et le fichier de script doit exister dans le répertoire `.\service\shared`. Ce qui suit est un modèle d'exportation d'une fonction partagée dans un fichier `.\services\shared\helpers.js` :
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -599,7 +599,7 @@ Dans Mobile Services, vous pouvez créer, modifier et supprimer des scripts serv
 
 Notez que cette structure de répertoires est identique au référentiel git lors de l'utilisation du contrôle du code source.
 
-Pendant le chargement de fichiers de script à partir de l'outil en ligne de commande, vous devez d'abord accéder au répertoire `.\services\`. La commande suivante charge un script nommé `todoitem.insert.js` à partir du sous-répertoire `table` :
+Pendant le chargement de fichiers de script à partir de l'outil en ligne de commande, vous devez d'abord accéder au répertoire `.\services`. La commande suivante charge un script nommé `todoitem.insert.js` à partir du sous-répertoire `table` :
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload

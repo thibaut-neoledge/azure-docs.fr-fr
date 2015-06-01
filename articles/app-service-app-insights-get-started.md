@@ -24,7 +24,7 @@ Visual Studio Application Insights surveille vos applications en direct pour vou
 
 Dans cet article nous allons nous concentrer sur les types d'applications que vous pouvez développer dans Visual Studio. Il existe également des extensions d'Application Insights pour d'autres environnements IDE.
 
-Vous aurez besoin des éléments suivants : [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) \(ou une version plus récente\) ainsi qu'un compte [Microsoft Azure](http://azure.com).
+Vous aurez besoin des éléments suivants : [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (ou une version plus récente) ainsi qu'un compte [Microsoft Azure](http://azure.com).
 
 ## <a name="ide"></a>Ajout de Application Insights à votre projet
 
@@ -35,9 +35,9 @@ Lorsque vous créez un projet dans Visual Studio, assurez-vous que Application I
 
 ![Création d'un projet ASP.NET](./media/appinsights/appinsights-01-vsnewp1.png)
 
-Visual Studio crée une ressource dans Application Insights, ajoute le Kit de développement logiciel \(SDK\) à votre projet et place la clé dans le fichier `.config`.
+Visual Studio crée une ressource dans Application Insights, ajoute le Kit de développement logiciel (SDK) à votre projet et place la clé dans le fichier `.config`.
 
-Si votre projet a des pages web, Visual Studio ajoute également le [Kit de développement logiciel \(SDK\) JavaScript][client] à la page web principale.
+Si votre projet a des pages web, Visual Studio ajoute également le [Kit de développement logiciel (SDK) JavaScript][client] à la page web principale.
 
 #### ... ou s'il s'agit d'un projet existant
 
@@ -45,17 +45,17 @@ Cliquez avec le bouton droit de la souris sur le projet dans l'Explorateur de so
 
 ![Sélection de Ajouter Application Insights](./media/appinsights/appinsights-03-addExisting.png)
 
-Visual Studio crée une ressource dans Application Insights, ajoute le Kit de développement logiciel \(SDK\) à votre projet et place la clé dans le fichier `.config`.
+Visual Studio crée une ressource dans Application Insights, ajoute le Kit de développement logiciel (SDK) à votre projet et place la clé dans le fichier `.config`.
 
-Dans ce cas, il n'ajoute pas le [Kit de développement logiciel \(SDK\) JavaScript][client] à vos pages web : nous vous recommandons de le faire lors de l'étape suivante.
+Dans ce cas, il n'ajoute pas le [Kit de développement logiciel (SDK) JavaScript][client] à vos pages web : nous vous recommandons de le faire lors de l'étape suivante.
 
 #### Options d'installation
 
-S'il s'agit de votre toute première utilisation, vous êtes invité à vous connecter ou à vous inscrire à la version préliminaire de Microsoft Azure. \(indépendamment de votre compte Visual Studio Online\).
+S'il s'agit de votre toute première utilisation, vous êtes invité à vous connecter ou à vous inscrire à la version préliminaire de Microsoft Azure. (indépendamment de votre compte Visual Studio Online).
 
 Si cette application fait partie d'une application plus importante, vous pouvez utiliser **Configurer les paramètres** pour la placer dans le même groupe de ressources que les autres composants.
 
-*Aucune option Application Insights n'est disponible ? Pour certains types de projet, vous pouvez utiliser Application Insights en [ajoutant manuellement le Kit de développement logiciel \(SDK\)][windows].*
+*Aucune option Application Insights n'est disponible ? Pour certains types de projet, vous pouvez utiliser Application Insights en [ajoutant manuellement le Kit de développement logiciel (SDK)][windows].*
 
 #### Ouvrez Application Insights à partir de votre projet.
 
@@ -99,7 +99,7 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 Maintenant que vous avez envoyé des données à partir du serveur de votre application, voici les étapes à suivre pour obtenir un plus large aperçu :
 
 * [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
-* [Ajoutez le Kit de développement logiciel \(SDK\) JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme le nombre d'affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétries personnalisées que vous pouvez rédiger dans les scripts de vos pages.
+* [Ajoutez le Kit de développement logiciel (SDK) JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme le nombre d'affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétries personnalisées que vous pouvez rédiger dans les scripts de vos pages.
 * Ajoutez un suivi des dépendances pour diagnostiquer les problèmes provoqués par les bases de données ou les autres composants utilisés par votre application 
  * [Ajout d’un suivi des dépendances à votre serveur IIS][redfield]
  * [Ajout d’un suivi des dépendances à votre application web Azure][azure]

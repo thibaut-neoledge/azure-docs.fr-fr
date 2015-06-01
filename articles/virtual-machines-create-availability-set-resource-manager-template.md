@@ -18,7 +18,7 @@
 
 # Création d’un groupe à haute disponibilité à l’aide de modèles d’Azure Resource Manager
 
-Vous pouvez facilement créer un groupe à haute disponibilité pour une machine virtuelle à l’aide d’Azure PowerShell ou de l’interface de ligne de commande interplateforme \(xplat-cli\) et d’un modèle du Gestionnaire de ressources. Ce modèle crée un groupe à haute disponibilité.
+Vous pouvez facilement créer un groupe à haute disponibilité pour une machine virtuelle à l’aide d’Azure PowerShell ou de l’interface de ligne de commande interplateforme (xplat-cli) et d’un modèle du Gestionnaire de ressources. Ce modèle crée un groupe à haute disponibilité.
  
 Avant d’aller plus loin, veuillez vérifier qu’Azure PowerShell et l’interface de ligne de commande interplateforme sont configurés et opérationnels.
 
@@ -33,17 +33,17 @@ Procédez comme suit pour [utiliser] un modèle du Gestionnaire de ressources da
 
 ### Étape 1 : téléchargement du fichier JSON
 
-Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le \(par exemple, C:\\Azure\\Templates\[thing\]\).
+Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\\Azure\\Templates[thing]).
 
 Remplacez le nom du dossier, puis copiez et exécutez ces commandes.
 
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>"
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>"
 	$webclient = New-Object System.Net.WebClient
 	$url = "[Writers: add the URL to the RAW version of the target template in GitHub]"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath) 
 
-### Étape 2 : \(facultative\) affichage des paramètres
+### Étape 2 : (facultative) affichage des paramètres
 
 Lorsque vous [utilisez] un modèle, vous devez spécifier un ensemble de paramètres de configuration. Pour afficher les paramètres que vous devez spécifier pour le modèle dans un fichier JSON local avant d’exécuter la commande pour créer la machine virtuelle, ouvrez le fichier JSON dans un outil ou un éditeur de texte de votre choix. Recherchez la section "parameters" située en haut du fichier, qui répertorie l’ensemble des paramètres requis par le modèle pour configurer la machine virtuelle. Voici la section **"parameters"** du modèle azuredeploy.json :
 
@@ -60,7 +60,7 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacem
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\[thing]>" 
+	$folderName="<folder name, such as C:\Azure\Templates[thing]>" 
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -72,7 +72,7 @@ Voici un exemple de la commande PowerShell définie pour le modèle.
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$folderName="C:\Azure\Templates\[thing]"
+	$folderName="C:\Azure\Templates[thing]"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -91,24 +91,24 @@ Le résultat suivant doit s’afficher :
 	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
 	...
 
-Pour supprimer ce groupe de ressources et l’ensemble de ces ressources \(le compte de stockage, la machine virtuelle et le réseau virtuel\), utilisez la commande suivante.
+Pour supprimer ce groupe de ressources et l’ensemble de ces ressources (le compte de stockage, la machine virtuelle et le réseau virtuel), utilisez la commande suivante.
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
 
-## [utilisez] un modèle du Gestionnaire de ressources avec l’interface de ligne de commande interplateforme \(xplat-cli\)
+## [utilisez] un modèle du Gestionnaire de ressources avec l’interface de ligne de commande interplateforme (xplat-cli)
 
 Procédez comme suit pour [utiliser] un modèle du Gestionnaire de ressources dans le référentiel de modèles Github avec les commandes de l’interface de ligne de commande interplateforme.
 
 ### Étape 1 : téléchargement du fichier JSON du modèle
 
-Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le \(par exemple, C:\\Azure\\Templates\[thing\]\).
+Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\\Azure\\Templates[thing]).
 
 Indiquez le nom du dossier, puis exécutez les commandes suivantes.
 
 [commandes de l’interface de ligne de commande interplateforme pour télécharger le fichier de modèle]
 
-### Étape 2 : \(facultative\) affichage des paramètres du modèle
+### Étape 2 : (facultative) affichage des paramètres du modèle
 
 Lorsque vous [utilisez] un modèle, vous devez spécifier un ensemble de paramètres de configuration. Pour afficher les paramètres que vous devez spécifier pour le modèle dans un fichier JSON local avant d’exécuter la commande pour créer la machine virtuelle, ouvrez le fichier JSON dans un outil ou un éditeur de texte de votre choix. Recherchez la section "parameters" située en haut du fichier, qui répertorie l’ensemble des paramètres requis par le modèle pour configurer la machine virtuelle. Voici la section **"parameters"** du modèle azuredeploy.json :
 
@@ -120,7 +120,7 @@ Lorsque vous [utilisez] un modèle, vous devez spécifier un ensemble de paramè
 
 ### Étape 4 : [utilisation] du modèle
 
-Renseignez le champ \[informations requises}, puis exécutez ces commandes.
+Renseignez le champ [informations requises}, puis exécutez ces commandes.
 
 [commandes de l’interface de ligne de commande interplateforme pour exécuter le fichier de modèle]
 
@@ -136,7 +136,7 @@ Le résultat suivant doit s’afficher :
 [Remarque pour les rédacteurs : collez l’affichage de l’interface de ligne de commande pour les premières invites de paramètres]
 
 
-Pour supprimer ce groupe de ressources et l’ensemble de ces ressources \([éléments du groupe de ressources]\), utilisez cette commande.
+Pour supprimer ce groupe de ressources et l’ensemble de ces ressources ([éléments du groupe de ressources]), utilisez cette commande.
 
 [commande de l’interface de ligne de commande interplateforme]
 

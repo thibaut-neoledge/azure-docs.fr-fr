@@ -18,7 +18,7 @@
 
 
 # Configuration d'un cluster de calcul hybride avec Microsoft HPC Pack
-Ce didacticiel vous indique comment utiliser Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster hybride de calculs complexes \(HPC\). Le cluster se compose d'un nœud principal local \(ordinateur exécutant le système d'exploitation Windows Server et HPC Pack\) et de plusieurs nœuds de calcul que vous déployez comme instances de rôle de travail dans un service cloud Azure. Vous pouvez ensuite exécuter des tâches de calcul sur le cluster hybride.
+Ce didacticiel vous indique comment utiliser Microsoft HPC Pack 2012 R2 et Azure pour configurer un petit cluster hybride de calculs complexes (HPC). Le cluster se compose d'un nœud principal local (ordinateur exécutant le système d'exploitation Windows Server et HPC Pack) et de plusieurs nœuds de calcul que vous déployez comme instances de rôle de travail dans un service cloud Azure. Vous pouvez ensuite exécuter des tâches de calcul sur le cluster hybride.
 
 ![Cluster HPC hybride][Overview]
 
@@ -40,7 +40,7 @@ Vous devez également disposer des éléments suivants pour ce didacticiel :
 
 	* Vérifiez qu'aucun autre rôle serveur ou service de rôle n'est installé.
 
-	* Le système d'exploitation doit être installé dans l'une des langues suivantes pour prendre en charge HPC Pack : anglais, japonais ou chinois \(simplifié\).
+	* Le système d'exploitation doit être installé dans l'une des langues suivantes pour prendre en charge HPC Pack : anglais, japonais ou chinois (simplifié).
 
 	* Vérifiez que les mises à jour importantes et critiques sont installées.
 
@@ -87,9 +87,9 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 ## Préparation de l'abonnement à Azure
 Utilisez le [portail de gestion Azure](https://manage.windowsazure.com) pour réaliser les étapes suivantes avec votre abonnement Azure. Ces instructions doivent être suivies afin de pouvoir par la suite déployer les nœuds Azure à partir du nœud principal local.
 
-- Téléchargement d'un certificat de gestion \(requis pour les connexions sécurisées entre le nœud principal et les services Azure\)
+- Téléchargement d'un certificat de gestion (requis pour les connexions sécurisées entre le nœud principal et les services Azure)
 
-- Création d'un service cloud Azure dans lequel les nœuds Azure \(instances de rôle de travail\) seront exécutés
+- Création d'un service cloud Azure dans lequel les nœuds Azure (instances de rôle de travail) seront exécutés
 
 - Création d'un compte de stockage Azure
 
@@ -144,7 +144,7 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 	![Configurer le réseau][config_hpc2]
 
-3. Dans l'Assistant Configuration du réseau, sélectionnez **All nodes only on an enterprise network** \(Topologie 5\).
+3. Dans l'Assistant Configuration du réseau, sélectionnez **All nodes only on an enterprise network** (Topologie 5).
 
 	![Topologie 5][config_hpc3]
 
@@ -178,7 +178,7 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 	b. Cliquez sur **Suivant** pour accepter le nom de modèle par défaut.
 
-	c. Sur la page **Fournir les informations de l’abonnement**, entrez votre ID d’abonnement Azure \(disponible dans les <a href="[https://account.windowsazure.com/Subscriptions">informations de compte</a> Azure\). Ensuite, dans **Management certificate**, cliquez sur **Browse**, puis sélectionnez **Default HPC Azure Management.** Cliquez ensuite sur **Suivant**.
+	c. Sur la page **Fournir les informations de l’abonnement**, entrez votre ID d’abonnement Azure (disponible dans les <a href="[https://account.windowsazure.com/Subscriptions">informations de compte</a> Azure). Ensuite, dans **Management certificate**, cliquez sur **Browse**, puis sélectionnez **Default HPC Azure Management.** Cliquez ensuite sur **Suivant**.
 
 	![Modèle de nœud][config_hpc12]
 
@@ -188,11 +188,11 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 	e. Cliquez sur **Suivant** pour accepter les valeurs par défaut sur les pages suivantes de l'Assistant. Ensuite, sous l'onglet **Review**, cliquez sur **Create** pour créer le modèle de nœud.
 
-	>[AZURE.NOTE]Par défaut, le modèle de nœud Azure inclut des paramètres vous permettant de lancer \(d'approvisionner\) et d'arrêter manuellement les nœuds. Vous pouvez également programmer le démarrage et l'arrêt automatique de nœuds Azure.
+	>[AZURE.NOTE]Par défaut, le modèle de nœud Azure inclut des paramètres vous permettant de lancer (d'approvisionner) et d'arrêter manuellement les nœuds. Vous pouvez également programmer le démarrage et l'arrêt automatique de nœuds Azure.
 
 ## Ajout de nœuds Azure au cluster
 
-Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster. L'ajout de nœuds au cluster stocke les informations de configuration de ces nœuds afin que vous puissiez les démarrer \(approvisionner\) à tout moment en tant qu'instances de rôle dans le service cloud. Votre compte est uniquement facturé pour les nœuds Azure une fois que les instances de rôle sont exécutées dans le service cloud.
+Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster. L'ajout de nœuds au cluster stocke les informations de configuration de ces nœuds afin que vous puissiez les démarrer (approvisionner) à tout moment en tant qu'instances de rôle dans le service cloud. Votre compte est uniquement facturé pour les nœuds Azure une fois que les instances de rôle sont exécutées dans le service cloud.
 
 Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 
@@ -204,7 +204,7 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 
 	![Ajouter un nœud Azure][add_node1_1]
 
-3. Sur la page **Specify New Nodes**, sélectionnez le modèle de nœud Azure créé précédemment \(par défaut, son nom est **Default AzureNode Template**\). Indiquez ensuite **2** nœuds de format « **Small** », puis cliquez sur **Suivant**.
+3. Sur la page **Specify New Nodes**, sélectionnez le modèle de nœud Azure créé précédemment (par défaut, son nom est **Default AzureNode Template**). Indiquez ensuite **2** nœuds de format « **Small** », puis cliquez sur **Suivant**.
 
 	![Spécifier les nœuds][add_node2]
 
@@ -217,7 +217,7 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 	![Nœuds ajoutés][add_node3]
 
 ## Les nœuds Azure
-Lorsque vous souhaitez utiliser les ressources de cluster dans Azure, utilisez HPC Cluster Manager pour démarrer \(approvisionner\) les nœuds Azure et les mettre en ligne.
+Lorsque vous souhaitez utiliser les ressources de cluster dans Azure, utilisez HPC Cluster Manager pour démarrer (approvisionner) les nœuds Azure et les mettre en ligne.
 
 1.	Dans HPC Cluster Manager, sous **Node Management**, cliquez sur un ou plusieurs nœuds, puis, dans le volet **Actions**, cliquez sur **Start**.
 
@@ -237,7 +237,7 @@ Lorsque vous souhaitez utiliser les ressources de cluster dans Azure, utilisez H
 
 	![Instances en cours d'exécution][view_instances1]
 
-	Deux instances de rôle de travail sont affichées comme étant exécutées dans le service. HPC Pack déploie également deux instances **HpcProxy** \(taille moyenne\) pour gérer la communication entre le nœud principal et Azure.
+	Deux instances de rôle de travail sont affichées comme étant exécutées dans le service. HPC Pack déploie également deux instances **HpcProxy** (taille moyenne) pour gérer la communication entre le nœud principal et Azure.
 
 5. Pour faire passer les nœuds Azure en ligne afin qu'ils exécutent des tâches de cluster, sélectionnez-les, cliquez avec le bouton droit, puis cliquez sur **Bring Online**.
 
@@ -260,13 +260,13 @@ Vous pouvez utiliser la commande **clusrun** de HPC Pack pour exécuter une comm
 
 ## Exécution d'une tâche de test
 
-Vous pouvez envoyer une tâche de test à exécuter sur le cluster hybride. Le présent exemple est un simple balayage paramétrique \(un type de calcul intrinsèquement parallèle\) qui exécute des sous-tâches qui ajoutent un entier à lui-même via la commande **set /a**. Tous les nœuds du cluster contribuent à terminer les sous-tâches pour les entiers de 1 à 100.
+Vous pouvez envoyer une tâche de test à exécuter sur le cluster hybride. Le présent exemple est un simple balayage paramétrique (un type de calcul intrinsèquement parallèle) qui exécute des sous-tâches qui ajoutent un entier à lui-même via la commande **set /a**. Tous les nœuds du cluster contribuent à terminer les sous-tâches pour les entiers de 1 à 100.
 
 1. Dans HPC Cluster Manager, sous **Job Management**, dans le volet **Actions**, cliquez sur **New Parametric Sweep Job**.
 
 	![Nouvelle tâche][test_job1]
 
-2. Dans la boîte de dialogue **Nouvelle tâche de balayage paramétrique**, sous **Ligne de commande**, tapez `set /a *+*` \(en remplaçant la ligne de commande par défaut qui s'affiche\). Ne modifiez pas les autres paramètres par défaut, puis cliquez sur **Submit** pour envoyer la tâche.
+2. Dans la boîte de dialogue **Nouvelle tâche de balayage paramétrique**, sous **Ligne de commande**, tapez `set /a *+*` (en remplaçant la ligne de commande par défaut qui s'affiche). Ne modifiez pas les autres paramètres par défaut, puis cliquez sur **Submit** pour envoyer la tâche.
 
 	![Balayage paramétrique][param_sweep1]
 
@@ -276,7 +276,7 @@ Vous pouvez envoyer une tâche de test à exécuter sur le cluster hybride. Le p
 
 	![Résultats de la tâche][view_job361]
 
-5. Pour connaître le nœud ayant effectué le calcul pour cette sous-tâche, cliquez sur **Allocated Nodes** \(votre cluster peut indiquer un nom de nœud différent\).
+5. Pour connaître le nœud ayant effectué le calcul pour cette sous-tâche, cliquez sur **Allocated Nodes** (votre cluster peut indiquer un nom de nœud différent).
 
 	![Résultats de la tâche][view_job362]
 

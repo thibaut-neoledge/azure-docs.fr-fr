@@ -58,7 +58,7 @@ Voyons à présent comment créer une application web Python Flask de A à Z.
 
 ## Étape 2 : Création d'une application web Python Flask
 
-1. Ouvrez Visual Studio, puis cliquez sur **Fichier** -\> **Nouveau projet** -\> **Python** -\>, **Projet web Flask**. Créez un projet nommé **tutorial**. 
+1. Ouvrez Visual Studio, puis cliquez sur **Fichier** -> **Nouveau projet** -> **Python** ->, **Projet web Flask**. Créez un projet nommé **tutorial**. 
 
 	Si vous ne connaissez pas bien Flask, sachez qu'il s'agit d'une infrastructure web qui permet d'accélérer le développement d'applications dans Python. [Cliquez ici pour accéder aux didacticiels sur Flask][].
 
@@ -272,12 +272,12 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, resu
     	{% endblock %}
 
 
-### Ajout d'un fichier de configuration et modification de \_\_init\_\_.py
+### Ajout d'un fichier de configuration et modification de __init__.py
 
 1. Cliquez avec le bouton droit sur le projet nommé tutorial et ajoutez le fichier **config.py**.
 Cette configuration est requise par les formulaires dans Flask. Vous pouvez l'utiliser pour fournir une clé secrète. Cela n'est cependant pas nécessaire dans le cadre de ce didacticiel. 
 
-2. Ajoutez le code suivant à config.py. Modifiez les valeurs de **DOCUMENTDB\_HOST** et **DOCUMENTDB\_KEY**.
+2. Ajoutez le code suivant à config.py. Modifiez les valeurs de **DOCUMENTDB_HOST** et **DOCUMENTDB_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Cette configuration est requise par les formulaires dans Flask. Vous pouvez l'ut
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. De même, remplacez le contenu de **\_\_init\_\_.py** par le contenu suivant.
+3. De même, remplacez le contenu de **__init__.py** par le contenu suivant.
 
     	from flask import Flask
     	app = Flask(__name__)

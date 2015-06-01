@@ -89,7 +89,7 @@ Pour utiliser Azure Service Bus, vous devez télécharger et utiliser le package
 
 ## Configuration d'une connection Service Bus Azure
 
-Le module Azure lit les variables d'environnement **AZURE\_SERVICEBUS\_NAMESPACE** et **AZURE\_SERVICEBUS\_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations d'espace de noms avant d'utiliser **Azure::ServiceBusService** grâce au code suivant :
+Le module Azure lit les variables d'environnement **AZURE_SERVICEBUS_NAMESPACE** et **AZURE_SERVICEBUS_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations d'espace de noms avant d'utiliser **Azure::ServiceBusService** grâce au code suivant :
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -117,9 +117,9 @@ Vous pouvez également transmettre un objet **Azure::ServiceBus::Queue** avec de
 
 ## Envoi de messages à une file d'attente
 
-Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send\_queue\_message()** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux files d'attente Service Bus (et reçus de celles-ci) sont des objets **Azure::ServiceBus::BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **label** et **time\_to\_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant une valeur de chaîne en tant que message pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
+Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send_queue_message()** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux files d'attente Service Bus (et reçus de celles-ci) sont des objets **Azure::ServiceBus::BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **label** et **time_to_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant une valeur de chaîne en tant que message pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
 
-L'exemple suivant indique comment envoyer un message test à la file d'attente nommée " test-queue " à l'aide de la méthode **send\_queue\_message()** :
+L'exemple suivant indique comment envoyer un message test à la file d'attente nommée " test-queue " à l'aide de la méthode **send_queue_message()** :
 
     message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
     message.correlation_id = "test-correlation-id"
@@ -129,13 +129,13 @@ Les files d'attente Service Bus prennent en charge une taille de message maximal
 
 ## Réception des messages d'une file d'attente
 
-La méthode **receive\_queue\_message()** de l'objet **Azure::ServiceBusService** permet de recevoir les messages d'une file d'attente. Par défaut, les messages sont lus et verrouillés sans être supprimés de la file d'attente. Il est toutefois possible de supprimer ces messages de la file d'attente lors de leur lecture en paramétrant l'option **:peek_lock** sur **false**.
+La méthode **receive_queue_message()** de l'objet **Azure::ServiceBusService** permet de recevoir les messages d'une file d'attente. Par défaut, les messages sont lus et verrouillés sans être supprimés de la file d'attente. Il est toutefois possible de supprimer ces messages de la file d'attente lors de leur lecture en paramétrant l'option **:peek_lock** sur **false**.
 
-Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete\_queue\_message()** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **delete\_queue\_message()** marque le message comme étant consommé et le supprime de la file d'attente.
+Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete_queue_message()** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **delete_queue_message()** marque le message comme étant consommé et le supprime de la file d'attente.
 
-Si le paramètre **:peek\_lock** a la valeur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
+Si le paramètre **:peek_lock** a la valeur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
 
-L'exemple ci-dessous montre comment les messages peuvent être reçus et traités à l'aide de **receive\_queue\_message()**. Dans l'exemple, un message est d'abord reçu puis supprimé en définissant **:peek\_lock** sur **false**. Un autre message est ensuite reçu, puis supprimé via **delete\_queue\_message()** :
+L'exemple ci-dessous montre comment les messages peuvent être reçus et traités à l'aide de **receive_queue_message()**. Dans l'exemple, un message est d'abord reçu puis supprimé en définissant **:peek_lock** sur **false**. Un autre message est ensuite reçu, puis supprimé via **delete_queue_message()** :
 
     message = azure_service_bus_service.receive_queue_message("test-queue", 
 	  { :peek_lock => false })
@@ -144,11 +144,11 @@ L'exemple ci-dessous montre comment les messages peuvent être reçus et traité
 
 ## Gestion des blocages d'application et des messages illisibles
 
-Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlock\_queue\_message()** de l'objet **Azure::ServiceBusService**. Service Bus déverrouille alors le message dans la file d'attente et le rend à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlock_queue_message()** de l'objet **Azure::ServiceBusService**. Service Bus déverrouille alors le message dans la file d'attente et le rend à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
 De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l'application se bloque après le traitement du message, mais avant l'appel de la méthode **delete\_queue\_message()**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, appelé **Au moins une fois**, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, Pour ce faire, il suffit souvent d'utiliser la propriété **message\_id** du message, qui reste constante pendant les tentatives de remise.
+Si l'application se bloque après le traitement du message, mais avant l'appel de la méthode **delete_queue_message()**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, appelé **Au moins une fois**, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, Pour ce faire, il suffit souvent d'utiliser la propriété **message_id** du message, qui reste constante pendant les tentatives de remise.
 
 ## Étapes suivantes
 

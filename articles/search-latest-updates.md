@@ -18,11 +18,11 @@
 
 #Nouveautés de la dernière mise à jour d’Azure Search#
 
-Azure Search est désormais mis à la disposition générale avec un contrat de niveau de service \(SLA\) affichant une disponibilité de 99,9 % et dédié aux configurations prises en charge pour la [version 2015-02-28 de l’API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Azure Search est désormais mis à la disposition générale avec un contrat de niveau de service (SLA) affichant une disponibilité de 99,9 % et dédié aux configurations prises en charge pour la [version 2015-02-28 de l’API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Contrôle de version et déploiement des fonctionnalités
 
-Les fonctionnalités sont publiées séparément ou conjointement par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), du [Kit de développement logiciel \(SDK\) .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou du tableau de bord des services du [portail Azure](https://portal.azure.com).
+Les fonctionnalités sont publiées séparément ou conjointement par le biais de l’[API REST](https://msdn.microsoft.com/library/azure/dn798935.aspx), du [Kit de développement logiciel (SDK) .NET](http://go.microsoft.com/fwlink/?LinkId=528216) ou du tableau de bord des services du [portail Azure](https://portal.azure.com).
 
 La bibliothèque .NET et les API REST existent dans différentes versions. Les API plus anciennes restent opérationnelles lors du déploiement de nouvelles fonctionnalités. Vous pouvez consulter [Contrôle de version de service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) pour en savoir plus sur notre stratégie de contrôle de version.
 
@@ -44,9 +44,9 @@ Il s’agit de la première version publique du Kit de développement logiciel 
 
 Exclut :
 
-- les [indexeurs](http://go.microsoft.com/fwlink/p/?LinkId=528173) \(cette fonctionnalité n’est plus exclue dans la version 0.10.0-preview\) ;
+- les [indexeurs](http://go.microsoft.com/fwlink/p/?LinkId=528173) (cette fonctionnalité n’est plus exclue dans la version 0.10.0-preview) ;
 - l’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) ;
-- les fonctionnalités de la version [2015-02-28-Preview](search-api-2015-02-28-Preview.md) \(à l’heure actuelle, les fonctionnalités préliminaires sont les processeurs de langage naturel Microsoft et `moreLikeThis`\).
+- les fonctionnalités de la version [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (à l’heure actuelle, les fonctionnalités préliminaires sont les processeurs de langage naturel Microsoft et `moreLikeThis`).
 
 Consultez [Utilisation d’Azure Search dans .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) pour savoir comment installer et utiliser le Kit de développement logiciel.
 
@@ -68,7 +68,7 @@ Consultez [Utilisation d’Azure Search dans .NET](http://go.microsoft.com/fwli
 
 - Les [indexeurs](http://go.microsoft.com/fwlink/p/?LinkID=528210) représentent une nouvelle fonctionnalité qui simplifie grandement l’indexation à partir de sources de données sur la base de données SQL Azure, Azure DocumentDB et SQL Server des machines virtuelles Azure.
 
-- Les [générateurs de suggestions](https://msdn.microsoft.com/library/azure/dn798936.aspx) remplacent la prise en charge plus limitée de requêtes par saisie semi-automatique, fournie dans l’implémentation précédente \(correspondance des préfixes uniquement\), en ajoutant la prise en charge de la correspondance des infixes. Cette implémentation permet de rechercher des correspondances de n’importe quelle partie du terme et accepte également les correspondances approximatives.
+- Les [générateurs de suggestions](https://msdn.microsoft.com/library/azure/dn798936.aspx) remplacent la prise en charge plus limitée de requêtes par saisie semi-automatique, fournie dans l’implémentation précédente (correspondance des préfixes uniquement), en ajoutant la prise en charge de la correspondance des infixes. Cette implémentation permet de rechercher des correspondances de n’importe quelle partie du terme et accepte également les correspondances approximatives.
 
 - L’[amélioration des balises](http://go.microsoft.com/fwlink/p/?LinkId=528212) offre un nouveau cas de figure pour les profils de score. Elle exploite notamment les données persistantes, comme les préférences d’achat, afin d’optimiser les résultats de recherche pour les utilisateurs individuels en fonction d’informations personnalisées.
 

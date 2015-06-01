@@ -19,7 +19,7 @@
 
 #Importez vos données d'apprentissage dans Azure Machine Learning Studio
 
-Lorsque vous développez une solution d'analyse prédictive dans Azure Machine Learning Studio, vous effectuez l'apprentissage de votre modèle à l'aide de données représentatives de votre espace de problème. Un certain nombre d'exemples de jeux de données sont disponibles dans ML Studio et vous pouvez les utiliser à cet effet \(voir [Utilisation d'exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)\). Mais vous pouvez également importer vos propres données dans ML Studio à utiliser dans vos expériences.
+Lorsque vous développez une solution d'analyse prédictive dans Azure Machine Learning Studio, vous effectuez l'apprentissage de votre modèle à l'aide de données représentatives de votre espace de problème. Un certain nombre d'exemples de jeux de données sont disponibles dans ML Studio et vous pouvez les utiliser à cet effet (voir [Utilisation d'exemples de jeux de données dans Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)). Mais vous pouvez également importer vos propres données dans ML Studio à utiliser dans vos expériences.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -41,16 +41,16 @@ Il est préférable que vos données soient relativement nettoyées. Autrement d
 
 Vous pouvez importer un certain nombre de types de données dans votre expérience, selon le mécanisme que vous utilisez pour importer les données et l'emplacement d'où elles proviennent :
 
-- Texte brut \(.txt\)
-- Comma-separated values \(CSV\) avec un en-tête \(.csv\) ou sans \(. nh.csv\)
-- Tab-separated values \(TSV\) avec un en-tête \(.tsv\) ou sans \(. nh.tsv\)
+- Texte brut (.txt)
+- Comma-separated values (CSV) avec un en-tête (.csv) ou sans (. nh.csv)
+- Tab-separated values (TSV) avec un en-tête (.tsv) ou sans (. nh.tsv)
 - Table Hive
 - Base de données SQL
 - Valeurs OData
-- Données SVMLight \(.svmlight\) \(voir la [définition SVMLight](http://svmlight.joachims.org/) pour les informations relatives au format\)
-- Données Attribute Relation File Format \(ARFF\) \(.arff\) \(voir la [définition ARFF](http://weka.wikispaces.com/ARFF) pour les informations relatives au format\)
-- Fichier zip \(.zip\)
-- Fichier d'espace de travail ou d'objet R \(.RData\)
+- Données SVMLight (.svmlight) (voir la [définition SVMLight](http://svmlight.joachims.org/) pour les informations relatives au format)
+- Données Attribute Relation File Format (ARFF) (.arff) (voir la [définition ARFF](http://weka.wikispaces.com/ARFF) pour les informations relatives au format)
+- Fichier zip (.zip)
+- Fichier d'espace de travail ou d'objet R (.RData)
 
 Si vous importez des données dans un format tel que ARFF qui inclut des métadonnées, ML Studio utilise ces métadonnées pour définir le titre et le type de données de chaque colonne. Si vous importez des données dans des formats tels que TSV ou CSV qui n'incluent pas ces métadonnées, ML Studio déduit le type de données pour chaque colonne en échantillonnant les données. Si les données aussi n'ont pas de titre de colonne, ML Studio fournit des noms par défaut. Vous pouvez spécifier de manière explicite ou modifier les titres et les types de données pour les colonnes à l'aide de l'[Éditeur de métadonnées][metadata-editor].
  
@@ -83,9 +83,9 @@ Une fois que vos données sont téléchargées, elles sont stockées dans un mod
 
 ## Accès aux données en ligne avec le module Reader
 
-Pendant que votre expérience s'exécute, vous pouvez également accéder aux données à partir de plusieurs sources en ligne à l'aide du module [Reader][reader]. Étant donné que ces données sont accessibles pendant que votre expérience s'exécute, elles ne sont disponibles que dans une seule expérience \(par opposition aux modules de jeu de données qui sont disponibles pour n'importe quelle expérience dans votre espace de travail\).
+Pendant que votre expérience s'exécute, vous pouvez également accéder aux données à partir de plusieurs sources en ligne à l'aide du module [Reader][reader]. Étant donné que ces données sont accessibles pendant que votre expérience s'exécute, elles ne sont disponibles que dans une seule expérience (par opposition aux modules de jeu de données qui sont disponibles pour n'importe quelle expérience dans votre espace de travail).
 
-Après avoir ajouté le module [Reader][reader] à votre expérience, sélectionnez la **Source de données** puis fournissez les informations d'accès à l'aide des paramètres du module. Par exemple, si vous sélectionnez **URL web via HTTP**, vous fournissez l'URL source et le format de données. Si vous accédez à vos données depuis le stockage Azure ou HDInsight \(à l'aide d'une requête Hive\), vous fournissez les informations de compte appropriées et l'emplacement des données.
+Après avoir ajouté le module [Reader][reader] à votre expérience, sélectionnez la **Source de données** puis fournissez les informations d'accès à l'aide des paramètres du module. Par exemple, si vous sélectionnez **URL web via HTTP**, vous fournissez l'URL source et le format de données. Si vous accédez à vos données depuis le stockage Azure ou HDInsight (à l'aide d'une requête Hive), vous fournissez les informations de compte appropriées et l'emplacement des données.
 
 > [AZURE.NOTE]Cet article fournit des informations générales sur le module [Reader][reader]. Pour plus d'informations sur les types de données auxquelles vous pouvez accéder, les formats, les paramètres et les réponses aux questions courantes, consultez la rubrique de référence du module pour le module [Reader][reader].
 
@@ -98,19 +98,19 @@ Vous pouvez importer des données à partir de trois sources Azure :
 - **Stockage de table Azure** : le module [Reader][reader] analyse vos données pour identifier les types de données de colonne. Si vos données sont relativement homogènes et prévisibles, vous pouvez limiter le nombre de lignes qui sont analysées.
 - **Base de données SQL Azure** : le module [Reader][reader] utilise l'API cliente SQL Azure Transact pour importer des données à l'aide d'une requête de base de données que vous fournissez.
 
-Pour le stockage d'objets blob et de tables, fournissez une URI de signature d'accès partagé \(URI SAS\) ou les informations de compte de stockage Azure pour fournir un accès aux données. Pour une base de données SQL Azure, vous fournissez votre base de données et les informations de votre compte, ainsi qu'une requête de base de données qui identifie les données que vous souhaitez importer.
+Pour le stockage d'objets blob et de tables, fournissez une URI de signature d'accès partagé (URI SAS) ou les informations de compte de stockage Azure pour fournir un accès aux données. Pour une base de données SQL Azure, vous fournissez votre base de données et les informations de votre compte, ainsi qu'une requête de base de données qui identifie les données que vous souhaitez importer.
 
 ### Obtention de données depuis le web
 
 Vous pouvez utiliser le module [Reader][reader] pour lire des données à partir d'un site web ou d'un site FTP. Vous devez fournir :
 
 - L'adresse URL HTTP complète d'un fichier
-- Le format de données du fichier \(CSV, TSV, ARFF ou SvmLight\)
+- Le format de données du fichier (CSV, TSV, ARFF ou SvmLight)
 - Pour les fichiers CSV ou TSV, indiquez si la première ligne du fichier est un en-tête
 
 ### Obtention de données depuis Hadoop
 
-Vous pouvez utiliser le module [Reader][reader] pour lire les données depuis un stockage distribué à l'aide du langage de requête HiveQL. Vous devez spécifier la requête de base de données Hive et fournir des informations d'accès utilisateur sur le serveur HCatalog. Vous devez également spécifier si les données sont stockées dans un système de fichiers distribué de Hadoop \(HDFS\) ou dans Azure et, le cas échéant, les informations du compte Azure
+Vous pouvez utiliser le module [Reader][reader] pour lire les données depuis un stockage distribué à l'aide du langage de requête HiveQL. Vous devez spécifier la requête de base de données Hive et fournir des informations d'accès utilisateur sur le serveur HCatalog. Vous devez également spécifier si les données sont stockées dans un système de fichiers distribué de Hadoop (HDFS) ou dans Azure et, le cas échéant, les informations du compte Azure
 
 ### Obtention de données depuis un fournisseur de flux de données
 

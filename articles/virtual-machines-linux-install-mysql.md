@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Installation de MySQL sur Azure"
-	description="Apprenez à installer la pile MySQL sur une machine virtuelle Linux dans Azure. Vous pouvez l&#39;installer sur Ubuntu ou sur CentOS."
+	description="Apprenez à installer la pile MySQL sur une machine virtuelle Linux dans Azure. Vous pouvez l'installer sur Ubuntu ou sur CentOS."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -81,7 +81,7 @@ Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre mach
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
-- Avant de sélectionner Ouvrir, cliquez sur l’onglet Connexion \> SSH \> Auth pour parcourir votre fichier généré par Puttygen et qui contient la clé privée. Consultez la capture d'écran ci-dessous pour le champ à remplir.
+- Avant de sélectionner Ouvrir, cliquez sur l’onglet Connexion > SSH > Auth pour parcourir votre fichier généré par Puttygen et qui contient la clé privée. Consultez la capture d'écran ci-dessous pour le champ à remplir.
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p07.png)
  
@@ -126,19 +126,19 @@ Nous allons utiliser Ubuntu 14.04 LTS comme exemple pour cet article.
     
     Après la connexion, assurez-vous que le service MySQL fonctionne. Vous pouvez utiliser les commandes suivantes pour démarrer/redémarrer le service.
 
-    \(a\) pour obtenir l’état du service MySQL
+    (a) pour obtenir l’état du service MySQL
 
              #sudo service mysql status
 
-    \(b\) pour démarrer le service MySQL
+    (b) pour démarrer le service MySQL
 
              #sudo service mysql start
 
-    \(c\) pour arrêter le service MySQL
+    (c) pour arrêter le service MySQL
 
              #sudo service mysql stop
 
-    \(b\) pour redémarrer le service MySQL
+    (b) pour redémarrer le service MySQL
 
              #sudo service mysql restart
 
@@ -156,7 +156,7 @@ Nous allons utiliser Ubuntu 14.04 LTS comme exemple pour cet article.
 
     Il s’agit d’une entrée habituelle pour un sous-référentiel de série de version dans le fichier :
 
-        \# *Enable to use MySQL 5.6*
+        # *Enable to use MySQL 5.6*
 
         [mysql56-community]
         name=MySQL 5.6 Community Server

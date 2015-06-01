@@ -59,7 +59,7 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
 
 **Pour créer une table de partition, vous devez :**
 
-- [Créer une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) qui définit la plage de valeurs/limites à inclure dans chaque table de partition (par exemple, pour limiter les partitions mensuelles (\_datetime\_field) de l'année 2013 :
+- [Créer une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) qui définit la plage de valeurs/limites à inclure dans chaque table de partition (par exemple, pour limiter les partitions mensuelles (_datetime_field) de l'année 2013 :
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -135,13 +135,13 @@ Le script PowerShell suivant est un exemple de chargement de données en parall�
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
     
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
     
     # Background processing of all partitions
