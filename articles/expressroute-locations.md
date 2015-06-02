@@ -111,4 +111,6 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Vérifiez que vous répondez aux [conditions préalables ExpressRoute](expressroute-prerequisites.md).
 - Visitez le [FAQ](expressroute-faqs.md) pour plus d’informations.
 - Sélectionnez votre fournisseur et configurez votre connexion. Voir [Configurer votre connexion au fournisseur Exchange](expressroute-configuring-exps.md) ou [Configurer votre connexion au fournisseur de services réseau](expressroute-configuring-nsps.md) pour obtenir des informations de configuration.
-<!--HONumber=54-->
+
+
+<!---HONumber=54-->
