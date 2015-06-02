@@ -18,7 +18,8 @@
 
 # Limitations et problèmes connus de la version préliminaire d'Azure Stream Analytics
 
-Ce document décrit les limitations et problèmes connus de la version préliminaire d'[Azure Stream Analytics][stream.analytics.documentation]. Dans la plupart des cas, ces limites ont soit été fixées dans l'intention de recevoir vos commentaires et suggestions, soit suite à des contraintes liées à la capacité actuelle.<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+Ce document décrit les limitations et problèmes connus de la version préliminaire d'[Azure Stream Analytics][stream.analytics.documentation]. Dans la plupart des cas, ces limites ont soit été fixées dans l'intention de recevoir vos commentaires et suggestions, soit suite à des contraintes liées à la capacité actuelle.
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## Limites

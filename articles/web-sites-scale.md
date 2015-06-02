@@ -28,7 +28,8 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 
 > [AZURE.NOTE]Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> 
+<!-- ===================================== -->
 ## Évolution vers le mode Partagé ou De base
 <!-- ===================================== -->
 
