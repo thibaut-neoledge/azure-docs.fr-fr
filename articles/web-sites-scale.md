@@ -49,7 +49,8 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 	
 	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## Évolution vers le mode Standard ou Premium
 <!-- ================================= -->
 
