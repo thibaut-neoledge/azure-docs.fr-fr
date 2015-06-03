@@ -42,4 +42,6 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 - Pour plus d'informations sur la façon de configurer votre connexion ExpressRoute, consultez 
 	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
-<!--HONumber=54-->
+
+
+<!---HONumber=54-->
