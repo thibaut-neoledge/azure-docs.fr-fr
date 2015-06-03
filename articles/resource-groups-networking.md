@@ -349,4 +349,4 @@ Les propriétés clé d'un point de terminaison sont les suivantes :
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!--HONumber=52-->
+<!---HONumber=52-->
