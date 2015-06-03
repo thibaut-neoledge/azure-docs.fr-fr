@@ -23,7 +23,7 @@ Le stockage d'objets blob Azure est une solution de stockage compatible avec Had
 
 Le stockage de données dans le stockage d'objets blob Azure vous permet de supprimer les clusters HDInsight ayant servi aux calculs, sans perte de données utilisateur.
 
-> [AZURE.NOTE]La syntaxe *asv://* est prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe « asv:// » échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
+> [AZURE.NOTE]La syntaxe *asv://* est prise en charge dans les clusters HDInsight version 3.0. Cela signifie que toutes les tâches envoyées vers un cluster HDInsight version 3.0 utilisant explicitement la syntaxe « asv:// » échoueront. Vous devez plutôt utiliser la syntaxe *wasb://*. De même, les tâches créées avec un metastore existant contenant des références explicites aux ressources utilisant la syntaxe asv:// et envoyées vers un cluster HDInsight version  3.0 échoueront également. Vous devez recréer ces metastores en utilisant la syntaxe wasb:// pour adresser les ressources.
 
 > HDInsight prend uniquement en charge les objets blob de blocs pour le moment.
 
