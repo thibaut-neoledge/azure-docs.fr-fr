@@ -77,7 +77,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
 	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
 	
-	![][11]	
+	![][11]
 
 2. Dans Visual Studio, cliquez avec le bouton droit sur la solution, puis cliquez sur **Manage NuGet Packages**. 
 
