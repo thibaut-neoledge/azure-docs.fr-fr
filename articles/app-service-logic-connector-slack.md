@@ -46,7 +46,10 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 	![][2]
 4.	Vous pouvez déposer l'application API du connecteur Slack dans l'éditeur en cliquant sur « Connecteur Slack ». Cliquez sur le bouton Autoriser. Indiquez vos informations d'identification Microsoft (si vous n'êtes pas connecté automatiquement). Connectez-vous à votre compte Slack en suivant les étapes indiquées. À la fin, vous serez invité à autoriser votre connecteur à accéder à votre compte Slack. Cliquez sur « Autoriser ».
  
-	![][3] ![][4] ![][5] ![][6]
+	![][3]
+	![][4]
+	![][5]
+	![][6]
 	
 5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. Actuellement, aucun déclencheur n'est disponible dans le connecteur Slack. Les actions disponibles sont : Publier le message
  
@@ -84,4 +87,6 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 <!-- Links -->
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API Slack ]: https://msdn.microsoft.com/fr-fr/library/dn708020.aspx
-<!--HONumber=52-->
+
+
+<!---HONumber=52-->
