@@ -47,14 +47,19 @@ Avant de poursuivre, vérifiez que les éléments suivants sont installés :
 ## Démarrage rapide
 Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][provision] ci-dessous.
  
-1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**. <!-- ![Store][button-store] -->
-2. Cliquez sur le module **MongoLab**. ![MongoLab][entry-mongolab]
-3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo]  
-4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers. ![ÉcranInformationsDeConnexion][screen-connectioninfo]
+1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**.  
+<!-- ![Store][button-store] -->
+2. Cliquez sur le module **MongoLab**.  
+![MongoLab][entry-mongolab]
+3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
+![ConnectionInfoButton][button-connectioninfo]  
+4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers.  
+![ÉcranInformationsDeConnexion][screen-connectioninfo]
   
 	>[AZURE.NOTE]Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.
 
-5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service : ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service :  
+![WebAppConnectionStrings][focus-website-connectinfo]
 6. Dans **Name**, entrez **MONGOLAB_URI**.
 7. Dans **Value**, collez la chaîne de connexion obtenue dans la section précédente.
 8. Sélectionnez **Custom** dans la liste déroulante Type (à la place de la valeur par défaut **SQLAzure**).
@@ -569,4 +574,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 
 
 
-<!--HONumber=54-->
+<!---HONumber=54-->
