@@ -52,9 +52,9 @@ Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarr
 2. Cliquez sur le module **MongoLab**.  
 ![MongoLab][entry-mongolab]
 3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
-![ConnectionInfoButton][button-connectioninfo]  
+![ConnectionInfoButton](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png)  
 4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers.  
-![ÉcranInformationsDeConnexion][screen-connectioninfo]
+![ÉcranInformationsDeConnexion](./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png)
 
 	>[AZURE.NOTE]Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.
 
@@ -545,8 +545,6 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [button-new]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
 [button-store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
 [entry-mongolab]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png
-[button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
-[screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
 [provision]: #provision
 [create]: #create
