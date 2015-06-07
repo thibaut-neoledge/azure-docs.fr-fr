@@ -69,7 +69,7 @@ Pour récupérer votre service mobile après une panne :
 		info:    mobile recover command OK
 
 
-	> [AZURE.NOTE] It may take a few minutes after the command completes until you can see the changes in the portal.
+	> [AZURE.NOTE] Plusieurs minutes peuvent être nécessaires avant que l'exécution de la commande aboutisse et que les modifications soient visibles dans le portail.
 
 5. Vérifiez que tous les scripts ont été correctement récupérés en les comparant à vos originaux dans le contrôle de code source. Dans la plupart des cas, les scripts sont récupérés automatiquement sans perte de données. Si toutefois vous notez des différences dans un script déterminé, vous pouvez le récupérer manuellement.
 

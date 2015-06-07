@@ -384,7 +384,7 @@ Hadoop MapReduce correspond au traitement par lots. La façon la plus économiqu
 
 
 
-\---
+---
 ##<a id="appendix-a"></a>Annexe A - Téléchargement de données de retard de vol vers le stockage d’objets blob Azure
 Le téléchargement du fichier de données et des fichiers de script HiveQL (voir l’[annexe B](#appendix-b)) nécessite un minimum de planification. Il s’agit de stocker les fichiers de données et le fichier HiveQL avant d’approvisionner un cluster HDInsight et d’exécuter la tâche Hive. Deux options s'offrent à vous :
 
@@ -496,7 +496,7 @@ Le chemin d’accès tutorials/flightdelays/data correspond au dossier virtuel q
 
 > Vous devez configurer l’autorisation d’accès au conteneur pour qu’il soit public ou lier le compte de stockage au cluster HDInsight. Dans le cas contraire, la chaîne de requête Hive ne pourra pas accéder aux fichiers de données.
 
-\---
+---
 ##<a id="appendix-b"></a>Annexe B - Création et téléchargement d’un script HiveQL
 
 À l'aide d'Azure PowerShell, vous pouvez exécuter plusieurs instructions HiveQL, une par une, ou empaqueter l'instruction HiveQL dans un fichier de script. Cette section explique comment créer un script HiveQL et télécharger celui-ci vers le stockage d’objets blob Azure en utilisant Azure PowerShell. Hive requiert le stockage de scripts HiveQL dans le stockage d’objets blob Azure.
@@ -504,7 +504,7 @@ Le chemin d’accès tutorials/flightdelays/data correspond au dossier virtuel q
 Le script HiveQL exécutera les opérations suivantes :
 
 1. **Il supprime la table delays_raw**, le cas échéant.
-2. **Il crée la table externe Hive delays_raw ** pointant vers l’emplacement du stockage d’objets blob où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par « , » et les lignes se terminant par « \\n ». Cela pose un problème lorsque les valeurs des champs contiennent des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée en tant que délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN_CITY_NAME et DEST_CITY_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
+2. **Il crée la table externe Hive delays_raw** pointant vers l’emplacement du stockage d’objets blob où se trouvent les fichiers de retard de vol. Cette requête spécifie les champs délimités par « , » et les lignes se terminant par « \\n ». Cela pose un problème lorsque les valeurs des champs contiennent des virgules, car Hive n'est pas en mesure de différencier une virgule utilisée en tant que délimiteur de champ d'une virgule faisant partie d'une valeur de champ (ce qui est le cas pour les valeurs des champs ORIGIN_CITY_NAME et DEST_CITY_NAME). Pour y remédier, la requête crée des colonnes TEMP afin de contenir les données incorrectement réparties dans les colonnes.  
 3. **Il supprime la table des retards**, le cas échéant.
 4. **Il crée la table des retards**. Il est conseillé de nettoyer les données avant tout traitement plus approfondi. Cette requête crée une nouvelle table, *retards*, à partir de la table delays_raw. Notez que les colonnes TEMP (comme indiqué précédemment) ne sont pas copiées et que la fonction **substring** est utilisée pour supprimer les guillemets présents dans les données. 
 5. **Il calcule les retards moyens liés aux conditions météo et regroupe les résultats par nom de ville.** Il transmet également les résultats au stockage d’objets blob. Notez que la requête supprime les apostrophes des données et exclut les lignes dans lesquelles la valeur de **weather_delay** est de type null. Ces mesures sont nécessaires, car Sqoop, qui est utilisé ultérieurement dans ce didacticiel, ne gère pas correctement ces valeurs par défaut.
@@ -677,7 +677,7 @@ Pour obtenir la liste complète des commandes HiveQL, consultez la rubrique [Lan
 	- **$srcDataFolder** et **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
 
-\---
+---
 ##<a id="appendix-c"></a>Annexe C - Préparation d’une base de données SQL Azure pour le résultat de tâche Sqoop
 **Pour préparer la base de données SQL (fusionnez celle-ci avec le script Sqoop)**
 

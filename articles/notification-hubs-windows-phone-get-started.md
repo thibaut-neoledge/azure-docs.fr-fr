@@ -21,7 +21,7 @@
 
 ##Vue d'ensemble
 
-Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Silverlight Windows Phone 8 ou Windows Phone 8.1. Si vous ciblez Windows Phone 8.1 (non-Silverlight), consultez la version [Windows Universel](notification-hubs-windows-store-dotnet-get-started.md). Ce didacticiel vous apprend à créer une application Windows Phone 8 vide qui reçoit des notifications Push au moyen du Service de notifications Push Microsoft (MPNS). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification.
+Cette rubrique montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Silverlight Windows Phone 8 ou Windows Phone 8.1. Si vous ciblez Windows Phone 8.1 (non-Silverlight), consultez la version [Windows Universel](notification-hubs-windows-store-dotnet-get-started.md). Ce didacticiel vous apprend à créer une application Windows Phone 8 vide qui reçoit des notifications Push au moyen du Service de notifications Push Microsoft \(MPNS\). Une fois la création terminée, vous pouvez diffuser des notifications Push sur tous les appareils sur lesquels votre application est installée au moyen de votre concentrateur de notification.
 
 > [AZURE.NOTE]Le kit de développement logiciel (SDK) Windows Phone Notification Hubs ne prend pas en charge l’utilisation des services WNS avec les applications Silverlight Windows Phone 8.1. Pour utiliser WNS (au lieu de MPNS) avec les applications Windows Phone 8.1 Silverlight, suivez l’exemple [Notification Hubs - Didacticiel WP Silverlight], qui s’appuie sur des API REST.
 
@@ -75,9 +75,9 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
    ![][13]
 
-	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
+	Dans Visual Studio 2013 Update 2 ou une version ultérieure, vous créez à la place une application Silverlight Windows Phone.
 	
-	![][11]
+	![][11]	
 
 2. Dans Visual Studio, cliquez avec le bouton droit sur la solution, puis cliquez sur **Manage NuGet Packages**. 
 

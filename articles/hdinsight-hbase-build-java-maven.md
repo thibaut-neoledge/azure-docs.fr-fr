@@ -103,7 +103,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 		  </plugins>
 		</build>
 
-	Cela configure une ressource __conf\\hbase-site.xml__,) qui contient des informations de configuration pour HBase.
+	Cela configure une ressource (__conf\hbase-site.xml__,) qui contient des informations de configuration pour HBase.
 
 	> [AZURE.NOTE]Vous pouvez également définir les valeurs de configuration par code. Consultez les commentaires de l'exemple __CreateTable__ ci-dessous pour la marche à suivre.
 

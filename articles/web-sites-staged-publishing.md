@@ -203,13 +203,13 @@ L’interface de ligne de commande interplateforme Azure (xplat-cli) fournit des
 
 -  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface xplat-cli, appelez `azure site -h`.
 
-\----------
+----------
 ### azure site list
 Pour plus d’informations sur les applications web dans l’abonnement en cours, appelez **azure site list**, comme dans l’exemple suivant.
 
 `azure site list webappslotstest`
 
-\----------
+----------
 ### azure site create
 Pour créer un emplacement de déploiement, appelez **azure site create** et spécifiez le nom d’une application web et de l’emplacement à créer, comme dans l’exemple suivant.
 
@@ -219,13 +219,13 @@ Pour activer le contrôle de code source pour le nouvel emplacement, utilisez l'
 
 `azure site create --git webappslotstest --slot staging`
 
-\----------
+----------
 ### azure site swap
 Pour appliquer l’emplacement de déploiement mis à jour à l’application de production, utilisez la commande **azure site swap** pour effectuer un échange, comme dans l’exemple suivant. L’application de production ne subira ni temps d’arrêt, ni démarrage à froid.
 
 `azure site swap webappslotstest`
 
-\----------
+----------
 ### azure site delete
 Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, utilisez la commande **azure site delete**, comme dans l'exemple suivant.
 

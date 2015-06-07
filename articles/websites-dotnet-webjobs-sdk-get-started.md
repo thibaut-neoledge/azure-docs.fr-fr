@@ -144,10 +144,12 @@ Dans une application réelle, on crée généralement des comptes distincts pour
  
 	La chaîne de connexion de stockage est un exemple qui comporte des espaces réservés pour la clé d’accès et le nom du compte stockage. Vous allez le remplacer par une chaîne de connexion qui a le nom et la clé de votre compte de stockage.
 
-	<pre class="prettyprint">&lt;connectionStrings>
-  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-&lt;/connectionStrings></pre>La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
+	<pre class="prettyprint">&lt;connectionStrings&gt;
+	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
+	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+	&lt;/connectionStrings&gt;</pre>
+
+	La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
  
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre compte de stockage sous le nœud **Stockage**, puis cliquez sur **Propriétés**.
 
@@ -165,7 +167,17 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 4. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. 
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt; 
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md/#config).
 
@@ -775,7 +787,10 @@ Pour plus d’informations sur l’écriture de fonctions utilisant des attribut
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]* Si votre application web s’exécute sur plusieurs machines virtuelles, ce programme s’exécute sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut conduire des fonctions à traiter deux fois les mêmes données. Les fonctions doivent donc être idempotentes (écrites de sorte que des appels successifs avec les mêmes données d’entrée ne produisent pas des résultats dupliqués). * Pour plus d’informations sur l’implémentation de l’arrêt progressif, consultez la page [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * Le code de la méthode `ConvertImageToThumbnailJPG` (non illustré) utilise des classes dans l’espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET.
+>[AZURE.NOTE]
+>* Si votre application web s’exécute sur plusieurs machines virtuelles, ce programme s’exécute sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut conduire des fonctions à traiter deux fois les mêmes données. Les fonctions doivent donc être idempotentes (écrites de sorte que des appels successifs avec les mêmes données d’entrée ne produisent pas des résultats dupliqués). 
+>* Pour plus d’informations sur l’implémentation de l’arrêt progressif, consultez la page [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
+>* Le code de la méthode `ConvertImageToThumbnailJPG` (non illustré) utilise des classes dans l’espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET.
 
 ### Kit de développement logiciel (SDK) WebJobs et rôle de travail de service cloud sans Kit de développement logiciel (SDK) WebJobs
 

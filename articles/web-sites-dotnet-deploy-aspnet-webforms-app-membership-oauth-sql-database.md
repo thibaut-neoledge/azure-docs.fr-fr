@@ -219,9 +219,28 @@ Commencez par créer un simple modèle de données avec du code. Ce modèle de d
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier *Modèles*, puis sélectionnez **Ajouter** -> **Classe**. ![Sélectionner Classe](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png) La boîte de dialogue **Ajouter un nouvel élément** s’affiche.  
 
 2. Nommez cette nouvelle classe *Contacts.cs*. ![Boîte de dialogue Ajouter un nouvel élément](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)
-3. Remplacez le code par défaut par le code suivant : <pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System.Globalization;de System.Globalization ;
+3. Remplacez le code par défaut par le code suivant : 	
+	<pre class="prettyprint">
+	using System.ComponentModel.DataAnnotations;
+	using System.Globalization;
 	
-	namespace ContactManager.Models { public class Contacts { [ScaffoldColumn(false)][Key] public int ContactId { get; set; } public string Name { get; set; } public string Address { get; set; } public string City { get; set; } public string State { get; set; } public string Zip { get; set; } [DataType(DataType.EmailAddress)] public string Email { get; set; } } } </pre>
+	namespace ContactManager.Models
+	{
+	    public class Contacts
+	    {
+	        [ScaffoldColumn(false)]
+	        [Key]
+	        public int ContactId { get; set; }
+	        public string Name { get; set; }
+	        public string Address { get; set; }
+	        public string City { get; set; }
+	        public string State { get; set; }
+	        public string Zip { get; set; }
+	        [DataType(DataType.EmailAddress)]
+	        public string Email { get; set; }
+	    }
+	}
+	</pre>
 
 La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire (`ContactID`) requise par la base de données. La classe **Contacts** représente les données de contact qui seront affichées. Chaque instance d'un objet Contacts correspondra à une ligne dans une table de base de données relationnelle, et chaque propriété de la classe Contacts mappera vers une colonne de la table de base de données relationnelle. Plus loin dans ce didacticiel, vous réviserez les données de contact contenues dans la base de données.
 
@@ -298,7 +317,17 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
 
 9. Définissez **URI de redirection autorisée** comme suit : <pre class="prettyprint"> https://localhost:44300/signin-google </pre> Cette valeur correspond à l’URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).
 10. Cliquez sur le bouton **Create Client ID (Créer un ID de client)**.
-11. Dans Visual Studio, mettez à jour la méthode `UseGoogleAuthentication` de la page *Startup.Auth.cs* en copiant et collant les valeurs **AppId** et **App Secret** dans la méthode. Les valeurs **AppId** et **App Secret** présentées ci-dessous sont données à titre d’exemple et ne fonctionnent pas. <pre class="prettyprint"> using System; using Microsoft.AspNet.Identity; using Microsoft.AspNet.Identity.EntityFramework; using Microsoft.AspNet.Identity.Owin; using Microsoft.Owin; using Microsoft.Owin.Security.Cookies; using Microsoft.Owin.Security.DataProtection; using Microsoft.Owin.Security.Google; using Owin; using ContactManager.Models;
+11. Dans Visual Studio, mettez à jour la méthode `UseGoogleAuthentication` de la page *Startup.Auth.cs* en copiant et collant les valeurs **AppId** et **App Secret** dans la méthode. Les valeurs **AppId** et **App Secret** présentées ci-dessous sont données à titre d’exemple et ne fonctionnent pas. 
+	<pre class="prettyprint"> 
+	using System;
+	using Microsoft.AspNet.Identity;
+	using Microsoft.AspNet.Identity.EntityFramework;
+	using Microsoft.AspNet.Identity.Owin; 
+	using Microsoft.Owin; 
+	using Microsoft.Owin.Security.Cookies; 
+	using Microsoft.Owin.Security.DataProtection;
+	using Microsoft.Owin.Security.Google; 
+	using Owin; using ContactManager.Models;
 	
 	namespace ContactManager { public partial class Startup {
 	
@@ -363,8 +392,17 @@ En utilisant le modèle ASP.NET Web Forms par défaut, vous disposez d'une fonct
 ASP.NET Identity vous permet d'ajouter un rôle d'administrateur et d'affecter un utilisateur à ce rôle avec du code.
 
 1. Dans l'**Explorateur de solutions**, ouvrez le fichier *Configuration.cs* dans le dossier *Migrations*.
-2. Ajoutez les instructions suivantes `using` dans l’espace de noms `ContactManger.Migrations` : <pre class="prettyprint"> using Microsoft.AspNet.Identity; using Microsoft.AspNet.Identity.EntityFramework; </pre>
-3. Ajoutez la méthode suivante `AddUserAndRole` dans la classe `Configuration` après la méthode `Seed` : <pre class="prettyprint"> public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context) { IdentityResult IdRoleResult; IdentityResult IdUserResult;
+2. Ajoutez les instructions suivantes `using` dans l’espace de noms `ContactManger.Migrations` :  
+	<pre class="prettyprint">
+	using Microsoft.AspNet.Identity; 
+	using Microsoft.AspNet.Identity.EntityFramework;
+	</pre>
+3. Ajoutez la méthode suivante `AddUserAndRole` dans la classe `Configuration` après la méthode `Seed` : 
+	<pre class="prettyprint">
+        public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+        {
+            IdentityResult IdRoleResult;
+            IdentityResult IdUserResult;
 
             var roleStore = new RoleStore&lt;IdentityRole&gt;(context);
             var roleMgr = new RoleManager&lt;IdentityRole&gt;(roleStore);
@@ -392,7 +430,12 @@ ASP.NET Identity vous permet d'ajouter un rôle d'administrateur et d'affecter u
             }
         }
 	</pre>
-4. Ajoutez un appel à la méthode `AddUserAndRole` au début de la méthode `Seed`. Seul le début de la méthode `Seed` est affiché. <pre class="prettyprint"> protected override void Seed(ContactManager.Models.ApplicationDbContext context) { <mark>AddUserAndRole(context);</mark> </pre>  
+4. Ajoutez un appel à la méthode `AddUserAndRole` au début de la méthode `Seed`. Seul le début de la méthode `Seed` est affiché.  
+	<pre class="prettyprint">
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+        {
+            <mark>AddUserAndRole(context);</mark>
+	</pre>
 5. Après avoir enregistré vos modifications, dans la **Console du Gestionnaire de package**, exécutez la commande suivante : <pre class="prettyprint"> Update-Database </pre> Ce code crée un rôle nommé `canEdit` et un utilisateur local avec l’adresse de messagerie canEditUser@wideworldimporters.com. Ensuite, le code ajoute canEditUser@wideworldimporters.com au rôle `canEdit`. Pour plus d'informations, consultez la page de ressources [ASP.NET Identity](http://www.asp.net/identity).  
 
 ###Limitation de l'accès au dossier d'administration 
@@ -405,9 +448,73 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
 	- *Delete.aspx *et* Delete.aspx.cs*
 	- *Edit.aspx *et* Edit.aspx.cs*
 	- *Insert.aspx *et* Insert.aspx.cs*
-3. Mettez à jour les références de lien dans *Contacts/Default.aspx* en ajoutant « Admin/ » devant les références de pages qui renvoient vers *Insert.aspx*, *Edit.aspx* et *Delete.aspx* : <pre class="prettyprint"> &lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;\~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt; &lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
+3. Mettez à jour les références de lien dans *Contacts/Default.aspx* en ajoutant « Admin/ » devant les références de pages qui renvoient vers *Insert.aspx*, *Edit.aspx* et *Delete.aspx* : 
+<pre class="prettyprint">
+	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
+	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
 	
-	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt; &lt;h2&gt;Contacts List&lt;/h2&gt; &lt;p&gt; &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt; &lt;/p&gt; &lt;div&gt; &lt;asp:ListView runat=&quot;server&quot; DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot; AutoGenerateColumns=&quot;false&quot; AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot; SelectMethod=&quot;GetData&quot;&gt; &lt;EmptyDataTemplate&gt; There are no entries found for Contacts &lt;/EmptyDataTemplate&gt; &lt;LayoutTemplate&gt; &lt;table class=&quot;table&quot;&gt; &lt;thead&gt; &lt;tr&gt; &lt;th&gt;Name&lt;/th&gt; &lt;th&gt;Address&lt;/th&gt; &lt;th&gt;City&lt;/th&gt; &lt;th&gt;State&lt;/th&gt; &lt;th&gt;Zip&lt;/th&gt; &lt;th&gt;Email&lt;/th&gt; &lt;th&gt;&amp;nbsp;&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/LayoutTemplate&gt; &lt;ItemTemplate&gt; &lt;tr&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt; &lt;/td&gt; &lt;td&gt; &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt; &lt;/td&gt; &lt;/tr&gt; &lt;/ItemTemplate&gt; &lt;/asp:ListView&gt; &lt;/div&gt; &lt;/asp:Content&gt; </pre>
+	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
+	    &lt;h2&gt;Contacts List&lt;/h2&gt;
+	    &lt;p&gt;
+	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
+	    &lt;/p&gt;
+	    &lt;div&gt;
+	        &lt;asp:ListView runat=&quot;server&quot;
+	            DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot;
+	            AutoGenerateColumns=&quot;false&quot;
+	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
+	            SelectMethod=&quot;GetData&quot;&gt;
+	            &lt;EmptyDataTemplate&gt;
+	                There are no entries found for Contacts
+	            &lt;/EmptyDataTemplate&gt;
+	            &lt;LayoutTemplate&gt;
+	                &lt;table class=&quot;table&quot;&gt;
+	                    &lt;thead&gt;
+	                        &lt;tr&gt;
+	                            &lt;th&gt;Name&lt;/th&gt;
+	                            &lt;th&gt;Address&lt;/th&gt;
+	                            &lt;th&gt;City&lt;/th&gt;
+	                            &lt;th&gt;State&lt;/th&gt;
+	                            &lt;th&gt;Zip&lt;/th&gt;
+	                            &lt;th&gt;Email&lt;/th&gt;
+	                            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+	                        &lt;/tr&gt;
+	                    &lt;/thead&gt;
+	                    &lt;tbody&gt;
+	                        &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt;
+	                    &lt;/tbody&gt;
+	                &lt;/table&gt;
+	            &lt;/LayoutTemplate&gt;
+	            &lt;ItemTemplate&gt;
+	                &lt;tr&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
+	                    &lt;/td&gt;
+	                    &lt;td&gt;
+	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
+	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
+	                    &lt;/td&gt;
+	                &lt;/tr&gt;
+	            &lt;/ItemTemplate&gt;
+	        &lt;/asp:ListView&gt;
+	    &lt;/div&gt;
+	&lt;/asp:Content&gt;
+	</pre>
 4. Mettez à jour les six références du code `Response.Redirect("Default.aspx")` vers `Response.Redirect("~/Contacts/Default.aspx")` pour les trois fichiers suivants :  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
@@ -416,7 +523,18 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
 	Dorénavant, les liens fonctionneront correctement lorsque vous afficherez et mettrez à jour les données de contact.
 5. Pour limiter l'accès au dossier *Admin*, dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier *Admin* et sélectionnez **Ajouter un nouvel élément**.
 6. Dans la liste des modèles web Visual C#, sélectionnez **Fichier de configuration Web** dans la liste du milieu, acceptez le nom par défaut *Web.config*, puis sélectionnez **Ajouter**.
-7. Remplacez le contenu XML existant dans le fichier *Web.config* par le code suivant : <pre class="prettyprint"> &lt;?xml version=&quot;1.0&quot;?&gt; &lt;configuration&gt; &lt;system.web&gt; &lt;authorization&gt; &lt;allow roles=&quot;canEdit&quot;/&gt; &lt;deny users=&quot;*&quot;/&gt; &lt;/authorization&gt; &lt;/system.web&gt; &lt;/configuration&gt; </pre>
+7. Remplacez le contenu XML existant dans le fichier *Web.config* par le code suivant :
+<pre class="prettyprint">
+	&lt;?xml version=&quot;1.0&quot;?&gt;
+	&lt;configuration&gt;
+	  &lt;system.web&gt;
+	    &lt;authorization&gt;
+	      &lt;allow roles=&quot;canEdit&quot;/&gt;
+	      &lt;deny users=&quot;*&quot;/&gt;
+	    &lt;/authorization&gt;
+	  &lt;/system.web&gt;
+	&lt;/configuration&gt;
+	</pre>
 8. Enregistrez le fichier *Web.config*. Le fichier *Web.config* spécifie que seuls les utilisateurs affectés au rôle « canEdit » peuvent accéder aux pages du dossier *Admin*. 
 
 Lorsqu'un utilisateur qui n'est pas affecté au rôle « canEdit » essaie de modifier les données, il est redirigé vers la page *Ouvrir une session*.
@@ -429,8 +547,11 @@ Maintenant que l'application web est terminée, vous pouvez la publier sur Azure
 2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**. ![Option du menu Publier](./media/web-sites-dotnet-web-forms-secure/SecureWebForms22.png) La boîte de dialogue **Publier le site Web** s’affiche. ![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms22a.png)  
 3. Sous l’onglet **Profil**, sélectionnez **Application web Azure** comme cible de publication, si cette option n’est pas déjà sélectionnée. ![Publish Web dialog box](./media/web-sites-dotnet-web-forms-secure/SecureWebForms23.png)  
 4. Cliquez sur **Se connecter** si vous n'êtes pas encore connecté.
-5. Sélectionnez l’application Web que vous avez créée précédemment dans ce didacticiel à partir de la zone de liste déroulante **Applications web existantes**, puis cliquez sur le bouton **OK**. ![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-web-forms-secure/SecureWebForms25.png) Si vous êtes invité à enregistrer les modifications apportées au profil, sélectionnez **Oui**.
-6. Cliquez sur l’onglet **Paramètres**. ![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-web-forms-secure/SecureWebForms26.png)  
+5. Sélectionnez l’application Web que vous avez créée précédemment dans ce didacticiel à partir de la zone de liste déroulante **Applications web existantes**, puis cliquez sur le bouton **OK**.  
+	![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-web-forms-secure/SecureWebForms25.png)  
+Si vous êtes invité à enregistrer les modifications apportées au profil, sélectionnez **Oui**.
+6. Cliquez sur l’onglet **Paramètres**.  
+	![Boîte de dialogue Sélectionner une application Web](./media/web-sites-dotnet-web-forms-secure/SecureWebForms26.png)  
 7. Dans la zone de liste déroulante **Configuration**, sélectionnez **Débogage**.
 8. Cliquez sur la **flèche vers le bas** en regard de la zone **ApplicationDbContext** et sélectionnez **ContactDB**.
 9. Activez la case à cocher **Exécuter les premières migrations du code**.  

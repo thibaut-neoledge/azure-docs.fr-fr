@@ -44,7 +44,34 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
 1. Entrez les valeurs appropriées pour `host`, `accessKey`, `port` (le port SSL doit être 6380), puis affectez à `SSL` la valeur `true`. Ces valeurs peuvent être obtenues à partir du panneau du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) pour votre instance de cache. Pour plus d’informations, consultez [Connexion au cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Notez que le port non-SSL est désactivé par défaut pour les nouveaux caches. Pour plus d’informations sur l’activation du port non SSL, consultez la section relative aux [ports d’accès](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) dans la rubrique [Configuration d’un cache dans le Cache Redis Azure](https://msdn.microsoft.com/library/azure/dn793612.aspx). Le balisage suivant indique les modifications apportées au fichier *web.config*.
 
 
-  <pre class="prettyprint"> &lt;system.web&gt; &lt;customErrors mode="Off" /&gt; &lt;authentication mode="None" /&gt; &lt;compilation debug="true" targetFramework="4.5" /&gt; &lt;httpRuntime targetFramework="4.5" /&gt; &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt; &lt;providers&gt; &lt;!--&lt;add name="RedisSessionProvider" host = "127.0.0.1" [String] port = "" [number] accessKey = "" [String] ssl = "false" [true|false] throwOnError = "true" [true|false] retryTimeoutInMilliseconds = "0" [number] databaseId = "0" [number] applicationName = "" [String] /&gt;--&gt; &lt;add name="RedisSessionProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" <mark>port="6380" host="movie2.redis.cache.windows.net" accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" ssl="true"</mark> /&gt; &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt; &lt;/providers&gt; &lt;/sessionState&gt; &lt;/system.web&gt;</pre>
+  <pre class="prettyprint">  
+    &lt;system.web&gt;
+    &lt;customErrors mode="Off" /&gt;
+    &lt;authentication mode="None" /&gt;
+    &lt;compilation debug="true" targetFramework="4.5" /&gt;
+    &lt;httpRuntime targetFramework="4.5" /&gt;
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
+      &lt;providers&gt;  
+          &lt;!--&lt;add name="RedisSessionProvider" 
+            host = "127.0.0.1" [String]
+            port = "" [number]
+            accessKey = "" [String]
+            ssl = "false" [true|false]
+            throwOnError = "true" [true|false]
+            retryTimeoutInMilliseconds = "0" [number]
+            databaseId = "0" [number]
+            applicationName = "" [String]
+          /&gt;--&gt;
+         &lt;add name="RedisSessionProvider" 
+              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+              <mark>port="6380"
+              host="movie2.redis.cache.windows.net" 
+              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+              ssl="true"</mark> /&gt;
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
+      &lt;/providers&gt;
+    &lt;/sessionState&gt;
+  &lt;/system.web&gt;</pre>
 
 
 <h2><a id="usesessionobject"></a>Utiliser l'objet Session dans le code</h2>

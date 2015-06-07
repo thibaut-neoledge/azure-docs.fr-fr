@@ -59,7 +59,8 @@ L’interface de ligne de commande peut être installée via le *Gestionnaire de
 
 **Pour installer l’interface de ligne de commande à l’aide de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/downloads/**. 2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l’Assistant Web Platform Installer.
+1.	Accédez à **http://azure.microsoft.com/downloads/**. 
+2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande interplateforme** et suivez les étapes de l’Assistant Web Platform Installer.
 
 ##Téléchargement et importation d’un fichier de paramètres de publication de compte Azure
 

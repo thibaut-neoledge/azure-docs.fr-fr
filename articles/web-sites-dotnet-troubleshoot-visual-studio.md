@@ -51,7 +51,8 @@ Visual Studio permet d’accéder à un sous-ensemble des fonctionnalités de g
 
 	Vous pouvez aussi installer un certificat de gestion permettant d'accéder à votre compte. Si vous choisissez d'installer un certificat, cliquez avec le bouton droit sur le nœud **Azure** dans l'**Explorateur de serveurs**, puis cliquez sur **Gérer les abonnements** dans le menu contextuel. Dans la boîte de dialogue **Manage Azure Subscriptions**, cliquez sur l’onglet **Certificates**, puis sur **Import**. Suivez la procédure pour télécharger et importer un fichier d’abonnement (portant l’extension *.publishsettings*) pour votre compte Azure.
 
-	> [AZURE.NOTE]Si vous téléchargez un fichier d’abonnement, enregistrez-le dans un dossier situé hors de vos répertoires de code source (par exemple, dans le dossier Téléchargements), puis supprimez-le une fois l’importation terminée. Si un utilisateur malveillant accède au fichier d’abonnement, il peut modifier, créer et supprimer vos services Azure.
+	> [AZURE.NOTE]
+	> Si vous téléchargez un fichier d’abonnement, enregistrez-le dans un dossier situé hors de vos répertoires de code source (par exemple, dans le dossier Téléchargements), puis supprimez-le une fois l’importation terminée. Si un utilisateur malveillant accède au fichier d’abonnement, il peut modifier, créer et supprimer vos services Azure.
 
 	Pour plus d'informations sur la connexion aux ressources Azure à partir de Visual Studio, consultez la page [Gérer des comptes, des abonnements et des rôles d'administrateur](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
@@ -567,7 +568,8 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 1. Dans la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur l’onglet **Journaux**, puis sur **Configurer la journalisation dans le portail de gestion**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Cette opération ouvre l’onglet **Configurer** dans le portail de gestion de votre application Web. Pour accéder à cet emplacement, vous pouvez aussi cliquer sur l’onglet **Applications web**, sur l’application Web, puis sur l’onglet **Configurer**.
 

@@ -98,11 +98,13 @@ Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser
 3. Entrez un **Nom**, une **Description** et un **Site Web**. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
 	<table border="1">
-<tr><th>Champ</th><th>Valeur</th></tr>
-<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
+	<tr><th>Champ</th><th>Valeur</th></tr>
+	<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
 
 4. Activez la case à cocher **Yes, I agree**, puis cliquez sur **Create your Twitter application**.
 5. Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel. 
@@ -1175,7 +1177,8 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 **Pour modifier layout.cshtml**
 
-1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Partagé**, puis double-cliquez sur _**Layout.cshtml**. 2. Remplacez le contenu par ce qui suit :
+1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Partagé**, puis double-cliquez sur _**Layout.cshtml**.
+2. Remplacez le contenu par ce qui suit :
 
 		<!DOCTYPE html>
 		<html>

@@ -219,7 +219,15 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
 	Cette méthode est ici une instruction nulle (no-op), puisque **CustomLoginProvider** n'est pas intégré au pipeline d'authentification.
 
-4. Ajoutez l'implémentation suivante de la méthode abstraite `ParseCredentials` à **CustomLoginProvider**. public override ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. Ajoutez l'implémentation suivante de la méthode abstraite `ParseCredentials` à **CustomLoginProvider**.
+ 
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }

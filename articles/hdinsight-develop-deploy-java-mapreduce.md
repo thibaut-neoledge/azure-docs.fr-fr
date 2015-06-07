@@ -41,7 +41,8 @@ Créez une application MapReduce de comptage de mots. Il s'agit d'une applicatio
 
 **Pour créer un projet au moyen de Maven**
 
-1. Créez un répertoire **C:\\Tutorials\\WordCountJava**. 2. À partir de la ligne de commande de votre environnement de développement, définissez les répertoires à l’emplacement que vous avez créé.
+1. Créez un répertoire **C:\Tutorials\WordCountJava\**. 
+2. À partir de la ligne de commande de votre environnement de développement, définissez les répertoires à l’emplacement que vous avez créé.
 3. Utilisez la commande __mvn__, installée avec Maven, pour générer la structure du projet.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false

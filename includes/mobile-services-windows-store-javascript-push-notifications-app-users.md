@@ -1,4 +1,4 @@
-﻿
+
 Ensuite, vous devez changer la façon dont les notifications Push sont inscrites pour vous assurer que l'utilisateur est authentifié avant de tenter une inscription. L'application cliente se met à jour selon la façon dont vous avez implémenté les notifications Push.
 
 ###Utilisation de l'Assistant Notification Push dans Visual Studio 2013 Update 2 ou ultérieur
@@ -79,7 +79,5 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 		        });
 		    });
 		}  
-
-
 
 <!--HONumber=42-->

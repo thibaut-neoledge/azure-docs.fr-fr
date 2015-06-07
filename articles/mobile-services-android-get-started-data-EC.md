@@ -100,9 +100,11 @@ Ce didacticiel a présenté les bases de l'activation d'une application Android 
 
 Ensuite, essayez ces autres didacticiels Android :
 
-* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+* [Prise en main de l'authentification] 
+	<br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
+* [Prise en main des notifications Push] 
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app

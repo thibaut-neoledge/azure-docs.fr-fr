@@ -529,7 +529,9 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 
 ##Ressources supplémentaires
 
-[Outil en ligne de commande Azure pour Mac et Linux][Build and deploy a Node.js web app in Azure App Service] [Déploiement continu à l’aide de GIT dans Azure App Service]
+[Outil en ligne de commande Azure pour Mac et Linux]    
+[Build and deploy a Node.js web app in Azure App Service]    
+[Déploiement continu à l’aide de GIT dans Azure App Service]    
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
