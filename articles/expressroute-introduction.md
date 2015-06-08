@@ -92,8 +92,8 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 
 Le tableau ci-dessous compare les trois domaines de routage.
 
-||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**| 
-|---|---|---|---| 
+||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**|
+|---|---|---|---|
 |**Nombre maximal de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|
 |**Plages d’adresses IP prises en charge**|N’importe quelle adresse IPv4 valide de votre réseau étendu|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité|
 |**Numéros d’AS**|Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS publics uniquement. Le numéro d’AS doit être validé par rapport aux registres de routage pour confirmer son appartenance.|
@@ -113,4 +113,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez dis
 - [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 - [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
 
-<!---HONumber=54-->
+<!----HONumber=54-->
