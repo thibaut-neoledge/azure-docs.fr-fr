@@ -72,7 +72,4 @@ Consultez les rubriques suivantes pour consommer des données à l'aide de Power
 
 [image-data-factory-introduction-secenario2-operationalize-infoproduction]: ./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png
 
-
-
-
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

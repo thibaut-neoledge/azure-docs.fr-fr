@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory" 
-	description="Décrit des scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory." 
+	description="Décrit des scénarios avancés pour l'utilisation de l&#39;activité de copie avec Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -193,7 +193,7 @@ Dans cet exemple, une requête SQL (par opposition à la table dans l'exemple pr
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -288,7 +288,7 @@ Quand vous copiez des données dans SQL Server ou Azure SQL Database, une procé
 		"sink":
 	    {
 			"type": "SqlSink",
-	        "SqlWriterTableType": "MarketingType",
+	        "SqlWriterTableType": "MarketingType",
 		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
 			"storedProcedureParameters":
 					{
@@ -313,8 +313,8 @@ Quand vous copiez des données dans SQL Server ou Azure SQL Database, une procé
 4. Dans votre base de données, définissez le type de table portant le même nom que **SqlWriterTableType**. Notez que le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
 		CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    	    [ProfileID] [varchar](256) NOT NULL,
-    	    [State] [varchar](256) NOT NULL,
+    	    [ProfileID] [varchar](256) NOT NULL,
+    	    [State] [varchar](256) NOT NULL,
     	)
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued][table-valued-parameters].
@@ -341,10 +341,10 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/fr-fr/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=54-->
+<!---HONumber=GIT-SubDir-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Copie de données avec Azure Data Factory (activité de copie)
@@ -126,11 +126,15 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 </table>
 
 ### SQL sur une infrastructure en tant que service (IaaS)
-Pour SQL sur IaaS, Azure est pris en charge en tant que fournisseur IaaS. Les topologies VPN et le réseau qui suivent sont pris en charge. Notez que la passerelle de gestion des données est nécessaire pour les cas n° 2 et n° 3, mais pas pour le cas n° 1. Pour plus d'informations sur la passerelle de gestion des données, consultez [Permettre à vos pipelines d'accéder à des données locales][use-onpremises-datasources].
+SQL Server sur IaaS est également pris en charge comme source et le récepteur. Passerelle de gestion des données est requise lors de la création d'un service lié à SQL Server sur IaaS. Vous devez envisager d'installer la passerelle de gestion des données sur un ordinateur virtuel autre que l'un hébergement SQL Server afin d'éviter la dégradation des performances en raison de SQL Server et la passerelle en concurrence pour les ressources. Pour plus d'informations sur la passerelle de gestion des données, consultez [Permettre à vos pipelines d'accéder à des données locales][use-onpremises-datasources].
 
 1.	Machine virtuelle avec un nom DNS public et un port public statique : mappage de port privé
 2.	Machine virtuelle avec un nom DNS public sans point de terminaison SQL exposé
-3.	Réseau virtuel <ol type='a'> <li> Réseau privé virtuel de cloud Azure doté de la topologie suivante en fin de liste. </li> <li>Machine virtuelle avec un réseau privé virtuel de site à site (ou d'emplacement local au cloud) utilisant Azure Virtual Network</li> </ol> ![Data Factory avec l'activité de copie][image-data-factory-copy-actvity]
+3.	Réseau virtuel
+	<ol type='a'>
+<li>Réseau privé virtuel de cloud Azure doté de la topologie suivante en fin de liste. </li>	
+<li>Machine virtuelle avec un réseau privé virtuel de site à site (ou d'emplacement local au cloud) utilisant Azure Virtual Network.</li>	
+</ol>![Data Factory avec l'activité de copie][image-data-factory-copy-actvity]
 
 ## Composants de l'activité de copie
 L'activité de copie contient les composants suivants :
@@ -251,7 +255,20 @@ Le script JSON suivant définit une table d'entrée qui fait référence à la 
 	{
 		"name": "MyOnPremTable",
     	"properties":
-   { "location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		{
+			"location":
+    		{
+    			"type": "OnPremisesSqlServerTableLocation",
+    			"tableName": "MyTable",
+    			"linkedServiceName": "MyOnPremisesSQLDB"
+    		},
+    		"availability":
+   			{
+    			"frequency": "Hour",
+    			"interval": 1
+   			}
+ 		}
+	}
 
 L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyOnPremTable**) dans une fabrique de données Azure : **CopyFactory**.
          
@@ -263,7 +280,31 @@ Pour plus d'informations sur les applets de commande Data Factory, consultez la 
 Le script JSON suivant définit la table de sortie **MyDemoBlob**, qui fait référence à l'objet blob Azure **MyBlob** situé dans le dossier d'objets blob **MySubFolder**, lui-même situé dans le conteneur d'objets blob **MyContainer**.
          
 	{
-   "name": "MyDemoBlob", "properties": { "location": { "type": "AzureBlobLocation", "folderPath": "MyContainer/MySubFolder", "fileName": "MyBlob", "linkedServiceName": "MyAzureStorage", "format": { "type": "TextFormat", "columnDelimiter": ",", "rowDelimiter": ";", "EscapeChar": "$", "NullValue": "NaN" } }, "availability": { "frequency": "Hour", "interval": 1 } } }
+   		"name": "MyDemoBlob",
+	    "properties":
+    	{
+    		"location":
+    		{
+        		"type": "AzureBlobLocation",
+        		"folderPath": "MyContainer/MySubFolder",
+        		"fileName": "MyBlob",
+        		"linkedServiceName": "MyAzureStorage",
+        		"format":
+        		{
+            		"type": "TextFormat",
+            		"columnDelimiter": ",",
+            		"rowDelimiter": ";",
+             		"EscapeChar": "$",
+             		"NullValue": "NaN"
+        		}
+    		},
+        	"availability":
+      		{
+       			"frequency": "Hour",
+       			"interval": 1
+      		}
+   		}
+	}
 
 L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryTable** qui utilise un fichier JSON contenant le script précédent pour créer une table (**MyDemoBlob**) dans une fabrique de données Azure : **CopyFactory**.
          
@@ -286,7 +327,28 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
 				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
         		"activities":
         		[
-      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select * from MyTable" }, "sink": { "type": "BlobSink" } } } ] } }
+      				{
+						"name": "CopyActivity",
+						"description": "description", 
+						"type": "CopyActivity",
+						"inputs":  [ { "name": "MyOnPremTable"  } ],
+						"outputs":  [ { "name": "MyAzureBlob" } ],
+						"transformation":
+	    				{
+							"source":
+							{
+								"type": "SqlSource",
+                    			"sqlReaderQuery": "select * from MyTable"
+							},
+							"sink":
+							{
+                        		"type": "BlobSink"
+							}
+	    				}
+      				}
+        		]
+    		}
+		}
 
 
  L'exemple de commande Azure PowerShell suivant utilise **New-AzureDataFactoryPipeline** qui utilise un fichier JSON contenant le script précédent pour créer un pipeline (**CopyActivityPipeline**) dans une fabrique de données Azure : **CopyFactory**.
@@ -344,4 +406,4 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->

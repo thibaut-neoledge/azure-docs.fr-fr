@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation des activités personnalisées dans un pipeline Azure Data Factory" 
 	description="Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory." 
 	services="data-factory" 
@@ -13,117 +13,116 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="06/02/2015" 
 	ms.author="spelluru"/>
 
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
-Azure Data Factory prend en charge des activités intégrées telles que **Activité de copie** et **Activité HDInsight** à utiliser dans les pipelines pour déplacer et traiter les données. Vous pouvez également créer une activité personnalisée avec votre propre logique de transformation/de traitement et utiliser l'activité dans un pipeline. L'activité personnalisée s'exécute comme une tâche de mappage sur un cluster HDInsight, ce qui vous oblige à lier un cluster HDInsight pour l'activité personnalisée dans votre pipeline.
- 
-Cet article décrit comment créer une activité personnalisée et l'utiliser dans un pipeline Azure Data Factory. Il fournit également une procédure pas à pas pour créer et utiliser une activité personnalisée.
+Fabrique de données Azure prend en charge les activités intégrées telles que **activité copie** et **HDInsight activité** à utiliser dans les pipelines pour déplacer et traiter des données. Vous pouvez également créer une activité personnalisée de .NET avec votre propre logique de transformation/de traitement et utiliser l'activité dans un pipeline. Vous pouvez configurer l'activité à exécuter en utilisant un **Azure HDInsight** cluster ou un **lot Azure** service.
+
+Cet article décrit comment créer une activité personnalisée et l'utiliser dans un pipeline Azure Data Factory. Il fournit également une procédure pas à pas pour créer et utiliser une activité personnalisée. La procédure pas à pas utilise le service HDInsight lié. Pour utiliser le traitement par lots Azure lié service au lieu de cela, vous créez un service de type lié **AzureBatchLinkedService** et son utilisation dans la section de l'activité du pipeline JSON (** linkedServiceName **). Consultez le [Azure lot lié Service](#AzureBatch) section pour plus d'informations sur l'utilisation de commandes Azure avec l'activité personnalisée.
+
+## Composants requis
+Téléchargez la dernière version [package NuGet pour la fabrique de données Azure][nuget-package] et l'installer. Instructions se trouvent dans le [procédure pas à pas](#SupportedSourcesAndSinks) dans cet article.
 
 ## Création d'une activité personnalisée
 
-Pour créer une activité personnalisée :
+Pour créer une activité personnalisée :
  
-1.	Créez un projet de **bibliothèque de classes** dans Visual Studio 2013.
-2.	Téléchargez le [package NuGet pour Azure Data Factory][nuget-package] et installez-le. Les instructions d'installation sont détaillées dans la procédure pas à pas.
+1.	Créer un **bibliothèque de classes** projet dans Visual Studio 2013.
 3. À l'aide des instructions, ajoutez le code suivant en haut du fichier source dans la bibliothèque de classes.
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.DataFactories.Runtime; 
 
-4. Mettez à jour la classe pour implémenter l'interface **ICustomActivity**.
+4. Mettre à jour la classe pour implémenter le **IDotNetActivity** interface.
 	<ol type='a'>
-		<li>
-			Dérivez la classe depuis <b>ICustomActivity</b>.
-			<br/>
-			Exemple : <br/>
-			public class <b>MyCustomActivity : ICustomActivity</b>
-		</li>
+	<li>
+		Dérivez la classe de <b>IDotNetActivity</b>.
+		<br/>
+		Exemple&#160;: <br/>
+		classe publique <b>MyDotNetActivity : IDotNetActivity</b>
+	</li>
 
-		<li>
-			Implémentez la méthode  <b>Execute</b> de l'interface <b>ICustomActivity</b> 
-		</li>
+	<li>
+		Implémentez le <b>Execute</b> méthode <b>IDotNetActivity</b> interface
+	</li>
 
-	</ol>
+</ol>
 5. Compilez le projet.
 
 
-## Utilisation de l'activité personnalisée dans un pipeline
-Pour utiliser l'activité personnalisée dans un pipeline :
+## À l'aide de l'activité personnalisée dans un pipeline
+Pour utiliser l'activité personnalisée dans un pipeline :
 
-1.	**Compressez** tous les fichiers binaires des dossiers de sortie **bin\debug** ou **bin\release** pour le projet. 
-2.	**Téléchargez le fichier .zip** comme objet blob sur votre **stockage d'objets blob Azure**. 
-3.	Mettez à jour le fichier **JSON du pipeline** pour faire référence au fichier .zip, à la DLL d'activité personnalisée, à la classe d'activité et à l'objet blob qui contient le fichier .zip dans le fichier JSON du pipeline. Dans le fichier JSON :
+1.	**Compresser** tous les fichiers binaires à partir de la **bin\\debug** ou **bin\\release** sortie de dossiers pour le projet. 
+2.	**Télécharger le code postal** fichier comme un objet blob à votre **stockage d'objets blob Azure**. 
+3.	Mise à jour de la **JSON de pipeline** fichier pour faire référence à un fichier zip, activité personnalisée DLL, la classe d'activité et l'objet blob qui contient le fichier zip dans le pipeline de JSON. Dans le fichier JSON :
 	<ol type ="a">
-		<li><b>Le type de l'activité</b> doit être défini sur <b>CustomActivity</b>.</li>
-		<li><b>AssemblyName</b> est le nom de la DLL de sortie du projet Visual Studio.</li>
-		<li><b>EntryPoint</b> spécifie l'<b>espace de noms</b> et le <b>nom</b> de la <b>classe</b> qui implémente l'interface <b>ICustomActivity</b>.</li>
-		<li><b>PackageLinkedService</b> est le service lié qui fait référence à l'objet blob qui contient le fichier .zip. </li>
-		<li><b>PackageFile</b> spécifie l'emplacement et le nom du fichier .zip qui a été téléchargé dans le stockage d'objets blob Azure.</li>
-		<li><b>LinkedServiceName</b> est le nom du service lié qui lie un cluster HDInsight (à la demande ou à vous) à une fabrique de données. L'activité personnalisée s'exécute comme une tâche de mappage seul du cluster HDInsight spécifié.</li>
-	</ol>
+	<li><b>Type d'activité</b> doit être définie sur <b>DotNetActivity</b>.</li>
+	<li><b>AssemblyName</b> est le nom de la DLL de sortie du projet Visual Studio.</li>
+	<li><b>EntryPoint</b> Spécifie le <b>espace de noms</b> et <b>nom</b> de la <b>classe</b> qui implémente la <b>IDotNetActivity</b> interface.</li>
+	<li><b>PackageLinkedService</b> est le service lié qui fait référence à l'objet blob qui contient le fichier zip. </li>
+	<li><b>PackageFile</b> Spécifie l'emplacement et le nom du fichier zip téléchargé vers le stockage d'objets blob Azure.</li>
+	<li><b>LinkedServiceName</b> est le nom du service lié qui lie un cluster HDInsight (à la demande ou votre propre) à une fabrique de données. L'activité personnalisée s'exécute comme une tâche de mappage seul du cluster HDInsight spécifié.</li>
+</ol>**Exemple JSON partiel**
 
-	
-
-	**Exemple JSON partiel**
-
-		"Name": "MyCustomActivity",
-    	"Type": "CustomActivity",
+		"Name": "MyDotNetActivity",
+    	"Type": "DotNetActivity",
     	"Inputs": [{"Name": "EmpTableFromBlob"}],
     	"Outputs": [{"Name": "OutputTableForCustom"}],
 		"LinkedServiceName": "myhdinsightcluster",
     	"Transformation":
     	{
-	    	"AssemblyName": "MyCustomActivity.dll",
-    	    "EntryPoint": "MyCustomActivityNS.MyCustomActivity",
+	    	"AssemblyName": "MyDotNetActivity.dll",
+    	    "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
     	    "PackageLinkedService": "MyBlobStore",
-    	    "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
+    	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
 
-## Pour mettre à jour l'activité personnalisée
-Si vous mettez à jour le code de l'activité personnalisée, que vous le générez et que vous téléchargez le fichier .zip qui contient les nouveaux binaires pour le stockage d'objets blob, vous devez remplacer le pipeline existant qui utilise l'activité personnalisée en exécutant **New-AzureDataFactoryPipeline**. Lorsque vous créez un pipeline qui utilise l'activité personnalisée, le fichier .zip est copié du stockage d'objets blob spécifié vers un conteneur Azure Data Factory sur le stockage d'objets blob associé au cluster HDInsight. Cette opération se produit uniquement à la création du pipeline. Par conséquent, vous devez recréer le pipeline lorsque vous mettez à jour l'activité personnalisée. 
+## Mise à jour d'une activité personnalisée
+Si vous mettez à jour le code de l'activité personnalisée, créer et télécharger le fichier zip qui contient les nouveaux binaires pour le stockage d'objets blob.
 
-La procédure suivante fournit des instructions pas à pas pour créer une activité personnalisée et utiliser l'activité dans un pipeline Azure Data Factory. Cette procédure pas à pas développe le didacticiel de la rubrique [Prise en main d'Azure Data Factory][adfgetstarted]. Si vous souhaitez voir fonctionner l'activité personnalisée, vous devez commencer par le didacticiel de prise en main, puis effectuer cette procédure pas à pas. 
+## <a name="walkthrough" /> Procédure pas à pas
+Cette procédure pas à pas vous fournit des instructions détaillées sur la création d'une activité personnalisée et l'utilisation de l'activité dans un pipeline de fabrique de données Azure. Cette procédure pas à pas étend le didacticiel à partir de la [prise en main Azure Data Factory][adfgetstarted]. Si vous souhaitez voir fonctionner l'activité personnalisée, vous devez commencer par le didacticiel de prise en main, puis effectuer cette procédure pas à pas.
 
-## Procédure pas à pas
-**Configuration requise**
+**Configuration requise :**
 
 
-- Didacticiel de la rubrique [Prise en main d'Azure Data Factory][adfgetstarted]. Vous devez commencer par le didacticiel de cet article, puis continuer avec cette procédure pas à pas.
-- Visual Studio 2012 ou 2013
-- Téléchargez et installez le [Kit de développement logiciel (SDK) Windows Azure .NET][azure-developer-center]
-- Téléchargez les [packages NuGet pour Azure Data Factory][nuget-package].
+- Didacticiel de [prise en main Azure Data Factory][adfgetstarted]. Vous devez suivre le didacticiel à partir de cet article avant d'effectuer cette procédure pas à pas.
+- Visual Studio 2012 ou 2013
+- Téléchargez et installez [Azure .NET SDK][azure-developer-center]
+- Téléchargez la dernière version [package NuGet pour la fabrique de données Azure][nuget-package] et l'installer. Les instructions sont fournies dans la procédure pas à pas.
 - Téléchargez et installez le package NuGet pour Azure Storage. Les instructions sont fournies dans la procédure pas à pas, vous pouvez donc ignorer cette étape.
 
-### Étape 1 : création d'une activité personnalisée
+## Étape 1: Créer une activité personnalisée
 
-1.	Créez un projet de bibliothèque de classes .NET.
+1.	Créez un projet de bibliothèque de classes .NET.
 	<ol type="a">
-		<li>Lancez <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
-		<li>Cliquez sur <b>Fichier</b>,pointez sur <b>Nouveau</b>, puis sur <b>Projet</b>.</li> 
-		<li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual C#</b>. Dans cette procédure pas à pas, vous utilisez C#, mais vous pouvez utiliser un autre langage .NET pour développer l'activité personnalisée.</li> 
-		<li>Sélectionnez la <b>bibliothèque de classes</b> dans la liste des types de projet sur la droite.</li>
-		<li>Entrez <b>MyCustomActivity</b> comme <b>Nom</b>.</li> 
-		<li>Sélectionnez <b>C:\ADFGetStarted</b> comme <b>Emplacement</b>.</li>
-		<li>Cliquez sur <b>OK</b> pour créer le projet.</li>
-	</ol>
-2.  Cliquez sur <b>Outils</b>, pointez sur <b>Gestionnaire de package NuGet</b>, puis cliquez sur <b>Console du gestionnaire de package</b>.
-3.	Dans la <b>console du gestionnaire de package</b>, exécutez la commande suivante pour importer la fabrique <b>Microsoft.Azure.Management.DataFactories</b> que vous avez téléchargée. Remplacez le dossier par l'emplacement qui contient le package NuGet Data Factory téléchargé.
+	<li>Lancez <b>Visual Studio 2012</b> ou <b>Visual Studio 2013</b>.</li>
+	<li>Cliquez sur <b>fichier</b>, pointez sur <b>nouveau</b>, puis cliquez sur <b>projet</b>.</li> 
+	<li>Développez <b>modèles</b>, puis sélectionnez <b>Visual C#</b>. Dans cette procédure pas à pas, vous utilisez&#160;C#, mais vous pouvez utiliser un autre langage&#160;.NET pour développer l'activité personnalisée.</li> 
+	<li>Sélectionnez <b>bibliothèque de classes</b> dans la liste des types de projet à droite.</li>
+	<li>Entrez <b>MyDotNetActivity</b> pour le <b>nom</b>.</li> 
+	<li>Sélectionnez <b>C:\ADFGetStarted</b> pour le <b>emplacement</b>.</li>
+	<li>Cliquez sur <b>OK</b> pour créer le projet.</li>
+</ol>
+2.  Cliquez sur <b>outils</b>, pointez sur <b>Gestionnaire de Package NuGet</b>, puis cliquez sur <b>Package Manager Console</b>.
+3.	Dans la <b>Package Manager Console</b>, exécutez la commande suivante pour importer <b>Microsoft.Azure.Management.DataFactories</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories -Source d:\packages -Pre
+		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 
-3.	Dans la <b>console de gestionnaire de package</b>, exécutez la commande suivante pour importer <b>Microsoft.DataFactories.Runtime</b>. Remplacez le dossier par l'emplacement qui contient le package NuGet Data Factory téléchargé.
+3.	Dans la <b>Package Manager Console</b>, exécutez la commande suivante pour importer <b>Microsoft.DataFactories.Runtime</b>. Remplacez le dossier par l'emplacement qui contient le package NuGet Data Factory téléchargé.
 
-		Install-Package Microsoft.DataFactories.Runtime -Source d:\packages -Pre
+		Install-Package Microsoft.DataFactories.Runtime –Pre
 
-4. Importez le package NuGet Windows Azure Storage dans le projet.
+4. Importer le package NuGet de stockage Azure dans le projet.
 
-		Install-Package WindowsAzure.Storage
+		Install-Package Azure.Storage
 
-5. Ajoutez les instructions **using** suivantes au fichier source dans le projet.
+5. Ajoutez le code suivant **à l'aide de** instructions dans le fichier source dans le projet.
 
 		using System.IO;
 		using System.Globalization;
+		using System.Diagnostics;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.DataFactories.Runtime; 
@@ -131,19 +130,19 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
   
-6. Définissez le nom de l'**espace de noms** sur **MyCustomActivityNS**.
+6. Modifier le nom de la **espace de noms** à **MyDotNetActivityNS**.
 
-		namespace MyCustomActivityNS
+		namespace MyDotNetActivityNS
 
-7. Remplacez le nom de la classe **MyCustomActivity** et dérivez-la de l'interface **ICustomActivity** comme indiqué ci-dessous.
+7. Modifier le nom de la classe **MyDotNetActivity** et dériver de la **IDotNetActivity** interface comme indiqué ci-dessous.
 
-		public class MyCustomActivity : ICustomActivity
+		public class MyDotNetActivity : IDotNetActivity
 
-8. Implémentez (ajoutez) la méthode **Execute** de l'interface **ICustomActivity** à la classe **MyCustomActivity** et copiez l'exemple de code suivant dans la méthode. 
+8. Implémenter (Ajouter) le **Execute** procédé de la **IDotNetActivity** interface à la **MyDotNetActivity** classe et copiez l'exemple de code suivant à la méthode.
 
-	Les paramètres **inputTables** et **outputTables** représentent les tables d'entrée et de sortie de l'activité. Vous pouvez voir les messages que vous consignez à l'aide de l'objet **logger** dans le fichier journal que vous pouvez télécharger à partir du portail Azure ou à l'aide des cmdlets. Le dictionnaire **extendedProperties** contient la liste des propriétés étendues que vous spécifiez dans le fichier JSON pour l'activité et leurs valeurs. 
+	Le **inputTables** et **outputTables** paramètres représentent des tables d'entrée et de sortie de l'activité comme leur nom le suggère. Vous pouvez voir les messages que vous ouvrez une session à l'aide de la **Enregistreur** objet dans le fichier journal que vous pouvez télécharger à partir du portail Azure ou à l'aide des applets de commande. Le **extendedProperties** dictionnaire contient la liste des propriétés étendues que vous spécifiez dans le fichier JSON pour l'activité et leurs valeurs.
 
-	L'exemple de code suivant compte le nombre de lignes dans l'objet blob d'entrée et produit le contenu suivant dans l'objet blob de sortie : chemin d'accès à l'objet blob, nombre de lignes dans l'objet blob, ordinateur sur lequel l'activité s'exécute, date-heure actuelles.
+	L'exemple de code suivant compte le nombre de lignes dans l'objet blob en entrée et génère le contenu suivant dans l'objet blob de sortie : chemin d'accès à l'objet blob, nombre de lignes dans l'objet blob, l'ordinateur sur lequel l'exécution de l'activité, date-heure actuelle.
 
         public IDictionary<string, string> Execute(
                     IEnumerable<ResolvedTable> inputTables, 
@@ -209,12 +208,14 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
                             }
 
                         }
-                        output += string.Format(CultureInfo.InvariantCulture, 
-										"{0},{1},{2},{3}\n", 
-										folderPath, 
-										count, 
-										Environment.MachineName, 
-										DateTime.UtcNow);
+                        output += string.Format(CultureInfo.InvariantCulture,
+                                        "{0},{1},{2},{3},{4}\n",
+                                        folderPath,
+                                        inputBlob.Name,
+                                        count,
+                                        Environment.MachineName,
+                                        DateTime.UtcNow);
+
                     }
                     continuationToken = result.ContinuationToken;
 
@@ -245,7 +246,7 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 
         }
 
-9. Ajoutez les méthodes d'assistance suivantes. La méthode **Execute** appelle ces méthodes d'assistance. La méthode **GetConnectionString** récupère la chaîne de connexion Azure Storage et la méthode **GetFolderPath** récupère l'emplacement de l'objet blob. 
+9. Ajoutez les méthodes d'assistance suivantes. Le **Execute** méthode appelle ces méthodes d'assistance. Le **GetConnectionString** méthode récupère la chaîne de connexion de stockage Azure et **GetFolderPath** méthode récupère l'emplacement de l'objet blob.
 
 
         private static string GetConnectionString(LinkedService asset)
@@ -284,134 +285,68 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
    
 
 
-10. Compilez le projet. Dans le menu, cliquez sur **Générer** et sur **Générer la Solution**.
-11. Lancez l'**Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** selon le type de version.
-12. Créez un fichier .zip **MyCustomActivity.zip** qui contient tous les fichiers binaires du dossier <dossier de projet>\bin\Debug.
-	![zip output binaries][image-data-factory-zip-output-binaries]
-13. Téléchargez **MyCustomActivity.zip** comme objet blob sur le conteneur d'objets blob : **customactivitycontainer** dans le stockage d'objets blob Azure utilisé par le service lié **MyBlobStore** dans **ADFTutorialDataFactory**.  Créez le conteneur d'objets blob **blobcustomactivitycontainer** s'il n'existe pas déjà. 
-    ![upload zip to blob][image-data-factory-upload-zip-to-blob]
+10. Compilez le projet. Cliquez sur **Build** dans le menu et cliquez sur **Générer la Solution**.
+11. Lancez **l'Explorateur Windows**, et accédez à **bin\\debug** ou **bin\\release** type en fonction du build.
+12. Créer un fichier zip **MyDotNetActivity.zip** qui contiennent tous les fichiers binaires dans le <project folder>dossier \\bin\\Debug.
+13. Télécharger **MyDotNetActivity.zip** comme un objet blob dans le conteneur d'objets blob : **customactvitycontainer** dans Azure stockage d'objets blob qui le **MyBlobStore** liés de service dans le **ADFTutorialDataFactory** utilise. Créez le conteneur d'objets blob **blobcustomactivitycontainer** si elle n'existe pas déjà. 
 
-### Créez un service lié pour   le cluster HDInsight qui servira pour exécuter l'activité personnalisée
-Le service Azure Data Factory prend en charge la création d'un cluster à la demande et l'utilise pour traiter des données d'entrée afin de produire des données de sortie. Vous pouvez également utiliser votre propre cluster pour effectuer cette opération. Lorsque vous utilisez un cluster HDInsight à la demande, un cluster est créé pour chaque tranche. Par contre, si vous utilisez votre propre cluster HDInsight, le cluster est prêt à traiter la tranche immédiatement. Par conséquent, lorsque vous utilisez un cluster à la demande, vous ne voyez pas les données de sortie aussi rapidement que lorsque vous utilisez votre propre cluster. Pour les besoins de l'exemple, nous allons utiliser un cluster à la demande. 
 
-> [WACOM.NOTE] Si vous avez prolongé le didacticiel [Prise en main d'Azure Data Factory][adfgetstarted] avec la procédure pas à pas [Utilisation de Pig et Hive avec Azure Data Factory][hivewalkthrough], vous pouvez ignorer la création de ce service lié et utiliser celui de ADFTutorialDataFactory. 
+## Étape 2: Utiliser l'activité personnalisée dans un pipeline
+Voici les étapes que vous allez effectuer cette étape :
+
+1. Créer un service lié pour le cluster HDInsight sur lequel l'activité personnalisée s'exécutera comme une tâche de mappage. 
+2. Créer une table de sortie produit par le pipeline dans cet exemple.
+3. Créer et exécuter un pipeline qui utilise l'activité personnalisée que vous avez créé à l'étape 1. 
+ 
+### Créer un service de cluster HDInsight qui sera utilisé pour exécuter l'activité personnalisée lié
+Le service Azure Data Factory prend en charge la création d'un cluster à la demande et l'utilise pour traiter des données d'entrée afin de produire des données de sortie. Vous pouvez également utiliser votre propre cluster pour effectuer cette opération. Lorsque vous utilisez un cluster HDInsight à la demande, un cluster est créé pour chaque tranche. Par contre, si vous utilisez votre propre cluster HDInsight, le cluster est prêt à traiter la tranche immédiatement. Par conséquent, lorsque vous utilisez un cluster à la demande, vous ne voyez pas les données de sortie aussi rapidement que lorsque vous utilisez votre propre cluster.
+
+> [AZURE.NOTE]Lors de l'exécution, une instance d'une activité .NET s'exécute uniquement sur un nœud de travail du cluster HDInsight ; Il ne peut pas être mis à l'échelle pour s'exécuter sur plusieurs nœuds. Plusieurs instances d'activité .NET peuvent s'exécuter en parallèle sur différents nœuds du cluster HDInsight.
+
+Si vous avez étendu le [prise en main Azure Data Factory][adfgetstarted] didacticiel avec la procédure pas à pas [utilisation de Pig et Hive avec Azure Data Factory][hivewalkthrough], vous pouvez ignorer la création de ce service lié et utiliser le service lié vous disposez déjà dans le ADFTutorialDataFactory.
+
 
 #### Pour utiliser un cluster HDInsight à la demande
 
-1. Créez un fichier JSON nommé **HDInsightOnDemandCluster.json** avec le contenu suivant et enregistrez-le dans le dossier **C:\ADFGetStarted\Custom**.
+1. Dans le **Azure Portal**, cliquez sur **auteur et le déploiement** dans la page d'accueil de fabrique de données.
+2. Dans l'éditeur de fabrique de données, cliquez sur **Nouveau calcul** à partir de la barre de commandes et sélectionnez **cluster HDInsight sur demande** dans le menu.
+2. Procédez comme suit dans le script JSON : 
+	1. Pour le **clusterSize** propriété, spécifiez la taille du cluster HDInsight.
+	2. Pour le **jobsContainer** propriété, spécifiez le nom du conteneur par défaut où les journaux de cluster seront stockés. Pour les besoins de ce didacticiel, spécifiez **adfjobscontainer**.
+	3. Pour le **timeToLive** propriété, spécifiez la durée pendant laquelle le client peut être inactif avant d'être supprimé. 
+	4. Pour le **version** propriété, spécifiez la version de HDInsight que vous souhaitez utiliser. Si vous excluez cette propriété, la dernière version est utilisée.  
+	5. Pour le **linkedServiceName**, spécifiez **StorageLinkedService** que vous avez créé à la méthode Get de démarrer le didacticiel. 
 
-
-		{
-    		"name": "HDInsightOnDemandCluster",
-    		"properties": 
-    		{
-        		"type": "HDInsightOnDemandLinkedService",
-				"clusterSize": 4,
-        		"jobsContainer": "adftutorialjobscontainer",
-        		"timeToLive": "00:05:00",
-        		"linkedServiceName": "MyBlobStore"
-    		}
-		}
-
-2. Lancez **Azure PowerShell** et exécutez la commande suivante pour passer au mode **AzureResourceManager**. Les cmdlets Azure Data Factory sont disponibles dans le mode **AzureResourceManager**.
-
-         switch-azuremode AzureResourceManager
-		
-
-3. Accédez au dossier **C:\ADFGetstarted\Custom**.
-4. Exécutez la commande suivante pour créer le service lié pour le cluster HDInsight à la demande.
- 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\HDInsightOnDemandCluster.json
-  
-   
-#### Pour utiliser votre propre cluster HDInsight : 
-
-1. Créez un fichier JSON nommé **MyHDInsightCluster.json** avec le contenu suivant et enregistrez-le dans le dossier **C:\ADFGetStarted\Custom**. Avant d'enregistrer le fichier JSON, remplacez clustername, username et password par les valeurs appropriées.  
-
-		{
-   			"Name": "MyHDInsightCluster",
-    		"Properties": 
 			{
-        		"Type": "HDInsightBYOCLinkedService",
-	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
-    	    	"UserName": "<username>",
-    	    	"Password": "<password>",
-    	    	"LinkedServiceName": "MyBlobStore"
-    		}
-		}
-
-2. Lancez **Azure PowerShell** et exécutez la commande suivante pour passer au mode **AzureResourceManager**. Les cmdlets Azure Data Factory sont disponibles dans le mode **AzureResourceManager**.
-
-         switch-azuremode AzureResourceManager
-		
-
-3. Accédez au dossier **C:\ADFGetstarted\Custom**.
-4. Exécutez la commande suivante pour créer le service lié pour le cluster HDInsight à la demande.
- 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -File .\MyHDInsightCluster.json
-
-
-
-### Étape 2 : utilisation de l'activité personnalisée dans un pipeline
-Étendons le didacticiel [Prise en main d'Azure Data Factory][adfgetstarted] pour créer un autre pipeline afin de tester cette activité personnalisée.
-
-#### Création d'un service lié pour le cluster HDInsight à utiliser pour l'exécution de l'activité personnalisée
-
-
-1.	Créez un fichier JSON pour le pipeline, comme illustré dans l'exemple suivant, et enregistrez-le sous **ADFTutorialPipelineCustom.json** dans le dossier **C:\ADFGetStarted\Custom**. Remplacez le nom **LinkedServiceName** par le nom du cluster HDInsight (**HDInsightOnDemandCluster** ou **MyHDInsightCluster**)
-
-
-		{
-    		"name": "ADFTutorialPipelineCustom",
-    		"properties":
-    		{
-        		"description" : "Use custom activity",
-        		"activities":
-        		[
-					{
-                		"Name": "MyCustomActivity",
-                     	"Type": "CustomActivity",
-                     	"Inputs": [{"Name": "EmpTableFromBlob"}],
-                     	"Outputs": [{"Name": "OutputTableForCustom"}],
-						"LinkedServiceName": "MyHDInsightCluster",
-                     	"Transformation":
-                     	{
-                        	"AssemblyName": "MyCustomActivity.dll",
-                            "EntryPoint": "MyCustomActivityNS.MyCustomActivity",
-                            "PackageLinkedService": "MyBlobStore",
-                            "PackageFile": "customactivitycontainer/MyCustomActivity.zip",
-                            "ExtendedProperties":
-							{
-								"SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-							}
-                      	},
-                        "Policy":
-                        {
-                        	"Concurrency": 1,
-                            "ExecutionPriorityOrder": "OldestFirst",
-                            "Retry": 3,
-                            "Timeout": "00:30:00",
-                            "Delay": "00:00:00"		
-						}
-					}
-				]
+		    	"name": "HDInsightOnDemandLinkedService",
+				    "properties": {
+		    	    "type": "HDInsightOnDemandLinkedService",
+		    	    "clusterSize": "4",
+		    	    "jobsContainer": "adfjobscontainer",
+		    	    "timeToLive": "00:05:00",
+		    	    "version": "3.1",
+		    	    "linkedServiceName": "StorageLinkedService"
+		    	}
 			}
-		}
 
-	Notez les points suivants : 
+2. Cliquez sur **déployer** sur la barre de commandes pour déployer le service lié.
+   
+#### Pour utiliser votre propre cluster HDInsight : 
 
-	- Il existe une activité dans la section des activités, et elle est de type : **CustomActivity**.
-	- Utilisez la table d'entrée **EmpTableFromBlob** que vous avez utilisée dans le didacticiel de prise en main.
-	- Utilisez une nouvelle table de sortie **OutputTableForCustom** que vous allez créer à l'étape suivante.
-	- **AssemblyName** est défini sur le nom de la DLL : **MyActivities.dll**.
-	- **EntryPoint** est défini sur **MyCustomActivityNS.MyCustomActivity**.
-	- **PackageLinkedService** est défini sur **MyBlobStore**, qui a été créé dans le cadre du didacticiel [Prise en main d'Azure Data Factory][adfgetstarted]. Ce magasin d'objets blob contient le fichier .zip d'activités personnalisées.
-	- **PackageFile** est défini sur **customactivitycontainer/MyCustomActivity.zip**.
-     
+1. Dans le **Azure Portal**, cliquez sur **auteur et le déploiement** dans la page d'accueil de fabrique de données.
+2. Dans le **données fabrique éditeur**, cliquez sur **Nouveau calcul** à partir de la barre de commandes et sélectionnez **cluster HDInsight** à partir du menu.
+2. Procédez comme suit dans le script JSON : 
+	1. Pour le **clusterUri** propriété, entrez l'URL de votre HDInsight. Par exemple : https://<clustername>.azurehdinsight.net/     
+	2. Pour le **nom d'utilisateur** propriété, entrez le nom d'utilisateur qui a accès au cluster HDInsight.
+	3. Pour le **mot de passe** propriété, entrez le mot de passe de l'utilisateur. 
+	4. Pour le **LinkedServiceName** propriété, entrez **StorageLinkedService**. Désigne le service lié que vous avez créé dans le didacticiel démarré Get. 
 
-4. Créez un fichier JSON pour la table de sortie (**OutputTableForCustom** à laquelle se réfère le fichier JSON de pipeline) et enregistrez-le sous C:\ADFGetStarted\Custom\OutputTableForCustom.json.
+2. Cliquez sur **déployer** sur la barre de commandes pour déployer le service lié.
 
-		
+### Créer une table de sortie
+
+1. Dans le **éditeur Data Factory**, cliquez sur **nouveau dataset**, puis cliquez sur **stockage d'objets Blob Azure** à partir de la barre de commandes.
+2. Remplacez le script JSON dans le volet droit par le script JSON suivant :
 
 		{
     		"name": "OutputTableForCustom",
@@ -433,88 +368,158 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
     		}
 		}
 
- 	L'emplacement de sortie est **adftutorial/customactivityoutput/AAAAMMJJHH/** où AAAAMMJJHH est l'année, le mois, la date et l'heure de la tranche en cours de production. Pour plus d'informations, consultez la page [Référence du développeur][adf-developer-reference]. 
 
-5. Exécutez la commande suivante pour **créer la table de sortie** dans **ADFTutorialDataFactory**.
-		
-		
+ 	Emplacement de sortie est **customactivityoutput/adftutorial/AAAAMMJJHH/** où AAAAMMJJHH est l'année mois, date et heure de la section en cours de production. Voir [référence du développeur][adf-developer-reference] pour plus d'informations.
 
-		New-AzureDataFactoryTable  -DataFactoryName ADFTutorialDataFactory -File C:\ADFGetStarted\Custom\OutputTableForCustom.json -ResourceGroupName ADFTutorialResourceGroup
+2. Cliquez sur **déployer** sur la barre de commandes pour déployer le tableau.
 
 
-6. Exécutez la commande suivante pour **créer le pipeline**. Vous avez créé le fichier JSON de pipeline dans une étape précédente.
-
-		New-AzureDataFactoryPipeline  -DataFactoryName ADFTutorialDataFactory -File C:\ADFGetStarted\Custom\ADFTutorialPipelineCustom.json -ResourceGroupName ADFTutorialResourceGroup
-
-
-
-7. Exécutez la commande PowerShell suivante pour **définir la période active** sur le pipeline que vous avez créé.
-
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 -EndDateTime 2014-09-30 -Name ADFTutorialPipelineCustom
-
-	> [WACOM.NOTE] Remplacez la valeur **StartDateTime** par le jour en cours et la valeur **EndDateTime** par le jour suivant. Les valeurs StartDateTime et EndDateTime sont exprimées en heure UTC et doivent être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. **EndDateTime** est facultatif, mais nous allons l'utiliser dans ce didacticiel. 
-	> Si vous ne spécifiez pas la valeur **EndDateTime**, elle est calculée comme suit : **StartDateTime + 48 heures**. Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme **EndDateTime**.
-
-
-
-8. Vérifiez que les fichiers de sortie sont générés dans le stockage d'objets blob dans le conteneur **adftutorial**.
-
-	![output from custom activity][image-data-factory-output-from-custom-activity]
-
-9. Si vous ouvrez le fichier de sortie, la sortie doit avoir l'aspect suivant :
-	
-	adftutorial/input,2,WORKERNODE0,10/07/2014 18:34:33 
-
-	(emplacement de l'objet blob), (nombre de lignes dans l'objet blob), (nœud sur lequel l'activité a été exécutée), (horodatage)
-
-10.	Utilisez le [portail Azure][azure-preview-portal] ou les cmdlets Azure PowerShell pour surveiller votre fabrique de données, les pipelines et les jeux de données. Vous pouvez voir les messages depuis **ActivityLogger** dans le code de l'activité personnalisée dans les journaux que vous pouvez télécharger depuis le portail ou à l'aide des cmdlets.
-
-	![download logs from custom activity][image-data-factory-download-logs-from-custom-activity]
+### Créer et exécuter un pipeline qui utilise l'activité personnalisée
    
-Pour connaître les étapes de la surveillance des jeux de données et des pipelines, consultez la page [Prise en main d'Azure Data Factory][adfgetstarted].      
+1. Dans l'éditeur de fabrique de données, cliquez sur **nouveau pipeline** sur la barre de commandes. Si vous ne voyez pas la commande, cliquez sur **... (Sélection)** pour l'afficher. 
+2. Remplacez le JSON dans le volet droit par le script JSON suivant. Si vous souhaitez utiliser votre propre cluster et suivi les étapes pour créer le **HDInsightLinkedService** lié service, remplacez **HDInsightOnDemandLinkedService** avec **HDInsightLinkedService** dans le JSON suivant. 
+
+		{
+    		"name": "ADFTutorialPipelineCustom",
+    		"properties":
+    		{
+        		"description" : "Use custom activity",
+        		"activities":
+        		[
+					{
+                		"Name": "MyDotNetActivity",
+                     	"Type": "DotNetActivity",
+                     	"Inputs": [{"Name": "EmpTableFromBlob"}],
+                     	"Outputs": [{"Name": "OutputTableForCustom"}],
+						"LinkedServiceName": "HDInsightLinkedService",
+                     	"Transformation":
+                     	{
+                        	"AssemblyName": "MyDotNetActivity.dll",
+                            "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+                            "PackageLinkedService": "MyBlobStore",
+                            "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+                            "ExtendedProperties":
+							{
+								"SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
+							}
+                      	},
+                        "Policy":
+                        {
+                        	"Concurrency": 1,
+                            "ExecutionPriorityOrder": "OldestFirst",
+                            "Retry": 3,
+                            "Timeout": "00:30:00",
+                            "Delay": "00:00:00"		
+						}
+					}
+        		],
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z",
+        		"isPaused": false
+			}
+		}
+
+	> [AZURE.NOTE]Remplacez **StartDateTime** valeur avec les trois jours précédant la date du jour et **EndDateTime** valeur avec la date du jour. StartDateTime et EndDateTime doivent être dans [au format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. La table de sortie est planifiée pour être produite tous les jours, trois tranches seront donc produites.
+
+	Notez les points suivants :
+
+	- Il existe une activité dans la section des activités et il est de type : **DotNetActivity**.
+	- Utilisez la même table d'entrée **EmpTableFromBlob** que vous avez utilisé dans la méthode Get de démarrer le didacticiel.
+	- Utiliser une nouvelle table de sortie **OutputTableForCustom** que vous allez créer à l'étape suivante.
+	- **AssemblyName** est définie sur le nom de la DLL : **MyActivities.dll**.
+	- **EntryPoint** a **MyDotNetActivityNS.MyDotNetActivity**.
+	- **PackageLinkedService** a **MyBlobStore** qui a été créé dans le cadre du didacticiel de [prise en main Azure Data Factory][adfgetstarted]. Ce magasin d'objets blob contient le fichier .zip d'activités personnalisées.
+	- **PackageFile** a **customactivitycontainer/MyDotNetActivity.zip**.
+     
+4. Cliquez sur **déployer** sur la barre de commandes pour déployer le pipeline.
+8. Vérifiez que les fichiers de sortie sont générées dans le stockage blob dans le **adftutorial** conteneur.
+
+	![la sortie à partir de l'activité personnalisée][image-data-factory-ouput-from-custom-activity]
+
+9. Si vous ouvrez le fichier de sortie, la sortie doit avoir l'aspect suivant :
+	
+	adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28
+
+	(objets blob emplacement), (nom de l'objet blob) (nombre de lignes dans l'objet blob), (nœud sur lequel l'activité a été exécutée), (horodatage)
+
+10.	Utilisez le [Azure Portal][azure-preview-portal] ou applets de commande PowerShell Azure pour surveiller votre fabrique de données, les pipelines et les jeux de données. Vous pouvez voir les messages à partir de la **ActivityLogger** dans le code de l'activité personnalisée dans les journaux que vous pouvez télécharger à partir du portail ou à l'aide des applets de commande.
+
+	![Télécharger les journaux d'activité personnalisée][image-data-factory-download-logs-from-custom-activity]
+   
+Voir [prise en main Azure Data Factory][adfgetstarted] pour obtenir la procédure détaillée pour la surveillance des datasets et des pipelines.
     
+## <a name="AzureBatch"></a> À l'aide de commandes Azure lié service 
+> [AZURE.NOTE]Voir [présentation technique du lot Azure][batch-technical-overview] pour une vue d'ensemble du lot Azure service et consultez [mise en route avec la bibliothèque de commandes Azure pour .NET][batch-get-started] pour commencer rapidement avec le service de traitement par lots Azure.
+
+Voici les étapes générales pour l'utilisation de Service Azure lot lié à la procédure décrite dans la section précédente :
+
+1. Créez un compte Azure lot à l'aide du portail de gestion Azure. Voir [présentation technique du lot Azure][batch-create-account] article pour obtenir des instructions. Notez que la clé de compte et de nom de compte Azure lot. 
+
+	Vous pouvez également utiliser [New-AzureBatchAccount][new-azure-batch-account] applet de commande pour créer un compte Azure lot. Voir [à l'aide de Azure PowerShell pour gérer le compte Azure lot][azure-batch-blog] pour obtenir des instructions détaillées sur l'utilisation de cette applet de commande. 
+2. Créer un pool de traitement par lots Azure. Vous pouvez télécharger et utiliser le [outil Explorateur de lot Azure][batch-explorer] (ou) utiliser [bibliothèque de lot Azure pour .NET][batch-net-library] pour créer un pool de traitement par lots Azure. Voir [procédure d'exemple Azure lot Explorer][batch-explorer-walkthrough] pour obtenir des instructions détaillées pour l'utilisation de l'Explorateur de lot de Windows Azure.
+	
+	Vous pouvez également utiliser [New-AzureBatchPool][new-azure-batch-pool] applet de commande pour créer un pool de traitement par lots Azure.
+
+2. Créer un Service lié Azure lot à l'aide du modèle JSON suivant. L'éditeur de la fabrique de données affiche un modèle similaire pour vous pour commencer. Spécifiez le nom du compte Azure lot, le nom de clé et le pool de compte dans l'extrait de JSON.
+
+		{
+		    "name": "AzureBatchLinkedService",
+		    "properties": {
+		        "type": "AzureBatchLinkedService",
+		        "accountName": "<Azure Batch account name>",
+		        "accessKey": "<Azure Batch account key>",
+		        "poolName": "<Azure Batch pool name>",
+		        "linkedServiceName": "<Specify associated storage linked service reference here>"
+		  }
+		}
+
+	Voir [rubrique Azure lot lié Service MSDN](https://msdn.microsoft.com/library/mt163609.aspx) pour obtenir une description de ces propriétés.
+
+2.  Dans l'éditeur de fabrique de données, ouvrez la définition de JSON pour le pipeline que vous avez créé dans la procédure pas à pas et remplacez **HDInsightLinkedService** avec **AzureBatchLinkedService**.
+3.  Voulez-vous modifier les heures de début et de fin pour le pipeline afin que vous pouvez tester le scénario avec le service de traitement par lots Azure. 
+4.  Vous pouvez voir les tâches de traitement par lots Azure associés au traitement des secteurs de l'Explorateur de lot Azure comme indiqué dans le diagramme suivant.
+
+	![Tâches de traitement par lots Azure][image-data-factory-azure-batch-tasks]
+
 ## Voir aussi
 
-Article | Description
------- | ---------------
-[Activation de vos pipelines pour les utiliser avec des données locales][use-onpremises-datasources] | Cet article contient une procédure pas à pas permettant de copier les données d'une base de données SQL Server locale vers un objet blob Azure.
-[Utilisation de Pig et Hive avec Data Factory][use-pig-and-hive-with-data-factory] | Cet article contient une procédure pas à pas permettant d'exécuter un script Hive/Pig à l'aide de HDInsight Activity pour traiter les données d'entrée afin de produire des données de sortie. 
-[Didacticiel : Déplacement et traitement des fichiers journaux à l'aide de Data Factory][adf-tutorial] | Cet article contient une procédure pas à pas permettant d'implémenter un scénario proche du monde réel à l'aide d'Azure Data Factory pour transformer les données des fichiers journaux en données détaillées.
-[Utilisation des activités personnalisées de Data Factory][use-custom-activities] | Cet article contient une procédure pas à pas permettant de créer une activité personnalisée et de l'utiliser dans un pipeline. 
-[Surveillance et gestion d'Azure Data Factory à l'aide de PowerShell][monitor-manage-using-powershell] | Cet article décrit comment surveiller une fabrique de données Azure à l'aide de cmdlets Azure PowerShell. Vous pouvez essayer les exemples de l'article portant sur ADFTutorialDataFactory.
-[Résolution des problèmes liés à Data Factory][troubleshoot] | Cet article explique comment résoudre des problèmes liés à Azure Data Factory. Vous pouvez essayer la procédure pas à pas de cet article portant sur ADFTutorialDataFactory en introduisant une erreur (en supprimant la table dans la base de données SQL Azure). 
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence du développeur comportent des informations complètes sur les cmdlets, le script JSON, les fonctions, etc. 
+[Mises à jour de fabrique de données azure : les activités de Execute ADF personnalisée .NET à l'aide de commandes Azure](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/).
 
-
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[batch-net-library]: ./batch/batch-dotnet-get-started.md
+[batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-create-account]: ./batch/batch-technical-overview.md/#batch-concepts
+[batch-technical-overview]: ./batch/batch-technical-overview.md
+[batch-get-started]: ./batch/batch-dotnet-get-started.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
+[azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-
-
+[new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
+[new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
+[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
 [azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
-[adfgetstarted]: ../data-factory-get-started
-[hivewalkthrough]: ../data-factory-pig-hive-activities
-
-[image-data-factory-zip-output-binaries]: ./media/data-factory-use-custom-activities/ZipOuputBinaries.png
-
-[image-data-factory-upload-zip-to-blob]: ./media/data-factory-use-custom-activities/UploadZipToBlob.png
+[adfgetstarted]: data-factory-get-started.md
+[hivewalkthrough]: data-factory-pig-hive-activities.md
 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!--HONumber=46--> 
+[image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
+
+<!---HONumber=GIT-SubDir-->
