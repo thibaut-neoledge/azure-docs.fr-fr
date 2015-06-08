@@ -25,7 +25,7 @@ Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](
 
 ## Fonctionnement d’une connexion ExpressRoute
 
-Pour connecter votre réseau étendu aux services cloud Microsoft, vous devez commander un circuit dédié et l’activer via un fournisseur de connectivité. Il existe deux types de fournisseur de connectivité : couche directe 3 via un fournisseur Exchange ou couche 3 via un fournisseur de services réseau. Vous pouvez choisir d’activer un ou plusieurs types de connectivité entre votre réseau étendu et le cloud Microsoft.
+Pour connecter votre réseau étendu aux services cloud Microsoft, vous devez commander un circuit dédié et l’activer via un fournisseur de connectivité. Il existe deux types de fournisseur de connectivité : couche directe 3 via un fournisseur Exchange ou couche 3 via un fournisseur de services réseau. Vous pouvez choisir d’activer un ou plusieurs types de connectivité entre votre réseau étendu et le cloud Microsoft.  
 
 ## Fournisseurs de services réseau et fournisseurs Exchange
 Les fournisseurs ExpressRoute sont classés en tant que fournisseurs de services réseau et fournisseurs Exchange.
@@ -57,14 +57,14 @@ Pour plus d’informations sur la configuration et pour obtenir des exemples ré
 
 ### Fournisseurs de services réseau
 
-Nous travaillons en partenariat avec les opérateurs téléphoniques tels que AT&T et British Telecom pour proposer une connectivité entre Azure et votre réseau étendu. Nous proposons des bandes passantes de circuit de 10 Mbits/s à 1 Gbits/s (10 Mbits/s, 50 Mbits/s, 100 Gbit/s, 500 Gbit/s et 1 Gbits/s).
+Nous travaillons en partenariat avec les opérateurs téléphoniques tels que AT&T et British Telecom pour proposer une connectivité entre Azure et votre réseau étendu. Nous proposons des bandes passantes de circuit de 10 Mbits/s à 1 Gbits/s (10 Mbits/s, 50 Mbits/s, 100 Gbit/s, 500 Gbit/s et 1 Gbits/s). 
 
 Si vous utilisez des services VPN à partir d’un fournisseur de services réseau avec lequel nous travaillons, ce dernier peut étendre les réseaux dans Azure sans avoir à déployer un nouveau matériel ni à effectuer de modifications de configuration importantes dans vos réseaux existants.
 
 Pour plus d’informations sur la configuration et pour obtenir des exemples réels, vous pouvez suivre ces instructions étape par étape : [Configuration de circuits ExpressRoute via des fournisseurs de services réseau](expressroute-configuring-nsps.md).
 
 ## Homologations ExpressRoute
-La figure ci-dessous fournit une représentation logique de la connectivité entre votre réseau étendu et Microsoft. Vous devez commander un circuit dédié pour connecter votre réseau étendu à Microsoft via un fournisseur de connectivité (services réseau ou Exchange). Un « circuit dédié » représente une connexion logique entre votre réseau étendu et Microsoft via le fournisseur de connectivité. Vous pouvez commander plusieurs circuits dédiés, chacun d’eux pouvant être dans des régions identiques ou différentes et être connecté à votre réseau étendu via différents fournisseurs de services.
+La figure ci-dessous fournit une représentation logique de la connectivité entre votre réseau étendu et Microsoft. Vous devez commander un circuit dédié pour connecter votre réseau étendu à Microsoft via un fournisseur de connectivité (services réseau ou Exchange). Un « circuit dédié » représente une connexion logique entre votre réseau étendu et Microsoft via le fournisseur de connectivité. Vous pouvez commander plusieurs circuits dédiés, chacun d’eux pouvant être dans des régions identiques ou différentes et être connecté à votre réseau étendu via différents fournisseurs de services. 
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
@@ -80,9 +80,9 @@ Vous pouvez connecter plusieurs réseaux virtuels au domaine d’homologation pr
   
 
 ### Homologation publique
-Les services tels qu’Azure Storage, Base de données SQL et Sites Web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre extranet et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet. La connectivité est toujours initiée de votre réseau étendu vers les services Microsoft Azure. Ces derniers ne sont pas en mesure d’initier des connexions à votre réseau via ce domaine de routage. Une fois l’homologation publique activée, vous êtes en mesure de vous connecter à tous les services Azure (nous ne vous permettons pas de choisir de manière sélective les services pour lesquels nous annonçons des itinéraires). Vous pouvez consulter la liste des préfixes que nous publions via cette homologation à la page [Plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/fr-fr/download/details.aspx?id=41653). Vous pouvez définir des filtres d’itinéraires personnalisés au sein de votre réseau pour utiliser uniquement les itinéraires dont vous avez besoin.
+Les services tels qu’Azure Storage, Base de données SQL et Sites Web sont proposés sur des adresses IP publiques. En privé, vous pouvez vous connecter à des services hébergés sur des adresses IP publiques (y compris les adresses IP virtuelles de vos services cloud) via le domaine de routage d’homologation publique. Vous pouvez connecter le domaine d’homologation publique à votre extranet et vous connecter à tous les services Azure sur leurs adresses IP publiques à partir de votre réseau étendu, sans avoir à vous connecter via Internet. La connectivité est toujours initiée de votre réseau étendu vers les services Microsoft Azure. Ces derniers ne sont pas en mesure d’initier des connexions à votre réseau via ce domaine de routage. Une fois l’homologation publique activée, vous êtes en mesure de vous connecter à tous les services Azure (nous ne vous permettons pas de choisir de manière sélective les services pour lesquels nous annonçons des itinéraires). Vous pouvez consulter la liste des préfixes que nous publions via cette homologation à la page [Plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/fr-fr/download/details.aspx?id=41653). Vous pouvez définir des filtres d’itinéraires personnalisés au sein de votre réseau pour utiliser uniquement les itinéraires dont vous avez besoin. 
 
-Pour plus d’informations sur les services pris en charge via le domaine de routage d’homologation publique, consultez le [Forum Aux Questions](expressroute-faqs.md).
+Pour plus d’informations sur les services pris en charge via le domaine de routage d’homologation publique, consultez le [Forum Aux Questions](expressroute-faqs.md). 
  
 ### Homologation Microsoft
 La connectivité à toutes les autres services en ligne Microsoft (tels qu’Office 365) a lieu via l’homologation Microsoft. Nous activons la connectivité bidirectionnelle entre votre réseau étendu et les services cloud Microsoft via le domaine de routage d’homologation Microsoft. Vous devez vous connecter aux services cloud Microsoft uniquement via des adresses IP publiques qui sont détenues par vous ou votre fournisseur de connectivité. Vous devez également respecter toutes les règles que nous définissons. Pour plus d’informations, consultez la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md).
@@ -113,4 +113,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez dis
 - [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 - [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
 
-<!----HONumber=54-->
+<!---HONumber=54-->
