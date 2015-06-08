@@ -9,17 +9,14 @@
 
 3. Exécutez à nouveau l'application Windows Store, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-   ![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png)
 
-   Notez qu'une fois l'insertion terminée, l'application Windows Store et l'application Windows Phone reçoivent toutes les deux une notification Push de WNS.
+   	Notez qu'une fois l'insertion terminée, l'application Windows Store et l'application Windows Phone reçoivent toutes les deux une notification Push de WNS.
 
-   ![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png)
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png)
 
 	La notification est affichée sur le Windows Phone, même si l'application n'est pas en cours d'exécution.
 
-   ![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
+   	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-
-
-<!--HONumber=42-->
+<!---HONumber=42-->
