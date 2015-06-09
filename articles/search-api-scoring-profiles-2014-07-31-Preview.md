@@ -145,7 +145,37 @@ Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous
 
 Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.
 
-<font> <table style="font-size:12"> <thead> <tr><td>élément</td><td>description</td></tr></thead> <tbody <tr> <td><b>Pondérations</b></td> <td> Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex], les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante. </td> </tr> <tr> <td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques. <br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness. <br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier <br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`. <br> <b>Règles d'utilisation des fonctions</b> <br> Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules. <br> Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier. <br> Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index](search-api-2014-10-20-preview.md#createindex) (API Azure Search). <br> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index. <td> </tr> </tbody> </table> </font>
+<font>
+<table style="font-size:12">
+<thead>
+<tr><td>élément</td><td>description</td></tr></thead>
+<tbody>
+<tr>
+<td><b>Pondérations</b></td>
+<td>
+Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex], les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.
+</td>
+</tr>
+<tr>
+<td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques.
+<br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness.
+<br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier
+<br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`.
+<br>
+<b>Règles d'utilisation des fonctions</b>
+<br>
+Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules.
+<br>
+Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
+<br>
+Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index](search-api-2014-10-20-preview.md#createindex) (API Azure Search).
+<br>
+Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
+<td>
+</tr>
+</tbody>
+</table>
+</font>
 
 Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)](search-api-2014-10-20-preview.md#createindex) et [Ajout, mise à jour ou suppression de documents (API Azure Search)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
@@ -254,7 +284,8 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 </tr><tr>
 <td>functionAggregation</td>	<td>Facultatif. S'applique uniquement quand des fonctions sont spécifiées. Les valeurs autorisées sont les suivantes : sum (par défaut), average, minimum, maximum et firstMatching. Un score de recherche est une valeur unique calculée à partir de plusieurs variables, notamment plusieurs fonctions. Cet attribut indique comment les valorisations de toutes les fonctions sont combinées en une valorisation agrégée qui est ensuite appliquée au score du document de base. Le score de base dépend de la valeur tf-idf calculée à partir du document et de la requête de recherche.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>Lors de l'exécution d'une demande de recherche, le calcul de score par défaut est utilisé (tf-idf uniquement) si aucun profil de calcul de score n'est spécifié. Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce qu'Azure Search utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche. </td>
+<td>defaultScoringProfile</td>	<td>Lors de l'exécution d'une demande de recherche, le calcul de score par défaut est utilisé (tf-idf uniquement) si aucun profil de calcul de score n'est spécifié. Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce qu'Azure Search utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche.
+</td>
 </tr>
 </tbody>
 </table>
@@ -272,7 +303,8 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 
 - `Logarithmic` Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Logarithmic décroît initialement plus rapidement, puis, lorsqu'elle approche de la plage de fin, beaucoup plus lentement.
  
-<a name="Figure1"></a> ![][1]
+<a name="Figure1"></a>
+![][1]
 
 <a name="bkmk_boostdur"></a>
 ##Définition de boostingDuration##
@@ -310,4 +342,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 [1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
 
 
-<!--HONumber=54-->
+<!---HONumber=54-->
