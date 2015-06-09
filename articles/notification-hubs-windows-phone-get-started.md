@@ -43,27 +43,27 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 2. Cliquez sur **App Services**, sur **Service Bus**, sur **Notification Hub**, puis sur **Quick Create**.
 
-   ![][7]
+   	![][7]
 
 3. Tapez un nom pour votre Notification Hub, sélectionnez la région de votre choix, puis cliquez sur **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Cliquez sur l'espace de noms que vous venez de créer (en général ***nom du Notification Hub*-ns**), puis cliquez sur l'onglet **Configure** en haut.
 
-   ![][9]
+   	![][9]
 
 5. Cliquez sur l'onglet **Concentrateurs de notification** en haut de la page, puis cliquez sur le concentrateur de notification que vous venez de créer.
 
-   ![][10]
+   	![][10]
 
 6. Cliquez sur **Connection Information** au bas de la page. Notez les deux chaînes de connexion.
 
-   ![][12]
+   	![][12]
 
 7. Cliquez sur l'onglet **Configurer**, puis cochez la case **Activez des notifications push non authentifiées** dans la section **Paramètres de notification de Windows Phone**.
 
-   ![][15]
+   	![][15]
 
 Vous disposez maintenant des chaînes de connexion requises pour inscrire votre application Windows Phone 8 et envoyer des notifications.
 
@@ -73,7 +73,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
 1. Dans Visual Studio, créez une application Windows Phone 8.
 
-   ![][13]
+   	![][13]
 
 	Dans Visual Studio 2013 Update 2 ou une version ultérieure, vous créez à la place une application Silverlight Windows Phone.
 	
@@ -116,7 +116,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
     
 6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID___CAP___PUSH_NOTIFICATION** soit activée.
 
-   ![][14]
+   	![][14]
 
    Cela garantit que votre application peut recevoir des notifications Push.
 	
@@ -130,7 +130,7 @@ Vous pouvez envoyer des notifications à l’aide de Notification Hubs à partir
 
 1. Cliquez avec le bouton droit sur la solution, sélectionnez **Ajouter** et **Nouveau projet...**, puis sous **Visual C#** cliquez sur **Windows** et **Application Console**, puis cliquez sur **OK**. 
 
-   ![][6]
+   	![][6]
 
 	Une nouvelle application console Visual C# est ajoutée à la solution. Vous pouvez également effectuer cette opération dans une solution distincte. 
  
@@ -216,4 +216,4 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
 [Notification Hubs - Didacticiel WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
 
-<!--HONumber=52-->
+<!---HONumber=52-->
