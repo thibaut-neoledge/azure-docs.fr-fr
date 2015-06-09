@@ -108,7 +108,7 @@ Votre application doit être configurée pour référencer le certificat, et un 
         ...
         </WebRole>
 
-    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Depuis l'installation du certificat dans le magasin de certificats, la valeur « My » est utilisée. Il est également possible d'utiliser d'autres emplacements de stockage de certificats. Pour plus d'informations, consultez la page [Association d'un certificat à un service].
+    La section **Certificates** définit le nom du certificat, son emplacement et le nom du magasin dans lequel il se trouve. Depuis l'installation du certificat dans le magasin de certificats, la valeur « My » est utilisée. Il est également possible d'utiliser d'autres emplacements de stockage de certificats. Pour plus d'informations, consultez la page [Association d'un certificat à un service](http://msdn.microsoft.com/library/windowsazure/gg465718.aspx).
 
 2.  Dans votre fichier de définition de service, mettez à jour l'élément http **InputEndpoint** dans la section **Endpoints** pour activer HTTPS :
 
