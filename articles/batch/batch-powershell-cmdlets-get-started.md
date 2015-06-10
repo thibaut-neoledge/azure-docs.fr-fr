@@ -25,11 +25,11 @@ Pour la syntaxe détaillée applet de commande, tapez ```get-help <Cmdlet_name>`
 ## Composants requis
 
 * **Aperçu du lot de** -Inscrivez-vous à la [Aperçu du lot de](https://account.windowsazure.com/PreviewFeatures), si vous n'avez pas déjà fait, pour travailler avec le service.
-* **Azure PowerShell** -voir [comment installer et configurer Azure PowerShell](powershell-install-configure.md) pour les conditions préalables et les instructions de téléchargement et d'installation. Applets de commande de lot ont été introduites dans la version 0.8.10 et les versions ultérieures.
+* **Azure PowerShell** -voir [comment installer et configurer Azure PowerShell](../powershell-install-configure.md) pour les conditions préalables et les instructions de téléchargement et d'installation. Applets de commande de lot ont été introduites dans la version 0.8.10 et les versions ultérieures.
 
 ## Utilisez les applets de commande du lot
 
-Utilisez les procédures standard pour démarrer PowerShell Azure et [se connecter à vos abonnements Azure](powershell-install-configure.md#Connect). En outre :
+Utilisez les procédures standard pour démarrer PowerShell Azure et [se connecter à vos abonnements Azure](../powershell-install-configure.md#Connect). En outre :
 
 * **Abonnement Azure sélectionnez** - si vous avez plus à l'abonnement, sélectionnez l'abonnement où vous avez ajouté la fonctionnalité d'aperçu de lot :
 
@@ -37,7 +37,7 @@ Utilisez les procédures standard pour démarrer PowerShell Azure et [se connect
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Passer en mode AzureResourceManage** -lot les applets de commande sont fournis dans le module Azure Resource Manager. Voir [à l'aide de Windows PowerShell avec le Gestionnaire de ressources](powershell-azure-resource-manager.md) pour plus d'informations. Pour utiliser ce module, exécutez le [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) applet de commande :
+* **Passer en mode AzureResourceManage** -lot les applets de commande sont fournis dans le module Azure Resource Manager. Voir [à l'aide de Windows PowerShell avec le Gestionnaire de ressources](../powershell-azure-resource-manager.md) pour plus d'informations. Pour utiliser ce module, exécutez le [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) applet de commande :
 
     ```
     Switch-AzureMode -Name AzureResourceManager
