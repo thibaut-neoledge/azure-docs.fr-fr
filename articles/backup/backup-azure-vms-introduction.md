@@ -119,7 +119,7 @@ En savoir plus sur les [Agent de machine virtuelle](https://go.microsoft.com/fwL
 - Entre régions sauvegarde et restauration n'est pas pris en charge.
 - Ordinateur virtuel à l'aide du service de sauvegarde Azure est uniquement pris en charge dans Sélectionner des régions. Vérifier la liste de [prise en charge des régions](http://azure.microsoft.com/regions/#services). Si la région que vous recherchez est aujourd'hui non pris en charge, il n'apparaît pas dans la liste déroulante lors de la création du coffre.
 - Sauvegarde des machines virtuelles à l'aide du service de sauvegarde Azure est uniquement pris en charge uniquement pour certaines versions de système d'exploitation :
-  - **Linux**: la liste des distributions approuvées par Azure est disponible [ici](virtual-machines-linux-endorsed-distributions.md). Autres Bring-votre-propriétaire-distributions Linux doivent fonctionner tant que l'Agent de machine virtuelle est disponible sur l'ordinateur virtuel.
+  - **Linux**: la liste des distributions approuvées par Azure est disponible [ici](../virtual-machines-linux-endorsed-distributions.md). Autres Bring-votre-propriétaire-distributions Linux doivent fonctionner tant que l'Agent de machine virtuelle est disponible sur l'ordinateur virtuel.
   - **Windows Server**: les Versions antérieures de Windows Server 2008 R2 ne sont pas pris en charge.
 
 S'il existe des fonctionnalités que vous aimeriez voir inclus, [nous envoyer vos commentaires](http://aka.ms/azurebackup_feedback).
@@ -133,4 +133,4 @@ Pour commencer avec la sauvegarde des machines virtuelles, découvrez comment :
 
 + Surveiller les tâches de sauvegarde
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

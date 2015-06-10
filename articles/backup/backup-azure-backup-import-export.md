@@ -26,7 +26,7 @@ Avec la sauvegarde de Azure et Azure Import/Export, il est simple et directe pou
 
 ## Composants requis
 
-1. Il est important de vous familiariser avec le flux de travail Azure importation exportation répertoriée [ici](storage-import-export-service.md).
+1. Il est important de vous familiariser avec le flux de travail Azure importation exportation répertoriée [ici](../storage-import-export-service.md).
 
 2. Avant de lancer le flux de travail, assurez-vous qu'un coffre de sauvegarde Azure a été créé, les informations d'identification de coffre ont été téléchargées, Azure Backup agent a été installé sur le serveur de votre Client de Windows Server et Windows ou System Center Data Protection Manager (SCDPM) et que l'ordinateur est inscrit dans le coffre de sauvegarde Azure.
 
@@ -42,7 +42,7 @@ Avec la sauvegarde de Azure et Azure Import/Export, il est simple et directe pou
 
 
 ## Workflow
-Les informations fournies dans cette section concerne la fin de la **sauvegarde hors connexion** workflow afin de vos données peuvent être remises à un centre de données Azure et téléchargées vers le stockage Azure. Si vous avez des questions sur le service d'importation ou de n'importe quel aspect du processus, consultez la vue d'ensemble du service importation référencée [ci-dessus](storage-import-export-service.md).
+Les informations fournies dans cette section concerne la fin de la **sauvegarde hors connexion** workflow afin de vos données peuvent être remises à un centre de données Azure et téléchargées vers le stockage Azure. Si vous avez des questions sur le service d'importation ou de n'importe quel aspect du processus, consultez la vue d'ensemble du service importation référencée [ci-dessus](../storage-import-export-service.md).
 
 ### Initier la sauvegarde hors connexion
 
@@ -119,7 +119,7 @@ Une fois l'opération terminée, un *. AIBBlob* et *. BaseBlob* fichier est cré
 Une fois que les données de sauvegarde initiales sont disponibles dans votre compte de stockage, l'agent de sauvegarde Azure copie le contenu des données à partir de ce compte au compte de stockage de sauvegarde avec clients multiples. Dans la prochaine heure de sauvegarde planifiée, l'agent de sauvegarde Azure effectue la sauvegarde incrémentielle sur la copie de sauvegarde initiale.
 
 ## Étapes suivantes
-+ Pour toute question sur le flux de travail d'importation/exportation Azure, reportez-vous à ce [article](storage-import-export-service.md).
++ Pour toute question sur le flux de travail d'importation/exportation Azure, reportez-vous à ce [article](../storage-import-export-service.md).
 
 + Reportez-vous à la section sauvegarde hors connexion de la sauvegarde Azure [FAQ](backup-azure-backup-faq.md) pour toute question concernant le flux de travail
 
@@ -134,4 +134,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

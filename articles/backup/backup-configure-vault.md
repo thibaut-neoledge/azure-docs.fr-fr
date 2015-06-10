@@ -94,4 +94,4 @@ Une fois l'agent installé, vous pouvez utiliser l'interface de gestion locale a
 - Pour en savoir plus sur Azure Backup, consultez la page [Présentation de la Sauvegarde Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

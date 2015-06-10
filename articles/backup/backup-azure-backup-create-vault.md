@@ -63,4 +63,4 @@ Si vous utilisez Azure comme un point de terminaison de stockage de sauvegarde t
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
