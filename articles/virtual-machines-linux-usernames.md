@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Sélection de noms d'utilisateur pour Linux dans Azure" 
-	description="Apprenez à sélectionner des noms d'utilisateur pour une machine virtuelle Linux dans Azure." 
+	description="Apprenez à sélectionner des noms d'utilisateur pour une machine virtuelle Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/16/2015" 
 	ms.author="szark"/>
 
 
 
-# Sélection de noms d'utilisateur pour Linux dans Azure #
+#Sélection de noms d'utilisateur pour Linux dans Azure#
 
-Quand vous créez une machine virtuelle Linux, vous pouvez choisir un nom d'utilisateur ou accepter le nom par défaut,  *azureuser*. Dans la plupart des cas, ce nouvel utilisateur n'existe pas dans l'image de base et est créé pendant le processus de déploiement. Si l'utilisateur existe dans l'image de machine virtuelle de base, l'agent Linux Azure configure simplement le mot de passe (et/ou la clé SSH) pour cet utilisateur selon les informations indiquées lors de la création de la machine virtuelle.
+Quand vous créez une machine virtuelle Linux, vous pouvez choisir un nom d’utilisateur ou accepter le nom par défaut, *azureuser*. Dans la plupart des cas, ce nouvel utilisateur n'existe pas dans l'image de base et est créé pendant le processus de déploiement. Si l'utilisateur existe dans l'image de machine virtuelle de base, l'agent Linux Azure configure simplement le mot de passe (et/ou la clé SSH) pour cet utilisateur selon les informations indiquées lors de la création de la machine virtuelle.
 
-**Toutefois**, Linux définit un ensemble de noms d'utilisateur à ne pas utiliser pour la création de nouveaux utilisateurs. Le processus de déploiement **échoue** si vous essayez de déployer une machine virtuelle Linux via un utilisateur système existant, défini comme utilisateur avec un ID utilisateur de 0 à 99. L'utilisateur  `root`, avec l'ID utilisateur 0, illustre bien cela.
+**Toutefois**, Linux définit un ensemble de noms d’utilisateur à ne pas utiliser pour la création de nouveaux utilisateurs. Le processus d’approvisionnement **échoue** si vous essayez d’approvisionner une machine virtuelle Linux via un utilisateur système existant, défini comme utilisateur avec un ID utilisateur de 0 à 99. L’utilisateur `root`, présentant l’ID utilisateur 0, en est un bon exemple.
 
- - Voir aussi : [Base standard Linux : plages d'ID utilisateur](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
+ - Voir aussi [Base standard Linux : plages d’ID utilisateur](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html).
 
-Voici les noms d'utilisateurs que vous ne devez pas utiliser pour déployer une machine virtuelle Linux. Nous vous recommandons de **ne pas utiliser ces noms d'utilisateurs**, car le processus de déploiement risque d'échouer
+Voici les noms d'utilisateurs que vous ne devez pas utiliser pour déployer une machine virtuelle Linux. Nous vous recommandons de **ne pas utiliser ces noms d’utilisateur**, car le processus d’approvisionnement risque d’échouer.
 
 
 ## openSUSE
@@ -244,5 +244,4 @@ Voici les noms d'utilisateurs que vous ne devez pas utiliser pour déployer une 
 - whoopsie
 - www-data
 
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

@@ -3,7 +3,7 @@
 	description="Cet article fournit des conseils sur l'utilisation du stockage Premium Azure avec SQL Server exécuté sur des machines virtuelles Azure. Il inclut des exemples de nouveaux déploiements et de migrations de déploiements SQL Server existants sur IaaS." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="rothja" 
+	authors="danielsollondon" 
 	manager="jeffreyg"
 	editor=""/>
 
@@ -31,6 +31,8 @@ Il est important de comprendre le processus complet d'utilisation du stockage Pr
 - Exemple complet montrant les étapes Azure, Windows et SQL Server pour la migration d'une implémentation AlwaysOn existante.
 
 Pour plus de détails sur l'utilisation de SQL Server dans les machines virtuelles Azure, consultez la rubrique [SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md) de la bibliothèque.
+
+**Réviseurs techniques :** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
 
 ## Configuration requise pour le stockage Premium
 
@@ -1139,4 +1141,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!--HONumber=54-->
+<!---HONumber=58-->

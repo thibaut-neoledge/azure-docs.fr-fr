@@ -1,19 +1,8 @@
-<properties services="virtual-machines" title="Setting up PowerShell for Resource Manager templates" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="infrastructure"
-   ms.date="04/27/2015"
-   ms.author="josephd" />
-
 ## Configuration de PowerShell pour les modèles du Gestionnaire de ressources
-
+ 
 Avant de pouvoir utiliser Azure PowerShell avec le Gestionnaire de ressources, vous devez avoir les bonnes versions de Windows PowerShell et Azure PowerShell.
 
-### Étape 1 : vérifier les versions de PowerShell
+### Vérifier les versions de PowerShell
 
 Vérifiez que vous avez Windows PowerShell version 3.0 ou 4.0. Pour trouver la version de Windows PowerShell, tapez cette commande à une invite de commandes Windows PowerShell.
 
@@ -48,7 +37,7 @@ Le type d'information suivant s'affiche :
 
 Si vous n'avez pas la version 0.9.0 ou version ultérieure, vous devez supprimer Azure PowerShell à l'aide de Programmes et fonctionnalités du Panneau de configuration, puis installer la version la plus récente. Pour plus d'informations, consultez la rubrique [Comment installer et configurer Azure PowerShell](powershell-install-configure.md).
 
-### Étape 2 : configurer vos compte et abonnement Azure
+### Configurer vos compte et abonnement Azure
 
 Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -76,17 +65,16 @@ Le type d'information suivant s'affiche :
 Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à l'invite de commandes Azure PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current	
+	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Pour plus d'informations sur les comptes et les abonnements Azure, consultez [Procédure : connexion à votre abonnement](powershell-install-configure.md#Connect).
 
-### Étape 3 : basculer sur le module Azure Resource Manager
+### Basculer sur le module Azure Resource Manager
 
 Pour utiliser le module Azure Resource Manager, vous devez passer de l'ensemble de commandes Azure par défaut à l'ensemble de commandes Azure Resource Manager. Exécutez cette commande.
 
 	Switch-AzureMode AzureResourceManager
 
-> [AZURE.NOTE]Vous pouvez revenir à l'ensemble de commandes avec la commande **Switch-AzureMode AzureServiceManagement**.
+> [AZURE.NOTE]Vous pouvez revenir à l’ensemble de commandes avec la commande **Switch-AzureMode AzureServiceManagement**.
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->

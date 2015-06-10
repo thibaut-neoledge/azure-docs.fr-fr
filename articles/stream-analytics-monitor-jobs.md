@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Surveillance des travaux Stream Analytics | Azure" 
-	description="Surveillance des travaux Stream Analytics par programme." 
+	pageTitle="Surveiller par programme les tâches Stream Analytics | Microsoft Azure" 
+	description="Découvrez comment surveiller par programme les tâches Stream Analytics créées via des API REST, le kit de développement logiciel Microsoft Azure SDK ou Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Surveillance des travaux Stream Analytics par programme
-Cet article explique comment activer la surveillance d'un travail Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l'activer manuellement sur le portail Azure. Pour cela, accédez à la page de surveillance du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance seront affichées dans l'onglet « Surveiller » du portail Azure pour le travail Stream Analytics.
+# Surveiller par programme des tâches Stream Analytics 
+Cet article explique comment activer la surveillance d'une tâche Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l'activer manuellement sur le portail Azure. Pour cela, accédez à la page de surveillance du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance seront affichées dans l'onglet « Surveiller » du portail Azure pour le travail Stream Analytics.
 
 ![Onglet Surveiller les travaux](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
@@ -45,6 +45,9 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -135,7 +138,13 @@ Le code suivant définit les variables nécessaires et les clients de gestion.
 
 Le code suivant permet d'activer la surveillance pour un travail Stream Analytics **existant**. La première partie du code exécute une requête GET sur le service Stream Analytics pour récupérer des informations sur le travail Stream Analytics spécifique. Elle utilise la propriété « Id » (récupérée à partir de la requête GET) en tant que paramètre pour la méthode Put dans la seconde moitié du code qui envoie une requête PUT au service Insights afin d'activer la surveillance du travail Stream Analytics.
 
-> [AZURE.WARNING]- Si vous avez déjà activé la surveillance pour un travail Stream Analytics différent, au moyen du portail Azure ou par programme avec le code ci-dessous, **nous vous recommandons de fournir le même nom de compte de stockage que celui utilisé lorsque vous avez précédemment activé la surveillance.** - Le compte de stockage est lié à la région dans laquelle vous avez créé le travail Stream Analytics et non pas au travail même. - Tous les travaux Stream Analytics (et toutes les autres ressources Azure) dans cette région partagent ce compte de stockage pour stocker les données de surveillance. Si vous fournissez un autre compte de stockage, ceci pourrait avoir des effets indésirables sur la surveillance des autres travaux Stream Analytics et/ou autres ressources Azure. - Le nom du compte de stockage utilisé pour remplacer ```“<YOUR STORAGE ACCOUNT NAME>”``` ci-dessous doit correspondre à un compte de stockage qui se trouve dans le même abonnement que le travail Stream Analytics pour lequel vous activez la surveillance.
+> [AZURE.WARNING]Si vous avez déjà activé la surveillance pour une tâche Stream Analytics différente par le passé, via le portail Microsoft Azure ou par programme via le code ci-dessous, **nous vous recommandons de fournir un nom de compte de stockage identique cette fois-ci.**
+> 
+> Le compte de stockage est lié à la région dans laquelle vous avez créé la tâche Stream Analytics, pas spécifiquement à la tâche en soi.
+> 
+> Toutes les tâches Stream Analytics (et l’ensemble des autres ressources Microsoft Azure) d’une même région partagent ce compte de stockage afin d’y consigner les données de surveillance. Si vous communiquez un compte de stockage différent, cela peut entraîner des effets collatéraux imprévus sur la surveillance de vos autres tâches Stream Analytics et/ou autres ressources Microsoft Azure.
+> 
+> Le compte de stockage utilisé pour remplacer la désignation ```“<YOUR STORAGE ACCOUNT NAME>”``` ci-dessous doit se trouver dans l’abonnement de la tâche Stream Analytics pour laquelle vous avez activé la surveillance.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -157,7 +166,7 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -168,4 +177,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

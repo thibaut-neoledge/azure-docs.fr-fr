@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Déploiement et gestion de machines virtuelles à l’aide des modèles du Gestionnaire de ressources Azure et de l’interface de ligne de commande Azure
 
-Cet article fournit des conseils sur l’automatisation des tâches courantes de déploiement et de gestion des machines virtuelles Azure à l’aide des modèles du Gestionnaire de ressources Azure et de l’interface de ligne de commande Azure, ainsi que des liens pour en savoir plus sur l’automatisation des machines virtuelles.
+Cet article montre comment utiliser les modèles Microsoft Azure Manager et l’interface de ligne de commande Microsoft Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de Microsoft Azure Virtual Machines. Pour connaître les modèles supplémentaires utilisables, consultez les pages [Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application](virtual-machines-app-frameworks.md).
+
+Tâches courantes :
+
+- [Création rapide d’une machine virtuelle dans Microsoft Azure](#quick-create-a-vm-in-azure)
+- [Déploiement d’une machine virtuelle dans Microsoft Azure à partir d’un modèle](#deploy-a-vm-in-azure-from-a-template)
+- [Création d’une machine virtuelle à partir d’une image personnalisée](#create-a-custom-vm-image) 
+- [Déploiement d’une machine virtuelle avec un réseau virtuel et un équilibrage de charge](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Suppression d’un groupe de ressources](#remove-a-resource-group)
+- [Affichage du journal d’un déploiement de groupe de ressources](#show-the-log-for-a-resource-group-deployment)
+- [Affichage des informations relatives à une machine virtuelles](#display-information-about-a-virtual-machine)
+- [Connexion à une machine virtuelle Linux](#log-on-to-a-linux-based-virtual-machine)
+- [Arrêt d’une machine virtuelle](#stop-a-virtual-machine)
+- [Démarrage d’une machine virtuelle](#start-a-virtual-machine)
+- [Association d’un disque de données](#attach-a-data-disk)
+
+
 
 ## Préparation
 
 Avant de pouvoir utiliser l’interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l’interface de ligne de commande Azure, ainsi qu’un compte professionnel ou scolaire.
 
-### Étape 1 : mise à jour vers la version 0.9.0 de l’interface de ligne de commande Azure
+### Mettre à jour votre interface de ligne de commande Microsoft Azure vers la version 0.9.0 ou une version ultérieure
 
-Tapez `azure --version` pour savoir si vous avez déjà installé la version 0.9.0.
+Entrez `azure --version` pour savoir si vous avez déjà installé la version 0.9.0 ou une version ultérieure.
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Si cela n’est pas le cas, vous devez [installer l’interface de ligne de commande Azure](xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs ou via **npm** en tapant `npm update -g azure-cli`.
+Si vous disposez d’une version antérieure, il vous faudra [installer l’interface de ligne de commande Microsoft Azure](xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs ou via **npm**, en saisissant `npm update -g azure-cli`.
 
-### Étape 2 : configuration de votre compte et de votre abonnement Azure
+Vous pouvez également exécuter l’interface de ligne de commande Microsoft Azure en tant que conteneur Docker à l’aide de l’[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
+
+	docker run -it microsoft/azure-cli
+
+### Configurer votre compte et votre abonnement Microsoft Azure
 
 Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
 Vous devez avoir un compte professionnel ou scolaire pour utiliser des modèles de gestion des ressources Azure. Si cela est le cas, vous pouvez taper `azure login`, entrer votre nom et votre mot de passe d’utilisateur et vous connecter.
 
-> [AZURE.NOTE]Si cela n’est pas le cas, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure, consultez la page [Connexion à votre compte Azure](xplat-cli-connect.md).
+> [AZURE.NOTE]Si cela n’est pas le cas, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Microsoft Azure actuel, consultez la page [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
@@ -54,11 +74,11 @@ Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abon
     
 Vous pouvez définir l’abonnement Azure actuel en tapant
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 avec le nom d’abonnement ou l’ID doté des ressources que vous souhaitez gérer.
 
-### Étape 3 : passage en mode de groupe de ressources d’interface de ligne de commande Azure
+### Passer en mode de groupe de ressources d’interface de ligne de commande Microsoft Azure
 
 Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Type
 
@@ -83,7 +103,7 @@ Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe
 
 Pour en savoir plus sur les groupes de ressources Azure, cliquez [ici](resource-groups-overview.md). Si vous êtes intéressé par la création de modèles, consultez la page [Création de modèles du Gestionnaire de ressources Azure](resource-group-authoring-templates.md).
 
-## Tâche courante : création rapide d’une machine virtuelle dans Azure
+## Créer rapidement une machine virtuelle dans Microsoft Azure
 
 Parfois, comme par exemple lorsque vous voulez tester quelque chose sur une nouvelle machine virtuelle, vous savez quelle image vous voulez utiliser et vous avez immédiatement besoin d’une machine virtuelle de cette image sans vous préoccuper de son infrastructure. C’est dans ce genre de situation qu’il faut utiliser la commande `azure vm quick-create` et transmettre les arguments nécessaires à la création d’une machine virtuelle et son infrastructure.
 
@@ -105,7 +125,9 @@ Commencez par créer votre groupe de ressources.
 
 Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez la page [Navigation et sélection d’images de machines virtuelles Azure avec PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md). Mais pour ce démarrage rapide, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
 
-| Éditeur | ImageOffer | ImageSku | ComputeImageVersion |
+> [AZURE.NOTE]Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans la langue du modèle et dans l’interface de ligne de commande Microsoft Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
+
+| PublisherName | Offer | Sku | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7.0.201503 |
 | OpenLogic | CentOS | 7.1 | 7.1.201504 |
@@ -117,8 +139,10 @@ Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide 
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Entreprise | 1.0.0 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour l’entrepôt de données | 12.0.2430 |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Entreprise, optimisé pour le traitement transactionnel en ligne | 12.0.2430 |
-| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
 | Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 3.0.201503 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 4.0.201503 |
 | MicrosoftWindowsServer | WindowsServer | Windows Server Technical Preview | 5.0.201504 |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
@@ -131,7 +155,7 @@ Créez simplement votre machine virtuelle en entrant la commande `azure vm quick
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@ Créez simplement votre machine virtuelle en entrant la commande `azure vm quick
     
 Et vous voici avec une nouvelle machine virtuelle.
 
-## Tâche courante : déploiement d’une machine virtuelle dans Azure à partir d’un modèle
+## Déployer une machine virtuelle dans Microsoft Azure à partir d’un modèle
 
 Suivez les instructions des sections suivantes pour déployer une machine virtuelle Azure à l’aide d’un modèle avec l’interface de ligne de commande Azure. Ce modèle crée une seule machine virtuelle dans un réseau virtuel avec un seul sous-réseau et, contrairement à la commande `azure vm quick-create`, il permet de décrire précisément ce que vous voulez et de le répéter sans erreurs. Voici le résultat du modèle :
 
@@ -449,7 +473,7 @@ Voici un exemple :
     adminPassword: password
     dnsNameForPublicIP: newdomainname
     
-Le type d’information suivant s’affiche :
+Le type d'information suivant s'affiche :
 
     + Initializing template configurations and parameters                          
     + Creating a deployment                                                        
@@ -477,7 +501,7 @@ Le type d’information suivant s’affiche :
     
 
 
-## Tâche courante : création d’une image de machine virtuelle personnalisée
+## Créer une image de machine virtuelle
 
 Maintenant que vous avez vu l’utilisation basique des modèles, vous pouvez utiliser des instructions similaires pour créer une machine virtuelle personnalisée à partir d’un fichier .vhd à l’aide d’un modèle utilisant l’interface de ligne de commande Azure. La différence est qu’ici, ce modèle crée une seule machine virtuelle à partir d’un disque dur virtuel spécifié.
 
@@ -748,9 +772,9 @@ Ce modèle vous permet de créer 2 machines virtuelles sous un équilibrage de 
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
  
-Procédez comme suit pour déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge à l’aide d’un modèle du Gestionnaire de ressources dans le référentiel de modèle Github avec des commandes PowerShell Azure.
+Procédez comme suit pour déployer une application de plusieurs machines virtuelles utilisant un réseau virtuel et un équilibrage de charge à l’aide d’un modèle du Gestionnaire des ressources dans le référentiel de modèles Github avec des commandes Azure PowerShell.
 
-### Étape 1 : examen du fichier JSON pour obtenir le modèle
+### Étape 1 : Examen du fichier JSON pour obtenir le modèle
 
 Voici le contenu du fichier JSON relatif au modèle. La version la plus récente est disponible [ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Cette rubrique utilise le commutateur `--template-uri` pour appeler le modèle, mais vous pouvez également utiliser le commutateur `--template-file` pour transmettre une version locale.
 
@@ -1198,7 +1222,7 @@ Puis, recherchez myVM1 :
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@ Puis, recherchez myVM1 :
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@ Puis, recherchez myVM1 :
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE]Si vous souhaitez stocker et manipuler la sortie des commandes de la console par programme, vous pouvez utiliser un outil d’analyse JSON tel que **[q](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
-
-## Affichage des informations sur une machine virtuelle
-
-Il s’agit d’une tâche de base courante. Utilisez-la pour obtenir des informations ou effectuer des tâches sur une machine virtuelle, ou obtenir un résultat à stocker dans une variable.
-
-Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < and > :
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-Pour stocker le résultat dans une variable $vm comme un document JSON, exécutez :
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-Ou vous pouvez diriger le stdout vers un fichier.
 
 ## Connexion à une machine virtuelle Linux
 
@@ -1271,13 +1281,13 @@ Exécutez cette commande :
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud au cas où la machine virtuelle est la dernière de ce service cloud. <br><br> Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
+>[AZURE.IMPORTANT]Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br> Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
 
-## Démarrage d’une machine virtuelle
+## Démarrer une machine virtuelle
 
 Exécutez cette commande : Azure Resource Manager Overview azure vm start <group name> <virtual machine name>
 
-## Association d’un disque de données
+## Associer un disque de données
 
 Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
 
@@ -1294,14 +1304,8 @@ Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linu
 
 ## Étapes suivantes
 
-Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources](xplat-cli-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Vue d’ensemble du Gestionnaire de ressources Azure](resource-group-overview.md).
+Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application](virtual-machines-app-frameworks.md).
 
-
-
-
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

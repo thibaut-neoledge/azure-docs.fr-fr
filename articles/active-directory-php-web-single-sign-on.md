@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Authentification unique avec Azure Active Directory (PHP)" 
 	description="Apprenez à créer une application web PHP qui utilise l'authentification unique avec Azure Active Directory." 
 	services="active-directory" 
@@ -18,32 +18,32 @@
 
 # Authentification unique web avec PHP et Azure Active Directory
 
-## <a name="introduction"></a>Introduction
+##<a name="introduction"></a>Introduction
 
-Ce didacticiel va expliquer aux développeurs PHP comment tirer parti d'Azure Active Directory pour activer l'authentification unique pour les utilisateurs des clients Office 365. Vous apprendrez à :
+Ce didacticiel va expliquer aux développeurs PHP comment tirer parti d'Azure Active Directory pour activer l'authentification unique pour les utilisateurs des clients Office 365. Vous apprendrez à :
 
-* configurer l'application web dans le client d'une société ;
+* configurer l'application Web dans le client d'une société ;
 * protéger l'application avec WS-Federation.
 
-### Conditions préalables
-Les éléments de développement suivants sont requis pour cette procédure pas à pas :
+###Configuration requise
+Les éléments de développement suivants sont requis pour cette procédure pas à pas :
 
 * [Exemple de code PHP pour Azure Active Directory]
 * [Eclipse PDT 3.0.x All In Ones]
-* PHP 5.3.1 (via Web Platform Installer)
-* IIS (Internet Information Services) 7.5 avec SSL activé
+* PHP 5.3.1 (via Web Platform Installer)
+* IIS (Internet Information Services) 7.5 avec SSL activé
 * Windows PowerShell
-* [Applets de commande PowerShell pour Office 365]
+* [Applets de commande PowerShell pour Office 365]
 
-## Étape 1 : Création d'une application PHP
+## Étape 1 : création d'une application PHP
 Cette étape décrit la création d'une application PHP simple qui représentera une source protégée. L'accès à cette ressource sera accordé via une authentification fédérée gérée par le service d'émission de jeton de sécurité (STS) d'une société, qui est décrit ultérieurement dans ce didacticiel.
 
 1. Ouvrez une nouvelle instance d'Eclipse.
-2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Nouveau projet PHP**. 
-3. Dans la boîte de dialogue **Nouveau projet PHP**, nommez le projet  *phpSample*, puis cliquez sur **Terminer**.
-4. Dans le menu **Explorateur PHP** de gauche, cliquez avec le bouton droit sur  *phpProject*, cliquez sur **Nouveau**, puis sur **Fichier PHP**.
-5. Dans la boîte de dialogue **Nouveau fichier PHP**, nommez le projet **index.php**, puis cliquez sur **Terminer**.
-6. Remplacez le balisage généré par le code suivant, puis enregistrez le fichier **index.php** :
+2. Dans le menu **File**, cliquez sur **New**, puis sur **New PHP Project**. 
+3. Dans la boîte de dialogue **New PHP Project**, nommez le projet *phpSample*, puis cliquez sur **Finish**.
+4. Dans le menu **PHP Explorer** de gauche, cliquez avec le bouton droit sur *phpProject*, cliquez sur **New**, puis sur **PHP File**.
+5. Dans la boîte de dialogue **New PHP File**, nommez le projet **index.php**, puis cliquez sur **Finish**.
+6. Remplacez le balisage généré par le code suivant, puis enregistrez le fichier **index.php** :
 
 		<!DOCTYPE>
 		<html>
@@ -56,35 +56,35 @@ Cette étape décrit la création d'une application PHP simple qui représentera
 		</body>
 		</html> 
 
-7. Dans l'invite de commandes, tapez  *inetmgr* puis appuyez sur Entrée pour ouvrir le **Gestionnaire des services IIS**.
+7. Dans l'invite de commandes, tapez **inetmgr**, puis appuyez sur Entrée pour ouvrir le *Gestionnaire des services Internet (IIS)*.
 
-8. Dans le Gestionnaire des services IIS, développez le dossier **Sites** dans le menu de gauche, cliquez avec le bouton droit sur **Site Web par défaut**, puis cliquez sur **Ajouter une application...**.
+8. Dans le Gestionnaire des services Internet, développez le dossier **Sites** dans le menu de gauche, cliquez avec le bouton droit sur **Site web par défaut**, puis cliquez sur **Ajouter une application...**.
 
-9. Dans la boîte de dialogue **Ajouter une application**, définissez la valeur **Alias** sur  *phpSample* et le **Chemin physique** sur le chemin du fichier où vous avez créé le projet PHP.
+9. Dans la boîte de dialogue **Ajouter une application**, définissez la valeur **Alias** sur *phpSample* et le **Chemin physique** sur le chemin du fichier où vous avez créé le projet PHP.
 
-10. Dans Eclipse, dans le menu **Exécuter**, cliquez sur **Exécuter**.
+10. Dans Eclipse, dans le menu **Run**, cliquez sur **Run**.
 
-11. Dans le menu **Exécuter l'application Web PHP**, cliquez sur **OK**.
+11. Dans le menu **Run PHP Web Application**, cliquez sur **OK**.
 
-12. La page **index.php** s'ouvre sous un nouvel onglet dans Eclipse. Cette page affiche simplement le texte : *Index Page*. 
+12. La page **index.php** s'ouvre sous un nouvel onglet dans Eclipse. Cette page affiche simplement le texte : *Page d’index*.
 
-## Étape 2 : Configuration de l'application dans le client d'annuaire d'une société
-Cette étape explique comment l'administrateur d'une société utilisant Azure Active Directory met en service l'application PHP dans son client et configure l'authentification unique. Une fois cette étape terminée, les employés de la société peuvent s'authentifier pour accéder à l'application web en utilisant leurs comptes Office 365.
+## Étape 2 : configuration de l'application dans le client d'annuaire d'une société
+Cette étape explique comment l'administrateur d'une société utilisant Azure Active Directory met en service l'application PHP dans son client et configure l'authentification unique. Une fois cette étape terminée, les employés de la société peuvent s'authentifier pour accéder à l'application Web en utilisant leurs comptes Office 365.
 
 Le processus de configuration commence par la création d'un principal du service pour l'application. Azure Active Directory utilise les principaux du service pour enregistrer et authentifier des applications dans l'annuaire.
 
-1. Si ce n'est pas déjà fait, téléchargez et installez les cmdlets PowerShell pour Office 365.
-2. Dans le menu **Démarrer**, exécutez la console **Module Azure Active Directory pour Windows PowerShell**. Celle-ci fournit un environnement en ligne de commande permettant de configurer des attributs de votre client Office 365, comme la création et la modification des principaux du service.
-3. Pour importer le module **MSOnlineExtended** requis, entrez la commande suivante, puis appuyez sur Entrée :
+1. Si ce n'est pas déjà fait, téléchargez et installez les cmdlets PowerShell pour Office 365.
+2. Dans le menu  **Démarrer**, exécutez la console du **module Azure Active Directory pour Windows PowerShell**. Celle-ci fournit un environnement en ligne de commande permettant de configurer des attributs de votre client Office 365, comme la création et la modification des principaux du service.
+3. Pour importer le module **MSOnlineExtended** requis, entrez la commande suivante, puis appuyez sur Entrée :
 
 		Import-Module MSOnlineExtended -Force
-4. Pour vous connecter à votre annuaire Office 365, vous devez fournir les informations d'identification de l'administrateur de la société. Tapez la commande suivante et appuyez sur Entrée, puis entrez vos informations d'identification lorsque vous y êtes invité :
+4. Pour vous connecter à votre annuaire Office 365, vous devez fournir les informations d'identification de l'administrateur de la société. Tapez la commande suivante et appuyez sur Entrée, puis entrez vos informations d'identification lorsque vous y êtes invité :
 
 		Connect-MsolService
-5. À présent, vous allez créer un principal du service pour l'application. Tapez la commande suivante, puis appuyez sur Entrée :
+5. ﻿À présent, vous allez créer un principal du service pour l'application. Tapez la commande suivante, puis appuyez sur Entrée :
 
 		New-MsolServicePrincipal -ServicePrincipalNames @("phpSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
-Cette étape affiche des informations similaires aux suivantes :
+Cette étape affiche des informations similaires aux suivantes :
 
 		The following symmetric key was created as one was not supplied qY+Drf20Zz+A4t2w e3PebCopoCugO76My+JMVsqNBFc=
 		DisplayName           : Federation Sample PHP Website
@@ -98,25 +98,24 @@ Cette étape affiche des informations similaires aux suivantes :
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE] 
-> Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
+> [AZURE.NOTE]Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
 
-6. Dans la dernière étape, vous allez définir l'URL de réponse de votre application. Celle-ci reçoit les réponses après les tentatives d'authentification. Tapez les commandes suivantes, puis appuyez sur Entrée :
+6. Dans la dernière étape, vous allez définir l'URL de réponse de votre application. Celle-ci reçoit les réponses après les tentatives d'authentification. Tapez les commandes suivantes, puis appuyez sur Entrée :
 
-		$replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/phpSample" 
+		$replyUrl = New-MsolServicePrincipalAddresses –Address "https://localhost/phpSample" 
 
-		Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
+		Set-MsolServicePrincipal –AppPrincipalId "7829c758-2bef-43df-a685-717089474505" –Addresses $replyUrl 
 	
 L'application web est à présent configurée dans l'annuaire et peut être utilisée pour l'authentification unique web par les employés de la société.
 
-## Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés
+## Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés
 Dans cette étape, vous allez ajouter la prise en charge de la connexion fédérée en utilisant Windows Identity Foundation (WIF) et les bibliothèques simpleSAML.php que vous avez téléchargées avec l'exemple de code lorsque vous avez passé en revue la configuration requise. Vous allez également ajouter une page de connexion et configurer l'approbation entre l'application et le client d'annuaire.
 
-1. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **Nouveau**, puis sur **Fichier**. 
+1. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **File**. 
 
-2. Dans la boîte de dialogue **Nouveau fichier**, nommez le fichier **federation.ini**, puis cliquez sur **Terminer**.
+2. Dans la boîte de dialogue **New File**, nommez le fichier **federation.ini**, puis cliquez sur **Finish**.
 
-3. Dans le nouveau fichier **federation.ini**, entrez les informations suivantes, en définissant les valeurs à l'aide des informations que vous avez enregistrées lors de l'étape 2, lorsque vous avez créé le principal du service :
+3. Dans le nouveau fichier **federation.ini**, entrez les informations suivantes, en définissant les valeurs à l'aide des informations que vous avez enregistrées lors de l'étape 2, lorsque vous avez créé le principal du service :
 
 		federation.trustedissuers.issuer=https://accounts.accesscontrol.windows.net/v2/wsfederation
 		federation.trustedissuers.thumbprint=qY+Drf20Zz+A4t2we3PebCopoCugO76My+JMVsqNBFc=
@@ -126,13 +125,13 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE] Les valeurs **audienceuris** et **realm** doivent être précédées de " spn: ".
+	> [AZURE.NOTE]Les valeurs  **audienceuris** et **realm** doivent être précédées de « spn: ».
 
-4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **Nouveau**, puis sur **Fichier PHP**. 
+4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
-5. Dans la boîte de dialogue **Nouveau fichier PHP**, nommez le fichier **secureResource.php**, puis cliquez sur **Terminer**.
+5. Dans la boîte de dialogue **New PHP File**, nommez le projet **secureResource.php**, puis cliquez sur **Finish**.
 
-6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
+6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -157,7 +156,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		}
 		?> 
 
-7. Ouvrez la page **index.php** et mettez à jour son contenu pour la sécuriser, puis enregistrez-la :
+7. Ouvrez la page **index.php** et mettez à jour son contenu pour la sécuriser, puis enregistrez-la :
 
 		<?php
 		require_once (dirname(__FILE__) . '/secureResource.php');
@@ -182,7 +181,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		</body>
 		</html> 
 
-8. Dans le menu **Exécuter**, cliquez sur **Exécuter**. Vous êtes automatiquement redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter en utilisant vos informations d'identification de client d'annuaire. Par exemple,  *john.doe@fabrikam.onmicrosoft.com*.
+8. Dans le menu **Run**, cliquez sur **Run**. Vous êtes automatiquement redirigé vers la page du fournisseur d'identité Office 365, où vous pouvez vous connecter en utilisant vos informations d'identification de client d'annuaire. Par exemple, *john.doe@fabrikam.onmicrosoft.com*.
 
 ## Résumé
 Ce didacticiel vous a montré comment créer et configurer une unique application PHP cliente utilisant les capacités d'authentification unique d'Azure Active Directory.
@@ -190,17 +189,17 @@ Ce didacticiel vous a montré comment créer et configurer une unique applicatio
 Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentification unique pour des sites Web PHP est disponible sur la page <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
 
-[Étape 1 : création d'une application PHP]: #createapp
-[Étape 2 : configuration de l'application dans le client d'annuaire d'une société]: #provisionapp
-[Étape 3 : protection de l'application en utilisant WS-Federation pour la connexion des employés]: #protectapp
-[Résumé]: #summary
+[Step 1: Create a PHP Application]: #createapp
+[Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
+[Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
+[Summary]: #summary
 [Introduction]: #introduction
-[Développement d'une application cloud mutualisée avec Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
-[Kit de développement logiciel (SDK) pour Windows Identity Foundation 3.5]: http://www.microsoft.com/download/details.aspx?id=4451
-[Composant d'exécution de Windows Identity Foundation 1.0]: http://www.microsoft.com/download/details.aspx?id=17331
-[Applets de commande PowerShell pour Office 365]: http://msdn.microsoft.com/library/azure/jj151815.aspx
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/download/details.aspx?id=4451
+[Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/download/details.aspx?id=17331
+[Applets de commande PowerShell pour Office 365]: http://msdn.microsoft.com/library/azure/jj151815.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
-[Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP 
+[Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
 
-<!--HONumber=47-->
+<!---HONumber=58-->

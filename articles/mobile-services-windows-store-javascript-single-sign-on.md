@@ -45,7 +45,7 @@ Vous devez ensuite restreindre l'accès à une ressource, en l'occurrence la tab
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-Enfin, vous ajoutez le Kit de développement logiciel (SDK) Live et l'utilisez pour authentifier les utilisateurs de votre application.
+Enfin, ajoutez le Kit de développement logiciel (SDK) Live et utilisez-le pour authentifier les utilisateurs de votre application.
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet**.
 
@@ -144,4 +144,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=58-->

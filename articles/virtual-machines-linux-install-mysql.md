@@ -75,9 +75,9 @@ Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre mach
 - Après le téléchargement, cliquez sur le fichier exécutable « PUTTY.EXE ». Définissez les paramètres comme suit.
 
 
-     The “Host Name (or IP address)” is the URL as “DNS NAME” when you create an image.
+     Le champ Nom d’hôte (ou adresse IP) correspond à l’URL NOM DNS lorsque vous créez une image.
      
-     The “Port” we can chose 22.  This is default port of SSH services.
+     Nous pouvons choisir le Port 22. Il s’agit du port par défaut des services SSH.
 
    ![image](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
  
@@ -237,4 +237,5 @@ Nous allons utiliser Ubuntu 14.04 LTS comme exemple pour cet article.
     Pour que MySQL démarre au démarrage du système, exécutez la commande suivante :
 
            #mysql-test:~ # insserv mysql
-<!--HONumber=52-->
+
+<!---HONumber=58-->

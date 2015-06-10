@@ -1,6 +1,6 @@
-﻿<properties
+<properties
    pageTitle="Extension de script personnalisé pour Windows"
-   description="Automatisation des tâches de configuration de machine virtuelle Azure à l'aide de l'extension de script personnalisé pour Windows "
+   description="Automatisation des tâches de configuration de machine virtuelle Azure à l'aide de l'extension de script personnalisé pour Windows"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
@@ -21,8 +21,7 @@
 Cet article donne une vue d'ensemble de l'utilisation de l'extension de script personnalisé pour Windows à l'aide d'applets de commande Azure Powershell.
 
 
-Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour une présentation détaillée des extensions de machine virtuelle, reportez-vous à la
-<a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">documentation MSDN</a>.
+Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour une vue d’ensemble détaillée des extensions de machine virtuelle, reportez-vous à la <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">documentation MSDN</a>.
 
 ## Vue d'ensemble de l'extension de script personnalisé
 
@@ -30,17 +29,16 @@ L'extension de script personnalisé pour Windows vous permet d'exécuter des scr
 
 ### Conditions préalables pour exécuter l'extension de script personnalisé
 
-1. Installez les applets de commande Azure PowerShell version 0.8.0 ou ultérieure à partir d'<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
-2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l'agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un.
+1. Installez les applets de commande Microsoft Azure PowerShell version 8.0 ou ultérieure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
+2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un.
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d'un seul ou de plusieurs conteneurs de stockage.
 4. Le script doit être conçu de manière à ce que le script d'entrée lancé par l'extension lance à son tour les autres scripts.
 
-## Scénarios d'utilisation de l'extension de script personnalisé :
+## Scénarios d'utilisation de l'extension de script personnalisé :
 
- ### Télécharger des fichiers vers le conteneur par défaut :
-Si vos scripts se trouvent dans le conteneur de stockage du compte par défaut de votre abonnement, l'extrait d'applet de commande ci-dessous montre comment vous pouvez les exécuter sur la machine virtuelle. Le paramètre ContainerName dans l'exemple ci-dessous représente l'emplacement vers lequel vous téléchargez les scripts. Le compte de stockage par défaut peut être vérifié à l'aide de l'applet de commande 'Get-AzureSubscription -Default'
+ ### Télécharger des fichiers vers le conteneur par défaut : si vos scripts se trouvent dans le conteneur de stockage du compte par défaut de votre abonnement, l’extrait d’applet de commande ci-dessous montre comment vous pouvez les exécuter sur la machine virtuelle. Le paramètre ContainerName dans l'exemple ci-dessous représente l'emplacement vers lequel vous téléchargez les scripts. Le compte de stockage par défaut peut être vérifié à l’aide de l’applet de commande Get-AzureSubscription –Default.
 
-Remarque : Ce cas d'usage entraîne la création d'une machine virtuelle, mais les mêmes opérations peuvent être effectuées sur une machine virtuelle existante.
+Remarque : ce cas d’usage entraîne la création d’une machine virtuelle, mais les mêmes opérations peuvent être effectuées sur une machine virtuelle existante.
 
     # create a new VM in Azure.
     $vm = New-AzureVMConfig -Name $name -InstanceSize Small -ImageName $imagename
@@ -60,27 +58,25 @@ Remarque : Ce cas d'usage entraîne la création d'une machine virtuelle, mais l
 Ce cas d'utilisation montre comment télécharger des scripts ou des fichiers en utilisant un stockage non défini en tant que stockage par défaut dans le même abonnement ou dans un autre abonnement. Dans notre exemple, nous allons utiliser une machine virtuelle existante, mais les mêmes opérations peuvent être effectuées pendant la création d'une machine virtuelle.
 
         Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileName 'file1.ps1','file2.ps1' -Run 'file.ps1' | Update-AzureVM
-  ### Télécharger des scripts vers plusieurs conteneurs sur différents comptes de stockage.
-  Si les fichiers de script sont stockés sur plusieurs conteneurs, pour les exécuter actuellement, vous devez fournir leur URL SAP complète.
+  ### Téléchargez des scripts vers plusieurs conteneurs sur différents comptes de stockage. Si les fichiers de script sont stockés sur plusieurs conteneurs, pour les exécuter actuellement, vous devez fournir leur URL SAP complète.
 
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
 ### Ajouter l'extension de script personnalisé à partir du portail.
-Accédez à machine virtuelle dans le <a href="https://portal.azure.com/ " target="_blank">portail Azure en version préliminaire</a> et ajoutez l'extension en spécifiant le fichier de script à exécuter.
-  ![][5]
+Accédez à la machine virtuelle dans le <a href="https://portal.azure.com/ " target="_blank">portail Microsoft Azure en version préliminaire</a> et ajoutez l’extension en spécifiant le fichier de script à exécuter. ![][5]
 
-  ### Désinstallation de l'extension de script personnalisé.
+  ### Désinstallation de l’extension de script personnalisé.
 
-L'extension de script personnalisé peut être désinstallée de la machine virtuelle à l'aide de l'applet de commande ci-dessous :
+L'extension de script personnalisé peut être désinstallée de la machine virtuelle à l'aide de l'applet de commande ci-dessous :
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
 ### Bientôt disponible
 
-Nous ajouterons bientôt des cas d'utilisation et des exemples de script personnalisé pour Linux. Revenez nous voir régulièrement !
+Nous ajouterons bientôt des cas d'utilisation et des exemples de script personnalisé pour Linux. Revenez nous voir régulièrement !
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!--HONumber=47-->
+<!---HONumber=58-->
