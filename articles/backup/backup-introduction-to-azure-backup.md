@@ -65,4 +65,4 @@ Combiné avec SCDPM Azure Backup peut sauvegarder :
 + Forum aux questions sur le service de sauvegarde Azure sont répertoriée [ici](backup-azure-backup-faq.md).
 + Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

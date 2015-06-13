@@ -186,4 +186,4 @@ Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consu
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gérer des ordinateurs virtuels](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

@@ -153,4 +153,4 @@ Voici une liste de questions fréquemment posées sur la sauvegarde Azure. Si vo
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

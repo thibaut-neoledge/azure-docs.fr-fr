@@ -41,4 +41,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et comment il peut 
  
 * Découvrez l'automatisation Azure [Getting Started Guide](http://go.microsoft.com/fwlink/?LinkId=390560)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
