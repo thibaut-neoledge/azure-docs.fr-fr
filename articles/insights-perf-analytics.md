@@ -63,7 +63,7 @@ Lorsque vous êtes invité à vous connecter, utilisez les informations d’iden
 * [Analyser les mesures d’intégrité des services](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif. 
 * [Activer l’analyse et les diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service. 
 * [Recevoir des notifications d’alerte ](insights-receive-alert-notifications.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un certain seuil. 
-* Utiliser [Application Insights pour les pages web et applications JavaScript](app-insights-web-track-usage.md) pour obtenir une analyse cliente sur les navigateurs qui consultent une page web. 
-* [Analyser la disponibilité et la réactivité d’une page web](app-insights-monitor-web-app-availability.md) avec Application Insights pour voir si une page est inactive.
+* Utiliser [Application Insights pour les pages web et applications JavaScript](application-insights/app-insights-web-track-usage.md) pour obtenir une analyse cliente sur les navigateurs qui consultent une page web. 
+* [Analyser la disponibilité et la réactivité d’une page web](application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour voir si une page est inactive.
 
 <!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Présentation du Kit de développement logiciel (SDK) Azure pour .NET" 
 	description="Découvrez ce qui est inclus dans le Kit de développement logiciel (SDK) .NET Azure." 
 	documentationCenter=".net" 

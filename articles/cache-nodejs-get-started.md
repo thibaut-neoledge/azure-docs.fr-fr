@@ -89,7 +89,7 @@ Output:
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-[Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: web-sites-nodejs-chat-app-socketio.md
+[Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: app-service-web/web-sites-nodejs-chat-app-socketio.md
 
 
 <!--HONumber=49-->

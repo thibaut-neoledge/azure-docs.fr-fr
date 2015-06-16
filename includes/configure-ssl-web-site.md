@@ -1,4 +1,4 @@
-﻿#Activer le protocole HTTPS pour une application web dans Azure App Service
+#Activer le protocole HTTPS pour une application web dans Azure App Service
 
 > [AZURE.NOTE]
 > Avancez plus rapidement, utilisez la NOUVELLE [procédure d'Azure pas à pas](http://support.microsoft.com/kb/2990804) !  L'association d'un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) deviennent un jeu d'enfant.
@@ -444,7 +444,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 Azure App Service n'applique *not* le protocole HTTPS. Les visiteurs peuvent toujours accéder à votre application web en utilisant le protocole HTTP, ce qui peut compromettre la sécurité de votre application web. Si vous souhaitez appliquer le protocole HTTPS pour votre application web, vous pouvez utiliser le module de **réécriture d'URL**. Ce module est inclus à Azure App Service et vous permet de définir des règles qui sont appliquées aux requêtes entrantes avant qu'elles ne soient transmises à votre application. **Il peut être utilisé pour les applications écrites dans n'importe quel langage de programmation pris en charge par Azure.** 
 
-> [AZURE.NOTE] Les applications .NET MVC doivent utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) plutôt que le module de réécriture d'URL. Pour plus d'informations sur l'utilisation du filtre RequireHttps, voir [Déployer une application ASP.NET MVC 5 vers une application web](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] Les applications .NET MVC doivent utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) plutôt que le module de réécriture d'URL. Pour plus d'informations sur l'utilisation du filtre RequireHttps, voir [Déployer une application ASP.NET MVC 5 vers une application web](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > Pour plus d'informations sur la redirection par programme des requêtes utilisant d'autres langages et infrastructures de programmation, consultez la documentation de ces technologies.
 
@@ -512,8 +512,8 @@ Pour plus d'informations sur le module de réécriture d'URL d'IIS, voir la docu
 ## Autres ressources ##
 - [Centre de gestion de la confidentialité Microsoft Azure](/support/trust-center/security/)
 - [Options de configuration déverrouillées dans les sites web Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Activer la journalisation des diagnostics](../articles/web-sites-enable-diagnostic-log.md)
-- [Configuration des sites web](../articles/web-sites-configure.md)
+- [Activer la journalisation des diagnostics](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Configuration des sites web](../article/app-service-web/web-sites-configure.md)
 - [Portail de gestion Azure](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Si vous souhaitez prendre en main Azure App Service avant de créer un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez immédiatement créer une application web de démarrage de courte durée dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
@@ -522,7 +522,7 @@ Pour plus d'informations sur le module de réécriture d'URL d'IIS, voir la docu
 * Pour obtenir un guide sur la transformation de Sites web en App Service, voir : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Pour obtenir un guide sur les modifications apportées à l'ancien portail dans le nouveau portail, voir : [Référence pour naviguer dans la version préliminaire du portail](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

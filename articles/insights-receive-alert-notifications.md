@@ -57,7 +57,7 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
-* [Surveillance de la disponibilité et de la réactivité des pages web](app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
+* [Surveillance de la disponibilité et de la réactivité des pages web](application-insights/app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
 * [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et journaux d'audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.

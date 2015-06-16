@@ -625,7 +625,7 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 # Informations complémentaires #
 - [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Distribution de contenu depuis Azure CDN dans votre application web](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Intégration d'un site web Azure au CDN Azure](cdn-websites-with-cdn.md)
+- [Intégration d'un site web Azure au CDN Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Regroupement et minimisation d'ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use.md)
 

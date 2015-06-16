@@ -23,7 +23,7 @@
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour une application Node.js hébergée en tant que service cloud Azure dans un rôle Web, ainsi que le téléchargement d'un certificat SSL pour sécuriser votre application.
 
-> [AZURE.NOTE]Les étapes de cet article s'appliquent uniquement aux applications Node hébergées en tant que service cloud Azure dans un rôle web. Pour les sites web, consultez la page [Configuration d'un certificat SSL pour un site web Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Les étapes de cet article s'appliquent uniquement aux applications Node hébergées en tant que service cloud Azure dans un rôle web. Pour les sites web, consultez la page [Configuration d'un certificat SSL pour un site web Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 Cette procédure comprend les étapes suivantes :
 

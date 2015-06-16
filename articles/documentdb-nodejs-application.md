@@ -541,7 +541,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 ## <a name="_Toc395783182"></a>Étape 7 : déploiement de votre application sur Azure Websites
 
-1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](web-sites-publish-source-control-git.md#step4).
+1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](app-service-web/web-sites-publish-source-control-git.md#step4).
 
 2. Ajoutez votre site web Azure en tant que git distant.
 

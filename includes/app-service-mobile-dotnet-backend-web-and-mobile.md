@@ -1,4 +1,4 @@
-﻿# Créer une application avec un client mobile et web dans Azure App Service
+# Créer une application avec un client mobile et web dans Azure App Service
 
 Cette rubrique vous montre comment créer une application avec un client mobile et web. Vous allez créer une application mobile et une application web et utiliser la même base de données sous-jacente pour les deux.
 
@@ -77,6 +77,6 @@ Dans cet exemple, nous vous avons montré comment utiliser la même base de donn
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Créer une application mobile]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Créer une application mobile]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->
