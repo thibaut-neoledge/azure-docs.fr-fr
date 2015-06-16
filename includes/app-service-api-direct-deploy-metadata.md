@@ -26,7 +26,7 @@ Pour fournir un point de terminaison d’URL pour une définition d’API [Swagg
 		    "apiDefinition": "/swagger/docs/v1"
 		}
 
-> **Remarque :** si vous utilisez Swashbuckle pour générer une définition API Swagger, les surcharges de la méthode HTTP provoquées dans vos contrôleurs API Web donneront lieu à la création de doublons dans les ID d’opération. Pour plus d’informations, consultez l’article [Personnalisation des identificateurs d’opération générés avec Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+> **Remarque :** si vous utilisez Swashbuckle pour générer une définition API Swagger, les surcharges de la méthode HTTP provoquées dans vos contrôleurs API Web donneront lieu à la création de doublons dans les ID d’opération. Pour plus d’informations, consultez l’article [Personnalisation des identificateurs d’opération générés avec Swashbuckle](../article/app-service-api/app-service-api-dotnet-swashbuckle-customize.md).
   
 ### Définition d’une API Swagger statique
 

@@ -260,7 +260,7 @@ L'intégration des sites Web Azure ou des services cloud Azure avec Azure CDN of
 - Gestion de votre application web et de votre contenu CDN depuis la même interface Visual Studio
 
 Pour connaître les didacticiels associés, consultez :
-- [Intégrer un site web Azure à CDN Azure](cdn-websites-with-cdn.md)
+- [Intégrer un site web Azure à CDN Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Intégrer un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Sans intégration avec les services Sites Web Azure ou Azure Cloud Services, vous pouvez utiliser Azure CDN pour les regroupements de vos scripts, avec les mises en garde suivantes :
@@ -272,7 +272,7 @@ Sans intégration avec les services Sites Web Azure ou Azure Cloud Services, vou
 
 # Informations complémentaires #
 - [Vue d'ensemble du réseau de distribution de contenu (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Intégrer un site web Azure à CDN Azure](cdn-websites-with-cdn.md)
+- [Intégrer un site web Azure à CDN Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Intégrer un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 - [Comment mapper le contenu du réseau de distribution de contenu Azure (CDN) à un domaine personnalisé](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use.md)

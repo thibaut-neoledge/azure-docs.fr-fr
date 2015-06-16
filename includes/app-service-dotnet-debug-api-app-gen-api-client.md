@@ -2,7 +2,7 @@
 
 Les outils de l'application API dans Visual Studio facilitent la génération de code C# qui appelle vos applications API Azure à partir du Bureau, du Store et des applications mobiles.
 
-1. Dans Visual Studio, ouvrez la solution qui contient l’application API de la rubrique [Créer une application API](app-service-dotnet-create-api-app.md). 
+1. Dans Visual Studio, ouvrez la solution qui contient l’application API de la rubrique [Créer une application API](../article/app-service-api/app-service-dotnet-create-api-app.md). 
 
 2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet**.
 

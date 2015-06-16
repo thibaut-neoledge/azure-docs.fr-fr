@@ -64,7 +64,7 @@ En examinant les zones vertes du diagramme précédent, vous verrez que la solut
 
 - [Azure Search](http://azure.microsoft.com/services/search/)
 - [Sites Web Azure avec MVC 4](http://azure.microsoft.com/services/websites/)
-- [WebJobs Azure pour les tâches planifiées](websites-webjobs-resources.md)
+- [WebJobs Azure pour les tâches planifiées](app-service-web/websites-webjobs-resources.md)
 - [Base de données SQL Azure](http://azure.microsoft.com/services/sql-database/)
 - [Stockage Azure BLOB](http://azure.microsoft.com/services/storage/)
 - [Service de messagerie SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

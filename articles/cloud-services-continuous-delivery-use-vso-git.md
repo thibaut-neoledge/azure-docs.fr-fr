@@ -59,7 +59,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 1. Dans la section Solutions de Team Explorer, sélectionnez Nouveau lien pour créer un projet dans le référentiel local.<br/>
 ![][4]
 
-2. Vous pouvez déployer un site web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Créez un projet de service cloud Azure ou un projet MVC ASP.NET. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail. Si vous voulez créer un site web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d’Azure et ASP.NET](web-sites-dotnet-get-started.md).
+2. Vous pouvez déployer un site web ou un service cloud (application Azure) en suivant les étapes de cette procédure. Créez un projet de service cloud Azure ou un projet MVC ASP.NET. Vérifiez que le projet cible .NET Framework 4 ou 4.5, et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail. Si vous voulez créer un site web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la page [Prise en main d’Azure et ASP.NET](app-service-web/web-sites-dotnet-get-started.md).
 
 3. Ouvrez le menu contextuel de la solution et choisissez **Valider**.<br/>
 ![][7]
@@ -200,7 +200,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 
 11. Accédez à la vue **Builds** et recherchez la build qui vient d'être déclenchée pour la branche en cours d'utilisation.
 
-Pour plus d'informations, consultez la page [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Pour des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Online, consultez la page [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Online pour la publication dans Azure, consultez la page [Publier sur Sites Web Azure avec Git](web-sites-publish-source-control.md).
+Pour plus d'informations, consultez la page [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Pour des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Online, consultez la page [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Online pour la publication dans Azure, consultez la page [Publier sur Sites Web Azure avec Git](app-service-web/web-sites-publish-source-control.md).
 
 [Étape 1 : création d’un référentiel Git]: #step1
 [Étape 2 : création d’un projet et placement dans votre référentiel Git]: #step2

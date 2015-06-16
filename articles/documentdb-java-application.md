@@ -35,7 +35,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](../../pricing/free-trial/).
 - [Kit de développement logiciel Java (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-- [Site web Azure avec un environnement d'exécution Java (Tomcat ou Jetty, par exemple) activé.](web-sites-java-get-started.md)
+- [Site web Azure avec un environnement d'exécution Java (Tomcat ou Jetty, par exemple) activé.](app-service-web/web-sites-java-get-started.md)
 
 Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d'installation dans la section Démarrage rapide de son article [Didacticiel : installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
@@ -744,7 +744,7 @@ Azure Websites permet de déployer facilement les applications Java en exportant
  - Dans la boîte de dialogue Destination, choisissez un emplacement d'enregistrement du fichier WAR.
  - Cliquez sur **Terminer**.
 
-3. Maintenant que vous disposez d'un fichier WAR, vous pouvez le télécharger tout simplement dans le répertoire **webapps** de votre site web Azure. Pour des instructions sur le téléchargement du fichier, consultez [Ajout d'une application à votre site web Java sur Azure](web-sites-java-add-app.md).
+3. Maintenant que vous disposez d'un fichier WAR, vous pouvez le télécharger tout simplement dans le répertoire **webapps** de votre site web Azure. Pour des instructions sur le téléchargement du fichier, consultez [Ajout d'une application à votre site web Java sur Azure](app-service-web/web-sites-java-add-app.md).
 
 	Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
 4. Pour afficher votre produit fini, accédez à http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/ et commencez à ajouter vos tâches.

@@ -51,7 +51,7 @@ Quand vous activez l'accès CDN pour un compte de stockage, le portail de gestio
 
 ##Mise en cache de contenu à partir de sites web Azure
 
-Vous pouvez activer le CDN à partir de vos site web pour mettre en cache du contenu web, tels que des images, des scripts et des feuilles de style. Voir [Intégration d'un site web Azure au CDN Azure](cdn-websites-with-cdn.md).
+Vous pouvez activer le CDN à partir de vos site web pour mettre en cache du contenu web, tels que des images, des scripts et des feuilles de style. Voir [Intégration d'un site web Azure au CDN Azure](app-service-web/cdn-websites-with-cdn.md).
 
 Quand vous activez l'accès CDN pour un site web, le portail de gestion vous fournit un nom de domaine CDN au format suivant : http://<identificateur>.vo.msecnd.net/. Ce nom de domaine peut être utilisé pour récupérer des objets d'un site web. Par exemple, dans le cas d'un conteneur public nommé cdn et d'un fichier image appelé music.png, les utilisateurs peuvent accéder à l'objet en utilisant une des deux URL suivantes :
 

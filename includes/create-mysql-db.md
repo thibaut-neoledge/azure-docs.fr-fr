@@ -78,6 +78,6 @@ Pour créer une base de données MySQL comme ressource liée lors de la créatio
 [Azure Store]: ../articles/store.md
 [Magasin Azure]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../articles/web-sites-configure.md
+[configure]: ../article/app-service-web/web-sites-configure.md
 
 <!--HONumber=52-->
