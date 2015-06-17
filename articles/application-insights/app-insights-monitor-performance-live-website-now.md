@@ -2,6 +2,7 @@
 	pageTitle="Diagnostic des problèmes de performances sur un site web en cours d'exécution" 
 	description="Analysez les performances d'un site web sans le redéployer. Utilisation autonome ou avec le Kit de développement logiciel (SDK) Application Insights" 
 	services="application-insights" 
+documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="01/23/2015" 
 	ms.author="awills"/>
  
 
