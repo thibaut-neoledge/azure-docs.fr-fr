@@ -25,7 +25,7 @@ Grâce aux modèles et aux groupes de ressources, vous pouvez gérer en même te
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [un compte de stockage Azure](storage-create-storage-account.md)
+- [un compte de stockage Azure](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855).
 - [Azure PowerShell](install-configure-powershell.md)
 

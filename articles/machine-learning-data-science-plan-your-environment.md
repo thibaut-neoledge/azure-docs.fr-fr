@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Planifier votre environnement de science des données Cloud | Azure" 
 	description="Planifier votre environnement de science des données Cloud" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@ Avant de créer votre environnement de science des données Cloud, posez-vous le
 
 Selon votre scénario, il se peut que vous ayez besoin des éléments suivants :
 
-1.  Outils Azure : [Azure PowerShell SDK](install-configure-powershell.md), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md), entre autres
+1.  Outils Azure : [Azure PowerShell SDK](install-configure-powershell.md), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md), entre autres
 2.  Machines virtuelles Azure exécutant SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Réseaux virtuels Azure sur site pour le partage de fichiers Azure

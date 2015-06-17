@@ -271,7 +271,7 @@ Pour apprendre à utiliser le Kit de développement logiciel (SDK) Azure pour Ru
 
 
 <!-- WA.com links -->
-[blobs]: storage-ruby-how-to-use-blob-storage.md
+[blobs]: storage/storage-ruby-how-to-use-blob-storage.md
 
 [cdn-howto]: /develop/ruby/app-services/
 

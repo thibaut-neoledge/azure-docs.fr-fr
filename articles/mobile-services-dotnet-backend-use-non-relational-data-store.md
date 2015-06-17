@@ -118,7 +118,7 @@ Notez que vous devez avoir déjà suivi le didacticiel [Prise en main de Mobile 
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Prise en main des données]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
-[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[What is the Table Service]: storage/storage-dotnet-how-to-use-tables.md#what-is
 [page dédiée au module complémentaire MongoLab]: /gallery/store/mongolab/mongolab
 
 <!--HONumber=54-->

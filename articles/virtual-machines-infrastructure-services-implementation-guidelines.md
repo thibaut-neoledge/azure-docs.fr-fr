@@ -167,7 +167,7 @@ Le stockage fait partie intégrante d'une solution Azure, car il ne fournit pas 
  
 Il existe deux types de compte de stockage disponibles dans Azure. Le stockage standard vous donne accès au stockage d'objets blob, de tables, de files d'attente et de fichiers. Le stockage Premium est conçu pour des applications hautes performances, telles que les serveurs SQL dans un cluster AlwaysOn, et prend actuellement en charge uniquement les disques de Machine virtuelle Azure.
 
-Les comptes de stockage sont liés à des objectifs d'extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md#storage-limits). Consultez également [Objectifs de performances et d'extensibilité d'Azure Storage](storage-scalability-targets.md).
+Les comptes de stockage sont liés à des objectifs d'extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md#storage-limits). Consultez également [Objectifs de performances et d'extensibilité d'Azure Storage](storage/storage-scalability-targets.md).
 
 Azure crée des machines virtuelles avec un disque de système d'exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d'exploitation et les disques de données sont des objets blob Azure, tandis que le disque temporaire est sauvegardé à l'aide d'un stockage local sur le nœud comprenant l'emplacement de la machine. Le disque temporaire est alors impropre pour des données qui doivent être conservées au cours d'un recyclage de système, dans la mesure où la machine peut être migrée en mode silencieux à partir d'un nœud vers un autre, ce qui implique la perte de toutes les données de ce disque. Ne stockez rien sur le disque temporaire.
 
@@ -550,6 +550,6 @@ Ces commandes Azure PowerShell créent les machines virtuelles dans cette config
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md)
+[Objectifs de performance et évolutivité d'Azure Storage](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

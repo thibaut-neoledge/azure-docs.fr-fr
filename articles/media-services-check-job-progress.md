@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Vérification de la progression des tâches à l'aide de .NET" 
 	description="Apprenez à utiliser le code du gestionnaire d'événements pour suivre la progression des tâches et envoyer des mises à jour de l'état. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
@@ -105,7 +105,7 @@ L'exemple de code suivant définit un gestionnaire d'événements StateChanged. 
 
 ## <a id="check_progress_with_queues"></a>Utiliser le stockage de files d'attente Azure pour surveiller les notifications de tâches Media Services
 
-Microsoft Azure Media Services peut assurer la remise de messages de notification au [stockage de files d'attente Azure](storage-dotnet-how-to-use-queues.md#what-is) lors du traitement de tâches multimédias. Cette rubrique explique comment obtenir ces messages de notification à partir du stockage de files d'attente.
+Microsoft Azure Media Services peut assurer la remise de messages de notification au [stockage de files d'attente Azure](storage/storage-dotnet-how-to-use-queues.md#what-is) lors du traitement de tâches multimédias. Cette rubrique explique comment obtenir ces messages de notification à partir du stockage de files d'attente.
 
 Les messages transmis au stockage de files d'attente sont accessibles n'importe où dans le monde. L'architecture de messagerie des files d'attente Azure est hautement évolutive. Le stockage avec interrogation des files d'attente est préférable aux autres méthodes. 
 
