@@ -308,7 +308,7 @@ En ayant une meilleure compréhension des deux technologies, vous serez en mesur
 Les articles suivants fournissent davantage de conseils et d'informations sur l'utilisation de files d'attente Azure ou Service Bus.
 
 - [Utilisation des files d'attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
-- [Utilisation du service de stockage de files d'attente](storage-dotnet-how-to-use-queues.md)
+- [Utilisation du service de stockage de files d'attente](storage/storage-dotnet-how-to-use-queues.md)
 - [Meilleures pratiques relatives aux améliorations de performances à l'aide de la messagerie répartie Service Bus](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Présentation des files d'attente et des rubriques dans Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/)

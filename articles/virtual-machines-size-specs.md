@@ -31,7 +31,7 @@ Les machines virtuelles sont disponibles en deux niveaux : de base et standard.
 
 *   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).  
 
-*   Les machines virtuelles de la série DS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail utilisant une quantité importante d’E/S. Ce stockage utilise des disques SSD pour héberger les disques d’une machine virtuelle et offre un cache de disque SSD local. Le stockage Premium est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
+*   Les machines virtuelles de la série DS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail utilisant une quantité importante d’E/S. Ce stockage utilise des disques SSD pour héberger les disques d’une machine virtuelle et offre un cache de disque SSD local. Le stockage Premium est disponible en version préliminaire dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage/storage-premium-storage-preview-portal.md).
 
 *   Les machines virtuelles de la série G offrent la taille la plus importante et les meilleures performances ; elles s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
@@ -103,7 +103,7 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 |Standard_DS13(identique)|8|56|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 112 Go</p>|16|288|<p>25 600</p><p>256 Mo par seconde</p>|
 |Standard_DS14(identique)|16|112|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|32|576|<p>50 000</p><p>512 Mo par seconde</p>|
 
-*Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
+*Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage/storage-premium-storage-preview-portal.md).
 
 ### Niveau standard – Série G
 

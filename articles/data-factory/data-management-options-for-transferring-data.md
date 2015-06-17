@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Options de transfert de données stockées vers le cloud | Azure" 
 	description="Conseils pour choisir la meilleure option de transfert de données depuis d'autres clouds locaux vers [JO1]Microsoft Azure afin de réaliser des analyses de données avancées." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 

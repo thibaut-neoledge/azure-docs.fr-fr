@@ -25,7 +25,7 @@ Ce didacticiel vous montre comment utiliser certains des clients disponibles dan
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Un compte Azure Storage](storage-create-storage-account.md)
+- [Un compte Azure Storage](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

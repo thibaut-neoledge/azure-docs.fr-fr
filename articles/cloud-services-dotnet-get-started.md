@@ -811,8 +811,8 @@ Pour plus d'informations, consultez les ressources suivantes :
 * [Azure Cloud Services Partie 1 : introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Storage](/documentation/services/storage/)
-* [Utilisation du stockage d'objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)
-* [Utilisation du service de stockage de files d'attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
+* [Utilisation du stockage d'objets blob à partir de .NET](storage/storage-dotnet-how-to-use-blobs.md)
+* [Utilisation du service de stockage de files d'attente à partir de .NET](storage/storage-dotnet-how-to-use-queues.md)
 
 
 <!--HONumber=52-->

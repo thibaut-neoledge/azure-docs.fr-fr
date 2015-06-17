@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Le [stockage Premium Azure](storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS. Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L'exemple de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
+Le [stockage Premium Azure](storage/storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS. Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L'exemple de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
 
 Il est important de comprendre le processus complet d'utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles IAAS, notamment :
 
@@ -142,7 +142,7 @@ Une fois que vous avez mappé les disques durs virtuels aux disques physiques da
 
 Les performances de stockage dépendent de la taille de la machine virtuelle DS* spécifiée et des tailles des disques durs virtuels. Les machines virtuelles offrent différentes tolérances pour le nombre de disques durs virtuels peuvent être connectés et la bande passante maximale prise en charge (Mo/s). Pour connaître les numéros de bande passante spécifiques, consultez la rubrique [Tailles des machines virtuelles et des services cloud pour Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-fring-premium-storage).
+Les disques de plus grande taille augmentent le nombre d'opérations d'E/S par seconde. Vous devez en tenir compte lorsque vous étudiez votre chemin de migration. Pour plus d'informations, [consultez le tableau des opérations d'E/S et des types de disque](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whfr-fring-premium-storage).
 
 Enfin, notez que les machines virtuelles prennent en charge différentes bandes passantes maximales pour tous les disques connectés. Sous une charge élevée, vous risquez de saturer la bande passante de disque maximale disponible pour cette taille de rôle de machine virtuelle. Par exemple un disque Standard_DS14 prendra en charge jusqu'à 512 Mo/s ; par conséquent, avec trois disques P30, vous pourriez saturer la bande passante de disque de la machine virtuelle. Mais dans cet exemple, la limite de débit peut être dépassée selon la combinaison d'opérations d'E/S en lecture et écriture.
 
@@ -1110,7 +1110,7 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 	![Appendix15][25]
 
 ## Ressources supplémentaires
-- [Stockage Premium Azure](storage-premium-storage-preview-portal.md)
+- [Stockage Premium Azure](storage/storage-premium-storage-preview-portal.md)
 - [Machines virtuelles](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md)
 

@@ -32,7 +32,7 @@ Outre le portail Azure, d’autres outils sont également disponibles pour admin
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Abonnement Azure** - Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d'abonnement](http://azure.microsoft.com/pricing/purchase-options/), des [offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) ou de la [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
-- **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](storage-create-storage-account.md).
+- **Compte Azure Storage** - Le cluster HDInsight utilise un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Pour plus d’informations sur l’expérience transparente offerte par le stockage d’objets blob Azure avec les clusters HDInsight, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la page [Création d’un compte de stockage](storage/storage-create-storage-account.md).
 
 ##Configuration de clusters HDInsight
 

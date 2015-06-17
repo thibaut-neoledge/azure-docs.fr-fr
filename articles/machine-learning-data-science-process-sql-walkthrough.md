@@ -76,7 +76,7 @@ Dans ce didacticiel, nous allons décrire les procédures d'importations de donn
 
 Pour configurer votre environnement de science des données Azure :
 
-1. [Créez un compte de stockage](storage-create-storage-account.md).
+1. [Créez un compte de stockage](storage/storage-create-storage-account.md).
 
 2. [Créez un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
 

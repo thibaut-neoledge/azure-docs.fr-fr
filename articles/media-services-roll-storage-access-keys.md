@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Mettre à jour Media Services après la substitution de clés d'accès de stockage" 
 	description="Cet article vous donne des conseils sur la mise à jour de Media Services après la substitution de clés d'accès de stockage." 
 	services="media-services" 
@@ -33,7 +33,7 @@ Cette rubrique décrit les étapes à appliquer pour substituer les clés de sto
 
 ## Étape 1 : régénérer la clé d'accès de stockage secondaire
 
-Commencez par régénérer la clé de stockage secondaire. Par défaut, la clé secondaire n'est pas utilisée par Media Services.  Pour plus d'informations sur la substitution des clés de stockage, consultez la rubrique [Procédure : Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Commencez par régénérer la clé de stockage secondaire. Par défaut, la clé secondaire n'est pas utilisée par Media Services.  Pour plus d'informations sur la substitution des clés de stockage, consultez la rubrique [Procédure : Affichage, copie et régénération de clés d'accès de stockage](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ## <a id="step2"></a>Étape 2:  mettre à jour Media Services pour utiliser la nouvelle clé de stockage secondaire
 
@@ -91,7 +91,7 @@ Pour mettre à jour la date d'expiration d'un localisateur, utilisez l'API [REST
 
 ## Étape 5 : régénérer la clé d'accès de stockage primaire
 
-Régénérez la clé d'accès de stockage primaire. Pour plus d'informations sur la substitution des clés de stockage, consultez la rubrique [Procédure : Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Régénérez la clé d'accès de stockage primaire. Pour plus d'informations sur la substitution des clés de stockage, consultez la rubrique [Procédure : Affichage, copie et régénération de clés d'accès de stockage](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ## Étape 6 : mettre à jour Media Services pour utiliser la nouvelle clé de stockage primaire
 	

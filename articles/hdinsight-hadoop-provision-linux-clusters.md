@@ -79,7 +79,7 @@ Windows | Cliquez [ici](#portal) | Cliquez [ici](#cli) | Cliquez [ici](#sdk) | C
 
 ### <a id="portal"></a>Utilisation du portail Azure
 
-Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage doit se trouver dans le même centre de données pour que vous puissiez créer un cluster HDInsight. Pour plus d’informations, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la rubrique [Création d’un compte de stockage](storage-create-storage-account.md).
+Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage doit se trouver dans le même centre de données pour que vous puissiez créer un cluster HDInsight. Pour plus d’informations, consultez la rubrique [Utilisation du stockage d’objets blob Azure avec HDInsight](hdinsight-use-blob-storage.md). Pour plus d’informations sur la création d’un compte Azure Storage, consultez la rubrique [Création d’un compte de stockage](storage/storage-create-storage-account.md).
 
 
 > [AZURE.NOTE]Actuellement, seules les régions **Asie du Sud-Est**, **Europe du Nord**, **Est des États-Unis** et **Sud du centre des États-Unis** peuvent héberger des clusters HDInsight Linux.
@@ -352,7 +352,7 @@ HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de
 	Lorsque l’invite vous demande d’indiquer un emplacement, sélectionnez-en un où un cluster HDInsight Linux puisse être approvisionné. Le stockage doit se trouver dans le lieu que le cluster HDInsight.
 
 
-Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](storage-create-storage-account.md).
+Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](storage/storage-create-storage-account.md).
 
 Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni le nom ni la clé du compte, vous pouvez utiliser les commandes suivantes pour récupérer ces informations :
 
@@ -365,7 +365,7 @@ Si vous disposez déjà d’un compte de stockage mais que vous ne connaissez ni
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage](storage-create-storage-account.md).
+Pour plus d’informations sur l’obtention d’informations au moyen du portail Azure, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de la rubrique [Création, gestion ou suppression d’un compte de stockage](storage/storage-create-storage-account.md).
 
 Un cluster HDInsight requiert également un conteneur dans un compte de stockage. Si le compte de stockage que vous fournissez ne contient pas de conteneur, la commande **azure hdinsight cluster create** vous invite à entrer un nom de conteneur avant de le créer. Cependant, si vous voulez créer le conteneur au préalable, vous pouvez utiliser la commande suivante :
 

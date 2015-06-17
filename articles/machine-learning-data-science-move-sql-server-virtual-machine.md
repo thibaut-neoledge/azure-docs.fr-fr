@@ -80,7 +80,7 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C'est l'un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (On-Premise SQL Server, SQL Azure et SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Où mes données doivent-elles se trouver pour BCP ?**  
-> Ce n'est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l'instance SQL Server cible (débit du réseau par rapport au débit d'E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> Ce n'est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l'instance SQL Server cible (débit du réseau par rapport au débit d'E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](storage/storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l'aide des commandes `Create Database` et `Create Table` :
 
