@@ -78,7 +78,7 @@ La suite de cette section aborde quelques points sur chaque projet. Le cas éch�
 
 Pour simplifier les choses, les données sont incorporées à la solution, dans un fichier texte généré à partir des données du site Web [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
-Les alternatives à l'incorporation de données incluent les [indexeurs pour DocumentDB](documentdb-search-indexer.md) ou les [indexeurs pour base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Les indexeurs injectent les données dans votre index Azure Search, simplifiant considérablement l'écriture et la mise à jour du code.
+Les alternatives à l'incorporation de données incluent les [indexeurs pour DocumentDB](documentdb/documentdb-search-indexer.md) ou les [indexeurs pour base de données SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Les indexeurs injectent les données dans votre index Azure Search, simplifiant considérablement l'écriture et la mise à jour du code.
 
 Vous pouvez également charger des données à partir d'une base de données SQL Server sur site. [Ce didacticiel](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) vous explique comment procéder.
 

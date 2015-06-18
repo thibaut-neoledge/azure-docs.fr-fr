@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb-increase-limits.md).
+Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
 <!---HONumber=58-->
