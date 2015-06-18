@@ -98,17 +98,17 @@ Mise en route
 
 - [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](./xplat-cli-azure-resource-manager.md)  
+- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
 - [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md)  
   
 Création et déploiement d’applications
   
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
 - [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)  
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](./resource-group-deploy-debug.md)  
+- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Fonctions du modèle Azure Resource Manager](./resource-group-template-functions.md)  
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)  
-- [Déployer des ressources Azure à l’aide de bibliothèques .NET et d’un modèle](./arm-template-deployment.md)
+- [Déployer des ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
   
 Organisation des ressources
   

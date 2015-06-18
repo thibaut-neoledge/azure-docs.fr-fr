@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Utilisation de l'interface de ligne de commande interplateforme Microsoft Azure avec le Gestionnaire de ressources" 
 	description="Utilisation de l'interface en ligne de commande interplateforme Azure avec le Gestionnaire de ressources" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

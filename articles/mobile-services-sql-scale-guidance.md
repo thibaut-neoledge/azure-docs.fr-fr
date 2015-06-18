@@ -205,7 +205,7 @@ Cette section présente des tâches de diagnostic avancées, qui peuvent être u
 ### Configuration requise
 Pour effectuer certaines des tâches de diagnostic traitées dans cette section, vous devez accéder à un outil de gestion pour les bases de données SQL, comme **SQL Server Management Studio** ou la fonctionnalité de gestion intégrée au **portail de gestion Azure**.
 
-SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n'avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d'une machine virtuelle exécutant Windows Server](virtual-machines-windows-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
+SQL Server Management Studio est une application Windows gratuite, qui offre des fonctionnalités très avancées. Si vous n'avez pas accès à un ordinateur Windows (si vous utilisez un Mac, par exemple), pensez à approvisionner une machine virtuelle dans Azure comme indiqué à la page [Création d'une machine virtuelle exécutant Windows Server](virtual-machines/virtual-machines-windows-tutorial.md), puis à vous y connecter à distance. Si vous pensez utiliser une machine virtuelle essentiellement pour exécuter SQL Server Management Studio, une instance **De base A0** (anciennement « Très petite ») devrait suffire.
 
 Le portail de gestion Azure offre une expérience de gestion intégrée plus limitée, mais disponible sans installation locale.
 

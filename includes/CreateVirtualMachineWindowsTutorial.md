@@ -53,7 +53,7 @@ Cette section explique comment se connecter à la machine virtuelle de manière 
 
 ## <a id="attachdisk"> </a>Comment associer un disque de données à la nouvelle machine virtuelle ##
 
-Cette section explique comment associer un disque de données vide à la machine virtuelle. Pour plus d'informations sur l'association de disques vides ou existants, consultez la page [Association d'un disque de données](../articles/storage-windows-attach-disk.md).
+Cette section explique comment associer un disque de données vide à la machine virtuelle. Pour plus d'informations sur l'association de disques vides ou existants, consultez la page [Association d'un disque de données](../articles/virtual-machines/storage-windows-attach-disk.md).
 
 1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com) Azure.
 
@@ -113,11 +113,11 @@ Cette section explique comment associer un disque de données vide à la machine
 
 Pour en savoir plus sur la configuration de machines virtuelles Windows sous Azure, consultez les articles suivants :
 
-[Connexion des machines virtuelles dans un service cloud](../articles/cloud-services-connect-virtual-machine.md)
+[Connexion des machines virtuelles dans un service cloud](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Création et téléchargement de votre disque dur virtuel contenant le système d'exploitation Windows Server](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[Association de disques de données avec une machine virtuelle](../articles/storage-windows-attach-disk.md)
+[Association de disques de données avec une machine virtuelle](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [Gestion de la disponibilité des machines virtuelles](../articles/manage-availability-virtual-machines.md)
 
