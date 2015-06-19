@@ -29,7 +29,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
    [Créer un compte de stockage](storage-whatis-account.md)
 
-  [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md)
+  [Créer un espace de travail Azure Machine Learning](machine-learning/machine-learning-create-workspace.md)
 
 **Les sections suivantes présentent quelques exemples de scénarios. Pour chaque scénario, un flux possible de science des données et les ressources Azure connexes sont répertoriés.**
 
@@ -175,7 +175,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
     f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
- > [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -215,7 +215,7 @@ Cet article vous présente le mappage du processus de science des données cloud
 
 	f. Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
 
-> [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE]Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 
@@ -300,7 +300,7 @@ Le schéma suivant résume les scénarios décrits ci-dessus ainsi que les choix
 
 ### Exemple de processus de science des données Azure en action
 
-Pour découvrir un exemple de procédure pas à pas du processus de science des données Azure à l’aide d’un jeu de données public, consultez la rubrique [Processus de science des données Azure en action](machine-learning-data-science-process-sql-walkthrough.md).
+Pour découvrir un exemple de procédure pas à pas du processus de science des données Azure à l’aide d’un jeu de données public, consultez la rubrique [Processus de science des données Azure en action](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png

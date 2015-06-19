@@ -1,4 +1,4 @@
-﻿1.	Connectez-vous au [portail Azure Preview](https://portal.azure.com/).
+1.	Connectez-vous au [portail Azure Preview](https://portal.azure.com/).
 2.	Dans la barre de lancement, cliquez sur **Nouveau**, sélectionnez **Données + stockage**, puis cliquez sur **DocumentDB**. 
 
 	![Capture d'écran du portail Azure en version préliminaire : mise en surbrillance du bouton **Nouveau**, de **Données + stockage** dans le panneau Créer et de **DocumentDB** dans le panneau Données + stockage][1]   
@@ -51,6 +51,6 @@
 
 [Création d'un compte DocumentDB]: #Howto
 [Étapes suivantes]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->
