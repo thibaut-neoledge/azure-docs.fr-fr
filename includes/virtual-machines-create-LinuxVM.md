@@ -24,7 +24,7 @@
 
 13. Sous **Availability Set**, utilisez le paramètre par défaut **None**.
 
-14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d’autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines-set-up-endpoints.md).
+14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d’autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 
 15.  Sous **Agent de machine virtuelle**, consultez les extensions disponibles. Ces extensions proposent différentes fonctionnalités qui facilitent l'utilisation et la gestion des machines virtuelles. Pour plus d'informations, consultez la page [Extensions de machine virtuelle Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

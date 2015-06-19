@@ -46,7 +46,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 
 	**Remarque** : les machines virtuelles qui sont membres d'un groupe à haute disponibilité sont déployées sur des domaines d'erreur différents. Le placement de plusieurs machines virtuelles dans un groupe à haute disponibilité permet de vous assurer de la disponibilité de votre application lors de défaillances réseau, de défaillances matérielles d'un disque dur local et de temps d'arrêt planifiés.
 
-15.  Sous **Endpoints**, passez en revue les nouveaux points de terminaison qui seront créés pour autoriser les connexions à la machine virtuelle, tels que le Bureau à distance ou un client Secure Shell (SSH), par exemple. Vous pouvez également ajouter des points de terminaison maintenant ou les créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines-set-up-endpoints.md).
+15.  Sous **Endpoints**, passez en revue les nouveaux points de terminaison qui seront créés pour autoriser les connexions à la machine virtuelle, tels que le Bureau à distance ou un client Secure Shell (SSH), par exemple. Vous pouvez également ajouter des points de terminaison maintenant ou les créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
 
 16.  Sous **VM Agent**, indiquez si vous souhaitez installer l'agent MV. Cet agent fournit l'environnement dans lequel vous installez les extensions qui permettent d'interagir avec la machine virtuelle. Pour plus d'informations, consultez la page [Gestion des extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
@@ -58,8 +58,8 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 ##Étapes suivantes##
 Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le portail indique qu'elle est active, vous pouvez vous connecter à la machine virtuelle. Pour plus d'informations, consultez l'un des articles suivants :
 
-- [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines-linux-how-to-log-on.md)
-- [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines-log-on-windows-server.md)
+- [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
+- [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
 
 

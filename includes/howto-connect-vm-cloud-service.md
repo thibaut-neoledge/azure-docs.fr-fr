@@ -1,4 +1,4 @@
-﻿<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
+<properties authors="kathydav" editor="tysonn" manager="timlt" /> 
 
 
 #Connexion de machines virtuelles à un réseau virtuel ou un service cloud

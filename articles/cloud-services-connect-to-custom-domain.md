@@ -1,4 +1,4 @@
-﻿<properties
+<properties
   pageTitle="Connexion des rôles de services cloud Azure à un contrôleur de domaine Active Directory personnalisé hébergé dans Azure"
   description="Découvrez comment connecter vos rôles web/de travail à un domaine Active Directory personnalisé à l'aide de Powershell et l'extension de domaine Active Directory"
   services="cloud-services"
@@ -30,7 +30,7 @@ Suivez ce guide pas à pas et, si vous rencontrez des problèmes, laissez-nous u
 
 ## Création d'un réseau virtuel
 
-Vous pouvez créer un réseau virtuel dans Azure via le portail Azure ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l'aide du portail Azure, consultez l'article [Création d'un réseau virtuel](create-virtual-network.md).
+Vous pouvez créer un réseau virtuel dans Azure via le portail Azure ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l'aide du portail Azure, consultez l'article [Création d'un réseau virtuel](virtual-machines/create-virtual-network.md).
 
     #Create Virtual Network
 
