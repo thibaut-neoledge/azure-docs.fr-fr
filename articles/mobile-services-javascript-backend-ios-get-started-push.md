@@ -237,9 +237,9 @@ Ce didacticiel a présenté les bases de l'activation d'une application iOS pour
 
 [Envoi de notifications Push à des utilisateurs authentifiés]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[Présentation de Notification Hubs]: notification-hubs-overview.md
-[Envoi de notifications diffusées aux abonnés]: notification-hubs-ios-send-breaking-news.md
-[Envoi de notifications basées sur un modèle aux abonnés]: notification-hubs-ios-send-localized-breaking-news.md
+[Présentation de Notification Hubs]: notification-hubs/notification-hubs-overview.md
+[Envoi de notifications diffusées aux abonnés]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Envoi de notifications basées sur un modèle aux abonnés]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [Guide de référence conceptuelle Mobile Services Objective-C]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

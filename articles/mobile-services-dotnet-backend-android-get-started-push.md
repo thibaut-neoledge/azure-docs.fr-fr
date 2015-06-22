@@ -117,9 +117,9 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications Push aux utilisateurs authentifiés]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [Envoi de notifications Push à des utilisateurs authentifiés]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[Présentation de Notification Hubs]: notification-hubs-overview.md
-[Envoi de notifications diffusées aux abonnés]: notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Envoi de notifications basées sur un modèle aux abonnés]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Présentation de Notification Hubs]: notification-hubs/notification-hubs-overview.md
+[Envoi de notifications diffusées aux abonnés]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Envoi de notifications basées sur un modèle aux abonnés]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54-->

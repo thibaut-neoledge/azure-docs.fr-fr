@@ -1,0 +1,163 @@
+<properties 
+	pageTitle="Utilisation des files d'attente Service Bus (Ruby) - Azure" 
+	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby." 
+	services="service-bus" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="tomfitz"/>
+
+
+
+
+# Utilisation des files d'attente Service Bus
+
+Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes](#next-steps) .
+
+## Présentation des files d'attente Service Bus
+
+Les files d'attente Service Bus prennent en charge un modèle de **communication de messagerie répartie**. Lors de l'utilisation de files d'attente, les composants d'une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une file d'attente, qui fait office d'intermédiaire. Un producteur de messages (expéditeur) remet un message à la file d'attente, puis continue son traitement. De manière asynchrone, un consommateur de message (destinataire) extrait le message de la file d'attente, puis le traite. L'expéditeur ne doit pas forcément attendre une réponse du destinataire afin de continuer à traiter et à envoyer d'autres messages. Les files d'attente permettent la remise de messages à un ou plusieurs destinataires concurrents sur le principe du **premier entré, premier sorti (FIFO)**. Autrement dit, les messages sont en général reçus et traités par les destinataires dans l'ordre dans lequel ils ont été ajoutés à la file d'attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
+
+![QueueConcepts](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
+
+Les files d'attente Service Bus sont une technologie à usage généraliste pouvant servir à une grande diversité de situations :
+
+-   Communication entre les rôles web et les rôles de travail dans une application multiniveau Azure
+-   Communication entre les applications locales et les applications hébergées par Azure dans une solution hybride
+-   Communication entre les composants d'une application distribuée s'exécutant en local dans différentes organisations ou dans différents services d'une organisation
+
+L'utilisation de files d'attente permet une meilleure montée en charge de vos applications et une plus grande résilience dans votre architecture.
+
+## Création d'un espace de noms de service
+Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application. Vous devez créer l'espace de noms via l'interface de ligne de commande car le portail ne crée pas le bus de service avec une connexion ACS.
+
+Pour créer un espace de noms de service :
+
+1. Ouvrez une console Azure PowerShell.
+
+2. Tapez la commande pour créer un espace de noms de bus de service Azure, comme illustré ci-dessous. Fournissez votre propre valeur d'espace de noms et spécifiez la même région que votre application. 
+
+    New-AzureSBNamespace -Nom 'yourexamplenamespace' -Emplacement 'West US' -CreateACSNamespace $true
+
+    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
+
+## Obtention d'informations d'identification de gestion pour l'espace de noms
+Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées.
+
+1. Ouvrez une session sur le [portail de gestion Azure](http://manage.windowsazure.com/).
+
+2. Sélectionnez l'espace de noms Service Bus que vous avez créé.
+
+     ![Select namespace](./media/service-bus-ruby-how-to-use-queues/selectns.png)
+
+3. Au bas de la page, sélectionnez **Informations de connexion**.
+
+      ![Select connection](./media/service-bus-ruby-how-to-use-queues/selectconnection.png)
+
+4. Copiez la clé par défaut. C'est la valeur que vous utiliserez dans votre code.
+
+       ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
+
+## Création d'une application Ruby
+
+Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure](/develop/ruby/tutorials/web-app-with-linux-vm/)
+
+## Configuration de votre application pour l'utilisation de Service Bus
+
+Pour utiliser Azure Service Bus, vous devez télécharger et utiliser le package Azure Ruby, qui inclut un ensemble de bibliothèques permettant de communiquer avec les services de stockage REST.
+
+### Utilisation de RubyGems pour obtenir le package
+
+1. Utiliser une interface de ligne de commande comme **PowerShell** (Windows), **Terminal** (Mac), ou **Bash** (Unix).
+
+2. Tapez " gem install azure " dans la fenêtre de commande pour installer gem et les dépendances.
+
+### Importation du package
+
+À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
+
+    require "azure"
+
+## Configuration d'une connection Service Bus Azure
+
+Le module Azure lit les variables d'environnement **AZURE_SERVICEBUS_NAMESPACE** et **AZURE_SERVICEBUS_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre espace de noms Azure Service Bus. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations d'espace de noms avant d'utiliser **Azure::ServiceBusService** grâce au code suivant :
+
+    Azure.config.sb_namespace = "<your azure service bus namespace>"
+    Azure.config.sb_access_key = "<your azure service bus access key>"
+
+Attribuez à l'espace de noms Service Bus la valeur que vous avez créée plutôt que l'URL entière. Par exemple, utilisez **" votreespacedenomsexemple "** et non " votreespacedenomsexemple.servicebus.windows.net ". 
+
+## Création d'une file d'attente
+
+L'objet **Azure::ServiceBusService** permet d'utiliser des files d'attente. Pour créer une file d'attente, utilisez la méthode **create_queue()**. L'exemple suivant crée une file d'attente ou imprime l'erreur s'il en existe une.
+
+    azure_service_bus_service = Azure::ServiceBusService.new
+    begin
+      queue = azure_service_bus_service.create_queue("test-queue")
+    rescue
+      puts $!
+    end
+
+Vous pouvez également transmettre un objet **Azure::ServiceBus::Queue** avec des options complémentaires, ce qui vous permet de remplacer les paramètres de file d'attente par défaut comme la durée de vie de message ou la taille de file maximale. L'exemple suivant montre comment définir la taille maximale de la file d'attente sur 5 Go et la durée de vie de message sur une minute :
+
+    queue = Azure::ServiceBus::Queue.new("test-queue")
+    queue.max_size_in_megabytes = 5120
+    queue.default_message_time_to_live = "PT1M"
+
+    queue = azure_service_bus_service.create_queue(queue)
+
+## Envoi de messages à une file d'attente
+
+Pour envoyer un message à une file d'attente Service Bus, votre application appelle la méthode **send_queue_message()** de l'objet **Azure::ServiceBusService**. Les messages envoyés aux files d'attente Service Bus (et reçus de celles-ci) sont des objets **Azure::ServiceBus::BrokeredMessage**. Ils possèdent un ensemble de propriétés standard (telles que **label** et **time_to_live**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant une valeur de chaîne en tant que message pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
+
+L'exemple suivant indique comment envoyer un message test à la file d'attente nommée " test-queue " à l'aide de la méthode **send_queue_message()** :
+
+    message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
+    message.correlation_id = "test-correlation-id"
+    azure_service_bus_service.send_queue_message("test-queue", message)
+
+Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go.
+
+## Réception des messages d'une file d'attente
+
+La méthode **receive_queue_message()** de l'objet **Azure::ServiceBusService** permet de recevoir les messages d'une file d'attente. Par défaut, les messages sont lus et verrouillés sans être supprimés de la file d'attente. Il est toutefois possible de supprimer ces messages de la file d'attente lors de leur lecture en paramétrant l'option **:peek_lock** sur **false**.
+
+Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete_queue_message()** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **delete_queue_message()** marque le message comme étant consommé et le supprime de la file d'attente.
+
+Si le paramètre **:peek_lock** a la valeur **false**, la lecture et la suppression des messages suivent un modèle plus simple qui fonctionne mieux pour les scénarios dans lesquels une application peut ne pas traiter un message en cas d'échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l'application redémarre et recommence à consommer des messages, elle manque le message consommé avant l'incident.
+
+L'exemple ci-dessous montre comment les messages peuvent être reçus et traités à l'aide de **receive_queue_message()**. Dans l'exemple, un message est d'abord reçu puis supprimé en définissant **:peek_lock** sur **false**. Un autre message est ensuite reçu, puis supprimé via **delete_queue_message()** :
+
+    message = azure_service_bus_service.receive_queue_message("test-queue", 
+	  { :peek_lock => false })
+    message = azure_service_bus_service.receive_queue_message("test-queue")
+    azure_service_bus_service.delete_queue_message(message)
+
+## Gestion des blocages d'application et des messages illisibles
+
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d'erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode **unlock_queue_message()** de l'objet **Azure::ServiceBusService**. Service Bus déverrouille alors le message dans la file d'attente et le rend à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
+
+De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
+
+Si l'application se bloque après le traitement du message, mais avant l'appel de la méthode **delete_queue_message()**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, appelé **Au moins une fois**, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Si le scénario ne peut pas tolérer le traitement en double, les développeurs d'application doivent ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double, Pour ce faire, il suffit souvent d'utiliser la propriété **message_id** du message, qui reste constante pendant les tentatives de remise.
+
+## Étapes suivantes
+
+Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :
+
+-   Consultez la référence MSDN suivante : [Files d'attente, rubriques et abonnements](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
+
+Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure](/develop/ruby/how-to-guides/queue-service/), voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+
+<!--HONumber=47-->
+ 
