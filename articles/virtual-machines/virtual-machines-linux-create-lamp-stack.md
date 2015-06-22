@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/10/2015"
+	ms.date="02/10/2015"
 	ms.author="ningk"/>
 
 # Création d'une pile LAMP avec Microsoft Azure

@@ -14,7 +14,7 @@ ms.devlang="NA"
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service
@@ -172,11 +172,11 @@ Voici une requête sur la base de données master qui effectue le calcul pour vo
 
 **Résultat de l'échantillonnage :**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 Sous forme de graphique : vous pouvez consulter la tendance du pourcentage moyen de consommation UDBD au fil du temps. Voici un exemple de graphique pour une base de données située au niveau S2 la plupart du temps, avec des pics d'activité atteignant un niveau de base de données P1.  La consommation UDBD oscille entre les limites du niveau " De Base " et celles du niveau " P1 ". Pour que cette base de données s'adapte complètement au nouveau niveau, il vous faut une base de données de niveau de service Premium avec un niveau de performances " P1 ". Toutefois, une base de données de niveau S2 peut fonctionner si ces pics occasionnels vers le niveau P1 sont rares.
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **Impact de la mémoire sur les performances :** bien que la mémoire soit l'une des dimensions de ressources participant à l'évaluation du taux d'UDBD, la base de données SQL est conçue pour utiliser toute la mémoire disponible pour les opérations de base de données. Pour cette raison, la consommation de mémoire n'est pas incluse dans la consommation UDBD moyenne de la requête ci-dessus. Toutefois, si vous passez à un niveau de performances inférieur, la mémoire disponible pour la base de données est réduite. Cela peut entraîner une augmentation de la consommation d'E/S affectant la quantité d'UDBD consommées. Par conséquent, quand vous passez à un niveau de performances inférieur, assurez-vous que vous disposez de suffisamment de marge de pourcentage d'E/S. Utilisez la vue de gestion dynamique [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mentionnée ci-dessus pour surveiller ces variations.
 

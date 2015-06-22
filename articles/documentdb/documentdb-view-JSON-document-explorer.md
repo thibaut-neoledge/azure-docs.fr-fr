@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/13/2015" 
+	ms.date="02/13/2015" 
 	ms.author="stbaro"/>
 
 # Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB #
