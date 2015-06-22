@@ -40,7 +40,7 @@ Dans Azure Automation, la gestion de Service Bus peut être effectuée à l'aide
 
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer Azure Service Bus, cliquez sur les liens suivants pour en savoir plus sur Azure Automation.
 
-* Consultez le [Didacticiel de prise en main](automation-create-runbook-from-samples.md) d'Azure Automation
+* Consultez le [Didacticiel de prise en main](automation/automation-create-runbook-from-samples.md) d'Azure Automation
 * Consultez l'article relatif à la [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
 
 <!---HONumber=58-->

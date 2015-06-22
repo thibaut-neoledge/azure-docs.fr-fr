@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="MGestion du contrôle d'accès en fonction du rôle avec l'interface de ligne de commande interplateforme Azure" 
 	description="Gestion du contrôle d'accès en fonction du rôle avec l'interface en ligne de commande interplateforme" 
 	services="" 
@@ -148,3 +148,4 @@ Pour en savoir plus sur le contrôle d'accès basé sur un rôle à l'aide de xp
 - [Résolution des problèmes de contrôle d'accès basé sur un rôle](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
 
 <!--HONumber=46--> 
+ 

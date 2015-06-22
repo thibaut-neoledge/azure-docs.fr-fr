@@ -22,7 +22,7 @@ Cette rubrique explique comment autoriser un principal du service (tel qu’un p
 
 
 ## Concepts
-1. Azure Active Directory (AAD) : service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Active Directory ?](./active-directory-whatis.md)
+1. Azure Active Directory (AAD) : service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
 2. Principal du service : instance d’application dans un répertoire.
 3. Application AD : enregistrement de répertoire qui identifie une application à AAD. Pour plus d’informations, consultez la page [Principes fondamentaux de l’authentification dans Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -74,7 +74,7 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
    Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
-4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](./resource-group-rbac.md)
+4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
 
         PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -107,7 +107,7 @@ Si Azure CLI pour Mac, Linux et Windows n’est pas installé sur votre système
 
 Vous devez déjà disposer d’une application AD et d’un principal du service pour effectuer ces étapes. Pour plus d’informations sur la configuration d’une application AD et d’un principal du service via le portail Azure classique, consultez la page [Création d’un principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md).
 
-1. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](./resource-group-rbac.md)
+1. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
 
         azure role assignment create --objectId {service-principal-object-id} -o Reader -c /subscriptions/{subscriptionId}/
 
@@ -127,12 +127,12 @@ Mise en route
 - [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
 - [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Utilisation du portail Azure pour gérer vos ressources Azure](./resource-group-portal.md)  
+- [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md)  
   
 Création et déploiement d’applications
   
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
-- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)  
+- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)  
 - [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)  
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)  
@@ -144,7 +144,7 @@ Organisation des ressources
   
 Gestion et audit de l’accès
   
-- [Gestion et audit d’accès aux ressources](./resource-group-rbac.md)  
+- [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)  
 - [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
   
 

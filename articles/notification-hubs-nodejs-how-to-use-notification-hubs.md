@@ -210,7 +210,7 @@ Maintenant que vous avez appris les principes de base de l'utilisation de Notifi
   [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Site web avec WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Service cloud Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Service cloud Node.js]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Ancien portail de gestion]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Service cloud Node.js avec stockage]: /develop/nodejs/tutorials/web-app-with-storage/
