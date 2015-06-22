@@ -203,4 +203,4 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [Authentification des utilisateurs Web auprès d'Azure Access Control Service à l'aide d'Eclipse]: active-directory-java-authenticate-users-access-control-eclipse.md
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!---HONumber=58-->
+<!---HONumber=58--> 

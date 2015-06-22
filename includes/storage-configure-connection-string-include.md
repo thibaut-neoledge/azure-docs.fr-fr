@@ -1,4 +1,4 @@
-﻿## Configurer une chaîne de connexion de stockage
+## Configurer une chaîne de connexion de stockage
 
 La bibliothèque du client de stockage Azure pour .NET prend en charge l'utilisation d'une chaîne de connexion de stockage pour la configuration de points de terminaison et d'informations d'identification permettant d'accéder aux services de stockage. Nous vous recommandons de conserver votre chaîne de connexion de stockage dans un fichier de configuration au lieu de la coder en dur dans votre application. Deux options sont disponibles pour enregistrer votre chaîne de connexion :
 

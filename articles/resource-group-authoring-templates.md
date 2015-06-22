@@ -254,7 +254,7 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)
+- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
 - [Présentation d’Azure Resource Manager](./resource-group-overview.md)
 

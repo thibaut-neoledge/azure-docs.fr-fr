@@ -40,7 +40,7 @@ RemoteApp peut être géré dans Azure Automation à l'aide des applets de comma
 
 Maintenant que vous avez appris les bases d'Azure Automation et la manière de l'utiliser pour gérer Azure RemoteApp, cliquez sur ces liens pour en savoir plus sur Azure Automation.
 
-* Consultez le [didacticiel de prise en main d'Azure Automation](automation-create-runbook-from-samples.md)
+* Consultez le [didacticiel de prise en main d'Azure Automation](automation/automation-create-runbook-from-samples.md)
 
 
 <!--HONumber=52-->

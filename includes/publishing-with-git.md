@@ -1,4 +1,4 @@
-﻿# Déploiement continu à l'aide de Git dans Azure App Service
+# Déploiement continu à l'aide de Git dans Azure App Service
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge le déploiement continu vers Web Apps à partir d'outils de contrôle de code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre application, puis d'envoyer (par transmission de type push) rapidement et facilement les modifications à votre application web Azure à votre convenance.
 
@@ -302,6 +302,6 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l'utilisation
 [Création d'un référentiel (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Utilisation de Dropbox pour partager les référentiels Git]: https://gist.github.com/trey/2722927
-[Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->
