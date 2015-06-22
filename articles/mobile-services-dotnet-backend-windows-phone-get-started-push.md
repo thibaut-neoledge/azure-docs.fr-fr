@@ -210,8 +210,8 @@ Pour plus d'informations sur les rubriques Mobile Services et Notifications Hubs
 
 [Envoi de notifications Push aux utilisateurs authentifiés]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-[Présentation de Notification Hubs]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-phone-send-breaking-news.md
+[Présentation de Notification Hubs]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
 
 

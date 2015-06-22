@@ -757,7 +757,7 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [En savoir plus sur Azure Mobile Services]: /develop/mobile/resources/
 [En savoir plus sur l'API web]: http://asp.net/web-api
 [Gestion des conflits d'écriture dans une base de données]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[Ajout de notifications Push]: notification-hubs-windows-store-dotnet-get-started.md
+[Ajout de notifications Push]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
 

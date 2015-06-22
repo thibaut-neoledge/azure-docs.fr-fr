@@ -146,14 +146,14 @@ Ce didacticiel explique les règles de base de l'activation d'une application Wi
 
 + [Envoi de notifications Push à des utilisateurs authentifiés](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis votre service mobile uniquement à un utilisateur authentifié.
 
-+ [Envoi de notifications diffusées aux abonnés](notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
++ [Envoi de notifications diffusées aux abonnés](notification-hubs/notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
-+ [Envoi de notifications indépendantes de toute plateforme aux abonnés](notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
++ [Envoi de notifications indépendantes de toute plateforme aux abonnés](notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>En savoir plus sur l'utilisation de modèles pour envoyer des notifications Push depuis votre service mobile, sans avoir à gérer des charges utiles propres à la plateforme sur votre serveur principal.
 
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Azure Notification Hubs : instructions relatives au diagnostic](notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
+* [Azure Notification Hubs : instructions relatives au diagnostic](notification-hubs/notification-hubs-diagnosing.md) <br/>En savoir plus sur la résolution des problèmes liés aux notifications Push.
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
@@ -181,7 +181,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[Présentation de Notification Hubs]: notification-hubs-overview.md
+[Présentation de Notification Hubs]: notification-hubs/notification-hubs-overview.md
 
 
 <!--HONumber=54-->
