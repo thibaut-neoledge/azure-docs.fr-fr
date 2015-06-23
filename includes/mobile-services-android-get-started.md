@@ -17,7 +17,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 	- 	Recherchez la méthode **OnCreate** dans **TodoActivity.java** et recherchez le code qui instancie le client des services mobiles. Le code est visible dans l’image précédente.
 	- 	Remplacez « MobileServiceUrl » par l'URL réelle de votre service mobile.
 	- 	Remplacez « AppKey » par la clé de votre service mobile.
-	- 	Pour plus d'informations, consultez le didacticiel [Ajout de Mobile Services à une application existante](../articles/mobile-services-android-get-started-data.md). 
+	- 	Pour plus d'informations, consultez le didacticiel [Ajout de Mobile Services à une application existante](../articles/mobile-services/mobile-services-android-get-started-data.md). 
 
 6. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet dans l'émulateur Android.
 
@@ -52,9 +52,9 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533

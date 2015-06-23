@@ -1436,7 +1436,7 @@ Cette commande permet de supprimer toutes les lignes de données de la table.
 
 ###<a name="Mobile_Scripts"></a>Commandes pour gérer les scripts
 
-Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](mobile-services-how-to-use-server-scripts.md).
+Les commandes de cette section permettent de gérer les scripts de serveur qui appartiennent à un service mobile. Pour plus d'informations, consultez la page [Utilisation des scripts serveur dans Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options][servicename]**
 

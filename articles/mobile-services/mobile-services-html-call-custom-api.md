@@ -1,0 +1,97 @@
+<properties 
+	pageTitle="Appel d'une API personnalisée à partir d'un client HTML - Mobile Services" 
+	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application HTML qui utilise Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	writer="jparrel" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="02/26/2015" 
+	ms.author="glenga"/>
+
+# Appel d'une API personnalisée à partir d'une application HTML
+
+[AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
+
+Cette rubrique explique comment appeler une API personnalisée à partir d'une application HTML. Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un autre format de corps de message que JSON.
+
+L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client devrait envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
+
+Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données]. À cet effet, vous allez exécuter la procédure suivante :
+
+1. [Définition de l'API personnalisée]
+2. [Mise à jour de l'application pour appeler l'API personnalisée]
+3. [Test de l'application] 
+
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données].
+
+## <a name="define-custom-api"></a>Définition de l'API personnalisée
+
+[AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
+
+<h2><a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée</h2>
+
+1. À l'aide de votre éditeur de texte, ouvrez le fichier index.html, localisez l'élément **button** intitulé `buttonRefresh`, et ajoutez le nouvel élément suivant juste après : 
+
+		<button id="buttonCompleteAll">Complete All</button> 
+
+	Le nouveau bouton est ajouté à la page.
+
+2. Dans page.js, après la fonction **refreshTodoItems**, ajoutez le code suivant :
+
+		var completeAllTodoItems = function () {
+			// Asynchronously call the custom API using the POST method.
+			client.invokeApi("completeall", {
+				body: null,
+				method: "post"
+			}).done(function (results) {
+				var message = results.result.count + " item(s) marked as complete.";
+				alert(message);
+				refreshTodoItems();
+			}, function(error) {
+				alert(error.message);
+			});
+		};
+
+		$('#buttonCompleteAll').click(function () {
+			completeAllTodoItems();
+		});
+
+	Cette méthode gère l'événement **Click** pour le nouveau bouton. La méthode **invokeApi** est appelée sur le client pour envoyer une requête POST à la nouvelle API personnalisée. Le résultat renvoyé par l'API personnalisée apparaît dans la boîte de message, avec les erreurs éventuelles.
+
+## <a name="test-app"></a>Test de l'application
+
+1. Actualisez votre navigateur.
+
+2. Dans l'application, tapez du texte dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
+
+3. Répétez l'étape précédente jusqu'à ce que vous ayez ajouté plusieurs éléments todo dans la liste.
+
+4. Cliquez sur le bouton **Complete All**. Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
+
+## Étapes suivantes
+
+Maintenant que vous avez créé une API personnalisée et que vous l'avez appelée à partir de votre application HTML, vous pouvez consulter les rubriques Mobile Services suivantes pour obtenir plus d'informations :
+
+* [Référence de script serveur Mobile Services] <br/>Familiarisez-vous avec la création des API personnalisées.
+
+<!-- Anchors. -->
+[Définition de l'API personnalisée]: #define-custom-api
+[Mise à jour de l'application pour appeler l'API personnalisée]: #update-app
+[Test de l'application]: #test-app
+[Next Steps]: #next-steps
+
+<!-- URLs. -->
+[Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Prise en main de Mobile Services]: mobile-services-html-get-started.md
+[Prise en main des données]: mobile-services-html-get-started-data.md
+<!--HONumber=54--> 
