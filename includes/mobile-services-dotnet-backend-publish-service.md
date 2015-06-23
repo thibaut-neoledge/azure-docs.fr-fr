@@ -2,7 +2,7 @@
 
 Après avoir testé l'application cliente sur le service mobile local, la dernière étape de ce didacticiel consiste à publier le service mobile sur Azure et à exécuter l'application sur le service en ligne.
 
->[AZURE.NOTE]Cette procédure montre comment publier votre service mobile en utilisant les outils de Visual Studio. Vous pouvez également publier votre service mobile de backend .NET à l'aide du contrôle de code source. Pour plus d'informations, consultez [Stockage du code d'un projet dans le contrôle du code source](../articles/mobile-services-dotnet-backend-store-code-source-control.md).
+>[AZURE.NOTE]Cette procédure montre comment publier votre service mobile en utilisant les outils de Visual Studio. Vous pouvez également publier votre service mobile de backend .NET à l'aide du contrôle de code source. Pour plus d'informations, consultez [Stockage du code d'un projet dans le contrôle du code source](../articles/mobile-services/mobile-services-dotnet-backend-store-code-source-control.md).
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet de service mobile, cliquez sur **Publier**, puis dans la boîte de dialogue **Publier le site web**, cliquez sur **Azure Mobile Services**.
 

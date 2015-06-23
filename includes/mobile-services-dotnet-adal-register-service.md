@@ -36,6 +36,6 @@ Dans cette section, vous allez inscrire votre service mobile auprès d'Azure Act
 6. Sur le portail de gestion Azure, cliquez de nouveau sur **Gérer le manifeste**, puis sur **Télécharger le manifeste sur le serveur**. Accédez au manifeste que vous venez de mettre à jour et téléchargez-le sur le serveur.
 
 <!-- URLs. -->
-[Inscription auprès d'Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
+[Inscription auprès d'Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
 <!--HONumber=54-->
