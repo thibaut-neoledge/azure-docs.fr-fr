@@ -160,5 +160,6 @@ Pour obtenir plus d’informations et découvrir des commandes supplémentaires,
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

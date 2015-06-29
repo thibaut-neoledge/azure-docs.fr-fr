@@ -4,17 +4,33 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
-# Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour ASP.NET
+# Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Windows Phone et Windows Store
+
+Le [Kit de développement logiciel (SDK) Application Insights](app-insights-windows-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](http://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
+
+
+#### Pour installer le Kit de développement logiciel (SDK) dans votre application
+
+Consultez la rubrique [Prise en main d’Application Insights pour Windows Phone et les applications du Windows Store](app-insights-windows-get-started.md).
+
+#### Pour passer à la dernière version du Kit de développement logiciel (SDK) 
+
+* Copiez le fichier ApplicationInsights.config pour conserver les personnalisations que vous avez effectuées.
+* Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+* Définissez le filtre pour afficher les packages installés. 
+* Sélectionnez les packages d'Application Insights installés et choisissez Mettre à niveau.
+* Comparez les anciennes et nouvelles versions d’ApplicationInsights.config. Fusionnez les personnalisations que vous avez effectuées sur l'ancienne version.
+* Régénérez votre solution.
 
 
 ## Version 0.16 
@@ -34,4 +50,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

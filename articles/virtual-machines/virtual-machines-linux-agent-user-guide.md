@@ -315,4 +315,6 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
  - [Wiki Ubuntu : Configurer les partitions d’échange](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
  - [Injection de données personnalisées dans une machine virtuelle Azure](virtual-machines-how-to-inject-custom-data.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

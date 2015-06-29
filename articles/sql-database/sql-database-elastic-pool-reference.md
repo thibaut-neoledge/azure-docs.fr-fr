@@ -96,6 +96,8 @@ La limite de stockage du pool est déterminée par le nombre de DTU de ce dernie
 
 *Les unités des API sont exprimées en Mo, et non en Go
 
+Si la limite du pool de stockage est dépassée, toutes les bases de données du pool passent en lecture seule. Si cela se produit, essayez d’augmenter les DTU ou le stockage du pool lui-même, ou bien de déplacer une ou plusieurs bases de données en dehors du pool. Pour identifier et empêcher le dépassement de la limite de stockage du pool, vous pouvez créer une alerte sur le portail qui se déclenche lorsque l’utilisation du stockage du pool dépasse une valeur prédéfinie.
+
 ## Limites relatives aux sessions et aux ouvriers
 
 Le nombre maximal d’ouvriers et de sessions simultanés pris en charge pour toutes les bases de données d’un pool élastique dépend du paramètre DTU du pool :
@@ -191,4 +193,8 @@ Le prix unitaire des DTU d’un pool élastique est supérieur au prix unitaire 
 | 40891 | EX_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. |
 | TBD | EX_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=58--> 
+
+
+ 
+
+<!---HONumber=58_postMigration-->

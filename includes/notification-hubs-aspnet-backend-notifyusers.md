@@ -1,67 +1,56 @@
-﻿## Création du projet WebAPI
+## Création du projet WebAPI
 
-Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET afin d'authentifier les clients et générer des notifications, ou modifiez un serveur principal existant créé dans le cadre de projets précédents ou du didacticiel [Envoi de notifications Push aux utilisateurs authentifiés](../articles/mobile-services-dotnet-backend-ios-push-notifications-app-users.md) .
+Un nouveau serveur principal ASP.NET WebAPI est créé dans les sections qui suivent, et a trois objectifs principaux :
 
-> [AZURE.NOTE] **Important** : Avant d'entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n'est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
+1. **Authentification des clients** : un gestionnaire de messages sera ajouté ultérieurement pour authentifier les demandes des clients et associer l’utilisateur à la demande.
+2. **Inscriptions aux notifications des clients** : ensuite, vous ajouterez un contrôleur pour gérer les nouvelles inscriptions afin qu’un appareil client puisse recevoir des notifications. Le nom d’utilisateur authentifié est automatiquement ajouté à l’inscription en tant que [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Envoi de notifications aux clients** : plus tard, vous ajouterez également un contrôleur permettant à un utilisateur de déclencher une notification Push sécurisée pour les appareils et les clients associés à la balise. 
+
+Les étapes suivantes montrent comment créer le serveur principal ASP.NET WebAPI :
+
+
+> [AZURE.NOTE]**Important** : avant d’entamer ce didacticiel, vérifiez que la version la plus récente du Gestionnaire de package NuGet est installée. Pour ce faire, lancez Visual Studio. Dans le menu **Outils**, cliquez sur **Extensions et mises à jour**. Recherchez **Gestionnaire de package NuGet pour Visual Studio 2013** et vérifiez que vous disposez de la version 2.8.50313.46 (ou ultérieure). Si ce n’est pas le cas, désinstallez puis réinstallez le Gestionnaire de package NuGet.
 > 
-> ![][4]
+> ![][B4]
 
-> [AZURE.NOTE] Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/) Visual Studio est installé, pour le déploiement du site web.
+> [AZURE.NOTE]Assurez-vous que le [Kit de développement logiciel (SDK) Azure](http://azure.microsoft.com/downloads/) Visual Studio est installé, pour le déploiement du site web.
 
 1. Démarrez Visual Studio ou Visual Studio Express.
-2. Dans Visual Studio, cliquez sur **fichier**, puis cliquez sur **nouveau**, puis **projet**, développez **modèles**, **Visual C#**, puis cliquez sur **Web** et **Application Web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
+2. Dans Visual Studio, cliquez sur **Fichier**, sur **Nouveau**, puis sur **Projet**, développez **Modèles**, **Visual C#**, puis cliquez sur **Web** et **Application Web ASP.NET**, tapez le nom **AppBackend**, puis cliquez sur **OK**. 
 	
-	![][1]
+	![][B1]
 
 3. Dans la boîte de dialogue **Nouveau projet ASP.NET**, cliquez sur **API web**, puis sur **OK**.
 
-	![][2]
+	![][B2]
 
-4. Dans la boîte de dialogue **Configurer un site Azure** choisissez l'abonnement, la région et la base de données à utiliser pour ce projet. Cliquez ensuite sur **OK** pour créer le projet.
+4. Dans la boîte de dialogue **Configurer un site Azure**, choisissez l’abonnement, la région et la base de données à utiliser pour ce projet. Entrez le mot de passe de votre compte, puis cliquez sur **OK** pour créer le projet.
 
-	![][5]
+	![][B5]
 
-5. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Gérer les packages NuGet**.
 
-6. Sur le côté gauche, cliquez sur **En ligne**, puis recherchez **servicebus** dans la zone **Rechercher**.
 
-7. Dans la liste de résultats, cliquez sur **Windows Azure Service Bus**, puis sur **Installer**. Procédez à l'installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
+## Authentification des clients sur le serveur principal WebAPI
 
-	![][14]
+Dans cette section, vous allez créer une classe de gestionnaire de messages nommée **AuthenticationTestHandler** pour le nouveau serveur principal. Cette classe est dérivée de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) et ajoutée comme gestionnaire de messages afin de pouvoir traiter toutes les demandes entrantes dans le serveur principal.
 
-8. Nous allons maintenant créer une classe **Notifications.cs**. Accédez à l'Explorateur de solutions, cliquez avec le bouton droit de la souris sur le dossier **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Après avoir nommé la nouvelle classe **Notifications.cs**, cliquez sur **Ajouter** pour générer la classe. Ce module représente les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplicité, ce didacticiel les stocke en mémoire.
 
-	![][6]
 
-9. Dans Notifications.cs, ajoutez l'instruction `using` suivante en haut du fichier :
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Ajouter** et sur **Classe**. Nommez la nouvelle classe **AuthenticationTestHandler.cs**, puis cliquez sur **Ajouter** pour générer la classe. Cette classe permettra d’authentifier les utilisateurs via l’*Authentification de base*. Notez que votre application peut utiliser n’importe quel schéma d’authentification.
 
-        using Microsoft.ServiceBus.Notifications;
-
-10. Remplacez ensuite la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
-
-		public class Notifications
-        {
-            public static Notifications Instance = new Notifications();
-        
-            public NotificationHubClient Hub { get; set; }
-
-            private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", "{hub name}");
-            }
-        }
-
-11. Nous allons ensuite créer une classe **AuthenticationTestHandler.cs**. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Ajouter** et sur **Classe**. Nommez la nouvelle classe **AuthenticationTestHandler.cs**, puis cliquez sur **Ajouter** pour générer la classe. Cette classe est utilisée pour authentifier les utilisateurs à l'aide de *Basic Authentication*. Notez que votre application peut utiliser n'importe quel schéma d'authentification.
-
-12. Dans AuthenticationTestHandler.cs, ajoutez les instructions `using` suivantes :
+2. Dans AuthenticationTestHandler.cs, ajoutez les instructions `using` suivantes :
 
         using System.Net.Http;
-        using System.Threading.Tasks;
         using System.Threading;
-        using System.Text;
         using System.Security.Principal;
         using System.Net;
+        using System.Web;
 
-13. Dans AuthenticationTestHandler.cs, remplacez la définition de classe `AuthenticationTestHandler` par la suivante :
+3. Dans AuthenticationTestHandler.cs, remplacez la définition de classe `AuthenticationTestHandler` par le code suivant :
+
+	Ce gestionnaire gère toutes les demandes qui incluent un en-tête d’*autorisation*. Si la demande utilise l’authentification *de base* et que la chaîne du nom d’utilisateur correspond à la chaîne du mot de passe, elle est autorisée par le serveur principal. Sinon, la demande est rejetée. Cette méthode ne répond pas à une véritable approche d’authentification et d’autorisation. Il s’agit uniquement d’un exemple très simple pour ce didacticiel.
+
+	Si le message de la demande est authentifié et autorisé par le `AuthenticationTestHandler`, l’utilisateur de l’authentification de base est attaché à la demande actuelle sur le [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Les informations utilisateur dans le HttpContext sont utilisées par un autre contrôleur (RegisterController) pour ajouter une [balise](https://msdn.microsoft.com/library/azure/dn530749.aspx) à la demande d’inscription aux notifications.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -88,9 +77,9 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 	                    System.Threading.Thread.CurrentPrincipal =
 	                        System.Web.HttpContext.Current.User;
 	                }
-	                else return Unauthorised();
+	                else return Unauthorized();
 	            }
-	            else return Unauthorised();
+	            else return Unauthorized();
 	
 	            return base.SendAsync(request, cancellationToken);
 	        }
@@ -101,7 +90,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 	            return user == password;
 	        }
 	
-	        private Task<HttpResponseMessage> Unauthorised()
+	        private Task<HttpResponseMessage> Unauthorized()
 	        {
 	            var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
 	            var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -110,19 +99,59 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
 	        }
 	    }
 
-	> [AZURE.NOTE] **Remarque relative à la sécurité** : La classe `AuthenticationTestHandler` n'offre pas de véritable authentification. Elle sert uniquement à simuler l'authentification de base et n'est pas sécurisée. Vous devez mettre en œuvre un mécanisme d'authentification sécurisé dans vos applications de production et vos services.				
+	> [AZURE.NOTE]**Note de sécurité** : la classe `AuthenticationTestHandler` n’offre pas de véritable authentification. Elle sert uniquement à simuler l’authentification de base et n’est pas sécurisée. Vous devez mettre en œuvre un mécanisme d’authentification sécurisé dans vos applications de production et vos services.
 
-14. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App_Start/WebApiConfig.cs** :
+4. Ajoutez le code suivant à la fin de la méthode `Register` dans la classe **App_Start/WebApiConfig.cs** pour inscrire le gestionnaire de messages :
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. Next we create a new controller **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
+5. Enregistrez vos modifications.
 
-	![][7]
+## Inscription aux notifications à l’aide du serveur principal WebAPI
 
-	![][8]
+Dans cette section, nous allons ajouter un nouveau contrôleur au serveur principal WebAPI pour gérer les demandes d’inscription d’un utilisateur et d’un appareil aux notifications à l’aide de la bibliothèque cliente pour les concentrateurs de notification, en l’occurrence la bibliothèque cliente Azure Service Bus. Le contrôleur ajoute une balise d’utilisateur pour l’utilisateur qui a été authentifié et attaché au HttpContext par le `AuthenticationTestHandler`. La balise a le format de chaîne `"username:<actual username>"`.
 
-16. Dans RegiterController.cs, ajoutez les instructions `using` suivantes :
+
+ 
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **AppBackend**, puis cliquez sur **Gérer les packages NuGet**.
+
+2. Sur le côté gauche, cliquez sur **En ligne**, puis recherchez **servicebus** dans la zone **Rechercher**.
+
+3. Dans la liste de résultats, cliquez sur **Microsoft Azure Service Bus**, puis sur **Installer**. Procédez à l’installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
+
+	![][B14]
+
+4. Nous allons maintenant créer un fichier de classe qui représente les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplicité, ce didacticiel les stocke en mémoire. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Modèles**, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **Notifications.cs**, puis cliquez sur **Ajouter** pour générer la classe.
+
+	![][B6]
+
+5. Dans Notifications.cs, ajoutez l’instruction `using` suivante en haut du fichier :
+
+        using Microsoft.ServiceBus.Notifications;
+
+6. Remplacez la définition de classe `Notifications` par ce qui suit et veillez à remplacer les deux espaces réservés par la chaîne de connexion (avec accès complet) pour votre concentrateur de notification et le nom du concentrateur (disponible sur le [portail de gestion Azure](http://manage.windowsazure.com)) :
+
+		public class Notifications
+        {
+            public static Notifications Instance = new Notifications();
+        
+            public NotificationHubClient Hub { get; set; }
+
+            private Notifications() {
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
+            }
+        }
+
+
+
+7. Nous allons ensuite créer un contrôleur **RegisterController**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, puis cliquez sur **Ajouter** et sur **Contrôleur**. Cliquez sur l’élément **Web API 2 Controller -- Empty**, puis sur **Ajouter**. Nommez la nouvelle classe **RegisterController**, puis cliquez de nouveau sur **Ajouter** pour générer le contrôleur.
+
+	![][B7]
+
+	![][B8]
+
+8. Dans RegisterController.cs, ajoutez les instructions `using` suivantes :
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +159,7 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Ajoutez le code suivant dans la définition de classe `RegisterController`. Notez que nous ajoutons à ce code la balise de l'utilisateur qui a été authentifié par le gestionnaire. Vous pouvez également ajouter des contrôles facultatifs afin de vérifier que l'utilisateur dispose des droits d'inscription nécessaires pour les balises requises.
+9. Ajoutez le code suivant dans la définition de classe `RegisterController`. Notez que dans ce code, nous ajoutons une balise d’utilisateur pour l’utilisateur attaché au HttpContext. L’utilisateur a été authentifié et attaché au HttpContext par le filtre de messages que nous avons ajouté, `AuthenticationTestHandler`. Vous pouvez également ajouter des contrôles facultatifs afin de vérifier que l’utilisateur dispose des droits d’inscription nécessaires pour les balises requises.
 
 		private NotificationHubClient hub;
 
@@ -150,9 +179,9 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
         // This creates a registration id
         public async Task<string> Post(string handle = null)
         {
-            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             string newRegistrationId = null;
             
+            // make sure there are no existing registrations for this push handle (used for iOS and Android)
             if (handle != null)
             {
                 var registrations = await hub.GetRegistrationsByChannelAsync(handle, 100);
@@ -170,7 +199,8 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
                 }
             }
 
-            if (newRegistrationId == null) newRegistrationId = await hub.CreateRegistrationIdAsync();
+            if (newRegistrationId == null) 
+				newRegistrationId = await hub.CreateRegistrationIdAsync();
 
             return newRegistrationId;
         }
@@ -235,68 +265,98 @@ Suivez les étapes ci-dessous pour créer un serveur principal WebAPI ASP.NET af
             }
         }
 
-18. Créez un nouveau contrôleur **NotificationsController**, de la même façon que nous avons créé **RegisterController**. Ce composant expose une méthode permettant à l'appareil de récupérer la notification en toute sécurité et offre un moyen pour un utilisateur de déclencher une transmission de type push sécurisée vers les appareils. Notez que la notification envoyée ici au concentrateur de notification est brute puisqu'elle comporte uniquement son ID (sans message).
+10. Enregistrez vos modifications.
 
-19. Dans NotificationsController.cs, ajoutez les instructions `using` suivantes :
+## Envoi de notifications depuis le serveur principal WebAPI
+
+Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils clients d’envoyer une notification basée sur la balise de nom d’utilisateur à l’aide de la bibliothèque cliente Azure Service Bus sur le serveur principal ASP.NET WebAPI.
+
+
+1. Créez un autre contrôleur nommé **NotificationsController**, en suivant la même procédure que pour la création du contrôleur **RegisterController** dans la section précédente.
+
+2. Dans NotificationsController.cs, ajoutez les instructions `using` suivantes :
 
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
-20. Ajoutez le code suivant dans la définition de classe  **NotificationsController** et veillez à placer en commentaires les extraits de code pour les plateformes que vous n'utilisez pas.
+3. Ajoutez la méthode suivante à la classe **NotificationsController** :
 
-        public async Task<HttpResponseMessage> Post()
+	Ce code envoie un type de notification basé sur le paramètre `pns` du service de notification de plateforme. La valeur de `to_tag` permet de définir la balise *username* sur le message. Cette balise doit correspondre à une balise de nom d’utilisateur d’une inscription de concentrateur de notification active. Le message de notification est extrait du corps de la demande POST.
+
+        public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
             var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:"+user;
+            string[] userTag = new string[2];
+            userTag[0] = "username:" + to_tag;
+            userTag[1] = "from:" + user;
 
+            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
-            // windows
-            var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Hello, " + user + "</text></binding></visual></toast>";
-            await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+            switch (pns.ToLower())
+            {
+                case "wns":
+                    // Windows 8.1 / Windows Phone 8.1
+                    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + 
+                                "From " + user + ": " + message + "</text></binding></visual></toast>";
+                    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+                    break;
+                case "apns":
+                    // iOS
+                    var alert = "{"aps":{"alert":"" + "From " + user + ": " + message + ""}}";
+                    outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
+                    break;
+                case "gcm":
+                    // Android
+                    var notif = "{ "data" : {"message":"" + "From " + user + ": " + message + ""}}";
+                    outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                    break;
+            }
 
+            if (outcome != null)
+            {
+                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                {
+                    ret = HttpStatusCode.OK;
+                }
+            }
 
-            // apns
-            var alert = "{"aps":{"alert":"Hello"}}";
-            await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
-
-
-            // gcm
-            var notif = "{ "data" : {"msg":"Hello"}}";
-            await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
-
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(ret);
         }
 
-21. Appuyez sur la touche **F5** pour exécuter l'application et vérifier le travail que vous avez accompli jusqu'à présent. L'application doit lancer un navigateur web et afficher la page d'accueil d'ASP.NET. 
 
-22. Nous allons maintenant déployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
+4. Appuyez sur la touche **F5** pour exécuter l’application et vérifier le travail que vous avez accompli jusqu’à présent. L’application doit lancer un navigateur web et afficher la page d’accueil d’ASP.NET.
 
-23. Sélectionnez Site web Azure comme cible de publication.
+##Publication du nouveau serveur principal WebAPI
+
+1. Nous allons maintenant déployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
+
+2. Sélectionnez Site web Azure comme cible de publication.
 
     ![][B15]
 
-24. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant).
+3. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant).
 
     ![][B16]
 
-25. Notez la propriété **URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *backend endpoint*. Cliquez sur **Publier**.
+4. Notez la propriété de l’**URL de destination** sous l’onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
 
     ![][B18]
 
 
-[1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
-[14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
+[B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
+[B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
+[B3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
+[B4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+[B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
+[B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
+[B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
+[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
+[B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!--HONumber=49-->
+<!---HONumber=58_postMigration-->

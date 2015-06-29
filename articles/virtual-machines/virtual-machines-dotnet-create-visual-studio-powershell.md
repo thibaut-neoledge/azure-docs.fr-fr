@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/19/2015" 
+	ms.date="06/10/2015"
 	ms.author="kempb"/>
 
 # Création d’une machine virtuelle pour un site web avec Visual Studio
@@ -22,23 +22,23 @@ Lorsque vous créez un projet web pour un site web Azure, vous pouvez approvisio
 
 Pour créer une machine virtuelle lorsque vous créez un site web, suivez les étapes suivantes :
 
-1. Dans Visual Studio, choisissez **Fichier**, **Nouveau projet**, puis **Web** et enfin **Application Web ASP.NET**.
+1. Dans Visual Studio, choisissez **Fichier**, **Nouveau projet**, choisissez **Web**, puis **Application Web ASP.NET** (sous les nœuds **Visual C#** ou **Visual Basic**).
 2. Dans la boîte de dialogue **Nouveau projet ASP.NET**, sélectionnez le type d'application web souhaité. Dans la section Azure de la boîte de dialogue (en bas à droite), veillez à ce que la case **Héberger dans le cloud** soit cochée (elle est appelée **Créer des ressources distantes** dans certaines installations).
 
 	![][0]
 
-3. Choisissez **Machine virtuelle**, puis cliquez sur le bouton **OK**.
-4. Si vous y êtes invité, connectez-vous à Azure. La boîte de dialogue Créer l’ordinateur virtuel s’affiche.
+3. Dans la zone de liste déroulante sous Microsoft Azure, choisissez **Machine virtuelle**, puis le bouton **OK**.
+4. Connectez-vous à Azure si vous y êtes invité. La boîte de dialogue **Créer une machine virtuelle** s’affiche.
 
 	![][2]
 
 5. Dans la zone du nom DNS, saisissez le nom de la machine virtuelle. Le nom DNS doit être unique dans Azure. Si le nom saisi n'est pas disponible, un point d'exclamation rouge apparaît.
-6. Dans la liste d'images, choisissez l'image du système d'exploitation que vous souhaitez sur la machine virtuelle. Vous pouvez choisir n'importe quelle image standard ou votre propre image téléchargée vers Azure.
+6. Dans la liste d’**images**, choisissez l’image de machine virtuelle sur laquelle vous souhaitez baser la machine virtuelle. Vous pouvez choisir n’importe quelle image de machine virtuelle Azure standard ou votre propre image téléchargée sur Azure.
 7. Ne cochez pas la case **Activer IIS et Web Deploy**, sauf si vous prévoyez d'installer un serveur web différent. Vous ne pourrez pas effectuer de publication à partir de Visual Studio si vous désactivez Web Deploy. Vous pouvez ajouter IIS et Web Deploy à n'importe quelle image Windows Server, y compris à vos images personnalisées.
 8. Dans la liste **Taille**, sélectionnez la taille de la machine virtuelle.
 9. Spécifiez les identifiants de connexion de cette machine virtuelle. Notez-les, car vous en aurez besoin pour accéder à la machine avec le Bureau à distance.
-10. Dans la liste **Emplacement**, choisissez la région, le réseau virtuel ou le groupe d'affinités qui hébergera la machine virtuelle. Il est possible d'utiliser des groupes d'affinités pour s'assurer que les ressources Azure présentant un trafic réseau important sont regroupées dans le même centre de données. Il est également possible d'utiliser des régions pour spécifier l'emplacement exact du centre de données.
-11. Choisissez **OK** pour démarrer la création de la machine virtuelle. Vous pouvez suivre la progression dans la fenêtre **Sortie **. 
+10. Dans la liste **Emplacement**, choisissez la région dans laquelle vous allez héberger la machine virtuelle.
+11. Choisissez le bouton **OK** pour commencer à créer la machine virtuelle. Vous pouvez suivre l’état de l’opération dans la **fenêtre Sortie **. 
 	![][3]
 
 12. Lorsque la machine virtuelle est approvisionnée, des scripts de publication sont créés dans un nœud **PublishScripts** de votre solution. Le script de publication exécute et approvisionne une machine virtuelle dans Azure. La fenêtre **Sortie** affiche le statut. Le script effectue les opérations ci-après pour configurer la machine virtuelle :
@@ -51,9 +51,11 @@ Pour créer une machine virtuelle lorsque vous créez un site web, suivez les é
 
 	![][4]
 
-<br/> 13. (Facultatif) Dans l'**Explorateur de serveurs**, développez le nœud **Machines virtuelles**. Choisissez le nœud de la machine virtuelle que vous avez créée, puis sélectionnez **Se connecter avec le Bureau à distance** pour vous connecter à la machine virtuelle.
+<br/> 13. (Facultatif) Vous pouvez vous connecter à la nouvelle machine virtuelle. Dans l’**Explorateur de serveurs**, développez le nœud **Machines virtuelles**. Choisissez le nœud de la machine virtuelle que vous avez créée, puis dans le menu contextuel, sélectionnez **Se connecter avec le Bureau à distance**.
 
-# Étapes suivantes
+	![][5]
+
+## Étapes suivantes
 
 Si vous voulez personnaliser les scripts de publication créés, consultez des informations détaillées [ici](http://msdn.microsoft.com/library/dn642480.aspx).
 
@@ -62,5 +64,7 @@ Si vous voulez personnaliser les scripts de publication créés, consultez des i
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

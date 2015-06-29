@@ -1,25 +1,30 @@
-<properties 
-	pageTitle="Utilisation de Hadoop Sqoop dans HDInsight | Azure" 
-	description="Découvrez comment utiliser Azure PowerShell à partir d'un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Utilisation de Hadoop Sqoop dans HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser Azure PowerShell à partir d'un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure."
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	documentationCenter=""
 	authors="mumian"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/11/2015"
 	ms.author="jgao"/>
 
-#Utilisation de Sqoop avec Hadoop dans HDInsight
- 
+#Utilisation de Sqoop avec Hadoop dans HDInsight (Windows)
+
+[AZURE.INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
+
 Découvrez comment utiliser Azure PowerShell et le kit de développement logiciel (SDK) HDInsight .NET depuis une station de travail pour exécuter Sqoop afin d’importer et d’exporter entre un cluster HDInsight et une base de données SQL Azure ou une base de données SQL Server.
 
+> [AZURE.NOTE]Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, ces étapes fonctionnent uniquement à partir d'un client Windows.
+>
+> Si vous utilisez un client Linux, OS X ou Unix, et un serveur HDInsight Linux, consultez [Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
 ##Qu'est-ce que Sqoop ?
 
@@ -29,14 +34,11 @@ Bien que Hadoop soit préférable pour traiter des données non structurées et 
 
 Pour obtenir la liste des versions Sqoop prises en charge par les clusters HDInsight, consultez la rubrique [Nouveautés sur les versions de cluster fournies par HDInsight][hdinsight-versions].
 
-
-
-
 ##Configuration requise
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Station de travail** : un ordinateur sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install]. Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
 
 - **Cluster Azure HDInsight** : pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
@@ -55,8 +57,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom de connexion de la base de données&#160;SQL&#160;Azure.</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour la base de données SQL&#160;Azure.</td></tr>
 <tr><td>Le mot de passe de connexion pour la base de données&#160;SQL&#160;Azure</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour la base de données SQL&#160;Azure.</td></tr>
 <tr><td>Nom de la base de données SQL&#160;Azure</td><td>$sqlDatabaseName</td><td></td><td>La base de données&#160;SQL&#160;Azure vers laquelle Sqoop va exporter des données et depuis laquelle il va en importer. </td></tr>
-</table>
-> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
 
 * **SQL Server** : si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.
 
@@ -126,9 +127,9 @@ Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires,
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Seule la syntaxe *wasb://* est prise en charge dans le cluster HDInsight version 3.0. L'ancienne syntaxe *asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
+> [AZURE.NOTE]Seule la syntaxe *wasb://* est prise en charge dans la version 3.0 du cluster HDInsight. L'ancienne syntaxe *asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
 
-> [AZURE.NOTE]Le chemin d'accès *wasb://* est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]. 
+> [AZURE.NOTE]Le chemin d'accès *wasb://* est un chemin d'accès virtuel. Pour plus d'informations, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
 Un fichier stocké dans le blob du système de fichiers par défaut est accessible depuis HDInsight à l’aide de n'importe lequel des URI suivants (les exemples utilisent le fichier sample.log) :
 
@@ -152,12 +153,12 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 1. Ouvrez Windows PowerShell ISE (dans l'écran d'accueil Windows 8, tapez **PowerShell_ISE**, puis cliquez sur **Windows PowerShell ISE**. Consultez la page [Démarrage de Windows PowerShell sur Windows 8 et Windows][powershell-start]).
 
 2. Copiez le script suivant dans le volet de script, puis définissez les quatre premières variables.
-		
+
 		#SQL database variables
-		$sqlDatabaseServer = "<SQLDatabaseServerName>" 
+		$sqlDatabaseServer = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "<SQLDatabasePassword>"
-		$sqlDatabaseName = "<SQLDatabaseName>" 
+		$sqlDatabaseName = "<SQLDatabaseName>"
 
 		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
 
@@ -167,29 +168,29 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 
 		# SQL query strings for creating tables and clustered indexes
 		$cmdCreateLog4jTable = "CREATE TABLE [dbo].[log4jlogs](
-		    [t1] [nvarchar](50), 
-		    [t2] [nvarchar](50), 
-		    [t3] [nvarchar](50), 
-		    [t4] [nvarchar](50), 
-		    [t5] [nvarchar](50), 
-		    [t6] [nvarchar](50), 
+		    [t1] [nvarchar](50),
+		    [t2] [nvarchar](50),
+		    [t3] [nvarchar](50),
+		    [t4] [nvarchar](50),
+		    [t5] [nvarchar](50),
+		    [t6] [nvarchar](50),
 		    [t7] [nvarchar](50))"
-		
+
 		$cmdCreateLog4jClusteredIndex = "CREATE CLUSTERED INDEX log4jlogs_clustered_index on log4jlogs(t1)"
-		
+
 		$cmdCreateMobileTable = " CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50), 
-		[querytime] [nvarchar](50), 
-		[market] [nvarchar](50), 
-		[deviceplatform] [nvarchar](50), 
-		[devicemake] [nvarchar](50), 
-		[devicemodel] [nvarchar](50), 
-		[state] [nvarchar](50), 
-		[country] [nvarchar](50), 
+		[clientid] [nvarchar](50),
+		[querytime] [nvarchar](50),
+		[market] [nvarchar](50),
+		[deviceplatform] [nvarchar](50),
+		[devicemake] [nvarchar](50),
+		[devicemodel] [nvarchar](50),
+		[state] [nvarchar](50),
+		[country] [nvarchar](50),
 		[querydwelltime] [float],
 		[sessionid] [bigint],
 		[sessionpagevieworder][bigint])"
-		
+
 		$cmdCreateMobileDataClusteredIndex = "CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)"
 
 4. Ajoutez le script suivant dans le volet de script afin d'exécuter les commandes SQL :
@@ -198,7 +199,7 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 		$conn = New-Object System.Data.SqlClient.SqlConnection
 		$conn.ConnectionString = $sqlDatabaseConnectionString
 		$conn.Open()
-		
+
 		Write-Host "Create log4j table and clustered index ..." -ForegroundColor Green
 		$cmd = New-Object System.Data.SqlClient.SqlCommand
 		$cmd.Connection = $conn
@@ -206,18 +207,18 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 		$ret = $cmd.ExecuteNonQuery()
 		$cmd.CommandText = $cmdCreateLog4jClusteredIndex
 		$cmd.ExecuteNonQuery()
-		
+
 		Write-Host "Create log4j table and clustered index ..." -ForegroundColor Green
 		$cmd.CommandText = $cmdCreateMobileTable
 		$cmd.ExecuteNonQuery()
 		$cmd.CommandText = $cmdCreateMobileDataClusteredIndex
 		$cmd.ExecuteNonQuery()
-		
-		Write-Host "Close connection ..." -ForegroundColor Green		
+
+		Write-Host "Close connection ..." -ForegroundColor Green
 		$conn.close()
-		
+
 		Write-Host "Done" -ForegroundColor Green
-	
+
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
 6. Contrôlez les tables et les index cluster dans le [portail Azure][azure-management-portal].
 
@@ -232,23 +233,23 @@ Vous allez créer deux tables dans la base de données SQL Azure ou dans SQL S
 4. Saisissez les informations suivantes dans la fenêtre Requête.
 
 		CREATE TABLE [dbo].[log4jlogs](
-		 [t1] [nvarchar](50), 
-		 [t2] [nvarchar](50), 
-		 [t3] [nvarchar](50), 
-		 [t4] [nvarchar](50), 
-		 [t5] [nvarchar](50), 
-		 [t6] [nvarchar](50), 
+		 [t1] [nvarchar](50),
+		 [t2] [nvarchar](50),
+		 [t3] [nvarchar](50),
+		 [t4] [nvarchar](50),
+		 [t5] [nvarchar](50),
+		 [t6] [nvarchar](50),
 		 [t7] [nvarchar](50))
 
 		CREATE TABLE [dbo].[mobiledata](
-		 [clientid] [nvarchar](50), 
-		 [querytime] [nvarchar](50), 
-		 [market] [nvarchar](50), 
-		 [deviceplatform] [nvarchar](50), 
-		 [devicemake] [nvarchar](50), 
-		 [devicemodel] [nvarchar](50), 
-		 [state] [nvarchar](50), 
-		 [country] [nvarchar](50), 
+		 [clientid] [nvarchar](50),
+		 [querytime] [nvarchar](50),
+		 [market] [nvarchar](50),
+		 [deviceplatform] [nvarchar](50),
+		 [devicemake] [nvarchar](50),
+		 [devicemodel] [nvarchar](50),
+		 [state] [nvarchar](50),
+		 [country] [nvarchar](50),
 		 [querydwelltime] [float],
 		 [sessionid] [bigint],
 		 [sessionpagevieworder][bigint])
@@ -280,62 +281,62 @@ Cela convient pour d'autres exemples qui utilisent ces données, mais nous devon
 	> [AZURE.NOTE]Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l'abonnement défini par défaut, utilisez la cmdlet <strong>Select-AzureSubscription</strong> pour sélectionner l'abonnement actuel.
 
 3. Copiez le script suivant dans le volet de script, puis définissez les deux premières variables.
-		
+
 		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<BlobContainerName>"
-		
+
 		$sourceBlobName = "example/data/sample.log"
 		$destBlobName = "tutorials/usesqoop/data/sample.log"
 
 	Pour plus d'informations sur les variables, consultez la section [Conditions préalables](#prerequisites) de ce didacticiel.
- 
+
 4. Ajoutez le script suivant dans le volet de script :
 
 		# Define the connection string
 		$storageAccountKey = get-azurestoragekey $storageAccountName | %{$_.Primary}
 		$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$storageAccountKey"
-		
+
 		# Create block blob objects referencing the source and destination blob.
 		$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
 		$storageClient = $storageAccount.CreateCloudBlobClient();
 		$storageContainer = $storageClient.GetContainerReference($containerName)
 		$sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
 		$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-		
+
 		# Define a MemoryStream and a StreamReader for reading from the source file
 		$stream = New-Object System.IO.MemoryStream
 		$stream = $sourceBlob.OpenRead()
 		$sReader = New-Object System.IO.StreamReader($stream)
-		
+
 		# Define a MemoryStream and a StreamWriter for writing into the destination file
 		$memStream = New-Object System.IO.MemoryStream
 		$writeStream = New-Object System.IO.StreamWriter $memStream
-		
+
 		# process the source blob
 		$exString = "java.lang.Exception:"
 		while(-Not $sReader.EndOfStream){
 		    $line = $sReader.ReadLine()
 		    $split = $line.Split(" ")
-		
+
 		    # remove the "java.lang.Exception" from the first element of the array
 		    # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
 		    if ($split[0] -eq $exString){
 		        #create a new ArrayList to remove $split[0]
 		        $newArray = [System.Collections.ArrayList] $split
 		        $newArray.Remove($exString)
-		
+
 		        # update $split and $line
 		        $split = $newArray
 		        $line = $newArray -join(" ")
 		    }
-		
+
 		    # remove the lines that has less than 7 elements
 		    if ($split.count -ge 7){
 		        write-host $line
 		        $writeStream.WriteLine($line)
 		    }
 		}
-		
+
 		# Write to the destination blob
 		$writeStream.Flush()
 		$memStream.Seek(0, "Begin")
@@ -350,7 +351,7 @@ Cela convient pour d'autres exemples qui utilisent ces données, mais nous devon
 Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la commande Sqoop export en vue d'exporter une table Hive et un fichier de données vers une base de données SQL Azure ou vers SQL Server. Un exemple HDInsight .NET est fourni à la section suivante.
 
 > [AZURE.NOTE]En dehors des informations de la chaîne de connexion, les étapes décrites dans cette section doivent fonctionner pour une base de données SQL Azure ou pour SQL Server. Elles ont été testées avec la configuration suivante :
-> 
+>
 > * **Configuration de point à site du réseau virtuel Azure** : un réseau virtuel connectant le cluster HDInsight à un serveur SQL Server dans un centre de données privé. Pour plus d'informations, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](http://msdn.microsoft.com/library/azure/dn133792.aspx).
 > * **Azure HDInsight 3.1** : pour plus d'informations sur la création d'un cluster sur un réseau virtuel, consultez la rubrique [Approvisionnement de clusters HDInsight à l’aide d'options personnalisées](hdinsight-provision-clusters.md).
 > * **SQL Server 2014** : configuré de manière à autoriser l'authentification et à exécuter le package de configuration du client VPN pour établir une connexion sécurisée au réseau virtuel.
@@ -370,7 +371,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -378,16 +379,16 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
-		
+
 		# Connection string for Azure SQL Database.
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server.
 		# Uncomment if using SQL Server.
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$exportDir_log4j = "/tutorials/usesqoop/data"
-	
+
 	Pour plus d'informations sur les variables, consultez la section [Conditions préalables](#prerequisites) de ce didacticiel.
 
 	Notez que $exportDir_log4j n’a pas le nom de fichier sample.log spécifié. Sqoop exportera les données de l'ensemble des fichiers dans ce dossier.
@@ -398,7 +399,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
@@ -424,7 +425,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -432,26 +433,26 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_mobile = "mobiledata"
-		
+
 		# Connection string for Azure SQL Database.
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server.
 		# Uncomment if using SQL Server
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
-	
+
 	Pour plus d'informations sur les variables, consultez la section [Conditions préalables](#prerequisites) de ce didacticiel.
 
 4. Ajoutez le script suivant dans le volet de script :
-		
+
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
-		
-		
+
+
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
@@ -477,7 +478,7 @@ Voici un exemple C# utilisant le kit de développement logiciel (SDK) HDInsight 
 	using System.Security.Cryptography.X509Certificates;
 	using Microsoft.WindowsAzure.Management.HDInsight;
 	using Microsoft.Hadoop.Client;
-	
+
 	namespace sqoopSDKSample
 	{
 	    class Program
@@ -493,7 +494,7 @@ Voici un exemple C# utilisant le kit de développement logiciel (SDK) HDInsight 
 	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
 	            string sqlDatabaseDatabaseName = "hdisqoop";
 	            string sqlDatabaseTableName = "log4jlogs";
-	
+
 	            cmdExport = @"export";
 				// Connection string for using Azure SQL Database.
 				// Comment if using SQL Server
@@ -504,36 +505,36 @@ Voici un exemple C# utilisant le kit de développement logiciel (SDK) HDInsight 
 	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
 	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
 	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
-	
+
 	            SqoopJobCreateParameters sqoopJobDefinition = new SqoopJobCreateParameters()
 	            {
 	                Command = cmdExport,
 	                StatusFolder = "/tutorials/usesqoop/jobStatus"
 	            };
-	
+
 	            // Get the certificate object from certificate store using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-	
+
 	            // Submit the Hive job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
-	
+
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
-	
+
 	            // Print the Hive job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
-	
+
 	            StreamReader reader = new StreamReader(stream);
 	            Console.WriteLine(reader.ReadToEnd());
-	
+
 	            Console.WriteLine("Press ENTER to continue.");
 	            Console.ReadLine();
 	        }
-	
+
 	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 	        {
 	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -576,7 +577,7 @@ Dans cette section, vous allez importer à nouveau les journaux log4j (que vous 
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<AzureStorageAccount>"
 		$containerName = "<BlobStorageContainerName>"
-		
+
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
@@ -584,26 +585,26 @@ Dans cette section, vous allez importer à nouveau les journaux log4j (que vous 
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_log4j = "log4jlogs"
-		
+
 		# Connection string for Azure SQL Database
 		# Comment if using SQL Server
 		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		# Connection string for SQL Server
 		# Uncomment if using SQL Server
 		#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$databaseName"
-		
+
 		$tableName_mobile = "mobiledata"
 		$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
-	
+
 	Pour plus d'informations sur les variables, consultez la section [Conditions préalables](#prerequisites) de ce didacticiel.
 
 4. Ajoutez le script suivant dans le volet de script :
-	
+
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
-		
+
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
 		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
-		
+
 		Write-Host "Standard Error" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
 		Write-Host "Standard Output" -BackgroundColor Green
@@ -621,7 +622,7 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 - [Téléchargement de données vers HDInsight][hdinsight-upload-data] : découvrez d'autres méthodes pour télécharger des données vers HDInsight ou le stockage d'objets blob Azure.
 
 
- 
+
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
@@ -642,5 +643,6 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

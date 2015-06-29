@@ -127,5 +127,6 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 
 
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

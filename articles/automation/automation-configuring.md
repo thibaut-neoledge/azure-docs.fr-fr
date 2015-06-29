@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuration d’Azure Automation"
    description="Décrit les étapes que vous devez effectuer pour configurer Azure Automation pour une première utilisation."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@ Cet article décrit les actions que vous devez effectuer pour commencer à utili
 Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources Automation (Runbooks, ressources) des ressources Automation contenues dans d’autres comptes Automation. Vous pouvez utiliser des comptes Automation pour séparer les ressources Automation dans des environnements logiques distincts. Par exemple, vous pouvez utiliser un compte pour le développement et un autre pour la production.
 
 Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer les services Azure dans n’importe quelle région. L’existence de stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique constitue la raison principale de création de comptes Automation dans différentes régions.
+
+>[AZURE.NOTE]Les comptes Automation et les ressources qu'ils contiennent, créés avec la version d'évaluation du portail Azure, ne sont pas accessibles dans le portail Azure. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
+>
+>Les comptes Automation créés avec le portail Azure peuvent être gérés soit par le portail, soit par le jeu d'applets de commande. Une fois que le compte est créé, la façon de créer et gérer des ressources au sein du compte n’importe pas. Si vous envisagez de continuer à utiliser le portail Azure, vous devez alors l’utiliser au lieu d’utiliser le portail d’évaluation Azure pour créer des comptes Automation.
+
 
 Un compte Automation peut être suspendu s’il existe un problème avec votre compte Azure, comme un retard de paiement. Dans ce cas, vous ne pouvez pas accéder au compte, tous les travaux en cours d’exécution sont interrompus et toutes les planifications sont désactivées. Vous pouvez afficher le compte, mais vous ne pouvez pas voir les ressources qu’il contient. Lorsque vous avez corrigé le problème et que le compte Automation est activé, vous devez activer vos planifications et redémarrer les Runbooks qui ont été interrompus.
 
@@ -58,7 +63,8 @@ Vous pouvez récupérer les informations d’identification dans un Runbook à l
 
 Vous devez répéter ces lignes après tout [point de contrôle](automation-runbook-execution/#checkpoints) dans votre Runbook. Si le Runbook est interrompu, puis reprend avec un autre collaborateur, ce dernier doit s’authentifier à nouveau.
 
-# Articles connexes
-- [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) 
+## Articles connexes
+- [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

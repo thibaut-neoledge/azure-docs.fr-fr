@@ -18,9 +18,9 @@
 
 # Ajout d'utilisateurs au pool élastique de bases de données
 
-Les tâches de bases de données élastiques vous permettent d'exécuter le même script sur chaque base de données d'un [pool élastique de bases de données](sql-database-elastic-pool.md). Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool. Cet utilisateur peut être le même principal au niveau du serveur créé lors de l'installation des **tâches de bases de données élastiques** et il s'agit des **informations d'identification de tâche** fournies pour gérer les métadonnées de la base de données de **contrôle**. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+Les tâches de bases de données élastiques vous permettent d'exécuter le même script sur chaque base de données d'un [pool élastique de bases de données](sql-database-elastic-pool.md). Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
-## Conditions préalables
+## Composants requis
 * [Créer un pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool-portal.md)
 * Installez les [composants de la tâche élastique](sql-database-elastic-jobs-service-installation.md). 
 
@@ -46,4 +46,4 @@ Exécutez une tâche sur le pool de bases de données. Voir [Création et gestio
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

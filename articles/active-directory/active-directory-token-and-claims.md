@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Types de jeton et de revendication pris en charge
@@ -409,8 +409,8 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
     }.
 
 ##Voir aussi
-### Concepts
 
-[Protocoles d'authentification d'Azure Active Directory](active-directory-authentication-protocols.md)
+[Protocoles d'authentification d'Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

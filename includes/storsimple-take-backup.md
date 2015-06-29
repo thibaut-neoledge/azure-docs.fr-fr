@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -39,6 +40,4 @@
 
 Vous avez terminé la configuration de l’appareil.
 
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

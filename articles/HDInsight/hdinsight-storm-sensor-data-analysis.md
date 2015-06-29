@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyse des données de capteur avec Apache Storm et HBase | Microsoft Azure"
-   description="Découvrez comment utiliser Apache Storm sur HDInsight pour traiter des données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Vous pouvez également vous connecter à Storm à l’aide d’un réseau virtuel."
+   description="Découvrez comment vous connecter à Apache Storm à l’aide d’un réseau virtuel. Utilisez Storm avec HBase pour traiter des données de capteur à partir d'un concentrateur d'événements et les visualiser avec D3.js."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -20,9 +20,9 @@
 
 Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Ce document décrit également comment utiliser un réseau virtuel Azure pour connecter Storm sur HDInsight avec HBase sur HDInsight et stocker les données de la topologie dans HBase.
 
-## Configuration requise
+## Composants requis
 
-* Un abonnement Azure
+* Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un [cluster Apache Storm sur HDInsight](../hdinsight-storm-getting-started.md)
 
@@ -91,7 +91,7 @@ Avant d'utiliser cet exemple, vous devez créer un concentrateur d'événements 
 
 Le hub d'événements est la source de données pour cet exemple. Procédez comme suit pour créer un nouveau concentrateur d'événements.
 
-1. ﻿À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU | Service Bus | Concentrateur d'événements | Création personnalisée**.
+1. À partir du [portail Azure](https://manage.windowsazure.com), sélectionnez **NOUVEAU | Service Bus | Concentrateur d'événements | Création personnalisée**.
 
 2. Dans la boîte de dialogue **Ajouter un nouveau concentrateur d'événements**, entrez un **Nom de concentrateur d'événements**, sélectionnez la **Région** dans laquelle créer le concentrateur, puis créez un espace de noms ou sélectionnez-en un existant. Cliquez sur la flèche pour continuer.
 
@@ -383,11 +383,11 @@ Avant d'exécuter la topologie, vous devez préparer HBase pour accepter les don
 
 1. Connectez-vous au cluster HBase en utilisant le Bureau à distance.
 
-2. ﻿À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
+2. À partir du bureau, démarrez la ligne de commande HDInsight, puis entrez les commandes suivantes :
 
     cd %HBASE_HOME% bin\\hbase shell
 
-3. ﻿À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
+3. À partir de l'environnement de ligne de commande HBase, entrez la commande suivante pour créer une table dans laquelle seront stockées les données du capteur :
 
     create 'SensorData', 'cf'
 
@@ -419,5 +419,6 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 * Pour plus d'informations sur la création de topologies en .NET, consultez [Développement de topologies C# pour Apache Storm sur HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

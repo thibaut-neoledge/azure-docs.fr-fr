@@ -31,7 +31,7 @@ Un utilisateur ne peut être associé qu’à un maximum de 20 répertoires Azu
 
 ## Objets
 
-- Il n'existe pas de limite pour les abonnés d'Azure Active Directory Premium ou Azure Active Directory de base, Enterprise Mobility Suite, Office 365, Windows Intune ou tout autre service en ligne Microsoft associé à Azure Active Directory pour des services de répertoire.
+- Il n’existe pas de limite pour les abonnés d’Azure Active Directory Premium ou Azure Active Directory de base, Enterprise Mobility Suite, Office 365, Microsoft Intune ou tout autre service en ligne Microsoft associé à Azure Active Directory pour les services de répertoire.
 - 500 000 objets au maximum peuvent être utilisés dans un répertoire unique avec l'édition gratuite d'Azure Active Directory.
 - Un utilisateur non administrateur peut créer jusqu'à 250 objets.
 
@@ -72,4 +72,7 @@ Il existe une limite au nombre d'objets que vous pouvez synchroniser à partir d
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologie Azure AD](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

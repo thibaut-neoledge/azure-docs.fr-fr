@@ -10,26 +10,22 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="06/11/2015" 
 	ms.author="glenga"/>
 
 
 # Ajout de notifications push à votre application Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Silverlight Windows Phone. Dans ce didacticiel, vous allez activer des notifications Push dans le projet de démarrage rapide à l'aide des concentrateurs de notification Azure. Une fois la procédure terminée, votre service mobile envoie une notification Push à l'aide des concentrateurs de notification chaque fois qu'un enregistrement est inséré. Le concentrateur de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
+##Vue d'ensemble
 
-Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Silverlight Windows Phone. Dans ce didacticiel, vous allez activer des notifications Push dans le projet de démarrage rapide à l'aide d'Azure Notification Hubs. Une fois la procédure terminée, votre service mobile envoie une notification Push à l'aide des hubs de notification chaque fois qu'un enregistrement est inséré. Le hub de notification que vous créez est fourni gratuitement avec votre service mobile, peut être géré indépendamment du service mobile et peut être utilisé par d'autres applications et services.
 
-1. [Mise à jour de l'application pour l'inscription aux notifications](#update-app)
-2. [Mise à jour des scripts serveur pour l'envoi de notifications Push](#update-scripts)
-3. [Insertion de données pour recevoir des notifications Push](#test)
-
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. Lorsqu'un service mobile n'est pas connecté, l’Assistant Ajouter une notification Push crée cette connexion pour vous.
+Ce didacticiel est basé sur l'exemple d'application TodoList. Avant de commencer ce didacticiel, vous devez suivre la rubrique [Ajout de Mobile Services à une application existante] pour connecter votre projet au service mobile. Quand un service mobile n'est pas connecté, l'Assistant Ajouter une notification Push peut créer cette connexion pour vous.
 
 >[AZURE.NOTE]Pour envoyer des notifications Push à une application Windows Phone 8.1 Store, suivez la version [application Windows Store](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) de ce didacticiel.
 
@@ -138,13 +134,13 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	![Notification toast reçue](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
+	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l'application est active, vous devez gérer l'événement [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx).
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
 Ce didacticiel explique les règles de base de l'activation d'une application Windows Store pour utiliser Mobile Services et Notification Hubs afin d'envoyer des notifications Push. Nous vous invitons maintenant à suivre l'un des didacticiels suivants :
 
-+ [Envoi de notifications Push à des utilisateurs authentifiés](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis votre service mobile uniquement à un utilisateur authentifié.
++ [Envoi de notifications Push à des utilisateurs authentifiés](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>En savoir plus sur l'utilisation de balises pour envoyer des notifications Push depuis un service mobile uniquement à un utilisateur authentifié.
 
 + [Envoi de notifications diffusées aux abonnés](../notification-hubs-windows-phone-send-breaking-news.md) <br/>En savoir plus sur l'inscription des utilisateurs et la réception des notifications Push pour les catégories qui les intéressent.
 
@@ -172,8 +168,7 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Prise en main de Mobile Services]: ../mobile-services-windows-phone-get-started.md
-[Prise en main des données]: mobile-services-windows-phone-get-started-data.md
+[Ajout de Mobile Services à une application existante]: mobile-services-windows-phone-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-windows-phone-get-started-users.md
 
 [Configuration d'un service Web authentifié afin d'envoyer des notifications Push pour Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
@@ -183,5 +178,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

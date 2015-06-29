@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Déploiement de votre appareil StorSimple local"
+   pageTitle="Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal"
    description="Procédures et meilleures pratiques de déploiement du service et de l’appareil StorSimple Update 1 dans Microsoft Azure Government Portal."
    services="storsimple"
    documentationCenter="NA"
@@ -12,18 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="06/12/2015"
    ms.author="v-sharos" />
 
-# Déploiement de votre appareil StorSimple local
+# Déploiement de votre appareil StorSimple local sur Microsoft Azure Government Portal
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
-
-## Vue d’ensemble
+## Vue d'ensemble
 
 Bienvenue dans cette série de didacticiels consacrée au déploiement d’appareils Microsoft Azure StorSimple.
 
-Ces didacticiels de déploiement s’appliquent à StorSimple série 8000 dans Microsoft Azure Government Portal.
+Ces didacticiels de déploiement s’appliquent à la gamme StorSimple série 8000 avec logiciel Update 1 dans Microsoft Azure Government Portal.
 
 Ils expliquent comment configurer votre appareil StorSimple et proposent une liste de contrôle à suivre avant l’installation, ainsi que la configuration requise et des étapes de configuration détaillées.
 
@@ -39,7 +37,7 @@ La liste de contrôle préalable à l’installation suivante présente les info
 
 | | Conditions requises | Détails | Valeurs |
 |---| --------------------- | ---------------------- | ------------- |
-| 1 | Paramètres réseau <ol><li>Adresse IP de l’appareil</li><li>Interfaces réseau, 4x1 GbE, 2x10 GbE</li><li>Adresse IP de contrôleur fixe</li><li>Masque de sous-réseau</li><li>Passerelle</li></ol> | Nombre total d’adresses IP requises : 8 <ol><li>Une par appareil</li><li>Une par interface réseau activée, pour un nombre total de 6</li><li>Une par contrôleur, pour un nombre total de 2 (requises pour la connexion à Internet afin d’accéder aux mises à jour de service)</li><li>Une pour chaque adresse IP</li><li>Une par appareil</li></ol> | |
+| 1 | Paramètres réseau <ol><li>Interfaces réseau, 4x1 GbE, 2x10 GbE</li><li>Adresse IP de contrôleur fixe</li><li>Masques de sous-réseau</li><li>Passerelle</li></ol> | Nombre total d’adresses IP requises : 8 <ol><li>Une par interface réseau activée, pour un nombre total de 6</li><li>Une par contrôleur, pour un nombre total de 2 (requises pour la connexion à Internet afin d’accéder aux mises à jour de service)</li><li>Une pour chaque adresse IP</li><li>Une par appareil</li></ol> | |
 | 2 | Accès série | Configuration initiale de l’appareil | Oui/Non |
 | 3 | Adresses IP du serveur DNS | Requises pour se connecter à Microsoft Azure : 2 requises pour la haute disponibilité | |
 | 4 | Adresses IP du serveur NTP | Requises pour la synchronisation d’heure avec Azure : 1 obligatoire, 1 facultative | |
@@ -211,5 +209,6 @@ Pour obtenir les instructions d’installation de la solution MPIO, consultez la
 Configuration d’un [appareil virtuel](storsimple-virtual-device.md).
 
 Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

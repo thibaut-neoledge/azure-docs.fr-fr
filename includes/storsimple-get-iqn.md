@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -14,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Pour obtenir le nom qualifié d’un hôte Windows
+#### Pour obtenir le nom qualifié d’un hôte Windows
 
 1. Démarrez l’initiateur Microsoft iSCSI sur l’hôte Windows.
 
@@ -24,4 +25,4 @@
 
 3. Enregistrez cette chaîne.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -66,13 +66,13 @@ Vous devez d’abord inscrire votre application web. Ensuite, vous devez aussi i
 
 **Qu’est-ce que je fais ?**
 
-*Comme indiqué plus haut, Microsoft Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez le faire pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
+*Comme indiqué plus haut, Microsoft Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez procéder ainsi pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
 
 *Ici, nous supposons que vous inscrivez l’exemple d’application mentionné ci-dessus, mais cela fonctionne pour n’importe quelle application que vous développez.*
 
 **Pourquoi incorporer à la fois une application et une API web dans un seul client ?**
 
-*Comme vous l’avez peut-être deviné, vous pouvez générer une application qui accède à une API externe qui est inscrite dans Azure Active Directory à partir d’un autre client. Si vous procédez ainsi, vos clients sont invités à donner leur autorisation pour l’utilisation de l’API dans l’application. L’avantage, c’est que c’est la bibliothèque d’authentification Active Directory pour iOS qui s’occupe de cette autorisation pour vous. À mesure que nous aborderons des fonctionnalités plus avancées, vous verrez qu’il s’agit d’une partie importante du travail nécessaire pour accéder à la suite d’API Microsoft Azure et Office, ainsi qu’à tout autre fournisseur de services. Pour l’instant, comme vous avez inscrit votre API web et l’application sous le même client, vous ne voyez aucune invite de consentement. Cela est généralement le cas si vous développez une application qui ne servira qu’à votre société.*
+*Comme vous l’avez peut-être deviné, vous pouvez générer une application qui accède à une API externe inscrite dans Azure Active Directory à partir d’un autre client. Si vous procédez ainsi, vos clients sont invités à donner leur autorisation pour l’utilisation de l’API dans l’application. L’avantage, c’est que c’est la bibliothèque d’authentification Active Directory pour iOS qui s’occupe de cette autorisation pour vous. À mesure que nous aborderons des fonctionnalités plus avancées, vous verrez qu’il s’agit d’une partie importante du travail nécessaire pour accéder à la suite d’API Microsoft Azure et Office, ainsi qu’à tout autre fournisseur de services. Pour l’instant, comme vous avez inscrit votre API web et l’application sous le même client, vous ne voyez aucune invite de consentement. Cela est généralement le cas si vous développez une application uniquement pour une utilisation par votre entreprise.*
 
 1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 2. Cliquez sur Active Directory dans la partie de gauche.
@@ -83,8 +83,8 @@ Vous devez d’abord inscrire votre application web. Ensuite, vous devez aussi i
 7. Entrez un nom convivial pour l’application, par exemple « TodoListClient-Android », sélectionnez « Application cliente native », puis cliquez sur Suivant.
 8. Pour l’URI de redirection, entrez `http://TodoListClient`. Cliquez sur Terminer.
 9. Cliquez sur l’onglet Configurer de l’application.
-10. Rechercher la valeur d’ID client et copiez-la, car vous en aurez besoin plus tard lors de la configuration de votre application.
-11. Dans Autorisations pour d’autres applications, cliquez sur Ajouter une application. Sélectionnez Autre dans la liste déroulante Afficher et cliquez sur la coche située en haut. Recherchez l’API TodoListService, cliquez dessus, puis cliquez sur la coche inférieure pour ajouter l’application. Sélectionnez Accéder à TodoListService à partir de la liste déroulante Autorisations déléguées, puis enregistrez la configuration.
+10. Recherchez la valeur d’ID client et prenez-en note, car vous en aurez besoin plus tard lors de la configuration de votre application.
+11. Dans Autorisations pour d’autres applications, cliquez sur Ajouter une application. Sélectionnez Autre dans la liste déroulante Afficher et cliquez sur la coche située en haut. Recherchez l’API TodoListService, cliquez dessus, puis cliquez sur la coche située en bas pour ajouter l’application. Sélectionnez Accéder à TodoListService à partir de la liste déroulante Autorisations déléguées, puis enregistrez la configuration.
 
 
 
@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath.m2\repository"
     }
 }
 dependencies {
@@ -268,7 +268,8 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker** : l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
+11. **Broker** : 
+l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -299,7 +300,7 @@ Les ressources du projet de bibliothèque peuvent être remplacées par celles d
 
 ### Service Broker
 
-Le composant Service Broker est remis avec l’application Portail d’entreprise d’Intune. Le compte est créé dans le Gestionnaire de comptes. Le type de compte est « com.microsoft.workaccount ». Il n’autorise qu’un compte d’authentification unique. Il crée un cookie d’authentification unique pour cet utilisateur après avoir terminé la demande d’appareil pour l’une des applications.
+Le composant Service Broker est remis avec l’application Portail d’entreprise de Microsoft Intune. Le compte est créé dans le Gestionnaire de comptes. Le type de compte est « com.microsoft.workaccount ». Il n’autorise qu’un compte d’authentification unique. Il crée un cookie d’authentification unique pour cet utilisateur après avoir terminé la demande d’appareil pour l’une des applications.
 
 ### ADFS et URL de l'autorité
 
@@ -378,7 +379,8 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (information)
 + Verbose (plus de détails)
 
-Vous définissez le niveau de journal comme suit : ```Java
+Vous définissez le niveau de journal comme suit : 
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -386,7 +388,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` 
+ Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Suivis réseau
 
@@ -403,7 +406,7 @@ La méthode acquireToken sans activité prend en charge l’invite de la boîte 
 
 ### Chiffrement
 
-ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous pouvez consulter la classe StorageHelper pour afficher les détails. Android a introduit AndroidKeyStore pour le stockage sécurisé  des clés privées de la version 4.3(API18). La bibliothèque ADAL utilise ces informations pour API18 et les versions ultérieures. Si vous souhaitez utiliser la bibliothèque ADAL pour les versions inférieures du Kit de développement (SDK), vous devez fournir une clé secrète à AuthenticationSettings.INSTANCE.setSecretKey.
+ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous pouvez consulter la classe StorageHelper pour afficher les détails. Android a introduit AndroidKeyStore pour le stockage sécurisé des clés privées de la version 4.3(API18). La bibliothèque ADAL utilise ces informations pour API18 et les versions ultérieures. Si vous souhaitez utiliser la bibliothèque ADAL pour les versions inférieures du Kit de développement (SDK), vous devez fournir une clé secrète à AuthenticationSettings.INSTANCE.setSecretKey.
 
 ### Demande de support Oauth2
 
@@ -438,5 +441,6 @@ Votre application doit les remplacer si des chaînes localisées sont désirées
 
 ### Boîte de dialogue NTLM
 Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée par l’événement onReceivedHttpAuthRequest de WebViewClient. La mise en page et les chaînes de la boîte de dialogue peuvent être personnalisés.### Étape 5 : Téléchargement de l’exemple de code de client natif iOS
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

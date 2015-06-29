@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management"
-	description="Découvrez comment utiliser les outils de ligne de commande pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode arm de l'interface CLI Azure."
+	pageTitle="Utilisation de l’interface de ligne de commande pour Mac, Linux et Windows avec Azure Resource Management | Microsoft Azure"
+	description="Découvrez comment utiliser CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode arm de l'interface CLI Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management
 
@@ -1735,5 +1735,6 @@ Options de paramètre :
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

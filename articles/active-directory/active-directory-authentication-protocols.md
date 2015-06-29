@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Protocoles d’authentification d’Azure Active Directory
 
 Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés. Les rubriques de cette section décrivent les protocoles pris en charge et leur implémentation dans Azure AD. Les rubriques comprennent une revue des types de revendications pris en charge, une présentation de l’utilisation des métadonnées de fédération, de la documentation de référence détaillée sur les protocoles OAuth 2.0. et SAML 2.0 et une section de dépannage.
 
-Cette section comprend les rubriques suivantes :
+## Articles et référence relatifs aux protocoles d’authentification 
 
 - [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) : découvrez le rythme de substitution des clés de signature d’Azure AD, les modifications que vous pouvez effectuer pour mettre la clé à jour automatiquement et une description de la mise à jour des scénarios d’application les plus courants.
 
@@ -49,8 +49,11 @@ Cette section comprend les rubriques suivantes :
 
 ## Voir aussi 
 
+[Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-### Concepts
-[Utilisation d’Azure AD pour l’authentification](https://msdn.microsoft.com/library/azure/dn385718.aspx) [Exemples de code Active Directory](active-directory-code-samples.md)
+[Utilisation d'Azure AD pour l'authentification](https://msdn.microsoft.com/library/azure/dn385718.aspx)
 
-<!---HONumber=58--> 
+[Exemples de code Azure Active Directory](active-directory-code-samples.md)
+ 
+
+<!---HONumber=58_postMigration-->

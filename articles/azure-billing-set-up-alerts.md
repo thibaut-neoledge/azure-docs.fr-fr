@@ -1,34 +1,34 @@
 <properties 
 	pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure" 
-	description="Décrit comment vous pouvez configurer des alertes sur votre facture Azure afin d'éviter les surprises facturation." 
+	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." 
 	services="" 
 	documentationCenter="" 
-	authors="cabailey" 
-	manager="mbaldwin" 
+	authors="vikdesai" 
+	manager="msmbaldwin" 
 	editor=""/>
 
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
-	ms.author="cabailey"/>
+	ms.date="06/01/2015" 
+	ms.author="vikdesai"/>
 
 # Configurer des alertes de facturation pour vos abonnements Microsoft Azure
 
-Voulez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
+Voulez-vous connaître le montant de vos dépenses mensuelles pour votre abonnement Azure ? Si vous êtes l'administrateur de compte d'un abonnement Azure, vous pouvez utiliser le service d'alerte de facturation Azure pour créer des alertes de facturation personnalisées qui vous aident à surveiller et à gérer l'activité de facturation de vos comptes Azure.
 
-Ce service est un service d'aperçu, la première chose que vous avez à faire est donc de vous y inscrire. Pour ce faire, visitez <a href="https://account.windowsazure.com/PreviewFeatures">la page Aperçu des fonctionnalités </a> dans le portail de gestion de compte Azure.
+Ce service étant en version préliminaire, la première chose que vous avez à faire est de vous y inscrire. Pour ce faire, visitez la page <a href="https://account.windowsazure.com/PreviewFeatures">des fonctionnalités en version préliminaire</a> dans le portail de gestion des comptes Azure.
 
 ## Définir le seuil d'alerte et les destinataires des messages électroniques
 
-Après avoir reçu par courrier électronique la confirmation que le service de facturation est activé pour votre abonnement, visitez <a href="https://account.windowsazure.com/Subscriptions">la page Abonnements</a> dans le portail de compte. Cliquez sur l'abonnement à surveiller, puis sur **Alertes**.
+Après avoir reçu par courrier électronique la confirmation que le service de facturation est activé pour votre abonnement, <a href="https://account.windowsazure.com/Subscriptions">visitez la page Abonnements</a> du portail des comptes. Cliquez sur l’abonnement à surveiller, puis sur **Alertes**.
 
 ![][Image1]
 
-Cliquez ensuite sur **Ajouter une alerte** pour créer votre première alerte. Vous pouvez configurer un total de cinq alertes de facturation par abonnement, avec un seuil distinct, et jusqu'à deux destinataires de messages électroniques pour chaque alerte.
+Cliquez ensuite sur **Ajouter une alerte** pour créer votre première alerte. Vous pouvez configurer un total de cinq alertes de facturation par abonnement, avec un seuil distinct, et jusqu’à deux destinataires de courrier électroniques pour chaque alerte.
 
 ![][Image2]
 
@@ -40,10 +40,10 @@ Azure prend en charge toutes les adresses de messagerie mais ne vérifie pas si 
 
 ## Vérifier vos alertes
 
-Une fois que vous avez configuré des alertes, le Centre des comptes les répertorie et vous montre le nombre d'alertes que vous pouvez encore configurer. Pour chaque alerte, vous voyez la date et l'heure d'envoi, s'il s'agit d'une alerte relative au total facturé ou au crédit monétaire, ainsi que la limite que vous avez configurée. L'heure est au format 24 heures UTC (Universal Time Coordinate) et la date est au format aaaa-mm-jj. Cliquez sur le signe plus pour modifier une alerte listée, ou cliquez sur la poubelle pour la supprimer.
+Une fois que vous avez configuré des alertes, le Centre des comptes les répertorie et vous montre le nombre d'alertes que vous pouvez encore configurer. Pour chaque alerte, vous voyez la date et l'heure d'envoi, s'il s'agit d'une alerte relative au total facturé ou au crédit monétaire, ainsi que la limite que vous avez configurée. L'heure est au format 24 heures UTC (Universal Time Coordinate) et la date est au format aaaa-mm-jj. Cliquez sur le signe plus pour modifier une alerte listée, ou cliquez sur la poubelle pour la supprimer.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!--HONumber=47-->
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
-<properties pageTitle="Montage, initialisation et formatage d’un volume" description="Explique comment configurer un volume sur un appareil StorSimple." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="04/01/2015" ms.author="v-sharos" />
+<properties pageTitle="Monter, initialiser et formater un volume" description="Explique comment configurer un volume sur un appareil StorSimple." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="04/29/2015" ms.author="v-sharos" />
 
-### Pour monter, initialiser et formater un volume
+#### Pour monter, initialiser et formater un volume
 
 1. Démarrez l’initiateur Microsoft iSCSI.
 
@@ -14,7 +14,7 @@
 
 6. Sur l’hôte Windows, appuyez sur la touche de logo Windows + X, puis cliquez sur **Exécuter**.
 
-7. Dans la boîte de dialogue  **Exécuter**, saisissez **Diskmgmt.msc**. Cliquez sur **OK**. La boîte de dialogue **Gestion des disques** s’affiche. Le volet de droite affiche les volumes de votre ordinateur hôte.
+7. Dans la boîte de dialogue **Exécuter**, saisissez **Diskmgmt.msc**. Cliquez sur **OK**. La boîte de dialogue **Gestion des disques** s’affiche. Le volet de droite affiche les volumes de votre ordinateur hôte.
 
 8. Dans la fenêtre **Gestion des disques**, les volumes montés sont affichés comme indiqué dans l’illustration suivante. Cliquez avec le bouton droit sur le volume détecté (cliquez sur le nom du disque), puis cliquez sur **En ligne**.
 
@@ -31,4 +31,4 @@
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

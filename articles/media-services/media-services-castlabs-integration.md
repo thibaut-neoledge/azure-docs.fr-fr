@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ Le diagramme suivant représente une architecture qui intègre Azure Media Servi
 - Le contenu multimédia est stocké dans AMS.
 - Les ID des clés de contenu sont stockées à la fois dans castLabs et AMS.
 - castLabs et AMS intègrent une authentification par jeton. Les sections suivantes décrivent les jetons d'authentification. 
-- Quand un client demande à diffuser la vidéo, le contenu est chiffré dynamiquement par **chiffrement commun** (CENC) et empaqueté dynamiquement par AMS selon un des protocoles spécifiés (ou tous) : Smooth Streaming, HLS ou DASH. 
+- Quand un client demande à diffuser en continu la vidéo, le contenu est chiffré dynamiquement par **chiffrement commun** (CENC) et empaqueté dynamiquement par AMS en Smooth Streaming ou DASH. Nous offrons également un chiffrement de flux élémentaire PlayReady M2TS pour le protocole de diffusion en continu HLS.
 - La licence PlayReady est récupérée auprès du serveur de licences AMS et licence Widevine est récupérée auprès du serveur de licences castLabs. 
 - Media Player détermine automatiquement quelles licences récupérer en fonction de la capacité de la plateforme client. 
 
@@ -95,7 +95,7 @@ Pour utiliser l'application web (STS) :
 
 ##Lecture d'une vidéo
 
-Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et Widevine), vous pouvez utiliser [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
+Pour lire une vidéo chiffrée par chiffrement commun (PlayReady), vous pouvez utiliser [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
 
 1.	Ouvrez un nouvel onglet et lancez votre STS : http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Accédez à [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -106,10 +106,12 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et Widevine), v
 7.	Mettez à jour le lecteur.
 8.	La vidéo doit pouvoir être lue.
 
-Pour lire la vidéo protégée en HTML5 avec Chrome et le lecteur castLabs, veuillez contacter castLabs pour obtenir l'accès au lecteur. Quand vous avez accès, tenez compte des 2 points suivants :
+Pour lire la vidéo protégée en HTML5 avec Chrome et le lecteur castLabs, contactez yanmf@microsoft.com pour obtenir l'accès au lecteur. Quand vous avez accès, tenez compte des 2 points suivants :
 
 1.	Le lecteur castLabs a besoin d'accéder au fichier manifeste MPEG-DASH, donc ajoutez (format=mpd-time-csf) à votre fichier manifeste pour obtenir le fichier manifeste MPEG-DASH, au lieu du fichier Smooth Streaming par défaut.
 
 2.	Le serveur de licences castLab n'a pas besoin du préfixe « Bearer= » devant le jeton. Par conséquent, supprimez-le avant d'envoyer le jeton.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

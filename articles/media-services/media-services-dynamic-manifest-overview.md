@@ -176,7 +176,7 @@ Vous pouvez combiner plusieurs règles de filtrage dans un filtre unique. Par ex
 
 La rubrique suivante décrit les entités Media Services liées aux filtres. La rubrique indique également comment créer par programme des filtres.
 
-[Créez des filtres avec les API REST](media-services-rest-create-filters).
+[Créez des filtres avec les API REST](media-services-rest-dynamic-manifest.md).
 
 ##Problèmes connus et limitations
 
@@ -207,5 +207,6 @@ La rubrique suivante décrit les entités Media Services liées aux filtres. La 
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

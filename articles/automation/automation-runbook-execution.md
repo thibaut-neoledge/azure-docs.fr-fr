@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Exécution d'un Runbook dans Azure Automation"
    description="Décrit les détails du traitement d'un Runbook dans Azure Automation."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -43,5 +43,6 @@ Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécuti
 
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook)
 - [Affichage de l'état d'une tâche du Runbook dans Azure Automation](automation-viewing-the-status-of-a-runbook-job)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

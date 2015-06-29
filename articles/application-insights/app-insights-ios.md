@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Application Insights pour les applications de bureau Windows" 
-    description="Analysez l'utilisation et les performances de votre application Windows avec Application Insights." 
+    pageTitle="Application Insights pour les applications iOS" 
+    description="Analysez l’utilisation et les performances de votre application iOS avec Application Insights." 
     services="application-insights" 
     documentationCenter="ios"
     authors="alancameronwills" 
@@ -33,7 +33,7 @@ Dans le [portail Azure][portal], créez une ressource Application Insights. Choi
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-ios/11-new.png)
 
-Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l’écran d’accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
 
 ## Téléchargez Application Insights pour Mac
 
@@ -139,4 +139,6 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

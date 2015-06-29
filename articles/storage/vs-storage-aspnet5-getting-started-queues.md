@@ -3,7 +3,7 @@
 	description="Prise en main du stockage de files d'attente Azure dans un projet ASP.NET 5 dans Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET 5)
 
@@ -102,5 +102,6 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 	await queue.DeleteMessageAsync(retrievedMessage);
 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/) Voir aussi [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext) (en anglais).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

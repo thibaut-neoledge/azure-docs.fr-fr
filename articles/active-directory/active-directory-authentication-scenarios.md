@@ -14,18 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Scénarios d’authentification pour Azure AD
 
-Azure Active Directory (Azure AD) simplifie l’authentification pour les développeurs  en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect, ainsi que des bibliothèques open source pour différentes plateformes afin de vous permettre de commencer à coder rapidement. Ce document a pour but de vous aider à comprendre les différents scénarios pris en charge par Azure AD et vous montre comment prendre l’application en main. Il comprend les sections suivantes :
+Azure Active Directory (Azure AD) simplifie l’authentification pour les développeurs en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect, ainsi que des bibliothèques open source pour différentes plateformes afin de vous permettre de commencer à coder rapidement. Ce document a pour but de vous aider à comprendre les différents scénarios pris en charge par Azure AD et vous montre comment prendre l’application en main. Il comprend les sections suivantes :
 
 - [Principes fondamentaux de l’authentification dans Azure AD](#basics-of-authentication-in-azure-ad)
 
-
 - [Revendications des jetons de sécurité Azure AD](#claims-in-azure-ad-security-tokens)
-
 
 - [Principes fondamentaux de l’inscription d’une application dans Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
@@ -47,7 +45,9 @@ Azure Active Directory (Azure AD) simplifie l’authentification pour les dé
 
 Si vous ne connaissez pas les concepts de base de l’authentification dans Azure AD, lisez cette section. Sinon, vous pouvez l’ignorer et passer directement à la section [Types d’application et scénarios](#application-types-and-scenarios).
 
-Prenons l’exemple du scénario le plus élémentaire dans lequel une identité est requise : un utilisateur doit s’authentifier auprès d’une application web dans un navigateur web. Ce scénario est décrit plus en détail dans la section [Navigateur web vers application web](#web-browser-to-web-application), mais c’est un bon point de départ pour illustrer les fonctionnalités d’Azure AD et conceptualiser le fonctionnement du scénario. Examinez le diagramme suivant pour ce scénario : Vue d’ensemble de l’authentification pour une application web
+Prenons l’exemple du scénario le plus élémentaire dans lequel une identité est requise : un utilisateur doit s’authentifier auprès d’une application web dans un navigateur web. Ce scénario est décrit plus en détail dans la section [Navigateur web vers application web](#web-browser-to-web-application), mais c’est un bon point de départ pour illustrer les fonctionnalités d’Azure AD et conceptualiser le fonctionnement du scénario. Considérez le diagramme suivant pour ce scénario :
+
+![Vue d’ensemble des applications avec authentification sur le web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus :
 
@@ -60,7 +60,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 - Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, consultez la rubrique [Bibliothèques d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
 
-• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jetons JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi pour les parties concernées. Les développeurs peuvent utiliser les bibliothèques d’authentification fournies pour gérer la validation d’un jeton d’Azure AD, y compris les jetons Web JSON (JWT) ou SAML 2.0. Pour effectuer la validation manuellement, consultez la documentation sur le [gestionnaire de jeton JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
 
 
 > [AZURE.IMPORTANT]Azure AD utilise le chiffrement à clé publique pour signer les jetons et vérifier leur validité. Consultez la rubrique [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) pour plus d’informations sur la logique dont vous devez disposer dans votre application pour vous assurer qu’elle est systématiquement mise à jour avec les clés les plus récentes.
@@ -90,7 +90,7 @@ Les jetons de sécurité émis par Azure AD contiennent des revendications, ou 
 | Groupes | Contient les ID objets des groupes Azure AD dont l’utilisateur est membre. |
 | Fournisseur d’identité | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. |
 | Émis à | Enregistre l’heure à laquelle le jeton a été émis, souvent utilisée pour l’actualisation du jeton. |
-| Émetteur | Identifie le service d’émission de jeton de sécurité  qui a émis le jeton, ainsi que le client Azure AD. |
+| Émetteur | Identifie le service d’émission de jeton de sécurité qui a émis le jeton, ainsi que le client Azure AD. |
 | Nom | Fournit le nom de l’utilisateur tel qu’il est défini dans Azure AD. |
 | Nom | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. |
 | ID objet | Contient un identificateur unique non modifiable du sujet dans Azure AD. |
@@ -125,12 +125,12 @@ Toute application qui externalise l’authentification pour la confier à Azure�
 
 L’approvisionnement devient plus clair lorsque vous comprenez qu’il existe deux catégories d’applications que vous pouvez développer et intégrer avec Azure AD :
 
-- Application à client unique : une application à client unique est  prévue pour une utilisation dans une organisation. Il s’agit généralement d’applications métiers écrites par un développeur d’entreprise. Une application à client unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire. Ces applications sont généralement inscrites par un développeur de l’organisation.
+- Application à client unique : une application à client unique est prévue pour une utilisation dans une organisation. Il s’agit généralement d’applications métiers écrites par un développeur d’entreprise. Une application à client unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire. Ces applications sont généralement inscrites par un développeur de l’organisation.
 
 
 - Application mutualisée : une application mutualisée est prévue pour une utilisation dans plusieurs organisations, pas une seule. Il s’agit généralement d’applications SaaS (software-as-a-service) écrites par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire. Ce processus de consentement démarre quand une application a été enregistrée dans l’annuaire et accède à l’API Graph ou à une autre API web. Lorsqu’un utilisateur ou un administrateur d’une autre organisation s’inscrit pour utiliser l’application, une boîte de dialogue contenant les autorisations que l’application requiert s’affiche. L’utilisateur ou l’administrateur peut alors donner son consentement à l’application, ce qui permet à cette dernière d’accéder aux données indiquées et inscrit l’application dans l’annuaire de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez la page [Vue d’ensemble de l’infrastructure de consentement](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent).
 
-Vous devez tenir compte d’autres éléments lorsque vous choisissez de développer une application mutualisée plutôt qu’une application à client unique. Par exemple, si vous mettez votre application à la disposition des utilisateurs dans plusieurs annuaires, vous devez disposer d’un mécanisme permettant de déterminer dans quel client ils se trouvent. Il suffit à une application à client unique de rechercher l’utilisateur dans son propre annuaire, alors qu’une application mutualisée doit tenir compte de tous les annuaires d’Azure AD pour identifier un utilisateur particulier. À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison spécifique au client. Ce point de terminaison est https://login.windows.net/common pour tous les annuaires Azure AD, tandis qu’un point de terminaison propre à un client peut être https://login.windows.net/contoso.onmicrosoft.com. Lorsque vous développez votre application, il est particulièrement important de tenir compte du point de terminaison commun, car vous aurez besoin de la logique nécessaire à la gestion de plusieurs clients lors de la connexion, de la déconnexion et de la validation des jetons.
+Vous devez tenir compte d’autres éléments lorsque vous choisissez de développer une application mutualisée plutôt qu’une application à client unique. Par exemple, si vous mettez votre application à la disposition des utilisateurs dans plusieurs annuaires, vous devez disposer d’un mécanisme permettant de déterminer dans quel client ils se trouvent. Il suffit à une application à client unique de rechercher l’utilisateur dans son propre annuaire, alors qu’une application mutualisée doit tenir compte de tous les annuaires d’Azure AD pour identifier un utilisateur particulier. À cet effet, Azure AD fournit un point de terminaison d’authentification commun vers lequel une application mutualisée peut diriger les demandes de connexion, plutôt que vers un point de terminaison spécifique au client. Ce point de terminaison est https://login.microsoftonline.com/common pour tous les annuaires Azure AD, tandis qu’un point de terminaison propre à un client peut être https://login.microsoftonline.com/contoso.onmicrosoft.com. Lorsque vous développez votre application, il est particulièrement important de tenir compte du point de terminaison commun, car vous aurez besoin de la logique nécessaire à la gestion de plusieurs clients lors de la connexion, de la déconnexion et de la validation des jetons.
 
 Si vous développez actuellement une application à client unique, mais que vous souhaitez la mettre à disposition de plusieurs organisations, vous pouvez facilement apporter des modifications à l’application et à sa configuration dans Azure AD pour la rendre compatible avec la mutualisation. De plus, Azure AD utilise la même clé de signature pour tous les jetons de tous les annuaires, que vous fournissiez l’authentification dans une application à client unique ou mutualisée.
 
@@ -138,7 +138,7 @@ Chaque scénario répertorié dans ce document inclut une sous-section décrivan
 
 ## Types d’application et scénarios
 
-Chaque scénario décrit dans ce document peut être développé à l’aide de différents langages et plateformes, et vous trouverez des [exemples de code complets sur GitHub](https://github.com/AzureADSamples) pour chacun d’entre eux. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
+Chaque scénario décrit dans ce document peut être développé à l’aide de différents langages et plateformes, et vous trouverez des [exemples de code complets sur GitHub](https://github.com/AzureADSamples) pour chacun d’entre eux. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
 
 ![Types d’application et scénarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -341,7 +341,7 @@ L’identité d’application et l’identité d’utilisateur délégué sont d
 1. Un utilisateur est connecté à Azure AD dans l’application web (voir la section « Navigateur web vers application web » ci-dessus).
 
 
-2. L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et  l’URI ID d’application de l’API web.
+2. L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et l’URI ID d’application de l’API web.
 
 
 3. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
@@ -418,7 +418,7 @@ Pour le scénario dans lequel une application serveur doit appeler une API web, 
 
 ##### Identité d’application avec octroi d’informations d’identification client OAuth 2.0
 
-1. Tout d’abord, l’application serveur doit s’authentifier auprès d’Azure AD avec sa propre identité, sans intervention humaine par le biais d’une boîte de dialogue interactive d’ouverture de session par exemple. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et  l’URI ID d’application.
+1. Tout d’abord, l’application serveur doit s’authentifier auprès d’Azure AD avec sa propre identité, sans intervention humaine par le biais d’une boîte de dialogue interactive d’ouverture de session par exemple. Elle envoie une demande au point de terminaison de jeton d’Azure AD, avec les informations d’identification, l’ID client et l’URI ID d’application.
 
 
 2. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
@@ -459,12 +459,11 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 ## Voir aussi
 
-
-### Concepts
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
 
 [Informations importantes sur la substitution des clés de signature dans Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

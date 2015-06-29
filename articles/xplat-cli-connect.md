@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Se connecter à partir de l’interface de ligne de commande Azure (Azure CLI)"
+	pageTitle="Connexion à partir de l’interface de ligne de commande Azure | Microsoft Azure"
 	description="Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)
 
-L’interface Azure CLI offre un ensemble de commandes multiplateforme open source pour l’utilisation de la Plateforme Azure. Ce document vous explique comment vous connecter à votre abonnement Azure à partir de l’interface de ligne de commande multiplateforme Azure. Pour connaître la procédure d’installation, voir l’article [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
+L’interface Azure CLI offre un ensemble de commandes multiplateforme open source pour l’utilisation de la Plateforme Azure. Ce document vous explique comment vous connecter à votre abonnement Azure à partir de l’interface de ligne de commande Azure. Pour connaître la procédure d’installation, voir l’article [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## Connexion à votre abonnement Azure
@@ -91,7 +91,7 @@ Importez ensuite le fichier `.publishsettings` en exécutant la commande suivant
 
 	azure account import <path to your .publishsettings file>
 
-Après l’importation de vos paramètres de publication, vous devez supprimer le fichier `.publishsettings`, car il n’est plus nécessaire aux outils en ligne de commande, et représente un risque pour la sécurité dans la mesure où il peut être utilisé pour accéder à votre abonnement.
+Après l’importation de vos paramètres de publication, vous devez supprimer le fichier `.publishsettings`, car il n’est plus nécessaire à l’interface de ligne de commande Azure, et représente un risque pour la sécurité dans la mesure où il peut être utilisé pour accéder à votre abonnement.
 
 > [AZURE.NOTE]Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous importiez des paramètres de publication, les informations d’accès à votre abonnement Azure sont stockées dans un annuaire `.azure` situé dans votre répertoire `user`. Le répertoire `user` est protégé par le système d’exploitation ; toutefois, il est recommandé de prendre des mesures supplémentaires pour chiffrer le répertoire `user`. Pour ce faire, procédez comme suit :
 >
@@ -101,7 +101,7 @@ Après l’importation de vos paramètres de publication, vous devez supprimer l
 
 ### Abonnements multiples
 
-Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande multiplateforme durant l’exécution des opérations. Vous pouvez afficher les abonnements et identifier l’abonnement par défaut à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
+Si vous possédez plusieurs abonnements Azure, la connexion à Azure donne accès à tous les abonnements associés à vos informations d’identification. Un abonnement spécifique est sélectionné comme abonnement par défaut et est utilisé par l’interface de ligne de commande Azure durant l’exécution des opérations. Vous pouvez afficher les abonnements et identifier l’abonnement par défaut à l’aide de la commande `azure account list`. Cette commande renvoie des informations similaires aux suivantes :
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 <a id="additional-resources"></a>
 ## Ressources supplémentaires
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des services (ou le mode ASM)][xplatasm]
+* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des services (ou le mode ASM)][cliasm]
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des ressources (ou le mode ARM)][xplatarm]
+* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des ressources (ou le mode ARM)][cliarm]
 
 * Pour en savoir plus sur l’interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir la page [Référentiel GitHub pour l’interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
@@ -142,7 +142,7 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

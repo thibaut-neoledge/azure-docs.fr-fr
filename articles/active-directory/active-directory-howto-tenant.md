@@ -18,7 +18,7 @@
 
 # Obtention d’un client Azure Active Directory
 
-Dans Azure Active Directory (Azure AD), un [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) est représentatif d'une organisation. Il s’agit d’une instance dédiée du service Azure AD qu’une organisation reçoit et possède lorsqu’elle s'inscrit à un service cloud de Microsoft tel que Azure, InTune ou Office 365. Chaque client Azure AD est distinct et indépendant des autres clients Azure AD.
+Dans Azure Active Directory (Azure AD), un [client](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) est représentatif d'une organisation. Il s’agit d’une instance dédiée du service Azure AD qu’une organisation reçoit et possède lorsqu’elle s'inscrit à un service cloud de Microsoft tel qu’Azure, Microsoft Intune ou Office 365. Chaque client Azure AD est distinct et indépendant des autres clients Azure AD.
 
 Un client héberge les utilisateurs d'une entreprise et leurs informations, c’est-à-dire les mots de passe, les données de profil utilisateur, les autorisations, etc. Il contient également des groupes, des applications et d’autres informations relatives à une organisation et à sa sécurité.
 
@@ -64,5 +64,6 @@ Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte profe
 Si tous les éléments ci-dessus vous sont incompréhensibles, ne vous inquiétez pas. Visitez simplement [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation. Une fois le processus terminé, vous aurez votre propre client Azure AD avec le nom de domaine que vous avez choisi lors de votre inscription. Dans le [Portail de gestion Azure](https://manage.windowsazure.com), vous pouvez trouver votre client en accédant à « Active Directory » dans la barre de navigation de gauche.
 
 Dans le cadre du processus d'inscription à Azure, vous devrez fournir les informations d’une carte de crédit. Vous pouvez procéder en toute confiance. Vous ne serez pas facturé pour la publication d'applications dans Azure AD ou la création de nouveaux clients.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

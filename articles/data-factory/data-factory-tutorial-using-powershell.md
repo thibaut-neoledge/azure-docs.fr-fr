@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Déplacement et traitement des fichiers journaux à l'aide d'Azure Data Factory" 
-	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l'implémente à l'aide du service Azure Data Factory." 
+	pageTitle="Déplacement et traitement des fichiers journaux à l’aide d’Azure Data Factory" 
+	description="Ce didacticiel avancé décrit un scénario proche de la réalité et l’implémente à l’aide du service Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,75 +13,75 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# Didacticiel : Déplacer et traiter des fichiers journaux à l'aide de la fabrique de données [PowerShell]
-Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l'aide d'Azure Data Factory pour transformer les données des fichiers journaux en informations.
+# Didacticiel : déplacement et traitement de fichiers journaux à l'aide de la fonction [PowerShell] de Data Factory
+Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations.
 
 ## Scénario
-Contoso est une société de jeu qui crée des jeux pour plusieurs plateformes : consoles de jeux, périphériques de poche et les ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L'objectif de Contoso est de collecter et d'analyser les journaux générés par ces jeux pour obtenir des informations sur l'utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. pour optimiser vos affaires et fournir une meilleure expérience aux clients.
+Contoso est une société qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des appareils portatifs et des ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L’objectif de Contoso est de collecter et d’analyser les journaux générés par ces jeux pour obtenir des informations sur l’utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. pour optimiser vos affaires et fournir une meilleure expérience aux clients.
  
-Dans cette procédure pas à pas, nous allons collecter des exemples de journaux, nous allons les traiter et les enrichir avec des données de référence et transformer les données pour évaluer l'efficacité d'une campagne marketing lancée dernièrement par Contoso.
+Dans cette procédure pas à pas, nous allons collecter des exemples de journaux, nous allons les traiter et les enrichir avec des données de référence et transformer les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement par Contoso.
 
 ## Préparation pour le didacticiel
-1.	Lecture [Introduction à la fabrique de données Azure][adfintroduction] pour obtenir une vue d'ensemble de la fabrique de données Azure et les concepts de niveau supérieur.
-2.	Pour suivre ce didacticiel, vous devez disposer d'un abonnement Azure. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d'abonnement][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d'évaluation gratuite][azure-free-trial].
+1.	Lisez la page [Présentation d’Azure Data Factory][adfintroduction] pour obtenir une vue d’ensemble de Microsoft Azure Data Factory et comprendre les concepts principaux.
+2.	Pour suivre ce didacticiel, vous devez disposer d’un abonnement Azure. Pour plus d’informations sur la façon de se procurer un abonnement, consultez les pages traitant des [formules d’abonnement][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d’évaluation gratuite][azure-free-trial].
 3.	Vous devez télécharger et installer [Azure PowerShell][download-azure-powershell] sur votre ordinateur. 
-2.	**(recommandé)** révision et pratique du didacticiel dans le [prise en main Azure Data Factory][adfgetstarted] article pour obtenir un didacticiel simple pour vous familiariser avec le portail et les applets de commande.
-3.	**(recommandé)** révision et pratiques de la procédure pas à pas dans le [Utilisez Pig et Hive avec Azure Data Factory][usepigandhive] article pour une procédure pas à pas sur la création d'un pipeline pour déplacer des données à partir de la source de données local vers un magasin d'objets blob Azure.
-4.	Télécharger [ADFWalkthrough][adfwalkthrough-download] fichiers **C:\ADFWalkthrough** dossier **en conservant la structure de dossier**:
-	- **Pipelines :** inclut les fichiers JSON qui contient la définition des pipelines.
-	- **Tables :** inclut les fichiers JSON qui contient la définition des Tables.
-	- **LinkedServices :** inclut les fichiers JSON qui contient la définition de votre stockage et de calcul (HDInsight) cluster 
-	- **Scripts :** inclut des scripts Hive et Pig qui sont utilisées pour traiter les données et appelés à partir de pipelines
-	- **SampleData :** inclut des exemples de données pour cette procédure pas à pas
-	- **OnPremises :** inclut les fichiers JSON et script qui sont utilisés pour illustrer l'accès à vos données locales
-	- **uploadSampleDataAndScripts.ps1 :** ce script télécharge les exemples de données et les scripts dans Azure.
+2.	**(recommandé)** Consultez et effectuez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted], car ce didacticiel simple vous permettra de vous familiariser avec le portail et les applets de commande.
+3.	**(recommandé)** Consultez et effectuez la procédure pas à pas de l’article [Utilisation de Pig et Hive avec Azure Data Factory][usepigandhive] pour en savoir plus sur la création d’un pipeline servant à déplacer les données d’une source de données locale vers un magasin d’objets blob Microsoft Azure.
+4.	Téléchargez les fichiers [ADFWalkthrough][adfwalkthrough-download] dans le dossier **C:\ADFWalkthrough** **sans modifier la structure du dossier** :
+	- **Pipelines :** inclut des fichiers JSON contenant la définition des pipelines.
+	- **Tables :** inclut des fichiers JSON contenant la définition des tables.
+	- **LinkedServices :** inclut des fichiers JSON contenant la définition de votre cluster de stockage et de calcul (HDInsight). 
+	- **Scripts :** inclut des scripts Hive et Pig qui sont utilisés pour traiter les données et appelés à partir de pipelines.
+	- **SampleData :** inclut des exemples de données pour cette procédure pas à pas.
+	- **OnPremises :** inclut des fichiers JSON et un script permettant d’illustrer l’accès à vos données locales.
+	- **uploadSampleDataAndScripts.ps1 :** ce script charge les exemples de données et les scripts dans Microsoft Azure.
 5. Assurez-vous de disposer des ressources Azure suivantes :			
 	- Compte Azure Storage.
-	- Base de données SQL Azure
-	- Azure de HDInsight Cluster version 3.1 ou au-dessus (ou utiliser une demande HDInsight cluster que le service de données fabrique créera automatiquement)	
-7. Une fois les ressources Azure créées, assurez-vous de disposer des informations nécessaires pour se connecter à chacune de ces ressources.
- 	- **Compte de stockage azure** - nom de compte et clé de compte.  
-	- **Base de données SQL azure** -serveur, base de données, nom d'utilisateur et mot de passe.
-	- **Azure HDInsight Cluster**.-nom du cluster HDInsight, nom d'utilisateur, mot de passe et nom de compte et clé de compte pour le stockage Azure associé à ce cluster. Si vous souhaitez utiliser un cluster de HDInsight à la demande au lieu de votre cluster HDInsight, vous pouvez ignorer cette étape.  
-8. Lancez **Azure PowerShell** et exécutez les commandes suivantes. Ne fermez pas Azure PowerShell. Si vous fermez et rouvrez, vous devez exécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount** et entrez le nom d'utilisateur et un mot de passe que vous utilisez pour vous connecter au portail Azure Preview.  
-	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements pour ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l'abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire.
+	- Base de données SQL Azure.
+	- Un cluster Microsoft Azure HDInsight version 3.1 ou plus (ou un cluster HDInsight à la demande créé automatiquement par le service Data Factory).	
+7. Une fois les ressources Azure créées, assurez-vous de disposer des informations nécessaires pour vous connecter à chacune de ces ressources.
+ 	- **Compte Azure Storage** : nom de compte et clé de compte.  
+	- **Base de données SQL Azure** : serveur, base de données, nom d’utilisateur et mot de passe.
+	- **Cluster Azure HDInsight** : nom du cluster HDInsight, nom d’utilisateur, mot de passe, nom de compte et clé de compte pour le système Microsoft Azure Storage associé à ce cluster. Si vous souhaitez utiliser un cluster HDInsight à la demande au lieu de votre propre cluster HDInsight, vous pouvez ignorer cette étape.  
+8. Lancez **Azure PowerShell** et exécutez les commandes suivantes. Laissez la fenêtre Microsoft Azure PowerShell ouverte. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire.
 	
 
-## Vue d'ensemble
-Le flux de travail de bout en bout est représentée ci-dessous : ![Didacticiel flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
+## Vue d’ensemble
+Le flux de travail de bout en bout est représenté ci-dessous : ![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
 
-1. Le **PartitionGameLogsPipeline** lit les événements bruts de jeu à partir d'un stockage d'objets blob (RawGameEventsTable) et crée des partitions basées sur l'année, mois et jour (PartitionedGameEventsTable).
-2. Le **EnrichGameLogsPipeline** joint des événements de jeu partitionnées (PartitionedGameEvents table, qui est une sortie de la PartitionGameLogsPipeline) avec le code géographique (RefGetoCodeDictionaryTable) et enrichit les données en mappant une adresse IP à correspondante emplacement géographique (EnrichedGameEventsTable).
-3. Le **AnalyzeMarketingCampaignPipeline** pipeline s'appuie sur les données enrichies (EnrichedGameEventTable produit par le EnrichGameLogsPipeline) et le traite avec les données de publicité (RefMarketingCampaignnTable) pour créer la sortie finale de l'efficacité de la campagne de commercialisation qui sont copiées dans la base de données SQL Azure (MarketingCampainEffectivensessSQLTable) et un stockage d'objets blob Azure (MarketingCampaignEffectivenessBlobTable) pour l'analyse.
+1. Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob (RawGameEventsTable) et crée des partitions basées sur l’année, le mois et le jour (PartitionedGameEventsTable).
+2. Le pipeline **EnrichGameLogsPipeline** joint les événements de jeu partitionnés (table PartitionedGameEvents, qui est une sortie de PartitionGameLogsPipeline) avec un code géographique (RefGetoCodeDictionaryTable) et enrichit les données en mappant une adresse IP à la géolocalisation correspondante (EnrichedGameEventsTable).
+3. Le pipeline **AnalyzeMarketingCampaignPipeline** exploite les données enrichies (table EnrichedGameEventTable produite par EnrichGameLogsPipeline) et les traite avec les données de publicité (RefMarketingCampaignTable) pour créer la sortie finale d’efficacité de la campagne marketing, qui est copiée dans la base de données SQL Azure (MarketingCampainEffectivenessSQLTable) et un stockage d’objets blob Microsoft Azure (MarketingCampaignEffectivenessBlobTable) pour analyse.
     
-## Procédure pas à pas : Création, déploiement et analyse des flux de travail
-1. [Étape 1: télécharger des exemples de données et les scripts](#MainStep1). Dans cette étape, vous allez télécharger tous les exemples de données (y compris l'ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront exécutés par les flux de travail. Les scripts que vous exécutez créent également une base de données SQL Azure (nommée MarketingCampaigns), des tables, des types définis par l'utilisateur et des procédures stockées.
-2. [Étape 2: créer une fabrique de données Azure](#MainStep2). Dans cette étape, vous allez créer une fabrique de données Azure nommée LogProcessingFactory.
-3. [Étape 3: créer des services liés](#MainStep3). Dans cette étape, vous allez créer les services liés suivants : 
+## Procédure pas à pas : création, déploiement et surveillance des flux de travail
+1. [Étape 1 : Télécharger des exemples de données et des scripts](#MainStep1). Dans cette étape, vous allez télécharger tous les exemples de données (y compris l’ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront exécutés par les flux de travail. Les scripts que vous exécutez créent également une base de données SQL Azure (nommée MarketingCampaigns), des tables, des types définis par l’utilisateur et des procédures stockées.
+2. [Étape 2 : Créer une fabrique de données Microsoft Azure](#MainStep2). Dans cette étape, vous allez créer une fabrique de données Azure nommée LogProcessingFactory.
+3. [Étape 3 : Créer des services liés](#MainStep3). Dans cette étape, vous allez créer les services liés suivants : 
 	
-	- 	**StorageLinkedService**. Lie l'emplacement de stockage Azure qui contient des événements de jeu bruts, des événements de jeu partitionnés, des événements de jeu enrichis, des informations d'efficacité de la campagne marketing, des données géocodées de référence et des données de campagne marketing de référence dans LogProcessingFactory   
-	- 	**AzureSqlLinkedService**. Lie une base de données SQL Azure qui contient des informations d'efficacité de la campagne marketing. 
-	- 	**HDInsightStorageLinkedService**. Lie un stockage d'objets blob Azure qui est associé au cluster HDInsight qui désigne HDInsightLinkedService. 
-	- 	**HDInsightLinkedService**. Lie un cluster Azure HDInsight à LogProcessingFactory. Ce cluster permet d'effectuer un traitement pig/hive sur les données. 
+	- 	**StorageLinkedService**. Lie l’emplacement de stockage Azure qui contient des événements de jeu bruts, des événements de jeu partitionnés, des événements de jeu enrichis, des informations d’efficacité de la campagne marketing, des données géocodées de référence et des données de campagne marketing de référence dans LogProcessingFactory.   
+	- 	**AzureSqlLinkedService**. Lie une base de données SQL Azure qui contient des informations d’efficacité de la campagne marketing. 
+	- 	**HDInsightStorageLinkedService**. Lie un stockage d’objets blob Azure qui est associé au cluster HDInsight qui désigne HDInsightLinkedService. 
+	- 	**HDInsightLinkedService**. Lie un cluster Azure HDInsight à LogProcessingFactory. Ce cluster permet d’effectuer un traitement pig/hive sur les données. 
  		
-4. [Étape 4: créer des tables](#MainStep4). Dans cette étape, vous allez créer les tables suivantes :
+4. [Étape 4 : Créer des services liés](#MainStep4). Dans cette étape, vous allez créer les tables suivantes :
 	
-	- **RawGameEventsTable**. Cette table spécifie l'emplacement des données d'événement de jeu brutes dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/rawgameevents/). 
-	- **PartitionedGameEventsTable**. Cette table spécifie l'emplacement des données d'événement de jeu partitionnées dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/). 
-	- **RefGeoCodeDictionaryTable**. Cette table spécifie l'emplacement des données géocodées de référence dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/refdata/refgeocodedictionary/).
-	- **RefMarketingCampaignTable**. Cette table spécifie l'emplacement des données de campagne marketing de référence dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/refdata/refmarketingcampaign/).
-	- **EnrichedGameEventsTable**. Cette table spécifie l'emplacement des données d'événement de jeu enrichies dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/enrichedgameevents/).
-	- **MarketingCampaignEffectivenessSQLTable**. Cette table spécifie la table SQL (MarketingCampaignEffectiveness) dans la base de données SQL Azure défini par AzureSqlLinkedService qui contient les données de l'efficacité de campagne marketing. 
-	- **MarketingCampaignEffectivenessBlobTable**. Cette table spécifie l'emplacement des données d'efficacité de la campagne marketing dans le stockage d'objets blob Azure défini par StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
+	- **RawGameEventsTable**. Cette table spécifie l’emplacement des données d’événement de jeu brutes dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/rawgameevents/). 
+	- **PartitionedGameEventsTable**. Cette table spécifie l’emplacement des données d’événement de jeu partitionnées dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/partitionedgameevents/). 
+	- **RefGeoCodeDictionaryTable**. Cette table spécifie l’emplacement des données géocodées de référence dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/refdata/refgeocodedictionary/).
+	- **RefMarketingCampaignTable**. Cette table spécifie l’emplacement des données de campagne marketing de référence dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/refdata/refmarketingcampaign/).
+	- **EnrichedGameEventsTable**. Cette table spécifie l’emplacement des données d’événement de jeu enrichies dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/logs/enrichedgameevents/).
+	- **MarketingCampaignEffectivenessSQLTable**. Cette table spécifie la table SQL (MarketingCampaignEffectiveness) de la base de données SQL Microsoft Azure définie par AzureSqlLinkedService qui contient les données d’efficacité de la campagne marketing. 
+	- **MarketingCampaignEffectivenessBlobTable**. Cette table spécifie l’emplacement des données d’efficacité de la campagne marketing dans le stockage d’objets blob Azure défini par StorageLinkedService (adfwalkthrough/marketingcampaigneffectiveness/). 
 
 	
-5. [Étape 5: créer et planifier les pipelines](#MainStep5). Dans cette étape, vous allez créer les pipelines suivants :
-	- **PartitionGameLogsPipeline**. Ce pipeline lit les événements de jeu bruts depuis un stockage d'objets blob (RawGameEventsTable) et crée des partitions basées sur l'année, le mois et le jour (PartitionedGameEventsTable). 
+5. [Étape 5 : Créer et planifier des pipelines](#MainStep5). Dans cette étape, vous allez créer les pipelines suivants :
+	- **PartitionGameLogsPipeline**. Ce pipeline lit les événements de jeu bruts depuis un stockage d’objets blob (RawGameEventsTable) et crée des partitions basées sur l’année, le mois et le jour (PartitionedGameEventsTable). 
 
 
 		![Pipeline PartitionGamesLogs][image-data-factory-tutorial-partition-game-logs-pipeline]
@@ -91,20 +91,20 @@ Le flux de travail de bout en bout est représentée ci-dessous : ![Didacticiel 
 
 		![EnrichedGameLogsPipeline][image-data-factory-tutorial-enrich-game-logs-pipeline]
 
-	- **AnalyzeMarketingCampaignPipeline**. Ce pipeline exploite les données enrichies (EnrichedGameEventTable produite par EnrichGameLogsPipeline) et les traite avec les données de publicité (RefMarketingCampaignnTable) pour créer la sortie finale d'efficacité de la campagne marketing, qui est copiée dans la base de données SQL Azure (MarketingCampainEffectivensessSQLTable) et un stockage d'objets blob Azure (MarketingCampaignEffectivenessBlobTable) pour analyse.
+	- **AnalyzeMarketingCampaignPipeline**. Ce pipeline exploite les données enrichies (EnrichedGameEventTable produite par EnrichGameLogsPipeline) et les traite avec les données de publicité (RefMarketingCampaignnTable) pour créer la sortie finale d’efficacité de la campagne marketing, qui est copiée dans la base de données SQL Azure (MarketingCampainEffectivensessSQLTable) et un stockage d’objets blob Azure (MarketingCampaignEffectivenessBlobTable) pour analyse.
 
 
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [Étape 6: surveiller les tranches de données et pipelines](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l'aide du portail Azure.
+6. [Étape 6 : Surveiller des pipelines et des tranches de données](#MainStep6). Dans cette étape, vous allez surveiller les pipelines, les tables et les tranches de données à l’aide du portail Azure.
 
-## <a name="MainStep1"></a> Étape 1: Télécharger des exemples de données et de scripts
-Dans cette étape, vous allez télécharger tous les exemples de données (y compris l'ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront appelés par les flux de travail. Les scripts que vous exécutez également créent une base de données SQL Azure appelé **MarketingCampaigns**, tables, les types définis par l'utilisateur et les procédures stockées.
+## <a name="MainStep1"></a> Étape 1 : Télécharger des exemples de données et des scripts
+Dans cette étape, vous allez télécharger tous les exemples de données (y compris l’ensemble des journaux et des données de référence) et les scripts Hive/Pig qui seront appelés par les flux de travail. Les scripts que vous exécutez créent également une base de données SQL Microsoft Azure nommée **MarketingCampaigns**}, des tables, des types définis par l’utilisateur et des procédures stockées.
 
-Les tables, les types définis par l'utilisateur et les procédures stockées sont utilisés lors du déplacement des résultats de l'efficacité de la campagne marketing depuis le stockage d'objets blob Azure vers la base de données SQL Azure.
+Les tables, les types définis par l’utilisateur et les procédures stockées sont utilisés lors du déplacement des résultats de l’efficacité de la campagne marketing depuis le stockage d’objets blob Azure vers la base de données SQL Azure.
 
-1. Ouvrez **uploadSampleDataAndScripts.ps1** de **C:\ADFWalkthrough** dossier (ou le dossier qui contient les fichiers extraits) dans votre éditeur favori, remplacez l'en surbrillance avec vos informations de cluster et enregistrez le fichier.
+1. Ouvrez le fichier **uploadSampleDataAndScripts.ps1** figurant dans le dossier **C:\ADFWalkthrough** (ou dans celui qui contient les fichiers extraits) dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de cluster et enregistrez le fichier.
 
 
 		$storageAccount = <storage account name>
@@ -114,11 +114,14 @@ Les tables, les types définis par l'utilisateur et les procédures stockées so
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE][télécharger][sqlcmd-install]   
-2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l'accès, utilisez la **portail de gestion Azure** ou **sp_set_firewall_rule** sur la base de données master pour créer une règle de pare-feu pour l'adresse IP de votre ordinateur. Cela peut prendre jusqu'à cinq minutes pour que cette modification prenne effet. Voir [définition des règles de pare-feu pour SQL Azure][azure-sql-firewall].
-4. Dans PowerShell Azure, accédez à l'emplacement où vous avez extrait les exemples (par exemple : **C:\ADFWalkthrough**)
-5. Exécutez **uploadSampleDataAndScripts.ps1** 
-6. Une fois que le script s'exécute correctement, vous verrez les éléments suivants :
+	> [AZURE.NOTE] Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
+	
+	> Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d'objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
+   
+2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp_set_firewall_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
+4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\ADFWalkthrough**).
+5. Exécutez le fichier **uploadSampleDataAndScripts.ps1**. 
+6. Une fois que le script s’exécute correctement, vous verrez les éléments suivants :
 
 		$storageAccount = <storage account name>
 		PS C:\ ADFWalkthrough> & '.\uploadSampleDataAndScripts.ps1'
@@ -150,129 +153,131 @@ Les tables, les types définis par l'utilisateur et les procédures stockées so
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> Étape 2: Créer une fabrique de données Azure
-Dans cette étape, vous créez une fabrique de données Azure nommée **LogProcessingFactory**.
+## <a name="MainStep2"></a> Étape 2 : Créer une fabrique de données Microsoft Azure
+Dans cette étape, vous allez créer une fabrique de données Microsoft Azure nommée **LogProcessingFactory**.
 
-1.	Après la connexion à la [portail Azure Preview][azure-preview-portal], cliquez sur **nouveau** dans le coin inférieur gauche, cliquez sur **Data Factory** sur la **nouveau** lame. 
+1.	Une fois connecté au [portail Azure en version préliminaire][azure-preview-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, puis sur **Fabrique de données** dans le panneau **Nouveau**. 
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 	
-	Si vous ne voyez pas **Data Factory** sur la **nouveau** lame, faites défiler vers le bas.
+	Si l’élément **Fabrique de données** ne s’affiche pas dans le panneau **Nouveau**, faites défiler la fenêtre vers le bas.
 	
-5. Dans le **nouvelle fabrique de données** lame, entrez **LogProcessingFactory** pour le **nom**.
+5. Dans le panneau **Nouvelle fabrique de données**, saisissez **LogProcessingFactory** dans le champ **Nom**.
 
-	![Fabrique lame][image-data-factory-tutorial-new-datafactory-blade]
+	![Panneau Data Factory][image-data-factory-tutorial-new-datafactory-blade]
 
-6. Si vous n'avez pas créé un groupe de ressources Azure nommé **ADF** déjà, procédez comme suit :
-	1. Cliquez sur **nom de groupe de ressources**, puis cliquez sur **créer un groupe de ressources**.
+6. Si vous n’avez pas encore créé de groupe de ressources Microsoft Azure nommé **ADF**, procédez comme suit :
+	1. Cliquez sur **NOM DU GROUPE DE RESSOURCES**, puis sur **Créer un groupe de ressources**.
 	
-		![Volet du groupe de ressources][image-data-factory-tutorial-resourcegroup-blade]
-	2. Dans le **créer un groupe de ressources** lame, entrez **ADF** pour le nom du groupe de ressources, cliquez sur **OK**.
+		![Panneau Groupe de ressources][image-data-factory-tutorial-resourcegroup-blade]
+	2. Dans le panneau **Créer un groupe de ressources**, saisissez **ADF** dans le champ du nom du groupe de ressources, puis cliquez sur **OK**.
 	
-		![Créer le groupe de ressources][image-data-factory-tutorial-create-resourcegroup]
-7. Sélectionnez **ADF** pour le **nom de groupe de ressources**.  
-8.	Dans le **nouvelle fabrique de données** lame, notez que **Ajouter au tableau d'accueil** est activée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d'accueil (ce que vous voyez lorsque vous vous connectez à la version préliminaire du portail Azure).
+		![Créer un groupe de ressources][image-data-factory-tutorial-create-resourcegroup]
+7. Sélectionnez **ADF** dans le champ **NOM DU GROUPE DE RESSOURCES**.  
+8.	Dans le panneau **Nouvelle fabrique de données**, notez que l’option **Ajouter au tableau d’accueil** est sélectionnée par défaut. Cela ajoute un lien vers la fabrique de données sur le tableau d’accueil (ce que vous voyez lorsque vous vous connectez à la version préliminaire du portail Azure).
 
-	![Créer la fabrique lame][image-data-factory-tutorial-create-datafactory]
+	![Panneau Créer une fabrique de données][image-data-factory-tutorial-create-datafactory]
 
-9.	Dans le **nouvelle fabrique de données** lame, cliquez sur **créer** pour créer la fabrique de données.
-10.	Après la création de la fabrique de données, vous devez voir les **DATA FACTORY** lame intitulée **LogProcessingFactory**.
+9.	Dans le panneau **Nouvelle fabrique de données**, cliquez sur **Créer** pour créer la fabrique de données.
+10.	Lorsque la fabrique de données est créée, vous voyez apparaître le panneau **DATA FACTORY** intitulé **LogProcessingFactory**.
 
-	![Page d'accueil de fabrique de données][image-data-factory-tutorial-datafactory-homepage]
+	![Page d’accueil Fabrique de données][image-data-factory-tutorial-datafactory-homepage]
 
 	
-	Si vous ne le voyez pas, effectuez l'une des opérations suivantes :
+	Si vous ne le voyez pas, effectuez l’une des opérations suivantes :
 
-	- Cliquez sur **LogProcessingFactory** sur la **tableau d'accueil** (page d'accueil)
-	- Cliquez sur **Parcourir** dans le volet gauche, cliquez sur **tout**, cliquez sur **fabriques données**, puis cliquez sur la fabrique de données.
+	- Cliquez sur **LogProcessingFactory** sur le **tableau d’accueil** (page d’accueil).
+	- Cliquez sur **PARCOURIR**, à gauche, sur **Tout**, sur **Fabriques de données**, puis sur la fabrique de données.
  
-	> [AZURE.NOTE]Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez une erreur : **nom d'usine de données « LogProcessingFactory » n'est pas disponible**, modifiez le nom (par exemple, yournameLogProcessingFactory). Utilisez ce nom LogProcessingFactory lors de l'exécution des étapes de ce didacticiel.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur suivante s’affiche : **Le nom de fabrique de données LogProcessingFactory n’est pas disponible**, modifiez le nom (par exemple, votrenomLogProcessingFactory). Utilisez ce nom à la place de « LogProcessingFactory » lorsque vous effectuez les étapes de ce didacticiel.
  
-## <a name="MainStep3"></a> Étape 3: Créer des services liés
+## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE]Cet article utilise Azure PowerShell pour créer des pipelines, des tables et des services liés. Voir [didacticiel à l'aide de données fabrique éditeur][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l'aide du portail Azure, éditeur de fabrique de données en particulier.
+> [AZURE.NOTE]Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
 
-Dans cette étape, vous allez créer les services liés suivants : StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService et HDInsightLinkedService.
+Dans cette étape, vous allez créer les services liés suivants : StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService et HDInsightLinkedService.
 
 
-1.	Dans le **LogProcessingFactory** lame, cliquez sur **Services liés** vignette.
+1.	Dans le panneau **LogProcessingFactory**, cliquez sur la vignette **Services liés**.
 
 	![Vignette Services liés][image-data-factory-tutorial-linkedservice-tile]
 
-2. Dans le **Services liés** lame, cliquez sur **+ magasin de données** à partir de la barre de commandes.
+2. Dans le panneau **Services liés**, cliquez sur **+ Magasin de données** dans la barre de commandes.
 
-	![Ajouter des Services liés - magasin][image-data-factory-tutorial-linkedservices-add-datstore]
+	![Services liés - Ajouter au magasin][image-data-factory-tutorial-linkedservices-add-datstore]
 
-3. Dans le **nouveau magasin de données** lame, entrez **StorageLinkedService** pour le **nom**, cliquez sur **TYPE (paramètres requis)**, puis sélectionnez **compte de stockage Azure**.
+3. Dans le panneau **Nouveau magasin de données**, saisissez **StorageLinkedService** dans le champ **Nom**, cliquez sur **TYPE (paramètres requis)**, puis sélectionnez **Compte de stockage Azure**.
 
-	![Type de magasin de données - stockage Azure][image-data-factory-tutorial-datastoretype-azurestorage]
+	![Type de magasin de données - Azure Storage][image-data-factory-tutorial-datastoretype-azurestorage]
 
-4. Dans le **nouveau magasin de données** lame, vous verrez deux nouveaux champs : **nom de compte** et **clé de compte**. Entrez le nom de compte et clé de compte pour votre **compte de stockage Azure**.
+4. Dans le panneau **Nouveau magasin de données**, vous voyez apparaître deux nouveaux champs : **Nom de compte** et **Clé de compte**. Saisissez le nom et la clé de votre **compte Microsoft Azure Storage**.
 
-	![Paramètres de stockage Azure][image-data-factory-tutorial-azurestorage-settings]
+	![Paramètres Azure Storage][image-data-factory-tutorial-azurestorage-settings]
 
 	Vous pouvez obtenir le nom et la clé de votre compte de stockage Azure à partir du portail, comme indiqué ci-après :
 
 	![Clé de stockage][image-data-factory-tutorial-storage-key]
   
-5. Après avoir cliqué sur **OK** sur les nouvelles données stocker lame, vous devriez voir **StorageLinkedService** dans la liste des **les banques de données** sur la **Services liés** lame. Vérifiez **NOTIFICATIONS** Hub (à gauche) pour voir tous les messages.
+5. Après avoir cliqué sur **OK** dans le panneau Nouveau magasin de données, vous devez voir apparaître **StorageLinkedService** dans la liste **MAGASINS DE DONNÉES** du panneau **Services liés**. Consultez le concentrateur **NOTIFICATIONS** (sur la gauche) pour voir les messages.
 
-	![Lame de Services liés avec le stockage][image-data-factory-tutorial-linkedservices-blade-storage]
+	![Panneau Services liés avec Storage][image-data-factory-tutorial-linkedservices-blade-storage]
    
-6. Répétez les **les étapes 2 à 5** créer un autre service nommé lié : **HDInsightStorageLinkedService**. Il s'agit du stockage utilisé par votre cluster HDInsight.
-7. Vérifiez que les deux **StorageLinkedService** et **HDInsightStorageLinkedService** dans la liste dans le volet Services liés.
-8. Dans le **Services liés** lame, cliquez sur **Ajouter (+) le magasin de données** à partir de la barre de commandes.
-9. Entrez **AzureSqlLinkedService** pour le nom.
-10. Cliquez sur **TYPE (paramètres requis)**, sélectionnez **base de données SQL Azure**.
-11. À présent, vous devez les champs supplémentaires suivants sur le **nouveau magasin de données** lame. Entrez le nom de la base de données SQL Azure **server**, **base de données** nom, **nom d'utilisateur**, et **mot de passe**, puis cliquez sur **OK**.
-	1. Entrez **MarketingCampaigns** pour le **base de données**. Il s'agit de la base de données SQL Azure créé par les scripts que vous avez exécuté à l'étape 1. Vous devez confirmer que cette base de données a été effectivement créé par les scripts (en cas d'erreurs).
+6. Répétez les **étapes 2 à 5** pour créer un autre service lié nommé **HDInsightStorageLinkedService**. Il s’agit du stockage utilisé par votre cluster HDInsight.
+7. Confirmez que vous voyez s’afficher **StorageLinkedService** et **HDInsightStorageLinkedService** dans la liste du panneau Services liés.
+8. Dans le panneau **Services liés**, cliquez sur **Ajouter (+) Magasin de données** dans la barre de commandes.
+9. Entrez le nom **AzureSqlLinkedService**.
+10. Cliquez sur **TYPE (paramètres requis)** et sélectionnez **Base de données SQL Azure**.
+11. Maintenant, vous devez voir apparaître les champs supplémentaires suivants dans le panneau **Nouveau magasin de données**. Saisissez le nom du **serveur** de la base de données SQL Azure, le nom de la **base de données**, le **nom de l’utilisateur** et le **mot de passe**, puis cliquez sur **OK**.
+	1. Saisissez **MarketingCampaigns** dans le champ **Base de données**. Il s’agit de la base de données SQL Azure créée par les scripts que vous avez exécutés à l’étape 1. Vous devez confirmer que cette base de données a bien été créée par les scripts (en cas d’erreurs).
 		
- 		![Paramètres de SQL Azure][image-data-factory-tutorial-azuresql-settings]
+ 		![Paramètres SQL Azure][image-data-factory-tutorial-azuresql-settings]
 
-		Pour obtenir ces valeurs à partir du portail de gestion Azure : cliquez sur vue SQL chaînes de connexion de base de données MarketingCampaigns
+		Pour obtenir ces valeurs à partir du portail de gestion Azure, cliquez sur Afficher les chaînes de connexion de la base de données SQL pour la base de données MarketingCampaigns.
 
-		![Chaîne de connexion de base de données SQL Azure][image-data-factory-tutorial-azuresql-database-connection-string]
+		![Chaîne de connexion Base de données SQL Azure][image-data-factory-tutorial-azuresql-database-connection-string]
 
-12. Vérifiez que tous les magasins de trois données que vous avez créé : **StorageLinkedService**, **HDInsightStorageLinkedService**, et **AzureSqlLinkedService**.
-13. Vous devez créer un autre service lié, mais il s'agit d'un service de calcul, spécifiquement **cluster Azure HDInsight**. Le portail ne prend pas encore en charge la création d'un service de calcul lié. Par conséquent, vous devez utiliser Azure PowerShell pour ce faire. 
-14. Basculez vers **Azure PowerShell** si vous avez déjà ouvert (ou) lancement **Azure PowerShell**. Si vous avez fermé et rouvert Azure PowerShell, vous devez exécuter les commandes suivantes : 
-	- Exécutez **Add-AzureAccount** et entrez le nom d'utilisateur et un mot de passe que vous utilisez pour vous connecter au portail Azure Preview.  
-	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements pour ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l'abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire. 
-15. Basculez vers **AzureResourceManager** mode comme les applets de commande Azure Data Factory sont disponibles dans ce mode.
+12. Vérifiez que les trois magasins de données que vous avez créés s’affichent : **StorageLinkedService**, **HDInsightStorageLinkedService** et **AzureSqlLinkedService**.
+13. Vous devez créer un autre service lié, mais cette fois il s’agit d’un service de calcul, précisément du **cluster HDInsight Azure**. Le portail ne prend pas encore en charge la création d’un service de calcul lié. Par conséquent, vous devez utiliser Azure PowerShell pour ce faire. 
+14. Accédez à **Azure PowerShell** s’il est déjà ouvert ; sinon, démarrez **Azure PowerShell**. Si vous avez fermé et rouvert Azure PowerShell, vous devez exécuter les commandes suivantes : 
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure en version préliminaire. 
+15. Passez en mode **AzureResourceManager**, car les applets de commande Azure Data Factory sont disponibles uniquement dans ce mode.
 
 		Switch-AzureMode AzureResourceManager
 
-16. Accédez à la **LinkedServices** sous-dossier **C:\ADFWalkthrough** (ou) à partir du dossier à partir de l'emplacement où vous avez extrait les fichiers.
-17. Ouvrez **HDInsightLinkedService.json** dans votre éditeur favori et notez que le type est défini sur **HDInsightOnDemandLinkedService**.
+16. Accédez au sous-dossier **LinkedServices** dans **C:\ADFWalkthrough** ou dans le dossier de l’emplacement auquel vous avez extrait les fichiers.
+17. Ouvrez l’élément **HDInsightLinkedService.json** dans votre éditeur favori et notez que le type est défini sur **HDInsightOnDemandLinkedService**.
 
 
-	> [AZURE.NOTE]Le service Azure Data Factory prend en charge la création d'un cluster à la demande et l'utilise pour traiter des données d'entrée afin de produire des données de sortie. Vous pouvez également utiliser votre propre cluster pour effectuer cette opération. Lorsque vous utilisez un cluster HDInsight à la demande, un cluster est créé pour chaque tranche. Par contre, lorsque vous utilisez votre propre cluster HDInsight, le cluster est prêt à traiter la tranche immédiatement. Par conséquent, lorsque vous utilisez un cluster à la demande, vous ne voyez pas les données de sortie aussi rapidement que lorsque vous utilisez votre propre cluster. Pour les besoins de l'exemple, nous allons utiliser un cluster à la demande. Le HDInsightLinkedService lie un cluster de HDInsight à la demande à la fabrique de données. Pour utiliser votre propre cluster HDInsight, mettre à jour la section Propriétés du fichier HDInsightLinkedService.json, comme illustré ci-dessous (clustername replace, nom d'utilisateur et mot de passe avec les valeurs appropriées) :
-	> 
-			"Properties": 
-			{
-        		"Type": "HDInsightBYOCLinkedService",
-	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
-    	    	"UserName": "<username>",
-    	    	"Password": "<password>",
-    	    	"LinkedServiceName": "HDInsightStorageLinkedService"
-    		}
+	Le service Azure Data Factory prend en charge la création d’un cluster à la demande et l’utilise pour traiter des données d’entrée afin de produire des données de sortie. Vous pouvez également utiliser votre propre cluster pour effectuer cette opération. Lorsque vous utilisez un cluster HDInsight à la demande, un cluster est créé pour chaque tranche. Par contre, lorsque vous utilisez votre propre cluster HDInsight, le cluster est prêt à traiter la tranche immédiatement. Par conséquent, lorsque vous utilisez un cluster à la demande, vous ne voyez pas les données de sortie aussi rapidement que lorsque vous utilisez votre propre cluster. Pour les besoins de l’exemple, nous allons utiliser un cluster à la demande.
+	
+	L’élément HDInsightLinkedService lie un cluster HDInsight à la demande à la fabrique de données. Pour utiliser votre propre cluster HDInsight, mettez à jour la section Propriétés du fichier HDInsightLinkedService.json, comme illustré ci-dessous (remplacez clustername, username et password par les valeurs appropriées) :
+	
+		"Properties": 
+		{
+    		"Type": "HDInsightBYOCLinkedService",
+        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+	    	"UserName": "<username>",
+	    	"Password": "<password>",
+	    	"LinkedServiceName": "HDInsightStorageLinkedService"
+		}
 		
 
 18. Utilisez la commande suivante pour définir la variable $df sur le nom de la fabrique de données.
 
 		$df = “LogProcessingFactory”
-19. Utilisez l'applet de commande **New-AzureDataFactoryLinkedService** pour créer un Service lié comme suit. Commencez par le compte de stockage :
+19. Utilisez l’applet de commande **New-AzureDataFactoryLinkedService** pour créer un service lié, comme suit. Commencez par le compte de stockage :
 
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
  
-	Si vous utilisez un nom différent pour ResourceGroupName, DataFactoryName ou LinkedService, indiquez-les dans la cmdlet ci-dessus. Vous devez également fournir le chemin d'accès complet du fichier JSON du service lié si le fichier est introuvable.
-20. Vous devez voir tous les services liés quatre dans le **Services liés** lame comme indiqué ci-dessous. Si la lame de services lié n'est pas ouverte, cliquez sur Services liés dans le **DATA FACTORY** page **LogProcessingFactory**. L'actualisation du panneau des services liés peut prendre quelques secondes.
+	Si vous utilisez un nom différent pour ResourceGroupName, DataFactoryName ou LinkedService, indiquez-les dans la cmdlet ci-dessus. Vous devez également fournir le chemin d’accès complet du fichier JSON du service lié si le fichier est introuvable.
+20. Vous devez voir apparaître les quatre services liés dans le panneau **Services liés**, comme illustré ci-après. Si le panneau Services liés n’est pas ouvert, cliquez sur Services liés dans la page **DATA FACTORY** de **LogProcessingFactory**. L’actualisation du panneau des services liés peut prendre quelques secondes.
 
-	![Lié Services toutes les][image-data-factory-tutorial-linkedservices-all]
+	![Services liés - Tout][image-data-factory-tutorial-linkedservices-all]
  
 
-## <a name="MainStep4"></a> Étape 4: Créer des tables 
+## <a name="MainStep4"></a> Étape 4 : Créer des services liés 
 Dans cette étape, vous allez créer les tables suivantes :
 
 - RawGameEventsTable
@@ -283,23 +288,23 @@ Dans cette étape, vous allez créer les tables suivantes :
 - MarketingCampaignEffectivenessSQLTable
 - MarketingCampaignEffectivenessBlobTable
 
-	![Didacticiel flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
+	![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
  
-L'image ci-dessus présente les pipelines sur la ligne du milieu et les tables sur les lignes supérieures et inférieures.
+L’image ci-dessus présente les pipelines sur la ligne du milieu et les tables sur les lignes supérieures et inférieures.
 
-Le portail Azure n'autorise pas encore la création de jeux de données/tables, vous devez donc utiliser Azure PowerShell pour créer des tables dans cette version.
+Le portail Azure n’autorise pas encore la création de jeux de données/tables, vous devez donc utiliser Azure PowerShell pour créer des tables dans cette version.
 
 ### Créer des tables
 
-1.	Dans Azure PowerShell, accédez à la **tableaux** dossier (** C:\ADFWalkthrough\\Tables**) à partir de l'emplacement où vous avez extrait les exemples. 
-2.	Utilisez l'applet de commande **New-AzureDataFactoryTable** pour créer les Tables comme suit pour **RawGameEventsTable**.json	
+1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\\Tables**) depuis l’emplacement auquel vous avez extrait les exemples. 
+2.	Utilisez l’applet de commande **New-AzureDataFactoryTable** pour créer les tables pour **RawGameEventsTable.json**, comme suit.	
 
 
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
-	Si vous utilisez un nom différent pour ResourceGroupName et DataFactoryName, indiquez-les dans la cmdlet ci-dessus. En outre, indiquez le chemin d'accès complet du fichier JSON de la table si la cmdlet ne trouve pas le fichier.
+	Si vous utilisez un nom différent pour ResourceGroupName et DataFactoryName, indiquez-les dans la cmdlet ci-dessus. En outre, indiquez le chemin d’accès complet du fichier JSON de la table si la cmdlet ne trouve pas le fichier.
 
-3. Répétez l'étape précédente pour créer les tables suivantes :
+3. Répétez l’étape précédente pour créer les tables suivantes :
 		
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
@@ -315,39 +320,39 @@ Le portail Azure n'autorise pas encore la création de jeux de données/tables, 
 
 
 
-4. Dans le **portail Azure Preview**, cliquez sur **Datasets** dans le **DATA FACTORY** lame pour **LogProcessingFactory** et vérifiez que tous les groupes de données (les tables sont des groupes de données rectangulaire).
+4. Dans le **portail Azure en version préliminaire**, cliquez sur **Jeux de données** dans le panneau **FABRIQUES DE DONNÉES** pour **LogProcessingFactory** et vérifiez que vous voyez apparaître tous les jeux de données (les tables sont des jeux de données rectangulaires).
 
-	![Jeux de données de toutes les][image-data-factory-tutorial-datasets-all]
+	![Jeux de données - Tout][image-data-factory-tutorial-datasets-all]
 
-	Vous pouvez également utiliser la commande suivante à partir d'Azure PowerShell :
+	Vous pouvez également utiliser la commande suivante à partir d’Azure PowerShell :
 			
 		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
 
-## <a name="MainStep5"></a> Étape 5: Créer et planifier des pipelines
-Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogsPipeline, EnrichGameLogsPipeline et AnalyzeMarketingCampaignPipeline.
+## <a name="MainStep5"></a> Étape 5 : Créer et planifier des pipelines
+Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogsPipeline, EnrichGameLogsPipeline et AnalyzeMarketingCampaignPipeline.
 
-1. Dans **l'Explorateur Windows**, accédez à la **Pipelines** sous-dossier dans **C:\ADFWalkthrough** dossier (ou à partir de l'emplacement où vous avez extrait les exemples).
-2.	Ouvrez **PartitionGameLogsPipeline.json** dans votre éditeur favori, remplacez l'en surbrillance avec votre compte de stockage pour les informations de compte de stockage de données et enregistrez le fichier.
+1. Dans l’**Explorateur Windows**, accédez au sous-dossier **Pipelines** dans le dossier **C:\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
+2.	Ouvrez l’élément **PartitionGameLogsPipeline.json** dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations de compte de stockage pour le compte de stockage de données et enregistrez le fichier.
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
 		"PARTITIONEDOUTPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/partitionedgameevents/",
 
-3. Répétez l'étape pour créer les pipelines suivants :
-	1. **EnrichGameLogsPipeline**.json (3 occurrences)
-	2. **AnalyzeMarketingCampaignPipeline**.json (3 occurrences)
+3. Répétez l’étape pour créer les pipelines suivants :
+	1. **EnrichGameLogsPipeline.json** (3 occurrences)
+	2. **AnalyzeMarketingCampaignPipeline**.json (3 occurrences)
 
-	**IMPORTANT :** confirmer que vous avez remplacé toutes les <storageaccountname> avec votre nom de compte de stockage.
+	**IMPORTANT : ** vérifiez que vous avez remplacé toutes les valeurs <storageaccountname> par le nom de votre compte de stockage.
  
-4.  Dans **Azure PowerShell**, accédez à la **Pipelines** sous-dossier dans **C:\ADFWalkthrough** dossier (ou à partir de l'emplacement où vous avez extrait les exemples).
-5.  Utilisez l'applet de commande **New-AzureDataFactoryPipeline** pour créer les Pipelines comme suit pour **PartitionGameLogspeline**.json	 
+4.  Dans **Azure PowerShell**, accédez au sous-dossier **Pipelines** dans le dossier **C:\ADFWalkthrough** (ou à partir de l’emplacement auquel vous avez extrait les exemples).
+5.  Utilisez l’applet de commande **New-AzureDataFactoryPipeline** pour créer les pipelines pour **PartitionGameLogspeline.json**, comme suit.	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
 
-	Si vous utilisez un nom différent pour ResourceGroupName, DataFactoryName ou le pipeline, indiquez-les dans la cmdlet ci-dessus. Fournissez également le chemin d'accès complet au fichier JSON de pipeline.
-6. Répétez l'étape précédente pour créer les pipelines suivants :
+	Si vous utilisez un nom différent pour ResourceGroupName, DataFactoryName ou le pipeline, indiquez-les dans la cmdlet ci-dessus. Fournissez également le chemin d’accès complet au fichier JSON de pipeline.
+6. Répétez l’étape précédente pour créer les pipelines suivants :
 	1. **EnrichGameLogsPipeline**
 			
 			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
@@ -356,13 +361,13 @@ Dans cette étape, vous allez créer les pipelines suivants : PartitionGameLogsP
 				
 			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
 
-7. Utilisez l'applet de commande **Get-AzureDataFactoryPipeline** pour obtenir la liste des Pipelines.
+7. Utilisez l’applet de commande **Get-AzureDataFactoryPipeline** pour obtenir la liste des pipelines.
 			
 		Get-AzureDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
 
 8. Une fois les pipelines créés, vous pouvez spécifier la durée de traitement des données. En spécifiant la période active pour un pipeline, vous définissez la durée de traitement des tranches de données en fonction des propriétés de disponibilité qui ont été définies pour chaque table ADF.
 
-Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmdlet Set-AzureDataFactoryPipelineActivePeriod. Dans cette procédure pas à pas, les exemples de données provient 05/01 à 05/05. Utilisez 2014-05-01 en tant que le StartDateTime. La valeur EndDateTime est facultative.
+Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmdlet Set-AzureDataFactoryPipelineActivePeriod. Dans cette procédure pas à pas, les exemples de données concernent la période du 1er mai au 5 mai. Utilisez la valeur 2014-05-01 pour le paramètre StartDateTime. La valeur EndDateTime est facultative.
 			
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
   
@@ -381,75 +386,75 @@ Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmd
 			
 			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
-11. Dans le **portail Azure Preview**, cliquez sur **Pipelines** vignette (et non sur les noms des pipelines) dans le **DATA FACTORY** lame pour le **LogProcessingFactory**, vous devez voir les pipelines que vous avez créé.
+11. Dans le **portail Azure en version préliminaire**, cliquez sur la vignette **Pipelines** (et non sur le nom des pipelines) dans le panneau **DATA FACTORY** de **LogProcessingFactory**. Vous devez voir apparaître les pipelines que vous avez créés.
 
-	![Tous les Pipelines][image-data-factory-tutorial-pipelines-all]
+	![Tous les pipelines][image-data-factory-tutorial-pipelines-all]
 
-12. Dans le **DATA FACTORY** lame pour le **LogProcessingFactory**, cliquez sur **diagramme**.
+12. Dans le panneau **DATA FACTORY** de **LogProcessingFactory**, cliquez sur **Diagramme**.
 
-	![Lien de diagramme][image-data-factory-tutorial-diagram-link]
+	![Lien Diagramme][image-data-factory-tutorial-diagram-link]
 
-13. Vous pouvez réorganiser le diagramme affiché, comme dans le diagramme ci-après qui affiche les entrées directes en haut et les sorties en bas. Vous pouvez voir que la sortie de la **PartitionGameLogsPipeline** est transmis comme entrée pour l'EnrichGameLogsPipeline et la sortie de la **EnrichGameLogsPipeline** est transmis à la **AnalyzeMarketingCampaignPipeline**. Double-cliquez sur un titre pour afficher des détails sur l'objet représenté par le panneau.
+13. Vous pouvez réorganiser le diagramme affiché, comme dans le diagramme ci-après qui affiche les entrées directes en haut et les sorties en bas. Vous pouvez voir que la sortie de **PartitionGameLogsPipeline** est transmise en tant qu’entrée à l’élément EnrichGameLogsPipeline et que la sortie de **EnrichGameLogsPipeline** est transmise à **AnalyzeMarketingCampaignPipeline**. Double-cliquez sur un titre pour afficher des détails sur l’objet représenté par le panneau.
 
-	![Vue de diagramme][image-data-factory-tutorial-diagram-view]
+	![Vue schématique][image-data-factory-tutorial-diagram-view]
 
 	**Félicitations !** Vous avez créé la fabrique de données Azure, des services liés, des pipelines et des tables, et démarré le flux de travail.
 
 
-## <a name="MainStep6"></a> Étape 6: Surveiller les tranches de données et de pipelines 
+## <a name="MainStep6"></a> Étape 6 : Surveiller des pipelines et des tranches de données 
 
-1.	Si le panneau FABRIQUE DE DONNÉES pour LogProcessingFactory n'est pas ouvert, vous pouvez effectuer l'une des opérations suivantes :
-	1.	Cliquez sur **LogProcessingFactory** sur la **tableau d'accueil**. Lors de la création de la fabrique de données, le **Ajouter au tableau d'accueil** option a été activée automatiquement.
+1.	Si le panneau FABRIQUE DE DONNÉES pour LogProcessingFactory n’est pas ouvert, vous pouvez effectuer l’une des opérations suivantes :
+	1.	Cliquez sur **LogProcessingFactory** dans le **tableau d’accueil**. Lors de la création de la fabrique de données, l’option **Ajouter au tableau d’accueil** a été automatiquement activée.
 
-		![Tableau d'accueil d'analyse][image-data-factory-monitoring-startboard]
+		![Tableau d’accueil Surveillance][image-data-factory-monitoring-startboard]
 
-	2. Cliquez sur **Parcourir** concentrateur, puis cliquez sur **tout**.
+	2. Cliquez sur le concentrateur **PARCOURIR**, puis sur **Tout**.
 	 	
-		![Analyse de concentrateur tout][image-data-factory-monitoring-hub-everything]
+		![Concentrateur Surveillance - Tout][image-data-factory-monitoring-hub-everything]
 
-		Dans le **Parcourir** lame, sélectionnez **fabriques données** et sélectionnez **LogProcessingFactory** dans les **fabriques de données** lame.
+		Dans le panneau **Parcourir**, sélectionnez **Fabriques de données**, puis **LogProcessingFactory** dans le panneau **Fabriques de données**.
 
-		![Analyse Datafactories de navigation][image-data-factory-monitoring-browse-datafactories]
-2. Vous pouvez surveiller votre fabrique de données de plusieurs façons. Vous pouvez démarrer avec les pipelines ou les jeux de données. Commençons avec les pipelines avant d'aller plus loin. 
-3.	Cliquez sur **Pipelines** sur la **DATA FACTORY** lame. 
-4.	Cliquez sur **PartitionGameLogsPipeline** dans le volet de Pipelines. 
-5.	Dans le **PIPELINE** lame pour **PartitionGameLogsPipeline**, vous voyez que le pipeline consomme **RawGameEventsTable** dataset. Cliquez sur **RawGameEventsTable**.
+		![Surveillance - Parcourir les fabriques de données][image-data-factory-monitoring-browse-datafactories]
+2. Vous pouvez surveiller votre fabrique de données de plusieurs façons. Vous pouvez démarrer avec les pipelines ou les jeux de données. Commençons par les pipelines avant d’aller plus loin. 
+3.	Cliquez sur **Pipelines** dans le panneau **DATA FACTORY**. 
+4.	Cliquez sur **PartitionGameLogsPipeline** dans le panneau Pipelines. 
+5.	Dans le panneau **PIPELINE** de **PartitionGameLogsPipeline**, vous voyez que le pipeline consomme le jeu de données **RawGameEventsTable**. Cliquez sur **RawGameEventsTable**.
 
-	![Pipeline consommées et produites][image-data-factory-monitoring-pipeline-consumed-produced]
+	![Pipelines consommés et produits][image-data-factory-monitoring-pipeline-consumed-produced]
 
-6. Dans le volet de la TABLE de **RawGameEventsTable**, vous voyez tous les secteurs. Dans la capture d'écran suivante, tous les secteurs sont **prêt** état et il n'y aucune coupe du problème. Cela signifie que les données sont prêtes à être traitées.
+6. Dans le panneau TABLE de **RawGameEventsTable**, vous pouvez voir toutes les tranches. Dans la capture d’écran suivante, toutes les tranches sont à l’état **Prêt**, et il n’y a aucune tranche problématique. Cela signifie que les données sont prêtes à être traitées.
 
-	![Volet RawGameEventsTable TABLE][image-data-factory-monitoring-raw-game-events-table]
+	![Panneau TABLE RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table]
  
-7. À présent, sur le **PIPELINE** lame pour **PartiionGameLogsPipeline**, cliquez sur **produit**.
+7. Dans le panneau **PIPELINE** de **PartitionGameLogsPipeline**, cliquez sur **Produit**.
 8. Vous devez voir la liste des jeux de données produits par ce pipeline : 
-9. Cliquez sur **PartitionedGameEvents** table dans le **produit datasets** lame. 
-10.	Vérifiez que le **état** de toutes les tranches est défini sur **prêt**. 
-11.	Cliquez sur l'un des secteurs qui est **prêt** pour voir les **tranche de données** lame pour ce secteur.
+9. Cliquez sur la table **PartitionedGameEvents** du panneau **Jeux de données produits**. 
+10.	Vérifiez que l’**état** de toutes les tranches est défini sur **Prêt**. 
+11.	Cliquez sur l’une des tranches à l’état **Prêt** pour voir le panneau **TRANCHE DE DONNÉES** correspondant.
 
-	![Lame de tranche de données RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si une erreur s'est produite, vous voyez un **Failed **état ici. Vous pouvez également voir soit les deux tranches avec l'état **prêt**, ou les deux avec l'état **en attente de validation**, selon la vitesse de traitement des secteurs.
+	En cas d’erreur, vous voyez l’état **Échec** ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
  
-	Reportez-vous à la [référence du développeur Azure données fabrique][developer-reference] pour obtenir une présentation de tous les états possibles de tranche.
+	Pour comprendre tous les états possibles des tranches, reportez-vous à la rubrique [Référence du développeur Azure Data Factory][developer-reference].
 
-12.	Dans le **tranche de données** lame, cliquez sur l'exécution de la **activité** liste. Vous devez voir le panneau Exécution d'activité pour cette tranche. Vous devez voir les éléments suivants **Détails de l'exécution activité** lame.
+12.	Dans le panneau **TRANCHE DE DONNÉES**, cliquez sur l’exécution dans la liste **Exécutions d’activité**. Vous devez voir le panneau Exécution d’activité pour cette tranche. Vous devez voir apparaître le panneau **DÉTAILS SUR L’EXÉCUTION D’ACTIVITÉ**.
 
-	![Volet de détails de l'exécution d'activité][image-data-factory-monitoring-activity-run-details]
+	![Panneau Détails sur l’exécution d’activité][image-data-factory-monitoring-activity-run-details]
 
-13.	Cliquez sur **télécharger** pour télécharger les fichiers. Cet écran est particulièrement utile lorsque vous dépannez des erreurs de traitement HDInsight.
+13.	Cliquez sur **Télécharger** pour télécharger les fichiers. Cet écran est particulièrement utile lorsque vous dépannez des erreurs de traitement HDInsight.
 	 
 	
-Lorsque le pipeline de tous les aient terminé leur exécution, vous pouvez consulter dans le **MarketingCampaignEffectivenessTable** dans les **MarketingCampaigns** base de données SQL Azure pour afficher les résultats.
+Lorsque tous les pipelines ont terminé leur exécution, vous pouvez consulter les résultats dans l’élément **MarketingCampaignEffectivenessTable** de la base de données SQL Azure **MarketingCampaigns**.
 
 **Félicitations !** Vous pouvez désormais surveiller et dépanner les flux de travail. Vous avez appris comment utiliser Azure Data Factory pour traiter les données et obtenir des analyses.
 
 ## Étendre le didacticiel pour utiliser des données locales
-Dans la dernière étape du scénario de la procédure pas à pas dans cet article de traitement du journal, la sortie de l'efficacité de campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l'analyser au sein de votre organisation.
+Dans la dernière étape du scénario de traitement de journal de la procédure de cet article, la sortie de l’efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l’analyser au sein de votre organisation.
  
-Pour copier les données de l'efficacité de campagne marketing à partir d'objets Blob Azure à SQL serveur local, vous devez créer des services liés sur site supplémentaires, Table et le Pipeline à la procédure pas à pas dans cet article.
+Pour copier les données d’efficacité de la campagne marketing depuis un objet blob Microsoft Azure vers une base de données SQL Server locale, vous devez créer en plus les service lié, table et pipeline locaux présentés dans la procédure pas à pas de cet article.
 
-Pratique du [procédure pas à pas : utilisation sur site source de données][tutorial-onpremises-using-powershell] pour apprendre à créer un pipeline pour copier les données de l'efficacité des campagnes marketing à une base de données SQL Server sur site.
+Suivez la [procédure pas à pas sur l’utilisation d’une source de données locale][tutorial-onpremises-using-powershell] pour apprendre à créer un pipeline afin de copier les données de l’efficacité des campagnes marketing dans une base de données SQL Server locale.
  
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -554,4 +559,4 @@ Pratique du [procédure pas à pas : utilisation sur site source de données][tu
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

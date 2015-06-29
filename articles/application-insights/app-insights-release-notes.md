@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,20 +12,25 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
-# Notes de publication : Application Insights
-
-Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updates/?service=application-insights) qui résument les améliorations majeures.
+# Notes de publication du Kit de développement logiciel (SDK) : Application Insights
 
 
+Voici les notes de publication détaillées et les instructions de mise à jour de nos Kits de développement logiciel (SDK) :
 
 * [.NET](app-insights-release-notes-dotnet.md)
-* [Android](app-insights-release-notes-android.md)
-* [iOS](app-insights-release-notes-ios.md)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
-* [Windows](app-insights-release-notes-windows.md)
+* [Windows Phone et Windows Store C#|VB](app-insights-release-notes-windows.md)
+* [Windows Phone et Windows Store C++](app-insights-release-notes-windows-cpp.md)
+* [autres plateformes](https://github.com/Microsoft/ApplicationInsights-Home)
 
-<!---HONumber=58--> 
+Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updates/?service=application-insights) qui résument les améliorations principales qui ont été apportées au service Application Insights.
+
+ 
+
+<!---HONumber=58_postMigration-->

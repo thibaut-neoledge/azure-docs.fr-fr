@@ -72,7 +72,7 @@ Pour utiliser l’authentification unique avec le service cloud, nous vous recom
 
 ### Modifier des enregistrements DNS pour vos services cloud
 
-> [AZURE.NOTE]À l’aide de Microsoft Intune ? Il est inutile de modifier des enregistrements DNS pour le service cloud Windows Intune.
+> [AZURE.NOTE]À l’aide de Microsoft Intune ? Vous n’avez pas besoin de modifier des enregistrements DNS pour le service cloud Microsoft Intune.
 
 Après avoir ajouté et vérifié votre nom de domaine personnalisé, l’étape suivante consiste à modifier les enregistrements DNS auprès de votre bureau d’enregistrement de domaines ou d’un fournisseur d’hébergement DNS qui dirigent le trafic vers votre service cloud. Azure AD fournit les informations DNS dont vous avez besoin.
 
@@ -209,6 +209,6 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Forum Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
-- [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+- [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

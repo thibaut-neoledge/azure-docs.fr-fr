@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
-	ms.author="dkshir"/>
+	ms.date="06/02/2015"
+	ms.author="danlep"/>
 
 # Installer l’interface de ligne de commande Azure
 
@@ -94,7 +94,7 @@ Si la version de npm installée s’affiche, vous pouvez poursuivre et installer
 
 	npm install -g azure-cli
 
-Après avoir installé l’interface Azure CLI, vous pourrez utiliser la commande **azure** à partir de votre interface de ligne de commande (interpréteur de commandes, terminal, cmd.exe, etc.) pour accéder aux commandes associées. À la fin de l'installation, des informations similaires aux suivantes s'affichent normalement :
+Après avoir installé l’interface de ligne de commande Azure, vous pourrez utiliser la commande **azure** à partir de votre interface de ligne de commande pour accéder aux commandes associées. À la fin de l'installation, des informations similaires aux suivantes s'affichent normalement :
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -116,20 +116,27 @@ Après avoir installé l’interface Azure CLI, vous pourrez utiliser la command
 
 >[AZURE.NOTE]Pour les systèmes Linux, vous pouvez également installer l’interface Azure CLI en la générant à partir de la [source](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). Pour plus d’informations sur la génération de l’interface à partir de la source, voir le fichier INSTALL inclus dans l’archive.
 
-Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à votre abonnement Azure à partir de l’interface Azure CLI](xplat-cli-connect.md) et commencer à utiliser les commandes **azure**.
-
 ## Utilisation du conteneur Docker
 
 Dans un hôte Docker, exécutez la commande suivante : ```
-	docker run -it kmouss/azure-cli
+	docker run -it microsoft/azure-cli
 ```
+
+## Exécution des commandes de l’interface de ligne de commande Azure
+
+Après avoir installé l’interface Azure CLI, vous pourrez utiliser la commande **azure** à partir de votre interface de ligne de commande (interpréteur de commandes, terminal, cmd.exe, etc.) pour accéder aux commandes associées. Par exemple, pour exécuter la commande d’aide dans Windows, lancez une invite de commandes (cmd.exe) avec des privilèges d’administrateur : ```
+	c:> azure help
+```
+
+Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à votre abonnement Azure à partir de l’interface Azure CLI](xplat-cli-connect.md) et commencer à utiliser les commandes **azure**.
+
 
 <a id="additional-resources"></a>
 ## Ressources supplémentaires
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des services (ou le mode ASM)][xplatasm]
+* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des services (ou le mode ASM)][cliasm]
 
-* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des ressources (ou le mode ARM)][xplatarm]
+* [Utilisation de l’interface de ligne de commande Azure avec les commandes de gestion des ressources (ou le mode ARM)][cliarm]
 
 * Pour en savoir plus sur l’interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir la page [Référentiel GitHub pour l’interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
@@ -143,7 +150,7 @@ Dans un hôte Docker, exécutez la commande suivante : ```
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

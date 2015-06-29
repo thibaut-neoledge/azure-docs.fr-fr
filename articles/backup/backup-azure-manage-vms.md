@@ -1,6 +1,7 @@
+
 <properties
-	pageTitle="Sauvegarde Azure - gérer les ordinateurs virtuels"
-	description="Apprenez à gérer une machine virtuelle Azure"
+	pageTitle="Azure Backup - Gestion des machines virtuelles"
+	description="Découvrez comment gérer une machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
 	authors="jimpark"
@@ -16,146 +17,147 @@
 	ms.date="05/28/2015"
 	ms.author="jimpark"/>
 
-# Gérer des ordinateurs virtuels
+# Gérer des machines virtuelles
 
 
 ## Gérer des machines virtuelles protégées
 
-1. Pour afficher et gérer les paramètres de sauvegarde pour un ordinateur virtuel cliquez sur le **éléments protégés** onglet.
+1. Pour afficher et gérer les paramètres de sauvegarde pour une machine virtuelle, cliquez sur l’onglet **Éléments protégés**.
 
-  - Cliquez sur le nom d'un élément protégé, voir la **sauvegarde détails** onglet qui affiche des informations sur la dernière sauvegarde.
+  - Cliquez sur le nom d’un élément protégé pour afficher l’onglet **Détails de la sauvegarde** qui vous présente des informations sur la dernière sauvegarde.
 
         ![Virtual machine backup](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
-2. Pour afficher et gérer les paramètres de stratégie de sauvegarde pour un ordinateur virtuel cliquez sur le **stratégies** onglet.
+2. Pour afficher et gérer les paramètres de stratégie de sauvegarde pour une machine virtuelle, cliquez sur l’onglet **Stratégies**.
 
-  - Le **stratégies de sauvegarde** onglet vous montre la stratégie existante. Vous pouvez modifier en fonction des besoins. Si vous avez besoin créer une nouvelle stratégie, cliquez sur **créer** sur la **stratégies** page. Notez que si vous souhaitez supprimer une stratégie qu'il ne devrait pas avoir de tous les ordinateurs virtuels associés.
+  - L’onglet **Stratégies de sauvegarde** affiche la stratégie existante. Vous pouvez la modifier en fonction de vos besoins. Si vous devez créer une stratégie, cliquez sur **Créer** dans la page **Stratégies**. Notez que si vous voulez supprimer une stratégie, aucune machine virtuelle ne doit lui être associée.
 
         ![Virtual machine policy](./media/backup-azure-manage-vms/backup-vmpolicy.png)
 
-3. Vous pouvez obtenir plus d'informations sur l'état ou des actions pour un ordinateur virtuel sur le **travaux** page. Cliquez sur une tâche dans la liste pour obtenir plus de détails ou de filtrer les travaux pour un ordinateur virtuel spécifique.
+3. Vous pouvez obtenir plus d’informations sur l’état ou les actions d’une machine virtuelle dans la page **Tâches**. Cliquez sur une tâche dans la liste pour obtenir plus de détails, ou filtrez les tâches pour une machine virtuelle spécifique.
 
     ![Travaux](./media/backup-azure-manage-vms/backup-job.png)
 
-## Sauvegarde d'un ordinateur virtuel
-Vous pouvez effectuer une demande de sauvegarde d'un ordinateur virtuel, une fois qu'il est configuré pour la protection. Si la sauvegarde initiale est en attente pour la machine virtuelle, sauvegarde créera une copie complète de la machine virtuelle dans le coffre de sauvegarde Azure. Si la première sauvegarde est terminée, sauvegarde envoyer seulement les modifications à partir d'une sauvegarde précédente de coffre de sauvegarde Azure.
+## Sauvegarde à la demande d’une machine virtuelle
+Vous pouvez effectuer une sauvegarde à la demande d’une machine virtuelle une fois que celle-ci est configurée pour la protection. Si la sauvegarde initiale est en attente pour la machine virtuelle, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans l’archivage de sauvegarde Azure. Si la première sauvegarde est terminée, la sauvegarde à la demande envoie seulement les modifications apportées lors de la sauvegarde précédente à l’archivage de sauvegarde Azure.
 
-Pour créer une demande une sauvegarde d'un ordinateur virtuel :
+Pour créer une sauvegarde à la demande d’une machine virtuelle :
 
-1. Accédez à **éléments protégés** page et sélectionnez **Machine virtuelle Azure** en tant que **Type** (le cas échéant), puis cliquez sur **Sélectionnez** bouton.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** en tant que **Type** (si besoin), puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Sélectionnez l'ordinateur virtuel sur lequel vous souhaitez effectuer une demande de sauvegarde, puis cliquez sur **sauvegarde maintenant** bouton au bas de la page.
+2. Sélectionnez la machine virtuelle sur laquelle vous souhaitez effectuer la sauvegarde à la demande, puis cliquez sur le bouton **Sauvegarder maintenant** au bas de la page.
 
     ![Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now.png)
 
-    Cela créera un travail de sauvegarde sur l'ordinateur virtuel sélectionné. Rétention de point de récupération créé via ce travail sera identique à celle spécifiée dans la stratégie associée à la machine virtuelle.
+    Cette opération permet de créer un travail de sauvegarde sur la machine virtuelle sélectionnée. La plage de rétention de point de récupération créée via ce travail est identique à celle spécifiée dans la stratégie associée à la machine virtuelle.
 
     ![Création du travail de sauvegarde](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]Pour afficher la stratégie associée à un ordinateur virtuel, explorez machine virtuelle dans le **éléments protégés** page et accédez à l'onglet Stratégie de sauvegarde.
+    >[AZURE.NOTE]Pour afficher la stratégie associée à une machine virtuelle, accédez à cette dernière dans la page **Éléments protégés**, puis à l’onglet Stratégie de sauvegarde.
 
-3. Une fois que le travail est créé, vous pouvez cliquer sur **Afficher le travail** dans la barre de toast pour voir la tâche correspondante dans la page tâches.
+3. Une fois que le travail est créé, vous pouvez cliquer sur le bouton **Afficher le travail** dans la barre de notification pour voir le travail correspondant dans la page Travaux.
 
     ![Travail de sauvegarde créé](./media/backup-azure-manage-vms/created-job.png)
 
-4. Après l'achèvement réussi de la tâche, un point de récupération est créé qui vous permet de restaurer l'ordinateur virtuel. Cela permet également d'incrémenter la valeur de colonne de point de récupération par 1 dans **éléments protégés** page.
+4. Après l’achèvement réussi du travail, le point de récupération créé vous permet de restaurer la machine virtuelle. Cela permet également d’incrémenter la valeur de colonne de point de récupération de 1 dans la page **Éléments protégés**.
 
-## Arrêter la protection des machines virtuelles
-Vous pouvez choisir d'arrêter les sauvegardes futures d'un ordinateur virtuel avec les options suivantes :
+## Arrêt de la protection des machines virtuelles
+Vous pouvez choisir d’arrêter les sauvegardes futures d’une machine virtuelle avec les options suivantes :
 
-- Conserver des données liées à la machine virtuelle dans le coffre de sauvegarde Azure
-- Supprimer les données de sauvegarde associées de machine virtuelle
+- Conserver les données de sauvegarde associées à la machine virtuelle dans l’archivage de sauvegarde Azure
+- Supprimer les données de sauvegarde associées à la machine virtuelle
 
-Si vous avez sélectionné la première option, vous pouvez utiliser les données de sauvegarde pour restaurer l'ordinateur virtuel. Pour connaître les prix pour ces ordinateurs virtuels, cliquez sur [ici](http://azure.microsoft.com/pricing/details/backup/).
+Si vous avez sélectionné la première option, vous pouvez utiliser les données de sauvegarde pour restaurer la machine virtuelle. Pour connaître les détails de la tarification de ces machines virtuelles, cliquez [ici](http://azure.microsoft.com/pricing/details/backup/).
 
-Arrêter la protection d'un ordinateur virtuel :
+Pour arrêter la protection d’une machine virtuelle :
 
-1. Accédez à **éléments protégés** page et sélectionnez **machine virtuelle Azure** comme type de filtre (le cas échéant) et cliquez sur **Sélectionnez** bouton.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** en tant que type (si besoin), puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Sélectionnez l'ordinateur virtuel et cliquez sur **Arrêter la Protection** en bas de la page.
+2. Sélectionnez la machine virtuelle et cliquez sur **Arrêter la protection** en bas de la page.
 
     ![Arrêter la protection](./media/backup-azure-manage-vms/stop-protection.png)
 
 3. Par défaut, Azure Backup ne supprime pas les données de sauvegarde associées à la machine virtuelle.
 
-    ![Confirmation d'arrêter la protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
+    ![Confirmation l’arrêt de la protection](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
     Si vous souhaitez supprimer les données de sauvegarde, sélectionnez la case à cocher.
 
     ![Case à cocher](./media/backup-azure-manage-vms/checkbox.png)
 
-    Sélectionnez le motif de l'arrêt de la sauvegarde. Cette opération est facultative, fournir une raison permettent de sauvegarde Azure pour travailler sur les commentaires et de hiérarchiser les scénarios de client.
+    Sélectionnez le motif de l’arrêt de la sauvegarde. Bien que cela soit facultatif, le fait d’indiquer un motif permet à Azure Backup de l’utiliser pour hiérarchiser les scénarios clients.
 
-4. Cliquez sur **envoyer** pour envoyer le **Arrêter la protection** travail. Cliquez sur **Afficher le travail** pour voir le travail dans correspondant **travaux** page.
+4. Cliquez sur le bouton **Envoyer** pour envoyer le travail **Arrêter la protection**. Cliquez sur **Afficher le travail** pour voir le travail correspondant dans la page **Travaux**.
 
     ![Arrêter la protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Si vous n'avez pas sélectionné **suppression des données de sauvegarde associées** option pendant **Arrêter la Protection** Assistant, puis valider travail terminé, modifications d'état de protection à **Protection arrêtée**.
+    Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, à la fin du travail, l’état de la protection devient **Protection arrêtée**. Les données restent dans la sauvegarde Azure jusqu'à ce qu'elles soient explicitement supprimées. Vous pouvez toujours supprimer les données en sélectionnant la machine virtuelle sur la page **Éléments protégés** et en cliquant sur **Supprimer**.
 
     ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
-    Si vous avez sélectionné le **suppression des données de sauvegarde associées** option, ordinateur virtuel n'est pas une partie de **éléments protégés** page.
+    Si vous avez sélectionné l’option **Supprimer les données de sauvegarde associées**, la machine virtuelle n’est pas affichée dans la page **Éléments protégés**.
 
-## Protégez à nouveau un ordinateur virtuel
-Si vous n'avez pas sélectionné le **suppression des données de sauvegarde associées** option **Arrêter la Protection**, vous pouvez protéger de nouveau l'ordinateur virtuel en suivant les étapes similaires pour la sauvegarde des machines virtuelles enregistrées. Une fois protégé, cet ordinateur virtuel sera conservées avant d'arrêter la protection de données de sauvegarde et les points de récupération créées après protéger de nouveau.
+## Application d’une nouvelle protection à la machine virtuelle
+Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, vous pouvez à nouveau protéger la machine virtuelle en suivant les étapes similaires à celles de la sauvegarde de machines virtuelles inscrites. Une fois la protection effectuée, les données de cette machine virtuelle sont conservées avant l’arrêt de la protection et des points de récupération sont créés après l’application de la nouvelle protection.
 
-Après protéger de nouveau, l'état de protection de l'ordinateur virtuel est remplacé par **protégé** s'il existe des points de récupération avant **Arrêter la Protection**.
+Après l’application d’une nouvelle protection, l’état de protection de la machine virtuelle devient **Protégé** s’il existe des points de récupération antérieurs à l’opération **Arrêter la protection**.
 
-  ![Machine virtuelle reprotected](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Machine virtuelle à nouveau protégée](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]Lors de la ré-protection de l'ordinateur virtuel, vous pouvez choisir une autre stratégie que la stratégie avec laquelle ordinateur virtuel a été initialement protégé.
+>[AZURE.NOTE]Lors de l’application d’une nouvelle protection à la machine virtuelle, vous pouvez choisir une autre stratégie que la stratégie avec laquelle la machine virtuelle a été initialement protégée.
 
-## Annuler l'inscription d'ordinateurs virtuels
+## Annulation de l’inscription des machines virtuelles
 
-Si vous souhaitez supprimer l'ordinateur virtuel du coffre de sauvegarde :
+Si vous voulez supprimer la machine virtuelle de l’archivage de sauvegarde :
 
-1. Cliquez sur le **UNREGISTER** bouton au bas de la page.
+1. Cliquez sur le bouton **ANNULER L’INSCRIPTION** en bas de la page.
 
     ![Désactiver la protection](./media/backup-azure-manage-vms/unregister-button.png)
 
-    Une notification toast s'affiche en bas de l'écran de demande de confirmation. Cliquez sur **Oui** pour continuer.
+    Une notification toast s’affiche en bas de l’écran pour demander confirmation. Cliquez sur **OUI** pour continuer.
 
     ![Désactiver la protection](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## Supprimer les données de sauvegarde
-Vous pouvez supprimer les données de sauvegarde associées à une machine virtuelle, soit :
+## Suppression des données de sauvegarde
+Vous pouvez supprimer les données de sauvegarde associées à une machine virtuelle comme suit :
 
-- Au cours de la tâche d'arrêt de Protection
-- Arrêter la protection après la tâche terminée sur une machine virtuelle
+- Au cours du travail Arrêter la protection
+- Après la fin du travail d’arrêt de la protection sur une machine virtuelle
 
-Pour supprimer les données de sauvegarde sur un ordinateur virtuel, qui se trouve dans « Protection arrêté » état valider la réussite de **Arrêter sauvegarde** travail :
+Pour supprimer les données de sauvegarde d’une machine virtuelle ayant l’état « Protection arrêtée » après la réussite du travail **Arrêter la sauvegarde** :
 
-1. Accédez à **éléments protégés** page et sélectionnez **Machine virtuelle Azure** comme type, puis cliquez sur **Sélectionnez** bouton.
+1. Accédez à la page **Éléments protégés** et sélectionnez **Machine virtuelle Azure** comme type, puis cliquez sur le bouton **Sélectionner**.
 
     ![Type de machine virtuelle](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Sélectionnez l'ordinateur virtuel. L'ordinateur virtuel sera dans **Protection arrêtée** état.
+2. Sélectionnez la machine virtuelle. La machine virtuelle apparaît avec l’état **Protection arrêtée**.
 
     ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
-3. Cliquez sur le **Supprimer** bouton au bas de la page.
+3. Cliquez sur le bouton **SUPPRIMER** en bas de la page.
 
-    ![Suppression de la sauvegarde](./media/backup-azure-manage-vms/delete-backup.png)
+    ![Supprimer la sauvegarde](./media/backup-azure-manage-vms/delete-backup.png)
 
-4. Dans le **Supprimer les données de sauvegarde** Assistant, sélectionnez un motif pour la suppression des données de sauvegarde (hautement recommandées) et cliquez sur **Submit**.
+4. Dans l’Assistant **Supprimer les données de sauvegarde**, sélectionnez un motif pour la suppression des données de sauvegarde (hautement recommandé) et cliquez sur **Soumettre**.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data.png)
 
-5. Cela créera un travail pour supprimer les données de sauvegarde de l'ordinateur virtuel sélectionné. Cliquez sur **Afficher le travail** pour afficher la tâche correspondante dans la page tâches.
+5. Cette opération crée un travail pour supprimer les données de sauvegarde de la machine virtuelle sélectionnée. Cliquez sur **Afficher le travail** pour afficher le travail correspondant dans la page Travaux.
 
-    ![Suppression de données a réussi](./media/backup-azure-manage-vms/delete-data-success.png)
+    ![Suppression de données réussie](./media/backup-azure-manage-vms/delete-data-success.png)
 
-    Une fois la tâche terminée, entrée correspondant à l'ordinateur virtuel sera supprimée de **éléments protégés** page.
+    Une fois le travail terminé, l’entrée correspondant à la machine virtuelle est supprimée de la page **Éléments protégés**.
 
 
 ###Tableau de bord
 
-Sur le **tableau de bord** page, vous pouvez consulter des informations sur les machines virtuelles, de leur stockage et travaux associés dans les dernières 24 heures. Vous pouvez afficher le statut de la sauvegarde et les erreurs de sauvegarde associés.
+Dans la page **Tableau de bord**, vous pouvez consulter les informations des machines virtuelles Azure, leur stockage et leurs tâches associées au cours des dernières 24 heures. Vous pouvez afficher l’état de la sauvegarde et les éventuelles erreurs de sauvegarde associées.
 
   ![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

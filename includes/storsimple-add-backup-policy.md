@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add StorSimple backup policies"
-   description="Explains how you can use the StorSimple Manager service to create a backup policy."
+   pageTitle="Ajouter des stratégies de sauvegarde StorSimple"
+   description="Explique comment utiliser le service StorSimple Manager pour créer une stratégie de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,19 @@
    ms.date="05/22/2015"
    ms.author="alkohli" />
 
-#### To add a StorSimple backup policy
+#### Pour ajouter une stratégie de sauvegarde StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
 
-2. At the bottom of the page, click **Add**.
+2. En bas de cette page, cliquez sur **Ajouter**.
 
-3. In the **Add Backup Policy** dialog box, do the following:
+3. Dans la boîte de dialogue **Ajouter une stratégie de sauvegarde**, procédez comme suit :
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the dropdown list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+    1. Spécifiez le nom de votre stratégie de sauvegarde (entre 3 et 150 caractères).
+    2. Affectez un ou plusieurs volumes à cette stratégie de sauvegarde. Si vous utilisez d’autres fournisseurs de services cloud, la liste déroulante affiche les volumes qui appartiennent au fournisseur de services cloud sélectionné en premier. Ceci vous permet de regrouper les volumes appartenant à un fournisseur de services cloud pour prendre un instantané.
+    3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) pour enregistrer la stratégie.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+La stratégie ajoutée s’affiche dans le tableau de la page **Stratégies de sauvegarde**.
  
 
-
-
+<!---HONumber=58_postMigration-->

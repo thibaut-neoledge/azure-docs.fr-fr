@@ -1,4 +1,4 @@
-<properties pageTitle="Création d’une sauvegarde manuelle" description="Explique comment lancer un travail de sauvegarde manuel et à la demande." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
+<properties pageTitle="Création d’une sauvegarde manuelle" description="Explique comment lancer un travail de sauvegarde manuel et à la demande." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" ></properties> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -7,7 +7,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Création d’une sauvegarde manuelle
+#### Création d’une sauvegarde manuelle
 
 1. Sur la page **Appareils**, accédez à l’onglet **Stratégies de sauvegarde**. Cet onglet répertorie toutes les stratégies de sauvegarde au format tabulaire, y compris la stratégie du volume que vous souhaitez sauvegarder.
 
@@ -29,4 +29,4 @@
 
   La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

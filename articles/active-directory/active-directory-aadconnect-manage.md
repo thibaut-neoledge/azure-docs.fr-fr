@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -85,5 +85,6 @@ Une partie de la documentation qui a été créée pour Azure AD Sync est toujo
 * [Prise en main d’Azure AD Connect](../active-directory-aadconnect-getstarted.md)
 * [Gestion d’Azure AD Connect](active-directory-aadconnect-manage.md)
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

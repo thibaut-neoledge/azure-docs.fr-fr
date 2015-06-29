@@ -265,4 +265,10 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 -  [Résolution de noms (DNS)](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-<!---HONumber=58--> 
+
+
+
+
+ 
+
+<!---HONumber=58_postMigration-->

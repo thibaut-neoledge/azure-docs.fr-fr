@@ -31,9 +31,11 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Wi
 * Existe-t-il un pare-feu entre votre émulateur ou l’appareil test et le portail Application Insights ? Vous devrez peut-être ouvrir les ports TCP 80 et 443 pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
 * Dans le panneau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
 
+
 #### Je pouvais voir les données, mais plus maintenant
 
 * Vérifiez le [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez Paramètres/Quota et tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## Comment puis-je ajouter Application Insights à une application universelle ?
@@ -116,4 +118,6 @@ Consultez [Rétention de données et confidentialité][data].
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

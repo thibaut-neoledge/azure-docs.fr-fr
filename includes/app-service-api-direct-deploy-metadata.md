@@ -20,7 +20,7 @@ Définissez la propriété `namespace` avec le domaine de votre client Azure Act
 
 ### Définition d’API Swagger dynamique
 
-Pour fournir un point de terminaison d’URL pour une définition d’API [Swagger](http://swagger.io/) dynamique, stockez dans la propriété `endpoints.apiDefinition` l’URL relative d’une API exposée par l’application API, qui retourne une définition d’API Swagger 2.0 sur une demande GET. Par exemple :
+Si l’application API peut renvoyer une définition d’API [Swagger](http://swagger.io/) dynamique, stockez l’URL relative d’une requête GET qui renvoie le JSON de la définition d’API dans la propriété `endpoints.apiDefinition`. Par exemple :
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@ Pour fournir un fichier de définition d’API [Swagger](http://swagger.io/) 2.
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 Laissez `endpoints.apiDefinition` en dehors du fichier *apiapp.json* ou définissez sa valeur à null. Si vous incluez à la fois une URL `endpoints.apiDefinition` et un fichier *apiDefinition.swagger.json*, l’URL sera prioritaire et le fichier sera ignoré.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

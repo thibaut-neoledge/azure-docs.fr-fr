@@ -21,10 +21,11 @@
 > [AZURE.SELECTOR]
 - [Visual Studio 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez apprendre à créer un projet d’API Web ASP.NET 2 avec Visual Studio 2015 et à le configurer pour le déployer dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous apprendrez également à déployer le projet dans Azure. À la fin du didacticiel, vous aurez une application API qui s’exécutera dans le cloud Azure.
+Dans ce didacticiel, vous allez apprendre à créer un projet d’API Web ASP.NET 2 avec [Visual Studio 2015 RC](https://www.visualstudio.com/fr-fr/downloads/visual-studio-2015-downloads-vs.aspx) et à le configurer pour le déployer dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous apprendrez également à déployer le projet dans Azure. À la fin du didacticiel, vous aurez une application API qui s’exécutera dans le cloud Azure.
 
 Ce didacticiel suppose que vous savez utiliser les fichiers et les dossiers dans l’**Explorateur de solutions** de Visual Studio.
 
@@ -46,28 +47,33 @@ Visual Studio 2015 RC n’a pas encore de modèle de projet d’application 
 
 4. Nommez ce projet *ContactsList*
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
+5. Vérifiez que la case à cocher **Ajouter Application Insights au projet** est désactivée.
 
 5. Cliquez sur **OK**.
 
-6. Dans la boîte de dialogue **Nouveau projet ASP.NET** sous  **Modèles ASP.NET 4.6**, sélectionnez le modèle de projet **Vide**.
+	![](./media/app-service-dotnet-create-api-app-vs2015/newproj.png)
+
+6. Dans la boîte de dialogue **Nouveau projet ASP.NET** sous **Modèles ASP.NET 4.6**, sélectionnez le modèle de projet **Vide**.
 
 7. Activez la case à cocher **API Web**.
 
 8. Désactivez la case à cocher **Héberger sur le cloud**.
 
-	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
-
 7. Cliquez sur **OK**.
+
+	![](./media/app-service-dotnet-create-api-app-vs2015/newaspnet.png)
 
 ## Ajouter des packages NuGet
 
-Par défaut, les projets d’application API sont activés avec la génération automatique des métadonnées [Swagger](http://swagger.io/ "Informations officielles relatives à Swagger"), qui est fournie par un package NuGet Swashbuckle. Lorsque vous installez le package, une page de test de l’API est également activée par défaut.
+Le runtime App Service pour les applications API est fourni par le package NuGet [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/) et la génération dynamique de métadonnées d’API [Swagger](http://swagger.io/ "Informations officielles relatives à Swagger") est fournie par le package NuGet [Swashbuckle](http://www.nuget.org/packages/Swashbuckle/).
+
+> **Remarque :** lorsque vous installez le package Swashbuckle, une page de test de l’API est activée par défaut. Si vous publiez l'application API et que vous définissez son niveau d’accès sur **Public (anonyme)**, toute personne qui recherche l'URL de la page de test pourra l'utiliser pour appeler votre API. Vous utiliserez la page de test plus loin dans ce didacticiel.
 
 1. Cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**.
 
 2. Dans la fenêtre **Console du gestionnaire de package**, entrez la commande suivante :
 
+		install-package Microsoft.Azure.AppService.ApiApps.Service
 		install-package Swashbuckle
 
 	Vous devrez peut-être attendre quelques minutes lorsque la console du gestionnaire de package affiche le message indiquant qu’il vérifie les dépendances.
@@ -114,19 +120,9 @@ La section [Métadonnées d’une application API](#api-app-metadata) plus loin 
 
 Dans les étapes suivantes, vous ajoutez du code pour une méthode HTTP Get simple qui retourne une liste codée de contacts codée en dur.
 
-1. Dans le dossier du projet, créez un dossier *Models*.
+1. Créez un dossier *Modèles* dans le dossier du projet s’il n'existe pas déjà.
 
-2. Ajoutez un fichier de classe nommé *Contact.cs*, et remplacez le contenu du fichier par le code suivant.
-
-		namespace ContactsList.Models
-		{
-			public class Contact
-			{
-				public int Id { get; set; }
-				public string Name { get; set; }
-				public string EmailAddress { get; set; }
-			}
-		}
+2. Dans le dossier *Modèles*, ajoutez un fichier de classe nommé *Contact.cs*, et remplacez le contenu du fichier par le code. namespace ContactsList.Models { public class Contact { public int Id { get; set; } public string Name { get; set; } public string EmailAddress { get; set; } } }
 
 5. Cliquez avec le bouton droit sur le dossier **Contrôleurs** et sélectionnez **Ajouter > Contrôleur**.
 
@@ -171,7 +167,7 @@ Dans les étapes suivantes, vous ajoutez du code pour une méthode HTTP Get simp
 
 Pour afficher la page de test des API, procédez comme suit.
 
-1. Exécutez l’application localement (Ctrl+F5) et accédez à `/swagger`. 
+1. Exécutez l'application localement (CTRL + F5) et ajoutez `/swagger` à la fin de l'URL, dans la barre d'adresses du navigateur. 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/14-swagger-ui.png)
 
@@ -193,11 +189,11 @@ Pour afficher la page de test des API, procédez comme suit.
 
 		Pour plus d’informations sur les plans Azure App Service, consultez la rubrique [Présentation détaillée des plans d’Azure App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-	* Cliquez sur **Niveau de tarification** pour obtenir une liste d’options, puis sur **Afficher tout**. Enfin, sélectionnez le niveau de tarification **Gratuit**.
+	* Cliquez sur **Niveau de tarification > Afficher tout > Gratuit > Sélectionner** pour sélectionner le niveau de tarification gratuit.
 
 		Vous pouvez utiliser un niveau de tarification payant, mais il n’est pas nécessaire pour ce didacticiel.
 
-	* Dans **Groupe de ressources**, cliquez sur **Créer un nouveau groupe** puis entrez un nom, par exemple : ContactsList.
+	* Dans **Groupe de ressources**, cliquez sur **Créer un nouveau groupe**, puis entrez un nom, par exemple : ContactsList.
 
 		Pour plus d’informations sur les groupes de ressources, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-overview.md).
 
@@ -209,13 +205,15 @@ Pour afficher la page de test des API, procédez comme suit.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/createapiapp2.png)
 
-2. Lorsqu’Azure a terminé la création de l’application API (voir **Notifications** sur le côté gauche de la page), choisissez **Public (anonyme)** comme niveau d’accès de l’application API.
+2. Lorsqu’Azure a terminé la création de l’application API, choisissez **Public (anonyme)** comme niveau d’accès de l’application API.
 
 	* Cliquez sur **Parcourir > Groupes de ressources > [le groupe de ressources que vous avez créé] > [l’application API que vous avez créée]**.
 
 	* Cliquez sur **Paramètres > Paramètres de l’application**.
 
 	* Définissez le **Niveau d’accès** sur **Public (anonyme)**.
+	 
+	* Cliquez sur **Save**.
 
 		![](./media/app-service-dotnet-create-api-app-vs2015/setpublicanon.png)
 	
@@ -257,10 +255,46 @@ Les applications API sont essentiellement des applications web pour lesquelles 
 
 	![](./media/app-service-dotnet-create-api-app-vs2015/runninginazure.png)
 
+## Afficher la définition d'API dans le portail Azure en version préliminaire
+
+Dans cette section, vous accédez au portail pour afficher la définition d'API de l'application API que vous venez de créer.
+
+1. Dans la [version préliminaire du portail Azure](https://portal.azure.com), accédez au panneau **Application API** de votre application API : cliquez sur **Parcourir > Groupes de ressources > [le groupe de ressources que vous avez créé] > [l'application API que vous avez créée]**.
+
+4. Cliquez sur **Définition d’API**.
+
+	Le panneau **Définition d’API** de l’application affiche la liste des opérations sur l’API que vous avez définies quand vous avez créé l’application. (Si vous avez suivi ce didacticiel, vous ne verrez qu’une opération Get).
+
+	![Définition de l’API](./media/app-service-dotnet-create-api-app-vs2015/29-api-definition-v3.png)
+
+## Ajouter une opération au code de l'API Web
+
+5. Revenez au projet dans Visual Studio et ajoutez le code suivant au fichier **ContactsController.cs**. Ce code ajoute une méthode **Post** qui peut être utilisée pour publier de nouvelles instances `Contact` dans l’API.  
+
+		[HttpPost]
+		public HttpResponseMessage Post([FromBody] Contact contact)
+		{
+			// todo: save the contact somewhere
+			return Request.CreateResponse(HttpStatusCode.Created);
+		}
+
+	![Ajout de la méthode Post au contrôleur](./media/app-service-dotnet-create-api-app-vs2015/30-post-method-added-v3.png)
+
+6. Publiez le projet comme vous l'avez fait auparavant. (Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, sur **Publier**, puis sur **Publier** dans l’Assistant **Publier le site Web**.)
+
+12. Une fois le processus de publication terminé, revenez au portail et redémarrez la passerelle comme vous l’avez fait auparavant.
+
+14. Dans le portail, revenez au panneau **Définition d'API**.
+
+	Vous verrez le nouveau point de terminaison d'API que vous venez de créer et de déployer dans votre abonnement Azure.
+
+	![Définition de l’API](./media/app-service-dotnet-create-api-app-vs2015/38-portal-with-post-method-v4.png)
+
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Étapes suivantes
 
 Vous avez maintenant créé et déployé une application API à l’aide de Visual Studio 2015 RC. Pour plus d’informations sur les applications API, consultez les entrées dans le volet de navigation qui s’affiche sur le côté gauche de la page (pour les grandes fenêtres de navigateur) ou en haut de la page (pour les fenêtres de navigateur étroites). La plupart des documents relatifs aux applications API font actuellement référence à Visual Studio 2013, mais la plus grande partie peut être utilisée avec Visual Studio 2015, car l’interface utilisateur est similaire, le code que vous écrivez est le même et l’interface utilisateur du portail est identique.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

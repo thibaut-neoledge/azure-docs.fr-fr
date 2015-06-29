@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/28/2015" 
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect - En savoir plus
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/fr-fr/documentation/articles/active-directory-aadconnect/" title="Présentation" class="current">Présentation</a> <a href="/fr-fr/documentation/articles/active-directory-aadconnect-how-it-works/" title="Fonctionnement">Fonctionnement</a> <a href="/fr-fr/documentation/articles/active-directory-aadconnect-get-started/" title="Prise en main">Prise en main</a> <a href="/fr-fr/documentation/articles/active-directory-aadconnect-whats-next/" title="Étapes suivantes">Étapes suivantes</a> <a href="/fr-fr/documentation/articles/active-directory-aadconnect-learn-more/" title="En savoir plus">En savoir plus</a>
+<a href="../active-directory-aadconnect/" title="Présentation">Présentation</a> <a href="../active-directory-aadconnect-how-it-works/" title="Fonctionnement">Fonctionnement</a> <a href="../active-directory-aadconnect-get-started/" title="Prise en main">Prise en main</a> <a href="../active-directory-aadconnect-whats-next/" title="Étapes suivantes">Étapes suivantes</a> <a href="../active-directory-aadconnect-learn-more/" title="En savoir plus" class="current">En savoir plus</a>
 </div>
 
 Voici une liste de ressources supplémentaires pour l’utilisation d’Azure AD Connect et l’intégration de vos annuaires locaux avec Azure AD.
@@ -28,7 +28,6 @@ Voici une liste de ressources supplémentaires pour l’utilisation d’Azure A
 
 ## Documentation
 
-[DirSync avec authentification unique](https://msdn.microsoft.com/library/azure/dn441213.aspx) : fédérez votre environnement Active Directory local avec Azure AD via AD FS pour assurer une authentification unique.
 
 [Synchronisation d’annuaires de plusieurs forêts avec le scénario d’authentification unique](https://msdn.microsoft.com/library/azure/dn510976.aspx) : intégrez plusieurs annuaires à Azure AD.
 
@@ -36,17 +35,16 @@ Voici une liste de ressources supplémentaires pour l’utilisation d’Azure A
 
 ## Vidéos
 
-[AZURE.VIDEO edge-show115-azure-ad-connect-preview-configuring-hybrid-identity-with-azure-ad-] [AZURE.VIDEO 04] 
+Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans le cloud.
 
-[AZURE.VIDEO 10] [AZURE.VIDEO teched-new-zealand-2014-microsoft-office-365-directory-synchronization-and-federation-options]
+[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
+<br> <br>
 
-**Ressources supplémentaires**
+Regardez cette vidéo pour découvrir combien il est facile d'étendre votre Active Directory local vers le cloud en utilisant les paramètres Express d’Azure Active Directory Connect.
 
-* [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
-* [Fonctionnement d’Azure AD Connect](active-directory-aadconnect-how-it-works.md)
-* [Prise en main d’Azure AD Connect](active-directory-aadconnect-get-started.md)
-* [Étapes suivantes d’Azure AD Connect](active-directory-aadconnect-whats-next.md)
-* [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+[AZURE.VIDEO azure-active-directory-connect-express-settings]
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

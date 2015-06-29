@@ -77,4 +77,4 @@ Pour utiliser le module Azure Resource Manager, vous devez passer de l'ensemble 
 
 > [AZURE.NOTE]Vous pouvez revenir à l’ensemble de commandes avec la commande **Switch-AzureMode AzureServiceManagement**.
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

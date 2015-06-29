@@ -1,27 +1,27 @@
-<properties 
-    pageTitle="Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Azure" 
-    description="Découvrez comment utiliser l’interface de ligne de commande multiplateforme de Microsoft Azure (CLI Azure) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure." 
-    services="storage" 
-    documentationCenter="na" 
-    authors="tamram" 
+<properties
+    pageTitle="Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Azure"
+    description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
     manager="jdial"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
     ms.topic="article" 
-    ms.date="05/27/2015" 
+    ms.date="05/27/2015"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
-# Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage 
+# Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
 ## Vue d’ensemble
 
 La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du portail de gestion Microsoft Azure, ainsi que des fonctions étendues d’accès aux données.
 
-Dans ce guide, nous allons explorer l’utilisation de l’[installation et la configuration de l’interface de ligne de commande multiplateforme Azure](../xplat-cli.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
+Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
 
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
@@ -55,33 +55,33 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 		export blob_name=<blob_name>
 		export image_to_upload=<image_to_upload>
 		export destination_folder=<destination_folder>
-			   
-		echo "Creating the container..."       
+
+		echo "Creating the container..."
 		azure storage container create $container_name
 
-		echo "Uploading the image..."       
+		echo "Uploading the image..."
 		azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Listing the blobs..."       
+		echo "Listing the blobs..."
 		azure storage blob list $container_name
 
-		echo "Downloading the image..."       
+		echo "Downloading the image..."
 		azure storage blob download $container_name $blob_name $destination_folder
 
 		echo "Done"
-     
+
 5. Sur ce dernier, ouvrez l’éditeur de texte de votre choix (vim, par exemple). Saisissez le script ci-dessus dans cet éditeur.
 
 6. Maintenant, vous devez mettre à jour les variables du script en fonction de vos paramètres de configuration.
-    
+
     - **<storage_account_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre compte de stockage. **Important :** le nom du compte de stockage doit être unique dans Microsoft Azure. Il doit également inclure des minuscules uniquement.
 
     - **<storage_account_key>** : clé d’accès associée à votre compte de stockage.
-      
+
     - **<container_name>** : utilisez le nom donné dans le script ou saisissez un nouveau nom pour votre conteneur.
-    
+
     - **<image_to_upload>** : saisissez le chemin d’accès à une image sur l’ordinateur local, par exemple : « ~/images/HelloWorld.png ».
-    
+
     - **<destination_folder>** : saisissez un chemin d’accès à un répertoire local pour le stockage des fichiers téléchargés depuis Microsoft Azure Storage, par exemple « ~/downloadImages ».
 
 7. Une fois que vous avez mis à jour les variables nécessaires dans vim, appuyez sur les combinaisons de touches « Échap, :, wq! » pour enregistrer le script.
@@ -104,7 +104,7 @@ Pour utiliser Azure Storage, vous avez besoin d’un compte de stockage. Vous po
 
 Le nom du compte de stockage doit inclure entre 3 et 24 caractères et utiliser uniquement des lettres en minuscules et des nombres.
 
-### Définir un compte Azure Storage par défaut dans les variables d’environnement 
+### Définir un compte Azure Storage par défaut dans les variables d’environnement
 
 Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vous pouvez en choisir un et le définir comme compte de stockage par défaut pour toutes les commandes de stockage, au cours de la même session, dans les variables d’environnement. Cela vous permet d’exécuter les commandes de stockage de la CLI Azure sans spécifier de manière explicite la clé et le compte de stockage.
 
@@ -112,7 +112,7 @@ Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vou
         export AZURE_STORAGE_ACCESS_KEY=<key>
 
 Vous pouvez également définir un compte de stockage par défaut via la chaîne de connexion. Commencez par obtenir cette dernière, via la commande :
-        
+
         azure storage account connectionstring show <account_name>
 
 Ensuite, copiez la chaîne de connexion de sortie, puis associez-lui la variable d’environnement :
@@ -142,7 +142,7 @@ Pour télécharger des objets blob dans un conteneur, vous pouvez utiliser la f
 ### Télécharger des objets blob depuis un conteneur
 
 L’exemple suivant indique comment télécharger des objets blob depuis un conteneur.
-    
+
         azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
 ### Copier des objets blob
@@ -152,9 +152,9 @@ Vous pouvez copier des objets blob au sein d’un compte de stockage, ou vers d
 L’exemple suivant indique comment copier des objets blob depuis un compte de stockage et les coller dans un autre. Dans cet exemple, nous créons un conteneur incluant des objets blob accessibles de manière publique et anonyme.
 
     azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
-    
+
     azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
-    
+
     azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 Cet exemple repose sur une copie asynchrone. Vous pouvez surveiller l’état de chaque opération de copie en exécutant l’opération `azure storage blob copy show`.
@@ -178,7 +178,7 @@ Le stockage de fichiers Azure propose un stockage partagé pour les applications
 Un partage de fichiers Azure est un partage de fichiers SMB 2.1 dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
 
         azure storage share create myshare
-        
+
 ### Créer un répertoire
 
 Un répertoire fournit une structure hiérarchique facultative pour un partage de fichiers Microsoft Azure. L’exemple suivant crée un répertoire nommé **MonRép** dans le partage de fichiers.
@@ -186,7 +186,7 @@ Un répertoire fournit une structure hiérarchique facultative pour un partage d
         azure storage directory create myshare myDir
 
 Remarque : ce chemin d’accès au répertoire peut inclure plusieurs niveaux, *par exemple* : **a/b**. Cependant, vous devez vous assurer que tous les répertoires parents existent. Par exemple, pour le chemin d’accès **a/b**, vous devez créer le répertoire **a**, puis le répertoire **b**.
-        
+
 ### Charger un fichier local vers le répertoire
 
 Dans l’exemple suivant, un fichier est chargé à partir de l’emplacement **~/temp/samplefile.txt** vers le répertoire **MonRép**. Modifiez le chemin d’accès du fichier de façon à ce qu’il désigne un fichier valide sur votre ordinateur local :
@@ -202,7 +202,7 @@ Vous pouvez répertorier les fichiers et sous-répertoires de la racine d’un p
         azure storage file list myshare myDir
 
 Notez que le nom du répertoire est facultatif pour l’opération de création de liste. En cas d’omission, la commande répertorie le contenu du répertoire racine du partage.
-        
+
 ## Étapes suivantes
 
 Pour en savoir plus sur Azure Storage, consultez les articles et ressources suivants :
@@ -212,5 +212,6 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

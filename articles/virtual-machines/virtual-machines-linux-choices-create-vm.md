@@ -97,4 +97,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Environnement de test de la configuration de base]: virtual-machines-base-configuration-test-environment.md
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -25,7 +25,7 @@ Cette rubrique présente les limites du service Azure RemoteApp.
 Toutes les collections :
 
 - Collections par utilisateur : 1
-- Applications publiées par collection : 5 000 
+- Applications publiées par collection : 100 
 
 Collections d'évaluation :
 
@@ -76,4 +76,6 @@ Pour ouvrir un ticket de support, procédez comme suit :
 8.	Suivez les instructions données dans la page suivante, puis entrez les détails de l'augmentation de limite dont vous avez besoin. Par exemple, si vous voulez prolonger votre période d'essai, entrez : « Veuillez prolonger ma période d'essai de X jours. » 
 9.	Cliquez sur **Envoyer** pour ouvrir le ticket.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

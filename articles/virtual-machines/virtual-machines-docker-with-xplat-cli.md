@@ -137,5 +137,6 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Utilisation de l'extension Docker VM avec le portail]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

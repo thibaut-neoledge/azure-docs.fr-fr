@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="Gérer vos stratégies de sauvegarde StorSimple"
+   pageTitle="Gestion de vos stratégies de sauvegarde StorSimple | Microsoft Azure"
    description="Explique comment utiliser le service du gestionnaire d’instantanés StorSimple pour créer et gérer des tâches de sauvegarde et des planifications de sauvegarde."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
+   ms.date="06/17/2015"
+   ms.author="v-sharos"/>
 
 # Gérer vos stratégies de sauvegarde StorSimple
 
 ## Vue d'ensemble
 
-Ce didacticiel vous explique comment utiliser la page  **Stratégies de sauvegarde** du service StorSimple Manager pour contrôler les processus de sauvegarde et la rétention de sauvegarde pour vos volumes StorSimple. Il décrit également comment effectuer une sauvegarde manuelle.
+Ce didacticiel vous explique comment utiliser la page **Stratégies de sauvegarde** du service StorSimple Manager pour contrôler les processus de sauvegarde et la rétention de sauvegarde pour vos volumes StorSimple. Il décrit également comment effectuer une sauvegarde manuelle.
 
-La page **Stratégies de sauvegarde** vous permet de gérer les stratégies de sauvegarde et de planifier les instantanés locaux et cloud. (Les stratégies de sauvegarde  sont utilisées pour configurer les planifications de sauvegarde et la rétention de sauvegarde pour un ensemble de volumes). Cette page répertorie les stratégies de sauvegarde, leurs types, les volumes associés, le nombre de sauvegarde retenues et l’option d’activation de ces stratégies.
+La page **Stratégies de sauvegarde** vous permet de gérer les stratégies de sauvegarde et de planifier les instantanés locaux et cloud. (Les stratégies de sauvegarde sont utilisées pour configurer les planifications de sauvegarde et la rétention de sauvegarde pour un ensemble de volumes). Les stratégies de sauvegarde permettent de prendre un instantané de plusieurs volumes simultanément. Ce qui signifie que les sauvegardes créées par une stratégie de sauvegarde sont des copies cohérentes de l’incident. Cette page répertorie les stratégies de sauvegarde, leurs types, les volumes associés, le nombre de sauvegarde retenues et l’option d’activation de ces stratégies.
 
 Sur la page **Stratégies de sauvegarde**, vous pouvez filtrer les stratégies existantes de sauvegarde à l’aide de l’un ou de plusieurs des champs suivants :
 
@@ -84,4 +84,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 Découvrez comment gérer les sauvegardes StorSimple avec le [Gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

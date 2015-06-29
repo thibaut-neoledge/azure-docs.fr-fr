@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -131,7 +131,11 @@ Il existe une limite d'environ 1 Ko sur la longueur de chaîne. (Si vous souhai
 
 Les **mesures** sont des valeurs numériques qui peuvent être représentées sous forme graphique. Par exemple, observez s'il existe une augmentation progressive des scores atteints par vos joueurs. Les graphiques peuvent être segmentés par les propriétés envoyées avec l'événement pour vous permettre d’obtenir des graphiques distincts ou empilés pour différents jeux.
 
-Les valeurs de mesures doivent être > = 0 pour s’afficher correctement.
+Les valeurs de mesures doivent être > = 0 pour s'afficher correctement.
+
+
+Il existe certaines [limites au nombre de propriétés, de valeurs de propriété et de mesures](#limits) que vous pouvez utiliser.
+
 
 *JavaScript*
 
@@ -209,11 +213,11 @@ Utilisez le champ de recherche pour voir les occurrences de l'événement prése
 
 ![Tapez un terme dans Rechercher](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
 
-[En savoir plus sur les chaînes de recherche][diagnostic].
+[En savoir plus sur les expressions de recherche][diagnostic].
 
 #### Autre façon de définir des propriétés et des mesures
 
-Si cela est plus pratique, vous pouvez collecter les paramètres d’un événement dans un objet séparé :
+Si cela est plus pratique, vous pouvez collecter les paramètres d'un événement dans un objet séparé :
 
     var event = new EventTelemetry();
 
@@ -227,23 +231,10 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d’un événem
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> Événements chronométrés
+#### <a name="timed"></a> Événements de durée
 
-Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu.
+Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu. Il s'agit d'un exemple intéressant de l'utilisation du paramètre de mesure.
 
-Vous pouvez joindre des données de minutage aux événements. Dans le client Web, au lieu d’appeler trackEvent, utilisez ces appels :
-
-*JavaScript dans le client Web*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-Utilisez la même chaîne en tant que premier paramètre dans les appels de démarrage et d'arrêt.
-
-Cette fonctionnalité n’est pas intégrée dans les autres Kits de développement logiciel (SDK). Mais vous pouvez écrire votre propre code, semblable à celui-ci :
 
 *C#*
 
@@ -307,6 +298,7 @@ Pour afficher les résultats, ouvrez Metrics Explorer et ajoutez un nouveau grap
 
 ![Ajouter un nouveau graphique ou sélectionnez un graphique et sélectionnez votre métrique sous Personnalisé](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
 
+Il existe certaines [limites au nombre de mesures](#limits) que vous pouvez utiliser.
 
 ## Affichages de page
 
@@ -388,8 +380,7 @@ Envoyez des exceptions à Application Insights : pour [les compter][metrics] co
        telemetry.TrackException(ex);
     }
 
-Dans des applications mobiles Windows, le Kit de développement logiciel (SDK) intercepte les exceptions non gérées afin que vous ne soyez pas obligé de les consigner.
-
+Dans des applications mobiles Windows, le Kit de développement logiciel (SDK) intercepte les exceptions non gérées afin que vous ne soyez pas obligé de les consigner. Dans ASP.NET, vous pouvez [écrire du code pour intercepter des exceptions automatiquement][exceptions].
 
 
 ## Suivi de traces 
@@ -408,11 +399,11 @@ Utilisez ceci pour diagnostiquer des problèmes en envoyant une « piste de nav
 La limite de taille sur `message` est plus importante que la limite des propriétés. Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairement aux valeurs de propriété), vous ne pouvez pas les filtrer.
 
 
-## Définition des propriétés par défaut pour toute la télémétrie
+## <a name="default-properties"></a>Définir les propriétés par défaut pour toute la télémétrie
 
-Vous pouvez configurer un initialiseur universel afin que tous les TelemetryClients utilisent automatiquement votre contexte.
+Vous pouvez configurer un initialiseur universel afin que tous les TelemetryClients utilisent automatiquement votre contexte. Cela inclut une télémétrie standard envoyée par les modules de télémétrie spécifiques à la plateforme, telle que le suivi de la requête du serveur web.
 
-Cela inclut une télémétrie standard envoyée par les modules de télémétrie spécifiques à la plateforme, telle que le suivi de la requête du serveur web.
+Une utilisation typique consiste à identifier la télémétrie provenant de différentes versions ou de différents composants de votre application. Dans le portail, vous pouvez filtrer ou regrouper des résultats suivant cette propriété.
 
 *C#*
 
@@ -450,12 +441,13 @@ Cela inclut une télémétrie standard envoyée par les modules de télémétrie
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+Le client Web JavaScript ne propose actuellement aucune méthode de définition des propriétés par défaut.
 
-## Configuration de la clé d’instrumentation dans le code pour toute la télémétrie
+## <a name="dynamic-ikey"></a>Clé d'instrumentation dynamique
 
-Au lieu de récupérer la clé d’instrumentation à partir du fichier de configuration, vous pouvez la définir dans votre code. Vous souhaiterez peut-être faire cela, par exemple, pour envoyer des données de télémétrie des installations de test vers une autre ressource Application Insights plutôt que de la télémétrie de l’application en ligne.
+Pour éviter de mélanger la télémétrie fournie par les environnements de développement, de test et de production, vous pouvez [créer des ressources Application Insights distinctes][create] et modifier leurs clés en fonction de l’environnement.
 
-Définissez la clé dans une méthode d’initialisation, par exemple global.aspx.cs dans un service ASP.NET :
+Au lieu de récupérer la clé d'instrumentation à partir du fichier de configuration, vous pouvez la définir dans votre code. Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.cs dans un service ASP.NET :
 
 *C#*
 
@@ -533,6 +525,17 @@ Les appels de télémétrie individuels peuvent remplacer les valeurs par défau
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+## Vidage des données
+
+Normalement, le Kit de développement logiciel (SDK) envoie des données à des moments choisis pour minimiser l'impact sur l'utilisateur. Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le Kit de développement logiciel (SDK) dans une application qui s'arrête.
+
+*C#*
+
+    telemetry.Flush();
+
+Notez que la fonction est synchrone.
+
+
 
 ## Désactivation de la télémétrie standard
 
@@ -554,15 +557,51 @@ Pendant le débogage, il est utile d'avoir votre télémétrie envoyée par le p
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient a une propriété de contexte contenant un certain nombre de valeurs qui sont envoyées avec toutes les données de télémétrie. Elles sont normalement définies par les modules de télémétrie standard, mais vous pouvez également les définir vous-même.
+
+Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
+
+* **Composant** : identifie l'application et sa version
+* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Emplacement** : identifie l'emplacement géographique du périphérique.
+* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
+ * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
+ * **Nom** : l'URL de la requête HTTP
+ * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
+* **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
+
+## Limites
+
+Il existe certaines limites au nombre de mesures et d’événements par application.
+
+1. Jusqu'à 500 points de données de télémétrie par seconde par clé d'instrumentation (autrement dit, par application). Cela inclut la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code.
+1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l'envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les noms de mesure et de propriété sont globaux pour chaque clé d'instrumentation et ne s’étendent pas au type de données.
+2.	Les propriétés peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
+3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
+
+* *Q : combien de temps sont conservées les données ?*
+
+    Consultez [Rétention de données et confidentialité][data].
 
 ## Documents de référence
 
 * [Référence ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Référence Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## Questions
 
-* *Q : Existe-t-il une API REST ?*
+* *Quelles exceptions peuvent être lancées par les appels Track* ?*
+    
+    Aucun. Vous n’aurez pas besoin de les inclure dans des clauses catch.
+
+
+
+* *Existe-t-il une API REST ?*
 
     Oui, mais nous ne l’avons pas encore publiée.
 
@@ -578,7 +617,10 @@ Pendant le débogage, il est utile d'avoir votre télémétrie envoyée par le p
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
@@ -586,4 +628,6 @@ Pendant le débogage, il est utile d'avoir votre télémétrie envoyée par le p
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

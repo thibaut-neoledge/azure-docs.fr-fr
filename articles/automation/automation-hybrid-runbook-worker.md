@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Runbooks Workers hybrides Azure Automation"
    description="Cet article fournit des informations sur l'installation et l'utilisation de la fonctionnalité Runbook Worker hybride d'Azure Automation qui vous permet d'exécuter des Runbooks sur les machines de votre centre de données local."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/11/2015"
@@ -59,7 +59,7 @@ Lorsque vous ajoutez un ordinateur à Operational Insights, la solution Automati
 
 Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante pour importer le module.
 
-	Import-Module HybridRegistration 
+	Import-Module HybridRegistration
 
 Si un message d'erreur indiquant que le fichier de module est introuvable s'affiche, vous devrez peut-être exécuter la commande suivante qui utilise le chemin d'accès complet au fichier de module.
 
@@ -75,7 +75,7 @@ Exécutez ensuite l'applet de commande **Add-HybridRunbookWorker** en utilisant 
 - **Token** est la **clé d'accès primaire** dans le panneau **Gérer les clés**. Vous pouvez ouvrir le panneau Gérer les clés en cliquant sur l'icône de clé dans le panneau Éléments du compte Automation.<br><br>![Vue d'ensemble des Runbooks Workers hybrides](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. Installer des modules PowerShell 
+#### 3. Installer des modules PowerShell
 Les Runbooks peuvent utiliser toutes les activités et applets de commande définies dans les modules installés dans votre environnement Azure Automation. Toutefois, comme ces modules ne sont pas automatiquement déployés sur les machines locales, vous devez les installer manuellement. L'exception est le module Azure qui est installé par défaut et qui permet d'accéder aux applets de commande pour l'ensemble des services et activités Azure pour Azure Automation.
 
 Étant donné que l'objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Vous pouvez vous reporter à la section [Installation de modules](http://msdn.microsoft.com/library/dd878350.aspx) pour obtenir des informations sur l'installation de modules Windows PowerShell.
@@ -123,16 +123,17 @@ Si vous êtes un utilisateur SMA existant, vous pouvez déplacer vos Runbooks ve
 
 Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation avec la fonctionnalité Runbook Worker hybride ou Service Management Automation est plus adapté à vos besoins.
 
-- SMA requiert une installation locale de Windows Azure Pack qui a des ressources plus locales et des coûts de maintenance plus élevés qu'Azure Automation qui nécessite uniquement qu'un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operational Insights, ce qui favorise la réduction des coûts de maintenance. 
+- SMA requiert une installation locale de Windows Azure Pack qui a des ressources plus locales et des coûts de maintenance plus élevés qu'Azure Automation qui nécessite uniquement qu'un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operational Insights, ce qui favorise la réduction des coûts de maintenance.
 - Azure Automation stocke ses Runbooks dans le cloud et les remet à des Runbooks Workers hybrides locaux. Si votre stratégie de sécurité n'autorise pas ce comportement, vous devez utiliser SMA.
 - Windows Azure Pack est un téléchargement gratuit tandis qu'Azure Automation peut entraîner des frais d'abonnement. Azure. Plusieurs bases de données doivent être tenues à jour pour SMA.
 - Azure Automation avec la fonctionnalité Runbook Worker hybride vous permet de gérer les Runbooks pour les ressources cloud et les ressources locales dans un seul et même emplacement, plutôt que de gérer à la fois Azure Automation et SMA.
-- Azure Automation dispose de fonctionnalités avancées, comme la création de graphiques qui ne sont pas disponibles dans SMA. 
+- Azure Automation dispose de fonctionnalités avancées, comme la création de graphiques qui ne sont pas disponibles dans SMA.
 
 
 ## Articles connexes
 
 - [Démarrage d'un Runbook dans Azure Automation](../automation-starting-a-runbook)
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

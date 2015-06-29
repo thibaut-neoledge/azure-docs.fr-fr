@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.date="06/12/2015" 
 	ms.author="josephd"/>
 
 # Comment automatiser avec Microsoft Azure Resource Manager
@@ -69,4 +70,6 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

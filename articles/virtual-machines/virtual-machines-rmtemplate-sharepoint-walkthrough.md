@@ -20,7 +20,7 @@
 
 Cette rubrique vous explique la structure du fichier de modèle azuredeploy.json pour la batterie de serveurs SharePoint à trois serveurs. Vous pouvez également voir le contenu de ce modèle dans votre navigateur à partir d’[ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Si vous souhaitez examiner une copie locale du fichier azuredeploy.json, spécifiez un dossier local comme emplacement du fichier et créez ce dossier (par exemple, C:\Azure\Templates\SharePointFarm). Indiquez le nom du dossier, puis exécutez ces commandes à l’invite de commandes Azure PowerShell.
+Si vous souhaitez examiner une copie locale du fichier azuredeploy.json, spécifiez un dossier local comme emplacement du fichier et créez ce dossier (par exemple, C:\Azure\\Templates\\SharePointFarm). Indiquez le nom du dossier, puis exécutez ces commandes à l’invite de commandes Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -376,4 +376,6 @@ Pour plus d’informations, consultez [Langage du modèle Azure Resource Manag
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

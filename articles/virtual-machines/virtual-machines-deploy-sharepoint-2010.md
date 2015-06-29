@@ -266,7 +266,7 @@ Les étapes suivantes expliquent comment créer un environnement personnalisé d
 	- Utilisez l’agent Operations Manager et le nouveau Azure Integration Pack pour connecter votre System Center local à Microsoft Azure Virtual Machines.
 	- Utilisez l’App Controller et l’Orchestrator locaux pour les fonctions de gestion.
 
-## Conclusion
+## Résumé
 
 Azure Virtual Machines offre une gamme complète de déploiements SharePoint. Azure Virtual Machines est entièrement pris en charge et testé afin de fournir une expérience optimale avec les autres applications Microsoft. Ainsi, les organisations peuvent facilement configurer et déployer SharePoint Server dans Azure, soit pour mettre en service une infrastructure pour un nouveau déploiement SharePoint, soit pour en développer un existant. Lorsque la charge de travail s'accroît, les organisations peuvent rapidement développer leur infrastructure SharePoint. De même, si la charge de travail diminue, les organisations peuvent souscrire à des ressources à la demande, en ne payant que ce qu’elles utilisent. Microsoft Azure Virtual Machines fournit une infrastructure exceptionnelle pour une large gamme de besoins, comme indiqué dans les quatre scénarios basés sur SharePoint présentés dans ce document.
 
@@ -278,8 +278,10 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure PowerShell](http://msdn.microsoft.com/library/jj156055)
+[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Cmdlets de gestion Azure](http://msdn.microsoft.com/library/jj152841)
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

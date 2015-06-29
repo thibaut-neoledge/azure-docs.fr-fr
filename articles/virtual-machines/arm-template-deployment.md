@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle
@@ -25,9 +25,9 @@ Grâce aux modèles et aux groupes de ressources, vous pouvez gérer en même te
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [un compte de stockage Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855).
-- [Azure PowerShell](../install-configure-powershell.md)
+- [Un compte Azure Storage](../storage-create-storage-account.md)
+- [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
+- [Azure PowerShell](../powershell-install-configure.md)
 
 Ces étapes prennent environ 30 minutes.
 
@@ -322,7 +322,7 @@ Les packages NuGet sont le moyen le plus simple pour installer les bibliothèque
 
 2.	Entrez *Active Directory* dans la zone de recherche, cliquez sur **Installer** pour le package de la bibliothèque d’authentification Active Directory, puis suivez les instructions pour installer le package.
 
-3.	En haut de la page, sélectionnez **Inclure la version préliminaire**. Entrez *Azure Resource Manager* dans la zone de recherche, cliquez sur **Installer** pour les bibliothèques Microsoft Azure Resource Management, puis suivez les instructions pour installer le package. 
+3.	En haut de la page, sélectionnez **Inclure la version préliminaire**. Entrez *Azure Resource Manager* dans la zone de recherche, cliquez sur **Installer** pour les bibliothèques Microsoft Azure Resource Management, puis suivez les instructions pour installer le package.
 
 Vous êtes maintenant prêt à commencer à utiliser les bibliothèques pour créer votre application.
 
@@ -442,12 +442,12 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 1.	Pour exécuter l’application console, cliquez sur **Démarrer** dans Visual Studio, puis connectez-vous à Azure AD en utilisant les mêmes nom d’utilisateur et mot de passe que vous utilisez avec votre abonnement.
 
-2.	Appuyez sur **Entrée** après que chaque code d’état est retourné pour créer chaque ressource. Une fois la machine virtuelle créée, effectuez l’étape suivante avant d’appuyer sur Entrée pour supprimer toutes les ressources.
+2.	Pour créer chaque ressource, appuyez sur **Entrée** après le renvoi de chaque code d’état. Une fois la machine virtuelle créée, effectuez l’étape suivante, puis appuyez sur Entrée pour supprimer toutes les ressources.
 
-	L’exécution complète de cette application console devrait durer 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression de ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Azure en version préliminaire ont bien été créées avant de les supprimer.
+	L’exécution complète de cette application console devrait durer 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression de ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Microsoft Azure en version préliminaire ont bien été créées avant de les supprimer.
 
-3. Parcourez les journaux d’audit dans le portail Azure en version préliminaire pour connaître l’état des ressources :
+3. Parcourez les journaux d’audit dans le portail Microsoft Azure en version préliminaire pour connaître l’état des ressources :
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,14 +14,28 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="06/12/2015" 
 	ms.author="kathydav"/>
 
 
-#Connexion à une machine virtuelle exécutant Windows Server#
+# Connexion à une machine virtuelle exécutant Windows Server#
 
-Pour vous connecter à une machine virtuelle exécutant Windows Server, utilisez le bouton de connexion du portail de gestion pour démarrer une connexion de bureau à distance. (Pour les machines virtuelles Linux, voir l’article [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).)
+Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance. (Pour les machines virtuelles Linux, voir l’article [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).)
+
+## Comment ouvrir une session
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-<!---HONumber=58--> 
+## Conseils de dépannage
+
+Vous pouvez essayer rapidement les éléments suivants :
+
+Pour les problèmes de connexion Bureau à distance, essayez de réinitialiser la configuration à partir du portail. Dans le tableau de bord de la machine virtuelle, sous **Aperçu rapide**, cliquez sur **Réinitialiser la configuration à distance**.
+
+Si votre mot de passe pose problème, essayez de le réinitialiser à partir du portail. Dans le tableau de bord de la machine virtuelle, sous **Aperçu rapide**, cliquez sur **Réinitialiser le mot de passe**.
+
+Si ces actions ne fonctionnent pas, vous devez effectuer un dépannage plus étendu. Pour obtenir des instructions, consultez la rubrique [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
+ 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,70 +1,70 @@
 <properties
-	pageTitle="Commencer avec les applets de commande PowerShell de lot Azure"
-	description="Présente les applets de commande PowerShell Azure utilisé pour gérer le service de traitement par lots Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="Prise en main des applets de commande Azure Batch PowerShell | Microsoft Azure"
+   description="Présente les applets de commande Azure PowerShell utilisées pour gérer le service Azure Batch"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
-# Commencer avec les applets de commande PowerShell de lot Azure
-Cet article est une introduction rapide aux applets de commande PowerShell de Azure que vous pouvez utiliser pour gérer vos comptes de lot et obtenir des informations sur vos éléments de travail par lots, les opérations et les tâches.
+# Prise en main des applets de commande Azure Batch PowerShell
+Cet article est une présentation rapide des applets de commande Azure PowerShell que vous pouvez utiliser pour gérer vos comptes Batch et obtenir des informations sur vos éléments de travail, travaux et tâches Batch.
 
-Pour la syntaxe détaillée applet de commande, tapez ```get-help <Cmdlet_name>```.
+Pour la syntaxe détaillée des applets de commande, tapez `get-help <Cmdlet_name>` ou consultez les [informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Composants requis
 
-* **Aperçu du lot de** -Inscrivez-vous à la [Aperçu du lot de](https://account.windowsazure.com/PreviewFeatures), si vous n'avez pas déjà fait, pour travailler avec le service.
-* **Azure PowerShell** -voir [comment installer et configurer Azure PowerShell](../powershell-install-configure.md) pour les conditions préalables et les instructions de téléchargement et d'installation. Applets de commande de lot ont été introduites dans la version 0.8.10 et les versions ultérieures.
+* **Fonctionnalité préliminaire de Batch** : inscrivez-vous à la [fonctionnalité préliminaire de Batch](https://account.windowsazure.com/PreviewFeatures), si vous ne l'avez pas déjà fait, pour utiliser le service.
+* **Azure PowerShell** : consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour connaître la configuration requise et obtenir des instructions sur le téléchargement et l'installation. Les applets de commande Batch ont été introduites dans la version 0.8.10 et les versions ultérieures.
 
-## Utilisez les applets de commande du lot
+## Utilisation des applets de commande Batch
 
-Utilisez les procédures standard pour démarrer PowerShell Azure et [se connecter à vos abonnements Azure](../powershell-install-configure.md#Connect). En outre :
+Utilisez les procédures standard pour démarrer Azure PowerShell et [vous connecter à vos abonnements Azure](../powershell-install-configure.md#Connect). En outre :
 
-* **Abonnement Azure sélectionnez** - si vous avez plus à l'abonnement, sélectionnez l'abonnement où vous avez ajouté la fonctionnalité d'aperçu de lot :
+* **Sélectionnez un abonnement Azure**. Si vous possédez plusieurs abonnements, sélectionnez l'abonnement auquel vous avez ajouté la fonctionnalité préliminaire Batch :
 
     ```
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Passer en mode AzureResourceManage** -lot les applets de commande sont fournis dans le module Azure Resource Manager. Voir [à l'aide de Windows PowerShell avec le Gestionnaire de ressources](../powershell-azure-resource-manager.md) pour plus d'informations. Pour utiliser ce module, exécutez le [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) applet de commande :
+* **Basculez sur le mode AzureResourceManage**. Les applets de commande Batch sont fournies dans le module Azure Resource Manager. Consultez [Utilisation de Windows PowerShell avec le Resource Manager](../powershell-azure-resource-manager.md) pour plus de détails. Pour utiliser ce module, exécutez l'applet de commande [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) :
 
     ```
     Switch-AzureMode -Name AzureResourceManager
     ```
 
-## Gérer les clés et les comptes de lot
+## Gestion des clés et des comptes Batch
 
-Vous pouvez utiliser les applets de commande PowerShell Azure pour créer et gérer des clés et des comptes de lot.
+Vous pouvez utiliser les applets de commande Azure PowerShell pour créer et gérer des clés et des comptes Batch.
 
-### Créer un compte de traitement par lots
+### Création d’un compte Batch
 
-**New-AzureBatchAccount** crée un nouveau compte de traitement dans un groupe de ressources spécifié. Si vous ne disposez pas d'un groupe de ressources, en créer un en exécutant le [New-AzureResourceGroup](https://msdn.microsoft.com/library/dn654594.aspx) cmdlet, en spécifiant l'une des régions Azure dans le **emplacement** paramètre. (Vous trouverez les régions disponibles pour les différentes ressources Azure en exécutant [Get-AzureLocation](https://msdn.microsoft.com/library/dn654582.aspx).) Par exemple :
+**New-AzureBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas déjà d'un groupe de ressources, créez-en un en exécutant l'applet de commande [New-AzureResourceGroup](https://msdn.microsoft.com/library/dn654594.aspx), en spécifiant l'une des régions Azure dans le paramètre **Location**. (Vous trouverez les régions disponibles pour les différentes ressources Azure en exécutant [Get-AzureLocation](https://msdn.microsoft.com/library/dn654582.aspx).) Par exemple :
 
 ```
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Puis, créer un nouveau compte de compte de traitement par lots dans le groupe de ressources, spécifiez également un nom de compte pour < * account_name * > et l'emplacement où le service de traitement par lots est disponible. Création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
 ```
 
-> [AZURE.NOTE]Le nom de compte doit être unique dans Azure, contenir entre 3 et 24 caractères et utiliser des minuscules et chiffres uniquement.
+> [AZURE.NOTE]Le nom du compte Batch doit être unique dans Azure, contenir entre 3 et 24 caractères, et utiliser des minuscules et des chiffres uniquement.
 
-### Obtenir les clés d'accès
-**Get-AzureBatchAccountKeys** affiche les clés d'accès associés à un compte Azure lot. Par exemple, exécutez la commande suivante pour obtenir les clés primaires et secondaires du compte que vous avez créé.
+### Obtenir les clés d'accès au compte
+**Get-AzureBatchAccountKeys** affiche les clés d'accès associées à un compte Azure Batch. Par exemple, exécutez la commande suivante pour obtenir les clés primaires et secondaires du compte que vous avez créé.
 
 ```
 $Account = Get-AzureBatchAccountKeys –AccountName <accountname>
@@ -73,94 +73,95 @@ $Account.SecondaryAccountKey
 ```
 
 ### Générer une nouvelle clé d'accès
-**New-AzureBatchAccountKey** génère une nouvelle clé de compte principal ou secondaire pour un compte Azure lot. Par exemple, pour générer une nouvelle clé primaire pour votre compte de commandes, tapez :
+**New-AzureBatchAccountKey** génère une nouvelle clé de compte primaire ou secondaire pour un compte Azure Batch. Par exemple, pour générer une nouvelle clé primaire pour votre compte Batch, tapez :
 
 ```
 New-AzureBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
-> [AZURE.NOTE]Pour générer une nouvelle clé secondaire, spécifiez « Secondary » pour le **KeyType** paramètre. Vous devez régénérer les clés primaires et secondaires séparément.
+> [AZURE.NOTE]Pour générer une nouvelle clé secondaire, spécifiez « Secondary » pour le paramètre **KeyType**. Vous devez régénérer les clés primaires et secondaires séparément.
 
-### Supprimer un compte de traitement par lots
-**Remove-AzureBatchAccount** supprime un compte de traitement par lots. Par exemple :
+### Suppression d’un compte Batch
+**Remove-AzureBatchAccount** supprime un compte Batch. Par exemple :
 
 ```
 Remove-AzureBatchAccount -AccountName <account_name>
 ```
 
-Lorsque vous y êtes invité, confirmez que vous souhaitez supprimer le compte. Suppression du compte peut prendre du temps.
+Quand vous y êtes invité, confirmez que vous voulez supprimer le compte. La suppression du compte peut prendre un certain temps.
 
-## Rechercher des éléments de travail, des projets et des tâches
+## Interrogez des éléments de travail, des travaux et des tâches
 
-Utilisez les applets de commande telles que **Get-AzureBatchWorkItem**, **Get-AzureBatchJob**, **Get-AzureBatchTask**, et **Get-AzureBatchPool** pour rechercher les entités créées sous un compte de traitement par lots.
+Utilisez les applets de commande telles que **Get-AzureBatchWorkItem**, **Get-AzureBatchJob**, **Get-AzureBatchTask** et **Get-AzureBatchPool** pour interroger les entités créées sous un compte Batch.
 
-Pour utiliser ces applets de commande, vous devez tout d'abord créer un objet AzureBatchContext pour stocker votre nom de compte et des clés :
+Pour utiliser ces applets de commande, vous devez d'abord créer un objet AzureBatchContext pour stocker le nom et les clés de votre compte :
 
 ```
 $context = Get-AzureBatchAccountKeys "<account_name>"
 ```
 
-Vous transmettre ce contexte dans les applets de commande qui interagissent avec le service de traitement par lots à l'aide de la **BatchContext** paramètre.
+Vous transmettez ce contexte aux applets de commande qui interagissent avec le service Batch à l'aide du paramètre **BatchContext**.
 
-> [AZURE.NOTE]Par défaut, la clé primaire du compte est utilisé pour l'authentification, mais vous pouvez sélectionner explicitement la clé à utiliser en modifiant votre objet BatchAccountContext **KeyInUse** propriété : ```$context.KeyInUse = "Secondary"```.
+> [AZURE.NOTE]Par défaut, la clé primaire du compte est utilisée pour l'authentification, mais vous pouvez sélectionner explicitement la clé à utiliser en modifiant la propriété **KeyInUse** de votre objet BatchAccountContext : ```$context.KeyInUse = "Secondary"```.
 
 
-### Requête de données
+### Interrogation des données
 
-Par exemple, utilisez **Get-AzureBatchWorkItem** pour rechercher vos éléments de travail. Par défaut cette demande à tous les éléments de travail sous votre compte, en supposant que vous déjà stocké l'objet BatchAccountContext dans *$context*:
+Par exemple, utilisez **Get-AzureBatchWorkItem** pour rechercher vos éléments de travail. Par défaut, cette demande interroge tous les éléments de travail sous votre compte, en supposant que vous avez déjà stocké l'objet BatchAccountContext dans *$context* :
 
 ```
 Get-AzureBatchWorkItem -BatchContext $context
 ```
 
-Le même peut être effectué avec d'autres entités, telles que les pools :
+Vous effectuez la même opération avec d'autres entités, telles que les pools :
 
 ```
 Get-AzureBatchPool -BatchContext $context
 ```
-### Utiliser un filtre OData
+### Utilisation d’un filtre OData
 
-Vous pouvez fournir un filtre OData à l'aide du **filtre** paramètre pour rechercher uniquement les objets qui vous intéressent. Par exemple, vous trouverez tous les éléments de travail avec les noms commençant par « mywork, procédez comme » :
+Vous pouvez fournir un filtre OData à l'aide du paramètre **Filter** pour rechercher uniquement les objets qui vous intéressent. Par exemple, vous pouvez rechercher tous les éléments de travail dont le nom commence par « myWork » :
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
-
-Cette méthode n'est pas aussi flexible que dans un pipeline local à l'aide de « Where-Object ». Toutefois, la requête est envoyée au service de traitement par lots directement afin que tout le filtrage se produit côté serveur, l'enregistrement de la bande passante Internet.
-
-### Utilisez le paramètre de nom
-
-Une alternative à un filtre OData consiste à utiliser le **nom** paramètre. Pour rechercher un élément de travail spécifique nommée « myWorkItem » :
-
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
-
-```
-Le **nom** paramètre prend en charge uniquement recherche du nom complet, pas de caractères génériques ou filtres de style OData.
-
-### Utilisez le pipleline
-
-Applets de commande de traitement par lots peuvent exploiter le pipeline pour envoyer des données entre les applets de commande PowerShell. Cela a le même effet que la spécification d'un paramètre, mais permet de répertorier plusieurs entités plus faciles. Par exemple, vous pouvez trouver toutes les tâches sous votre compte :
-
-```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
 ```
 
-### Utilisez le paramètre MaxCount
+Cette méthode n'est pas aussi flexible que l'utilisation de « Where-Object » dans un pipeline local. Toutefois, la requête est envoyée au service Batch directement pour que tout le filtrage se produise côté serveur et économise ainsi la bande passante Internet.
 
-Par défaut, chaque cmdlet retourne un maximum de 1000 objets. Si vous atteignez cette limite, vous pouvez affiner votre filtre pour faire revenir moins d'objets, ou définir explicitement une utilisation maximale du **MaxCount** paramètre. Par exemple :
+### Utilisation du paramètre Name
+
+Une alternative au filtre OData consiste à utiliser le paramètre **Name**. Pour interroger un élément de travail spécifique nommé « myWorkItem » :
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
+
+```
+Le paramètre **Name** prend en charge uniquement la recherche du nom complet et non les caractères génériques ou les filtres de style OData.
+
+### Utilisation du pipeline
+
+Les applets de commande Batch peuvent exploiter le pipeline PowerShell pour envoyer des données entre les applets de commande. Cela a le même effet que la spécification d'un paramètre, mais permet de répertorier plus facilement plusieurs entités. Par exemple, vous pouvez rechercher toutes les tâches sous votre compte :
+
+```
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+```
+
+### Utilisation du paramètre MaxCount
+
+Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, vous pouvez affiner votre filtre pour limiter le nombre d'objets retournés, ou définir explicitement une utilisation maximale à l'aide du paramètre **MaxCount**. Par exemple :
+
+```
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
-Pour supprimer la limite supérieure, définissez **MaxCount** ou inférieure à 0.
+Pour supprimer la limite supérieure, définissez **MaxCount** sur 0 ou une valeur inférieure.
 
 ## Rubriques connexes
-* [Vue d'ensemble technique de traitement par lots](batch-technical-overview.md)
-* [Télécharger PowerShell Azure](http://go.microsoft.com/p/?linkid=9811175)
-* [Référence de l'applet de commande Azure](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Vue d'ensemble technique de Batch](batch-technical-overview.md)
+* [Télécharger Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
+* [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

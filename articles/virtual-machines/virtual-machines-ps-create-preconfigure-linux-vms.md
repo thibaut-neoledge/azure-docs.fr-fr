@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux
@@ -55,14 +55,14 @@ Voici des exemples de valeurs ImageFamily pour les ordinateurs basés sur Linux�
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-Ouvrez une nouvelle instance de l’éditeur de texte de votre choix (ou une instance de l’Environnement d’écriture de scripts intégré ([ISE]) de Windows PowerShell) et copiez dans le nouveau fichier texte les informations ci-après qui remplacent la valeur ImageFamily.
+Ouvrez une nouvelle instance de l’éditeur de texte de votre choix ou une instance de l’environnement d’écriture de scripts intégré de PowerShell (ISE). Copiez le texte suivant dans le nouveau fichier texte ou PowerShell ISE, en remplaçant la valeur ImageFamily.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Étape 4 : générer votre jeu de commandes
 
-Créez le reste de votre jeu de commandes en copiant le jeu de blocs approprié ci-dessous dans votre nouveau fichier texte, puis en renseignant les valeurs des variables et en supprimant les caractères < and >. Pour avoir une idée du résultat final, consultez les deux [exemples](#examples) figurant à la fin de cet article.
+Créez le reste de votre jeu de commandes en copiant le jeu de blocs approprié ci-dessous dans votre nouveau fichier texte ou PowerShell ISE, puis en renseignant les valeurs des variables et en supprimant les caractères < and >. Pour avoir une idée du résultat final, consultez les deux [exemples](#examples) figurant à la fin de cet article.
 
 Pour commencer, choisissez l'un des deux blocs de commandes suivants (obligatoire).
 
@@ -85,8 +85,6 @@ Spécifiez le nom d'utilisateur Linux initial et le mot de passe (obligatoire). 
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-Si vous enregistrez le jeu de commandes obtenu dans un fichier, stockez-le dans un emplacement sécurisé afin de protéger le nom de compte et le mot de passe.
 
 Vous pouvez éventuellement spécifier un jeu de paires de clés SSH déjà déployées dans l'abonnement.
 
@@ -148,15 +146,17 @@ Option 2 : créez la machine virtuelle dans un service cloud et un réseau vir
 
 ## Étape 5 : exécuter votre jeu de commandes
 
-Passez en revue le jeu de commandes Azure PowerShell constitué de plusieurs blocs de commandes que vous avez créé dans votre éditeur de texte à l'étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
+Passez en revue le jeu de commandes Azure PowerShell que vous avez créé dans votre éditeur de texte ou dans l’environnement d’écriture de scripts intégré de PowerShell (ISE), constitué de plusieurs blocs de commandes de l’étape 4. Vérifiez que vous avez spécifié toutes les variables nécessaires et qu'elles ont les valeurs correctes. Vérifiez également que vous avez supprimé tous les caractères < and >.
 
-Copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Si vous le faites dans un abonnement, un compte de stockage, un service cloud, un groupe de haute disponibilité, un réseau virtuel ou un sous-réseau inapproprié, supprimez la machine virtuelle, corrigez la syntaxe du bloc de commande, puis exécutez le jeu de commandes modifié.
+Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse-papiers, puis cliquez avec le bouton droit sur votre invite de commandes Azure PowerShell ouverte. Vous émettez ainsi le jeu de commandes en tant que série de commandes PowerShell et créez votre machine virtuelle Azure. Vous pouvez également exécuter votre jeu de commandes dans PowerShell ISE.
+
+Si vous le faites dans un abonnement, un compte de stockage, un service cloud, un groupe de haute disponibilité, un réseau virtuel ou un sous-réseau inapproprié, supprimez la machine virtuelle, corrigez la syntaxe du bloc de commande, puis exécutez le jeu de commandes modifié.
 
 Une fois la machine virtuelle créée, consultez l’article [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md).
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
-- Enregistrer ce jeu de commandes en tant que fichier texte ou fichier de script PowerShell (*.ps1)
+- Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1)
 - Enregistrer ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du Portail de gestion Azure 
 
 ## <a id="examples"></a>Exemples
@@ -259,4 +259,6 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

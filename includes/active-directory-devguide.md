@@ -1,3 +1,3 @@
-> [AZURE.NOTE]Cet article fait partie du [Guide du développeur Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).
+*Cet article fait partie du Guide du développeur [Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).*
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

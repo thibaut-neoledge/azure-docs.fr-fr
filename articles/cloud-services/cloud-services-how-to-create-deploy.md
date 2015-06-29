@@ -1,20 +1,21 @@
-<properties 
-	pageTitle="Création et déploiement d'un service cloud - Azure" 
-	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+<properties
+	pageTitle="Création et déploiement d'un service cloud - Azure"
+	description="Découvrez comment créer et déployer un service cloud à l'aide de la méthode Création rapide dans Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
+
 
 
 
@@ -24,7 +25,7 @@ Le portail de gestion Azure vous offre deux manières de créer et de déployer 
 
 Cette rubrique explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Lorsque vous utilisez cette méthode, le portail de gestion Azure met à votre disposition tous les liens nécessaires pour compléter les éléments au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de **Custom Create**.
 
-> [AZURE.NOTE]Si vous prévoyez de publier votre service cloud depuis Windows Team Foundation Services (TFS), utilisez Création rapide, puis configurez la publication TFS dans **Création rapide** ou dans le tableau de bord. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][TFSTutorialForCloudService] ou **Quick Start**.
+> [AZURE.NOTE]Si vous prévoyez de publier votre service cloud depuis Visual Studio Online (VSO), utilisez Création rapide, puis configurez la publication VSO dans **Création rapide** ou dans le tableau de bord. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][TFSTutorialForCloudService] ou **Quick Start**.
 
 ## Concepts
 trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
@@ -33,12 +34,10 @@ trois composants sont nécessaires pour déployer une application en tant que se
 
 - **Fichier de configuration de service**<br/> Le fichier de configuration du service cloud (.cscfg) contient des paramètres de configuration pour le service cloud et les différents rôles, y compris le nombre d’instances de rôle.
 
-- **Package de service**<br/> Le package de service (.cspkg) contient le code de l’application et le fichier de définition de service.
+- **Package de service**<br/> Le package de service (.cspkg) contient le code d'application, les configurations et le fichier de définition de service.
 
 ## Préparation de votre application
-Avant de déployer un service cloud, vous devez créer le package de service cloud (.cspkg) à partir du code de l'application, ainsi que le fichier de configuration de service cloud (.cscfg). Chaque package de service cloud contient des fichiers d'application et des configurations. Le fichier de configuration de service contient les paramètres de configuration.
-
-Le Kit de développement logiciel (SDK) Azure fournit les outils nécessaires à la préparation des fichiers de déploiement. Vous pouvez installer le Kit de développement logiciel (SDK) depuis la page des [téléchargements Azure](http://azure.microsoft.com/downloads/), dans le langage souhaité pour le développement de votre code.
+Avant de déployer un service cloud, vous devez créer le package de service cloud (.cspkg) à partir du code de l'application, ainsi que le fichier de configuration de service cloud (.cscfg). Le Kit de développement logiciel (SDK) Azure fournit les outils nécessaires à la préparation des fichiers de déploiement. Vous pouvez installer le Kit de développement logiciel (SDK) depuis la page des [téléchargements Azure](http://azure.microsoft.com/downloads/), dans le langage souhaité pour le développement de votre code.
 
 Trois fonctions du service cloud nécessitent une configuration spécifique avant d'exporter le package de service :
 
@@ -107,7 +106,7 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 	Le tableau de bord s'ouvre dans l'environnement de production. Vous pouvez alors sélectionner Intermédiaire pour déployer votre application dans l'environnement intermédiaire. Pour plus d'informations, consultez la page [Gestion des déploiements dans Azure](http://msdn.microsoft.com/library/gg433027.aspx).
 
-	 
+
 2. Cliquez sur **Télécharger un nouveau déploiement de production** ou sur **Télécharger**.
 
 3. Dans **Étiquette du déploiement**, entrez le nom du nouveau déploiement, par exemple MyCloudServicev4.
@@ -123,7 +122,6 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 6. Cliquez sur **OK** (coche) pour lancer le déploiement du service cloud.
 
 	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
- 
 
 	Vous pouvez surveiller l'état du déploiement dans la zone de message. Cliquez sur OK pour masquer le message.
 
@@ -140,6 +138,6 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

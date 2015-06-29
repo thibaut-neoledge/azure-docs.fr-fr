@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles" 
-	description="Cet article fournit des conseils sur l'utilisation du stockage Premium Azure avec SQL Server exécuté sur des machines virtuelles Azure. Il inclut des exemples de nouveaux déploiements et de migrations de déploiements SQL Server existants sur IaaS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles"
+	description="Cet article fournit des conseils sur l'utilisation du stockage Premium Azure avec SQL Server exécuté sur des machines virtuelles Azure. Il inclut des exemples de nouveaux déploiements et de migrations de déploiements SQL Server existants sur IaaS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,15 +12,16 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 
+
 ## Vue d'ensemble
 
-Le [stockage Premium Azure](../storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS. Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L'exemple de l'[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
+Le [stockage Premium Azure](../storage-premium-storage-preview-portal.md) est la nouvelle génération de stockage qui offre une faible latence et un débit d'E/S élevé. Il est particulièrement adapté aux principales charges de travail E/S intensives telles que SQL Server sur [des machines virtuelles](http://azure.microsoft.com/services/virtual-machines/) IaaS. Cet article fournit une planification et des conseils pour la migration d'une machine virtuelle exécutant SQL Server afin d'utiliser le stockage Premium. Cela inclut l'infrastructure Azure (mise en réseau, stockage) et les étapes de la machine virtuelle Windows hôte. L’exemple de l’[annexe](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) montre une migration complète de bout en bout sur le déplacement de machines virtuelles plus importantes afin de tirer parti du stockage SSD local amélioré avec PowerShell.
 
 Il est important de comprendre le processus complet d'utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles IAAS, notamment :
 
@@ -32,7 +33,7 @@ Il est important de comprendre le processus complet d'utilisation du stockage Pr
 
 Pour plus de détails sur l'utilisation de SQL Server dans les machines virtuelles Azure, consultez la rubrique [SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md) de la bibliothèque.
 
-**Réviseurs techniques :** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
+**Auteur :** Daniel Sol **Réviseurs techniques :** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## Configuration requise pour le stockage Premium
 
@@ -119,7 +120,7 @@ Pour chaque disque, procédez comme suit :
 
 	![DisknameAndLUN][2]
 
-1. Bureau à distance dans la machine virtuelle. Accédez ensuite à **Gestion de l'ordinateur** | **Gestionnaire de périphériques** | **Lecteurs de disque**. Examinez les propriétés de chacun  des « disques virtuels Microsoft ».
+1. Bureau à distance dans la machine virtuelle. Accédez ensuite à **Gestion de l'ordinateur** | **Gestionnaire de périphériques** | **Lecteurs de disque**. Examinez les propriétés de chacun des « disques virtuels Microsoft ».
 
 	![VirtualDiskProperties][3]
 
@@ -664,7 +665,7 @@ Veuillez noter que la diminution de la valeur 'HostRecordTTL' augmente le trafic
 
 Si votre application cliente SQL prend en charge .Net 4.5 SQLClient, vous pouvez utiliser le mot clé 'MULTISUBNETFAILOVER = TRUE' ; il est recommandé de l'appliquer car il accélère la connexion au groupe de disponibilité AlwaysOn SQL pendant le basculement. Il énumère toutes les adresses IP associées à l'écouteur AlwaysOn en parallèle et effectue une tentative de reconnexion TCP plus rapide lors d'un basculement.
 
-Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d'urgence](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
+Pour plus d'informations sur les paramètres ci-dessus, consultez la rubrique[Mot clé MultiSubnetFailover et fonctionnalités associées](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Consultez également la rubrique [Prise en charge SqlClient pour la haute disponibilité et récupération d’urgence](https://msdn.microsoft.com/library/hh205662(v=vs.110).aspx).
 
 #### Étape 5 : paramètres de quorum de cluster
 
@@ -1140,5 +1141,6 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

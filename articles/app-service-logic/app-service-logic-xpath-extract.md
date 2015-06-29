@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Extracteur XPath BizTalk" 
-   description="Extracteur XPath BizTalk" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="prkumar" 
-   manager="dwrede" 
+<properties
+   pageTitle="Extracteur XPath BizTalk"
+   description="Extracteur XPath BizTalk"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="prkumar"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="rajram"/>
 
@@ -23,9 +23,11 @@ Le connecteur Extracteur XPath BizTalk permet de rechercher votre application et
 ##Utilisation de l’Extracteur XPath BizTalk
 1. Pour utiliser l'Extracteur Xpath BizTalk, vous devez d'abord créer une instance de l'application API d’extracteur Xpath BizTalk. Cela est possible inline, lors de la création d'une application logique, ou en sélectionnant l'application API Extracteur Xpath BizTalk dans Azure Marketplace.
 
-		NOTE: There are no configuration settings associated with BizTalk Xpath Extractor.
-2. Le concepteur affiche l'action associée à l’application API Extracteur XPath BizTalk.
-	
+	>[AZURE.NOTE]
+2. [Créer une application logique]. Ouvrez « Déclencheurs et actions » dans l’application logique créée pour ouvrir le Concepteur d’applications logiques afin de configurer votre flux.
+3. Dans le concepteur, le volet de droite répertorie les applications API disponibles pour créer votre flux. Trouvez l’« Extracteur XPath BizTalk ». La sélection de ce dernier ajoute l'Extracteur XPath à votre flux et configurera une instance pour celle-ci.
+2. Une fois configuré, le concepteur affiche l'action associée à l’application API Extracteur XPath BizTalk.
+
 ![Choisir une action Extracteur XPath BizTalk][1]
 
 3. Choisissez « Extraire avec XPath »
@@ -58,4 +60,7 @@ L'action retourne le résultat sous forme de chaîne - Result. Result contient l
 [1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
 [2]: ./media/app-service-logic-xpath-extract/ConfigureInput.PNG
 
-<!---HONumber=58--> 
+<!-- Links -->
+[Créer une application logique]: app-service-logic-create-a-logic-app.md
+
+<!---HONumber=58_postMigration-->

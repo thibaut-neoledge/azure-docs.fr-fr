@@ -113,11 +113,16 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 | Source de données | Description |
 |:---|:---|
-|Sortie d'activité|Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité.|
 |Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
+|Sortie d'activité|Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité.|
+|Paramètre d'entrée de Runbook<br>*(Bientôt disponible) *|Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité.|  
+|Ressource variable Automation<br>*(Bientôt disponible) *|Sélectionnez une variable Automation comme entrée.|  
+|Ressource d’identification Automation<br>*(Bientôt disponible) *|Sélectionnez les informations d’identification Automation comme entrée.|  
+|Ressource de certificat Automation<br>*(Bientôt disponible) *|Sélectionnez les informations de certificat Automation comme entrée.|  
+|Ressource de connexion Automation<br>*(Bientôt disponible) *|Sélectionnez les informations de connexion Automation comme entrée.| 
+|Expression PowerShell|Spécifiez une expression PowerShell simple. L'expression sera évaluée avant l'activité, et le résultat utilisé pour la valeur du paramètre. Vous pouvez utiliser des variables pour faire référence à la sortie d'une activité ou à un paramètre d'entrée de Runbook.|
 |Chaîne vide|Une valeur de chaîne vide.|
 |Null|Une valeur Null.|
-|Expression PowerShell|Spécifiez une expression PowerShell simple. L'expression sera évaluée avant l'activité, et le résultat utilisé pour la valeur du paramètre. Vous pouvez utiliser des variables pour faire référence à la sortie d'une activité ou à un paramètre d'entrée de Runbook.|
 |Désélectionner|Efface toute valeur qui a été précédemment configurée.|
 
 
@@ -180,7 +185,7 @@ Pour un lien de type séquence, la condition est évaluée une seule fois, car u
 
 Lorsque vous utilisez un lien conditionnel, les données disponibles de l'activité source vers d'autres activités dans cette branche sont filtrées par la condition. Si une activité est la source vers plusieurs liens, les données disponibles pour les activités de chaque branche dépendent de la condition spécifiée dans le lien de connexion à cette branche.
 
-Par exemple, l'activité source du Runbook ci-dessous obtient toutes les machines virtuelles. Elle a deux liens conditionnels et un lien sans condition. Le premier lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* pour filtrer uniquement les machines virtuelles en cours d'exécution. Le deuxième lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* pour filtrer uniquement les machines virtuelles actuellement arrêtées.
+Par exemple, l'activité source du Runbook ci-dessous obtient toutes les machines virtuelles. Elle a deux liens conditionnels et un lien sans condition. Le premier lien conditionnel utilise l'expression *$ActivityOutput['Get-AzureVM'.PowerState -eq 'Started'* pour filtrer uniquement les machines virtuelles en cours d'exécution. Le deuxième lien conditionnel utilise l'expression* $ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* pour filtrer uniquement les machines virtuelles actuellement arrêtées.
 
 ![Exemple de lien conditionnel](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -273,5 +278,6 @@ Les données créées par toute activité qui ne dispose pas d'un lien sortant s
 
 - [Concepts de Runbook Azure Automation](automation-runbook-concepts.md)
 - [Ressources Automation](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

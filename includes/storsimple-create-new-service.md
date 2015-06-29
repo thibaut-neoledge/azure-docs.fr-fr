@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -15,9 +16,9 @@
    ms.author="v-sharos" />
 
 
-### Création d’un service
+#### Création d’un service
 
-1. Utilisez vos informations d’identification du compte Microsoft pour vous connecter au portail de gestion Microsoft Azure : [Portail de gestion Azure](https://manage.windowsazure.com/).
+1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
 2. Dans le portail de gestion, cliquez sur **Nouveau** > **Data Services** > **StorSimple Manager** > **Création rapide**.
 
@@ -34,4 +35,4 @@
  
        ![création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

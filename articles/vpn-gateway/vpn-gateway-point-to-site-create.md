@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -118,7 +118,7 @@ Pour la connexion au réseau virtuel, vous devrez également configurer votre cl
 
 ### Installer le package de configuration VPN sur le client et démarrer la connexion
 
-1. Copiez le fichier de configuration localement sur l’ordinateur que vous souhaitez connecter à votre réseau virtuel, puis double-cliquez sur le fichier .exe. Une fois le package installé, vous pouvez démarrer la connexion VPN. Notez que le package de configuration n’est pas signé par Microsoft. Si vous le souhaitez, vous pouvez signer le package à l’aide du service de signature de votre organisation ou le signer vous-même au moyen de l’outil [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Il vous est possible d’utiliser le package sans le signer. Toutefois, si le package n’est pas signé, un avertissement s’affiche au moment où vous l’installez. 
+1. Copiez le fichier de configuration localement sur l’ordinateur que vous souhaitez connecter à votre réseau virtuel, puis double-cliquez sur le fichier .exe. Une fois le package installé, vous pouvez démarrer la connexion VPN. Notez que le package de configuration n’est pas signé par Microsoft. Si vous le souhaitez, vous pouvez signer le package à l’aide du service de signature de votre organisation ou le signer vous-même au moyen de l’outil [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Il vous est possible d’utiliser le package sans le signer. Toutefois, si le package n’est pas signé, un avertissement s’affiche au moment où vous l’installez.
 2. Sur l’ordinateur client, accédez aux connexions VPN et recherchez celle que vous venez de créer. Elle porte le même nom que votre réseau virtuel. Cliquez sur **Connecter**.
 3. Vous voyez apparaître un message contextuel vous permettant de créer un certificat auto-signé pour le point de terminaison de passerelle. Cliquez sur **Continuer** pour utiliser des privilèges élevés.
 4. Dans la page de statut **Connexion**, cliquez sur **Connecter** pour démarrer la connexion.
@@ -142,7 +142,7 @@ Exemple  :
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
@@ -157,5 +157,6 @@ Si vous souhaitez configurer une connexion VPN de site à site, voir l’article
 Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus d’informations, voir l’article [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
 
 Si vous souhaitez configurer une connexion de réseau virtuel à l’aide de RRAS, consultez l’article [Configurer un VPN de site à site à l’aide du service de routage et d’accès à distance (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

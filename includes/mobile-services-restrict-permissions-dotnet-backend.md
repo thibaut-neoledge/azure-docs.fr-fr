@@ -20,8 +20,8 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 4. (Facultatif) Dans le fichier de projet web.config, définissez une valeur de chaîne pour le paramètre d'application `MS_ApplicationKey`. Mot de passe que vous utilisez (sans nom d'utilisateur) pour tester les pages d'aide API lorsque vous exécutez le service localement.
 
-	[AZURE.NOTE]Cette valeur de chaîne n'est pas utilisée par le site actif dans Azure, et vous n'avez pas besoin d'utiliser la clé d'application actuelle ; toute valeur de chaîne valide fonctionnera.
+	>[AZURE.NOTE]Cette valeur de chaîne n'est pas utilisée par le site actif dans Azure, et vous n'avez pas besoin d'utiliser la clé d'application actuelle ; toute valeur de chaîne valide fonctionnera.
  
 4. Publiez à nouveau votre projet.
 
-<!--HONumber=54-->
+<!---HONumber=58_postMigration-->

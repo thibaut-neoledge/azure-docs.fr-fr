@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Certificats"
+   pageTitle="Ressources de certificats dans Azure Automation"
    description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
    services="automation"
    documentationCenter=""
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
-# Certificats
+# Ressources de certificats dans Azure Automation
 
 Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks à l’aide de l’activité **Get-AutomationCertificate**. Cela vous permet de créer des Runbooks qui utilisent des certificats pour l’authentification ou les ajoute aux ressources Azure ou tierces que votre Runbook crée ou configure.
 
->[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
+>[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
 ## Applets de commande Windows PowerShell
 
@@ -105,6 +105,6 @@ Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activ
 
 ## Voir aussi
 
-- [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

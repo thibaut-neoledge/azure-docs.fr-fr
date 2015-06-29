@@ -77,5 +77,6 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 [Référence sur l’opération Ajouter un rôle de l’API REST de gestion des services](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

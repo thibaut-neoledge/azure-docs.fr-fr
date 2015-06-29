@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation du coordinateur Oozie basé sur le temps dans HDInsight | Azure" 
-	description="Utilisation du coordinateur Oozie basé sur le temps dans HDInsight, une solution pour les données volumineuses. Découvrez comment définir des workflows et des coordinateurs Oozie, et envoyer les tâches du coordinateur." 
+	pageTitle="Utilisation du coordinateur Hadoop Oozie basé sur le temps dans HDInsight | Microsoft Azure" 
+	description="Utilisez le coordinateur Hadoop Oozie basé sur le temps dans HDInsight, un service pour les données volumineuses. Découvrez comment définir des workflows et des coordinateurs Oozie, et envoyer des tâches." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -17,9 +17,9 @@
 	ms.author="jgao"/>
 
 
-# Utilisation du coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight
+# Utilisez le coordinateur Oozie basé sur le temps avec Hadoop dans HDInsight pour définir des workflows et coordonner des tâches
 
-Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utilisation d'Oozie avec HDInsight][hdinsight-use-oozie] avant cet article-ci. Pour en savoir plus sur Azure Data Factory, consultez la rubrique [Utilisation de Pig et Hive avec Data Factory][azure-data-factory-pig-hive].
+Dans cet article, vous découvrirez comment définir des workflows et des coordinateurs, et comment déclencher les tâches du coordinateur en fonction de l'heure. Il est utile de lire l’article [Utilisation d'Oozie avec HDInsight][hdinsight-use-oozie] avant cet article-ci. Pour en savoir plus sur Azure Data Factory, consultez la rubrique [Utilisation de Pig et Hive avec Data Factory](../data-factory/data-factory-pig-hive-activities.md).
 
 
 ##<a id="whatisoozie"></a>Présentation d'Oozie
@@ -32,7 +32,7 @@ L’image suivante montre le workflow que vous allez implémenter :
 
 Le workflow contient deux actions :
 
-1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier journal log4j. Chaque journal log4j se compose d'une ligne de champs qui contient un champ [LOG LEVEL] permettant d'indiquer le type et la gravité, par exemple :
+1. Une action Hive exécute un script HiveQL pour compter les occurrences de chaque type de niveau de journalisation dans un fichier journal log4j. Chaque journal log4j est constitué d'une ligne de champs qui contient un champ [LOG LEVEL] pour indiquer le type et la gravité, par exemple :
 
 		2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
 		2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -61,7 +61,7 @@ Le workflow contient deux actions :
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- Un **poste de travail** sur lequel Azure PowerShell est installé et configuré. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure]. Pour exécuter des scripts Windows PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Pour plus d’informations, consultez la rubrique [Exécution des scripts Windows PowerShell][powershell-script].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Windows PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Pour plus d’informations, consultez la rubrique [Exécution des scripts Windows PowerShell][powershell-script].
 - **Un cluster HDInsight**. Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision] ou [Prise en main de HDInsight][hdinsight-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border = "1">
@@ -81,8 +81,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
 <tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
-</table>
-> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configure].
+</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d'une base de données SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE]Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -117,7 +116,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 			
 	Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l'exécution.
 		
-2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\useooziewf.hql** en utilisant l’encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.) Le fichier de script est déployé sur le cluster HDInsight plus loin dans ce didacticiel.
+2. Enregistrez le fichier sous **C:\Tutorials\\UseOozie\\useooziewf.hql** en utilisant l’encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.) Le fichier de script est déployé sur le cluster HDInsight plus loin dans ce didacticiel.
 
 
 
@@ -201,7 +200,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 <tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
 </table>Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
 
-2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
+2. Enregistrez le fichier sous **C:\Tutorials\\UseOozie\\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 
 **Définition du coordinateur**
 
@@ -225,7 +224,7 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
     | ${coordTimezone} | Oozie traite les tâches du coordinateur dans un fuseau horaire fixe sans passage à l’heure d’été (généralement représenté à l'aide de UTC). Ce fuseau horaire est appelé le « fuseau horaire du traitement d’Oozie ». |
 	| ${wfPath} | Le chemin d'accès de workflow.xml. Si le nom du fichier de workflow n'est pas celui par défaut (workflow.xml), vous devez le spécifier. |
 	
-2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\coordinator.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
+2. Enregistrez le fichier sous **C:\Tutorials\\UseOozie\\coordinator.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 	
 ##<a id="deploy"></a>Déploiement du projet Oozie et préparation du didacticiel
 
@@ -634,7 +633,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide du portail de gestion][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, vous pouvez consulter le fichier journal Oozie dans C:\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log depuis le nœud principal du cluster. Pour plus d'informations sur le protocole RDP, consultez la rubrique [Administration de clusters HDInsight à l'aide du portail de gestion][hdinsight-admin-portal].
 
 **Réexécution du didacticiel**
 
@@ -732,5 +731,6 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

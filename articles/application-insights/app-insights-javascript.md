@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights pour les pages web et les applications JavaScript" 
-	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les applications et les pages web JavaScript." 
+	pageTitle="Application Insights pour les applications Web JavaScript" 
+	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# Application Insights pour les pages web et les applications JavaScript
+# Application Insights pour les applications Web JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -44,23 +44,13 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
-* Dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
+* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\_Layout.cshtml
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
 
 *(Si vous utilisez une infrastructure de page web connue, cherchez des adaptateurs Application Insights. Par exemple, il existe [un module AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
-#### Si votre application n’est pas une page web...
-
-Si votre application JavaScript est une application [Cordova](http://cordova.apache.org/), insérez une ligne supplémentaire après la clé d’instrumentation :
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-S’il s’agit d’une [application Windows Runtime utilisant JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), ajoutez le package NuGet *Application Insights for Javascript Apps* à votre projet. (Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez Gérer les packages NuGet. Sélectionnez « Inclure la version préliminaire », puis recherchez Application Insights)
  
 ## <a name="run"></a>Exécution de votre application
 
@@ -106,7 +96,7 @@ Dans le panneau Vue d’ensemble, cliquez sur Utilisation :
 
 ![](./media/app-insights-javascript/14-usage.png)
 
-* **Utilisateurs :** le nombre d’utilisateurs distincts dans la plage de temps du graphique. (Les cookies sont utilisés pour identifier les utilisateurs qui reviennent.)
+* **Utilisateurs :** nombre d’utilisateurs distincts dans la plage de temps du graphique. (Les cookies sont utilisés pour identifier les utilisateurs qui reviennent.)
 * **Sessions :** une session est comptabilisée lorsqu’un utilisateur n’a pas effectué de requêtes pendant 30 minutes.
 * **Affichages de pages** compte le nombre d’appels à trackPageView(), généralement appelé une seule fois dans chaque page web.
 
@@ -185,4 +175,6 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

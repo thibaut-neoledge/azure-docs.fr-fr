@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Didacticiel Hadoop : prise en main de Hadoop sur Windows | Microsoft Azure" 
-   description="Prise en main de Hadoop dans HDInsight. Apprenez à approvisionner des clusters Hadoop sur Windows, à exécuter une requête Hive sur des données et à en analyser les résultats dans Excel." 
+<properties
+   pageTitle="Didacticiel Hadoop : prise en main de Hadoop sur Windows | Microsoft Azure"
+   description="Prise en main de Hadoop dans HDInsight. Apprenez à approvisionner des clusters Hadoop sur Windows, à exécuter une requête Hive sur des données et à en analyser les résultats dans Excel."
    keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/20/2015"
    ms.author="nitinme"/>
 
@@ -26,7 +26,7 @@
 
 Pour vous familiariser plus facilement à Hadoop sur Windows et commencer à utiliser HDInsight, ce didacticiel vous montre comment exécuter une requête Hive sur des données non structurées dans un cluster Hadoop, puis comment analyser les résultats dans Microsoft Excel.
 
-## À quoi sert ce didacticiel Hadoop ? 
+## À quoi sert ce didacticiel Hadoop ?
 
 Partons du principe que vous avez un vaste jeu de données non structurées et que vous voulez exécuter une requête Hive sur ces données pour en extraire des informations pertinentes. C'est exactement ce que nous allons faire dans ce didacticiel. Voici comment procéder :
 
@@ -48,8 +48,8 @@ Parallèlement à la mise à disposition générale d'Azure HDInsight, Microsoft
 Avant de commencer ce didacticiel pour Hadoop sur Windows, vous devez disposer des éléments suivants :
 
 
-- Un abonnement Azure. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
-- Un ordinateur avec Office Professionnel Plus 2013, Office 365 ProPlus, l'édition autonome d'Excel 2013 ou Office Professionnel Plus 2010.
+- **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un poste de travail** avec Office Professionnel Plus 2013, Office 365 ProPlus, l'édition autonome d'Excel 2013 ou Office Professionnel Plus 2010.
 
 **Durée estimée pour effectuer ce didacticiel :** 30 minutes
 
@@ -75,7 +75,7 @@ Ce didacticiel utilise uniquement l'objet blob par défaut et le compte de stock
 >[AZURE.NOTE]Veillez à créer le compte de stockage à un emplacement pris en charge pour le cluster. À savoir : **Asie de l'Est**, **Asie du Sud-Est**, **Europe du Nord**, **Europe de l'Ouest**, **Est des États-Unis**, **Ouest des États-Unis**, **Nord du centre des États-Unis**, **Sud du centre des États-Unis**.
 
 Sélectionnez le nouveau compte de stockage dans la liste et cliquez sur **GÉRER LES CLÉS D'ACCÈS** au bas de la page. Notez la **CLÉ D'ACCÈS PRIMAIRE** (ou la **CLÉ D'ACCÈS SECONDAIRE**, les deux peuvent être utilisées). Vous en aurez besoin plus tard dans le didacticiel. Pour plus d'informations, consultez [Création d'un compte de stockage][azure-create-storageaccount].
-	
+
 ##<a name="provision"></a>Approvisionnement d'un cluster Hadoop
 
 Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calcul Azure contenant Hadoop et ses applications associées. Dans cette section, vous approvisionnez un cluster HDInsight version 3.1, qui est basé sur la version 2.4 d'Hadoop. Vous pouvez également créer des clusters Hadoop pour d'autres versions au moyen du portail Azure, des applets de commande HDInsight PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision]. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
@@ -85,7 +85,7 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 **Pour approvisionner un cluster Hadoop**
 
-1. Connectez-vous au [portail Azure][azure-management-portal]. 
+1. Connectez-vous au [portail Azure][azure-management-portal].
 
 2. Cliquez sur **NOUVEAU** dans l'angle inférieur gauche, puis entrez les valeurs comme indiqué dans l'image.
 
@@ -95,7 +95,7 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 4. Enter or select the following values:
 
-	
+
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
@@ -105,13 +105,13 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is located in the same datacenter as the storage account. 
+	The HDInsight cluster is located in the same datacenter as the storage account.
 	</td></tr>
 	</table>
-	
+
 	Keep a copy of the cluster name. You will need it later in the tutorial.
 
-	
+
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
 -- COMMENTED OUT TEXT ENDS -->
@@ -140,9 +140,9 @@ Exemple | Fonction
 
 **Exécution d'un travail Hive à partir d'un tableau de bord du cluster**
 
-1. Connectez-vous au [portail Azure][azure-management-portal]. 
+1. Connectez-vous au [portail Azure][azure-management-portal].
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters s'affiche, avec celui que vous avez créé dans la section précédente.
-3. Cliquez sur le nom du cluster que vous voulez utiliser pour l'exécution du travail Hive, puis cliquez sur **CONSOLE DE REQUÊTE** au bas de la page. 
+3. Cliquez sur le nom du cluster que vous voulez utiliser pour l'exécution du travail Hive, puis cliquez sur **CONSOLE DE REQUÊTE** au bas de la page.
 4. Une page web s'ouvre dans un autre onglet du navigateur. Entrez le compte et le mot de passe de l'utilisateur Hadoop. Le nom d'utilisateur par défaut est **admin**, le mot de passe est celui que vous avez entré pendant l'approvisionnement du cluster. Le tableau de bord ressemble à ceci :
 
 	![Onglet Éditeur Hive dans le tableau de bord du cluster HDInsight.][img-hdi-dashboard]
@@ -152,7 +152,7 @@ Exemple | Fonction
 	> [AZURE.NOTE]Notez que l'URL de la page web est *&lt;ClusterName&gt;.azurehdinsight.net*. Ainsi, au lieu d'ouvrir le tableau de bord à partir du portail, vous pouvez également l'ouvrir à partir d'un navigateur web à l'aide de l'URL.
 
 6. Dans l'onglet **Éditeur Hive**, pour **Nom de requête**, entrez **HTC20**. Le nom de la requête correspond au nom de la tâche. Dans le volet de requête, entrez la requête Hive, comme indiqué dans l'image :
-		
+
 	![Requête Hive entrée dans le volet de requête de l'éditeur Hive.][img-hdi-dashboard-query-select]
 
 4. Cliquez sur **Envoyer**. Il faut quelques instants pour obtenir les résultats. L'écran est actualisé toutes les 30 secondes. Vous pouvez également cliquer sur **Actualiser** pour actualiser l'écran.
@@ -168,7 +168,7 @@ Exemple | Fonction
 
 **Accès au fichier de sortie**
 
-1. Dans le tableau de bord du cluster, cliquez sur **Explorateur de fichiers**. 
+1. Dans le tableau de bord du cluster, cliquez sur **Explorateur de fichiers**.
 2. Cliquez sur le nom de votre compte de stockage, sur le nom de votre conteneur (qui est le même que le nom de votre cluster), puis sur **utilisateur**.
 3. Cliquez sur **admin**, puis sur le GUID dont l'heure de dernière modification est légèrement postérieure à l'heure de début de tâche que vous avez notée précédemment. Copiez ce GUID. Vous en aurez besoin dans la prochaine section.
 
@@ -176,7 +176,7 @@ Exemple | Fonction
    	![GUID du fichier de sortie de la requête Hive, répertorié sous l'onglet Explorateur de fichiers.][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>Connexion aux outils décisionnels Microsoft pour Excel 
+##<a name="powerquery"></a>Connexion aux outils décisionnels Microsoft pour Excel
 
 Vous pouvez utiliser le complément Power Query pour Microsoft Excel afin d'importer le résultat de la tâche depuis HDInsight dans Excel, où des outils décisionnels Microsoft peuvent être utilisés afin d'effectuer une analyse plus approfondie des résultats.
 
@@ -194,8 +194,8 @@ Vous devez avoir installé Excel 2013 ou 2010 pour mener à bien cette partie
 	![Menu Importation Excel PowerQuery ouvert pour Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 
 3. Entrez le **Nom de compte** du compte de stockage d'objets blob Azure associé à votre cluster, puis cliquez sur **OK**. Il s'agit du compte de stockage que vous avez créé plus tôt dans le didacticiel.
-4. Entrez la **Clé du compte** du compte de stockage d’objets blob Azure, puis cliquez sur **Enregistrer**. 
-5. Dans le volet droit, double-cliquez sur le nom de l'objet blob. Par défaut, le nom de l'objet blob est identique à celui du cluster. 
+4. Entrez la **Clé du compte** du compte de stockage d’objets blob Azure, puis cliquez sur **Enregistrer**.
+5. Dans le volet droit, double-cliquez sur le nom de l'objet blob. Par défaut, le nom de l'objet blob est identique à celui du cluster.
 
 6. Localisez **stdout** dans la colonne **Nom**. Vérifiez que le GUID de la colonne** Chemin du dossier** correspond au GUID que vous avez copié précédemment. Une correspondance suggère que les données de sortie correspondent à la tâche que vous avez envoyée. Cliquez sur **Fichier binaire** dans la colonne à gauche de **stdout**.
 
@@ -209,7 +209,7 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 
 - [Prise en main de HDInsight Hadoop Tools pour Visual Studio][1]
 - [Prise en main de l'émulateur HDInsight][hdinsight-emulator]
-- [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage]
+- [Utilisation du stockage d’objets blob Azure avec HDInsight][hdinsight-storage]
 - [Administration de HDInsight à l'aide de PowerShell][hdinsight-admin-powershell]
 - [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 - [Utilisation de MapReduce avec HDInsight][hdinsight-use-mapreduce]
@@ -274,5 +274,6 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

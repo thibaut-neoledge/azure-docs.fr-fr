@@ -9,14 +9,14 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	Une page Web s'affiche une fois le service mobile correctement démarré.
+	Une page web s’affiche une fois le service mobile correctement démarré.
 
 3. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre projet d'application cliente, puis cliquez sur **Définir comme projet de démarrage** et appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
-	L'application démarre en se connectant à l'instance locale du service mobile.	
+	L'application démarre en se connectant à l'instance locale du service mobile.
 
 4. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-	Une demande POST est alors envoyée au service mobile local. Les données de la demande sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
+	Une demande POST est alors envoyée au service mobile local. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-<!--HONumber=52--> 
+<!---HONumber=58_postMigration-->

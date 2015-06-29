@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2015"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#Association d’un disque de données à une machine virtuelle Linux
+# Association d’un disque de données à une machine virtuelle Linux
 
 Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
-> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, celle-ci possède un disque de système d'exploitation et un disque temporaire. **N’utilisez pas le disque temporaire pour stocker les données.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure. Le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau. Si tel est le cas, il vous faudra partitionner, formater et monter cette ressource. Pour plus d’informations, consultez le [guide d’utilisation de l’agent Linux Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/).
-
-- [Association d’un disque vide](#attachempty)
-- [Association d’un disque existant](#attachexisting)
-- [Initialisation d’un nouveau disque de données dans Linux](#initializeinlinux)
+> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, celle-ci possède un disque de système d'exploitation et un disque temporaire. **N’utilisez pas le disque temporaire pour stocker les données.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure. Le disque de ressources est habituellement géré par l’agent Linux Azure et monté automatiquement dans **/mnt/resource** (ou **/mnt** pour les images Ubuntu). Par contre, sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau. Si tel est le cas, il vous faudra partitionner, formater et monter cette ressource. Consultez le [Guide de l’utilisateur de l’Agent Linux Azure][Agent] pour plus d’informations.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>Initialisation d’un nouveau disque de données dans Linux
+## Initialisation d’un nouveau disque de données dans Linux
 
-
-
-1. Pour vous connecter à la machine virtuelle, suivez les étapes indiquées dans la rubrique [Connexion à une machine virtuelle exécutant Linux](logonlinux).
+1. Connexion à la machine virtuelle. Pour plus d’informations, consultez la page [Connexion à une machine virtuelle exécutant Linux][Logon].
 
 
 
@@ -137,8 +131,15 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 	Si la commande `mount` génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte. Si des lecteurs de données ou partitions supplémentaires sont créés, vous devez également les ajouter séparément au fichier /etc/fstab.
 
 
-	>[AZURE.NOTE]La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. S’il s’agit d’une occurrence courante, la plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait` qui permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
+>[AZURE.NOTE]La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. S’il s’agit d’une occurrence courante, la plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait` qui permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
 
-[logonlinux]: virtual-machines-linux-how-to-log-on.md
+## Ressources supplémentaires
+[Connexion à une machine virtuelle exécutant Linux][Logon]
 
-<!---HONumber=58--> 
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md
+ 
+
+<!---HONumber=58_postMigration-->

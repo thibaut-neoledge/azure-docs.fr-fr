@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # Utilisation de jeux d'équilibrage de la charge pour regrouper MySQL sur Linux
@@ -324,7 +324,7 @@ La méthode dure consiste à arrêter la machine virtuelle principale (hadb01) v
 
 ## STONITH
 
-Il devrait être possible d'effectuer un arrêt de la machine virtuelle grâce aux outils en ligne de commande Azure pour Linux à la place d'un script STONITH contrôlant un périphérique physique. Vous pouvez utiliser `/usr/lib/stonith/plugins/external/ssh` comme base et activer STONITH dans la configuration du cluster. L'interface de ligne de commande Azure doit être installée globalement et les paramètres/le profil de publication doivent être chargés pour l'utilisateur du cluster.
+Il doit être possible d’effectuer un arrêt de la machine virtuelle grâce aux outils en ligne de commande Azure pour Linux à la place d’un script STONITH contrôlant un périphérique physique. Vous pouvez utiliser `/usr/lib/stonith/plugins/external/ssh` comme base et activer STONITH dans la configuration du cluster. L'interface de ligne de commande Azure doit être installée globalement et les paramètres/le profil de publication doivent être chargés pour l'utilisateur du cluster.
 
 Un exemple de code pour la ressource est disponible sur [GitHub](https://github.com/bureado/aztonith). Il est nécessaire de changer la configuration du cluster en ajoutant le code suivant à `sudo crm configure` :
 
@@ -346,5 +346,6 @@ Les limites suivantes s'appliquent :
 - L'équilibrage de charge a besoin d'au moins 5 secondes pour répondre. Les applications doivent donc être conscientes des clusters et plus tolérantes en matière de délai. D'autres architectures peuvent également aider, par exemple les files d'attente intégrées, les intergiciels de requête, etc.
 - Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

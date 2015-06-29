@@ -13,159 +13,161 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Activation de vos pipelines pour utiliser des données locales
 
-Pour activer vos pipelines dans une fabrique de données Azure pour utiliser une source de données locale, vous devez ajouter la source de données locale comme service lié à la fabrique de données à l'aide du portail de gestion Azure ou d'Azure PowerShell.
+Pour activer vos pipelines dans une fabrique de données Azure pour utiliser une source de données locale, vous devez ajouter la source de données locale comme service lié à la fabrique de données à l’aide du portail de gestion Azure ou d’Azure PowerShell.
  
-Pour ajouter une source de données locale comme service lié à une fabrique de données, vous devez d'abord télécharger et installer la passerelle de gestion de données Microsoft sur un ordinateur local et configurer le service lié pour que la source de données locale utilise la passerelle.
+Pour ajouter une source de données locale comme service lié à une fabrique de données, vous devez d’abord télécharger et installer la passerelle de gestion de données Microsoft sur un ordinateur local et configurer le service lié pour que la source de données locale utilise la passerelle.
 
 
 ## <a href="DMG"></a> Passerelle de gestion des données
 
-**Passerelle de gestion des données** est un logiciel qui se connecte à des sources de données sur site pour les services en nuage de façon gérée et sécurisée. Avec la passerelle de gestion de données, vous pouvez :
+La **passerelle de gestion des données** est un logiciel qui connecte des sources de données locales à des services cloud, de manière gérée et sécurisée. Avec la passerelle de gestion de données, vous pouvez :
 
-- **Se connecter à des données locales pour l'accès aux données hybride** – vous pouvez connecter des données locales aux services de cloud à bénéficier de services en nuage tout en conservant l'activité en cours d'exécution avec les données locales.
-- **Définir un proxy de sécuriser les données** – vous pouvez définir les sources de données sur site sont affichés avec la passerelle de gestion des données afin que cette passerelle authentifie la demande de données à partir des services de cloud computing et protège les sources de données sur site.
-- **Gérer votre passerelle pour la gouvernance complète** – vous sont fournis avec analyse complète et l'enregistrement de toutes les activités à l'intérieur de la passerelle de gestion des données de gestion et de gouvernance.
-- **Déplacer efficacement des données** – les données sont transférées en parallèle, les problèmes de réseau résistante aux intermittents avec auto logique de nouvelle tentative.
+- **Effectuer la connexion à des données locales pour accéder aux données hybrides** : vous pouvez connecter des données locales aux services cloud pour bénéficier des services cloud tout en conservant l’exécution des activités sur les données locales.
+- **Définir un proxy de données sécurisées** : vous pouvez définir les sources de données locales qui sont exposées avec la passerelle de gestion des données, afin que cette dernière authentifie la demande de données des services cloud et protège les sources de données locales.
+- **Gérer votre passerelle pour obtenir une gouvernance intégrale** : vous disposez de fonctions de surveillance et de journalisation intégrales de toutes les activités dans la passerelle de gestion des données, à des fins de gestion et de gouvernance.
+- **Déplacer les données efficacement** : les données sont transférées en parallèle et résistent aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
 
 
 La passerelle de gestion de données a une gamme complète de fonctionnalités de connexion de données locales qui incluent les éléments suivants :
 
-- **Non intrusive au pare-feu d'entreprise** – passerelle de gestion des données fonctionne uniquement après l'installation, sans avoir à ouvrir un pare-feu connexion nécessitant intrusive modifie à votre infrastructure de réseau d'entreprise. 
-- **Chiffrer les informations d'identification avec votre certificat** – informations d'identification utilisées pour se connecter aux sources de données sont cryptées avec un certificat entièrement détenu par un utilisateur. Sans certificat, personne ne peut déchiffrer les informations d'identification en texte brut, y compris Microsoft.
+- **Du pare-feu discret au pare-feu d’entreprise** : la passerelle de gestion des données fonctionne juste après son installation, sans vous obliger à ouvrir une connexion de pare-feu ni à apporter des modifications importantes à votre infrastructure de réseau d’entreprise. 
+- **Chiffrer les informations d’identification avec votre certificat** : les informations d’identification permettant de se connecter aux sources de données sont chiffrées avec un certificat entièrement détenu par un utilisateur. Sans certificat, personne ne peut déchiffrer les informations d’identification en texte brut, y compris Microsoft.
 
-### Considérations sur l'utilisation de la passerelle de gestion de données
-1.	Une seule instance de passerelle de gestion des données peut être utilisé pour plusieurs sources de données sur site, mais n'oubliez pas qu'un **passerelle est liée à une fabrique de données Azure** et ne peut pas être partagée avec une autre usine de données.
-2.	Vous pouvez avoir **qu'une seule instance de passerelle de gestion des données** installé sur votre ordinateur. Si deux fabriques de données doivent accéder aux sources de données locales, vous devez installer des passerelles sur deux ordinateurs locaux où chaque passerelle est liée à une fabrique de données distincte.
-3.	Le **passerelle ne pas besoin d'être sur le même ordinateur que la source de données**, mais rester proche de la source de données réduit le temps de la passerelle pour se connecter à la source de données. Nous vous recommandons d'installer la passerelle sur un ordinateur différent de celui qui héberge la source de données sur site afin que la passerelle de ne pas en concurrence pour les ressources avec la source de données.
-4.	Vous pouvez avoir **plusieurs passerelles sur différents ordinateurs connectés à la même source de données sur site**. Par exemple, vous pouvez avoir deux passerelles desservant deux fabriques de données, mais la même source de données locale est enregistrée avec à la fois les fabriques de données. 
-5.	Si vous disposez déjà d'une passerelle installée sur votre serveur de l'ordinateur un **Power BI** scénario, vous devez installer une **passerelle distinct pour Azure Data Factory** sur un autre ordinateur.
+### Considérations sur l’utilisation de la passerelle de gestion de données
+1.	Une instance unique de la passerelle de gestion de données peut être utilisée pour plusieurs sources de données locales, mais n’oubliez pas qu’une **passerelle est liée à une fabrique de données Microsoft Azure** et ne peut pas être partagée avec une autre fabrique de données.
+2.	Vous ne pouvez installer qu’**une seule instance de la passerelle de gestion de données** sur votre ordinateur. Si deux fabriques de données doivent accéder aux sources de données locales, vous devez installer des passerelles sur deux ordinateurs locaux où chaque passerelle est liée à une fabrique de données distincte.
+3.	Il n’est pas nécessaire que la **passerelle soit sur le même ordinateur que la source de données**, mais le fait qu’elle soit proche de cette dernière réduit le temps nécessaire à la passerelle pour se connecter à la source de données. Nous vous recommandons d’installer la passerelle sur un ordinateur différent de celui qui héberge la source de données locale, afin que la passerelle ne soit pas en concurrence avec la source de données pour l’octroi des ressources.
+4.	Vous pouvez avoir **plusieurs passerelles sur différents ordinateurs connectés à la même source de données locale**. Par exemple, vous pouvez avoir deux passerelles desservant deux fabriques de données, alors que la même source de données locale est enregistrée auprès des deux fabriques de données. 
+5.	Si une passerelle est déjà installée sur votre ordinateur desservant un scénario **Power BI**, installez une **passerelle distincte pour Azure Data Factory** sur un autre ordinateur.
 
-### Considérations de sécurité et de ports 
-- Le programme d'installation de passerelle de gestion des données ouvre **8050** et **8051** ports sur l'ordinateur de passerelle. Ces ports sont utilisés par le **Gestionnaire d'informations d'identification** (application ClickOnce), qui vous permet de définir les informations d'identification d'un service lié sur site et pour tester la connexion à la source de données. Ces ports ne peut pas être atteint à partir d'internet et vous ne devez sont pas ouvert dans le pare-feu d'entreprise.
-- Lors de la copie des données depuis/vers une base de données SQL Server sur site vers/à partir d'une base de données SQL Azure, vérifiez les points suivants :
+### Considérations liées aux ports et à la sécurité 
+- Le programme d’installation de la passerelle de gestion des données ouvre les ports **8050** et **8051** sur l’ordinateur de passerelle. Ces ports sont utilisés par le **Gestionnaire des informations d’identification** (application ClickOnce), qui vous permet de définir les informations d’identification d’un service lié local et de tester la connexion à la source de données. Ces ports ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
+- Lors de la copie des données depuis/vers une base de données SQL Server locale vers/à partir d’une base de données SQL Azure, vérifiez les points suivants :
  
-	- Le pare-feu sur l'ordinateur de passerelle autorise les communications TCP sortantes sur **TCP** port **1433**
-	- Configurer [les paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter le **adresse IP de l'ordinateur de passerelle** à la **adresses IP autorisées**.
+	- Le pare-feu sur l’ordinateur de passerelle autorise les communications TCP sortantes sur le port **TCP** **1433**.
+	- Configurez les [paramètres de pare-feu SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) pour ajouter l’**adresse IP de l’ordinateur de passerelle** aux **adresses IP autorisées**.
 
-- Lors de la copie des données depuis ou vers local SQL Server vers une destination et la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurer le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur le serveur SQL Server de l'ordinateur afin que la passerelle puisse accéder à la base de données via les ports utilisés par l'instance de SQL Server écoute. L'instance par défaut, il est le port 1433.
+- Lors de la copie des données depuis ou vers le serveur SQL Server local vers une destination, si la passerelle et les ordinateurs SQL Server sont différents, procédez comme suit : [configurez le pare-feu Windows](https://msdn.microsoft.com/library/ms175043.aspx) sur l’ordinateur SQL Server, afin que la passerelle puisse accéder à la base de données via les ports qu’écoute l’instance de SQL Server. Pour l’instance par défaut, il s’agit du port 1433.
 
-- Vous devez lancer le **Gestionnaire d'informations d'identification** de l'application sur un ordinateur qui est en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d'identification pour la source de données et pour tester la connexion à la source de données.
+- Vous devez lancer le **Gestionnaire des informations d’identification** de l’application sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
 
-### Installation de la passerelle - configuration requise 
+### Installation de la passerelle : configuration requise 
 
-1.	La prise en charge **système d'exploitation** versions sont Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
-2.	L'architecture recommandée **configuration** pour la passerelle machine est au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go de disque.
-3.	Si l'ordinateur hôte en veille prolongée, la passerelle sera en mesure de répondre aux demandes de données. Par conséquent, configurer une **de l'alimentation** sur l'ordinateur avant d'installer la passerelle. L'installation de la passerelle vous invite à entrer un message si l'ordinateur est configuré pour la mise en veille prolongée.  
+1.	Les versions de **système d’exploitation** prises en charge sont les suivantes : Windows 7, Windows 8/8.1, Windows Server 2008 R2 et Windows Server 2012.
+2.	La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
+3.	Si l’ordinateur hôte est en veille prolongée, la passerelle n’est pas en mesure de répondre à la demande de données. Vous devez donc configurer un **plan de gestion de l’alimentation** approprié sur l’ordinateur avant d’installer la passerelle. L’installation de la passerelle ouvre une invite si l’ordinateur est configuré pour la mise en veille prolongée.  
 
 
  
 
 ## Procédure pas à pas
 
-Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d'une base de données SQL Server locale vers un objet blob Azure.
+Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
 
-## Étape 1: Créer une fabrique de données Azure
-Dans cette étape, vous utilisez le portail de gestion Azure pour créer une instance de fabrique de données Azure nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l'aide des cmdlets Azure Data Factory.
+## Étape 1 : Création d’une fabrique de données Microsoft Azure
+Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour créer une instance Azure Data Factory nommée **ADFTutorialOnPremDF**. Vous pouvez également créer une fabrique de données à l’aide des cmdlets Azure Data Factory.
 
-1.	Après la connexion à la [portail Azure Preview][azure-preview-portal], cliquez sur **nouveau** dans le coin inférieur gauche, sélectionnez **l'analyse de données** dans les **créer** lame, puis cliquez sur **Data Factory** sur la **l'analyse de données** lame.
+1.	Une fois connecté au [portail Azure en version préliminaire][azure-preview-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Data Factory** dans le panneau **Analyse de données**.
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
   
-6. Dans le **nouvelle fabrique de données** lame :
-	1. Entrez **ADFTutorialOnPremDF** pour le **nom**.
-	2. Cliquez sur **nom de groupe de ressources** et sélectionnez **ADFTutorialResourceGroup** (si vous aviez réalisé le didacticiel de [prise en main Azure Data Factory][adfgetstarted]. Vous pouvez sélectionner un groupe de ressources existant ou en créer un. Pour créer un groupe de ressources :
-		1. Cliquez sur **créer un groupe de ressources**.
-		2. Dans le **volet du groupe de ressources créer**, entrez un **nom** pour le groupe de ressources, cliquez sur **OK**.
+6. Dans le panneau **Nouvelle fabrique de données** :
+	1. Saisissez **ADFTutorialOnPremDF** dans le champ **Nom**.
+	2. Cliquez sur **NOM DU GROUPE DE RESSOURCES** et sélectionnez **ADFTutorialResourceGroup** (si vous avez effectué le didacticiel de [prise en main d’Azure Data][adfgetstarted]). Vous pouvez sélectionner un groupe de ressources existant ou en créer un. Pour créer un groupe de ressources :
+		1. Cliquez sur **Créer un groupe de ressources**.
+		2. Dans le panneau **Créer un groupe de ressources**, saisissez un **nom** pour le groupe de ressources et cliquez sur **OK**.
 
-7. Notez que **Ajouter au tableau d'accueil** est vérifiée sur le **nouvelle fabrique de données** lame.
+7. Notez que l’option **Ajouter au tableau d’accueil** est activée sur le panneau **Nouvelle fabrique de données**.
 
-	![Ajouter au Tableau d'accueil][image-data-factory-add-to-startboard]
+	![Ajouter au Tableau d’accueil][image-data-factory-add-to-startboard]
 
-8. Dans le **nouvelle fabrique de données** lame, cliquez sur **créer**.
+8. Dans le panneau **Nouvelle fabrique de données**, cliquez sur **Créer**.
 
-	> [AZURE.NOTE]**Nom d'usine de données « ADFTutorialOnPremDF » n'est pas disponible**  
-9. Recherchez des notifications à partir du processus de création dans le **NOTIFICATIONS** hub sur la gauche. Cliquez sur **X** pour fermer la **NOTIFCATIONS** lame si elle est ouverte.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche : **Le nom de la fabrique de données « ADFTutorialOnPremDF » n'est pas disponible**, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialOnPremDF), puis essayez de la recréer. Utilisez ce nom à la place d'ADFTutorialOnPremDF quand vous effectuez les étapes restantes de ce didacticiel.
 
-	![Concentrateur de NOTIFICATIONS][image-data-factory-notifications-hub]
+9. Recherchez des notifications du processus de création dans le concentrateur **NOTIFICATIONS** sur la gauche. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 
-11. Une fois la création terminée, vous verrez la **Data Factory** lame comme indiqué ci-dessous :
+	![Concentrateur NOTIFICATIONS][image-data-factory-notifications-hub]
 
-	![Page d'accueil de fabrique de données][image-data-factory-datafactory-homepage]
+11. Une fois la création terminée, vous verrez apparaître le panneau **Data Factory** comme indiqué ci-dessous :
 
-## Étape 2: Créer une passerelle de gestion des données
-5.	Sur le **Data Factory** lame pour **ADFTutorialOnPremDF**, cliquez sur **Services liés**. 
+	![Page d’accueil Data Factory][image-data-factory-datafactory-homepage]
 
-	![Page d'accueil de fabrique de données][image-data-factory-home-age]
+## Étape 2 : Créer un portail de gestion des données
+5.	Dans le panneau **Data Factory** de **ADFTutorialOnPremDF**, cliquez sur **Services liés**. 
 
-2.	Sur le **Services liés** lame, cliquez sur **+ données passerelle**.
+	![Page d’accueil Data Factory][image-data-factory-home-age]
 
-	![Services liés - ajouter un bouton de passerelle][image-data-factory-linkedservices-add-gateway-button]
+2.	Dans le panneau **Services liés**, cliquez sur **+ Passerelle de données**.
 
-2. Dans le **créer** lame, entrez **adftutorialgateway** pour le **nom**, puis cliquez sur **OK**.
+	![Services liés - Ajouter un bouton Passerelle][image-data-factory-linkedservices-add-gateway-button]
 
-	![Créer la lame de passerelle][image-data-factory-create-gateway-blade]
+2. Dans le panneau **Créer**, saisissez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**.
 
-3. Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cette opération télécharge le package d'installation de la passerelle, installe, configure et inscrit la passerelle sur l'ordinateur.
+	![Panneau Créer une passerelle][image-data-factory-create-gateway-blade]
 
-	> [AzURE.NOTE]Utilisez Internet Explorer ou un navigateur compatible Microsoft ClickOnce.
+3. Dans le panneau **Configurer**, cliquez sur **Installer directement sur cet ordinateur**. Cette opération télécharge le package d’installation de la passerelle, installe, configure et inscrit la passerelle sur l’ordinateur.
 
-	![Passerelle - Panneau de configuration][image-data-factory-gateway-configure-blade]
+	> [AZURE.NOTE]Utilisez Internet Explorer ou un navigateur web compatible Microsoft ClickOnce.
 
-	Il s'agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir les **Gestionnaire de Configuration de passerelle de gestion de données de Microsoft** application est installée sur votre ordinateur. Vous pouvez également trouver l'exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+	![Passerelle - Panneau Configurer][image-data-factory-gateway-configure-blade]
 
-	Vous pouvez également télécharger et installer passerelle manuellement en utilisant les liens dans ce volet et inscrire à l'aide de la clé indiquée dans le **Enregistrer avec la clé** zone de texte.
+	Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+
+	Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de ce panneau et l’enregistrer à l’aide de la clé indiquée dans la zone de texte **ENREGISTRER AVEC LA CLÉ**.
 	
-	Voir [passerelle de gestion des données](#DMG) section pour plus d'informations sur la passerelle, y compris les meilleures pratiques et des considérations importantes.
+	Pour en savoir plus sur la passerelle, y compris les meilleures pratiques et des remarques importantes, consultez la section [Passerelle de gestion des données](#DMG).
 
-	>[AZURE.NOTE]Vous devez être administrateur sur l'ordinateur local pour installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local utilisateurs de gestion des données à l'aide de la passerelle. Les membres de ce groupe sera en mesure d'utiliser l'outil Gestionnaire de Configuration de passerelle de gestion de données pour configurer la passerelle.
+	>[AZURE.NOTE]Vous devez être administrateur sur l’ordinateur local pour pouvoir installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local d’utilisateurs de la passerelle de gestion des données. Les membres de ce groupe sont en mesure d’utiliser l’outil Gestionnaire de configuration de la passerelle de gestion de données pour configurer la passerelle.
 
-4. Cliquez sur le **NOTIFICATIONS** hub sur la gauche. Patientez jusqu'à ce que vous voyiez **Express le programme d'installation pour « adftutorialgateway » a réussi** de message dans le **Notifications** lame.
+4. Cliquez sur le concentrateur **NOTIFICATIONS**, sur la gauche. Patientez jusqu’à ce que le message **L’installation rapide de « adftutorialgateway » a réussi** s’affiche dans le panneau **Notifications**.
 
-	![Réussi de l'installation expresse][express-setup-succeeded]
-5. Cliquez sur **OK** sur la **créer** lame puis, dans le **nouvelle passerelle de données** lame.
-6. Fermer la **Services liés** blade (en appuyant sur **X** bouton dans le coin supérieur droit) et rouvrez le **Services liés** blade pour afficher le dernier état de la passerelle. 
-7. Vérifiez que le **état** de la passerelle est **Online**. 
+	![Réussite de l’installation rapide][express-setup-succeeded]
+5. Cliquez sur **OK** dans le panneau **Créer**, puis dans le panneau **Nouvelle passerelle de données**.
+6. Fermez le panneau **Services liés** (en appuyant sur le bouton **X** dans l’angle supérieur droit de la fenêtre) et rouvrez le panneau **Services liés** pour afficher le dernier état de la passerelle. 
+7. Vérifiez que l’**état** de la passerelle est **En ligne**. 
 
 	![État de la passerelle][gateway-status]
-5. Lancez **Gestionnaire de Configuration de passerelle de gestion de données de Microsoft** de l'application sur votre ordinateur.
+5. Lancez l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** sur votre ordinateur.
 
-	![Gestionnaire de Configuration de passerelle][image-data-factory-gateway-configuration-manager]
+	![Gestionnaire de configuration de la passerelle][image-data-factory-gateway-configuration-manager]
 
 6. Attendez que les valeurs soient définies comme suit :
-	1. Si le Service **état** n'a pas la valeur **démarré**, cliquez sur **Démarrer le service** pour démarrer le service et attendez une minute pour les autres champs à actualiser.
-	2. **Nom de la passerelle** a **adftutorialgateway**.
-	3. **Nom de l'instance** a **adftutorialgateway**.
-	4. **État de la passerelle clé** est définie sur **inscrit**.
-	5. L'état de la barre du bas affiche **connecté au Service de Cloud de passerelle de gestion de données** avec un **coche verte**.
+	1. Si l’**état** du service n’est pas défini sur **Démarré**, cliquez sur **Démarrer le service** pour démarrer le service et attendez une minute que les autres champs soient actualisés.
+	2. Le **nom de la passerelle** est défini sur **adftutorialgateway**.
+	3. Le **nom de l’instance** est défini sur **adftutorialgateway**.
+	4. L’**état de la clé de la passerelle** est défini sur **Enregistré**.
+	5. La barre d’état située au bas de l’écran affiche le message **Connecté au service de cloud de la passerelle de gestion de données** accompagné d’une **coche verte**.
 	
-7. Sur le **Services liés** lame, vérifiez que le **état** de la passerelle est **bonne**.
-8. Fermez toutes les lames jusqu'à ce que vous atteigniez le **Data Factory** page d'accueil. 
+7. Dans le panneau **Services liés**, vérifiez que l’**état** de la passerelle est bien défini sur **Correct**.
+8. Fermez tous les panneaux jusqu’à ce que vous atteigniez la page d’accueil de **Data Factory**. 
 
-## Étape 2: Créer des services liés 
-Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le **SqlServerLinkedService** lie une base de données SQL Server sur site et la **StorageLinkedService** service lié lie un magasin d'objets blob Azure pour le **ADFTutorialDataFactory**. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d'objets blob Azure.
+## Étape 2 : Créer des services liés 
+Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** lie une base de données SQL Server locale et le service lié **StorageLinkedService** lie un magasin d’objets blob Microsoft Azure à **ADFTutorialDataFactory**. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
 
-### Ajout d'un service lié à une base de données SQL Server locale
-1.	Dans le **DATA FACTORY** lame, cliquez sur **auteur et déployer** vignette pour lancer le **éditeur** pour la fabrique de données.
+### Ajout d’un service lié à une base de données SQL Server locale
+1.	Dans le panneau **DATA FACTORY**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
 
 	![Vignette Créer et déployer][image-author-deploy-tile]
 
-	> [AZURE.NOTE][Éditeur de fabrique de données][data-factory-editor]
-2.	Dans le **éditeur**, cliquez sur **nouveau magasin de données** bouton sur la barre d'outils et sélectionnez **base de données locale SQL server** dans le menu déroulant. 
+	Pour obtenir une présentation détaillée de Data Factory Editor, consultez la rubrique [Data Factory Editor][data-factory-editor].
 
-	![Éditeur nouveau bouton de magasin de données][image-editor-newdatastore-onpremsql-button]
+2.	Dans l’**éditeur**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Base de données SQL Server locale** dans le menu déroulant.
+
+	![Éditeur - Bouton Nouveau magasin de données][image-editor-newdatastore-onpremsql-button]
     
-3.	Vous devez voir le modèle JSON pour la création d'un service de serveur SQL lié sur site dans le volet droit. ![En l'inscrivant SQL Service lié - paramètres][image-editor-newdatastore-onpremsql-settings]
+3.	Vous devez voir apparaître le modèle JSON pour la création d’un service lié SQL Server local dans le volet droit. ![Service lié SQL local - Paramètres][image-editor-newdatastore-onpremsql-settings]
 
-4.	procédez comme suit dans le volet JSON :
-	1.	Pour le **gatewayName** propriété, entrez **adftutorialgateway** de remplacer tout le texte à l'intérieur des guillemets doubles.  
-	2.	Si vous utilisez **l'authentification SQL**: 
-		1.	Pour le **connectionString** propriété, remplacez **< nom_serveur >**, **< databasename >**, **< nom_utilisateur >**, et **< mot de passe >** avec des noms de votre SQL server sur site, une base de données, un compte d'utilisateur et un mot de passe.	
-		2.	Supprimer les deux dernières propriétés (** username ** et **mot de passe**) depuis le JSON de fichiers et de supprimer le **virgule (,)** caractère à la fin de la dernière ligne du script JSON restants.
+4.	Dans le volet JSON, procédez comme suit :
+	1.	Pour la propriété **gatewayName**, saisissez **adftutorialgateway** afin de remplacer l’ensemble du texte à l’intérieur des guillemets doubles.  
+	2.	Si vous utilisez l’**authentification SQL**, procédez comme suit : 
+		1.	Pour la propriété **connectionString**, remplacez **<nom_serveur>**, **<nom_BD>**, **<utilisateur>** et **<mot_de_passe>** par le nom de votre système SQL Server local, le nom de la base de données, le nom du compte d’utilisateur et le mot de passe.	
+		2.	Supprimez les deux dernières propriétés (**username** et **password**) du fichier JSON et supprimez la **virgule (,)** à la fin de la dernière ligne du script JSON restant.
 		
 				{
 	    			"name": "SqlServerLinkedService",
@@ -175,8 +177,8 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
 		        		"gatewayName": "adftutorialgateway"
 	    			}
 				}
-	3.	Si vous utilisez **l'authentification Windows**:
-		1. Pour le **connectionString** propriété, remplacez **< nom_serveur >** et **< databasename >** avec des noms de votre serveur SQL server sur site et la base de données. Définissez **la sécurité intégrée de** à **True**. Supprimer **ID** et **mot de passe** à partir de la chaîne de connexion.
+	3.	Si vous utilisez **l’authentification Windows**, procédez comme suit :
+		1. Pour la propriété **connectionString**, remplacez **<nom_serveur>** et **<nom_BD>** par le nom de votre serveur SQL local et de votre base de données. Définissez le paramètre **Sécurité intégrée** sur **True**. Supprimez les éléments **ID** et **Password** de la chaîne de connexion.
 			
 				{
     				"name": "SqlServerLinkedService",
@@ -189,39 +191,39 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServic
     				}
 				}		
 		
-6. Cliquez sur **déployer** sur la barre d'outils pour déployer le SqlServerLinkedService. Vérifiez que le message **lié SERVICE créé avec succès** sur la barre de titre. Vous devez également voir les **SqlServerLinkedService** dans l'arborescence sur la gauche.
+6. Cliquez sur l’option **Déployer** de la barre d’outils pour déployer le service lié SqlServerLinkedService. Vérifiez que le message **SERVICE LIÉ CRÉÉ AVEC SUCCÈS** s’affiche dans la barre de titre. Vous devez également voir apparaître **SqlServerLinkedService** dans l’arborescence de gauche.
 		   
 	![Déploiement SqlServerLinkedService réussi][image-editor-sql-linked-service-successful]
 	
   
-> [AZURE.NOTE]Vous pouvez également créer un service SQL Server est lié en cliquant sur **nouveau magasin de données** bouton de barre d'outils sur le **Services liés** lame. Si vous choisissez cette méthode, vous définissez les informations d'identification pour la source de données à l'aide de l'application ClickOnce de gestionnaire de références qui s'exécute sur l'ordinateur que l'accès au portail. Si vous accédez au portail à partir d'un ordinateur différent de l'ordinateur de passerelle, il se peut que vous devez vous assurer que l'application du Gestionnaire d'informations d'identification peut se connecter à l'ordinateur de passerelle. Si l'application ne peut pas atteindre l'ordinateur de passerelle, il n'autorise pas de définir les informations d'identification pour la source de données et de tester la connexion à la source de données.
+Vous pouvez également créer un service lié SQL Server en cliquant sur le bouton **Nouveau magasin de données** de la barre d’outils dans le panneau **Services liés**. Si vous choisissez cette méthode, vous définissez les informations d’identification pour la source de données à l’aide de l’application ClickOnce de gestionnaire d’informations d’identification qui s’exécute sur l’ordinateur accédant au portail. Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
-#### Ajout d'un service lié pour un compte de stockage Azure
+#### Ajout d’un service lié pour un compte de stockage Azure
  
-1. Dans le **éditeur**, cliquez sur **nouveau magasin de données** bouton sur la barre d'outils et sélectionnez **stockage Azure** dans le menu déroulant. Vous devez voir le modèle JSON pour la création d'un service de stockage Azure lié dans le volet droit. 
+1. Dans l’**éditeur**, cliquez sur le bouton **Nouveau magasin de données** de la barre d’outils, puis sélectionnez **Stockage Azure** dans le menu déroulant. Le modèle JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans le volet droit. 
 
-	![Éditeur nouveau bouton de magasin de données][image-editor-newdatastore-button]
+	![Éditeur - Bouton Nouveau magasin de données][image-editor-newdatastore-button]
     
-6. Remplacez **< nom_compte >** et **< accountkey >** avec le nom de compte et les valeurs de clé de compte pour votre compte de stockage Azure.
+6. Remplacez les éléments **<nom_compte>** et **<clé_compte>** par le nom du compte et les valeurs de clé de compte de votre compte Microsoft Azure Storage.
 
-	![Stockage d'objets Blob éditeur JSON][image-editor-blob-storage-json]
+	![Éditeur - Stockage d’objets blob - JSON][image-editor-blob-storage-json]
 	
-	> [AZURE.NOTE]Voir [référence de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971) pour plus d'informations sur les propriétés JSON.
+	Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-6. Cliquez sur **déployer** sur la barre d'outils pour déployer le StorageLinkedService. Vérifiez que le message **lié SERVICE créé avec succès** sur la barre de titre.
+6. Cliquez sur l’option **Déployer** de la barre d’outils pour déployer le service lié StorageLinkedService. Vérifiez que le message **SERVICE LIÉ CRÉÉ AVEC SUCCÈS** s’affiche dans la barre de titre.
 
-	![Stockage d'objets Blob éditeur déployer][image-editor-blob-storage-deploy]
+	![Éditeur - Stockage d’objets blob - Déployer][image-editor-blob-storage-deploy]
 
  
-## Étape 3: Créer d'entrée et sortie de datasets
-Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie qui représentent les données d'entrée et de sortie pour l'opération de copie (base de données SQL Server locale = > stockage d'objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
+## Étape 3 : Créer des jeux de données d’entrée et de sortie
+Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
 
-- Créez une table nommée **emp** dans la base de données SQL Server vous ajouté comme un service lié aux données en usine et insérer deux exemples d'entrées dans la table.
-- - Si vous n'avez pas suivi le didacticiel de [prise en main Azure Data Factory][adfgetstarted] l'article, créez un conteneur blob appelé **adftutorial** dans Azure blob compte de stockage que vous avez ajouté un service lié à la fabrication de données.
+- Créez une table nommée **emp** dans la base de données SQL Server que vous avez ajoutée en tant que service lié à la fabrique de données et insérez quelques exemples d’entrées dans la table.
+- - Si vous n’avez pas suivi le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted], créez un conteneur d’objets blob nommé **adftutorial** dans le compte de stockage d’objets blob Azure que vous avez ajouté en tant que service lié à la fabrique de données.
 
 ### Préparation du serveur SQL Server local pour le didacticiel
 
-1. Dans la base de données que vous avez spécifié pour le serveur local SQL Server liées service (** SqlServerLinkedService **), le script SQL suivant permet de créer le **emp** table dans la base de données.
+1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server local (**SqlServerLinkedService**), utilisez le script SQL suivant pour créer la table **emp** dans la base de données.
 
 
         CREATE TABLE dbo.emp
@@ -242,10 +244,10 @@ Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie
 
 
 
-### Créer une table d'entrée
+### Créer une table d’entrée
 
-1.	Dans le **données fabrique éditeur**, cliquez sur **nouveau dataset** dans la barre de commandes, cliquez sur **SQL sur site**. 
-2.	Remplacez le JSON dans le volet droit avec le texte suivant :    
+1.	Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commande, puis sur **SQL local**. 
+2.	Remplacez le code JSON du volet droit par le texte suivant :    
 
         {
     		"name": "EmpOnPremSQLTable",
@@ -274,20 +276,20 @@ Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie
 
 	Notez les points suivants :
 	
-	- emplacement **type** a **OnPremisesSqlServerTableLocation**.
-	- **tableName** est définie sur **emp**.
-	- **linkedServiceName** a **SqlServerLinkedService** (vous avez créé ce service lié à l'étape 2).
-	- Pour une table d'entrée n'est pas générée par un autre pipeline fabrique de données Azure, vous devez spécifier **waitOnExternal** section dans le JSON. Cela signifie que les données d'entrée sont produites à l'extérieur du service Azure Data Factory.   
+	- Le **type** de l’emplacement est défini sur **OnPremisesSqlServerTableLocation**.
+	- Le paramètre **tablename** est défini sur **emp**.
+	- Le paramètre **linkedServiceName** est défini sur **SqlServerLinkedService** (vous avez créé ce service lié à l’étape 2).
+	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez spécifier la section **waitOnExternal** dans le JSON. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory.   
 
-	Voir [référence de script JSON][json-script-reference] pour plus d'informations sur les propriétés JSON.
+	Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON][json-script-reference].
 
-2. Cliquez sur **déployer** sur la barre de commandes pour déployer le groupe de données (table est un dataset rectangulaire). Vérifiez que vous voyez un message sur la barre de titre indique **TABLE déployé avec succès**.
+2. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le jeu de données (la table est un jeu de données rectangulaire). Vérifiez que le message **TABLE DÉPLOYÉE AVEC SUCCÈS** s’affiche dans la barre de titre.
 
 
 ### Créer la table de sortie
 
-1.	Dans le **données fabrique éditeur**, cliquez sur **nouveau dataset** dans la barre de commandes, cliquez sur **stockage d'objets Blob Azure**.
-2.	Remplacez le JSON dans le volet droit avec le texte suivant : 
+1.	Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commandes, puis sur **Stockage d’objets blob Azure**.
+2.	Remplacez le code JSON du volet droit par le texte suivant : 
 
 		{
     		"name": "OutputBlobTable",
@@ -314,16 +316,16 @@ Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie
   
 	Notez les points suivants :
 	
-	- emplacement **type** a **AzureBlobLocation**.
-	- **linkedServiceName** a **StorageLinkedService** (vous avez créé ce service lié à l'étape 2).
-	- **folderPath** a **adftutorial/outfromonpremdf** où outfromonpremdf est le dossier dans le conteneur adftutorial. Vous devez simplement créer le **adftutorial** conteneur.
-	- Le **disponibilité** est définie sur **toutes les heures** (** fréquence ** valeur **heure** et **intervalle** la valeur **1**). Le service de données fabrique génère une tranche de données de sortie toutes les heures dans les **emp** table dans la base de données SQL Azure. 
+	- Le **type** d’emplacement est défini sur **AzureBlobLocation**.
+	- Le paramètre **linkedServiceName** est défini sur **StorageLinkedService** (vous avez créé ce service lié à l’étape 2).
+	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
+	- Le paramètre de **disponibilité** est défini sur **Toutes les heures** (l’élément **frequency** est défini sur **hour** et l’élément **intervalle** a la valeur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
-	Si vous ne spécifiez pas un **nom de fichier** pour un **table d'entrée**, tous les fichiers BLOB à partir du dossier d'entrée (** folderPath **) sont considérés comme entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour obtenir des exemples.
+	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour en savoir plus.
  
 	Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
-	Pour définir **folderPath** et **fileName** dynamiquement selon le **SliceStart** fois, utilisez la propriété partitionedBy. Dans l'exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
+	Pour affecter une valeur aux paramètres **folderPath** et **fileName** de manière dynamique, en fonction de l’heure de **SliceStart**, utilisez la propriété partitionedBy. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -337,16 +339,16 @@ Dans cette étape, vous allez créer des jeux de données d'entrée et de sortie
 
  
 
-	Voir [référence de script JSON][json-script-reference] pour plus d'informations sur les propriétés JSON.
+	Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON][json-script-reference].
 
-2.	Cliquez sur **déployer** sur la barre de commandes pour déployer le groupe de données (table est un dataset rectangulaire). Vérifiez que vous voyez un message sur la barre de titre indique **TABLE déployé avec succès**.
+2.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le jeu de données (la table est un jeu de données rectangulaire). Vérifiez que le message **TABLE DÉPLOYÉE AVEC SUCCÈS** s’affiche dans la barre de titre.
   
 
-## Étape 4: Créer et exécuter un pipeline
-Dans cette étape, vous allez créer un **pipeline** avec un **activité copie** qui utilise **EmpOnPremSQLTable** en tant qu'entrée et **OutputBlobTable** en tant que sortie.
+## Étape 4 : Créer et exécuter un pipeline
+Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’activité** qui utilise **EmpOnPremSQLTable** en tant qu’entrée et **OutputBlobTable** en tant que sortie.
 
-1.	Cliquez sur **nouveau pipeline** sur la barre de commandes. Si vous ne voyez pas le bouton, cliquez sur **... (sélection)** pour développer la barre de commandes.
-2.	Remplacez le JSON dans le volet droit avec le texte suivant :   
+1.	Cliquez sur **Nouveau pipeline** dans la barre de commandes. Si le bouton ne s’affiche pas, cliquez sur **... (points de suspension)** pour développer la barre de commandes.
+2.	Remplacez le code JSON du volet droit par le texte suivant :   
 
 
         {
@@ -393,90 +395,96 @@ Dans cette étape, vous allez créer un **pipeline** avec un **activité copie**
 
 	Notez les points suivants :
  
-	- Dans la section des activités, il est uniquement d'activité dont **type** a **CopyActivity**.
-	- **Entrée** pour l'activité est définie sur **EmpOnPremSQLTable** et **sortie** pour l'activité est définie sur **OutputBlobTable**.
-	- Dans le **transformation** section, **SqlSource** est spécifié comme le **type de source de** et **BlobSink **est spécifié comme le **récepteur type**. - Requête SQL **sélectionner * de la table emp** est spécifié pour le **sqlReaderQuery** propriété du **SqlSource**.
+	- Dans la section des activités, toutes les activités ont le **type** **CopyActivity**.
+	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
+	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié comme **type de source**, et **BlobSink** comme **type sink**. - La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
-	> [AZURE.NOTE]Remplacez la valeur de la **Démarrer** propriété avec la date du jour et **fin** valeur avec le jour suivant. Les deux commencer et dates/heures de fin doivent être dans [au format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. Le **fin** temps est facultative, mais nous allons l'utiliser dans ce didacticiel. Si vous ne spécifiez pas de valeur pour le **fin** propriété, il est calculé en tant que « ** début + 48 heures ** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour le **fin** propriété. Vous définissez la durée dans lequel les tranches de données seront traités selon le **disponibilité** propriétés ont été définies pour chaque table de la fabrique de données Azure. Dans l'exemple ci-dessus, 24 tranches de données existent, car une tranche de données est générée toutes les heures.
+	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
-2. Cliquez sur **déployer** sur la barre de commandes pour déployer le groupe de données (table est un dataset rectangulaire). Vérifiez que vous voyez un message sur la barre de titre indique **PIPELINE déployé avec succès**.
-5. Maintenant, fermez le **éditeur** lame en cliquant sur **X**. Cliquez sur **X** à nouveau pour fermer le volet ADFTutorialDataFactory avec la vue arborescence et la barre d'outils. Si vous voyez **vos modifications non enregistrées seront ignorées** cliquez sur **OK**.
-6. Vous devez être à la **DATA FACTORY** lame pour le **ADFTutorialOnPremDF**.
+	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
+	
+	En spécifiant la période active pour un pipeline, vous définissez la durée pendant laquelle les tranches de données seront traitées, selon les propriétés de **disponibilité** qui ont été définies pour chaque table Azure Data Factory.
+	
+	Dans l'exemple ci-dessus, 24 tranches de données existent, car une tranche de données est générée toutes les heures.
+	
+2. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le jeu de données (la table est un jeu de données rectangulaire). Vérifiez que le message **PIPELINE DÉPLOYÉ AVEC SUCCÈS** s’affiche dans la barre de titre.
+5. Maintenant, fermez le panneau **Éditeur** en cliquant sur **X**. Cliquez de nouveau sur **X** pour fermer le panneau ADFTutorialDataFactory avec la vue d’arborescence et la barre d’outils. Si le message **Vos modifications non enregistrées seront ignorées** s’affiche, cliquez sur **OK**.
+6. Vous devez être revenu au panneau **DATA FACTORY** pour **ADFTutorialOnPremDF**.
 
 **Félicitations !** Vous avez correctement créé une fabrique de données Azure, les services liés, les tables et un pipeline et avez planifié le pipeline.
 
-### Vue de la fabrique de données dans une vue de diagramme 
-1. Dans le **portail Azure Preview**, cliquez sur **diagramme** vignette sur la page d'accueil de la **ADFTutorialOnPremDF** factory de données. :
+### Affichage d’une vue schématique d’une fabrique de données 
+1. Dans la **version préliminaire du portail Azure**, cliquez sur la vignette **Diagramme** sur la page d’accueil de la fabrique de données **ADFTutorialOnPremDF**.
 
-	![Lien de diagramme][image-data-factory-diagram-link]
+	![Lien Diagramme][image-data-factory-diagram-link]
 
 2. Le diagramme ressemble à ce qui suit :
 
-	![Vue de diagramme][image-data-factory-diagram-view]
+	![Vue schématique][image-data-factory-diagram-view]
 
-	Vous pouvez faire un zoom, un zoom arrière, zoom à 100 %, zoom pour ajuster automatiquement positionner les pipelines et les tables et afficher les informations de lignage (met en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-blick sur un objet (table d'entrée/sortie ou pipeline) pour afficher les propriétés pour celle-ci.
+	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d’entrée/de sortie) pour afficher les propriétés associées.
 
-## Étape 5: Surveiller les datasets et les pipelines
-Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour l'analyse, consultez [analyse et gestion de fabrique données Azure à l'aide de PowerShell][monitor-manage-powershell].
+## Étape 5 : surveiller les jeux de données et les pipelines
+Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour en savoir plus sur l’utilisation des applets de commande à des fins de surveillance, consultez la page [Surveillance et gestion d’Azure Data Factory à l’aide de PowerShell][monitor-manage-powershell].
 
-1. Accédez à **portail Azure Preview** (si vous l'avez fermé)
-2. Si le volet de **ADFTutorialOnPremDF** est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialOnPremDF** sur la **tableau d'accueil**.
-3. Vous devez voir les **nombre** et **noms** de tables et de pipeline que vous avez créé sur ce panneau.
+1. Ouvrez la **version préliminaire du portail Azure** (si vous l’avez fermée).
+2. Si le panneau **ADFTutorialOnPremDF** n’est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialOnPremDF** dans le **tableau d’accueil**.
+3. Vous devez voir le **nombre** et les **noms** des tables et du pipeline que vous avez créés dans ce panneau.
 
-	![Page d'accueil de fabrique de données][image-data-factory-homepage-2]
-4. Maintenant, cliquez sur **Datasets** vignette.
-5. Sur le **Datasets** lame, cliquez sur le **EmpOnPremSQLTable**.
+	![Page d’accueil Data Factory][image-data-factory-homepage-2]
+4. Cliquez maintenant sur la vignette **Jeux de données**.
+5. Dans le panneau **Jeux de données**, cliquez sur **EmpOnPremSQLTable**.
 
 	![Tranches EmpOnPremSQLTable][image-data-factory-onprem-sqltable-slices]
 
-6. Notez que les tranches de données à l'heure actuelle ont déjà été produits et qu'ils sont **prêt**. Cela est dû au fait que vous avez inséré les données dans la base de données SQL Server et qu'elles y sont tout le temps. Vérifiez qu'aucune coupe n'apparaît dans le **tranches problème** section en bas.
+6. Notez que les tranches de données jusqu’à l’heure actuelle ont déjà été produites et ont l’état **Prêt**. Cela est dû au fait que vous avez inséré les données dans la base de données SQL Server et qu’elles y sont tout le temps. Vérifiez qu’aucune tranche n’apparaît dans la section **Tranches problématiques**, sur la partie inférieure de la fenêtre.
 
 
-	Les deux **récemment mis à jour les tranches** et **Échec récemment tranches** listes sont triés par le **heure de dernière mise à jour**. L'heure de mise à jour d'une tranche de données est modifié dans les situations suivantes.
+	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l’**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
     
 
-	-  Vous mettre à jour l'état de la coupe manuellement, par exemple, à l'aide de la **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **exécuter** sur la **tranche** lame pour la tranche.
-	-  La tranche modifie l'état en raison d'une exécution (par exemple, une exécution démarré, une exécution s'est terminée et a échoué, une exécution s'est terminée et réussie, etc.).
+	-  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+	-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
  
-	Cliquez sur le titre des listes ou des **... (points de suspension)** Pour consulter la liste supérieure des tranches. Cliquez sur **filtre** sur la barre d'outils pour filtrer les secteurs.
+	Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches. Cliquez sur l’option **Filtre** de la barre d’outils pour filtrer les tranches.
 	
-	Pour afficher les tranches de données triés par les heures de début et de fin de tranche au lieu de cela, cliquez sur **tranches de données (par heure de tranche)** vignette.
+	Pour afficher les tranches de données triées en fonction des heures de début et de fin de la tranche, cliquez sur la vignette **Tranches de données (par heure de tranche)**.
 
-7. Maintenant, dans le **Datasets** lame, cliquez sur **OutputBlobTable**.
+7. Dans le panneau **Jeux de données**, cliquez sur **OutputBlobTable**.
 
 	![Tranches OputputBlobTable][image-data-factory-output-blobtable-slices]
-8. Vérifiez que les tranches jusqu'à l'heure actuelle sont produites et **prêt**. Attendez que les États des tranches jusqu'à l'heure actuelle sont définies sur **prêt**.
-9. Cliquez sur un secteur de données à partir de la liste et vous devez voir les **tranche de données** lame.
+8. Vérifiez que les tranches jusqu’à l’heure actuelle sont produites et à l’état **Prêt**. Attendez que les états des tranches jusqu’à l’heure actuelle soient définis sur **Prêt**.
+9. Cliquez sur une tranche de données dans la liste pour afficher le panneau **TRANCHE DE DONNÉES**.
 
-	![Lame de tranche de données][image-data-factory-dataslice-blade]
+	![Panneau Tranche de données][image-data-factory-dataslice-blade]
 
-	Si la section n'est pas dans le **prêt** état, vous pouvez voir les tranches en amont qui ne sont pas prêts et bloquent la tranche actuelle à partir de l'exécution dans le **tranches en amont qui ne sont pas prêts** liste.
+	Si la tranche n’a pas l’état **Prêt**, vous pouvez afficher les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
 
-10. Cliquez sur le **activité exécuter** dans la liste du bas pour afficher **Détails d'activité l'exécution**.
+10. Cliquez sur l’**exécution d’activité** dans la liste de la partie inférieure de la fenêtre pour afficher les **détails sur l’exécution d’activité**.
 
-	![Volet de détails de l'exécution d'activité][image-data-factory-activity-run-details]
+	![Panneau Détails sur l’exécution d’activité][image-data-factory-activity-run-details]
 
-11. Cliquez sur **X** pour fermer toutes les lames jusqu'à ce que vous reveniez à la lame de base pour le **ADFTutorialOnPremDF**.
-14. (facultatif) Cliquez sur **Pipelines**, cliquez sur **ADFTutorialOnPremDF**, et l'extraction des tables d'entrée (** consommé **) ou tables de sortie (** produit **).
-15. Utiliser des outils tels que **Azure Storage Explorer** pour vérifier la sortie.
+11. Cliquez sur **X** pour fermer tous les panneaux jusqu’à ce que vous reveniez au panneau d’accueil de l’élément **ADFTutorialOnPremDF**.
+14. (facultatif) Cliquez sur **Pipelines**, puis sur **ADFTutorialOnPremDF**, et accédez aux tables d’entrée (**Consommé**) ou aux tables de sortie (**Produit**).
+15. Utilisez des outils tels que l’**Explorateur de stockage Azure** pour contrôler la sortie.
 
 	![Azure Storage Explorer][image-data-factory-stroage-explorer]
 
 
-## Création et enregistrement d'une passerelle à l'aide d'Azure PowerShell 
-Cette section décrit comment créer et enregistrer une passerelle à l'aide des cmdlets Azure PowerShell.
+## Création et enregistrement d’une passerelle à l’aide d’Azure PowerShell 
+Cette section décrit comment créer et enregistrer une passerelle à l’aide des cmdlets Azure PowerShell.
 
 1. Lancez **Azure PowerShell** en mode administrateur. 
-2. Les applets de commande Azure Data Factory sont disponibles dans le **AzureResourceManager** mode. Exécutez la commande suivante pour basculer vers le **AzureResourceManager** mode.     
+2. Les applets de commande Azure Data Factory sont disponibles en mode **AzureResourceManager**. Exécutez la commande suivante pour basculer vers le mode **AzureResourceManager**.     
 
         switch-azuremode AzureResourceManager
 
 
-2. Utilisez le **New-AzureDataFactoryGateway** applet de commande pour créer une passerelle logique comme suit :
+2. Utilisez l’applet de commande **New-AzureDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
 		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Exemple de commande et de sortie**:
+	**Exemple de commande et de sortie** :
 
 
 		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
@@ -493,28 +501,28 @@ Cette section décrit comment créer et enregistrer une passerelle à l'aide des
 		ProvisioningState : Succeeded
 
 
-3. Utilisez le **New-AzureDataFactoryGatewayKey** applet de commande pour générer une clé d'inscription de la passerelle nouvellement créée et stocker la clé dans une variable locale **$Key**:
+3. Utilisez l’applet de commande **New-AzureDataFactoryGatewayKey** pour générer une clé d’inscription pour la nouvelle passerelle et stockez la clé dans une variable locale **$Key** :
 
 		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
-	**Exemple de sortie de commande :**
+	**Exemple de sortie de commande** :
 
 
 		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, basculez vers le dossier : **C:\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez **RegisterGateway.ps1** script associé à la variable locale **$Key** comme indiqué dans la commande suivante pour inscrire l'agent du client installé sur votre ordinateur avec la passerelle logique, vous créez précédemment.
+4. Dans Azure PowerShell, accédez au dossier suivant : **C:\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScrip** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
 		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
-5. Vous pouvez utiliser la **Get-AzureDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lors de la **état** montre **en ligne**, cela signifie que votre passerelle est prête à utiliser.
+5. Vous pouvez utiliser l’applet de commande **Get-AzureDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque l’**état** est **online**, cela signifie que votre passerelle est prête.
 
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-Vous pouvez supprimer une passerelle à l'aide de la **Remove-AzureDataFactoryGateway** applet de commande et de mise à jour la description d'une passerelle à l'aide du **AzureDataFactoryGateway de jeu** applets de commande. Pour obtenir la syntaxe et d'autres détails sur ces cmdlets, consultez la rubrique Référence des cmdlets Azure Data Factory.
+Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces cmdlets, consultez la rubrique Référence des cmdlets Azure Data Factory.
 
 
 
@@ -619,4 +627,4 @@ Vous pouvez supprimer une passerelle à l'aide de la **Remove-AzureDataFactoryGa
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

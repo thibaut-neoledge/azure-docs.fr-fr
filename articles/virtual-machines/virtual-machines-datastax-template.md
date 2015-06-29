@@ -44,7 +44,7 @@ Procédez comme suit pour créer un cluster Apache Cassandra basé sur DataStax,
 
 ### Étape 1-a : télécharger les fichiers de modèle à l'aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\Templates\DataStax).
+Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\\Templates\\DataStax).
 
 Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 
@@ -84,7 +84,7 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\Azure\Templates.
+Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -439,7 +439,7 @@ Les disques liés sont formatés durant les activités de préparation du nœud 
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh appartient au dossier **shared_scripts\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
+vm-disk-utils-0.1.sh appartient au dossier **shared_scripts\\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque. Ces fonctions peuvent être utilisées dans tous les modèles du référentiel.
 
 Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type distinct de ressources, avec une dépendance sur chaque nœud du cluster (et l'instance OpsCenter). Elles tirent parti du même mécanisme de bouclage de ressource que celui décrit pour les machines virtuelles :
 
@@ -480,5 +480,6 @@ Pour résumer, cette approche suggère de :
 -	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit, les configurations, etc.).
 
 Pour plus d'informations, consultez [Langage des modèles du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

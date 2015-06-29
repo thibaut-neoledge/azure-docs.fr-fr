@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # Fonctionnement d’Azure Active Directory
 
 
-[Présentation d’Azure AD](active-directory-whatis.md)<br> [Prise en main](active-directory-get-started.md)<br> [Étapes suivantes](active-directory-next-steps.md)<br> [En savoir plus](active-directory-learn-map.md)
+###Autres articles sur le sujet
+[Présentation d’Azure AD](active-directory-whatis.md)<br> [Comment cela fonctionne-t-il ?](active-directory-works.md)<br> [Prise en main](active-directory-get-started.md)<br> [Étapes suivantes](active-directory-next-steps.md)<br> [En savoir plus](active-directory-learn-map.md)
 
 
 Azure AD crée un paysage d'identité qui vous appartient dans le cloud. Il peut être connecté à votre système d'identité locale ou utilisé indépendamment.
@@ -47,5 +48,6 @@ Vous désirez en savoir plus sur la gestion d'Azure AD ? Comment bénéficier d
 
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

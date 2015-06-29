@@ -1,4 +1,3 @@
-﻿Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.<p> </p><b>Usage :</b> Effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 par an.<p> </p><b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA : University of California, School of Information and Computer Scienc.
+Sous-ensemble de la base de données Census de 1994, qui recense les adultes de plus de 16 ans en activité avec un index des revenus ajustés supérieur à 100.<p> </p><b>Utilisation :</b> effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.<p> </p><b>Recherche associée :</b> Kohavi, R, Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science
 
-
-<!--HONumber=42-->
+<!---HONumber=58_postMigration-->

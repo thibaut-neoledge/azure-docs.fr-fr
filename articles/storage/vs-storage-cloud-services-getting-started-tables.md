@@ -3,7 +3,7 @@
 	description="Prise en main du stockage de tables Azure dans un projet de service cloud dans Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (Projets de service cloud)
 
@@ -453,4 +453,7 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table Storage]: #tablestorage
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015" 
+	ms.date="06/11/2015" 
 	ms.author="kathydav"/>
 
 
@@ -34,16 +34,32 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 1. Connectez-vous à la machine virtuelle en cliquant sur **Connecter** dans la barre de commandes. Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Linux][].
 
-2. Dans la fenêtre SSH, tapez la commande suivante, puis entrez le mot de passe du compte que vous avez créé sur la machine virtuelle. Notez que le résultat de `waagent` peut varier légèrement en fonction de la version utilisée :
+2. Dans la fenêtre SSH, tapez la commande suivante. Notez que le résultat de `waagent` peut varier légèrement en fonction de la version utilisée :
 
-	`sudo waagent -deprovision`
+	`$ sudo waagent -deprovision+user`
+
+	Cette commande essaie de nettoyer le système et de le préparer pour le réapprovisionnement. Cette opération effectue les tâches suivantes :
+
+	- supprime toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
+	- efface la configuration de Nameserver dans /etc/resolv.conf ;
+	- supprime le mot de passe `root` de l’utilisateur de /etc/shadow (si Provisioning.DeleteRootPassword a la valeur « y » dans le fichier de configuration) ;
+	- supprime les baux du client DHCP mis en cache ;
+	- Réinitialise le nom d'hôte sur localhost.localdomain.
+	- efface le dernier compte d’utilisateur approvisionné (obtenu de /var/lib/waagent) **et les données associées**.
 
 	![Annuler l'approvisionnement de la machine virtuelle](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
+
+	>[AZURE.NOTE]L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur des machines virtuelles que vous souhaitez capturer dans un nouveau modèle d’image.
 
 
 3. Tapez **y** pour continuer.
 
 	![Annulation de l'approvisionnement de la machine virtuelle réussie](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
+
+	**Notez** que vous pouvez ajouter le paramètre `-force` pour éviter cette étape de confirmation.
+
+	>[AZURE.NOTE]L’annulation de l’approvisionnement généralise uniquement l’image Linux, mais ne garantit pas que l’image est exempte de toute information sensible et qu’elle convient pour la redistribution à des tiers.
+
 
 4. Tapez **Exit** pour fermer le client SSH.
 
@@ -61,8 +77,11 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	![Capture d'image réussie](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
+
 ##Étapes suivantes##
 L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Pour ce faire, vous créerez une machine virtuelle personalisée en utilisant la méthode **From Gallery** et en sélectionnant l'image que vous venez de créer. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée][].
+
+**Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
 [Connexion à une machine virtuelle exécutant Linux]: virtual-machines-linux-how-to-log-on.md
 [À propos des images de machine virtuelle dans Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
@@ -70,4 +89,6 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

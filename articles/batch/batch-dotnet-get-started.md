@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Didacticiel - Prise en main de la bibliothèque Azure Batch pour .NET"
-	description="Découvrez les concepts de base sur le lot d'Azure et le développement du service de traitement par lots avec un scénario simple"
+	description="Découvrez les concepts de base d'Azure Batch et comment développer à l’aide du service Batch avec un scénario simple"
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="05/04/2015"
@@ -20,50 +20,50 @@
 
 Cet article contient les deux didacticiels suivants pour vous aider à commencer à développer avec la bibliothèque .NET pour le service Azure Batch.
 
--	[Didacticiel 1: Bibliothèque de commandes Azure pour .NET](#tutorial1)
--	[Didacticiel 2: La bibliothèque d'applications de traitement par lots Azure pour .NET](#tutorial2)  
+-	[Didacticiel 1 : bibliothèque Azure Batch pour .NET](#tutorial1)
+-	[Didacticiel 2 : bibliothèque d'applications Azure Batch pour .NET](#tutorial2)  
 
 
-Pour obtenir des informations générales et des scénarios pour le lot d'Azure, consultez [présentation technique de lot Azure](batch-technical-overview.md).
+Pour obtenir des informations générales et des scénarios pour Azure Batch, consultez [Présentation technique de Azure Batch](batch-technical-overview.md).
 
-##<a name="tutorial1"></a>Didacticiel 1: Bibliothèque de commandes Azure pour .NET
+##<a name="tutorial1"></a>Didacticiel 1 : bibliothèque Azure Batch pour .NET
 
 Ce didacticiel va vous montrer comment créer une application console qui configure le calcul distribué dans un pool de machines virtuelles à l'aide du service Azure Batch. Les tâches créées dans ce didacticiel évaluent le texte à partir de fichiers du stockage Azure et renvoient les mots les plus couramment utilisés. Les exemples ont été écrits en code C# et utilisent la bibliothèque Azure Batch pour .NET.
 
 
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 >
->Vous devez utiliser NuGet pour obtenir le **Microsoft.Azure.Batch.dll** assembly. Après avoir créé votre projet dans Visual Studio, cliquez sur le projet dans **l'Explorateur de solutions** et choisissez **Manage NuGet Packages**. Recherchez en ligne **Azure.Batch** puis cliquez sur Installer pour installer le package de lot Azure et les dépendances.
+>Vous devez utiliser NuGet pour obtenir l’assembly **Microsoft.Azure.Batch.dll**. Après avoir créé votre projet dans Visual Studio, cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions** et sélectionnez **Gérer les packages NuGet**. Recherchez en ligne **Azure.Batch** puis cliquez sur Installer pour installer le package Azure Batch et les dépendances.
 >
 >Assurez-vous que votre version du gestionnaire de package NuGet est la version 2.8 ou ultérieure. Vous trouverez le numéro de version dans Visual Studio -> Aide -> Boîte de dialogue À propos de Microsoft Visual Studio. Si vous avez une version antérieure du gestionnaire de package NuGet, vous devez mettre à jour Visual Studio. Sinon, vous aurez peut-être des difficultés à télécharger la version appropriée des dépendances NuGet.
 >
->En outre, vous pouvez faire référence à la [exemple Hello World pour Azure lot](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) sur MSDN pour obtenir un exemple similaire au code indiqué ici.
+>Par ailleurs, vous pouvez vous reporter à l’[exemple Azure Batch Hello World](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) sur MSDN pour obtenir un exemple similaire au code mentionné ici.
 
 
 
 ###Concepts
 Le service Batch est utilisé pour la planification d'un calcul distribué et évolutif. Il permet d'exécuter des charges de travail à grande échelle, distribuées entre plusieurs machines virtuelles. Ces charges de travail prennent en charge efficacement le calcul intensif. Lorsque vous utilisez le service Batch, vous profitez des ressources suivantes :
 
--	**Compte** - A identifié de manière unique l'entité au sein du service. Tout le traitement s'effectue via un compte Batch.
--	**Pool** – une collection d'ordinateurs virtuels de tâche sur les applications de la tâche Exécuter.
--	**Machine virtuelle** -un ordinateur qui est affecté à un pool et est utilisé par les tâches qui sont affectées aux tâches qui s'exécutent dans le pool.
--	**Utilisateur de Machine virtuelle de tâche** – un compte d'utilisateur sur une machine virtuelle.
--	**Workitem** -spécifie comment le calcul est effectué sur des machines virtuelles de tâche dans un pool.
--	**Travail** - une instance d'un élément de travail en cours d'exécution et se compose d'une collection de tâches.
--	**Tâches** : une application qui est associé à un travail et s'exécute sur une machine virtuelle.
--	**Fichier** – contient les informations traitées par une tâche.  
+-	**Compte** : une entité identifiée de manière unique au sein du service. Tout le traitement s'effectue via un compte Batch.
+-	**Pool** : une collection de machines virtuelles de tâche sur lesquelles les applications de tâche sont exécutées.
+-	**Machine virtuelle de tâche** : une machine qui est affectée à un pool et qui est utilisée par des tâches qui sont affectées aux travaux qui s'exécutent dans le pool.
+-	**Utilisateur de la machine virtuelle de tâche** : un compte d'utilisateur sur une machine virtuelle de tâche.
+-	**Élément de travail** : indique comment le calcul est effectué sur des machines virtuelles de tâche dans un pool.
+-	**Travail** : l’instance exécutée d'un élément de travail et qui se compose d'une collection de tâches.
+-	**Tâches** : une application qui est associée à un travail et s'exécute sur une machine virtuelle de tâche.
+-	**Fichier** : contient les informations traitées par une tâche.  
 
 Commençons par l'utilisation la plus simple.
 
 ###Création d'un compte Azure Batch
-Pour créer un compte Batch, vous pouvez utiliser le portail de gestion. Une clé vous est fournie une fois le compte créé. Pour plus d'informations, consultez [présentation technique de lot Azure](batch-technical-overview.md).
+Pour créer un compte Batch, vous pouvez utiliser le portail de gestion. Une clé vous est fournie une fois le compte créé. Pour plus d'informations, consultez [Présentation technique d’Azure Batch](batch-technical-overview.md).
 
-###Comment : ajouter un pool à un compte
+###Procédure d’ajout de pool à un compte
 Un pool de machines virtuelles de tâche est le premier jeu de ressources que vous devez créer lorsque vous souhaitez exécuter des tâches.
 
-1.	Ouvrez Microsoft Visual Studio 2013, sur le **fichier** menu, cliquez sur **nouveau**, puis cliquez sur **projet**.
+1.	Ouvrez Microsoft Visual Studio 2013, dans le menu **Fichier**, cliquez sur **Nouveau**, puis cliquez sur **Projet**.
 
-2.	À partir de **Windows**, sous **Visual C#**, cliquez sur **Application Console**, nommez le projet **GettingStarted**, nommez la solution **AzureBatch**, puis cliquez sur **OK**.
+2.	À partir de **Windows**, sous **Visual C#**, cliquez sur **Application console**, nommez le projet **GettingStarted**, nommez la solution **AzureBatch**, puis cliquez sur **OK**.
 
 3.	Ajoutez les déclarations d'espace de noms suivantes en haut du fichier Program.cs :
 
@@ -80,7 +80,7 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	Remplacez les valeurs suivantes:- **[nom de pool]** - le nom que vous souhaitez utiliser pour le pool. - **[nom de lot compte]** - le nom du lot compte. - **[clé de compte de traitement par lots]** -la clé qui vous a été fournie pour le compte de traitement par lots.
+	Remplacez les valeurs suivantes: - **[name-of-pool]** : le nom que vous souhaitez utiliser pour le pool. - **[name-of-batch-account]** : le nom du compte Batch - **[key-of-batch-account]** : la clé qui vous a été fournie pour le compte Batch.
 5.	Ajoutez le code suivant à la section Main pour définir les informations d'identification à utiliser :
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -89,8 +89,8 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		IBatchClient client = BatchClient.Connect(Uri, cred);
 7.	Ajoutez le code suivant à la section Main pour créer le pool s'il n'existe pas :
 
-		using (IPoolManager pm = client.OpenPoolManager())
-		{
+			using (IPoolManager pm = client.OpenPoolManager())
+			{
 		   IEnumerable<ICloudPool> pools = pm.ListPools();
 		   if (!pools.Select(pool => pool.Name).Contains(PoolName))
 		   {
@@ -102,12 +102,12 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		         targetDedicated: NumOfMachines);
 		       newPool.Commit();
 		    }
-		}
-		Console.WriteLine("Created pool {0}", PoolName);
-		Console.ReadLine();
-8.	Enregistrez et exécutez le programme. L'état est **Active** pour un pool a été ajouté avec succès.  
+			}
+			Console.WriteLine("Created pool {0}", PoolName);
+			Console.ReadLine();
+8.	Enregistrez et exécutez le programme. L'état est **Actif** pour un pool correctement ajouté.  
 
-###Comment : répertorier les pools d'un compte
+###Procédure pour répertorier les pools dans un compte
 Si vous ne connaissez pas le nom d'un pool existant, vous pouvez obtenir une liste dans un compte.
 
 1.	Ajoutez le code suivant à la section Main pour définir les informations d'identification à utiliser :  
@@ -153,7 +153,7 @@ Si vous ne connaissez pas le nom d'un pool existant, vous pouvez obtenir une lis
 		Pool: gettingstarted State:Active
 		Created pool gettingstarted. Press <Enter> to continue.
 
-###Comment : répertorier les éléments de travail dans un compte
+###Procédure pour répertorier les éléments de travail dans un compte
 Si vous ne connaissez pas le nom d'un élément de travail existant, vous pouvez obtenir une liste dans un compte.
 
 1.	Ajoutez le code suivant à la fin de la section Main pour enregistrer les noms et les états de tous les éléments de travail dans le compte :
@@ -171,14 +171,14 @@ Si vous ne connaissez pas le nom d'un élément de travail existant, vous pouvez
 		Console.ReadLine();
 7.	Enregistrez et exécutez le programme. Vous ne verrez probablement rien, car nous n'avons pas soumis d'élément de travail. Nous reviendrons sur l'ajout d'éléments de travail dans la section suivante.  
 
-##Comment : ajouter un élément de travail à un compte
+##Procédure d’ajout d’un élément de travail à un compte
 Vous devez créer un élément de travail pour définir la façon dont les tâches sont exécutées dans le pool.
 
 1.	Ajoutez les variables suivantes à la classe Program :
 
 		private static readonly string WorkItemName = Environment.GetEnvironmentVariable("USERNAME") + DateTime.Now.ToString("yyyyMMdd-HHmmss");
 
-2.	Quand un élément de travail est créé, un travail est également créé. Vous pouvez affecter un nom à l'élément de travail, mais la tâche reçoit toujours le nom de **0000000001 de travail**. Ajoutez le code suivant à la section Main (avant le code d'un élément de travail de liste) pour ajouter l'élément de travail :
+2.	Quand un élément de travail est créé, un travail est également créé. Vous pouvez attribuer un nom à l'élément de travail, mais le travail se voit toujours attribuer le nom de **job-0000000001**. Ajoutez le code suivant à la section Main (avant le code d'un élément de travail de liste) pour ajouter l'élément de travail :
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
@@ -188,7 +188,7 @@ Vous devez créer un élément de travail pour définir la façon dont les tâch
 		}
 		Console.WriteLine("Workitem successfully added. Press <Enter> to continue.");
 		Console.ReadLine();
-3.	Enregistrez et exécutez le programme. L'état est **Active** pour un élément de travail qui a été ajouté avec succès. La sortie suivante s'affiche.
+3.	Enregistrez et exécutez le programme. L'état est **Actif** pour un élément de travail correctement ajouté. La sortie suivante s'affiche.
 
 		Listing Pools
 		=================
@@ -202,7 +202,7 @@ Vous devez créer un élément de travail pour définir la façon dont les tâch
 		Workitem: yidingz20141106-111211 State:Active
 		Press <Enter> to continue.
 
-###Comment : ajouter des tâches à un travail
+###Procédure d’ajout de tâches à un travail
 Un élément de travail sans tâche ne fera rien. Après avoir créé l'élément de travail et le travail, vous pouvez y ajouter des tâches. Ajoutons une tâche simple au travail.
 
 1.	Ajoutez les variables suivantes à la classe Program :
@@ -253,7 +253,7 @@ Un élément de travail sans tâche ne fera rien. Après avoir créé l'élémen
 ###Création d'un programme de traitement de tâche
 Maintenant que nous pouvons exécuter « Hello world » sur une machine virtuelle, passons aux choses sérieuses. Nous allons créer un programme de traitement de tâche dans cette section et le télécharger sur la machine virtuelle de tâche qui exécute des tâches.
 
-1.	Dans l'Explorateur de solutions, créez un nouveau projet d'application console nommé **ProcessTaskData** dans les **AzureBatch** solutions.
+1.	Dans l'Explorateur de solutions, créez un nouveau projet d'application console nommé **ProcessTaskData** dans la solution **AzureBatch**.
 
 2.	Ajoutez les déclarations d'espace de noms suivantes en haut du fichier Program.cs :
 
@@ -297,7 +297,7 @@ Vous utiliserez le flux de travail de base suivant lorsque vous allez créer un 
 Nous avons montré les étapes 3 à 6. Voyons maintenant comment préparer Azure Storage pour l'exécution de la tâche.
 
 ####Obtention du compte de stockage
-Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. Si vous ne connaissez pas comment procéder, consultez [créer un compte Azure Storage](#tutorial1_storage).
+Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. Si vous ne savez pas comment procéder, consultez [Création d’un compte Azure Storage](#tutorial1_storage).
 
 ####Téléchargement de données
 
@@ -317,7 +317,7 @@ Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. S
 >[AZURE.NOTE]Dans un environnement de production, il est recommandé d'utiliser une signature d'accès partagé.
 
 
->[AZURE.NOTE]L'équipe stockage Azure a un [billet de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) liste des explorateurs de stockage Azure qui permettent le téléchargement de fichiers.
+>[AZURE.NOTE]L'équipe Azure Storage a rédigé un [billet de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) qui répertorie les explorateurs Azure Storage qui permettent de télécharger des fichiers.
 
 
 
@@ -326,7 +326,7 @@ Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. S
 1.	Ajoutez les variables suivantes à la classe Program :
 
 		private const string BlobPath = "[storage-path]";
-	Remplacez les valeurs suivantes:- **[chemin d'accès de stockage]** -le chemin d'accès à l'objet blob dans le stockage. Par exemple : http://yiding.blob.core.windows.net/gettingstarted/
+	Remplacez les valeurs suivantes :- **[storage-path]** : chemin d'accès de l'objet blob dans le stockage. Par exemple : http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Mettez à jour le code d'envoi de tâche comme suit.
 
@@ -376,7 +376,7 @@ Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. S
 		and 5
 		to 3
 
-###Comment : supprimer le pool et l'élément de travail
+###Procédure de suppression du pool et de l'élément de travail
 Après le traitement de votre élément de travail, vous pouvez libérer des ressources en supprimant le pool et l'élément de travail.
 
 ####Suppression du pool
@@ -402,29 +402,29 @@ Après le traitement de votre élément de travail, vous pouvez libérer des res
 		Console.ReadLine();
 2.	Enregistrez et exécutez le programme.
 
-###<a name="tutorial1_storage"></a>ANNEXE : Création d'un compte de stockage Azure
+###<a name="tutorial1_storage"></a>ANNEXE : création d'un compte Azure Storage
 Avant d'exécuter le code de ce didacticiel, vous devez avoir accès à un compte de stockage dans Azure.
 
 1.	Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com/).
-2.	En bas du volet de navigation, cliquez sur **nouveau**. ![][1]
-3.	Cliquez sur **DATA SERVICES**, puis **stockage**, puis cliquez sur **Création rapide**. ![][2]
+2.	En bas du volet de navigation, cliquez sur **NOUVEAU**. ![][1]
+3.	Cliquez sur **SERVICES DE DONNÉES**, puis sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**. ![][2]
 
-4.	Dans **URL**, tapez un nom de sous-domaine à utiliser dans l'URI pour le compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement.
-5.	Choisissez un **emplacement/groupe d'affinités** où trouver le stockage.
+4.	Dans **URL**, tapez un nom de sous-domaine à utiliser dans l'URI du compte de stockage. L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement.
+5.	Choisissez un **EMPLACEMNENT/GROUPE D’AFFINITÉS** dans lequel situer le stockage.
 6.	Vous pouvez éventuellement activer les géo-réplications.
 7.	Cliquez sur **CREATE STORAGE ACCOUNT**.  
 
-Pour plus d'informations sur le stockage Azure, consultez [comment utiliser le Service de stockage d'objets Blob Azure dans .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
+Pour plus d'informations sur Azure Storage, consultez [Utilisation du service de stockage d'objets blob Azure dans .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
 
 
-##<a name="tutorial2"></a>Didacticiel 2: La bibliothèque d'applications lot Azure pour .NET
+##<a name="tutorial2"></a>Didacticiel 2 : bibliothèque d'applications Azure Batch pour .NET
 Ce didacticiel vous montre comment exécuter des charges de travail de calcul parallèles sur Azure Batch à l'aide du service Batch Apps.
 
 Batch Apps est une fonctionnalité d'Azure Batch qui offre un moyen (centré sur les applications) de gérer et d'exécuter des charges de travail Batch. En utilisant le Kit de développement logiciel (SDK) Batch Apps, vous pouvez créer des packages permettant d'activer Batch dans une application, les déployer dans votre propre compte ou les rendre disponibles aux autres utilisateurs de Batch. Batch fournit également la gestion des données, la surveillance des travaux, les diagnostics et la journalisation intégrés, et la prise en charge des dépendances entre les tâches. En outre, il inclut un Portail de gestion où vous pouvez gérer les travaux, afficher les journaux et télécharger des sorties sans avoir à écrire votre propre client.
 
 Dans un scénario Batch Apps, vous écrivez du code utilisant le Kit de développement logiciel (SDK) Batch Apps Cloud pour partitionner des travaux en tâches parallèles, décrire toutes les dépendances entre ces tâches et spécifier l'exécution de chaque tâche. Ce code est déployé sur le compte Batch. Les clients peuvent ensuite exécuter les travaux simplement en spécifiant le type de travail et les fichiers d'entrée à une API REST.
 
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). Vous pouvez utiliser NuGet pour obtenir les deux le <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">lot applications Cloud</a> assembly et <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">lot applications Client</a> assembly. Après avoir créé votre projet dans Visual Studio, cliquez sur le projet dans **l'Explorateur de solutions** et choisissez **Manage NuGet Packages**. Vous pouvez également télécharger l'Extension Visual Studio pour les applications de traitement par lots qui inclut un modèle de projet de nuage-permettent aux applications et la possibilité de déployer une application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">ici</a> ou à l'aide de la recherche de **lot applications** dans Visual Studio via l'élément de menu Extensions et mises à jour. Vous trouverez également <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemples de bout en bout sur MSDN.</a>
+>[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/). Vous pouvez utiliser NuGet pour obtenir les assemblys <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a>et <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a>. Après avoir créé votre projet dans Visual Studio, cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions** et sélectionnez **Gérer les package NuGet**. Vous pouvez également télécharger l'extension Visual Studio pour Batch Apps qui inclut un modèle de projet permettant d’activer les applications dans le cloud et de déployer une application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">ici</a> ou en recherchant **Batch Apps** dans Visual Studio via l'option de menu Extensions et mises à jour. Vous trouverez également des <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemples de bout en bout sur MSDN.</a>
 >
 
 ###Principes de base d'Azure Batch Apps
@@ -434,7 +434,7 @@ Batch est conçu pour fonctionner avec les applications de calcul intensif exist
 2.	Créez un fichier .zip des « assemblys cloud » qui distribuent vos charges de travail à l'application, puis téléchargez-le via le Portail de gestion ou l'API REST. Un assembly cloud contient deux composants qui reposent sur le Kit de développement logiciel (SDK) Cloud :
 	1.	Outil de fractionnement du travail, qui décompose le travail en tâches qui peuvent être traitées indépendamment. Par exemple, dans un scénario d'animation, l'outil de fractionnement du travail prend une vidéo et la décompose en images individuelles.
 	2.	Processeur de tâches, qui appelle l'application exécutable pour une tâche donnée. Par exemple, dans un scénario d'animation, le processeur de tâches appelle un programme de rendu pour restituer l'image unique spécifiée par la tâche en cours d'exécution.
-3.	Fournissez un moyen d'envoyer des travaux à l'application activée dans Azure. Cela peut être un plug-in dans l'interface utilisateur de votre application ou un portail web, voire un service sans assistance dans le cadre de votre pipeline d'exécution. Consultez le <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemples</a> sur MSDN pour obtenir des exemples.
+3.	Fournissez un moyen d'envoyer des travaux à l'application activée dans Azure. Cela peut être un plug-in dans l'interface utilisateur de votre application ou un portail web, voire un service sans assistance dans le cadre de votre pipeline d'exécution. Pour obtenir des <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">exemples</a>, consultez la page Exemples sur MSDN.
 
 
 
@@ -448,10 +448,10 @@ Un **travail** est un élément de travail soumis par l'utilisateur. Lorsqu'un t
 Un **tâche** est un élément de travail à effectuer dans le cadre d'un travail. Lorsqu'un utilisateur envoie un travail, il est divisé en tâches plus petites. Le service traite ensuite ces tâches individuelles, puis assemble les résultats de la tâche dans une sortie de travail globale. La nature des tâches dépend du type de travail. L'outil de fractionnement du travail définit la manière dont un travail est divisé en tâches, en fonction de ce qu'il sait sur ce que l'application est amenée à traiter. Les sorties de tâche peuvent également être téléchargées séparément et peuvent être utiles dans certains cas, par exemple, quand un utilisateur souhaite télécharger des tâches individuelles à partir d'un travail d'animation.
 
 ####Tâches de fusion
-Un **tâche de fusion** est un type spécial de tâche qui assemble les résultats des tâches individuelles dans les résultats de la dernière tâche. Pour un travail de rendu de film, la tâche de fusion peut assembler les images restituées dans un film ou les compresser en un seul fichier. Chaque travail possède une tâche de fusion, même si en réalité, aucune « fusion » n'est nécessaire.
+Un **tâche de fusion** est un type spécial de tâche qui assemble les résultats des tâches individuelles dans le résultat final du travail. Pour un travail de rendu de film, la tâche de fusion peut assembler les images restituées dans un film ou les compresser en un seul fichier. Chaque travail possède une tâche de fusion, même si en réalité, aucune « fusion » n'est nécessaire.
 
 ####Fichiers
-Un **fichier** est un élément de données utilisés comme entrée pour un travail. Un travail peut avoir autant de fichiers d'entrée associés que nécessaire (zéro, un ou plusieurs). Le même fichier peut être utilisé dans plusieurs travaux, par exemple, pour un film rendu le travail, les fichiers peuvent être des textures, des modèles, etc.. Pour un travail d'analyse de données, les fichiers peuvent être un jeu des observations.
+Un **fichier** est un élément de données utilisé comme entrée d’un travail. Un travail peut avoir autant de fichiers d'entrée associés que nécessaire (zéro, un ou plusieurs). Le même fichier peut être utilisé dans plusieurs travaux, par exemple, pour un travail de rendu d’un film, les fichiers peuvent contenir des textures, des modèles, etc. Pour un travail d'analyse de données, les fichiers peuvent être un jeu d’observations ou de mesures.
 
 ###Activation de l'application cloud
 Votre application doit contenir une propriété ou un champ statique qui contient tous les détails de votre application (spécification du nom de l'application et du ou des types de travail gérés par l'application). Ceci est fourni durant l'utilisation du modèle dans le Kit de développement logiciel (SDK) qui peut être téléchargé via la galerie Visual Studio.
@@ -602,4 +602,4 @@ Un travail décrit une charge de travail à exécuter et doit inclure toutes les
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

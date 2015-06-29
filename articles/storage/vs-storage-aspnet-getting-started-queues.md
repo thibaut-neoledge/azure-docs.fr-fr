@@ -3,7 +3,7 @@
 	description="Mise en route de l’utilisation du stockage de files d’attente Azure dans un projet ASP.NET dans Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET)
 
@@ -273,4 +273,6 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

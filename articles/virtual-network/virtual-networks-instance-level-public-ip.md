@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
@@ -24,8 +24,10 @@ Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP que vo
 
 Comme illustré à la Figure 1, le service cloud est accessible à l’aide d’une adresse IP virtuelle, tandis que les différentes machines virtuelles sont accessibles normalement par le biais de VIP:&lt;,numéro de port&gt;. L’attribution d’une adresse ILPIP à une machine virtuelle permet d’accéder à cette machine directement au moyen de cette adresse IP.
 
-Quand vous créez un service cloud dans Azure, les enregistrements DNS A correspondants sont automatiquement créés de façon à autoriser l’accès au service par le biais d’un nom de domaine complet (FQDN) plutôt qu’avec l’adresse IP virtuelle proprement dite. Le même processus se produit pour l’adresse ILPIP en permettant d’accéder à la machine virtuelle ou à l’instance de rôle par le nom de domaine complet plutôt que par l’intermédiaire de l’adresse ILPIP.
+Quand vous créez un service cloud dans Azure, les enregistrements DNS A correspondants sont automatiquement créés de façon à autoriser l’accès au service par le biais d’un nom de domaine complet (FQDN) plutôt qu’avec l’adresse IP virtuelle proprement dite. Le même processus se produit pour l’adresse ILPIP en permettant d’accéder à la machine virtuelle ou à l’instance de rôle par le nom de domaine complet plutôt que par l’intermédiaire de l’adresse ILPIP. Par exemple, si vous créez un service cloud nommé *contosoadservice*, et que vous configurez un rôle web nommé *contosoweb* avec deux instances, Azure inscrit les enregistrements A suivants pour les instances :
 
+- contosoweb_IN_0.contosoadservice.cloudapp.NET
+- contosoweb_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]Vous ne pouvez affecter qu’une seule adresse ILPIP par machine virtuelle ou instance de rôle. Vous pouvez utiliser jusqu’à 5 adresses ILPIP par abonnement. Pour l’instant, les adresses ILPIP ne sont pas prises en charge pour les machines virtuelles équipées de plusieurs cartes d’interface réseau.
 
@@ -116,14 +118,11 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## Voir aussi
+## Étapes suivantes
 
-[Adresses IP privées réservées (DIP)](../virtual-networks-reserved-private-ip)
-
-[Adresses IP publiques réservées](../virtual-networks-reserved-public-ip)
-
-[Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+[Adresse IP réservée](../virtual-networks-reserved-public-ip)
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

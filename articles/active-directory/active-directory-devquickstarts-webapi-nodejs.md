@@ -1176,5 +1176,6 @@ Clonez simplement sur votre ordinateur de développement et configurez comme ind
 [Bibliothèque ADAL pour Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [Bibliothèque ADAL pour .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

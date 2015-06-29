@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Connexion à la base de données SQL à l'aide de PHP sous Windows"
+	pageTitle="PHP sur Windows pour la base de données SQL | Microsoft Azure"
 	description="Présente un exemple de programme PHP qui se connecte à la base de données SQL Azure à partir d'un client Windows et fournit des liens vers les composants logiciels nécessaires requis par le client."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="meet-bhagdev"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="04/27/2015"
-	ms.author="genemi"/>
+	ms.date="06/10/2015"
+	ms.author="mebha"/>
 
 
 # Connexion à la base de données SQL à l'aide de PHP sous Windows
@@ -35,17 +35,17 @@ Pour exécuter l'exemple de code PHP fourni dans cette rubrique, les éléments 
 
 - [Pilotes Microsoft pour PHP pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contient les derniers bits)
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- Les installations spécifiques sont à exécuter à l'aide de [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). Pour plus d'informations, consultez la section suivante.
+- [Pilote Microsoft ODBC](https://www.microsoft.com/fr-fr/download/details.aspx?id=36434)
+- IIS Express
+- [PHP 5.6 for IIS Express](http://www.microsoft.com/web/downloads/platform.aspx) : téléchargez-le à partir du programme d'installation de la plateforme. Assurez-vous d'utiliser Internet Explorer pour télécharger le programme d'installation de la plateforme
+
+Consultez notre [blog de l'équipe](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) et notre [vidéo](https://www.youtube.com/watch?v=0oCjiRK_tUk) pour découvrir comment installer et configurer les exigences mentionnées précédemment.
 
 
-### Installations avec Web Platform Installer
+## Créer une base de données et récupérer la chaîne de connexion
 
 
-1. Téléchargez et exécutez [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) et sélectionnez les modules requis.
-2. Utilisez [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) pour installer les composants suivants :
- - IIS ou IIS Express.<br/>Par exemple, le [téléchargement pour IIS Express 8.0](http://www.microsoft.com/download/details.aspx?id=34679) est accessible en exécutant une recherche sur le Web : téléchargement IIS Express.
- - PHP pour Windows, version 5.5 ou ultérieure, version 32 bits.
-3. Modifiez le fichier PHP.INI en ajoutant une entrée dans la section Dynamic Extensions, comme ci-dessous :<br/>**extension=php_sqlsrv_55_nts.dll**
+Consultez la [rubrique Prise en main](sql-database-get-started.md) pour découvrir comment créer un exemple de base de données et obtenir votre chaîne de connexion. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
 
 ## Se connecter à la base de données SQL
@@ -59,12 +59,9 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 		try
 		{
 			$serverName = "tcp:myserver.database.windows.net,1433";
-
 			$connectionOptions = array("Database"=>"AdventureWorks",
 				"Uid"=>"MyUser", "PWD"=>"MyPassword");
-
 			$conn = sqlsrv_connect($serverName, $connectionOptions);
-
 			if($conn == false)
 				die(FormatErrors(sqlsrv_errors()));
 		}
@@ -75,7 +72,40 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 	}
 
 
-## Insérer des valeurs dans la table
+## Exécution d'une requête et récupération du jeu de résultats
+
+La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+
+	function ReadData()
+	{
+		try
+		{
+			$conn = OpenConnection();
+			$tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
+			$getProducts = sqlsrv_query($conn, $tsql);
+			if ($getProducts == FALSE)
+				die(FormatErrors(sqlsrv_errors()));
+			$productCount = 0;
+			while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
+			{
+				echo($row['CompanyName']);
+				echo("<br/>");
+				$productCount++;
+			}
+			sqlsrv_free_stmt($getProducts);
+			sqlsrv_close($conn);
+		}
+		catch(Exception $e)
+		{
+			echo("Error!");
+		}
+	}
+	
+
+## Insérer une ligne, transmettre des paramètres et récupérer la clé primaire générée
+
+
+Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l'objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -84,91 +114,17 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 		{
 			$conn = OpenConnection();
 
-			$tsql = "INSERT INTO [SalesLT].[Customer]
-					   ([NameStyle],[FirstName],[MiddleName],[LastName],
-					   [PasswordHash],[PasswordSalt],[rowguid],[ModifiedDate])
-					   VALUES (?,?,?,?,?,?,?,?)";
-
-			$params = array("0", "Luiz", "F", "Santos",
-				"L/Rlwxzp4w7RWmEgXX+/A7cXaePEPcp+KwQhl2fJL7w=",
-				"1KjXYs4=", "88949BFE-0BB4-4148-AFC2-DD8C8DAE4CD6",
-				date("Y-m-d"));
-
-			$insertReview = sqlsrv_prepare($conn, $tsql, $params);
+			$tsql = "INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT 			INSERTED.ProductID VALUES ('SQL Server 1', 'SQL Server 2', 0, 0, getdate())";
+			//Insert query
+			$insertReview = sqlsrv_query($conn, $tsql);
 			if($insertReview == FALSE)
 				die(FormatErrors( sqlsrv_errors()));
-
-			if(sqlsrv_execute($insertReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($insertReview);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## Supprimer des valeurs de la table
-
-
-	function DeleteData()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "DELETE FROM [SalesLT].[Customer] WHERE FirstName=? AND LastName=?";
-			$params = array($_REQUEST['FirstName'], $_REQUEST['LastName']);
-
-			$deleteReview = sqlsrv_prepare($conn, $tsql, $params);
-			if($deleteReview == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			if(sqlsrv_execute($deleteReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($deleteReview);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## Sélectionner des valeurs dans la table
-
-
-	function ReadData()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
-
-			$getProducts = sqlsrv_query($conn, $tsql);
-
-			if ($getProducts == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			$productCount = 0;
-
-			while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
-			{
-				echo($row['CompanyName']);
-				echo("<br/>");
-				$productCount++;
+			echo "Product Key inserted is :";	
+			while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
+			{   
+				echo($row['ProductID']);
 			}
-
-			sqlsrv_free_stmt($getProducts);
-
+			sqlsrv_free_stmt($insertReview);
 			sqlsrv_close($conn);
 		}
 		catch(Exception $e)
@@ -176,9 +132,17 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 			echo("Error!");
 		}
 	}
-
 
 ## Transactions
+
+
+Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
+
+-Commencez une transaction
+
+-Insérez une ligne de données, mettez à jour une autre ligne de données
+
+-Validez votre transaction si l'insertion et la mise à jour ont réussi et restaurez la transaction si l'une des deux a échoué
 
 
 	function Transactions()
@@ -190,73 +154,29 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 			if (sqlsrv_begin_transaction($conn) == FALSE)
 				die(FormatErrors(sqlsrv_errors()));
 
-			/* Initialize parameter values. */
-			$orderId = 43659;
-			$qty = 5;
-			$productId = 709;
-			$offerId = 1;
-			$price = 5.70;
-
-			/* Set up and execute the first query. */
-			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail
-			   (SalesOrderID,OrderQty,ProductID,SpecialOfferID,UnitPrice)
-			   VALUES (?, ?, ?, ?, ?)";
-			$params1 = array($orderId, $qty, $productId, $offerId, $price);
-			$stmt1 = sqlsrv_query($conn, $tsql1, $params1);
-
+			$tsql1 = "INSERT INTO SalesLT.SalesOrderDetail (SalesOrderID,OrderQty,ProductID,UnitPrice) 
+			VALUES (71774, 22, 709, 33)";
+			$stmt1 = sqlsrv_query($conn, $tsql1);
+			
 			/* Set up and execute the second query. */
-			$tsql2 = "UPDATE Production.ProductInventory SET Quantity = (Quantity - ?)
-					  WHERE ProductID = ?";
-			$params2 = array($qty, $productId);
-			$stmt2 = sqlsrv_query( $conn, $tsql2, $params2 );
-
+			$tsql2 = "UPDATE SalesLT.SalesOrderDetail SET OrderQty = (OrderQty + 1) WHERE ProductID = 709";
+			$stmt2 = sqlsrv_query( $conn, $tsql2);
+			
 			/* If both queries were successful, commit the transaction. */
 			/* Otherwise, rollback the transaction. */
 			if($stmt1 && $stmt2)
 			{
-					sqlsrv_commit($conn);
-					echo "Transaction was committed.\n";
+			       sqlsrv_commit($conn);
+			       echo("Transaction was commited");
 			}
 			else
 			{
-					sqlsrv_rollback($conn);
-					echo "Transaction was rolled back.\n";
+			    sqlsrv_rollback($conn);
+			    echo "Transaction was rolled back.\n";
 			}
-
 			/* Free statement and connection resources. */
 			sqlsrv_free_stmt( $stmt1);
 			sqlsrv_free_stmt( $stmt2);
-
-			sqlsrv_close($conn);
-		}
-		catch(Exception $e)
-		{
-			echo("Error!");
-		}
-	}
-
-
-## Procédures stockées
-
-
-	function ExecuteSProc()
-	{
-		try
-		{
-			$conn = OpenConnection();
-
-			$tsql = "EXEC [dbo].[uspLogError]";
-
-			$execReview = sqlsrv_prepare($conn, $tsql);
-			if($execReview == FALSE)
-				die(FormatErrors( sqlsrv_errors()));
-
-			if(sqlsrv_execute($execReview) == FALSE)
-				die(FormatErrors(sqlsrv_errors()));
-
-			sqlsrv_free_stmt($execReview);
-
-			sqlsrv_close($conn);
 		}
 		catch(Exception $e)
 		{
@@ -270,4 +190,6 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 
 Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [Accès aux bases de données du serveur SQL avec PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

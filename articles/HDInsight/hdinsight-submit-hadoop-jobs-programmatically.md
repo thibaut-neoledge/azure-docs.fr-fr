@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envoi de tâches Hadoop dans HDInsight | Azure" 
+	pageTitle="Envoi de tâches Hadoop dans HDInsight | Microsoft Azure" 
 	description="Apprenez à envoyer des tâches Hadoop à Azure HDInsight Hadoop." 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -13,19 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/15/2015" 
 	ms.author="jgao"/>
 
 # Envoi de tâches Hadoop dans HDInsight
 
 Découvrez comment utiliser Azure PowerShell pour envoyer des tâches MapReduce et Hive et comment utiliser le Kit de développement logiciel (SDK) HDInsight .NET pour envoyer des tâches MapReduce, des tâches de diffusion Hadoop et des tâches Hive.
 
-##Configuration requise
+> [AZURE.NOTE]Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d'informations sur l'utilisation d'un client Linux, OS X ou Unix avec MapReduce, Hive ou Pig dans HDInsight, consultez les articles suivants et sélectionnez les liens **SSH** ou **Curl** de chacun :
+>
+> - [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
+> - [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+> - [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+
+##Composants requis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main de HDInsight][hdinsight-get-started] ou la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
-* Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+* Un **cluster Azure HDInsight**. Pour obtenir des instructions, consultez le didacticiel [Prise en main de HDInsight][hdinsight-get-started] ou la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 
 ##Envoi de tâches MapReduce avec Azure PowerShell
@@ -104,7 +111,7 @@ L'un des exemples suivants permet de compter les fréquences des mots dans les f
 
 	Le dossier *example/data/WordCountOutput* est le dossier de sortie spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour la sortie de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers que le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actuel est le dossier racine C:. Le fichier est téléchargé dans :
 
-*C:\\example\\data\\WordCountOutput* 
+*C:\example\\data\\WordCountOutput* 
 
 5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
@@ -712,13 +719,14 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

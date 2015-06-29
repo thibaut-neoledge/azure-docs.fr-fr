@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -14,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Pour établir une connexion via la console série
+#### Pour établir une connexion via la console série
 
 1. Connectez votre câble série à l’appareil (directement ou via un adaptateur USB série).
 
@@ -22,7 +23,7 @@
 
 3. Identifiez le port COM comme indiqué dans l’illustration suivante.
 
-     ![Connexion via la console série ](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Connexion via la console série](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
 4. Démarrez PuTTY.
 
@@ -37,10 +38,11 @@
 
     Ces paramètres sont affichés dans l’illustration suivante.
 
-     ![Paramètres puTTY](./media/storsimple-use-putty/HCS_ConnectingViaPutty-include.png)
+     ![Paramètres puTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
     > [AZURE.NOTE]Si le contrôle de flux par défaut ne fonctionne pas, essayez de définir le contrôle de flux sur XON/XOFF.
 
 7. Cliquez sur **Ouvrir** pour démarrer une session série.
  
-<!--HONumber=52-->
+
+<!---HONumber=58_postMigration-->

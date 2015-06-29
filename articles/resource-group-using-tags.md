@@ -56,7 +56,7 @@ Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressourc
 
 ![Définition de balises avec Set-AzureResourceGroup dans PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-N'oubliez pas que les balises sont mises à jour en tant qu'ensemble, et si vous ajoutez une balise à une ressource déjà balisée, vous devrez donc l'enregistrer en utilisant un tableau contenant toutes les balises que vous souhaitez conserver. Pour supprimer une balise, enregistrez simplement le tableau sans la balise que vous souhaitez supprimer.
+N'oubliez pas que les balises sont mises à jour en tant qu'ensemble, et que si vous ajoutez une balise à une ressource déjà balisée, vous devrez donc utiliser un tableau avec toutes les balises que vous souhaitez conserver. Pour supprimer une balise, enregistrez simplement le tableau sans la balise que vous souhaitez supprimer.
 
 Le processus est le même pour les ressources, sauf que vous allez utiliser les applets de commande `Get-AzureResource` et `Set-AzureResource`. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l'applet de commande `Get-AzureResource` ou `Get-AzureResourceGroup` avec le paramètre `-Tag`.
 
@@ -112,4 +112,4 @@ Gestion et audit de l’accès
 - [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

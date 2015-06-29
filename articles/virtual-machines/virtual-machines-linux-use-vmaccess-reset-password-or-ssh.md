@@ -251,7 +251,7 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 
 ## Ressources supplémentaires
 
-[Fonctionnalités et extensions de machine virtuelle Microsoft Azure][]
+[Fonctionnalités et extensions de machine virtuelle Azure][]
 
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH][]
 
@@ -259,7 +259,8 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 <!--Link references-->
 [Guide de l’utilisateur de l’agent Linux Azure]: virtual-machines-linux-agent-user-guide.md
 [Installation et configuration d’Azure PowerShell]: ../install-configure-powershell.md
-[Fonctionnalités et extensions de machine virtuelle Microsoft Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

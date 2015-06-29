@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Files d'attente Azure et files d'attente Service Bus : comparaison et différences"
-   description="analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure"
+   description="Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure."
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -316,5 +316,6 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Architecture de stockage Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Utilisation du service de mise en file d'attente dans Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

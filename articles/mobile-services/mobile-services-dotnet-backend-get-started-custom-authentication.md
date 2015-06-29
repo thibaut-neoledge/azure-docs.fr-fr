@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Prise en main de l'authentification personnalisée
@@ -52,9 +52,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]Les extraits de code dans ce didacticiel utilisent `todoContext` comme nom de contexte. Vous devez mettre à jour les extraits de code pour le contexte de votre projet.
-
-	Ensuite, vous allez configurer les fonctions de sécurité pour utiliser ces données.
+	>[AZURE.NOTE]Les extraits de code dans ce didacticiel utilisent `todoContext` comme nom de contexte. Vous devez mettre à jour les extraits de code pour le contexte de votre projet. Ensuite, vous allez configurer les fonctions de sécurité pour utiliser ces données.
  
 5. Créez une classe appelée `CustomLoginProviderUtils` et ajoutez l'instruction `using` suivante :
 
@@ -162,7 +160,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]Ce point de terminaison d'inscription est accessible par n'importe quel client via HTTP. Avant de publier ce
+>[AZURE.IMPORTANT]Ce point de terminaison d'inscription est accessible par n'importe quel client via HTTP. Avant de publier ce service dans un environnement de production, vous devez implémenter un schéma pour valider les enregistrements, tel qu'une vérification par SMS ou courrier électronique. Cela peut aider à empêcher un utilisateur malveillant de créer des inscriptions frauduleuses.
 
 ## Création du LoginProvider
 
@@ -217,10 +215,9 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
             return;
         }
 
-	Cette méthode est ici une instruction nulle (no-op), puisque **CustomLoginProvider** n'est pas intégré au pipeline d'authentification.
+	Cette méthode n'est pas implémentée, car **CustomLoginProvider** n'intègre pas le pipeline d'authentification.
 
 4. Ajoutez l'implémentation suivante de la méthode abstraite `ParseCredentials` à **CustomLoginProvider**.
- 
 
         public override ProviderCredentials ParseCredentials(JObject serialized)
         {
@@ -253,6 +250,12 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
         }
 
 	Cette méthode traduit un objet [ClaimsIdentity] en un objet [ProviderCredentials] utilisé dans la phase d'émission du jeton d'authentification. Vous pouvez, ici aussi, capturer toutes les revendications supplémentaires dans cette méthode.
+	
+6. Ouvrez le fichier de projet WebApiConfig.cs dans le dossier App_Start et la ligne de code suivante une fois que **ConfigOptions** est créé :
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Création du point de terminaison de connexion
 
@@ -415,4 +418,6 @@ C'est ici que s'achève ce didacticiel.
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple série 8000 Update 1.0"
+    pageTitle="Notes de publication de StorSimple série 8000 Update 1"
     description="Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement associés à StorSimple série 8000 Update 1."
     services="storsimple"
     documentationCenter="NA"
-    authors="alkohli"
+    authors="SharS"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="05/27/2015"
-    ms.author="alkohli" />
+    ms.date="06/05/2015"
+    ms.author="v-sharos" />
 
-# Notes de publication de StorSimple série 8000 Update 1.0  
+# Notes de publication de StorSimple série 8000 Update 1  
 
 ## Vue d'ensemble
 
-Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 1.0. Elles contiennent également la liste des mises à jour logicielles et de microprogramme incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014.
+Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 1. Elles contiennent également la liste des mises à jour logicielles et de microprogramme incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014.
 
 Cette mise à jour implique un changement de nom du logiciel de l’appareil, qui devient StorSimple série 8000 Update 1. Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple. Pour en savoir plus, consultez la section relative à l’[installation d’Update 1 sur votre appareil StorSimple](storsimple-install-update-1.md).
 
@@ -27,9 +27,10 @@ Lisez les informations contenues dans les notes de publication avant de déploye
 
 >[AZURE.IMPORTANT]
 > 
-- Pour installer Update 1.0, utilisez le service StorSimple Manager, non Windows PowerShell pour StorSimple.
+- Pour installer Update 1, utilisez le service StorSimple Manager, et non Windows PowerShell pour StorSimple.
 - Cette version comporte également des mises à jour de microprogramme du disque, qui peuvent être appliquées uniquement lorsque l’appareil est en mode Maintenance. Il s’agit des mises à jour entraînant des temps d’arrêt de votre appareil. Vous pouvez appliquer ces mises à jour durant les activités de maintenance planifiée.
 - L’installation de cette mise à jour prend entre 5 et 10 heures (en comptant les mises à jour Windows). 
+- Pour les nouvelles versions, vous ne voyez pas immédiatement les mises à jour, car nous effectuons un déploiement échelonné des mises à jour. Revérifiez les mises à jour dans quelques jours, car elles seront bientôt disponibles.
 
 ## Nouveautés de Update 1
 
@@ -46,11 +47,11 @@ Cette mise à jour contient les nouvelles fonctionnalités et améliorations sui
 
 - **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
 
-- **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant le logiciel de disponibilité générale utilisent des versions des API de service de Microsoft Azure Storage antérieures au 12 février 2012. Comme indiqué dans l’[annonce du retrait des versions de service de Microsoft Azure Storage](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), ces API seront rendues obsolètes le 10 décembre 2015. Il est impératif que vous installiez la version StorSimple série 8000 Update 1.0 avant le 9 décembre 2015. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
+- **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant le logiciel de disponibilité générale utilisent des versions des API de service de Microsoft Azure Storage antérieures au 12 février 2012. Comme indiqué dans l’[annonce du retrait des versions de service de Microsoft Azure Storage](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), ces API seront rendues obsolètes le 10 décembre 2015. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 9 décembre 2015. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
 
 - **Prise en charge du stockage redondant dans une zone** - Avec la mise à niveau vers la dernière version des API Microsoft Azure Storage, les appareils StorSimple série 8000 prendront en charge le stockage redondant dans une zone, en plus du stockage localement redondant et du stockage géo-redondant. Pour en savoir plus sur le stockage redondant dans une zone, consultez cet [article sur les options de redondance dans Microsoft Azure Storage](../storage/storage-redundancy.md).
 
-- **Expérience améliorée de déploiement initial et de mise à jour** - Dans cette version, les processus d’installation et de mise à jour ont été améliorés. L’installation via l’assistant de configuration permet désormais de signaler à l’utilisateur les paramétrages incorrects du pare-feu et les configuration réseau inappropriées. Des applets de commande de diagnostic supplémentaires ont été ajoutées, ceci pour vous permettre de résoudre les problèmes de mise en réseau de l’appareil. Pour en savoir plus sur ces applets de commande de diagnostic, consultez l’[article sur le déploiement de la résolution des problèmes](storsimple-troubleshoot-deployment/#cmdlets-available-for-troubleshooting.md).
+- **Expérience améliorée de déploiement initial et de mise à jour** - Dans cette version, les processus d’installation et de mise à jour ont été améliorés. L’installation via l’assistant de configuration permet désormais de signaler à l’utilisateur les paramétrages incorrects du pare-feu et les configuration réseau inappropriées. Des applets de commande de diagnostic supplémentaires ont été ajoutées, ceci pour vous permettre de résoudre les problèmes de mise en réseau de l’appareil. Pour en savoir plus sur ces applets de commande de diagnostic, consultez l’[article sur le déploiement de la résolution des problèmes](storsimple-troubleshoot-deployment.md).
 
 ## Problèmes résolus dans Update 1
 
@@ -82,7 +83,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
 | 7 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 8 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
-| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Oui | Oui |
+| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Oui | Oui |
 | 10| Migration | Lorsque plusieurs conteneurs de volumes sont transmis pour migration, l’heure prévue de la dernière sauvegarde est exacte uniquement pour le premier conteneur de volumes. Par ailleurs, la migration parallèle démarre après la migration des quatre premières sauvegardes du premier conteneur de volumes. | Nous vous recommandons de migrer un seul conteneur de volumes à la fois. | Oui | Non |
 | 11| Migration | Après la restauration, les volumes ne sont pas ajoutés à la stratégie de sauvegarde ni au groupe de disques virtuels. | Pour créer les sauvegardes, il vous faudra ajouter ces volumes à une stratégie de sauvegarde. | Oui | Oui |
 | 12| Migration | Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. | Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. | Oui | Non |
@@ -97,11 +98,11 @@ Lorsque ces mises à jour sont appliquées à un appareil physique, la version l
 
 Cette version met à jour le pilote et le microprogramme du contrôleur SAS de votre appareil physique. Elle met également à jour le microprogramme du disque sur votre appareil.
  
-- Pour en savoir plus sur la mise à jour du contrôleur SAS, consultez la section [Update 1 pour les contrôleurs SAS LSI dans Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=732454&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F005). 
+- Pour en savoir plus sur la mise à jour du contrôleur SAS, consultez la section [Update 1 pour les contrôleurs SAS LSI dans Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3043005). 
 
-- Pour en savoir plus sur la mise à jour du microprogramme, consultez la section [Mise à jour Update 1 du microprogramme pour Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767385&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F414).
+- Pour en savoir plus sur la mise à jour du microprogramme, consultez la section [Mise à jour Update 1 du microprogramme pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414).
 
-- Pour en savoir plus sur la mise à jour du microprogramme de disque, consultez la section [Mise à jour Update 1 du microprogramme de disque pour Microsoft Azure StorSimple Appliance](http://bemis.partners.extranet.microsoft.com/203/_layouts/ArticlePages/DisplayArticlePage.aspx?List=27d133d4%2D10ab%2D4795%2Dbb81%2D092dfe8c7866&ID=767387&RootFolder=%2F203%2FLists%2FPssxmlArticles%2F416).
+- Pour en savoir plus sur la mise à jour du microprogramme de disque, consultez la section [Mise à jour Update 1 du microprogramme de disque pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/fr-fr/kb/3063416).
  
 ## Mises à jour des appareils virtuels dans Update 1
 
@@ -110,5 +111,6 @@ Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’ins
 ## Étapes suivantes
 
 - [Installer Update 1 sur votre appareil](storsimple-install-update-1.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

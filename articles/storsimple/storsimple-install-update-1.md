@@ -3,7 +3,7 @@
    description="Explique comment installer la solution StorSimple série 8000 Update 1 sur votre appareil."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,23 +12,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/18/2015"
+   ms.author="alkohli" />
 
 # Installer Update 1 sur votre appareil StorSimple
 
 ## Vue d'ensemble
 
-Ce didacticiel explique comment installer Update 1 sur un appareil StorSimple exécutant une version logicielle antérieure à Update 1. Votre appareil peut exécuter les versions logicielles de disponibilité générale Update 0.1, Update 0.2 ou Update 0.3. Le tutoriel présente également la procédure à suivre en cas de configuration d’une passerelle sur une interface réseau différente de DATA 0 sur votre appareil StorSimple.
+Ce didacticiel explique comment installer Update 1 sur un appareil StorSimple exécutant une version logicielle antérieure à Update 1. Votre appareil peut exécuter les versions logicielles de disponibilité générale Update 0.1, Update 0.2 ou Update 0.3.
 
-Pendant cette installation, si votre appareil exécute une version antérieure à Update 1.0, des vérifications sont effectuées sur votre appareil. Ces vérifications déterminent l’intégrité de l’appareil, en ce qui concerne l’état du matériel et la connectivité réseau.
+Pendant cette installation, si votre appareil exécute une version antérieure à Update 1, des vérifications sont effectuées sur votre appareil. Ces vérifications déterminent l’intégrité de l’appareil, en ce qui concerne l’état du matériel et la connectivité réseau.
 
 Vous serez invité à effectuer une vérification préalable manuelle afin de vous assurer des points suivants :
 
 - Les adresses IP fixes du contrôleur sont routables et peuvent se connecter à l’Internet. Elles sont utilisées pour l’exécution des mises à jour sur votre appareil StorSimple. Pour tester le système, exécutez l’applet de commande suivant sur chaque contrôleur :
 
-    `Test-Connection -Source <fixed IP of your device controller> <Destination IP> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
+	**Résultat de l’exemple pour Test-Connection lorsque des adresses IP fixes peuvent se connecter à Internet**
+
+	    
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+
+	    Source	  Destination 	  IPV4Address    IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    
+	    
+
+
 - Avant de mettre à jour l’appareil, nous vous recommandons de prendre un instantané cloud des données de l’appareil.
 
 Une fois que vous avez vérifié et pris en compte les vérifications manuelles (voir ci-dessus), un ensemble de vérifications préalables à la mise à jour sont effectuées. Il s’agit des actions suivantes :
@@ -51,41 +75,6 @@ Nous vous recommandons d’utiliser le portail de gestion Microsoft Azure pour 
 
 [AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
 
-## Installer Update 1 sur un appareil présentant une passerelle sur une interface réseau différente de DATA 0. 
-
-Cette procédure s’applique aux appareils StorSimple exécutant une version logicielle antérieure à Update 1.0, avec une passerelle définie sur une interface réseau différente de DATA 0.
- 
-Si votre appareil ne possède pas de passerelle sur une interface réseau différente de DATA 0, vous pouvez mettre à jour votre périphérique directement à partir du portail de gestion. Consultez la section [Utiliser le portail de gestion pour installer Update 1](#use-the-management-portal-to-install-update-1).
- 
-> [AZURE.NOTE]Cette procédure ne doit être effectuée qu’une seule fois pour l’installation d’Update 1.0. Pour appliquer les mises à jour ultérieures, vous pouvez utiliser le portail de gestion Microsoft Azure.
- 
-Si votre appareil exécute un logiciel antérieur à Update 1.0 et qu’il possède une passerelle définie sur une interface réseau différente de DATA 0, vous pouvez installer Update 1.0 des deux manières suivantes :
-
-- **Option 1** : téléchargez la mise à jour et appliquez-la à l’aide de l’applet de commande [Start-HcsHotfix](https://technet.microsoft.com/library/dn688134.aspx) à partir de l’interface Windows PowerShell de l’appareil. Il s’agit de la méthode recommandée.
-
-- **Option 2** : installez la mise à jour directement à partir du portail de gestion.
- 
-Des instructions détaillées relatives à chacune des procédures sont fournies dans les sections suivantes.
-
-### Option 1 : Utiliser Windows PowerShell pour StorSimple pour appliquer Update 1
-
-Avant d'exécuter cette procédure pour appliquer la mise à jour, vérifiez les points suivants :
-
-- Les deux contrôleurs d’appareil sont en ligne.
-
-- Les interfaces DATA 2 et DATA 3 sont désactivées. Vous devez effectuer cette opération uniquement si les appareils exécutent la version de disponibilité générale. Il n’est pas nécessaire de désactiver les appareils exécutant Update 0.2 et 0.3. À l’issue de la mise à jour, vous pouvez à nouveau activer ces interfaces réseau.
- 
-Exécutez la procédure suivante pour installer Update 1.0. La mise à jour peut prendre quelques heures.
-
-[AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
-
-### Option 2: Utiliser le portail de gestion Microsoft Azure pour appliquer Update 1
-
-La mise à jour peut prendre quelques heures. Si vos hôtes se trouvent dans des sous-réseaux différents, le retrait de la configuration de passerelle sur les interfaces iSCSI pourrait entraîner un temps d’arrêt. Pour réduire le temps d’arrêt, nous vous recommandons de configurer DATA 0 pour le trafic iSCSI.
- 
-Suivez la procédure suivante pour annuler la configuration de passerelle, puis appliquez la mise à jour.
- 
-[AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
 ## Résolution des échecs de mise à jour
 
@@ -101,7 +90,7 @@ Vous devez vous assurer que les deux contrôleurs sont intègres et en ligne. Il
 
 Cela peut être dû au fait que vous ne disposez d’aucune connectivité aux serveurs Microsoft Update. Il s’agit d’une vérification manuelle obligatoire. Si vous perdez la connectivité au serveur de mise à jour, votre tâche de mise à jour est mise en échec. Pour vérifier la connectivité, exécutez l’applet de commande suivante à partir de l’interface Windows PowerShell de votre appareil StorSimple :
 
- `Test-Connection -Source <Fixed IP of your device controller> <Destination IP>`
+ `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
 Exécutez l’applet de commande sur les deux contrôleurs.
  
@@ -111,4 +100,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

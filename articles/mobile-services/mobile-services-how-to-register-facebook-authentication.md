@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/27/2015" 
 	ms.author="glenga"/>
 
 # Inscription des applications pour l'authentification Facebook avec Mobile Services
 
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
 Cette rubrique montre comment inscrire vos applications afin d'utiliser Facebook pour l'authentification auprès d'Azure Mobile Services.
 
-> [AZURE.NOTE]Ce didacticiel concerne [Azure Mobile Services], une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page est consacrée au didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Prise en main de l'authentification</a>, qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Prise en main de Mobile Services</a>.
+>[AZURE.NOTE]Ce didacticiel concerne [Azure Mobile Services], une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page est consacrée au didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Prise en main de l'authentification</a>, qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Prise en main de Mobile Services</a>.
 	
 Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
 
@@ -50,16 +52,15 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 7. Cliquez sur **Afficher**, indiquez votre mot de passe si vous y êtes invité, puis notez les valeurs **Identifiant de l'application** et **Clé secrète**.
 
-   	![][5]
-
-	> [AZURE.NOTE]**Remarque relative à la sécurité** : la clé secrète d'application est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
-
-
-8. Cliquez sur l'onglet **Avancé**, saisissez l'URL de votre service mobile suivie du chemin _/login/facebook_ dans **Valid OAuth redirect URIs**, puis cliquez sur **Enregistrer les modifications**.
-
-	> [AZURE.NOTE]Pour un service mobile de backend .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-facebook_ de votre service mobile en tant que service .NET, par exemple <code>https://todolist.azure-mobile.net/signin-facebook</code>.
+   	![][5] &nbsp;
 	
-	![][7]
+    >[AZURE.IMPORTANT]La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application. &nbsp;
+
+8. Cliquez sur l'onglet **Advanced**, tapez l'URL de votre service mobile suivie du chemin _/login/facebook_ dans **URI de redirection valide OAuth**, puis cliquez sur **Enregistrer les modifications**. &nbsp;
+
+     >[AZURE.NOTE]Pour un service mobile principal .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-facebook_ de votre service mobile en tant que service .NET, par exemple `https://todolist.azure-mobile.net/signin-facebook`.
+       
+	&nbsp; ![][7]
 
 9. Le compte Facebook pour lequel vous avez défini la nouvelle application est un administrateur de l'application et peut y accéder en tant que tel. Pour authentifier d'autres comptes Facebook, ils doivent accéder à l'application. Cette étape accorde l'accès public général, de manière à ce que l'application puisse authentifier d'autres comptes Facebook. Cliquez sur **Statut et vérification**. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
 
@@ -86,5 +87,6 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

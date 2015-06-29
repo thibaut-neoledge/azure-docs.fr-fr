@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -101,7 +101,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 
 ## Création d'une application Java exécutant une tâche qui nécessite beaucoup de ressources
 
-1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://www.windowsazure.com/develop/java/).
+1. Sur votre ordinateur de développement (qui n'est pas forcément celui où se trouve la machine virtuelle que vous avez créée), téléchargez le [Kit de développement logiciel (SDK) Azure pour Java](http://azure.microsoft.com/develop/java/).
 2. Créez une application console Java à l'aide de l'exemple de code disponible à la fin de cette section. Dans le cadre de ce didacticiel, nous utiliserons le nom de fichier Java **TSPSolver.java**. Modifiez les espaces réservés **your_service_bus_namespace**, **your_service_bus_owner** et **your_service_bus_key** pour utiliser respectivement vos valeurs Service Bus **Espace de noms**, **Émetteur par défaut** et **Clé par défaut**.
 3. Après le codage, exportez l'application dans une archive Java exécutable (JAR) et créez un package contenant les bibliothèques requises dans le fichier JAR généré. Dans le cadre de ce didacticiel, nous utiliserons le nom **TSPSolver.jar** pour désigner le fichier JAR généré.
 
@@ -265,7 +265,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("C:\TSP\\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 ### Exécution de l'application nécessitant beaucoup de ressources
 
 1. Connectez-vous à votre machine virtuelle.
-2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
-3. Copiez **TSPSolver.jar** sous **c:\TSP**.
-4. Créez un fichier intitulé **c:\TSP\cities.txt** avec le contenu suivant :
+2. Créez un dossier où vous exécuterez votre application. Par exemple, **C:\TSP**.
+3. Copiez **TSPSolver.jar** sous **C:\TSP**.
+4. Créez un fichier intitulé **C:\TSP\\cities.txt** avec le contenu suivant :
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. Depuis une invite de commandes, accédez au répertoire c:\TSP.
+5. Depuis une invite de commandes, accédez au répertoire C:\TSP.
 6. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
 7. Vous devez créer la file d'attente Service Bus avant d'exécuter les permutations de solveur TSP. Exécutez la commande suivante pour créer la file d'attente Service Bus :
 
@@ -484,10 +484,10 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
  
 ### Exécution de la surveillance de l'application cliente
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
-2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
-3. Copiez **TSPClient.jar** sous **c:\TSP**,
+2. Créez un dossier où vous exécuterez votre application. Par exemple, **C:\TSP**.
+3. Copiez **TSPClient.jar** sous **C:\TSP**,
 4. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
-5. Depuis une invite de commandes, accédez au répertoire c:\TSP.
+5. Depuis une invite de commandes, accédez au répertoire C:\TSP.
 6. Exécutez la commande suivante :
 
         java -jar TSPClient.jar
@@ -516,4 +516,7 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

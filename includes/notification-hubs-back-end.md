@@ -1,26 +1,25 @@
 
-Cette section montre comment envoyer des notifications à partir de .NET console application et toutes les autres.
-Si vous utilisez Mobile Services, reportez-vous aux didacticiels [Prise en main des notifications Push](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs à partir de Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Vous pouvez envoyer des notifications à partir d'un serveur principal à l'aide de l'[interface REST de Notification Hubs].
+Cette section montre comment envoyer des notifications à partir de l’application console .NET (entre autres). Si vous utilisez Mobile Services, reportez-vous aux didacticiels [Prise en main des notifications Push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Si vous souhaitez utiliser Java ou PHP, consultez la rubrique [Utilisation de Notification Hubs depuis Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Vous pouvez envoyer des notifications à partir d’un serveur principal à l’aide de l’[interface REST de Notification Hub](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Le code suivant envoie des notifications aux appareils Windows Store, Windows Phone, iOS et Android. 
+Le code suivant envoie des notifications aux appareils Windows Store, Windows Phone, iOS et Android.
 
-Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
+Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsque vous avez effectué la [prise en main des Notification Hubs][get-started].
 
-1. Dans Visual Studio, créez une application de console Visual C# : 
+1. Dans Visual Studio, créez une application console Visual C# : 
 
    	![][13]
 
-2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèque** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
+2. Dans le menu principal de Visual Studio, cliquez sur **Outils**, **Gestionnaire de package de bibliothèques** et **Console du gestionnaire de package**, puis dans la fenêtre de la console, tapez la ligne suivante et appuyez sur **Entrée** :
 
         Install-Package WindowsAzure.ServiceBus
  	
-	Une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l'aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>. 
+	Une référence au Kit de développement logiciel (SDK) Azure Service Bus est ajoutée à l’aide du <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">package NuGet WindowsAzure.ServiceBus</a>.
 
-3. Ouvrez le fichier Program.cs et ajoutez l'instruction `using` suivante :
+3. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
         using Microsoft.ServiceBus.Notifications;
 
-4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
+4. Dans la classe `Program`, ajoutez la méthode suivante ou remplacez-la si elle existe déjà :
 
         private static async void SendNotificationAsync()
         {
@@ -69,13 +68,13 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
             }
 		 }
 
-	Ce code envoie des notifications à chacune des six balises du tableau de chaînes aux appareils iOS, Windows Store et Windows Phone. L'utilisation des balises permet d'envoyer les notifications uniquement aux appareils des catégories inscrites.
+	Ce code envoie des notifications à chacune des six balises du tableau de chaînes aux appareils iOS, Windows Store et Windows Phone. L’utilisation des balises permet d’envoyer les notifications uniquement aux appareils des catégories inscrites.
 	
-	> [AZURE.NOTE] Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d'envoi retournent une réponse d'erreur lorsque le Notification Hub n'a pas encore été configuré pour une plateforme cliente particulière. 
+	> [AZURE.NOTE]Ce code principal prend en charge les clients Windows Store, Windows Phone, iOS et Android. Les méthodes d’envoi retournent une réponse d’erreur lorsque le concentrateur de notification n’a pas encore été configuré pour une plateforme cliente particulière.
 
-6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom du concentrateur de notification et la chaîne de connexion pour  *DefaultFullSharedAccessSignature* obtenue précédemment.
+6. Dans le code ci-dessus, remplacez les espaces réservés `<hub name>` et `<connection string with full access>` par le nom de votre concentrateur de notification et par la chaîne de connexion de la signature *DefaultFullSharedAccessSignature* obtenue précédemment.
 
-7. Ajoutez les lignes suivantes à la méthode **Main** :
+7. Ajoutez les lignes suivantes à la méthode **Main** :
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -100,7 +99,5 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lorsqu
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
-[interface REST de Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-
-<!--HONumber=49-->
+<!---HONumber=58_postMigration-->

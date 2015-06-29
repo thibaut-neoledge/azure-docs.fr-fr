@@ -31,7 +31,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Ces étapes prennent environ 30 minutes.
 
-## Étape 1 : Ajouter une application à Microsoft Azure AD et définir les autorisations
+## Étape 1 : ajouter une application à Azure AD et définir les autorisations
 
 Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes pour Microsoft Azure Resource Manager, une application doit être ajoutée dans le répertoire par défaut. Pour ajouter une application, procédez comme suit :
 
@@ -51,7 +51,7 @@ Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes po
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/azureapplicationid.png)
 
-	>[AZURE.NOTE]Vous trouverez également l’identificateur d’application dans le champ d’ID client de l’application du portail de gestion.
+	>[AZURE.NOTE]Vous trouverez également l’identificateur d’application dans le champ d’ID client de l’application dans le portail de gestion.
 
 5. Remplacez {application-id} par l’identificateur que vous venez d’enregistrer, puis créez le principal du service pour l’application :
 
@@ -71,7 +71,7 @@ Les packages NuGet sont le moyen le plus simple pour installer les bibliothèque
 
 3. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
 
-4. Entrez *Active Directory* dans la zone de recherche, cliquez sur **Installer** pour le package de bibliothèque d’authentification Active Directory, puis suivez les instructions d’installation du package.
+4. Entrez *Active Directory* dans la zone de recherche, cliquez sur **Installer** pour le package de la bibliothèque d’authentification Active Directory, puis suivez les instructions pour installer le package.
 
 5. En haut de la page, sélectionnez **Inclure la version préliminaire**. Entrez *Calcul Microsoft Azure* dans la zone de recherche, cliquez sur **Installer** pour les bibliothèques de calcul .NET, puis suivez les instructions d’installations du package.
 
@@ -119,7 +119,7 @@ Maintenant que l’application Microsoft Azure Active Directory est créée et
           return token;
         }
 
-	Remplacez {application-id} par l’identificateur d’application que vous avez enregistré précédemment, {password} par le mot de passe que vous avez choisi pour l’application AD et {tenant-id} par l’identificateur de client de votre abonnement. Vous pouvez trouver l’ID de client en exécutant Get-AzureSubscription.
+	Remplacez {application-id} par l’identificateur d’application que vous avez enregistré précédemment, {password} par le mot de passe que vous avez choisi pour l’application AD et {tenant-id} par l’identificateur de client de votre abonnement. Pour trouver l’ID de client, exécutez Get-AzureSubscription.
 
 3.	Ajoutez le code suivant à la méthode Main dans le fichier Program.cs pour créer les informations d’identification :
 
@@ -381,10 +381,10 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 2.	Pour créer chaque ressource, appuyez sur **Entrée** après le renvoi de chaque code d’état. Une fois la machine virtuelle créée, effectuez l’étape suivante, puis appuyez sur Entrée pour supprimer toutes les ressources.
 
-	L’exécution complète de cette application console devrait prendre 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression de ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Microsoft Azure en version préliminaire ont bien été créées avant de les supprimer.
+	L’exécution complète de cette application console devrait durer 5 minutes environ. Avant d’appuyer sur Entrée pour démarrer la suppression de ressources, prenez quelques minutes pour vérifier que les ressources dans le portail Microsoft Azure en version préliminaire ont bien été créées avant de les supprimer.
 
 3. Parcourez les journaux d’audit dans le portail Microsoft Azure en version préliminaire pour connaître l’état des ressources :
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -95,4 +95,4 @@ La batterie de serveurs SharePoint utilise des scripts et le module Azure Resour
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

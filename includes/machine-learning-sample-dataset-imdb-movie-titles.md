@@ -1,4 +1,3 @@
-﻿Ce jeu de données contient des informations sur les films évalués dans Twitter : ID IMDB, titre du film et genre, année de production. Ce jeu de données contient 17 000 films. Il provient du document " S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. .
+Ce jeu de données contient des informations sur les films évalués dans des tweets sur Twitter : ID IMDB, titre du film et genre, année de production. Ce jeu de données contient 17 000 films. Il provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
 
-
-<!--HONumber=42-->
+<!---HONumber=58_postMigration-->

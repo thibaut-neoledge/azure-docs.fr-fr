@@ -134,5 +134,6 @@ Voici les informations de configuration :
 [SharePoint Server sur les services d’infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->
