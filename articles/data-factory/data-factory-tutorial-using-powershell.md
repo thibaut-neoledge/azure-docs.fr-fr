@@ -53,7 +53,8 @@ Dans cette procédure pas à pas, nous allons collecter des exemples de journaux
 	
 
 ## Vue d’ensemble
-Le flux de travail de bout en bout est représenté ci-dessous : ![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
+Le flux de travail de bout en bout est représenté ci-dessous :
+	![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
 
 1. Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob (RawGameEventsTable) et crée des partitions basées sur l’année, le mois et le jour (PartitionedGameEventsTable).
 2. Le pipeline **EnrichGameLogsPipeline** joint les événements de jeu partitionnés (table PartitionedGameEvents, qui est une sortie de PartitionGameLogsPipeline) avec un code géographique (RefGetoCodeDictionaryTable) et enrichit les données en mappant une adresse IP à la géolocalisation correspondante (EnrichedGameEventsTable).
@@ -193,7 +194,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
  
 ## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE]Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
+> [AZURE.NOTE] Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
 
 Dans cette étape, vous allez créer les services liés suivants : StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService et HDInsightLinkedService.
 
@@ -559,4 +560,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->

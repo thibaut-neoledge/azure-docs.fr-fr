@@ -144,7 +144,8 @@ Au cours de cette tâche, vous allez télécharger un certificat .PFX qui sera u
     1. Dans la section **Used for**, cliquez sur **Relying Party Application**, puis sélectionnez **Azure Web App** (que vous avez précédemment défini comme nom de votre application de partie de confiance).
     2. Dans la section **Type**, sélectionnez **X.509 Certificate**.
     3. Dans la section **Certificate**, cliquez sur le bouton Parcourir, puis accédez au fichier de certificat X.509 que vous souhaitez utiliser. Il s'agit d'un fichier .PFX. Sélectionnez le fichier, cliquez sur **Open**, puis saisissez le mot de passe du certificat dans la zone **Password**. Dans le cadre d'un test, vous pouvez utiliser un certificat auto-signé. Pour créer un certificat auto-signé, dans la boîte de dialogue **ACS Filter Library** (qui sera décrite ultérieurement), appuyez sur le bouton **New** ou servez-vous de l'utilitaire **encutil.exe** présent sur le [site web du projet][] de kit de démarrage Azure pour Java (par Microsoft Open Technologies).
-    4. Vérifiez que **Make Primary** est sélectionné. Votre page **Ajouter un certificat ou une clé de signature de jetons** doit être similaire à celle-ci. ![Ajouter un certificat de signature de jeton][add_token_signing_cert]
+    4. Vérifiez que **Make Primary** est sélectionné. Votre page **Ajouter un certificat ou une clé de signature de jetons** doit être similaire à celle-ci.
+        ![Ajouter un certificat de signature de jeton][add_token_signing_cert]
     5. Cliquez sur **Save** pour enregistrer vos paramètres et fermer la page **Add Token-Signing Certificate or Key**.
 
 Vérifiez ensuite les informations contenues dans la page d'intégration de l'application, puis copiez l'URI. Il vous permettra de configurer votre application Web Java afin qu'elle utilise ACS.
@@ -311,4 +312,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58_postMigration-->
+<!----HONumber=58_postMigration-->
