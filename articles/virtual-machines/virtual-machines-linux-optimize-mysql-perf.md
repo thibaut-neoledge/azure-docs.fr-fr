@@ -27,7 +27,7 @@ Le débit d’E/S disque et le temps de réponse d’E/S dans Azure peuvent êtr
 
 En plus des E/S disque, augmenter le niveau RAID améliore également les performances MySQL. Voir l’[annexe B](#AppendixB) pour plus d’informations.
 
-Il peut être intéressant de prendre en compte la taille de segment. En règle générale, lorsque vous disposez d’une plus grande taille de segment, vous obtiendrez une surcharge inférieure, en particulier pour les écritures de grande taille. Toutefois, lorsque la taille de segment est trop élevée, cela peut renforcer la surcharge et vous ne pouvez pas tirer parti de RAID. La taille actuelle de la valeur par défaut est de 512 Ko, ce qui est le plus approprié pour les environnements de production standard. Voir l’[annexe C](#AppendixC) pour plus d’informations.
+Il peut être intéressant de prendre en compte la taille de segment. En règle générale, lorsque vous disposez d’une plus grande taille de segment, vous obtiendrez une surcharge inférieure, en particulier pour les écritures de grande taille. Toutefois, lorsque la taille de segment est trop élevée, cela peut renforcer la surcharge et vous ne pouvez pas tirer parti de RAID. La taille actuelle de la valeur par défaut est de 512 Ko, ce qui est le plus approprié pour les environnements de production standard. Voir l’[annexe C](#AppendixC) pour plus d’informations.   
 
 Veuillez noter qu’il existe des limites sur le nombre de disques que vous pouvez ajouter, selon le type de machine virtuelle. Ces limites sont présentées en détail sur la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Vous aurez besoin de 4 disques de données attachés pour suivre l’exemple RAID de cet article, même si vous pouvez choisir de configurer RAID avec moins de disques.
 
@@ -42,7 +42,7 @@ Sur la page des Machines virtuelles du portail de gestion Azure, cliquez sur la 
 
 ![][1]
 
-Sur la page de la machine virtuelle, cliquez sur **Tableau de bord**.
+Sur la page de la machine virtuelle, cliquez sur **Tableau de bord**.  
 
 ![][2]
  
@@ -57,18 +57,18 @@ Puis cliquez sur **Attacher un disque vide**.
  
 Pour les disques de données, la propriété **Préférence de cache hôte** doit être définie sur **Aucune**.
 
-Cela ajoutera un disque vide à votre machine virtuelle. Répétez cette étape trois fois afin de disposer de 4 disques de données pour RAID.
+Cela ajoutera un disque vide à votre machine virtuelle. Répétez cette étape trois fois afin de disposer de 4 disques de données pour RAID.  
 
-Vous pouvez voir les disques ajoutés à la machine virtuelle en examinant le journal des messages du noyau. Par exemple, pour voir cela avec Ubuntu, utilisez la commande suivante :
+Vous pouvez voir les disques ajoutés à la machine virtuelle en examinant le journal des messages du noyau. Par exemple, pour voir cela avec Ubuntu, utilisez la commande suivante :  
 
 	sudo grep SCSI /var/log/dmesg
 
 ####Étape 2: Création de RAID avec les disques supplémentaires
-Suivez cet article pour obtenir la procédure détaillée d’installation RAID :
+Suivez cet article pour obtenir la procédure détaillée d’installation RAID :  
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE]Si vous utilisez le système de fichiers XFS, suivez les étapes ci-dessous après avoir créé le RAID.
+>[AZURE.NOTE] Si vous utilisez le système de fichiers XFS, suivez les étapes ci-dessous après avoir créé le RAID.
 
 Pour installer XFS sur Debian, Ubuntu ou Linux Mint, utilisez la commande suivante :
 
@@ -103,13 +103,13 @@ Linux implémente quatre types d’algorithmes de planification d’E/S :
 -	Algorithme de file d’attente complètement juste (CFQ)
 -	Algorithme de période de budget (anticipatif)  
 
-Vous pouvez sélectionner différents planificateurs d’E/S sous différents scénarios pour optimiser les performances. Dans un environnement à accès complètement aléatoire, il n’existe pas de grande différence entre les algorithmes CFQ et d’échéance du point de vue des performances. Il est généralement recommandé de définir l’environnement de base de données MySQL sur échéance pour la stabilité. En cas de nombreuses E/S séquentielles, CFQ peut réduire les performances d’E/S de disque.
+Vous pouvez sélectionner différents planificateurs d’E/S sous différents scénarios pour optimiser les performances. Dans un environnement à accès complètement aléatoire, il n’existe pas de grande différence entre les algorithmes CFQ et d’échéance du point de vue des performances. Il est généralement recommandé de définir l’environnement de base de données MySQL sur échéance pour la stabilité. En cas de nombreuses E/S séquentielles, CFQ peut réduire les performances d’E/S de disque.   
 
-Pour les disques SSD et autres équipements, NOOP ou échéance peuvent fournir de meilleures performances que le planificateur par défaut.
+Pour les disques SSD et autres équipements, NOOP ou échéance peuvent fournir de meilleures performances que le planificateur par défaut.   
 
 À partir du noyau 2.5, l’algorithme de planification d’E/S par défaut est échéance. À partir du noyau 2.6.18, CFQ est devenu l’algorithme de planification d’E/S par défaut. Vous pouvez spécifier ce paramètre au moment du démarrage du noyau ou le modifier dynamiquement lorsque le système est en cours d’exécution.
 
-L’exemple suivant montre comment vérifier et définir le planificateur par défaut sur l’algorithme NOOP.
+L’exemple suivant montre comment vérifier et définir le planificateur par défaut sur l’algorithme NOOP.  
 
 Pour la famille de distribution Debian :
 
@@ -131,9 +131,9 @@ Utilisez les commandes suivantes :
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE]Définir cette propriété pour /dev/sda uniquement n’est pas utile. Elle doit être définie sur tous les disques de données où réside la base de données.
+>[AZURE.NOTE] Définir cette propriété pour /dev/sda uniquement n’est pas utile. Elle doit être définie sur tous les disques de données où réside la base de données.
 
-Vous devriez voir la sortie suivante, qui indique que grub.cfg a été régénéré avec succès et que le planificateur par défaut a été mis à jour vers NOOP.
+Vous devriez voir la sortie suivante, qui indique que grub.cfg a été régénéré avec succès et que le planificateur par défaut a été mis à jour vers NOOP.  
 
 	Generating grub configuration file ...
 	Found linux image: /boot/vmlinuz-3.13.0-34-generic
@@ -167,7 +167,7 @@ Puis, remontez le système de fichiers avec la commande suivante :
 
 Testez le résultat modifié. Notez que lorsque vous modifiez le fichier de test, le temps d’accès n’est pas actualisé.
 
-Avant l’exemple :
+Avant l’exemple :		
 
 ![][5]
  
@@ -179,7 +179,7 @@ Après l’exemple :
 MySQL est une base de données à forte concurrence. Le nombre de handles concurrents est de 1024 pour Linux, ce qui n’est pas toujours suffisant. **Utilisez les étapes suivantes pour augmenter les handles simultanés maximaux du système pour prendre en charge la haute concurrence de MySQL**.
 
 ###Étape 1 : Modification du fichier limits.conf
-Ajoutez les quatre lignes suivantes dans le fichier /etc/security/limits.conf pour augmenter le nombre maximal de handles simultanés autorisés. Notez que 65536 est le nombre maximal que le système peut prendre en charge.
+Ajoutez les quatre lignes suivantes dans le fichier /etc/security/limits.conf pour augmenter le nombre maximal de handles simultanés autorisés. Notez que 65536 est le nombre maximal que le système peut prendre en charge.   
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -213,7 +213,8 @@ Les éléments de configuration suivants sont les principaux facteurs qui ont un
 -	**innodb_buffer_pool_size** : le pool de mémoires tampons contient les données mises en mémoire tampon et l’index. Il est généralement défini sur 70 % de la mémoire physique.
 -	**innodb_log_file_size** : il s’agit de la taille du journal de rétablissement. Vous utilisez des journaux de rétablissement pour vous assurer que les opérations d’écriture sont rapides, fiables et récupérables après une panne. Il est défini sur 512 Mo, afin de vous donner suffisamment d’espace disque pour la journalisation des opérations d’écriture.
 -	**max_connections** : parfois, les applications ne ferment pas les connexions correctement. Une valeur supérieure accordera au serveur davantage de temps pour recycler les connexions inactives. Le nombre maximal de connexions est de 10 000, mais le maximum recommandé est de 5000.
--	**Innodb_file_per_table** : ce paramètre active ou désactive la capacité de InnoDB de stocker des tables dans des fichiers distincts. Activer l’option garantit que plusieurs opérations d’administration avancées peuvent être appliquées efficacement. Du point de vue des performances, elle peut accélérer la transmission d’espace de table et optimiser les performances de gestion de débris. Par conséquent, le paramètre recommandé est ON.</br> À partir de MySQL 5.6, le paramètre par défaut est ON. Par conséquent, aucune action n’est requise. Pour les versions antérieures à 5.6, le paramètre par défaut est OFF. Il convient de le définir sur ON, et ce avant le chargement des données, étant donné que seules les tables nouvellement créées sont affectées.
+-	**Innodb_file_per_table** : ce paramètre active ou désactive la capacité de InnoDB de stocker des tables dans des fichiers distincts. Activer l’option garantit que plusieurs opérations d’administration avancées peuvent être appliquées efficacement. Du point de vue des performances, elle peut accélérer la transmission d’espace de table et optimiser les performances de gestion de débris. Par conséquent, le paramètre recommandé est ON.</br>
+	À partir de MySQL 5.6, le paramètre par défaut est ON. Par conséquent, aucune action n’est requise. Pour les versions antérieures à 5.6, le paramètre par défaut est OFF. Il convient de le définir sur ON, et ce avant le chargement des données, étant donné que seules les tables nouvellement créées sont affectées.
 -	**innodb_flush_log_at_trx_commit** : la valeur par défaut est 1 et l’étendue 0~2. La valeur par défaut est l’option la plus adaptée pour une base de données MySQL autonome. Choisir 2 offre la meilleure intégrité des données et convient à Master dans le cluster MySQL. Choisir 0 autorise la perte de données, ce qui peut avoir une incidence sur la fiabilité, dans certains cas avec de meilleures performances et convient à Slave dans le cluster MySQL.
 -	**Innodb_log_buffer_size** : le tampon journal autorise les transactions à s’exécuter, sans avoir à vider le journal sur le disque avant la validation des transactions. Toutefois, s’il existe des objets binaires ou un champ de texte volumineux, le cache est consommé très rapidement et des E/S disque fréquentes seront déclenchées. Il est préférable d’augmenter la taille de la mémoire tampon si la variable d’état Innodb_log_waits n’est pas 0.
 -	**query_cache_size** : le meilleur choix consiste à la désactiver dès le départ. Définissez query_cache_size sur 0 (ce qui est maintenant le paramètre par défaut dans MySQL 5.6) et utilisez d’autres méthodes pour accélérer les requêtes.  
@@ -237,7 +238,7 @@ Notez qu’il n’est pas activé par défaut. Activer le journal des requêtes 
 
 ###Étape 3 : Vérifiez si le paramètre prend effet à l’aide de la commande « show »
  
-![][7]
+![][7]   
    
 ![][8]
  
@@ -265,13 +266,15 @@ Vous trouverez ci-dessous des exemples de données de test de performances obten
 <a name="AppendixB"></a>Annexe B : **Comparaison des performances (débit) MySQL avec des niveaux RAID différents** (système de fichiers XFS)
 
  
-![][10] ![][11]
+![][10]  
+![][11]
 
 **Commandes de test :**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**Comparaison des performances (OLTP) MySQL avec des niveaux RAID différents** ![][12]
+**Comparaison des performances (OLTP) MySQL avec des niveaux RAID différents**  
+![][12]
 
 **Commandes de test :**
 

@@ -98,7 +98,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Prise en main de l'authentification]: mobile-services-windows-phone-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-windows-phone-get-started-push.md
 [Prise en main des notifications Push]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-
+[portail de gestion Azure]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 

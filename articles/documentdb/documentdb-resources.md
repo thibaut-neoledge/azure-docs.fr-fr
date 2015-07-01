@@ -350,7 +350,7 @@ L'exécution d'une procédure stockée s'effectue grâce à l'émission d'une in
 	        console.log("Error");
 	    });
 
-###Unregistering a stored procedure
+###Annulation de l'enregistrement d'une procédure stockée
 L'annulation de l'enregistrement d'une procédure stockée s'effectue simplement grâce à l'émission d'une instruction HTTP DELETE sur une ressource de procédure stockée existante.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
