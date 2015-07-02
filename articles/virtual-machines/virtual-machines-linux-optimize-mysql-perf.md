@@ -21,24 +21,24 @@
 De nombreux facteurs, en matière de choix de matériel virtuel et de configuration logicielle, ont une incidence sur les performances de MySQL sur Azure. Cet article se concentre sur l’optimisation des performances grâce aux configurations de stockage, système et de base de données.
 
 ##Utilisation de RAID sur une machine virtuelle Azure 
-Le stockage est le facteur clé en matière d’incidence sur les performances de base de données dans les environnements de cloud. Grâce à la concurrence, RAID peut fournir un accès plus rapide qu’un seul disque. Consultez la page[ Niveaux RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels) pour plus de détails.
+Le stockage est le facteur clé en matière d’incidence sur les performances de base de données dans les environnements de cloud. Grâce à la concurrence, RAID peut fournir un accès plus rapide qu’un seul disque. Consultez la page[ Niveaux RAID standard](http://en.wikipedia.org/wiki/Standard_RAID_levels) pour plus de détails.   
 
-Le débit d’E/S disque et le temps de réponse d’E/S dans Azure peuvent être considérablement améliorés grâce à RAID. Nos tests de laboratoire montrent que le débit d’E/S disque peut être multiplié par deux et le temps de réponse d’E/S réduit de moitié en moyenne lorsque le nombre de disques RAID est doublé (de 2 à 4, 4 à 8, etc.). Voir l’[annexe A](#AppendixA) pour plus d’informations.
+Le débit d’E/S disque et le temps de réponse d’E/S dans Azure peuvent être considérablement améliorés grâce à RAID. Nos tests de laboratoire montrent que le débit d’E/S disque peut être multiplié par deux et le temps de réponse d’E/S réduit de moitié en moyenne lorsque le nombre de disques RAID est doublé (de 2 à 4, 4 à 8, etc.). Voir l’[annexe A](#AppendixA) pour plus d’informations.  
 
-En plus des E/S disque, augmenter le niveau RAID améliore également les performances MySQL. Voir l’[annexe B](#AppendixB) pour plus d’informations.
+En plus des E/S disque, augmenter le niveau RAID améliore également les performances MySQL. Voir l’[annexe B](#AppendixB) pour plus d’informations.  
 
 Il peut être intéressant de prendre en compte la taille de segment. En règle générale, lorsque vous disposez d’une plus grande taille de segment, vous obtiendrez une surcharge inférieure, en particulier pour les écritures de grande taille. Toutefois, lorsque la taille de segment est trop élevée, cela peut renforcer la surcharge et vous ne pouvez pas tirer parti de RAID. La taille actuelle de la valeur par défaut est de 512 Ko, ce qui est le plus approprié pour les environnements de production standard. Voir l’[annexe C](#AppendixC) pour plus d’informations.   
 
-Veuillez noter qu’il existe des limites sur le nombre de disques que vous pouvez ajouter, selon le type de machine virtuelle. Ces limites sont présentées en détail sur la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Vous aurez besoin de 4 disques de données attachés pour suivre l’exemple RAID de cet article, même si vous pouvez choisir de configurer RAID avec moins de disques.
+Veuillez noter qu’il existe des limites sur le nombre de disques que vous pouvez ajouter, selon le type de machine virtuelle. Ces limites sont présentées en détail sur la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Vous aurez besoin de 4 disques de données attachés pour suivre l’exemple RAID de cet article, même si vous pouvez choisir de configurer RAID avec moins de disques.  
 
-Cet article suppose que vous avez déjà créé une machine virtuelle Linux et que MYSQL est installé et configuré. Pour plus d’informations sur la prise en main, consultez la page Installation de MySQL sur Azure.
+Cet article suppose que vous avez déjà créé une machine virtuelle Linux et que MYSQL est installé et configuré. Pour plus d’informations sur la prise en main, consultez la page Installation de MySQL sur Azure.  
   
 ###Configuration de RAID sur Azure
-Les étapes suivantes montrent comment créer RAID sur Azure à l’aide du portail de gestion Windows Azure. Vous pouvez également configurer RAID à l’aide de scripts Windows PowerShell. Dans cet exemple, nous allons configurer RAID 0 avec 4 disques.
+Les étapes suivantes montrent comment créer RAID sur Azure à l’aide du portail de gestion Windows Azure. Vous pouvez également configurer RAID à l’aide de scripts Windows PowerShell. Dans cet exemple, nous allons configurer RAID 0 avec 4 disques.  
 
 ####Étape 1 : Ajout d’un disque de données à votre machine virtuelle  
 
-Sur la page des Machines virtuelles du portail de gestion Azure, cliquez sur la machine virtuelle à laquelle vous souhaitez ajouter un disque de données. Dans cet exemple, la machine virtuelle est mysqlnode1.
+Sur la page des Machines virtuelles du portail de gestion Azure, cliquez sur la machine virtuelle à laquelle vous souhaitez ajouter un disque de données. Dans cet exemple, la machine virtuelle est mysqlnode1.  
 
 ![][1]
 
@@ -55,7 +55,7 @@ Puis cliquez sur **Attacher un disque vide**.
 
 ![][4]
  
-Pour les disques de données, la propriété **Préférence de cache hôte** doit être définie sur **Aucune**.
+Pour les disques de données, la propriété **Préférence de cache hôte** doit être définie sur **Aucune**.  
 
 Cela ajoutera un disque vide à votre machine virtuelle. Répétez cette étape trois fois afin de disposer de 4 disques de données pour RAID.  
 
@@ -74,29 +74,29 @@ Pour installer XFS sur Debian, Ubuntu ou Linux Mint, utilisez la commande suivan
 
 	apt-get -y install xfsprogs  
 
-Pour installer XFS sur Fedora, CentOS ou RHEL, utilisez la commande suivante :
+Pour installer XFS sur Fedora, CentOS ou RHEL, utilisez la commande suivante :  
 
 	yum -y install xfsprogs  xfsdump 
 
 
 ####Étape 3 : Configuration d’un nouveau chemin d’accès de stockage
-Utilisez la commande suivante :
+Utilisez la commande suivante :  
 
 	root@mysqlnode1:~# mkdir -p /RAID0/mysql
 
 ####Étape 4 : Copie des données d’origine vers le nouveau chemin d’accès de stockage
-Utilisez la commande suivante :
+Utilisez la commande suivante :  
 
 	root@mysqlnode1:~# cp -rp /var/lib/mysql/* /RAID0/mysql/
 
 ####Étape 5 : Modification des autorisations pour que MySQL puisse accéder (en lecture et écriture) au disque de données
-Utilisez la commande suivante :
+Utilisez la commande suivante :  
 
 	root@mysqlnode1:~# chown -R mysql.mysql /RAID0/mysql && chmod -R 755 /RAID0/mysql
 
 
 ##Ajustement de l’algorithme de planification d’E/S disque
-Linux implémente quatre types d’algorithmes de planification d’E/S :
+Linux implémente quatre types d’algorithmes de planification d’E/S :  
 
 -	Algorithme NOOP (aucune opération)
 -	Algorithme d’échéance (échéance)
@@ -114,24 +114,24 @@ L’exemple suivant montre comment vérifier et définir le planificateur par d�
 Pour la famille de distribution Debian :
 
 ###Étape 1. Affichage du planificateur d’E/S actuel
-Utilisez la commande suivante :
+Utilisez la commande suivante :  
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
 
-Vous verrez la sortie suivante, indiquant le planificateur actuel.
+Vous verrez la sortie suivante, indiquant le planificateur actuel.  
 
 	noop [deadline] cfq 
 
 
 ###Étape 2. Changement du dispositif actuel (/dev/sda) de l’algorithme de planification d’E/S
-Utilisez les commandes suivantes :
+Utilisez les commandes suivantes :  
 
 	azureuser@mysqlnode1:~$ sudo su -
 	root@mysqlnode1:~# echo "noop" >/sys/block/sda/queue/scheduler
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE] Définir cette propriété pour /dev/sda uniquement n’est pas utile. Elle doit être définie sur tous les disques de données où réside la base de données.
+>[AZURE.NOTE] Définir cette propriété pour /dev/sda uniquement n’est pas utile. Elle doit être définie sur tous les disques de données où réside la base de données.  
 
 Vous devriez voir la sortie suivante, qui indique que grub.cfg a été régénéré avec succès et que le planificateur par défaut a été mis à jour vers NOOP.  
 
@@ -149,11 +149,11 @@ Pour la famille de distribution Redhat, la commande suivante suffit :
 	echo 'echo noop >/sys/block/sda/queue/scheduler' > /etc/rc.local
 
 ##Configuration des paramètres d’opérations de fichier système
-Une meilleure pratique consiste à désactiver la fonctionnalité de journalisation atime sur le système de fichiers. Atime est le dernier temps d’accès au fichier. Chaque fois qu’un fichier est accessible, le système de fichiers enregistre l’horodatage dans le journal. Toutefois, cette information est rarement utilisée. Vous pouvez la désactiver si vous n’en avez pas besoin, ce qui réduit le temps global d’accès au disque.
+Une meilleure pratique consiste à désactiver la fonctionnalité de journalisation atime sur le système de fichiers. Atime est le dernier temps d’accès au fichier. Chaque fois qu’un fichier est accessible, le système de fichiers enregistre l’horodatage dans le journal. Toutefois, cette information est rarement utilisée. Vous pouvez la désactiver si vous n’en avez pas besoin, ce qui réduit le temps global d’accès au disque.  
  
-Pour désactiver la journalisation atime, vous devez modifier le fichier de configuration système /etc/ fstab et ajouter l’option **noatime**.
+Pour désactiver la journalisation atime, vous devez modifier le fichier de configuration système /etc/ fstab et ajouter l’option **noatime**.  
 
-Par exemple, modifiez le fichier vim /etc/fstab, en ajoutant noatime comme indiqué ci-dessous.
+Par exemple, modifiez le fichier vim /etc/fstab, en ajoutant noatime comme indiqué ci-dessous.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -161,11 +161,11 @@ Par exemple, modifiez le fichier vim /etc/fstab, en ajoutant noatime comme indiq
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-Puis, remontez le système de fichiers avec la commande suivante :
+Puis, remontez le système de fichiers avec la commande suivante :  
 
 	mount -o remount /RAID0
 
-Testez le résultat modifié. Notez que lorsque vous modifiez le fichier de test, le temps d’accès n’est pas actualisé.
+Testez le résultat modifié. Notez que lorsque vous modifiez le fichier de test, le temps d’accès n’est pas actualisé.  
 
 Avant l’exemple :		
 
@@ -187,13 +187,13 @@ Ajoutez les quatre lignes suivantes dans le fichier /etc/security/limits.conf po
 	* hard nproc 65536
 
 ###Étape 2 : Mise à jour du système pour les nouvelles limites
-Exécutez les commandes suivantes :
+Exécutez les commandes suivantes :  
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
 ###Étape 3 : Assurez-vous que les limites sont mises à jour au moment du démarrage
-Placez les commandes de démarrage suivantes dans le fichier /etc/rc.local afin qu’elles prennent effet lors de chaque démarrage.
+Placez les commandes de démarrage suivantes dans le fichier /etc/rc.local afin qu’elles prennent effet lors de chaque démarrage.  
 
 	echo “ulimit -SHn 65536” >/etc/rc.local
 	echo “ulimit -SHu 65536” >/etc/rc.local
@@ -206,9 +206,9 @@ Les règles d’optimisation d’E/S principales sont :
 -	Augmentez la taille du cache.
 -	Réduisez le délai de réponse E/S.  
 
-Pour optimiser les paramètres du serveur MySQL, vous pouvez mettre à jour le fichier my.cnf, qui est le fichier de configuration par défaut du serveur et des ordinateurs clients.
+Pour optimiser les paramètres du serveur MySQL, vous pouvez mettre à jour le fichier my.cnf, qui est le fichier de configuration par défaut du serveur et des ordinateurs clients.  
 
-Les éléments de configuration suivants sont les principaux facteurs qui ont une incidence sur les performances de MySQL :
+Les éléments de configuration suivants sont les principaux facteurs qui ont une incidence sur les performances de MySQL :  
 
 -	**innodb_buffer_pool_size** : le pool de mémoires tampons contient les données mises en mémoire tampon et l’index. Il est généralement défini sur 70 % de la mémoire physique.
 -	**innodb_log_file_size** : il s’agit de la taille du journal de rétablissement. Vous utilisez des journaux de rétablissement pour vous assurer que les opérations d’écriture sont rapides, fiables et récupérables après une panne. Il est défini sur 512 Mo, afin de vous donner suffisamment d’espace disque pour la journalisation des opérations d’écriture.
@@ -250,20 +250,22 @@ Dans cet exemple, vous pouvez voir que la fonctionnalité de requête lente a é
 
 ##Annexe
 
-Vous trouverez ci-dessous des exemples de données de test de performances obtenues sur un environnement lab ciblé. Ils fournissent des informations générales sur la tendance des données de performances, avec différentes approches de réglage des performances. Toutefois, les résultats peuvent varier selon les versions de produit ou l’environnement.
+Vous trouverez ci-dessous des exemples de données de test de performances obtenues sur un environnement lab ciblé. Ils fournissent des informations générales sur la tendance des données de performances, avec différentes approches de réglage des performances. Toutefois, les résultats peuvent varier selon les versions de produit ou l’environnement. 
 
-<a name="AppendixA"></a>Annexe A : **Performances du disque (IOPS) avec des niveaux RAID différents**
+<a name="AppendixA"></a>Annexe A :  
+**Performances du disque (IOPS) avec des niveaux RAID différents** 
 
 
 ![][9]
  
-**Commandes de test :**
+**Commandes de test :**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
 >AZURE.NOTE: la charge de travail de ce test utilise 64 threads, pour tenter d’atteindre la limite supérieure de RAID.
 
-<a name="AppendixB"></a>Annexe B : **Comparaison des performances (débit) MySQL avec des niveaux RAID différents** (système de fichiers XFS)
+<a name="AppendixB"></a>Annexe B :  
+**Comparaison des performances (débit) MySQL avec des niveaux RAID différents** (système de fichiers XFS)
 
  
 ![][10]  
@@ -280,7 +282,9 @@ Vous trouverez ci-dessous des exemples de données de test de performances obten
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Annexe C : **Comparaison des performances (IOPS) de disque avec différentes tailles de segment** (système de fichiers XFS)
+<a name="AppendixC"></a>Annexe C :   
+**Comparaison des performances (IOPS) de disque avec différentes tailles de segment**  
+(système de fichiers XFS)
 
  
 ![][13]
@@ -293,7 +297,9 @@ Vous trouverez ci-dessous des exemples de données de test de performances obten
 La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivement, avec le système de fichier RAID XFS 0 (4 disques).
 
 
-<a name="AppendixD"></a>Annexe D : **Comparaison des performances (débit) MySQL avant et après l’optimisation** (Système de fichiers XFS)
+<a name="AppendixD"></a>Annexe D :  
+**Comparaison des performances (débit) MySQL avant et après l’optimisation**  
+(Système de fichiers XFS) 
 
   
 ![][14]
@@ -304,15 +310,15 @@ La taille des fichiers utilisés pour ce test est de 30 Go et 1 Go respectivem
 
 **Le paramètre de configuration pour la valeur par défaut et l’optimisation est le suivant :**
 
-|Paramètres |Default |Optimisation
+|Paramètres	|Default	|Optimisation
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |Aucun |7 Go
-|**innodb_log_file_size** |5 Mo |512 Mo
-|**max_connections** |100 |5 000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8 Mo |128 Mo
-|**query_cache_size** |16 Mo |0
+|**innodb_buffer_pool_size**	|Aucun	|7 Go
+|**innodb_log_file_size**	|5 Mo	|512 Mo
+|**max_connections**	|100	|5 000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1	|2
+|**innodb_log_buffer_size**	|8 Mo	|128 Mo
+|**query_cache_size**	|16 Mo	|0
 
 
 Pour obtenir plus de détails sur les paramètres de configuration d’optimisation, consultez les instructions officielles de mysql.
@@ -323,12 +329,12 @@ Pour obtenir plus de détails sur les paramètres de configuration d’optimisat
 
 **Environnement de test**
 
-|Matériel |Détails
+|Matériel	|Détails
 |-----------|-------
-|UC |AMD Opteron(tm) Processeur 4171 HE/4 cœurs
-|Mémoire |14 Go
-|disk |10 Go/disque
-|SE |Ubuntu 14.04.1 LTS
+|UC	|AMD Opteron(tm) Processeur 4171 HE/4 cœurs
+|Mémoire	|14 Go
+|disk	|10 Go/disque
+|SE	|Ubuntu 14.04.1 LTS
 
 
 
@@ -347,4 +353,4 @@ Pour obtenir plus de détails sur les paramètres de configuration d’optimisat
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 
