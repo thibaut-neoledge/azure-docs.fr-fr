@@ -1,6 +1,6 @@
 <properties
    pageTitle="Création de modèles Azure Resource Manager"
-   description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
+   description="Créez des modèles Azure Resource Manager à l&#39;aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
    services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
@@ -46,7 +46,150 @@ Nous allons examiner les sections du modèle de manière plus approfondie plus l
 
 ## Expressions et fonctions
 
-La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[. En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index]. La liste suivante présente les fonctions courantes. - **parameters(parameterName)** Retourne une valeur de paramètre fournie au moment de l'exécution du déploiement. - **variables(variableName** Retourne une variable définie dans le modèle. - **concat(arg1,arg2,arg3,...)** Combine plusieurs valeurs de chaîne. Cette fonction peut prendre n'importe quel nombre d'arguments. - **base64(inputString)** Retourne la représentation en base 64 de la chaîne d'entrée. - **resourceGroup()** Retourne un objet structuré (avec des propriétés ID, nom et emplacement) qui représente le groupe de ressources actuel. - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)** Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources. L'exemple suivant montre comment utiliser plusieurs des fonctions lors de la construction de valeurs : "variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } Pour l'instant, vous en savez suffisamment sur les expressions et les fonctions pour comprendre les sections du modèle. Pour obtenir plus d'informations sur toutes les fonctions du modèle, notamment sur les paramètres et le format des valeurs retournées, consultez [Azure Resource Manager template functions](./resource-group-template-functions.md). ## Paramètres Dans la section des paramètres du modèle, vous spécifiez les valeurs qu'un utilisateur peut entrer quand il déploie les ressources. Vous pouvez utiliser ces valeurs de paramètre dans tout le modèle pour définir les valeurs des ressources déployées. Seuls les paramètres déclarés dans la section des paramètres peuvent être utilisés dans d'autres sections du modèle. Au sein de la section des paramètres, vous ne pouvez pas utiliser une valeur de paramètre pour construire une autre valeur de paramètre. Ce type d'opération se produit généralement dans la section des variables. Vous définissez les paramètres avec la structure suivante : "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | Nom de l'élément | Obligatoire | Description | :------------: | :------: | :---------- | parameterName | Oui | Nom du paramètre. Doit être un identificateur JavaScript valide. | type | Oui | Type de la valeur du paramètre. Consultez la liste ci-dessous des types autorisés. | defaultValue | Non | Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. | allowedValues | Non | Tableau des valeurs autorisées pour le paramètre pour vous assurer que la valeur correcte est fournie. Les valeurs et types autorisés sont : - string ou secureString - toute chaîne JSON valide - int - tout entier JSON valide - bool - toute valeur booléenne JSON valide - object - tout objet JSON valide - array - tout tableau JSON valide >[AZURE.NOTE] Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource. L'exemple suivant montre comment définir des paramètres : "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "Free", "Shared", "Basic", "Standard", "Premium" ], "defaultValue": "Free" } } ## Variables Dans la section des variables, vous construisez des valeurs qui peuvent être utilisées pour simplifier les expressions du langage du modèle. En règle générale, ces variables se basent sur des valeurs fournies à partir des paramètres. L'exemple suivant montre comment définir une variable construite à partir de deux valeurs de paramètre : "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } L'exemple suivant montre une variable qui correspond à un type JSON complexe, ainsi que des variables construites à partir d'autres variables : "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions étendent la syntaxe JSON disponible dans le modèle et vous permettent de créer des valeurs qui ne sont pas des valeurs littérales strictes. Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où le modèle est déployé. Les expressions peuvent apparaître n'importe où dans une valeur de chaîne JSON et retournent toujours une autre valeur JSON. Si vous avez besoin d'utiliser une chaîne littérale qui commence par un crochet [, vous devez utiliser deux crochets [[.
+
+En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
+
+La liste suivante vous indique les fonctions courantes.
+
+- **parameters(parameterName)**
+
+    Retourne une valeur de paramètre qui est fournie lors de l’exécution du déploiement.
+
+- **variables(variableName)**
+
+    Retourne une variable qui est définie dans le modèle.
+
+- **concat(arg1,arg2,arg3,...)**
+
+    Combine plusieurs valeurs de chaîne. Cette fonction peut prendre n'importe quel nombre d'arguments.
+
+- **base64(inputString)**
+
+    Retourne la représentation en base 64 de la chaîne d'entrée.
+
+- **resourceGroup()**
+
+    Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
+
+- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
+
+    Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
+
+L'exemple suivant vous indique comment utiliser plusieurs fonctions lors de la construction de valeurs :
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+À ce stade, vous en savez suffisamment sur les expressions et les fonctions pour comprendre les sections du modèle. Pour plus d'informations sur toutes les fonctions des modèles, y compris les paramètres et le format des valeurs renvoyées, consultez la rubrique [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
+
+
+## Paramètres
+
+Dans la section des paramètres du modèle, vous spécifiez les valeurs qu'un utilisateur peut entrer lors du déploiement des ressources. Vous pouvez utiliser ces valeurs de paramètre dans tout le modèle pour définir les valeurs des ressources déployées. Seuls les paramètres déclarés dans la section des paramètres peuvent être utilisés dans d'autres sections du modèle.
+
+Au sein de la section des paramètres, vous ne pouvez pas utiliser une valeur de paramètre pour construire une autre valeur de paramètre. Ce type d'opération se produit généralement dans la section des variables.
+
+Vous définissez des paramètres avec la structure suivante :
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| Nom de l'élément | Requis | Description
+| :------------: | :------: | :----------
+| nom_paramètre | Oui | Nom du paramètre. Doit être un identificateur JavaScript valide.
+| type | Oui | Type de la valeur du paramètre. Consultez la liste ci-dessous pour découvrir les types autorisés.
+| defaultValue | Non | Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre.
+| allowedValues | Non | Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie.
+
+Les valeurs et types autorisés sont :
+
+- string ou secureString - n'importe quelle chaîne JSON valide
+- int - n’importe quel integer JSON valide
+- bool - n’importe quel booléen JSON valide
+- object - n'importe quel objet JSON valide
+- array - n'importe quel tableau JSON valide
+
+
+>[AZURE.NOTE]Tous les mots de passe, clés et autres secrets doivent utiliser le type **secureString**. Il est impossible de lire les paramètres du modèle dont le type est secureString après le déploiement de la ressource.
+
+L’exemple suivant vous indique comment définir les paramètres :
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## Variables
+
+Dans la section des variables, vous construisez des valeurs qui peuvent être utilisées pour simplifier les expressions du langage du modèle. En règle générale, ces variables se basent sur des valeurs fournies à partir des paramètres.
+
+L'exemple suivant vous indique comment définir une variable qui est construite à partir de deux valeurs de paramètre :
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+L'exemple suivant vous indique une variable qui est un type complexe de JSON et des variables qui sont construites à partir d'autres variables :
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## Ressources
 
@@ -254,7 +397,7 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
 - [Présentation d’Azure Resource Manager](./resource-group-overview.md)
 

@@ -20,7 +20,8 @@
 
 Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du plug-in Azure pour Eclipse avec Java (par Microsoft Open Technologies). Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps).
 
-> [AZURE.NOTE]Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
+> [AZURE.NOTE]
+> Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
 
 ## Qu'est-ce qu'ACS ?
 
@@ -112,7 +113,8 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
 1.  Dans le portail de gestion ACS, cliquez sur **Relying party applications**.
 2.  Sur la page **Relying Party Applications**, cliquez sur **Add**.
 3.  Effectuez les actions suivantes sur la page **Add Relying Party Application** :
-    1.  Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web App**.
+    1.  Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web
+        App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
     3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**.
         ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
@@ -312,4 +314,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!----HONumber=58_postMigration-->
+<!-----HONumber=58_postMigration-->
