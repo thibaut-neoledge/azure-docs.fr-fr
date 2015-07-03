@@ -117,9 +117,9 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
         App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
     3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez **http://localhost:8080/**.
-        ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Acceptez les valeurs par défaut dans les autres champs.
 
 4.  Cliquez sur **Save**.
@@ -314,4 +314,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!-----HONumber=58_postMigration-->
+<!------HONumber=58_postMigration-->
