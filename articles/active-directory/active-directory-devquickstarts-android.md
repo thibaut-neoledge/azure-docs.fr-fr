@@ -362,7 +362,8 @@ Vous pouvez configurer la bibliothèque pour générer des messages de journal q
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
+ ```
+ Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {

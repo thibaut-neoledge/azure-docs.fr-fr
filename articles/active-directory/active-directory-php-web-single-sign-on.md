@@ -98,7 +98,8 @@ Cette étape affiche des informations similaires aux suivantes :
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE]Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
+> [AZURE.NOTE]
+> Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
 
 6. Dans la dernière étape, vous allez définir l'URL de réponse de votre application. Celle-ci reçoit les réponses après les tentatives d'authentification. Tapez les commandes suivantes, puis appuyez sur Entrée :
 
@@ -125,7 +126,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]Les valeurs  **audienceuris** et **realm** doivent être précédées de « spn: ».
+	> [AZURE.NOTE] Les valeurs  **audienceuris** et **realm** doivent être précédées de « spn: ».
 
 4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
@@ -202,4 +203,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 

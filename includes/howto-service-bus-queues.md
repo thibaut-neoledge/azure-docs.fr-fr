@@ -8,8 +8,13 @@ De manière asynchrone, un consommateur de message (destinataire) extrait le mes
 
 Les files d'attente Service Bus sont une technologie à usage généraliste pouvant servir à a une grande diversité de situations :
 
--   Communication entre les rôles web et les rôles de travail dans une application multiniveau Azure -   Communication entre les applications locales et les applications hébergées par Azure dans une solution hybride
--   Communication entre les composants d'une application distribuée s'exécutant en local dans différentes organisations ou dans différents services d'une organisation
+-   Communication entre les rôles web et les rôles de travail dans une application
+    multiniveau Azure
+-   Communication entre les applications locales et les applications hébergées par Azure dans une
+    solution hybride
+-   Communication entre les composants d'une application distribuée
+    s'exécutant en local dans différentes organisations ou dans différents services d'une
+    organisation
 
 L'utilisation de files d'attente permet une meilleure mise à l'échelle de vos applications et eune plus grande résilience dans votre architecture.
 
@@ -18,21 +23,26 @@ L'utilisation de files d'attente permet une meilleure mise à l'échelle de vos 
 Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. cCréez un espace de noms de service. Ce dernier fournit un conteneur d'étendue cpour l'adressage des ressources Service Bus au sein de votre application.
 
 Pour créer un espace de noms de service :
- 1.  Connectez-vous au [portail de gestion Azure][].
- 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Bus des services**.
- 3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.   
 
+1.  Connectez-vous au [portail de gestion Azure][].
+
+2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur
+    **Bus des services**.
+3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**.   
 	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
- 4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, entrez un nom d'espace de noms. Le système vérifie immédiatement si le nom est disponible.   
-
+4.  Dans la boîte de dialogue **Ajouter un nouvel espace de noms**, entrez un nom d'espace de noms.
+    Le système vérifie immédiatement si le nom est disponible.   
 	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
- 5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
+5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le
+    pays ou la région où votre espace de noms doit être hébergé (veillez
+    à utiliser le même pays ou la même région que celui ou celle où vous déployez vos
+    ressources de calcul).
 
 	IMPORTANT : choisissez la **même région** que celle que vous prévoyez de choisir pour le déploiement de votre application. Vous bénéficiez ainsi des meilleures performances.
 
- 6.  Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+6. 	Laissez les autres champs de la boîte de dialogue avec leurs valeurs par défaut (**Messaging** et **Niveau Standard**), puis cliquez sur la coche. Le système crée l'espace de noms de service et l'active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
@@ -43,23 +53,24 @@ L'espace de noms que vous avez créé apparaît alors dans le portail de gestion
 Afin d'effectuer des opérations de gestion, comme la création d'une file d'attente, sur tle nouvel espace de noms, vous devez obtenir les informations d'identification de gestion npour l'espace de noms. Vous pouvez obtenir ces informations d'identification à partir du portail de gestion ou à partir de l'Explorateur de serveurs Visual Studio.
 
 ### Pour obtenir les informations de gestion du portail
- 1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles :   
 
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour
+    afficher la liste des espaces de noms disponibles :   
 	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
- 2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
-
+2.  Sélectionnez l'espace de noms que vous venez de créer dans la liste affichée :   
 	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
- 3.  Cliquez sur **Informations de connexion**.   
+3.  Cliquez sur **Informations de connexion**.   
 
 	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
- 4.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAS et le nom de clé.   
+4.  Dans le volet **Accès aux informations de connexion**, recherchez la chaîne de connexion contenant la clé SAS et le nom de clé.   
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
- 4.  Notez la clé ou copiez-la dans le Presse-papiers.
+
+4.  Notez la clé ou copiez-la dans le Presse-papiers.
 
 ### Pour obtenir les informations de gestion de l'Explorateur de serveurs
 
@@ -74,4 +85,4 @@ Notez la valeur **SharedAccessKey** u copiez-la dans le Presse-papiers :
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!--HONumber=47-->
+<!----HONumber=47-->

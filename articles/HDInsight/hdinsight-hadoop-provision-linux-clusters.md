@@ -93,20 +93,22 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Nom du cluster</td>
-		<td><p>Nom du cluster. </p>
-			<ul>
-			<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
-			<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
-			</ul></td></tr>
-	<tr><td>Type du cluster</td>
-		<td>Sélectionnez <strong>Hadoop</strong>.</td></tr>
-	<tr><td>Système d'exploitation</td>
-		<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
-	<tr><td>Version de HDInsight</td>
-		<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
-	</table>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Nom du cluster</td>
+			<td><p>Nom du cluster. </p>
+				<ul>
+				<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
+				<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
+				</ul></td></tr>
+		<tr><td>Type du cluster</td>
+			<td>Sélectionnez <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Système d'exploitation</td>
+			<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
+		<tr><td>Version de HDInsight</td>
+			<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
+		</table>
+
+	Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
 
@@ -167,29 +169,31 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
     ![Fournir un compte de stockage pour le cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-	<tr><th>Propriété</th><th>Valeur</th></tr>
-	<tr><td>Compte de stockage</td>
-		<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
-		<ul>
-			<li><strong>Utiliser le stockage existant</strong></li>
-			<li><strong>Créer un nouveau stockage</strong></li>
-			<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nom du compte</td>
-		<td><ul>
-			<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le même centre de données que celui sur lequel vous voulez approvisionner le cluster.</li>
-			<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
-		</ul></td></tr>
-	<tr><td>Clé du compte</td>
-		<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
-	<tr><td>Conteneur par défaut</td>
-		<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
-    </td></tr>
-	<tr><td>Comptes de stockage supplémentaires</td>
-		<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
-</table>Cliquez sur la flèche droite.
+		<tr><th>Propriété</th><th>Valeur</th></tr>
+		<tr><td>Compte de stockage</td>
+			<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
+			<ul>
+				<li><strong>Utiliser le stockage existant</strong></li>
+				<li><strong>Créer un nouveau stockage</strong></li>
+				<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nom du compte</td>
+			<td><ul>
+				<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le même centre de données que celui sur lequel vous voulez approvisionner le cluster.</li>
+				<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
+			</ul></td></tr>
+		<tr><td>Clé du compte</td>
+			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
+		<tr><td>Conteneur par défaut</td>
+			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
+            <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
+        </td></tr>
+		<tr><td>Comptes de stockage supplémentaires</td>
+			<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
+	</table>
+
+	Cliquez sur la flèche droite.
 
 7. Si vous avez choisi de configurer un stockage supplémentaire pour le cluster, dans la page **Compte de stockage**, entrez les informations du compte pour le compte de stockage supplémentaire :
 
@@ -285,7 +289,7 @@ L’interface de ligne de commande peut être installée à l’aide de NPM ou d
 
 		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si vous obtenez une erreur indiquant que la commande du NPM est introuvable, vérifiez que les chemins d’accès suivants figurent dans la variable d’environnement  **PATH** : <i>C:\\Program Files (x86)\\nodejs;C:\\Users[nomutilisateur]\\AppData\\Roaming\\npm</i> ou <i>C:\\Program Files\\nodejs;C:\\Users[nomutilisateur]\\AppData\\Roaming\\npm</i>.
+	> [AZURE.NOTE]Si vous obtenez une erreur indiquant que la commande du NPM est introuvable, vérifiez que les chemins d’accès suivants figurent dans la variable d’environnement  **PATH** : <i>C:\Program Files (x86)\nodejs;C:\Users[nomutilisateur]\AppData\\Roaming\npm</i> ou <i>C:\Program Files\nodejs;C:\Users[nomutilisateur]\AppData\\Roaming\npm</i>.
 
 
 5.	Exécutez la commande suivante pour vérifier l'installation :
