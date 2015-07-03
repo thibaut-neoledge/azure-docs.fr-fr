@@ -37,14 +37,14 @@ Au cours de ce didacticiel, n'hésitez pas à envoyer un e-mail à tout moment �
 ## Démarrage rapide
 Si vous disposez déjà d'une application web dans Azure App Service que vous voulez utiliser ou que vous connaissez un peu Azure Marketplace, utilisez cette section pour démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][provision] ci-dessous.
  
-1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Markeplace**. 
+1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Markeplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Achetez le module MongoLab. 
+1. Achetez le module MongoLab.  
 	![MongoLab][entry-mongolab]
 
-1. Cliquez sur le module MongoLab dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. 
-	![ConnectionInfoButton][button-connectioninfo]
+1. Cliquez sur le module MongoLab dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
+	![ConnectionInfoButton][button-connectioninfo]  
 
 1. Copiez le MONGOLAB_URI dans votre presse-papiers.  
 	![ÉcranInformationsDeConnexion][screen-connectioninfo]  
@@ -499,4 +499,4 @@ Félicitations ! Vous venez de lancer une application C# ASP.NET utilisant une
 [manage]: #manage
 
 
-<!---HONumber=54--> 
+<!----HONumber=54--> 
