@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configurer une connexion VPN entre deux réseaux virtuels Azure | Azure" 
-   description="Découvrez comment configurer des connexions VPN entre deux réseaux virtuels Azure, configurer la résolution de noms de domaine entre deux réseaux virtuels et configurer la géo-réplication HBase" 
-   services="hdinsight" 
+   pageTitle="Configurer une connexion VPN entre deux réseaux virtuels | Microsoft Azure" 
+   description="Découvrez comment configurer des connexions VPN entre deux réseaux virtuels Azure et la résolution de noms de domaine entre deux réseaux virtuels Azure, et configurer la géo-réplication HBase." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -31,6 +31,10 @@ La connexion de site à site entre réseaux virtuels Azure utilise une passerell
 
 Pour plus d'informations, consultez [Configuration d'une connexion de réseau virtuel à réseau virtuel](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
+Pour voir la vidéo associée :
+
+> [AZURE.VIDEO configure-the-vpn-connectivity-between-two-azure-virtual-networks]
+
 Ce didacticiel fait partie de la [série][hdinsight-hbase-replication] portant sur la création d'une géo-réplication HBase.
 
 - Configurer une connexion VPN entre deux réseaux virtuels (ce didacticiel)
@@ -45,9 +49,9 @@ Le diagramme suivant illustre les deux réseaux virtuels que vous allez créer d
 ##Configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel Azure PowerShell est installé et configuré**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
 
@@ -58,7 +62,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
->[AZURE.NOTE]Les noms des services et des machines virtuelles Azure doivent être uniques. Le nom utilisé dans ce didacticiel est Contoso-[nom du service/de la machine virtuelle Azure]-[EU/US]. Par exemple, Contoso-VNet-EU est le réseau virtuel Azure du centre de données en Europe du Nord et Contoso-DNS-US est la machine virtuelle du serveur DNS du centre de données de l'Est des États-Unis. Vous devez trouver vos propres noms.
+>[AZURE.NOTE]Les noms des services et des machines virtuelles Azure doivent être uniques. Le nom utilisé dans ce didacticiel est Contoso-[Azure Service/VM name]-[EU/US]. Par exemple, Contoso-VNet-EU est le réseau virtuel Azure du centre de données en Europe du Nord et Contoso-DNS-US est la machine virtuelle du serveur DNS du centre de données de l'Est des États-Unis. Vous devez trouver vos propres noms.
  
 
 ##Créer deux réseaux virtuels Azure
@@ -74,20 +78,20 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- **NOM** : Contoso-VNet-EU
 	- **EMPLACEMENT** : Europe du Nord
 
-		Ce didacticiel utilise les centres de données d'Europe du Nord et de l'Est des États-Unis, mais vous pouvez choisir vos propres centres de données.
+		Ce didacticiel utilise des centres de données des régions Europe du Nord et Est des États-Unis. Vous pouvez choisir vos propres centres de données.
 4.	Entrez :
 
 	- **SERVEUR DNS** : (laisser vide) 
 	
-		Vous aurez besoin de votre propre serveur DNS pour la tâche de résolution de noms dans les réseaux virtuels. Pour déterminer s'il convient d'utiliser la méthode de résolution de noms fournie par Azure ou votre propre serveur DNS, voir l'article [Résolution de noms (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Pour connaître la procédure à suivre pour configurer la résolution de noms entre réseaux virtuels, voir l'article [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		Vous avez besoin de votre propre serveur DNS pour la résolution de noms dans les réseaux virtuels. Pour plus d’informations sur l’utilisation de la résolution de noms dans Azure ou de votre propre serveur DNS, consultez la rubrique [Résolution de noms (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Pour obtenir des instructions sur la configuration de la résolution de noms entre des réseaux virtuels, consultez la page [Configurer des serveurs DNS entre deux réseaux virtuels Azure][hdinsight-hbase-dns].
   
 	- **Configurer un réseau VPN de point à site** : (décoché)
 
-		Point-to-site doesn't apply to this scenario.
+		La configuration de point à site ne s’applique pas à ce scénario.
 
- **Configurer un réseau VPN de site à site** : (décoché)
+ 	- **Configurer un réseau VPN de site à site** : (décoché)
  	
-		You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
+		Vous allez configurer la connexion VPN de site à site au réseau virtuel Azure dans le centre de données Est des États-Unis.
 5.	Entrez :
 
 	- 	**ADRESSE IP DE DÉPART DE L'ESPACE D'ADRESSAGE** : 10.1.0.0
@@ -146,7 +150,7 @@ Quand vous créez une configuration de réseau virtuel à réseau virtuel, vous 
 	- **NOM** : Contoso-LNet-EU
 	- **ADRESSE IP DU PÉRIPHÉRIQUE VPN** : 192.168.0.1 (cette adresse sera actualisée ultérieurement)
 
-		Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
+		En général, vous utilisez la véritable adresse IP externe d’un périphérique VPN. Pour les configurations de réseau virtuel à réseau virtuel, vous allez utiliser l’adresse IP de la passerelle VPN. Étant donné que vous n’avez pas encore créé les passerelles VPN pour les deux réseaux virtuels, entrez une adresse IP arbitraire que vous modifierez plus tard.
 4.	Entrez :
 
 	- **ADRESSE IP DE DÉPART DE L'ESPACE D'ADRESSAGE** : 10.1.0.0
@@ -266,5 +270,5 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

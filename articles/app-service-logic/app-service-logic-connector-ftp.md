@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Connecteur FTP"
 	description="Prise en main du connecteur FTP"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -31,11 +31,17 @@ Le connecteur FTP vous permet de déplacer des données depuis/vers un serveur F
 ##Créer un connecteur FTP
 Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lancez le portail Azure - Ouvrez Azure Marketplace à l’aide de +Nouveau (en bas de la page) -> Web+Mobile --> Azure Marketplace.
 
-![Lancez Azure Marketplace][1] - Cliquez sur Applications API - Recherchez FTP et sélectionnez le connecteur FTP.
+	![Launch Azure Marketplace][1]
 
-![Sélectionnez le connecteur FTP][2] - Cliquez sur Créer - Dans le panneau du connecteur FTP qui s’ouvre, fournissez les données suivantes.
+- Cliquez sur API Apps.
+- Recherchez FTP et sélectionnez le connecteur FTP.
 
-![Créez le connecteur FTP][3]
+	![Sélectionnez le connecteur FTP][2]
+
+- Cliquez sur Créer.
+- Dans le panneau du connecteur FTP qui s'ouvre, fournissez les données suivantes.
+
+	![Créez le connecteur FTP][3]
 
 - **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
 - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
@@ -43,7 +49,7 @@ Pour créer un connecteur FTP, suivez les étapes mentionnées ci-dessous. - Lan
 - **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
 - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
 - **Nom** : donnez un nom à votre connecteur FTP.
-- **Paramètres du package** 
+- **Paramètres du package**
 	- **Adresse du serveur** : spécifiez le nom ou l’adresse IP du serveur FTP.
 	- **Nom d’utilisateur** : spécifiez le nom d’utilisateur pour la connexion au serveur FTP.
 	- **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur FTP.
@@ -71,34 +77,34 @@ Dans le concepteur de flux vide, cliquez sur le connecteur FTP dans le panneau d
 
 ![Cliquez sur Déclencheur FTP][6]
 
-Le connecteur FTP a un seul déclencheur : TriggerOnFileAvailable. Ce déclencheur
+Le connecteur FTP a un déclencheur - ’File Available (Read then Delete)’. Ce déclencheur
 
 - recherche de nouveaux fichiers dans le chemin du dossier ;
 - instancie le flux logique à chaque nouveau fichier ;
 - supprime le fichier du chemin du dossier une fois le flux logique instancié.
 
-Cliquez sur le déclencheur TriggerOnFileAvailable.
+Cliquez sur le déclencheur ’Available (Read then Delete)'.
 
 ![Entrées de base du déclencheur FTP][7]
 
 Les entrées vous aident à configurer un chemin de dossier spécifique à interroger selon une fréquence planifiée. Les entrées de base sont les suivantes. Fréquence : spécifie la fréquence de l’interrogation FTP. Intervalle : spécifie l’intervalle de fréquence planifiée. Chemin du dossier : spécifie le chemin d’accès du dossier sur le serveur FTP. Type de fichier : indique si le type de fichier est binaire ou texte.
 
-Cliquez sur ... pour voir les entrées avancées.
+Cliquez sur les ellipses ’...’ pour voir les entrées avancées.
 
 ![Entrées de base du déclencheur FTP][8]
 
 Les entrées avancées sont les suivantes. Masque de fichier : spécifie le masque de fichier lors de l’interrogation. Masque de fichiers à exclure : spécifie les masques de fichier à exclure lors de l’interrogation.
 
-Indiquez les entrées et cliquez sur la coche pour terminer leur configuration.
+Indiquez les entrées et cochez la case pour terminer leur configuration.
 
 ![Entrées de base du déclencheur FTP][9]
 
-Notez que le déclencheur FTP configuré présente à la fois des paramètres d'entrée configurés, ainsi que des paramètres de sortie.
+Notez que le déclencheur FTP configuré présente à la fois des paramètres d'entrée configurés ainsi que des paramètres de sortie.
 
 ####Utilisation de la sortie du déclencheur FTP dans les actions consécutives
 La sortie du déclencheur FTP peut servir d'entrée à certaines autres actions dans le flux.
 
-Vous pouvez cliquer sur + dans la boîte de dialogue d'entrée d'une action et sélectionner directement la sortie FTP dans la zone de liste déroulante.
+Vous pouvez cliquer sur ’...’ dans la boîte de dialogue d'entrée d'une action et sélectionner directement la sortie FTP dans la zone de liste déroulante.
 
 Vous pouvez également écrire une expression directement dans la zone d'entrée de l'action. L'expression du flux à référencer dans la sortie du déclencheur FTP est donnée ci-dessous.
 
@@ -132,12 +138,16 @@ Cliquez sur ... pour voir les entrées avancées.
 ![Entrées de base de l’action Télécharger un fichier][12]
 
 
-- **Ajouter si le fichier existe** : activez ou désactivez Append If Exist. Quand cette entrée est activée, les données sont ajoutées au fichier s'il existe. Quand elle est désactivée, le fichier est remplacé s'il existe.
+- **Ajouter si le fichier existe** : True ou False. Quand cette entrée est activée, les données sont ajoutées au fichier s'il existe. Quand elle est désactivée, le fichier est remplacé s'il existe.
 - **Dossier temporaire** : facultatif. Si cette propriété est définie, l’adaptateur charge le fichier dans le Chemin du dossier temporaire. Une fois le chargement terminé, le fichier est déplacé vers le dossier spécifié dans Chemin du dossier. Le Chemin du dossier temporaire doit résider sur le même disque physique que le Chemin du dossier pour que l’opération de déplacement soit rapide. Le dossier temporaire n’est utilisable que lorsque la propriété Ajouter à la fin si existant est désactivée.
 
-Indiquez les entrées et cliquez sur la coche pour terminer leur configuration.
+Indiquez les entrées et cochez la case pour terminer leur configuration.
 
 ![Action de télécharger un fichier configurée][13]
+
+Le paramètre « Chemin d'accès du fichier » est défini sur
+
+	@concat('/Output/',triggers().outputs.body.FileName)
 
 Notez que l'action de téléchargement de fichier FTP configurée montre à la fois les paramètres d'entrée et les paramètres de sortie.
 
@@ -166,5 +176,6 @@ Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'
 [11]: ./media/app-service-logic-connector-ftp/BasicInputsUploadFile.PNG
 [12]: ./media/app-service-logic-connector-ftp/AdvancedInputsUploadFile.PNG
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

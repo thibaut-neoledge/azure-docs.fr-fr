@@ -3,7 +3,7 @@
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Apps pour le développement d'applications Xamarin Android."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
@@ -12,15 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/11/2014"
+	ms.topic="get-started-article"
+	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
 # <a name="getting-started"> </a>Créer une application Xamarin Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
 
-Ce didacticiel montre comment ajouter un service backend cloud à une application Xamarin Android à l'aide d'Azure Mobile App. Dans ce didacticiel, vous allez créer un service .NET et une application _To do list_ simple qui stocke les données d'application sur le backend .NET.
+Ce didacticiel montre comment ajouter un service backend cloud à une application Xamarin Android à l'aide d'Azure Mobile Apps. Dans ce didacticiel, vous allez créer un service .NET et une application _To do list_ simple qui stocke les données d'application sur le backend .NET.
 
 Voici une capture d'écran de l'application terminée :
 
@@ -33,7 +33,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
 
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Création d'un backend d'application mobile
 
@@ -54,13 +54,13 @@ Dans ce didacticiel, vous allez télécharger une application Xamarin Android et
     Cette opération affiche les trois étapes faciles permettant de créer une application Xamarin Android connectée à votre backend d'application mobile.
 
 
-3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.  
+3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.
 
 4. Si ce n'est déjà fait, téléchargez et installez [Xamarin Studio]. Vous pouvez également utiliser Xamarin pour Visual Studio.
 
 5. Sous **Télécharger et publier votre service dans le cloud**, cliquez sur **Télécharger**.
 
-  Cette opération lance le téléchargement d'une solution contenant les projets du code de backend d'application mobile et de l'exemple d'application cliente _To do list_ connecté à votre backend d'application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
+  	Cette opération lance le téléchargement d'une solution contenant les projets du code de backend d'application mobile et de l'exemple d'application cliente _To do list_ connecté à votre backend d'application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
 6. Téléchargez votre profil de publication, enregistrez le fichier téléchargé sur votre ordinateur local et notez où vous l'enregistrez.
 
@@ -92,7 +92,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
 
-	> [AZURE.NOTE]> Vous pouvez vérifier le code qui se trouve dans le fichier C# ToDoActivity.cs et qui accède à votre backend d'application mobile pour exécuter une requête et insérer des données.
+	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier C# ToDoActivity.cs et permet d'accéder à votre backend d'application mobile pour exécuter une requête et insérer des données.
 
 
 
@@ -108,6 +108,6 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

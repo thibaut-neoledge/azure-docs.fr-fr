@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Exemple Hadoop WordCount (comptage de mots) de diffusion en continu C# dans HDInsight | Azure"
+	pageTitle="Exemple Hadoop WordCount (comptage de mots) de diffusion en continu C# | Microsoft Azure"
 	description="Comment écrire des programmes MapReduce en C# qui utilisent l’interface de diffusion en continu Hadoop et comment les exécuter sur HDInsight en utilisant des cmdlets PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -44,11 +44,10 @@ Pour plus d’informations sur l’interface de diffusion en continu Hadoop, con
 
 Avant de commencer la lecture cet article, vous devez disposer des éléments suivants :
 
-- Un compte Azure. Pour connaître les options disponibles lors de la création d’un compte, consultez la page [Version d’évaluation gratuite d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Un cluster HDInsight approvisionné. Pour obtenir des instructions sur les diverses méthodes disponibles pour créer ce type de clusters, consultez la page [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
-
-- Azure PowerShell. Il doit être configuré pour pouvoir être utilisé avec votre compte. Pour obtenir des instructions sur la marche à suivre, consultez la page [Installation et configuration d’Azure PowerShell][powershell-install-configure].
 
 
 ## <a id="run-sample"></a>Exécution de l’exemple avec Azure PowerShell
@@ -98,7 +97,9 @@ Avant de commencer la lecture cet article, vous devez disposer des éléments su
 
 	Notez que les fichiers de résultat d'une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devrez modifier le nom du fichier de résultat.
 
-##<a id="java-code"></a>Code C# pour la diffusion en continu Hadoop
+
+## <a id="java-code"></a>Code C# pour la diffusion en continu Hadoop
+
 
 Le programme MapReduce utilise l’application cat.exe en tant qu’interface de mappage pour diffuser le texte dans la console et l’application wc.exe en tant qu’interface de réduction pour compter le nombre de mots diffusés à partir d’un document. Le mappeur et le raccord de réduction peuvent tous les deux lire les caractères à partir du flux d’entrée standard (stdin), puis écrire dans le flux de sortie standard (stdout).
 
@@ -164,11 +165,13 @@ Le code de mappeur du fichier cat.cs utilise un objet [StreamReader][streamreade
 
 Le code du raccord de réduction du fichier wc.cs utilise un objet [StreamReader][streamreader] pour lire les caractères du flux d'entrée standard écrit par le mappeur cat.exe. Comme il lit les caractères avec la méthode [Console.Writeline][console-writeline], il délimite les mots en se basant sur les espaces et les caractères de fin de ligne situés à la fin de chaque mot. Il écrit ensuite le total dans le flux de sortie standard avec la méthode [Console.Writeline][console-writeline].
 
-##<a id="summary"></a>Résumé
+
+## <a id="summary"></a>Résumé
 
 Dans ce didacticiel, vous avez vu comment déployer une tâche MapReduce sur HDInsight avec la diffusion Hadoop.
 
-##<a id="next-steps"></a>Étapes suivantes
+## <a id="next-steps"></a>Étapes suivantes
+
 
 Pour suivre des didacticiels exécutant d’autres exemples et fournissant des instructions sur l’utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
@@ -199,5 +202,6 @@ Pour suivre des didacticiels exécutant d’autres exemples et fournissant des i
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

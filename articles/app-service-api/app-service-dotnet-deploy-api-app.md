@@ -67,9 +67,11 @@ Dans cette section, vous verrez les étapes requises pour déployer une applicat
 
 	![Déploiement de l’application API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-La fenêtre **Activité d’Azure App Service** affiche la progression du déploiement.
+	La fenêtre **Activité d’Azure App Service** affiche la progression du déploiement.
 
-![Notification d’état de la fenêtre Activité d’Azure App Service](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Notification d’état de la fenêtre Activité d’Azure App Service](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	Pendant ce processus de déploiement, Visual Studio redémarre automatiquement la *passerelle*. La passerelle est une application web qui gère les fonctions d'administration pour toutes les applications d'API d'un groupe de ressources, et elle doit être redémarrée pour reconnaître les modifications API effectuées dans une application API. Si vous utilisez une autre méthode pour déployer une application API, et si votre déploiement change l'API, vous devrez peut-être redémarrer manuellement la passerelle. Pour plus d'informations sur le redémarrage de la passerelle dans le portail, consultez la rubrique [Gérer une application API](app-service-api-manage-in-portal.md).
 
 ## Afficher l’application dans le portail Azure en version préliminaire
 
@@ -125,5 +127,6 @@ Dans cette section, vous allez accéder au portail pour afficher les paramètres
 ## Étapes suivantes
 
 Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent l'itération et le déploiement rapide de votre API ainsi que le test permettant de vérifier qu'elle fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

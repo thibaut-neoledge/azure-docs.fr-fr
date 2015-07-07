@@ -1,6 +1,6 @@
 <properties
    pageTitle="Requête Hive avec les outils Hadoop pour Visual Studio | Microsoft Azure"
-   description="Découvrez comment utiliser Hive avec HDInsight via Visual Studio."
+   description="Découvrez comment utiliser Hive avec Hadoop dans HDInsight à l’aide des outils Hadoop dans Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -54,8 +54,8 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
         > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire example/data) et précise qu'elles sont stockées sous la forme de texte.
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
+    * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
 3. Dans la barre d’outils, sélectionnez le **cluster HDInsight** que vous souhaitez utiliser pour cette requête, puis sélectionnez **Envoyer** pour exécuter les instructions comme une tâche Hive. Le **résumé de tâche Hive** apparaît et affiche des informations sur la tâche en cours d’exécution. Utilisez le lien **Actualiser** pour actualiser les informations sur la tâche, jusqu’à ce que l’**état de la tâche** passe à **Terminé**.
 
@@ -75,7 +75,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
         > [AZURE.NOTE]Contrairement aux tables **EXTERNES**, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
     * **STORED AS ORC** : stocke les données au format ORC (Optimized Row Columnar). Il s'agit d'un format particulièrement efficace et optimisé pour le stockage de données Hive.
-    * **INSERT OVERWRITE... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT** : sélectionne des lignes de la table **log4jLogs** qui contiennent **[ERROR]**, puis insère les données dans la table **errorLogs**.
 
 7. Dans la barre d’outils, sélectionnez la liste déroulante pour **Envoyer**, afin d’exécuter la tâche. Utilisez l’**état de la tâche** afin de déterminer si la tâche est terminée.
 
@@ -133,5 +133,6 @@ Pour plus d’informations sur les outils de HDInsight pour Visual Studio :
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

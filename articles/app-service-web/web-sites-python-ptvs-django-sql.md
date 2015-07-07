@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Django et Base de données SQL sur Azure avec Python Tools 2.1 pour Visual Studio" 
-	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application Django qui stocke les données dans une instance de base de données SQL et peut être déployée vers un site web." 
+	pageTitle="Django et Base de données SQL sur Azure avec Python Tools 2.1 pour Visual Studio" 
+	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application web Django qui stocke les données dans une instance de base de données SQL et de la déployer dans Azure App Service Web Apps." 
 	services="app-service\web" 
 	tags="python"
 	documentationCenter="python" 
@@ -14,45 +14,47 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/16/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Django et Base de données SQL sur Azure avec Python Tools 2.1 pour Visual Studio 
+# Django et Base de données SQL sur Azure avec Python Tools 2.1 pour Visual Studio 
 
-Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio][] afin de créer une application de sondage simple à l'aide de l'un des exemples de modèles PTVS. Ce didacticiel est également disponible sous forme de [vidéo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
-Nous allons découvrir comment utiliser une base de données SQL hébergée sur Azure, comment configurer l'application pour utiliser une base de données SQL et comment publier l'application sur un site web Azure.
+Nous allons découvrir comment utiliser une base de données SQL hébergée sur Azure, comment configurer l’application web pour utiliser une base de données SQL et comment publier l’application web sur [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Visitez le [Centre de développement Python][] pour consulter d'autres articles sur le développement de site web Azure avec PTVS à l'aide des infrastructures web Bottle, Flask et Django, ainsi que de MongoDB, du stockage de tables Azure, de MySQL et des services de base de données SQL.  Quand bien même cet article se concentre Sites Web Azure, les étapes sont similaires pour développer [Azure Cloud Services][].
+Visitez le [Centre de développement Python] pour consulter d’autres articles sur le développement d’applications Azure App Service Web Apps avec PTVS à l’aide des infrastructures web Bottle, Flask et Django, ainsi que des services MongoDB, Azure Table Storage, MySQL et Base de données SQL. Cet article concerne App Service, mais les étapes sont similaires lorsque vous développez pour [Azure Cloud Services].
 
-## Conditions préalables
+## Composants requis
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 pour Visual Studio (en anglais)][]
- - [Exemples VSIX de Python Tools 2.1 pour Visual Studio][]
- - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012][]
- - [Python 2.7 32 bits][]
+ - Visual Studio 2012 ou 2013
+ - [Python Tools 2.1 pour Visual Studio]
+ - [Python Tools 2.1 pour Visual Studio Samples VSIX]
+ - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]
+ - [Python 2.7 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 ## Création du projet
 
-Dans cette section, nous allons créer un projet Visual Studio à l'aide d'un exemple de modèle. Nous allons créer un environnement virtuel et installer les packages requis.  Nous allons créer une base de données locale à l'aide de sqlite.  Ensuite, nous allons exécuter l'application localement.
+Dans cette section, nous allons créer un projet Visual Studio à l’aide d’un exemple de modèle. Nous allons créer un environnement virtuel et installer les packages requis. Nous allons créer une base de données locale à l’aide de sqlite. Nous exécuterons ensuite l’application web en local.
 
-1.  Dans Visual Studio, sélectionnez **Fichier**, **Nouveau projet**.
+1.  Dans Visual Studio, sélectionnez **Fichier** puis **Nouveau projet**.
 
-1.  Les modèles de projet issus des exemples VSIX de PTVS sont disponibles sous **Python**, **Exemples**.  Sélectionnez **Projet web de sondage Django** et cliquez sur OK pour créer le projet.
+1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Projet web de sondage Django** et cliquez sur OK pour créer le projet.
 
   	![Boîte de dialogue Nouveau projet](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
-1.  Vous allez être invité à installer des packages externes.  Sélectionnez **Installer dans un environnement virtuel**.
+1.  Vous allez être invité à installer des packages externes. Sélectionnez **Installer dans un environnement virtuel**.
 
   	![Boîte de dialogue Packages externes](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
 
-1.  Sélectionnez **Python 2.7** comme interpréteur de base.
+1.  Sélectionnez **Python 2.7** comme interpréteur de base.
 
   	![Boîte de dialogue Ajouter un environnement virtuel](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
@@ -60,19 +62,19 @@ Dans cette section, nous allons créer un projet Visual Studio à l'aide d'un ex
 
   	![Commande Base de données de synchronisation Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
 
-1.  Une console de gestion Django s'ouvre.  Suivez les invites pour créer un utilisateur.
+1.  Une console de gestion Django s’ouvre. Suivez les invites pour créer un utilisateur.
 
     Une base de données sqlite est créée dans le dossier du projet.
 
   	![Fenêtre Console de gestion Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  Vérifiez que l'application fonctionne en appuyant sur <kbd>F5</kbd>.
+1.  Vérifiez que l’application fonctionne en appuyant sur <kbd>F5</kbd>.
 
 1.  Cliquez sur **Connexion** dans la barre de navigation en haut.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
 
-1.  Saisissez les informations d'identification de l'utilisateur que vous avez créé quand vous avez synchronisé la base de données.
+1.  Saisissez les informations d’identification de l’utilisateur que vous avez créé quand vous avez synchronisé la base de données.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 
@@ -88,56 +90,45 @@ Dans cette section, nous allons créer un projet Visual Studio à l'aide d'un ex
 
 Pour la base de données, nous allons créer une base de données SQL Azure.
 
-Pour cela, procédez comme suit :
+Pour cela, procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail Azure].
 
-1.  En bas du volet de navigation, cliquez sur **NOUVEAU**.
+1.  En bas du panneau de navigation, cliquez sur **NOUVEAU**, cliquez sur **Données + stockage** > **Base de données SQL**.
 
-  	![Bouton Nouveau](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png)
+  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
 
-1.  Cliquez sur **SERVICES DE DONNÉES**, **BASE DE DONNÉES SQL**, puis **CRÉATION RAPIDE**.
+1.  Configurer la nouvelle base de données SQL en créant un nouveau groupe de ressources, puis sélectionnez l'emplacement approprié pour celui-ci.
 
-  	![Création rapide d'une base de données SQL](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png)
+  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
-1.  Choisissez de créer un serveur de base de données SQL.
+1.  Une fois la base de données SQL créée, cliquez sur **Ouvrir dans Visual Studio** dans le panneau de la base de données.
+2.  Cliquez sur **Configurer votre pare-feu**.
+3.  Dans le panneau **Paramètres de pare-feu**, ajoutez une règle de pare-feu avec **IP de début** et **IP de fin** définie sur l'adresse IP publique de votre ordinateur de développement. Cliquez sur **Enregistrer**.
 
-1.  Choisissez la région ou le groupe d'affinités où localiser la base de données. Si vous utilisez la base de données de votre application Azure, sélectionnez la même région que celle du déploiement de votre application.
+	Les connexions au serveur de base de données de votre ordinateur de développement sont alors autorisées.
+
+4.  De retour sur le panneau de la base de données, cliquez sur **Propriétés**, puis sur **Afficher les chaînes de connexion de la base de données**.
+
+2.  Vous pouvez utiliser le bouton de copie pour placer la valeur de **ADO.NET** dans le Presse-papiers.
 
 ## Configurer le projet
 
-Dans cette section, nous allons configurer notre application pour utiliser la base de données SQL 
-que nous venons de créer.  Nous allons découvrir comment obtenir des paramètres de connexion à partir du portail 
-Azure.  Nous allons également installer les packages Python supplémentaires requis pour utiliser des bases de données 
-SQL avec Django.  Ensuite, nous allons exécuter l'application localement.
+Dans cette section, nous allons configurer notre application web pour utiliser la base de données SQL que nous venons de créer. Nous allons également installer les packages Python supplémentaires requis pour utiliser des bases de données SQL avec Django. Nous exécuterons ensuite l’application web en local.
 
-1.  Sur le [portail de gestion Azure][], cliquez sur **BASES DE DONNÉES SQL**, puis cliquez sur la base de données que vous avez créée précédemment.
+1.  Dans Visual Studio, ouvrez **settings.py** à partir du dossier *ProjectName*. Collez temporairement la chaîne de connexion dans l’éditeur. Celle-ci se présente au format suivant :
 
-1.  Cliquez sur **GÉRER**.
+        Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-  	![Bouton Gérer](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlManage.png)
-
-1.  Vous allez être invité à mettre à jour les règles de pare-feu. Cliquez sur **OUI**.  Les connexions au serveur de base de données de votre ordinateur de développement sont alors autorisées.
-
-  	![Autoriser les connexions](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlUpdateFirewall.png)
-
-1.  Cliquez sur **BASES DE DONNÉES SQL**, puis **SERVEURS**.  Cliquez sur le serveur de votre base de données, puis sur **CONFIGURER**.
-
-1.  Dans cette page figure l'adresse IP de chaque ordinateur autorisé à se connecter au serveur de base de données.  Celle de votre ordinateur doit y figurer.
-
-    Sous les **services autorisés**, vérifiez que les services Azure sont autorisés à accéder au serveur.  Quand l'application s'exécute sur un site web Azure (dont nous allons nous occuper dans la section suivante de ce didacticiel), elle est autorisée à se connecter à la base de données.  Cliquez sur **ENREGISTRER** pour appliquer la modification.
-
-  	![Services autorisés](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
-
-1.  Dans Visual Studio, ouvrez **settings.py**, à partir du dossier  *ProjectName*. Modifiez la définition de  `DATABASES`.
+Modifiez la définition de `DATABASES` pour utiliser les valeurs ci-dessus.
 
         DATABASES = {
             'default': {
                 'ENGINE': 'sql_server.pyodbc',
                 'NAME': '<DatabaseName>',
-                'USER': '<User>@<ServerName>',
-                'PASSWORD': '<Password>',
-                'HOST': '<ServerName>.database.windows.net',
+                'USER': '<UserName>',
+                'PASSWORD': '{your_password_here}',
+                'HOST': '<ServerName>',
                 'PORT': '<ServerPort>',
                 'OPTIONS': {
                     'driver': 'SQL Server Native Client 11.0',
@@ -146,50 +137,51 @@ SQL avec Django.  Ensuite, nous allons exécuter l'application localement.
             }
         }
 
-    `<DatabaseName>`, `<User>` et `<Password>` correspondent aux valeurs que vous avez spécifiées lorsque vous avez créé la base de données et le serveur.
+1.  Dans l’Explorateur de solutions, sous **Environnements Python**, cliquez avec le bouton droit sur l’environnement virtuel et sélectionnez **Installer le package Python**.
 
-    Les valeurs `<ServerName>` et `<ServerPort>` sont générées par Azure quand le serveur est créé et figurent dans la section **Se connecter à votre base de données**.
-
-1.  Dans l'Explorateur de solutions, sous **Environnements Python**, cliquez avec le bouton droit sur l'environnement virtuel et sélectionnez **Installer le package Python**.
-
-1.  Installez le package  `pyodbc` en utilisant **easy_install**.
+1.  Installez le package `pyodbc` en utilisant **easy_install**.
 
   	![Boîte de dialogue Installer le package Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
-1.  Installez le package  `django-pyodbc-azure` en utilisant **easy_install**.
+1.  Installez le package `django-pyodbc-azure` en utilisant **pip**.
 
   	![Boîte de dialogue Installer le package Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  Cliquez avec le bouton droit de la souris sur le nœud du projet et sélectionnez **Python**, **Django Sync DB**.  
+1.  Cliquez avec le bouton droit de la souris sur le nœud du projet et sélectionnez **Python**, **Django Sync DB**.
 
-    Les tables de la base de données SQL que nous avons créée dans la section précédente sont alors elles-aussi créées.  Suivez les invites pour créer un utilisateur, qui ne doit pas forcément correspondre à l'utilisateur inclus dans la base de données sqlite que nous avons créée dans la première section.
+    Les tables de la base de données SQL que nous avons créée dans la section précédente sont alors elles-aussi créées. Suivez les invites pour créer un utilisateur, qui ne doit pas forcément correspondre à l’utilisateur inclus dans la base de données sqlite que nous avons créée dans la première section.
 
   	![Fenêtre Console de gestion Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  Exécutez l'application avec <kbd>F5</kbd>.  Les sondages créés à l'aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans la base de données SQL.
+1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans la base de données SQL.
 
 
-## Publier sur un site web Azure
+## Publication sur de l’application web dans Azure App Service
 
-PTVS propose un moyen simple de déployer votre application web sur un site web Azure.
+Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service Web Apps.
 
-1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
+1.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
 
-  	![Boîte de dialogue Publier le site Web](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
+  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
 
-1.  Cliquez sur **Sites Web Microsoft Azure**.
+1.  Cliquez sur **Microsoft Azure Web Apps**.
 
-1.  Cliquez sur **Nouveau** pour créer un site.
+1.  Cliquez sur **Nouveau** pour créer une application web.
 
-1.  Sélectionnez un **nom de site** et une **région**, puis cliquez sur **Créer**.
+1.  Renseignez les champs suivants et cliquez sur **Créer**.
+	-	**Nom de l’application web**
+	-	**Plan App Service**
+	-	**Groupe de ressources**
+	-	**Région**
+	-	Dans **Serveur de base de données**, conservez **Aucune base de données**.
 
-  	![Boîte de dialogue Créer un site sur Microsoft Azure](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png)
+  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  Acceptez toutes les valeurs par défaut et cliquez sur **Publier**.
 
-1.  Votre navigateur web ouvre automatiquement le site publié.  L'application doit fonctionner comme prévu et utiliser la base de données **SQL** hébergée sur Azure.
+1.  Votre navigateur web ouvre automatiquement l’application web publiée. L’application doit fonctionner comme prévu et utiliser la base de données **SQL** hébergée sur Azure.
 
-    Félicitations !
+    Félicitations !
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
@@ -197,12 +189,16 @@ PTVS propose un moyen simple de déployer votre application web sur un site web 
 
 Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django et la base de données SQL.
 
-- [Documentation de Python Tools pour Visual Studio (en anglais)][]
-  - [Projets web][]
-  - [Projets de Service cloud][]
-  - [Débogage distant sur Microsoft Azure][]
-- [Documentation de Django (en anglais)][]
-- [Base de données SQL][]
+- [Documentation relative à Python Tools for Visual Studio]
+  - [Projets web]
+  - [Projets de service cloud]
+  - [Débogage à distance sur Microsoft Azure]
+- [Documentation Django]
+- [Base de données SQL]
+
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 <!--Link references-->
@@ -210,19 +206,19 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [Azure Cloud Services]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Portail de gestion Azure]: https://manage.windowsazure.com
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 pour Visual Studio (en anglais)]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Exemples VSIX de Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Documentation de Python Tools pour Visual Studio (en anglais)]: http://pytools.codeplex.com/documentation
-[Débogage distant sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[portail Azure]: https://portal.azure.com
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Documentation relative à Python Tools for Visual Studio]: http://pytools.codeplex.com/documentation
+[Débogage à distance sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projets web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projets de Service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Documentation de Django (en anglais)]: https://www.djangoproject.com/
+[Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Documentation Django]: https://www.djangoproject.com/
 [Base de données SQL]: /documentation/services/sql-database/
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

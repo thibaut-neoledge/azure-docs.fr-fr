@@ -1,0 +1,293 @@
+<properties 
+	pageTitle="Détection et diagnostic des défaillances et exceptions dans les applications web" 
+	description="Détection et diagnostic des défaillances et exceptions dans les applications web" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="keboyd"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/31/2015" 
+	ms.author="awills"/>
+ 
+# Diagnostic des défaillances et des exceptions dans les applications web avec Application Insights
+
+[Visual Studio Application Insights][start] est un outil puissant, qui permet de détecter et de diagnostiquer les défaillances des applications. Ici, nous allons nous concentrer sur les applications web. Toutefois, vous pouvez également utiliser Application Insights sur [diverses autres plateformes][platforms].
+
+## Configurer votre application avec Application Insights
+
+Ajoutez le Kit de développement logiciel (SDK) dans votre projet d’application. Lorsque votre application est publiée et en cours d’exécution, le Kit de développement logiciel (SDK) envoie des données de télémétrie sur les performances de l’application au portail Application Insights.
+
+* [Ajout de Application Insights à des applications ASP.NET][greenbrown]
+* [Ajout de Application Insights à des applications Java][java]
+
+Si vos pages web présentent des scripts volumineux, peut-être souhaiterez-vous [ajouter Application Insights à des pages web][track].
+
+
+## Recherche de diagnostic
+
+
+
+Exécutez la fonction Recherche de diagnostic pour afficher les données de télémétrie envoyées automatiquement par le Kit de développement logiciel (SDK).
+
+![](./media/app-insights-web-failures-exceptions/appinsights-45diagnostic.png)
+
+![](./media/app-insights-web-failures-exceptions/appinsights-31search.png)
+
+Les informations varient selon le type d’application. Vous pouvez cliquer dans n’importe quel événement individuel pour obtenir plus de détails.
+
+##<a name="events"></a>Événements personnalisés
+
+Les événements personnalisés apparaissent à la fois dans [Recherche de diagnostic][diagnostic] et [Metrics Explorer][metrics]. Vous pouvez les envoyer à partir d’appareils, de pages web et d’applications de serveur. Ils peuvent être utilisés à des fins de diagnostic et pour [comprendre les modèles d’utilisation][track].
+
+Un événement personnalisé a un nom et peut également comporter des propriétés que vous pouvez filtrer, ainsi que des mesures numériques.
+
+JavaScript côté client
+
+    appInsights.trackEvent("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+C# côté serveur
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
+
+
+VB côté serveur
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+### Exécutez votre application et affichez les résultats.
+
+Ouvrez Recherche de diagnostic.
+
+Sélectionnez l’événement personnalisé et un nom d’événement particulier.
+
+![](./media/app-insights-web-failures-exceptions/appinsights-332filterCustom.png)
+
+
+Filtrez davantage les données en saisissant un terme de recherche sur une valeur de propriété.
+
+![](./media/app-insights-web-failures-exceptions/appinsights-23-customevents-5.png)
+
+Explorez un événement pour afficher ses propriétés détaillées.
+
+![](./media/app-insights-web-failures-exceptions/appinsights-23-customevents-4.png)
+
+
+
+##<a name="trace"></a> Télémétrie de trace
+
+La télémétrie de trace est le code que vous insérez de manière spécifique pour créer des journaux de diagnostic.
+
+Par exemple, vous pouvez insérer des appels tels que :
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+
+####  Installation d’un adaptateur pour votre infrastructure de journalisation
+
+Vous pouvez également rechercher des journaux générés à l’aide d’un framework de journalisation, comme log4Net, NLog ou System.Diagnostics.Trace.
+
+1. Si vous prévoyez d’utiliser log4Net ou NLog, installez-le dans votre projet. 
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+3. Sélectionnez En ligne > Tout, puis **Inclure la version préliminaire** et recherchez « Microsoft.ApplicationInsights »
+
+    ![Get the prerelease version of the appropriate adapter](./media/app-insights-web-failures-exceptions/appinsights-36nuget.png)
+
+4. Sélectionnez le package approprié parmi :
+  + Microsoft.ApplicationInsights.TraceListener (pour capturer les appels System.Diagnostics.Trace)
+  + Microsoft.ApplicationInsights.NLogTarget
+  + Microsoft.ApplicationInsights.Log4NetAppender
+
+Le package NuGet installe les assemblys nécessaires et modifie également le fichier web.config ou app.config.
+
+#### <a name="pepper"></a>Insérer des appels de journaux de diagnostic
+
+Si vous utilisez System.Diagnostics.Trace, un appel standard serait :
+
+    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+
+Si vous préférez log4net ou NLog :
+
+    logger.Warn("Slow response - database01");
+
+Exécutez votre application en mode débogage, ou déployez-la.
+
+Les messages s’affichent dans Recherche de diagnostic lorsque vous sélectionnez le filtre Suivi.
+
+### <a name="exceptions"></a>Exceptions
+
+La fonctionnalité d’obtention de rapports d’exception dans Application Insights est très puissante, d’autant plus qu’elle vous permet de parcourir les demandes ayant échoué et les exceptions, et de lire la pile d’exceptions.
+
+Vous pouvez écrire du code pour l’envoi de données de télémétrie concernant les exceptions :
+
+JavaScript
+
+    try 
+    { ...
+    }
+    catch (ex)
+    {
+      appInsights.TrackException(ex, "handler loc",
+        {Game: currentGame.Name, 
+         State: currentGame.State.ToString()});
+    }
+
+C#
+
+    var telemetry = new TelemetryClient();
+    ...
+    try 
+    { ...
+    }
+    catch (Exception ex)
+    {
+       // Set up some properties:
+       var properties = new Dictionary <string, string> 
+         {{"Game", currentGame.Name}};
+
+       var measurements = new Dictionary <string, double>
+         {{"Users", currentGame.Users.Count}};
+
+       // Send the exception telemetry:
+       telemetry.TrackException(ex, properties, measurements);
+    }
+
+VB
+
+    Dim telemetry = New TelemetryClient
+    ...
+    Try
+      ...
+    Catch ex as Exception
+      ' Set up some properties:
+      Dim properties = New Dictionary (Of String, String)
+      properties.Add("Game", currentGame.Name)
+
+      Dim measurements = New Dictionary (Of String, Double)
+      measurements.Add("Users", currentGame.Users.Count)
+  
+      ' Send the exception telemetry:
+      telemetry.TrackException(ex, properties, measurements)
+    End Try
+
+Les paramètres de propriétés et les mesures sont facultatifs, mais sont utiles pour filtrer et ajouter des informations supplémentaires. Par exemple, si vous avez une application qui peut exécuter plusieurs jeux, vous pouvez rechercher tous les rapports d’exception liés à un jeu particulier. Vous pouvez ajouter autant d’éléments que vous le souhaitez à chaque dictionnaire.
+
+#### Affichage des exceptions
+
+Vous verrez un résumé des exceptions signalées sur le panneau Vue d’ensemble sur lequel vous pouvez cliquer pour afficher de plus amples informations. Par exemple :
+
+
+![](./media/app-insights-web-failures-exceptions/appinsights-039-1exceptions.png)
+
+Cliquez sur n’importe quel type d’exception pour voir les occurrences spécifiques :
+
+![](./media/app-insights-web-failures-exceptions/appinsights-333facets.png)
+
+Vous pouvez aussi ouvrir directement Recherche de diagnostic, filtrer sur les exceptions et choisir le type d’exception que vous souhaitez afficher.
+
+### Rapport des exceptions non traitées
+
+Application Insights signale les exceptions non traitées où il peut : sur des appareils, des [navigateurs web][usage] ou des serveurs web à l’aide de [Status Monitor][redfield] du [kit de développement logiciel (SDK) Application Insights][greenbrown].
+
+> [AZURE.NOTE]Dans un navigateur web, si vous incluez des fichiers de script à partir de CDN ou d’autres domaines, vérifiez que votre balise script présente l’attribut ```crossorigin="anonymous"``` et que le serveur envoie des en-têtes CORS pour obtenir une trace de la pile et des détails sur les exceptions Javascript non gérées à partir de ces ressources.
+
+Toutefois, il n’est pas toujours en mesure d’effectuer cette opération. Notamment, lorsque le .NET Framework intercepte les exceptions. Pour vous assurer que d’afficher toutes les exceptions, vous devez développer un petit gestionnaire d’exceptions. La meilleure procédure à utiliser varie en fonction de la technologie. Consultez [ce blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) pour en savoir plus.
+
+### Corrélation avec un build
+
+Au moment où vous lisez les journaux de diagnostic, il est probable que votre code source ait changé depuis le déploiement du code dynamique.
+
+Il est donc utile de placer des informations de build, telles que l’URL de la version actuelle, dans une propriété, ainsi que chaque exception ou suivi.
+
+Au lieu d’ajouter la propriété séparément pour chaque appel d’exception, vous pouvez définir les informations dans le contexte par défaut.
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+Dans l’initialiseur de l’application, par exemple Global.asax.cs :
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+
+###<a name="requests"></a> Requêtes de serveur web
+
+Les données de télémétrie concernant les requêtes sont envoyées automatiquement lorsque vous [installez Status Monitor sur votre serveur web][redfield] ou lorsque vous [ajoutez Application Insights à votre projet web][greenbrown]. Elles sont également introduites dans les graphiques relatifs aux requêtes et aux temps de réponse dans Metrics Explorer et sur la page de présentation.
+
+Si vous souhaitez envoyer des événements supplémentaires, vous pouvez utiliser l’API TrackRequest().
+
+## <a name="questions"></a>Questions et réponses
+
+### <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
+
+Vous avez peut-être installé le package Nuget de l’enregistreur de données sans installer Application Insights.
+
+Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante. Ceci devrait résoudre le problème.
+
+### <a name="limits"></a>Quelle est la quantité de données conservée ?
+
+Jusqu’à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
+
+## <a name="add"></a>Étapes suivantes
+
+* [Configuration des tests de disponibilité et de réactivité][availability]
+* [Résolution des problèmes][qna]
+
+
+
+
+
+<!--Link references-->
+
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[platforms]: app-insights-platforms.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+
+ 
+
+<!---HONumber=62-->

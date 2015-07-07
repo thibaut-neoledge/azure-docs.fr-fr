@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines" 
+<properties
+	pageTitle="Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines"
 	description="Découvrez quand utiliser Azure App Service, Azure Cloud Services et Azure Virtual Machines pour héberger des applications web."
-	services="•app-service\web, virtual-machines, cloud-services" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	services="app-service\web, virtual-machines, cloud-services"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
-# Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines 
+# Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines
 
 ## Vue d'ensemble
 
@@ -52,20 +52,20 @@ Voici quelques scénarios d'application courants avec des recommandations sur l'
 
 Azure App Service est une excellente solution pour l’hébergement d’applications métier complexes. Elle vous permet de développer des applications automatiquement mises à l'échelle sur les plateformes avec équilibrage de la charge. Elles sont aussi sécurisées grâce à Active Directory et se connectent à vos ressources locales. Elle simplifie la gestion de ces applications grâce au portail de gestion et aux API et vous permet de savoir comment vos clients les utilisent avec les outils d'analyse. La nouvelle fonctionnalité [Webjobs][] vous permet d'exécuter des processus et des tâches en arrière-plan dans le cadre de votre niveau de service. La connectivité hybride et les [fonctionnalités VNET](../fundamentals-introduction-to-azure.md#networking/) simplifient la connexion aux ressources locales. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
-* Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques. 
+* Exécution fiable de vos applications sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
-* Sauvegarde et restauration après sinistre. 
+* Sauvegarde et restauration après sinistre.
 * Conformité ISO, SOC2 et PCI.
 * Intégration avec Active Directory
 
-### <a id="corp"></a> J’ai besoin d’un hébergement pour le site web de ma société, qui soit fiable, extensible et de portée mondiale. 
+### <a id="corp"></a> J’ai besoin d’un hébergement pour le site web de ma société, qui soit fiable, extensible et de portée mondiale.
 
 Azure App Service est une excellente solution pour l’hébergement de sites web d’entreprise. Il permet une mise à l’échelle rapide et simple des applications web pour faire face à la demande, grâce au réseau international de centres de données. Il offre un lien local, une grande tolérance aux pannes et une gestion intelligente du trafic. Le tout sur une plateforme avec des outils de pointe, qui offrent un accès facile et rapide aux informations de l'état du site et aux données de trafic. Azure App Service offre des contrats SLA pour des applications web à 0,001 % d’erreur et offre les possibilités suivantes :
 
-* Exécution fiable de vos sites web sur une plateforme cloud avec corrections et mises à jour automatiques. 
+* Exécution fiable de vos sites web sur une plateforme cloud avec corrections et mises à jour automatiques.
 * Extension automatique sur un réseau mondial de centres de données.
-* Sauvegarde et restauration après sinistre. 
-* Gestion des journaux et du trafic avec des outils intégrés. 
+* Sauvegarde et restauration après sinistre.
+* Gestion des journaux et du trafic avec des outils intégrés.
 * Conformité ISO, SOC2 et PCI.
 * Intégration avec Active Directory
 
@@ -74,8 +74,8 @@ Azure App Service est une excellente solution pour l’hébergement de sites web
 Azure App Service permet d’éviter facilement les coûts d’infrastructure liés à la migration d’anciennes applications IIS6. Microsoft a créé des [outils de migration simples et des informations de migration détaillées](https://www.movemetowebsites.net/) qui vous permettent de vérifier la compatibilité et d'identifier les modifications nécessaires. L'intégration à Visual Studio, TFS et autres outils de CMS simplifie le déploiement d'applications IIS6 directement dans le cloud. Une fois déployé, le portail de gestion Azure offre l'accès à des outils de gestion robustes, afin de réduire vos coûts et de faire face à la demande. Avec l'outil de migration, vous pouvez :
 
 * Migrer rapidement et facilement vos applications web Windows Server 2003 sur le cloud.
-* Choisir de laisser votre base de données SQL attachée localement pour créer une application hybride. 
-* Déplacer automatiquement votre base de données SQL avec votre application héritée. 
+* Choisir de laisser votre base de données SQL attachée localement pour créer une application hybride.
+* Déplacer automatiquement votre base de données SQL avec votre application héritée.
 
 ### <a id="smallbusiness"></a> Je dirige une PME et je recherche une méthode peu onéreuse pour héberger mon site web, tout en gardant à l’esprit la future croissance de mon entreprise.
 
@@ -108,16 +108,16 @@ Choisissez Virtual Machines pour une ou plusieurs couches si vous voulez utilise
 
 Si votre application nécessite l'installation ou la configuration complexe des logiciels et du système d'exploitation, Virtual Machines représente probablement la meilleure solution. Virtual Machines vous permet d'effectuer les opérations suivantes :
 
-- utiliser la galerie de machines virtuelles pour commencer avec un système d'exploitation tel que Windows ou Linux, puis personnaliser ce dernier en fonction des besoins de votre application ; 
-- créer et télécharger une image personnalisée d'un serveur local existant à exécuter sur une machine virtuelle dans Azure. 
+- utiliser la galerie de machines virtuelles pour commencer avec un système d'exploitation tel que Windows ou Linux, puis personnaliser ce dernier en fonction des besoins de votre application ;
+- créer et télécharger une image personnalisée d'un serveur local existant à exécuter sur une machine virtuelle dans Azure.
 
 ### <a id="oss"></a>Mon site utilise des logiciels open source et je souhaite l’héberger dans Azure
 
 Si votre infrastructure open source est prise en charge par App Service, les langages et infrastructures nécessaires à votre application sont automatiquement configurés pour vous. Avec App Service, vous pouvez :
 
-- utiliser de nombreux langages open source reconnus tels que [.NET][dotnet], [PHP][], [Node.js][nodejs] et [Python][] ; 
-- configurer WordPress, Drupal, Umbraco, DNN et de nombreuses autres applications web tierces. 
-- migrer une application existante ou en créer une à partir de la galerie d'applications. 
+- utiliser de nombreux langages open source reconnus tels que [.NET][dotnet], [PHP][], [Node.js][nodejs] et [Python][] ;
+- configurer WordPress, Drupal, Umbraco, DNN et de nombreuses autres applications web tierces.
+- migrer une application existante ou en créer une à partir de la galerie d'applications.
 
 Si votre infrastructure open source n’est pas prise en charge par App Service, vous pouvez l’exécuter sur une des deux autres options d’hébergement web Azure. Avec Cloud Services, vous devez faire appel à des tâches de démarrage pour installer et configurer les logiciels open source requis exécutés sur Windows. Virtual Machines vous permet d'installer et de configurer les logiciels sur l'image de machine virtuelle, qui peut être basée sur Windows ou Linux.
 
@@ -131,10 +131,10 @@ Les services web HTTP permettent de prendre en charge un large éventail de clie
 
 - créer rapidement une application web hébergeant le service web HTTP dans un des centres de données Azure répartis dans le monde entier ;
 - migrer des services existants ou en créer de nouveaux.
-- se conformer au contrat SLA en termes de disponibilité d'une seule instance ou effectuer une montée en charge vers plusieurs machines dédiées ; 
+- se conformer au contrat SLA en termes de disponibilité d'une seule instance ou effectuer une montée en charge vers plusieurs machines dédiées ;
 - utiliser le site publié pour fournir des API REST aux clients HTTP, dont les clients mobiles.
 
-En outre, Azure App Service dispose d’une nouvelle fonctionnalité en version préliminaire pour les API REST : API Apps. Pour plus d’informations sur API Apps, consultez la rubrique [Que sont les applications API ?](app-service-api/app-service-api-apps-why-best-platform.md).
+En outre, Azure App Service dispose d’une nouvelle fonctionnalité en version préliminaire pour les API REST : API Apps. Pour plus d’informations sur API Apps, consultez la rubrique [Que sont les applications API ?](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 ##<a name="features"></a>Comparaison des fonctionnalités
 
@@ -230,7 +230,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [apps API](app-service-api/app-service-api-apps-why-best-platform.md) offre encore plus de fonctionnalités pour l’hébergement de services REST.</td>
+   <td valign="middle">Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [apps API](../app-service-api/app-service-api-apps-why-best-platform.md) offre encore plus de fonctionnalités pour l’hébergement de services REST.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Prise en charge intégrée de MySQL-as-a-service</p></td>
@@ -349,21 +349,22 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
 * [Azure Cloud Services](/documentation/services/cloud-services/)
 * [Azure Virtual Machines](/documentation/services/virtual-machines/)
 
-[ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-[Azure App Service]: /services/app-service/
-[Azure Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Azure Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-[ClearDB]: http://www.cleardb.com/
-[WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
-[azurestore]: http://www.windowsazure.com/gallery/store/
-[scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
-[dotnet]: http://www.windowsazure.com/develop/net/
-[nodejs]: http://www.windowsazure.com/develop/nodejs/
-[PHP]: http://www.windowsazure.com/develop/php/
-[Python]: http://www.windowsazure.com/develop/python/
-[servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
-[sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+  [Azure App Service]: /services/app-service/
+  [Azure Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
+  [Azure Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
+  [ClearDB]: http://www.cleardb.com/
+  [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

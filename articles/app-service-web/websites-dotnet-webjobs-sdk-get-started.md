@@ -102,7 +102,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 ![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
-3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom pour le compte de stockage. 
+3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage. 
 
 	Le nom doit être unique (aucun autre compte de stockage Azure ne doit avoir le même nom). Si le nom que vous entrez est déjà utilisé, vous aurez la possibilité de le modifier.
 
@@ -114,7 +114,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 6. Dans la liste déroulante **Réplication**, sélectionnez **Redondant en local**.
 
-	Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez la page [À propos des comptes Azure Storage](../storage-create-storage-account/#replication-options).
+	Lorsque la géo-réplication est activée pour un compte de stockage, le contenu stocké est répliqué dans un centre de données secondaire pour activer le basculement vers cet emplacement en cas de sinistre majeur à l'emplacement principal. La géo-réplication peut engendrer des coûts supplémentaires. Dans le cas des comptes test et de développement, vous êtes en général peu enclin à payer pour la géo-réplication. Pour plus d’informations, consultez [Création, gestion ou suppression d’un compte de stockage](../storage-create-storage-account/#replication-options).
 
 5. Cliquez sur **Create**.
 
@@ -144,12 +144,10 @@ Dans une application réelle, on crée généralement des comptes distincts pour
  
 	La chaîne de connexion de stockage est un exemple qui comporte des espaces réservés pour la clé d’accès et le nom du compte stockage. Vous allez le remplacer par une chaîne de connexion qui a le nom et la clé de votre compte de stockage.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>La chaîne de connexion de stockage est nommée AzureWebJobsStorage, car il s'agit du nom que le Kit de développement logiciel (SDK) WebJobs utilise par défaut. Nous utilisons ce nom ici pour qu’il ne vous reste plus qu’à définir une seule valeur de chaîne de connexion dans l’environnement Azure.
  
 2. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre compte de stockage sous le nœud **Stockage**, puis cliquez sur **Propriétés**.
 
@@ -167,19 +165,9 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 4. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt; 
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
-	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md/#config).
+	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
 1. Remplacez les chaînes de connexion de stockage par la chaîne de connexion que vous avez copiée précédemment.
 
@@ -292,7 +280,7 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	Vous pouvez ignorer l'avertissement indiquant qu'aucune base de données n'est en cours de publication. Entity Framework Code First crée la base de données ; il n'est pas nécessaire de la publier.
 
-	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJobs sont copiés dans le dossier *app_data\\jobs\\continuous* de l’application web.
+	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJobs sont copiés dans le dossier *app_data\jobs\continuous* de l’application web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -481,9 +469,9 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Dans le dossier *Controllers* : *AdController.cs*. 
-	- Dans le dossier *Views\\Shared* : fichier <em>_Layout.cshtml</em>. 
-	- Dans le dossier *Views\\Home* : *Index.cshtml*. 
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
+	- Dans le dossier *Views\Shared* : fichier <em>_Layout.cshtml</em>. 
+	- Dans le dossier *Views\Home* : *Index.cshtml*. 
+	- Dans le dossier *Views\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
 
@@ -616,9 +604,9 @@ Du code similaire obtient une référence à la file d'attente *blobnamerequest*
 
 Le fichier *_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
+Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -707,7 +695,7 @@ Voici le code qui supprime les objets blob lorsque vous supprimez une publicité
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml et Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml et Details.cshtml
 
 Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
 
@@ -717,7 +705,7 @@ Le fichier *Details.cshtml* affiche l'image intégrale :
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml et Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml et Edit.cshtml
 
 Les fichiers *Create.cshtml* et *Edit.cshtml* spécifient l’encodage de formulaire qui permet au contrôleur d’obtenir l’objet `HttpPostedFileBase`.
 
@@ -787,10 +775,7 @@ Pour plus d’informations sur l’écriture de fonctions utilisant des attribut
 * [Utilisation du stockage de tables Microsoft Azure avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Utilisation de Microsoft Azure Service Bus avec le Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Si votre application web s’exécute sur plusieurs machines virtuelles, ce programme s’exécute sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut conduire des fonctions à traiter deux fois les mêmes données. Les fonctions doivent donc être idempotentes (écrites de sorte que des appels successifs avec les mêmes données d’entrée ne produisent pas des résultats dupliqués). 
->* Pour plus d’informations sur l’implémentation de l’arrêt progressif, consultez la page [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* Le code de la méthode `ConvertImageToThumbnailJPG` (non illustré) utilise des classes dans l’espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET.
+>[AZURE.NOTE]* Si votre application web s’exécute sur plusieurs machines virtuelles, ce programme s’exécute sur chaque machine, qui attend des déclencheurs et essaie d’exécuter les fonctions. Dans certains scénarios, cela peut conduire des fonctions à traiter deux fois les mêmes données. Les fonctions doivent donc être idempotentes (écrites de sorte que des appels successifs avec les mêmes données d’entrée ne produisent pas des résultats dupliqués). * Pour plus d’informations sur l’implémentation de l’arrêt progressif, consultez la page [Arrêt progressif](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * Le code de la méthode `ConvertImageToThumbnailJPG` (non illustré) utilise des classes dans l’espace de noms `System.Drawing` pour plus de simplicité. Cependant, les classes de cet espace de noms ont été conçues pour être utilisées avec Windows Forms. Elles ne sont pas prises en charge dans un service Windows ou ASP.NET. Pour plus d'informations sur les options de traitement d'images, consultez les rubriques [Génération d'images dynamiques](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) et [Redimensionnement d'images approfondi ](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### Kit de développement logiciel (SDK) WebJobs et rôle de travail de service cloud sans Kit de développement logiciel (SDK) WebJobs
 
@@ -813,7 +798,8 @@ Dans ce didacticiel, nous avons vu une simple application multiniveau qui utilis
 Pour plus d'informations, consultez la page [Ressources recommandées pour les tâches web Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

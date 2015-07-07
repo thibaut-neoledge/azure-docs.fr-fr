@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation d'une action de script dans HDInsight pour installer Giraph sur un cluster Hadoop| Azure" 
-	description="Découvrez comment personnaliser un cluster HDInsight pour installer Giraph. Vous allez utiliser une option de configuration Action de script afin d'utiliser un script pour installer Giraph." 
+	pageTitle="Installation et utilisation de Giraph sur des clusters Hadoop dans HDInsight | Microsoft Azure" 
+	description="Découvrez comment personnaliser un cluster HDInsight avec Giraph. Vous allez utiliser une option de configuration Action de script afin d’utiliser un script pour installer Giraph." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# Installation et utilisation de Giraph sur des clusters HDInsight Hadoop
+# Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Vous pouvez installer Giraph sur n’importe quel type de cluster dans Hadoop sur Azure HDInsight à l’aide de la personnalisation de cluster **Action de script**. Une action de script vous permet d'exécuter des scripts pour personnaliser un cluster, uniquement au moment de sa création. Pour plus d’informations, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script][hdinsight-cluster-customize].
 
@@ -71,7 +71,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	Téléchargez le fichier tiny_graph.txt dans le stockage principal pour votre cluster HDInsight. Pour plus d’informations sur le téléchargement de données, consultez la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md).
 
-	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge\_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
+	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
 
 	Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données ci-dessus peuvent ressembler à cela :
 
@@ -79,7 +79,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	
 
-4. Exécutez l'exemple SimpleShortestPathsComputation. Utilisez les applets de commande Azure PowerShell suivantes pour exécuter l'exemple en utilisant le fichier tiny_graph.txt comme entrée. Pour cela, il est nécessaire que vous ayez installé et configuré [Azure PowerShell][powershell-install-configure].
+4. Exécutez l'exemple SimpleShortestPathsComputation. Utilisez les applets de commande Azure PowerShell suivantes pour exécuter l'exemple en utilisant le fichier tiny_graph.txt comme entrée. Pour cela, il est nécessaire que vous ayez installé et configuré [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -150,7 +150,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 ## <a name="usingPS"></a>Installation de Giraph sur des clusters HDInsight Hadoop à l’aide d’Azure PowerShell
 
-Dans cette section, nous allons utiliser l’applet de commande **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** pour appeler des scripts avec une action de script pour personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour en savoir plus sur la configuration d’une station de travail pour exécuter des applets de commande Azure PowerShell pour HDInsight, consultez la page [Installation et configuration d’Azure PowerShell][powershell-install-configure].
+Dans cette section, nous allons utiliser l’applet de commande **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** pour appeler des scripts avec une action de script pour personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour en savoir plus sur la configuration d’une station de travail pour exécuter des applets de commande Azure PowerShell pour HDInsight, consultez la page [Installation et configuration d’Azure PowerShell][powershell-install].
 
 Procédez comme suit :
 
@@ -222,7 +222,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 - Exécution de l'application
 
 
-**Pour installer le Kit de développement logiciel (SDK) .NET HDInsight**
+**Pour installer le Kit de développement logiciel (SDK) .NET HDInsight**
 
 Vous pouvez installer la dernière version publiée du Kit de développement logiciel (SDK) disponible sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
 
@@ -329,7 +329,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 **Pour exécuter l’application**
 
-Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
+Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -346,9 +346,11 @@ Entrez un nom de cluster, puis appuyez sur ENTRÉE pour approvisionner un cluste
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

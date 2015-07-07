@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -35,7 +35,7 @@ La fonctionnalité *Applications mobiles* dans *Azure App Service* offre une pla
 
 ## Concepts propres à Mobile App
 - **Authentification unique** : bénéficiez d'une liste toujours plus longue de fournisseurs d'identité, dont notamment Azure Active Directory, Facebook, Google, Twitter et le compte Microsoft, et tirez parti de la fonctionnalité Applications mobiles pour ajouter l'authentification à votre application en quelques minutes.
-- **Synchronisation hors connexion** : la fonctionnalité Applications mobiles vous permet de créer facilement des applications robustes et réactives qui permettent aux employés de travailler hors connexion en l'absence de connexion et de synchroniser leurs données avec vos systèmes de backend d'entreprise lorsque la connexion des appareils est rétablie. La fonctionnalité de synchronisation hors connexion est prise en charge sur toutes les plateformes clientes et fonctionne avec n'importe quelle source de données, notamment SQL, le stockage de table, Mongo et Document DB, et toute API SaaS, notamment Office 365, Salesforce, Dynamics ou des bases de données sur site. 
+- **Synchronisation hors connexion** : la fonctionnalité Applications mobiles vous permet de créer facilement des applications robustes et réactives qui permettent aux employés de travailler hors connexion en l'absence de connexion et de synchroniser leurs données avec vos systèmes de backend d'entreprise lorsque la connexion des appareils est rétablie. La fonctionnalité de synchronisation hors connexion est prise en charge sur toutes les plateformes clientes et fonctionne avec n'importe quelle source de données, notamment SQL, le stockage de table, Mongo et Document DB, et toute API SaaS, notamment Office 365, Salesforce, Dynamics ou des bases de données sur site.
 - **Notifications push** : la fonctionnalité Applications mobiles offre un moteur de notifications push mobiles très évolutif, Notification Hubs, capable d'envoyer en quelques secondes des millions de notifications push personnalisées à des segments dynamiques du public utilisant des appareils iOS, Android, Windows ou Kindle. Vous pouvez facilement associer Notification Hubs à n'importe quel backend d'application existant, que ce backend soit hébergé localement ou dans le cloud.
 - **Mise à l'échelle automatique** : App Service vous permet d'augmenter rapidement la taille ou le nombre de vos machines virtuelles pour vous adapter à n'importe quelle charge cliente entrante. Sélectionnez manuellement le nombre et la taille des machines virtuelles, ou configurez la mise à l'échelle automatique pour dimensionner votre backend d'application mobile en fonction de la charge ou d'une planification.
 
@@ -54,6 +54,6 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez [Azure A
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

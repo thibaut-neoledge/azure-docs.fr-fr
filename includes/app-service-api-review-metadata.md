@@ -21,5 +21,8 @@ Le contenu par défaut du fichier *apiapp.json* ressemble à l’exemple suivant
 		    }
 		}
 
+Notez le point de terminaison `apiDefinition` de `/swagger/docs/v1` : par défaut, les projets d’application API utilisent le package NuGet [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) pour assurer la génération automatique des métadonnées de [Swagger](http://swagger.io/).
+
 Pour ce didacticiel, vous pouvez accepter les valeurs par défaut. La section [Métadonnées d’une application API](#api-app-metadata) plus loin dans ce didacticiel explique comment personnaliser ces métadonnées.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

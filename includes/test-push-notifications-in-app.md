@@ -1,14 +1,12 @@
 
-## <a id="test"></a>Test Push Notifications in App
+## <a id="test"></a>Tester les notifications push dans l’application
 
-* Press **Run** in Xcode and start the app on an actual iOS device (not the simulator.) Then click **OK** to accept push notifications. You must explicitly accept push notifications from your app; this request occurs only the first time that the app runs.
+* Appuyez sur **Exécuter** dans Xcode et démarrez l'application sur un périphérique iOS réel (pas le simulateur). Ensuite, cliquez sur **OK** pour accepter les notifications push. Vous devez accepter explicitement les notifications push à partir de votre application. Cette requête ne se produit qu’à la première exécution de l’application.
 
-* In the app, add a new item, such as _A new Mobile Services task_ and then click the **+** icon.
+* Dans l'application, ajoutez un nouvel élément, tel qu’une _Nouvelle tâche Mobile Services_, puis cliquez sur l’icône **+**.
 
-* Verify that a notification is received, then click **OK** to dismiss the notification.
+* Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci. Ce didacticiel est maintenant terminé.
 
   	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
 
-* Add another item and immediately close the app. Verify that the following push is shown. You have now successfully completed this tutorial.
-
-  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png)
+<!---HONumber=62-->

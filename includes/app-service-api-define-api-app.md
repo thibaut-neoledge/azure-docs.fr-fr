@@ -69,6 +69,8 @@ Par défaut, les projets d’application API sont activés avec la génération 
 
 Toutefois, le modèle de nouveau projet d’application API Azure désactive la page de test API. Si vous avez créé votre projet d’application API en utilisant le modèle de projet d’application API, vous devez effectuer les étapes suivantes pour activer la page de test.
 
+**Remarque :** si vous déployez l’application API en tant qu’application *publique anonyme* et que l’interface utilisateur Swagger est activée, toute personne sera en mesure d’utiliser cette interface pour découvrir et appeler vos API.
+
 1. Ouvrez le fichier *App_Start/SwaggerConfig.cs* et recherchez **EnableSwaggerUI** :
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@ Pour afficher la page de test des API, procédez comme suit.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

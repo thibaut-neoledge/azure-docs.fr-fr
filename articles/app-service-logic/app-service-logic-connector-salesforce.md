@@ -28,7 +28,7 @@ Les applications logiques peuvent se déclencher selon diverses sources de donn�
 
 Dans le cadre des paramètres de package du connecteur, l'utilisateur peut spécifier les entités que le connecteur peut gérer et les actions, les paramètres d'entrée et de sortie sont renseignés de manière dynamique. Voici les différentes actions disponibles dans le connecteur Salesforce.
  
-- Créer une entité : utilisez cette action pour créer une entité Salesforce comme un compte et un cas.
+- Créer une entité : utilisez cette action pour créer une entité Salesforce comme un compte, un cas ou un objet personnalisé.
 
 - Mettre à jour une entité : utilisez cette action pour mettre à jour une entité Salesforce existante.
 
@@ -134,5 +134,6 @@ Créons une application logique simple qui crée un compte dans Salesforce et me
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

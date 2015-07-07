@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure" 
-   description="La galerie de prise en main de HDInsight est un moyen rapide de découvrir Hadoop en exécutant des exemples d’applications dans HDInsight. Certains exemples ont des données, pour d’autres vous pouvez fournir les vôtres." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure"
+   description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight
@@ -39,7 +39,7 @@ Le clip vidéo suivant montre comment exécuter l’exemple d’analyse de tenda
 **Exécution d’un exemple depuis la galerie de prise en main**
 
 1.	Connectez-vous au [portail Azure][azure.portal].
-2.	Cliquez sur **HDInsight** dans le menu de gauche. Vous verrez une liste de clusters HDInsight existants, y compris les clusters Hadoop, Storm et HBase. 
+2.	Cliquez sur **HDInsight** dans le menu de gauche. Vous verrez une liste de clusters HDInsight existants, y compris les clusters Hadoop, Storm et HBase.
 3.	Cliquez sur le cluster où vous voulez exécuter l’exemple.
 4.	En bas de la page, sélectionnez **CONSOLE DE REQUÊTES**.
 5.	Entrez le nom d’utilisateur Hadoop et le mot de passe pour le cluster.
@@ -62,4 +62,6 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

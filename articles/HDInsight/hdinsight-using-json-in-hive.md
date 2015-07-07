@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyser et traiter des documents JSON avec Hive dans HDInsight | Microsoft Azure"
-   description="Comment utiliser des documents JSON et les analyser avec Hive dans HDInsight"
+   description="Découvrez comment utiliser des documents JSON et les analyser avec Hive dans HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -157,11 +157,11 @@ Nous allons examiner comment utiliser le SerDe développé par [rcongiu](https:/
 
 
 - Si vous envisagez d'utiliser le déploiement Windows de HDInsight, choisissez la version Windows x64 du JDK.
-- Une fois l'installation terminée, accédez à Panneau de configuration --> Ajouter des variables d'environnement, puis ajoutez une nouvelle variable d'environnement JAVA_HOME pointant vers C:\\Program Files\\Java\\jdk1.7.0_55 ou vers l'emplacement d'installation de votre JDK. Les captures d'écran suivantes montrent comment définir la variable d'environnement.
+- Une fois l'installation terminée, accédez à Panneau de configuration --> Ajouter des variables d'environnement, puis ajoutez une nouvelle variable d'environnement JAVA_HOME pointant vers C:\Program Files\Java\jdk1.7.0_55 ou vers l'emplacement d'installation de votre JDK. Les captures d'écran suivantes montrent comment définir la variable d'environnement.
 
 ![Définition de valeurs de configuration correctes pour JDK][image-hdi-hivejson-jdk]
 
-Étape 2: cliquez sur [ce lien](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) pour télécharger Maven 3.3.1. Décompressez l'archive à l'emplacement dans lequel vous souhaitez stocker les fichiers binaires. Dans mon cas, je vais la décompresser dans C:\\Program Files\\Maven. Ajoutez le dossier bin à votre chemin d'accès. Pour cela, accédez à Panneau de configuration --> Modifier les variables d'environnement système --> Variables d'environnement. La capture d'écran ci-dessous montre comment effectuer cette opération.
+Étape 2: cliquez sur [ce lien](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) pour télécharger Maven 3.3.1. Décompressez l'archive à l'emplacement dans lequel vous souhaitez stocker les fichiers binaires. Dans mon cas, je vais la décompresser dans C:\Program Files\Maven. Ajoutez le dossier bin à votre chemin d'accès. Pour cela, accédez à Panneau de configuration --> Modifier les variables d'environnement système --> Variables d'environnement. La capture d'écran ci-dessous montre comment effectuer cette opération.
 
 ![Configuration de Maven][image-hdi-hivejson-maven]
 
@@ -171,9 +171,9 @@ Nous allons examiner comment utiliser le SerDe développé par [rcongiu](https:/
 
 Étape 4 : accédez au dossier dans lequel vous avez téléchargé ce package et tapez « mvn package ». Cette action doit créer les fichiers jar nécessaires que vous pouvez ensuite copier dans le cluster.
 
-Étape 5 : accédez ensuite au dossier cible sous le dossier racine dans lequel vous avez téléchargé le package. Téléchargez le fichier json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar dans le nœud principal de votre cluster. En général, je le mets dans le dossier binaire Hive (C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin) ou un dossier semblable.
+Étape 5 : accédez ensuite au dossier cible sous le dossier racine dans lequel vous avez téléchargé le package. Téléchargez le fichier json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar dans le nœud principal de votre cluster. En général, je le mets dans le dossier binaire Hive (C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin) ou un dossier semblable.
  
-Étape 6 : à l'invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\\apps\\dist\\hive-0.13.x\\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous :
+Étape 6 : à l'invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\apps\dist\hive-0.13.x\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous :
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -258,6 +258,6 @@ L'objectif de HDInsight est de vous permettre d'utiliser davantage de formats en
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

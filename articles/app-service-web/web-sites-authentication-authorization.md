@@ -35,7 +35,7 @@ Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d’au
 	-	Possibilité d’utiliser un fournisseur d’identité unique Azure sans aucune infrastructure locale.
 	-	Possibilité de configurer également la synchronisation d’annuaires avec un AD local (géré localement).
 	-	Avec Azure AD et la synchronisation d’annuaires à partir de votre domaine AD local, votre application web offre une expérience d’authentification unique (SSO) particulièrement fluide lorsque des utilisateurs AD y accèdent via l’intranet ou Internet. Depuis l’intranet, les utilisateurs AD peuvent accéder à l’application web automatiquement via une authentification intégrée. Depuis Internet,les utilisateurs AD peuvent se connecter à l’application web à l’aide de leurs informations d’identification Windows.
-	-	Authentification unique (SSO) pour [toutes les applications prises en charge par Azure AD](/marketplace/active-directory/), y compris Azure, Office 365, Dynamics CRM Online, Windows InTune et des milliers d’applications cloud tierces. 
+	-	Il fournit une authentification unique (SSO) à [toutes les applications prises en charge par Azure AD](/marketplace/active-directory/), y compris Azure, Office 365, Dynamics CRM Online, Microsoft InTune et des milliers d’applications de cloud autres que Microsoft. 
 	-	Azure AD délègue la gestion des applications par [partie de confiance](http://en.wikipedia.org/wiki/Relying_party) à des rôles non-administrateurs, tandis que l’accès de l’application à des données d’annuaire sensibles doit encore être configuré par des administrateurs globaux.
 	-	Envoi d’un ensemble de types de revendications à usage général pour toutes les applications par partie de confiance. Pour obtenir la liste des types de revendication, consultez [Types de jeton et de revendication pris en charge](http://msdn.microsoft.com/library/azure/dn195587.aspx). Les revendications ne peuvent pas être personnalisées.
 	-	L’[API Azure AD Graph](http://msdn.microsoft.com/library/azure/hh974476.aspx) permet à l’application d’accéder aux données d’annuaire dans Azure AD.
@@ -49,7 +49,8 @@ Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d’au
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

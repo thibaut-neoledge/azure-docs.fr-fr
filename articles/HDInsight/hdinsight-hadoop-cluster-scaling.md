@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Mise à l'échelle d'un cluster dans HDInsight | Azure"
-   description="Modifiez le nombre de nœuds de données dans un cluster exécuté dans HDInsight sans avoir à supprimer puis recréer ce cluster."
+   pageTitle="Mettre à l’échelle les clusters Hadoop, HBase ou Apache Storm dans HDInsight | Microsoft Azure"
+   description="Modifiez le nombre de nœuds de données dans un cluster Hadoop, Apache Storm ou HBase exécuté dans HDInsight sans avoir à supprimer puis recréer ce cluster."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#Mise à l’échelle d’un cluster dans HDInsight
+#Mettez à l’échelle les clusters Hadoop, HBase ou Apache Storm afin de modifier leur nombre de nœuds de données dans HDInsight 
 
 La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifier le nombre de nœuds de données utilisés par un cluster exécuté dans Azure HDInsight sans avoir à supprimer puis recréer ce cluster. Cette opération peut être effectuée à l’aide d’Azure PowerShell, du Kit de développement logiciel (SDK) ou depuis le portail Azure.
 
@@ -24,7 +24,7 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 Cette section décrit l'impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
 * Hadoop
-* Storm
+* Apache Storm
 * HBase 
 
 ## Hadoop 
@@ -143,5 +143,6 @@ Voici un exemple de code qui montre comment utiliser la version synchrone de cet
 
 
 Pour plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

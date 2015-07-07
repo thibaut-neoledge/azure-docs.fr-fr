@@ -1,11 +1,12 @@
 <properties
- pageTitle="Développer des tâches MapReduce Scalding avec Maven"
+ pageTitle="Développer des tâches MapReduce Scalding avec Maven | Microsoft Azure"
  description="Découvrez comment utiliser Maven pour créer une tâche MapReduce Scalding, puis comment déployer et exécuter la tâche dans un cluster Hadoop sous HDInsight."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/> <tags
+ editor="cgronlun"/>
+<tags
  ms.service="hdinsight"
  ms.devlang="na"
  ms.topic="article"
@@ -20,15 +21,14 @@ Scalding est une bibliothèque Scala qui permet de créer facilement des tâches
 
 Dans ce document, découvrez comment utiliser Maven pour créer une tâche de comptage de mots MapReduce de base écrite en Scalding. Vous découvrirez ensuite comment déployer et exécuter cette tâche dans un cluster HDInsight.
 
-## Configuration requise
+## Composants requis
 
-* Un abonnement Azure
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Cluster HDInsight basé sur Windows ou Linux dans Hadoop**. Pour plus d’informations, consultez la page [Approvisionnement de clusters Hadoop Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Approvisionnement de clusters Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md).
 
-* Hadoop sous Windows ou Linux dans un cluster HDInsight - voir [Approvisionnement d'un Hadoop Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Approvisionnement d'un Hadoop Windows dans HDInsight](hdinsight-provision-clusters.md) pour plus d'informations.
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou version supérieure
+* **[Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou version supérieure**
 
 ## Créer et générer le projet
 
@@ -75,7 +75,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -107,7 +107,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -144,9 +144,9 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
     * **maven-shade-plug-in** : plug-in pour créer des fichiers jar « shaded (fat) ». Ce plug-in applique des filtres et des transformations, en particulier :
 
-        * **filters**: les filtres appliqués modifient les méta-informations qui figurent dans le fichier jar. Pour empêcher les exceptions de signature au moment de l'exécution, cette opération exclut différents fichiers de signature susceptibles d'être inclus avec des dépendances.
+        * **filters** : les filtres appliqués modifient les métadonnées incluses dans le fichier jar. Pour éviter les exceptions de signature au moment de l’exécution, cela exclut les différents fichiers de signature qui peuvent être inclus avec les dépendances.
 
-        * **executions**:  la configuration de l'exécution de la phase package désigne la classe **com.twitter.scalding.Tool** comme étant la classe principale du package. Sans cela, vous devriez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d'application, lors de l'exécution de la tâche avec la commande hadoop.
+        * **executions** : la configuration d’exécution de la phase du package spécifie la classe **com.twitter.scalding.Tool** comme classe principale pour le package. Sans cela, vous devez spécifier com.twitter.scalding.Tool, ainsi que la classe qui contient la logique d’application, lors de l’exécution de la tâche avec la commande hadoop.
 
 3. Supprimez le répertoire **src/test**, car vous n'allez pas créer de tests dans cet exemple.
 
@@ -168,7 +168,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -288,6 +288,6 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

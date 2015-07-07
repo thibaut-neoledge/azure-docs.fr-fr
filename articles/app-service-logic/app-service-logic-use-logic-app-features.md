@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # Utiliser les fonctionnalités des applications logiques
@@ -89,15 +89,17 @@ Le code suivant met à jour votre application logique existante pour utiliser de
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Faites défiler la page jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `@concat('#', parameters('topic'))`. La fonction **concat** joint plusieurs chaînes.
+2. Faites défiler la page jusqu’à l’action `twitterconnector`, recherchez la valeur de la requête et remplacez-la par `#@{parameters('topic')}`. Vous pouvez également utiliser la fonction **concat** pour joindre deux ou plusieurs chaînes, par exemple : `@concat('#',parameters('topic'))` est identique à celle ci-dessus.
  
 3. Pour finir, accédez à l’action `dropboxconnector` et ajoutez le paramètre de rubrique, comme suit :
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 Les paramètres constituent un bon moyen d'extraire des valeurs que vous êtes susceptible de modifier souvent. Ils sont particulièrement utiles quand vous devez substituer des paramètres dans différents environnements. Pour plus d’informations sur la façon de substituer des paramètres en fonction de l’environnement, consultez notre [Documentation sur l’API REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 Maintenant, quand vous cliquez sur **Enregistrer**, toutes les heures les nouveaux tweets qui ont plus de cinq retweets seront envoyés dans un dossier nommé **tweets** dans votre dossier Dropbox.
+
+Pour en savoir plus sur les définitions d'application logique, consultez la rubrique [Créer des définitions d'application logique](app-service-logic-author-definitions.md).
 
 ## Démarrage d'un flux de travail d'application logique
 Il existe plusieurs options pour démarrer le flux de travail défini dans votre application logique. Un flux de travail peut toujours être démarré à la demande dans le [portail Azure].
@@ -130,4 +132,5 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Connecteur OneDrive"
 	description="Prise en main du connecteur OneDrive"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -16,67 +16,60 @@
 	ms.date="04/09/2015"
 	ms.author="andalmia"/>
 
-# Utilisation du connecteur OneDrive dans votre application logique
+# Utilisation du connecteur OneDrive dans votre application logique #
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. 
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
 
 Le connecteur OneDrive vous permet de télécharger et de supprimer des fichiers de votre compte OneDrive.
 
-## Création d'un connecteur OneDrive pour votre application logique ##
-Pour utiliser le connecteur OneDrive, vous devez d'abord créer une instance de l'application API de ce connecteur. Pour cela, procédez comme suit :
+## Création d’un connecteur OneDrive pour votre application logique ##
+Pour utiliser le connecteur OneDrive, vous devez d’abord créer une instance de l’application API de ce connecteur. Cette opération est possible à partir du concepteur d'application logique, directement ou de l'extérieur. Vous pouvez créer une instance de l’extérieur du concepteur de l'extérieur en procédant comme suit :
 
-1.	Ouvrez Azure Marketplace à l'aide de l'option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à " Web et mobilité > Azure Marketplace " et recherchez " Connecteur OneDrive ".
-3.	Configurez le connecteur OneDrive comme suit :
- 
-	![][1] 
-	- **Nom** : indiquez le nom de votre connecteur OneDrive.
-	- **Plan de service de l'application** : sélectionnez ou créez un plan de service pour l'application.
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources dans lequel doit résider le connecteur.
-	- **Abonnement** : choisissez un abonnement dans lequel vous voulez que ce connecteur soit créé.
-	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur.
+1.	Ouvrez Azure Marketplace à partir de la page d'accueil du portail Azure.
+2.	Sous « Tout », recherchez « Connecteur OneDrive ».
+3.	Configurez le connecteur OneDrive comme suit :
+
+	![][1] - **Nom** : donnez un nom à votre connecteur OneDrive - **Plan App Service** : sélectionnez ou créez un plan App Service - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur
 
 4. Cliquez sur Créer. Un connecteur OneDrive est créé.
-5. Une fois l'instance de l'application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur OneDrive.
+5. Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur OneDrive.
 
 ## Utilisation du connecteur OneDrive dans votre application logique ##
-Une fois votre application API créée, vous pouvez utiliser le connecteur OneDrive comme une action pour votre application logique. Pour cela, vous devez procéder comme suit :
+Une fois votre application API créée, vous pouvez utiliser le connecteur OneDrive comme une action pour votre application logique. Pour cela, vous devez procéder comme suit :
 
-1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur OneDrive. Suivez les instructions pour [Créer une application logique].  	
-	
-2.	Ouvrez " Déclencheurs et actions " dans l'application logique créée pour ouvrir le Concepteur d'applications logiques et configurez votre flux.  	
-	
-3.	Le connecteur OneDrive s'affiche dans la section " Applications API dans ce groupe de ressources " de la galerie située à droite.
- 
+1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur OneDrive. Suivez les instructions indiquées dans la rubrique [Création d'une application logique].
+
+2.	Ouvrez « Déclencheurs et actions » dans l’application logique créée pour ouvrir le Concepteur d’applications logiques et configurez votre flux.
+
+3.	Le connecteur OneDrive s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
+
 	![][2]
-4.	Vous pouvez déposer l'application API du connecteur OneDrive dans l'éditeur en cliquant sur " Connecteur OneDrive ". Cliquez sur le bouton Autoriser. Indiquez vos informations d'identification Microsoft (si vous n'êtes pas connecté automatiquement). Cliquez sur " Oui " pour autoriser l'accès.
- 
-	![][3]
-	![][4]
-	
-5.	Vous pouvez maintenant utiliser le connecteur OneDrive dans le flux. Actuellement, aucun déclencheur n'est disponible dans le connecteur OneDrive. Les actions disponibles sont Obtenir le fichier, charger un fichier, Supprimer le fichier et Répertorier les fichiers.
- 
+4.	Vous pouvez déposer l’application API du connecteur OneDrive dans l’éditeur en cliquant sur « Connecteur OneDrive ». Cliquez sur le bouton Autoriser. Indiquez vos informations d’identification Microsoft (si vous n’êtes pas connecté automatiquement). Cliquez sur « Oui » pour autoriser l’accès.
+
+	![][3] ![][4]
+
+5.	Vous pouvez maintenant utiliser le connecteur OneDrive dans le flux. Actuellement, aucun déclencheur n’est disponible dans le connecteur OneDrive. Les actions disponibles sont Obtenir le fichier, charger un fichier, Supprimer le fichier et Répertorier les fichiers.
+
 	![][5]
 
-6.	Testons l'action " Charger un fichier ". Vous pouvez utiliser l'action OneDrive " Charger un fichier " pour charger un fichier dans votre compte OneDrive.
- 
+6.	Testons l’action « Charger un fichier ». Vous pouvez utiliser l’action OneDrive « Charger un fichier » pour charger un fichier dans votre compte OneDrive.
+
 	![][6]
 
-	Configurez les propriétés d'entrée de cette action, comme suit :
+	Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
- - **Chemin du fichier** : indiquez le chemin du fichier à charger.
- - **Contenu** : spécifie le contenu du fichier à télécharger.
- - **Encodage de transfert de contenu** : spécifiez none ou base64.
- - **Remplacer** : spécifiez " true " pour remplacer le fichier existant. Il s'agit d'une propriété avancée.
+ - **Chemin du fichier** : spécifiez le chemin du fichier à charger.
+ - **Contenu** : spécifie le contenu du fichier à télécharger.
+ - **Encodage de transfert de contenu** : spécifiez none ou base64.
+ - **Remplacer** : spécifiez « true » pour remplacer le fichier existant. Il s’agit d’une propriété avancée.
 
-7. Une fois ces propriétés définies, l'action " Charger un fichier " est configurée et utilisable dans votre flux. De même, d'autres actions peuvent être configurées.
+7. Une fois ces propriétés définies, l’action « Charger un fichier » est configurée et utilisable dans votre flux. De même, d’autres actions peuvent être configurées.
 
-8. Pour utiliser le connecteur hors d'une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d'API, sélectionnez Parcourir -> API Apps -> Connecteur OneDrive. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur.
+8. Pour utiliser le connecteur hors d’une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d’API, sélectionnez Parcourir -> API Apps -> Connecteur OneDrive. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur.
 
 	![][7]
 
-9. Pour plus d'informations sur les API, consultez la rubrique [Définition des API OneDrive].
+9. Pour plus d’informations sur les API, consultez la rubrique [Définition des API OneDrive].
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
@@ -88,8 +81,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 [7]: ./media/app-service-logic-connector-onedrive/img7.PNG
 
 <!-- Links -->
-[Créer une application logique]: app-service-logic-create-a-logic-app.md
+[Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API OneDrive]: https://msdn.microsoft.com/fr-fr/library/dn974227.aspx
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

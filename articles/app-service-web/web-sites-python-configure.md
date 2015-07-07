@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuration de Python avec Sites Web Azure" 
-	description="Ce didacticiel décrit les options relatives à la création et à la configuration d'une application Python compatible WSGI (Web Server Gateway Interface) de base dans Sites Web Azure." 
+	pageTitle="Configuration de Python dans Azure App Service Web Apps" 
+	description="Ce didacticiel décrit les options relatives à la création et à la configuration d'une application Python compatible WSGI (Web Server Gateway Interface) de base dans Azure App Service Web Apps." 
 	services="app-service\web" 
 	documentationCenter="python" 
 	tags="python"
@@ -14,49 +14,44 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Configuration de Python avec Sites Web Azure
+# Configuration de Python dans Azure App Service Web Apps
 
-Ce didacticiel décrit les options relatives à la création et à la configuration d'une application Python compatible WSGI (Web Server Gateway Interface) de base dans Sites Web Azure.
+Ce didacticiel décrit les options relatives à la création et à la configuration d'une application Python compatible WSGI (Web Server Gateway Interface) de base dans [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Il décrit les fonctions supplémentaires associées au déploiement Git, telles que l'environnement virtuel et l'installation de packages à l'aide de fichier requirements.txt.
-
-
-## Bottle, Django ou Flask ?
-
-La galerie Azure comporte des modèles pour les infrastructures Bottle, Django et Flask.  Si vous développez votre premier site web Azure ou que vous n'êtes pas familiarisé avec Git, nous vous recommandons de suivre l'un des didacticiels suivants, lesquels présentent des instructions pas à pas pour concevoir une application à partir de la galerie à l'aide du déploiement Git sur Windows ou Mac :
-
-- [Création de sites web avec Bottle][]
-- [Création de sites web avec Django][]
-- [Création de sites web avec Flask][]
+Il décrit les fonctions supplémentaires associées au déploiement Git, telles que l’environnement virtuel et l’installation de packages à l’aide de fichier requirements.txt.
 
 
-## Création d'un site Web sur le portail
+## Bottle, Django ou Flask ?
 
-Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail de gestion Azure.
+Le Marketplace d’Azure comporte des modèles pour les infrastructures Bottle, Django et Flask. Si vous développez votre première application web dans Azure App Service ou que vous n’êtes pas familiarisé avec Git, nous vous invitons à suivre l’un des didacticiels suivants, lesquels présentent des instructions pas à pas pour générer une application à partir de la galerie à l’aide du déploiement Git sur Windows ou Mac :
 
-Si vous ne disposez pas d'un site web existant, vous pouvez en créer un à partir du portail de gestion Azure.  Cliquez sur le bouton NOUVEAU, situé dans le coin inférieur gauche. Une fenêtre s'affiche. Cliquez sur CALCUL, SITE WEB, puis sur CRÉER.
+- [Création d’applications web avec Bottle](web-sites-python-create-deploy-bottle-app.md)
+- [Création d’applications web avec Django](web-sites-python-create-deploy-django-app.md)
+- [Création d’applications web avec Flask](web-sites-python-create-deploy-flask-app.md)
 
-![](./media/web-sites-python-configure/configure-python-create-website.png)
 
+## Création d'applications web sur le portail Azure en version préliminaire
+
+Ce didacticiel part du principe que vous disposez d'un abonnement Azure et d'un accès au portail Azure en version préliminaire.
+
+Si vous ne disposez pas d’une application web existante, vous pouvez en créer une à partir du [portail Azure en version préliminaire](https://portal.azure.com). Cliquez sur le bouton NOUVEAU en bas à gauche, puis cliquez sur **Web Mobile** > **application web**.
 
 ## Publication Git
 
-Utilisez les onglets CRÉATION RAPIDE ou TABLEAU DE BORD pour le site web que vous venez de créer afin de configurer la publication Git.  Ce didacticiel utilise Git pour créer, gérer et publier notre site web Python dans Sites Web Azure.
+Configurez la publication Git de votre nouvelle application web en suivant les instructions dans [Déploiement continu à l’aide de GIT dans Azure App Service](web-sites-publish-source-control.md). Ce didacticiel utilise Git pour créer, gérer et publier notre application web Python dans Azure App Service.
 
-![](./media/web-sites-python-configure/configure-python-git.png)
-
-Une fois la publication Git configurée, un référentiel Git est créé et associé à votre site web.  L'URL du référentiel est affichée et peut désormais être utilisée pour envoyer des données depuis l'environnement de développement local vers le cloud. Pour publier des applications via Git, vérifiez qu'un client Git est également installé et suivez les instructions fournies pour envoyer le contenu de votre site web vers Sites Web Azure.
+Une fois la publication Git configurée, un référentiel Git est créé et associé à votre application web. L'URL du référentiel est affichée et peut désormais être utilisée pour envoyer des données depuis l'environnement de développement local vers le cloud. Pour publier des applications via Git, vérifiez qu'un client Git est également installé et suivez les instructions fournies pour envoyer le contenu de votre application web vers Azure App Service.
 
 
-## Vue d'ensemble de l'application
+## Vue d’ensemble de l’application
 
-Dans les sections suivantes, les fichiers qui suivent sont créés.  Ils doivent être placés à la racine du référentiel Git.
+Dans les sections suivantes, les fichiers qui suivent sont créés. Ils doivent être placés à la racine du référentiel Git.
 
     app.py
     requirements.txt
@@ -67,9 +62,9 @@ Dans les sections suivantes, les fichiers qui suivent sont créés.  Ils doivent
 
 ## Gestionnaire WSGI
 
-WSGI est une norme Python décrite par [PEP 3333](http://www.python.org/dev/peps/pep-3333/) qui définit une interface entre le serveur web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et infrastructures Web à l'aide de Python.  Des infrastructures Web Python connues utilisent aujourd'hui WSGI.  Sites Web Azure vous offre la prise en charge de ces infrastructures ; en outre, les utilisateurs experts peuvent même créer leur propre infrastructure à condition que le gestionnaire personnalisé suive les recommandations de la spécification WSGI.
+WSGI est une norme Python décrite par [PEP 3333](http://www.python.org/dev/peps/pep-3333/) qui définit une interface entre le serveur Web et Python. Elle fournit une interface normalisée pour la rédaction de diverses applications et infrastructures Web à l'aide de Python. Des infrastructures Web Python connues utilisent aujourd'hui WSGI. Azure App Service Web Apps vous offre la prise en charge de ces infrastructures. En outre, les utilisateurs experts peuvent même créer leur propre infrastructure à condition que le gestionnaire personnalisé suive les instructions de la spécification WSGI.
 
-Voici un exemple de  `app.py` définissant un gestionnaire personnalisé :
+Voici un exemple de `app.py` définissant un gestionnaire personnalisé :
 
     def wsgi_app(environ, start_response):
         status = '200 OK'
@@ -84,25 +79,25 @@ Voici un exemple de  `app.py` définissant un gestionnaire personnalisé :
         httpd = make_server('localhost', 5555, wsgi_app)
         httpd.serve_forever()
 
-Vous pouvez exécuter cette application localement à l'aide de  `python app.py`, puis accédez à l'adresse `http://localhost:5555` dans votre navigateur web.
+Vous pouvez exécuter cette application localement à l’aide de `python app.py` puis accédez à `http://localhost:5555` dans votre navigateur web.
 
 
 ## Environnement virtuel
 
-Bien que l'exemple d'application précédent ne requière aucun package externe, il est probable que votre application en requiert un.
+Bien que l’exemple d’application précédent ne requière aucun package externe, il est probable que votre application en requiert un.
 
-Pour faciliter la gestion des dépendances des packages externes, le déploiement Azure Git prend en charge la création d'environnements virtuels.
+Pour faciliter la gestion des dépendances des packages externes, le déploiement Azure Git prend en charge la création d’environnements virtuels.
 
-Lorsqu'Azure détecte un fichier requirements.txt à la racine du référentiel, il crée automatiquement un environnement virtuel nommé  `env`.  Cette opération intervient uniquement lors du premier déploiement ou lors de tout déploiement faisant suite à la modification du runtime Python sélectionné.
+Lorsque’Azure détecte un fichier requirements.txt à la racine du référentiel, il crée automatiquement un environnement virtuel nommé `env`. Cette opération intervient uniquement lors du premier déploiement ou lors de tout déploiement faisant suite à la modification du runtime Python sélectionné.
 
-Vous souhaiterez probablement créer un environnement virtuel local pour le développement, sans pour autant l'inclure à votre référentiel Git.
+Vous souhaiterez probablement créer un environnement virtuel local pour le développement, sans pour autant l’inclure à votre référentiel Git.
 
 
 ## Gestion des packages
 
-Les packages répertoriés dans le fichier requirements.txt seront automatiquement installés au sein de l'environnement virtuel à l'aide de pip.  Cette opération intervient à chaque déploiement, mais pip ignorera l'installation si un package est déjà installé.
+Les packages répertoriés dans le fichier requirements.txt seront automatiquement installés au sein de l’environnement virtuel à l’aide de pip. Cette opération intervient à chaque déploiement, mais pip ignorera l’installation si un package est déjà installé.
 
-Exemple  `requirements.txt` :
+Exemple `requirements.txt` :
 
     azure==0.8.4
 
@@ -111,7 +106,7 @@ Exemple  `requirements.txt` :
 
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-Exemple  `runtime.txt` :
+Exemple `runtime.txt` :
 
     python-2.7
 
@@ -120,11 +115,11 @@ Exemple  `runtime.txt` :
 
 Vous devez créer un fichier web.config pour spécifier de quelle manière le serveur doit gérer les demandes.
 
-Si vous disposez d'un fichier web.X.Y.config dans votre référentiel, où X.Y correspond au runtime Python sélectionné, Azure copie automatiquement le fichier approprié en tant que fichier web.config.
+Si vous disposez d’un fichier web.X.Y.config dans votre référentiel, où X.Y correspond au runtime Python sélectionné, Azure copie automatiquement le fichier approprié en tant que fichier web.config.
 
-Les exemples de fichier web.config suivants concernent un script proxy d'environnement virtuel, lequel est décrit dans la section suivante.  Ces fichiers fonctionnent avec le gestionnaire WSGI utilisé dans l'exemple  `app.py` précédent.
+Les exemples de fichier web.config suivants concernent un script proxy d’environnement virtuel, lequel est décrit dans la section suivante. Ces fichiers fonctionnent avec le gestionnaire WSGI utilisé dans l’exemple `app.py` précédent.
 
-Exemple  `web.config` pour Python 2.7 :
+Exemple `web.config` pour Python 2.7 :
 
     <?xml version="1.0"?>
     <configuration>
@@ -173,7 +168,7 @@ Exemple  `web.config` pour Python 2.7 :
     </configuration>
 
 
-Exemple  `web.config` pour Python 3.4 :
+Exemple `web.config` pour Python 3.4 :
 
     <?xml version="1.0"?>
     <configuration>
@@ -220,39 +215,39 @@ Exemple  `web.config` pour Python 3.4 :
     </configuration>
 
 
-Les fichiers statiques sont directement gérés par le serveur web, sans passer par le code Python, afin d'améliorer les performances.
+Les fichiers statiques sont directement gérés par le serveur web, sans passer par le code Python, afin d’améliorer les performances.
 
-Dans les exemples précédents, l'emplacement des fichiers statiques sur le disque doit correspondre à celui présent dans l'URL.  Cela signifie qu'une demande pour  `http://pythonapp.azurewebsites.net/static/site.css` renverra au fichier présent sur le disque à l'emplacement  `\static\site.css`.
+Dans les exemples précédents, l’emplacement des fichiers statiques sur le disque doit correspondre à celui présent dans l’URL. Cela signifie qu’une demande pour `http://pythonapp.azurewebsites.net/static/site.css` renverra au fichier présent sur le disque à l’emplacement `\static\site.css`.
 
-Il est possible de configurer la règle  `Static Files` pour renvoyer des fichiers depuis un emplacement du disque différent de l'emplacement présent dans l'URL.  Dans la définition de règle suivante, une demande pour  `http://pythonapp.azurewebsites.net/static/site.css` renverra le fichier présent sur le disque à l'emplacement  `\FlaskWebProject\static\site.css`, au lieu de  `\static\site.css`.
+Il est possible de configurer la règle `Static Files` pour renvoyer des fichiers depuis un emplacement du disque différent de l’emplacement présent dans l’URL. Dans la définition de règle suivante, une demande pour `http://pythonapp.azurewebsites.net/static/site.css` renverra le fichier présent sur le disque à l’emplacement `\FlaskWebProject\static\site.css` au lieu de `\static\site.css`.
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />
       <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
     </rule>
 
-`WSGI_ALT_VIRTUALENV_HANDLER` correspond à l'emplacement auquel vous spécifiez le gestionnaire WSGI.  Dans les exemples précédents, il s'agit de  `app.wsgi_app` car le gestionnaire correspond à une fonction nommée  `wsgi_app` dans  `app.py`, dans le dossier racine.
+`WSGI_ALT_VIRTUALENV_HANDLER` est l’emplacement où vous spécifiez le gestionnaire WSGI. Dans les exemples précédents, il s’agit de `app.wsgi_app` car le gestionnaire correspond à une fonction nommée `wsgi_app` dans `app.py`, dans le dossier racine.
 
-Vous pouvez personnaliser `PYTHONPATH`, mais si vous installez toutes vos dépendances dans l'environnement virtuel en les spécifiant dans le fichier requirements.txt, il n'est pas nécessaire de les modifier.
+Vous pouvez personnaliser `PYTHONPATH`, mais si vous installez toutes vos dépendances dans l’environnement virtuel en les spécifiant dans le fichier requirements.txt, il n’est pas nécessaire de les modifier.
 
 
-## Proxy d'environnement virtuel
+## Proxy d’environnement virtuel
 
-Le script suivant permet de récupérer le gestionnaire WSGI, d'activer l'environnement virtuel et de journaliser les erreurs. Il est conçu pour être générique et utilisé sans modification.
+Le script suivant permet de récupérer le gestionnaire WSGI, d’activer l’environnement virtuel et de journaliser les erreurs. Il est conçu pour être générique et utilisé sans modification.
 
-Contenu de  `ptvs_virtualenv_proxy.py` :
+Contenu de `ptvs_virtualenv_proxy.py` :
 
      # ############################################################################
      #
      # Copyright (c) Microsoft Corporation. 
      #
-     # Ce code source est soumis aux conditions de la licence Apache, version 2.0. Une 
-     # copie de cette licence est disponible dans le fichier License.html, à la racine de cette distribution. Si 
-     # vous ne parvenez pas à localiser la licence Apache, version 2.0, envoyez un courrier électronique à 
-     # vspython@microsoft.com. En utilisant ce code source, de quelque manière que ce soit, vous acceptez 
-     # les termes de la licence Apache, version 2.0.
+     # This source code is subject to terms and conditions of the Apache License, Version 2.0. A 
+     # copy of the license can be found in the License.html file at the root of this distribution. If 
+     # you cannot locate the Apache License, Version 2.0, please send an email to 
+     # vspython@microsoft.com. By using this source code in any fashion, you are agreeing to be bound 
+     # by the terms of the Apache License, Version 2.0.
      #
-     # Vous ne devez pas supprimer cet avis ni aucun autre de ce logiciel.
+     # You must not remove this notice, or any other, from this software.
      #
      # ###########################################################################
 
@@ -367,11 +362,6 @@ Contenu de  `ptvs_virtualenv_proxy.py` :
 [AZURE.INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
 
-## Dépannage - Déploiement
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## Résolution des problèmes - Installation des packages
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -381,11 +371,16 @@ Contenu de  `ptvs_virtualenv_proxy.py` :
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
-[Création de sites web avec Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Création de sites web avec Django]: web-sites-python-create-deploy-django-app.md
-[Création de sites web avec Flask]: web-sites-python-create-deploy-flask-app.md
 
 
-<!--HONumber=52--> 
+
+ 
+
+<!---HONumber=62-->

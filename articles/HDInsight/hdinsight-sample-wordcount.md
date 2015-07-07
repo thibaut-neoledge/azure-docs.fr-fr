@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Exécution d'un exemple de comptage de mots Hadoop MapReduce dans HDInsight | Azure"
-	description="Exécutez un exemple de statistiques MapReduce sur un cluster Hadoop dans HDInsight. Le programme, écrit en Java, compte les occurrences de mots dans un fichier texte."
+	pageTitle="Exemple de comptage de mots Hadoop MapReduce dans HDInsight | Microsoft Azure"
+	description="Exécutez un exemple de comptage de mots MapReduce sur un cluster Hadoop dans HDinsight. Le programme, écrit en Java, compte les occurrences de mots dans un fichier texte."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-#Exécution d’un exemple de comptage de mots MapReduce sur un cluster Hadoop dans HDinsight
+#Exécution d’un exemple de comptage de mots MapReduce écrit en Java sur un cluster Hadoop dans HDinsight
 
 Ce didacticiel vous explique comment exécuter un exemple de comptage de mots MapReduce sur un cluster Hadoop dans HDInsight. Ce programme est écrit en Java. Il compte les occurrences de mots dans un fichier texte et génère un nouveau fichier texte contenant chaque mot avec la fréquence d'occurrence correspondante. Le fichier de texte analysé dans cet exemple est l'édition des Carnets de Léonard de Vinci en livre électronique par le Project Gutenberg.
 
+> [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un client Windows. Pour savoir comment utiliser l’exemple de comptage de mots à partir d’un client Linux, OS X ou Unix, avec un cluster HDInsight basé sur Linux, consultez la page [Utilisation de MapReduce avec Hadoop sur HDInsight avec SSH](hdinsight-hadoop-use-mapreduce-ssh.md) ou [Exécution à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl](hdinsight-hadoop-use-mapreduce-curl.md).
 
 **Vous apprendrez à effectuer les opérations suivantes :**
 
@@ -29,13 +30,15 @@ Ce didacticiel vous explique comment exécuter un exemple de comptage de mots Ma
 
 **Conditions préalables** :
 
-- Vous devez disposer d'un compte Azure. Pour connaître les options relatives à la création d’un compte, consultez la page [Version d’évaluation gratuite d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- Vous devez avoir approvisionné un cluster HDInsight. Pour obtenir des instructions sur les différentes façons de créer ce type de clusters, consultez la page [Prise en main d’Azure HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
+- **Un cluster HDInsight**. Pour obtenir des instructions sur les différentes façons de créer ce type de clusters, consultez la page [Prise en main d’Azure HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
 
-- Vous devez avoir installé Azure PowerShell et l’avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la rubrique [Installation et configuration d’Azure PowerShell][powershell-install-configure].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-<h2><a id="run-sample"></a>Exécution de l’exemple avec Azure&#160;PowerShell</h2>
+
+
+## <a id="run-sample"></a>Exécution de l’exemple avec Azure PowerShell</h2>
 
 **Envoi de la tâche MapReduce**
 
@@ -95,7 +98,7 @@ Ce didacticiel vous explique comment exécuter un exemple de comptage de mots Ma
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Le dossier */example/data/WordCountOutput* est le dossier de résultat spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour le résultat de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers dans le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actif est le dossier racine C. Le fichier est donc téléchargé dans le dossier *C:\\example\\data\\WordCountOutput*.
+	Le dossier */example/data/WordCountOutput* est le dossier de résultat spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour le résultat de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers dans le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actif est le dossier racine C. Le fichier est donc téléchargé dans le dossier *C:\example\data\WordCountOutput\*.
 
 5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
@@ -108,9 +111,9 @@ Le résultat du script WordCount doit s'afficher dans la fenêtre de commande :
 
 ![Résultats de la fréquence de mots de l'exemple de décompte de mots MapReduce Hadoop dans HDInsight effectuée dans PowerShell.][image-hdi-sample-wordcount-output]
 
-Notez que les fichiers de résultat d'une tâche MapReduce sont immuables. Par conséquent, si vous réexécutez cet exemple, vous devrez modifier le nom du fichier de sortie.
+Notez que les fichiers de résultat d'une tâche MapReduce sont immuables. Donc, si vous réexécutez cet exemple, vous devrez modifier le nom du fichier de résultat.
 
-<h2><a id="java-code"></a>Code Java du programme WordCount MapReduce</h2>
+## <a id="java-code"></a>Code Java du programme WordCount MapReduce</h2>
 
 
 
@@ -186,7 +189,7 @@ Notez que les fichiers de résultat d'une tâche MapReduce sont immuables. Par c
 
 Dans ce didacticiel, vous avez vu comment exécuter un programme MapReduce qui compte les occurrences de mots dans un fichier texte avec HDInsight et Azure PowerShell.
 
-<h2><a id="next-steps"></a>Étapes suivantes</h2>
+## <a id="next-steps"></a>Étapes suivantes</h2>
 
 Pour suivre des didacticiels exécutant d'autres exemples et fournissant des instructions sur l'utilisation des tâches Pig, Hive et MapReduce sur Azure HDInsight avec Azure PowerShell, consultez les rubriques suivantes :
 
@@ -210,8 +213,9 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,13 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
 
 Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou peut-être voulez-vous recevoir une alerte par courrier électronique pour les événements présentant des propriétés spécifiques ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.
 
+L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="setup"></a> Configurer l’exportation continue
 
@@ -45,6 +46,7 @@ Si vous souhaitez modifier les types d’événement plus tard, modifiez simplem
 Pour arrêter le flux de données, cliquez sur Désactiver. Lorsque vous cliquez de nouveau sur Activer, le flux de données redémarre avec de nouvelles données. Vous n’obtiendrez pas les données qui sont arrivées sur le portail alors que l’exportation était désactivée.
 
 Pour arrêter définitivement le flux de données, supprimez l’exportation. Cette opération ne supprime pas vos données du stockage.
+
 #### Impossible d’ajouter ou de modifier une exportation ?
 
 * Pour ajouter ou modifier des exportations, vous devez disposer de droits d’accès de propriétaire, de collaborateur ou de collaborateur Application Insights. [En savoir plus sur les rôles][roles].
@@ -58,7 +60,7 @@ Les données exportées sont celles de la télémétrie brute que nous recevons 
 
 Les mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
-## <a name="get"></a> Comment les obtenir ?
+## <a name="get"></a> Inspecter les données
 
 Lorsque vous ouvrez votre magasin d’objets blob avec un outil comme l’[Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx), vous voyez un conteneur avec un ensemble de fichiers blob. L’URI de chaque fichier est id-application/type-télémétrie/date/heure.
 
@@ -66,18 +68,11 @@ Lorsque vous ouvrez votre magasin d’objets blob avec un outil comme l’[Explo
 
 La date et l’heure sont au format UTC et correspondent au moment où la télémétrie a été placée dans le magasin, et pas au moment où elle a été générée. Par conséquent, si vous écrivez du code pour télécharger les données, il peut parcourir les données de façon linéaire.
 
-Pour télécharger ces données par programme, utilisez l’[API REST du magasin d’objets blob](../storage-dotnet-how-to-use-blobs.md#configure-access) ou les [applets de commande PowerShell Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-Ou pensez à [DataFactory](http://azure.microsoft.com/services/data-factory/), qui permet de définir des pipelines pour gérer des données à grande échelle.
-
-Nous commençons l’écriture d’un nouvel objet blob toutes les heures (en cas de réception d’événements). Par conséquent, vous devez toujours traiter jusqu’à l’heure précédente, mais attendre que l’heure en cours se termine.
-
-[Exemple de code][exportcode]
 
 
-## <a name="format"></a> À quoi ressemblent les données ?
+## <a name="format"></a> Format de données
 
-* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
+* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \n.
 * Chaque ligne est un document JSON sans mise en forme. Pour consulter ce format, vous pouvez l’ouvrir par exemple dans Notepad++ avec le plug-in JSON :
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
@@ -90,7 +85,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
 
 
 
-## Comment les traiter ?
+## Traitement des données
 
 À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple :
 
@@ -111,8 +106,17 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
       }
     }
 
+Pour un exemple de code plus long, consultez [utilisation d’un rôle de travail][exportasa].
 
-Ou vous pouvez les déplacer dans une base de données SQL. Consultez cet [exemple de code][exportcode].
+#### Exporter vers SQL
+
+L’autre possibilité consiste à déplacer les données vers une base de données SQL, où vous pouvez effectuer une analyse plus puissante.
+
+Nous disposons d’exemples illustrant deux autres méthodes de déplacement des données depuis le stockage d’objets blob dans une base de données :
+
+* [Exporter vers SQL à l’aide d’un rôle de travail][exportcode]
+* [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
+
 
 À plus grande échelle, envisagez d’utiliser des clusters [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop dans le cloud. HDInsight offre de nombreuses technologies pour gérer et analyser les données volumineuses.
 
@@ -129,10 +133,6 @@ Ouvrez le panneau Exportation continue et modifiez votre exportation. Modifiez l
 
 L’exportation continue redémarre.
 
-
-## Exemple de code
-
-[Déplacer les données exportées dans une base de données SQL][exportcode]
 
 ## Questions et réponses
 
@@ -170,7 +170,9 @@ L’exportation continue redémarre.
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

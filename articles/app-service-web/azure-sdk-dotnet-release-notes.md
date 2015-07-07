@@ -22,6 +22,11 @@
 
 Cette rubrique contient des liens vers les notes de publication du Kit de développement logiciel (SDK) Azure pour .NET
 
+
+##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6
+
+[Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.6](azure-sdk-dotnet-release-notes-2_6.md)
+
 ##Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1
 
 [Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.5.1](../app-service/app-service-release-notes.md)
@@ -54,5 +59,7 @@ Cette rubrique contient des liens vers les notes de publication du Kit de dével
 
 [Kit de développement logiciel (SDK) Azure pour .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
 
-[Notes de publication du Kit de développement logiciel (SDK) Azure sur MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx) <!--HONumber=52-->
+[Notes de publication du Kit de développement logiciel (SDK) Azure sur MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
+
+<!---HONumber=62-->

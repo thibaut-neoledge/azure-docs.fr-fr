@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notes de publication : émulateur Microsoft HDInsight pour Azure | Microsoft Azure" 
-	description="Accédez à des informations de dernière minute sur les versions les plus récentes de l'émulateur HDInsight Hadoop." 
+	description="Accédez à des informations de dernière minute sur les versions les plus récentes de l'émulateur HDInsight Hadoop, un environnement de bac à sable (sandbox) Hadoop" 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -19,7 +19,7 @@
 
 
 
-# Notes de publication : émulateur Microsoft HDInsight pour Azure 
+# Notes de publication : émulateur Microsoft HDInsight pour Hadoop 
 
 
 
@@ -43,7 +43,7 @@
 
 ### Nouveautés 
  
-* Des scripts ont été ajoutés pour simplifier la configuration de tous les services Apache Hadoop sur un démarrage automatique ou manuel. Le paramètre par défaut reste automatique, comme auparavant, mais tous les services peuvent désormais être modifiés à l’aide des scripts set-onebox-manualstart.cmd ou set-onebox-autostart.cmd, installés dans C:\\Hadoop. 
+* Des scripts ont été ajoutés pour simplifier la configuration de tous les services Apache Hadoop sur un démarrage automatique ou manuel. Le paramètre par défaut reste automatique, comme auparavant, mais tous les services peuvent désormais être modifiés à l’aide des scripts set-onebox-manualstart.cmd ou set-onebox-autostart.cmd, installés dans C:\Hadoop. 
 
 * Le nombre de dépendances d'installation requises a été nettement réduit, ce qui permet d'effectuer des installations plus rapides.
 
@@ -110,7 +110,7 @@
 
 	Dans le tableau de bord, un cluster local par défaut nommé « local (hdfs) » s'affiche. Procédez comme suit pour utiliser le stockage d’objets blob Azure comme stockage pour votre installation locale :
 
-	1. Ajoutez la balise de compte dans le fichier core-site.xml qui se trouve sous C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf:       
+	1. Ajoutez la balise de compte dans le fichier core-site.xml qui se trouve sous C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf:       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * Répertoire Temp
 	
-	Le fichier hadoop.tmp.dir pointe vers un emplacement incorrect. au lieu de pointer vers C:\\hadoop\\hdfs, il pointe vers c:\\hdfs. Cette erreur sera corrigée lors de la prochaine mise à jour des portions HDP.
+	Le fichier hadoop.tmp.dir pointe vers un emplacement incorrect. au lieu de pointer vers C:\hadoop\hdfs, il pointe vers c:\hdfs. Cette erreur sera corrigée lors de la prochaine mise à jour des portions HDP.
 
 * Restrictions de système d’exploitation
 
@@ -274,5 +274,6 @@
 
 [hdinsight-hadoop-emulator-get-started]: ../hdinsight-get-started-emulator.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

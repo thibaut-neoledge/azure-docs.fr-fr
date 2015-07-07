@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configurer des serveurs DNS entre deux réseaux virtuels Azure | Azure" 
-   description="Découvrez comment configurer des connexions VPN entre deux réseaux virtuels Azure, configurer la résolution de noms de domaine entre deux réseaux virtuels et configurer la géo-réplication HBase" 
-   services="hdinsight" 
+   pageTitle="Configurer DNS entre deux réseaux virtuels Azure | Microsoft Azure" 
+   description="Découvrez comment configurer des connexions VPN et la résolution de noms de domaine entre deux réseaux virtuels et comment configurer la géo-réplication HBase." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -40,9 +40,9 @@ Le diagramme suivant illustre les deux réseaux virtuels que vous avez créés d
 ##Configuration requise
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel Azure PowerShell est installé et configuré**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
 
@@ -52,9 +52,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **Deux réseaux virtuels Azure avec une connexion VPN**. Pour obtenir des instructions, consultez [Configurer une connexion VPN entre deux réseaux virtuels Azure][hdinsight-hbase-replication-vnet].
+- **Deux réseaux virtuels Azure avec une connexion VPN**. Pour obtenir des instructions, consultez [Configurer une connexion VPN entre deux réseaux virtuels Azure][hdinsight-hbase-geo-replication-vnet].
 
->[AZURE.NOTE]Les noms des services et des machines virtuelles Azure doivent être uniques. Le nom utilisé dans ce didacticiel est Contoso-[nom du service/de la machine virtuelle Azure]-[EU/US]. Par exemple, Contoso-VNet-EU est le réseau virtuel Azure du centre de données en Europe du Nord et Contoso-DNS-US est la machine virtuelle du serveur DNS du centre de données de l'Est des États-Unis. Vous devez trouver vos propres noms.
+>[AZURE.NOTE]Les noms des services et des machines virtuelles Azure doivent être uniques. Le nom utilisé dans ce didacticiel est Contoso-[Azure Service/VM name]-[EU/US]. Par exemple, Contoso-VNet-EU est le réseau virtuel Azure du centre de données en Europe du Nord et Contoso-DNS-US est la machine virtuelle du serveur DNS du centre de données de l'Est des États-Unis. Vous devez trouver vos propres noms.
  
  
 ##Créer des machines virtuelles à utiliser en tant que serveurs DNS
@@ -73,9 +73,9 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	- **SOUS-RÉSEAUX DU RÉSEAU VIRTUEL** : Subnet-1
 	- **COMPTE DE STOCKAGE** : utilisez un compte de stockage généré automatiquement
 	
-		Le nom du service cloud sera identique au nom de la machine virtuelle. Dans notre cas, il s'agit de Contoso-DNS-EU. Pour les machines virtuelles suivantes, je peux choisir d'utiliser le même service cloud. Toutes les machines virtuelles figurant sous le même service cloud partagent le même réseau virtuel et le même suffixe de domaine.
+		Le nom du service cloud est identique au nom de la machine virtuelle. Dans ce cas, il s’agit de Contoso-DNS-UE. Pour les machines virtuelles suivantes, il est possible d’utiliser le même service cloud. Toutes les machines virtuelles sous le même service cloud partagent le même réseau virtuel et le même suffixe de domaine.
 
-		Le compte de stockage est utilisé pour stocker le fichier image de la machine virtuelle. 
+		Le compte de stockage est utilisé pour stocker le fichier d’image de la machine virtuelle. 
 	- **POINTS DE TERMINAISON** : (faites défiler vers le bas et sélectionnez **DNS**) 
 
 Une fois la machine virtuelle créée, recherchez les adresses IP interne et externe.
@@ -100,7 +100,7 @@ Une fois la machine virtuelle créée, recherchez les adresses IP interne et ex
 
 Les serveurs DNS doivent avoir des adresses IP statiques. Cette étape ne peut pas être effectuée depuis le portail Azure. Vous devez utiliser Azure PowerShell.
 
-**Pour configurer une  adresse IP statique pour les deux machines virtuelles**
+**Pour configurer une adresse IP statique pour les deux machines virtuelles**
 
 1. Ouvrez Windows PowerShell ISE.
 2. Exécutez les applets de commande suivantes :  
@@ -216,7 +216,8 @@ Dans ce didacticiel, vous avez vu comment configurer la résolution de noms sur 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

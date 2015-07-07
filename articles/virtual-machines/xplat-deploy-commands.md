@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Déploiement d'un modèle à l'aide de l'interface de ligne de commande Azure pour Mac, Linux et Windows"
+   pageTitle="Déploiement d'un modèle à l'aide de l'interface de ligne de commande Azure pour Mac, Linux et Windows | Microsoft Azure"
    description="Décrit les étapes de base pour déployer ou mettre à jour n'importe quel modèle."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Déploiement d'un modèle à l'aide de l'interface de ligne de commande Azure pour Mac, Linux et Windows
 
@@ -30,11 +30,11 @@ Les étapes suivantes vous permettront de déployer un modèle Azure, même s'il
 Téléchargez le fichier azuredeploy-parameters.json s'il existe pour le modèle que vous souhaitez déployer.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## Entrer les informations de déploiement du groupe de ressources
-    
+
 Ouvrez ce fichier dans votre éditeur favori. Vous verrez que vous devez spécifier une valeur pour plusieurs clés, en particulier **adminUsername**, **adminPassword** (n'oubliez pas les règles de complexité !) et le nom du compte de stockage ainsi que les noms DNS de votre choix.
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,7 +70,7 @@ Ouvrez ce fichier dans votre éditeur favori. Vous verrez que vous devez spécif
         "value": "myNic"
       }
     }
-    
+
 Ajoutez les nouvelles valeurs (Azure va créer les ressources de stockage et DNS à votre place, si cela est possible) ou utilisez les ressources que vous avez déjà créées. Voici un exemple avec le fichier azuredeploy-parameters.json :
 
 
@@ -82,7 +82,7 @@ l'url ci-dessous extrait le fichier de paramètres du fichier parameters.json az
 ### Déployer les fichiers de modèle et de paramètres
 
 
-[AZURE.NOTE] Vous pouvez constater que certains modèles n'ont pas forcément un fichier azuredeploy-parameters.json correspondant.
+[AZURE.NOTE]Vous pouvez constater que certains modèles n'ont pas forcément un fichier azuredeploy-parameters.json correspondant.
 
 Les paramètres sont à définir, ou ils peuvent déjà faire partie du modèle lui-même, selon les modèles que vous utilisez. Dans ce cas, vous pouvez
 
@@ -105,6 +105,6 @@ Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia C
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

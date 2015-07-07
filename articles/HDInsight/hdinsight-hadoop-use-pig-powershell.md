@@ -28,9 +28,9 @@ Ce document fournit un exemple d’utilisation d’Azure PowerShell pour soumett
 
 Pour effectuer les étapes présentées dans cet article, vous avez besoin des éléments suivants :
 
-* Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##<a id="powershell"></a>Exécution de tâches Pig avec PowerShell
@@ -141,5 +141,6 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

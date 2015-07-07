@@ -25,12 +25,12 @@ Azure PowerShell est un environnement de création de scripts vous permettant de
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-- Un abonnement Azure. Azure est une plateforme disponible par abonnement. Les applets de commande Azure PowerShell pour HDInsight permettent d’effectuer les tâches en utilisant votre abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install-configure].
+- **Un poste de travail sur lequel est installé Azure PowerShell.** Voir [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
-##Configuration de clusters HDInsight
+##Approvisionnement de clusters HDInsight
 HDInsight utilise le conteneur de stockage d'objets blob Azure comme système de fichiers par défaut. Un compte Azure Storage et un conteneur de stockage sont nécessaires avant de pouvoir créer un cluster HDInsight.
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
@@ -270,12 +270,13 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

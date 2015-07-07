@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Flask et stockage des tables Azure sur Azure avec Python Tools 2.1 for Visual Studio" 
-	description="Découvrez comment utiliser les outils Python pour Visual Studio pour créer une application Flask qui stocke les données dans Azure Table Storage et peut être déployée vers un site web." 
+	pageTitle="Flask et stockage des tables Azure sur Azure avec Python Tools 2.1 for Visual Studio" 
+	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application Flask qui stocke les données dans le stockage de tables Azure et déployer l’application web dans Azure App Service Web Apps." 
 	services="app-service\web"
 	tags="python"
 	documentationCenter="python" 
@@ -14,167 +14,156 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/16/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Flask et stockage des tables Azure sur Azure avec Python Tools 2.1 for Visual Studio 
+# Flask et stockage des tables Azure sur Azure avec Python Tools 2.1 for Visual Studio 
 
-Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio][] afin de créer une application de sondage simple à l'aide de l'un des exemples de modèles PTVS. Ce didacticiel est également disponible sous forme de [vidéo](https://www.youtube.com/watch?v=qUtZWtPwbTk).
+Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=qUtZWtPwbTk).
 
-L'application de sondage définit une abstraction pour son référentiel, ce qui vous permet de basculer facilement d'un type de référentiel à un autre (In-Memory, stockage de tables Azure, MongoDB).
+L’application web de sondage définit une abstraction pour son référentiel, ce qui vous permet de basculer facilement d’un type de référentiel à un autre (In-Memory, Azure Table Storage, MongoDB).
 
-Nous allons découvrir comment créer un compte Azure Storage, comment configurer l'application pour utiliser le stockage de tables Azure et comment publier l'application sur un site web Azure.
+Nous allons découvrir comment créer un compte Azure Storage, comment configurer l’application web pour utiliser le stockage de tables Azure et comment publier l’application web sur un [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Visitez le [Centre de développement Python][] pour consulter d'autres articles sur le développement de site web Azure avec PTVS à l'aide des infrastructures web Bottle, Flask et Django, ainsi que de MongoDB, du stockage de tables Azure, de MySQL et des services de base de données SQL.  Quand bien même cet article se concentre Sites Web Azure, les étapes sont similaires pour développer [Azure Cloud Services][].
+Visitez le [Centre de développement Python] pour consulter d’autres articles sur le développement d’applications Azure App Service Web Apps avec PTVS à l’aide des infrastructures web Bottle, Flask et Django, ainsi que des services MongoDB, Azure Table Storage, MySQL et Base de données SQL. Cet article concerne App Service, mais les étapes sont similaires lorsque vous développez pour [Azure Cloud Services].
 
-## Conditions préalables
+## Composants requis
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 pour Visual Studio (en anglais)][]
- - [Exemples VSIX de Python Tools 2.1 pour Visual Studio][]
- - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012][]
- - [Python 2.7 32 bits][] ou [Python 3.4 32 bits][]
+ - Visual Studio 2012 ou 2013
+ - [Python Tools 2.1 pour Visual Studio]
+ - [Python Tools 2.1 pour Visual Studio Samples VSIX]
+ - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]
+ - [Python 2.7 32 bits] ou [Python 3.4 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 ## Création du projet
 
-Dans cette section, nous allons créer un projet Visual Studio à l'aide d'un exemple de modèle.  Nous allons créer un environnement virtuel et installer les packages requis.  Ensuite, nous allons exécuter l'application localement à l'aide du référentiel In-Memory par défaut.
+Dans cette section, nous allons créer un projet Visual Studio à l’aide d’un exemple de modèle. Nous allons créer un environnement virtuel et installer les packages requis. Ensuite, nous allons exécuter l’application localement à l’aide du référentiel In-Memory par défaut.
 
-1.  Dans Visual Studio, sélectionnez **Fichier**, **Nouveau projet**.
+1.  Dans Visual Studio, sélectionnez **Fichier** puis **Nouveau projet**.
 
-1.  Les modèles de projet issus des exemples VSIX de PTVS sont disponibles sous **Python**, **Exemples**.  Sélectionnez **Projet web de sondage Flask** et cliquez sur OK pour créer le projet.
+1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Projet web de sondage Flask** et cliquez sur OK pour créer le projet.
 
   	![Boîte de dialogue Nouveau projet](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskNewProject.png)
 
-1.  Vous allez être invité à installer des packages externes.  Sélectionnez **Installer dans un environnement virtuel**.
+1.  Vous allez être invité à installer des packages externes. Sélectionnez **Installer dans un environnement virtuel**.
 
   	![Boîte de dialogue Packages externes](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskExternalPackages.png)
 
-1.  Sélectionnez **Python 2.7** ou **Python 3.4** en tant qu'interpréteur de base.
+1.  Sélectionnez **Python 2.7** ou **Python 3.4** comme interpréteur de base.
 
   	![Boîte de dialogue Ajouter un environnement virtuel](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAddVirtualEnv.png)
 
-1.  Vérifiez que l'application fonctionne en appuyant sur <kbd>F5</kbd>.  Par défaut, l'application utilise un référentiel In-Memory qui ne requiert aucune configuration.  Toutes les données sont perdues à l'arrêt du serveur web.
+1.  Vérifiez que l’application fonctionne en appuyant sur `F5`. Par défaut, l’application utilise un référentiel In-Memory qui ne requiert aucune configuration. Toutes les données sont perdues à l’arrêt du serveur web.
 
-1.  Cliquez sur **Créer un exemple de sondage**, puis sur un sondage et vote.
+1.  Cliquez sur **Créer un exemple de sondage**, puis sur un sondage et un vote.
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskInMemoryBrowser.png)
 
-## Création d'un compte de stockage Azure
+## Création d’un compte de stockage Azure
 
-Pour utiliser les opérations de stockage, vous avez besoin d'un compte Azure Storage. Pour en créer un, procédez comme suit :
+Pour utiliser les opérations de stockage, vous avez besoin d’un compte Azure Storage. Pour en créer un, procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail Azure].
 
-1.  En bas du volet de navigation, cliquez sur **NOUVEAU**.
+2. Cliquez sur l’icône **Nouveau** en bas à gauche du portail, puis cliquez sur **Données + stockage** > **Stockage**. Attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
 
-  	![Bouton Nouveau](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png)
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
 
-1.  Cliquez sur **SERVICES DE DONNÉES**, sur **STOCKAGE**, puis sur **CRÉATION RAPIDE**.
+5. Cliquez sur la section **Paramètres** dans le panneau du compte de stockage. Prenez note du nom du compte et de la clé primaire.
 
-  	![Création rapide](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureStorageCreate.png)
-
-1.  Dans URL, tapez un nom de sous-domaine à utiliser dans l'URI du compte de stockage.  L'entrée peut être composée de 3 à 24 lettres minuscules et chiffres. Cette valeur devient le nom d'hôte contenu dans l'URI utilisé pour adresser les ressources d'objets blob, de files d'attente et de tables pour l'abonnement.
-
-1.  Choisissez la région ou le groupe d'affinités dans lequel localiser le stockage. Si vous utilisez le stockage à partir de votre application Azure, sélectionnez la même région que celle du déploiement de votre application.
-
-1.  Vous pouvez éventuellement activer les géo-réplications.  Avec les géo-réplications, le stockage de tables Azure pérennise maintenant vos données à deux emplacements. À ces deux emplacements, le stockage de tables Azure tient constamment à jour plusieurs réplicas intègres de vos données.
-
-1.  Cliquez sur **CRÉER UN COMPTE DE STOCKAGE**.
+	Nous aurons besoin de ces informations pour configurer votre projet dans la section suivante.
 
 ## Configurer le projet
 
-Dans cette section, nous allons configurer notre application pour utiliser le compte de stockage que nous venons de créer.  Nous allons découvrir comment obtenir des paramètres de connexion à partir du portail Azure.  Ensuite, nous allons exécuter l'application localement.
+Dans cette section, nous allons configurer notre application pour utiliser le compte de stockage que nous venons de créer. Nous allons découvrir comment obtenir des paramètres de connexion à partir du portail Azure. Ensuite, nous allons exécuter l’application localement.
 
-1.  Sur le [portail de gestion Azure][], cliquez sur le compte de stockage créé dans la section précédente.
-
-1.  Cliquez sur **GÉRER LES CLÉS D'ACCÈS**.
-
-  	![Boîte de dialogue Gérer les clés d'accès](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzureTableStorageManageKeys.png)
-
-1.  Dans Visual Studio, cliquez avec le bouton droit sur le nœud de votre projet dans l'Explorateur de solutions, puis sélectionnez **Propriétés**.  Cliquez sur l'onglet **Déboguer**.
+1.  Dans Visual Studio, cliquez avec le bouton droit sur le nœud de votre projet dans l’Explorateur de solutions, puis sélectionnez **Propriétés**. Cliquez sur l’onglet **Déboguer**.
 
   	![Paramètres de débogage du projet](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageProjectDebugSettings.png)
 
-1.  Définissez les valeurs des variables d'environnement requises par l'application dans **Déboguer la commande de serveur**, **Environnement**.
+1.  Définissez les valeurs des variables d’environnement requises par l’application dans **Déboguer la commande de serveur**, **Environnement**.
 
         REPOSITORY_NAME=azuretablestorage
         STORAGE_NAME=<storage account name>
         STORAGE_KEY=<primary access key>
 
-    Ainsi, les variables d'environnement seront définies quand vous **démarrerez le débogage**.  Si vous voulez que les variables soient définies quand vous **démarrez sans débogage**, définissez aussi les mêmes valeurs sous **Exécuter la commande de serveur**.
+    Les variables d’environnement sont définies lorsque la commande **Démarrer le débogage** est exécutée. Si vous voulez que les variables soient définies lorsque la commande **Démarrer sans débogage** est exécutée, indiquez les mêmes valeurs sous **Exécuter la commande de serveur**.
 
-    Vous pouvez aussi définir des variables d'environnement à l'aide du Panneau de configuration Windows.  Cette option est la plus appropriée pour éviter de stocker des informations d'identification dans le code source/fichier de projet.  Notez que vous devrez redémarrer Visual Studio pour que les nouvelles variables d'environnement soient disponibles pour l'application.
+    Vous pouvez aussi définir des variables d’environnement à l’aide du Panneau de configuration Windows. Cette option est la plus appropriée pour éviter de stocker des informations d’identification dans le code source/fichier de projet. Notez que vous devrez redémarrer Visual Studio pour que les nouvelles variables d’environnement soient disponibles pour l’application.
 
-1.  Le code qui implémente le référentiel du stockage de tables Azure se trouve dans **models/azuretablestorage.py**.  Consultez la [documentation] pour plus d'informations sur la manière d'utiliser le service de table de Python.
+1.  Le code qui implémente le référentiel du stockage de tables Azure se trouve dans **models/azuretablestorage.py**. Consultez la [documentation] pour plus d’informations sur la manière d’utiliser le service de Table de Python.
 
-1.  Exécutez l'application avec <kbd>F5</kbd>.  Les sondages créés à l'aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans le stockage de tables Azure.
+1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans le stockage de tables Azure.
 
-1.  Accédez à la page **À propos de** pour vérifier que l'application utilise le référentiel **Stockage de tables Azure**.
+1.  Accédez à la page **À propos** pour vérifier que l’application utilise le référentiel **Stockage de tables Azure**.
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureTableStorageAbout.png)
 
 ## Exploration du stockage de tables Azure
 
-L'affichage et la modification des tables de stockage sont très faciles dans Visual Studio grâce à l'Explorateur de serveurs.  Dans cette section, nous allons utiliser l'Explorateur de serveurs pour afficher le contenu des tables de l'application de sondage.
+L’affichage et la modification des tables de stockage sont très faciles dans Visual Studio grâce à l’Explorateur de serveurs. Dans cette section, nous allons utiliser l’Explorateur de serveurs pour afficher le contenu des tables de l’application de sondage.
 
-> [AZURE.NOTE] Pour cela, les outils Microsoft Azure doivent être installés. Ils sont disponibles dans le [Kit de développement logiciel (SDK) Azure pour .NET][].
+> [AZURE.NOTE]Pour cela, les outils Microsoft Azure doivent être installés. Ils sont disponibles dans le [Kit de développement logiciel (SDK) Azure pour .NET].
 
-1.  Ouvrez l'**Explorateur de serveurs**.  Développez **Azure**, **Stockage**, votre compte de stockage, puis **Tables**.
+1.  Ouvrez l’**Explorateur de serveurs**. Développez **Azure**, **Stockage**, votre compte de stockage, puis **Tables**.
 
-  	![Explorateur de serveurs](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorer.png)
+  	<!-- ![Server Explorer](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorer.png) -->
 
 1.  Double-cliquez sur la table **sondages** ou **choix** pour en afficher le contenu dans une fenêtre et ajouter/supprimer/modifier des entités.
 
-  	![Résultats de la requête de table](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png)
+  	<!-- ![Table Query Results](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonServerExplorerTable.png) -->
 
-## Publication sur un site web Azure
+## Publication de l’application web dans Azure App Service
 
-PTVS propose un moyen simple de déployer votre application web sur un site web Azure.
+Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service.
 
-1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
+1.  Cliquez sur **Microsoft Azure Web Apps**.
 
-  	![Boîte de dialogue Publier le site Web](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonPublishWebSiteDialog.png)
+1.  Cliquez sur **Nouveau** pour créer une application web.
 
-1.  Cliquez sur **Sites Web Microsoft Azure**.
+1.  Renseignez les champs suivants et cliquez sur **Créer**.
+	-	**Nom de l’application web**
+	-	**Plan App Service**
+	-	**Groupe de ressources**
+	-	**Région**
+	-	Dans **Serveur de base de données**, conservez **Aucune base de données**.
 
-1.  Cliquez sur **Nouveau** pour créer un site.
-
-1.  Sélectionnez un **nom de site** et une **région**, puis cliquez sur **Créer**.
-
-  	![Boîte de dialogue Créer un site sur Microsoft Azure](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonCreateWebSite.png)
+  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonCreateWebSite.png) -->
 
 1.  Acceptez toutes les valeurs par défaut et cliquez sur **Publier**.
 
-1.  Votre navigateur web ouvre automatiquement le site publié.  Si vous accédez à la page À propos, vous pouvez voir qu'elle utilise le référentiel **en mémoire** et non le référentiel **Stockage de tables Azure**.
+1.  Votre navigateur web ouvre automatiquement l’application web publiée. Si vous accédez à la page À propos, vous pouvez voir qu’elle utilise le référentiel **en mémoire** et non le référentiel **Stockage de tables Azure**.
 
-    La raison en est que les variables d'environnement ne sont pas définies sur le site web Azure, donc les valeurs par défaut spécifiées dans **settings.py** sont utilisées.
+    En effet, comme les variables d’environnement ne sont pas définies dans l’instance Web Apps d’Azure App Service, l’application utilise les valeurs par défaut spécifiées dans **settings.py**.
 
-## Configuration du site web Azure
+## Configurer l'instance Web Apps
 
-Dans cette section, vous allez configurer des variables d'environnement pour le site.
+Dans cette section, nous allons configurer les variables d’environnement de l’instance Web Apps.
 
-1.  Sur le [portail de gestion Azure][], cliquez sur le site créé dans la section précédente.
+1.  Dans le [portail Azure], ouvrez le panneau de l'application web en cliquant sur **Parcourir** > **Web Apps** > le nom de votre application web.
 
-1.  Dans le menu supérieur, cliquez sur **CONFIGURER**.
+1.  Dans le panneau de votre application web, cliquez sur **Tous les paramètres**, puis cliquez sur **Paramètres de l'application**.
 
-  	![Menu supérieur](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png)
+  	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Accédez à la section **Paramètres de l'application** et définissez les valeurs **REPOSITORY_NAME**, **STORAGE_NAME** et **STORAGE_KEY** comme décrit dans la section ci-dessus.
+1.  Accédez à la section **Paramètres de l’application** et définissez les valeurs **REPOSITORY_NAME**, **STORAGE_NAME** et **STORAGE_KEY** comme décrit dans la section ci-dessus.
 
-  	![Paramètres de l'application](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
+  	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
-1. Dans le menu inférieur, cliquez sur **ENREGISTRER**, puis **REDÉMARRER** et enfin **PARCOURIR**.
+1. Cliquez sur **ENREGISTRER**, **REDÉMARRER** puis sur **PARCOURIR**.
 
-  	![Menu inférieur](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureBottomMenu.png)
+  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
 
-1.  L'application doit fonctionner comme prévu et utiliser le référentiel **Stockage de tables Azure**.
+1.  L’application doit fonctionner comme prévu et utiliser le référentiel **Stockage de tables Azure**.
 
-    Félicitations !
+    Félicitations !
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-table-storage/PollsFlaskAzureBrowser.png)
 
@@ -182,39 +171,43 @@ Dans cette section, vous allez configurer des variables d'environnement pour le 
 
 Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask et le stockage de tables Azure.
 
-- [Documentation de Python Tools pour Visual Studio (en anglais)][]
-  - [Projets web][]
-  - [Projets de Service cloud][]
-  - [Débogage distant sur Microsoft Azure][]
-- [Documentation relative à Flask][]
-- [Stockage Azure][]
-- [Kit de développement logiciel (SDK) Azure pour Python][]
-- [Utilisation du service de stockage de tables à partir de Python][]
+- [Documentation relative à Python Tools for Visual Studio]
+  - [Projets web]
+  - [Projets de service cloud]
+  - [Débogage à distance sur Microsoft Azure]
+- [Documentation relative à Flask]
+- [Azure Storage]
+- [Kit de développement logiciel (SDK) Azure pour Python]
+- [Utilisation du service de stockage de tables de Python]
+
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
 [Centre de développement Python]: /develop/python/
 [Azure Cloud Services]: ../cloud-services-python-ptvs.md
 [documentation]: ../storage-python-how-to-use-table-storage.md
-[Utilisation du service de stockage de tables à partir de Python]: ../storage-python-how-to-use-table-storage.md
+[Utilisation du service de stockage de tables de Python]: ../storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
-[Portail de gestion Azure]: https://manage.windowsazure.com
+[Azure Management Portal]: https://portal.azure.com
 [Kit de développement logiciel (SDK) Azure pour .NET]: http://azure.microsoft.com/downloads/
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 pour Visual Studio (en anglais)]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Exemples VSIX de Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Documentation de Python Tools pour Visual Studio (en anglais)]: http://pytools.codeplex.com/documentation
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Documentation relative à Python Tools for Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentation relative à Flask]: http://flask.pocoo.org/
-[Débogage distant sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[Débogage à distance sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projets web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projets de Service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Stockage Azure]: http://azure.microsoft.com/documentation/services/storage/
+[Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

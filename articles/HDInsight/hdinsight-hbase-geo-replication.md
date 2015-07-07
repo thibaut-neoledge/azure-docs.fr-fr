@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configurer la réplication HBase entre deux centres de données Azure | Azure" 
-   description="Découvrez comment configurer des connexions VPN entre deux réseaux virtuels Azure, configurer la résolution de noms de domaine entre deux réseaux virtuels et configurer la géo-réplication HBase" 
-   services="hdinsight" 
+   pageTitle="Configurer la réplication HBase entre deux centres de données | Microsoft Azure" 
+   description="Découvrez comment configurer la réplication HBase entre deux centres de données, ainsi que des cas d’utilisation de la réplication en cluster." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -42,27 +42,28 @@ Le diagramme suivant illustre les deux réseaux virtuels et la connexion réseau
 
 ![Diagramme du réseau virtuel de la réplication HDInsight HBase][img-vnet-diagram]
 
-##<a id="prerequisites"></a>Configuration requise
+## <a id="prerequisites"></a>Configuration requise
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement][azure-purchase-options], les [offres spéciales membres][azure-member-offers] ou la [version d'évaluation gratuite][azure-free-trial].
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel Azure PowerShell est installé et configuré**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell][powershell-install]. Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la rubrique [Utilisation de l'applet de commande Set-ExecutionPolicy][2].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la rubrique Utilisation de la cmdlet Set-ExecutionPolicy.
 
 - **Deux réseaux virtuels Azure avec une connexion VPN et des serveurs DNS configurés**. Pour des instructions, consultez [Configurer une connexion VPN entre deux réseaux virtuels Azure][hdinsight-hbase-replication-vnet] et [Configurer des serveurs DNS entre deux réseaux virtuels Azure][hdinsight-hbase-replication-dns].
 
 
-	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante:
+	Avant d'exécuter vos scripts PowerShell, assurez-vous que vous êtes connecté à votre abonnement Azure à l'aide de la cmdlet suivante :
 
 		Add-AzureAccount
 
-	Si vous possédez plusieurs abonnements Azure, utilisez la cmdlet suivante pour définir l'abonnement en cours:
+	Si vous possédez plusieurs abonnements Azure, utilisez la cmdlet suivante pour définir l'abonnement en cours :
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
 
-##Approvisionnement de clusters HBase dans HDInsight
+## Approvisionnement de clusters HBase dans HDInsight
 
 Dans le didacticiel [Configurer une connexion VPN entre deux réseaux virtuels Azure][hdinsight-hbase-replication-vnet], vous avez créé un réseau virtuel dans un centre de données en Europe et un réseau virtuel dans un centre de données aux États-Unis. Les deux réseaux virtuels sont connectés via VPN. Dans cette session, vous allez approvisionner un cluster HBase dans chaque réseau virtuel. Plus loin dans ce didacticiel, vous configurerez l'un des clusters HBase pour qu'il réplique l'autre cluster HBase.
 
@@ -147,7 +148,7 @@ Le portail Azure ne prend pas en charge l'approvisionnement de clusters HDInsigh
 
 
 
-# Configurer un redirecteur DNS conditionnel
+## Configurer un redirecteur DNS conditionnel
 
 Dans le didacticiel [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-replication-dns], vous avez configuré des serveurs DNS pour les deux réseaux. Les clusters HBase ont des suffixes de domaine différents. Vous devez donc configurer des redirecteurs DNS conditionnels supplémentaires.
 
@@ -193,7 +194,7 @@ Pour configurer un redirecteur conditionnel, vous devez connaître les suffixes 
 
 >[AZURE.IMPORTANT]Le serveur DNS doit fonctionner avant de procéder aux étapes suivantes.
 
-##Activer la réplication entre les tables HBase
+## Activer la réplication entre les tables HBase
 
 À présent, vous pouvez créer un exemple de table HBase, activer la réplication, puis la tester avec des données. L'exemple de table que vous allez utiliser contient deux familles de colonnes : Personal et Office.
 
@@ -273,14 +274,14 @@ Vous pouvez télécharger le même fichier de données dans votre cluster HBase 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 
-##Vérifier que la réplication de données est en cours
+## Vérifier que la réplication de données est en cours
 
 Vous pouvez vérifier que la réplication est en cours en analysant les tables des deux clusters avec les commandes du shell HBase suivantes :
 
 		Scan 'Contacts'
 
 
-##Étapes suivantes
+## Étapes suivantes
 
 Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase entre deux centres de données. Pour en savoir plus sur HDInsight et HBase, voir :
 
@@ -298,7 +299,7 @@ Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase en
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: ../install-configure-powershell.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -309,5 +310,5 @@ Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase en
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

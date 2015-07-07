@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # Connexion à un serveur SQL Server local à partir d’une application web dans Azure App Service au moyen de connexions hybrides
@@ -23,8 +23,8 @@ Les connexions hybrides permettent de connecter des applications web [Azure App 
 Dans ce didacticiel, vous allez apprendre à créer une application web App Service dans la [version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), à la connecter à votre base de données SQL Server locale à l’aide de la nouvelle fonctionnalité de connexion hybride, à créer une application ASP.NET simple qui utilisera la connexion hybride et à déployer l’application sur l’application web App Service. L’application web finalisée sur Azure stocke les informations d’identification des membres dans une base de données locale. Ce didacticiel ne requiert aucune d'expérience préalable dans l'utilisation d'Azure ou ASP.NET.
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-
-> [AZURE.NOTE]La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans la [version préliminaire du portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>
+>La partie Web Apps de la fonctionnalité Connexions hybrides n’est disponible que dans la [version préliminaire du portail Azure](https://portal.azure.com). Pour créer une connexion dans BizTalk Services, consultez la page [Connexions hybrides](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Configuration requise ##
 
@@ -176,35 +176,9 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 À ce stade, vous avez terminé une partie importante de l'infrastructure de connexion hybride cloud. Vous allez ensuite créer un élément local.
 
 <a name="InstallHCM"></a>
-## D. Installation du Gestionnaire de connexions hybrides local pour finaliser la connexion ##
+## D. Installation du Gestionnaire de connexions hybrides local pour terminer la connexion ##
 
-1. Dans le panneau **Connexions hybrides**, cliquez sur la connexion hybride que vous avez créée, puis sur **Configuration de l’écouteur**.
-	
-	![Click Listener Setup][ClickListenerSetup]
-	
-4. Le volet **Propriétés de la connexion hybride** s'ouvre. Sous **Gestionnaire de connexions hybrides local**, cliquez sur **Cliquez ici pour l'installer**.
-	
-	![Click here to install][ClickToInstallHCM]
-	
-5. Dans la boîte de dialogue Exécution de l'application - Avertissement de sécurité, cliquez sur **Exécuter** pour continuer.
-	
-	![Choose Run to continue][ApplicationRunWarning]
-	
-6.	Dans la boîte de dialogue **Contrôle de compte d'utilisateur**, cliquez sur **Oui**.
-	
-	![Choose Yes][UAC]
-	
-7. Le Gestionnaire de connexion hybride est téléchargé et installé pour vous.
-	
-	![Installation][HCMInstalling]
-	
-8. Une fois l'installation terminée, cliquez sur **Fermer**.
-	
-	![Click Close][HCMInstallComplete]
-	
-	Dans le volet **Connexions hybrides**, la colonne **Statut** indique à présent **Connecté**.
-	
-	![Connected Status][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
 Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application web qui l'utilise.
 
@@ -244,7 +218,7 @@ Au cours de cette étape, vous allez modifier la chaîne de connexion qui indiqu
 	
 	Lors de la composition de la chaîne de connexion, gardez à l'esprit ce qui suit :
 	
-	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
+	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
 	
 	- Il est recommandé de spécifier le port (1433 par défaut, comme indiqué dans l'exemple) dans la chaîne de connexion pour pouvoir être sûr que TCP est activé sur votre instance SQL Server locale et que cette dernière utilise le port correct.
 	
@@ -402,5 +376,6 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

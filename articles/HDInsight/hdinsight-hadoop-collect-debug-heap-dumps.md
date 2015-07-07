@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Collecter les dumps de tas pour le débogage et l'analyse| Azure" 
-	description="Collecter les dumps de tas pour le débogage et l'analyse" 
+	pageTitle="Services de débogage et d’analyse Hadoop avec des dumps de tas | Microsoft Azure" 
+	description="Collectez automatiquement les dumps de tas de services Hadoop et placez-les dans le compte de stockage Azure Blob à des fins de débogage et d’analyse." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,8 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Collecter les dumps de tas pour le débogage et l’analyse
+
+# Collecter les dumps de tas dans le stockage Blob pour les services de débogage et d'analyse Hadoop
 
 Il est possible de collecter automatiquement les dumps de tas de services Hadoop et de les placer dans le compte de stockage d’objets blob Azure d’un utilisateur sous HDInsightHeapDumps/. Les fichiers dump d'un service avec des tas contiennent un instantané de la mémoire de l'application. Ils comprennent notamment les valeurs des variables au moment de la création du dump.
 
@@ -48,7 +49,7 @@ Par exemple, pour activer les dumps de tas à l’aide d’Azure PowerShell pour
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 
-	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
+	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## <a name="sdk"></a>Activation des dumps de tas avec le Kit de développement logiciel (SDK) Azure HDInsight .NET
 
@@ -56,9 +57,10 @@ Par exemple, pour activer les dumps de tas à l’aide du Kit de développement 
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 
-	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
+	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

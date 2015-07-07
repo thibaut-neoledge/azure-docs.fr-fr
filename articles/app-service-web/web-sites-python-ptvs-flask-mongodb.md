@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Flask et MongoDB sur Azure avec Python Tools 2.1 for Visual Studio" 
-	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application Flask qui stocke les données dans une instance de base de données MongoDB et peut être déployée vers un site web." 
+	pageTitle="Flask et MongoDB sur Azure avec Python Tools 2.1 for Visual Studio" 
+	description="Découvrez comment utiliser Python Tools pour Visual Studio afin de créer une application web Flask qui stocke les données dans une instance de base de données MongoDB et la déployer sur Azure App Service Web Apps." 
 	services="app-service\web" 
 	tags="python"
 	documentationCenter="python" 
@@ -14,180 +14,188 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/16/2015" 
 	ms.author="huguesv"/>
 
 
 
+# Flask et MongoDB sur Azure avec Python Tools 2.1 for Visual Studio
 
-# Flask et MongoDB sur Azure avec Python Tools 2.1 for Visual Studio
+  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
-Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio][] afin de créer une application de sondage simple à l'aide de l'un des exemples de modèles PTVS. Ce didacticiel est également disponible sous forme de [vidéo](https://www.youtube.com/watch?v=eql-crFgrAE).
+Dans ce didacticiel, nous allons utiliser [Python Tools pour Visual Studio] afin de créer une application web de sondage simple, à l’aide de l’un des exemples de modèle PTVS. Ce didacticiel est également disponible en [vidéo](https://www.youtube.com/watch?v=eql-crFgrAE).
 
-L'application de sondage définit une abstraction pour son référentiel, ce qui vous permet de basculer facilement d'un type de référentiel à un autre (In-Memory, stockage de tables Azure, MongoDB).
+L’application web de sondage définit une abstraction pour son référentiel, ce qui vous permet de basculer facilement d’un type de référentiel à un autre (In-Memory, Azure Table Storage, MongoDB).
 
-Nous allons découvrir comment utiliser l'un des services MongoDB hébergés sur Azure, comment configurer l'application pour utiliser MongoDB et comment publier l'application sur un site web Azure.
+Nous allons découvrir comment utiliser l’un des services MongoDB hébergés sur Azure, comment configurer l’application web pour utiliser MongoDB et comment publier l’application web sur [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Visitez le [Centre de développement Python][] pour consulter d'autres articles sur le développement de site web Azure avec PTVS à l'aide des infrastructures web Bottle, Flask et Django, ainsi que de MongoDB, du stockage de tables Azure, de MySQL et des services de base de données SQL.  Quand bien même cet article se concentre Sites Web Azure, les étapes sont similaires pour développer [Azure Cloud Services][].
+Visitez le [Centre de développement Python] pour consulter d’autres articles sur le développement d’applications Azure App Service Web Apps avec PTVS à l’aide des infrastructures web Bottle, Flask et Django, ainsi que des services MongoDB, Azure Table Storage, MySQL et Base de données SQL. Cet article concerne App Service, mais les étapes sont similaires lorsque vous développez pour [Azure Cloud Services].
 
-## Conditions préalables
+## Composants requis
 
- - Visual Studio 2012 ou 2013
- - [Python Tools 2.1 pour Visual Studio (en anglais)][]
- - [Exemples VSIX de Python Tools 2.1 pour Visual Studio][]
- - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012][]
- - [Python 2.7 32 bits][] ou [Python 3.4 32 bits][]
- - [RoboMongo][] (facultatif)
+ - Visual Studio 2012 ou 2013
+ - [Python Tools 2.1 pour Visual Studio]
+ - [Python Tools 2.1 pour Visual Studio Samples VSIX]
+ - [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013] ou [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]
+ - [Python 2.7 32 bits] ou [Python 3.4 32 bits]
+ - [RoboMongo](optional)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 ## Création du projet
 
-Dans cette section, nous allons créer un projet Visual Studio à l'aide d'un exemple de modèle.  Nous allons créer un environnement virtuel et installer les packages requis.  Ensuite, nous allons exécuter l'application localement à l'aide du référentiel In-Memory par défaut.
+Dans cette section, nous allons créer un projet Visual Studio à l’aide d’un exemple de modèle. Nous allons créer un environnement virtuel et installer les packages requis. Ensuite, nous allons exécuter l’application localement à l’aide du référentiel In-Memory par défaut.
 
-1.  Dans Visual Studio, sélectionnez **Fichier**, **Nouveau projet**. 
+1.  Dans Visual Studio, sélectionnez **Fichier** puis **Nouveau projet**. 
 
-1.  Les modèles de projet issus des exemples VSIX de PTVS sont disponibles sous **Python**, **Exemples**.  Sélectionnez **Projet web de sondage Flask** et cliquez sur OK pour créer le projet.
+1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Projet web de sondage Flask** et cliquez sur OK pour créer le projet.
 
   	![Boîte de dialogue Nouveau projet](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskNewProject.png)
 
-1.  Vous allez être invité à installer des packages externes.  Sélectionnez **Installer dans un environnement virtuel**.
+1.  Vous allez être invité à installer des packages externes. Sélectionnez **Installer dans un environnement virtuel**.
 
   	![Boîte de dialogue Packages externes](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskExternalPackages.png)
 
-1.  Sélectionnez **Python 2.7** ou **Python 3.4** en tant qu'interpréteur de base.
+1.  Sélectionnez **Python 2.7** ou **Python 3.4** comme interpréteur de base.
 
   	![Boîte de dialogue Ajouter un environnement virtuel](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAddVirtualEnv.png)
 
-1.  Vérifiez que l'application fonctionne en appuyant sur <kbd>F5</kbd>.  Par défaut, l'application utilise un référentiel In-Memory qui ne requiert aucune configuration.  Toutes les données sont perdues à l'arrêt du serveur web.
+1.  Vérifiez que l’application fonctionne en appuyant sur `F5`. Par défaut, l’application utilise un référentiel In-Memory qui ne requiert aucune configuration. Toutes les données sont perdues à l’arrêt du serveur web.
 
-1.  Cliquez sur **Créer un exemple de sondage**, puis sur un sondage et vote.
+1.  Cliquez sur **Créer un exemple de sondage**, puis sur un sondage et un vote.
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskInMemoryBrowser.png)
 
-## Création d'une base de données MongoDB
+## Création d’une base de données MongoDB
 
 Pour la base de données, nous allons créer une base de données MongoLab hébergée sur Azure.
 
-Vous pouvez également créer votre propre machine virtuelle exécutée sur Azure, puis installer et administrer MongoDB vous-même.
+Autrement, vous pouvez créer votre propre machine virtuelle s'exécutant sur Azure, puis installer et administrer MongoDB vous-même.
 
-Pour créer une évaluation gratuite avec MongoLab, procédez comme suit :
+Pour créer une évaluation gratuite avec MongoLab, procédez comme suit :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail de gestion Azure].
 
-1.  En bas du volet de navigation, cliquez sur **NOUVEAU**.
+1.  En bas du volet de navigation, cliquez sur **NEW**.
 
-  	![Bouton Nouveau](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png)
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonAzurePlusNew.png) -->
 
-1.  Cliquez sur **STORE**, puis sur **MongoLab**.
+1.  Cliquez sur **MARKETPLACE**, **MongoLab**, puis sur **Suivant**.
 
-  	![Boîte de dialogue Choisir un module complémentaire](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png)
+  	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon1.png) -->
 
 1.  Dans Nom, saisissez le nom à utiliser pour le service de base de données.
 
-1.  Choisissez la région ou le groupe d'affinités où localiser le service de base de données. Si vous utilisez la base de données de votre application Azure, sélectionnez la même région que celle du déploiement de votre application.
+1.  Choisissez une région pour localiser le service de base de données. Si vous utilisez la base de données de votre application Azure, sélectionnez la même région que celle du déploiement de votre application.
 
-  	![Boîte de dialogue Personnaliser un module complémentaire](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png)
+  	<!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabAddon2.png) -->
 
-1.  Cliquez sur **ACHETER**.
+1.  Cliquez sur **Suivant**, puis sur **ACHETER**.
 
 ## Configurer le projet
 
-Dans cette section, nous allons configurer notre application pour utiliser la base de données MongoDB que nous venons de créer.  Nous allons découvrir comment obtenir des paramètres de connexion à partir du portail Azure.  Ensuite, nous allons exécuter l'application localement.
+Dans cette section, nous allons configurer notre application pour utiliser la base de données MongoDB que nous venons de créer. Nous allons découvrir comment obtenir des paramètres de connexion à partir du portail Azure. Ensuite, nous allons exécuter l’application localement.
 
-1.  Sur le [portail de gestion Azure][], cliquez sur **MODULES COMPLÉMENTAIRES**, puis cliquez sur le service MongoLab que vous avez créé précédemment.
+1.  Dans le [portail de gestion Azure], cliquez sur **MARKETPLACE** puis sur le service MongoLab créé précédemment.
 
-1.  Cliquez sur **INFORMATIONS DE CONNEXION**.  Vous pouvez utiliser le bouton de copie pour placer la valeur de **MONGOLAB_URI** dans le Presse-papiers.
+1.  Cliquez sur **INFORMATIONS DE CONNEXION**. Vous pouvez utiliser le bouton de copie pour placer la valeur de **MONGOLAB_URI** dans le Presse-papiers.
 
   	![Boîte de dialogue Informations de connexion](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
-1.  Dans Visual Studio, cliquez avec le bouton droit sur le nœud de votre projet dans l'Explorateur de solutions, puis sélectionnez **Propriétés**.  Cliquez sur l'onglet **Déboguer**.
+1.  Dans Visual Studio, cliquez avec le bouton droit sur le nœud de votre projet dans l’Explorateur de solutions, puis sélectionnez **Propriétés**. Cliquez sur l’onglet **Déboguer**.
 
   	![Paramètres de débogage du projet](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBProjectDebugSettings.png)
 
-1.  Définissez les valeurs des variables d'environnement requises par l'application dans **Déboguer la commande de serveur**, **Environnement**.
+1.  Définissez les valeurs des variables d’environnement requises par l’application dans **Déboguer la commande de serveur**, **Environnement**.
 
         REPOSITORY_NAME=mongodb
         MONGODB_HOST=<value of MONGOLAB_URI>
         MONGODB_DATABASE=<database name>
 
-    Ainsi, les variables d'environnement seront définies quand vous **démarrerez le débogage**.  Si vous voulez que les variables soient définies quand vous **démarrez sans débogage**, définissez aussi les mêmes valeurs sous **Exécuter la commande de serveur**.
+    Les variables d’environnement sont définies lorsque la commande **Démarrer le débogage** est exécutée. Si vous voulez que les variables soient définies lorsque la commande **Démarrer sans débogage** est exécutée, indiquez les mêmes valeurs sous **Exécuter la commande de serveur**.
 
-    Vous pouvez aussi définir des variables d'environnement à l'aide du Panneau de configuration Windows.  Cette option est la plus appropriée pour éviter de stocker des informations d'identification dans le code source/fichier de projet.  Notez que vous devrez redémarrer Visual Studio pour que les nouvelles variables d'environnement soient disponibles pour l'application.
+    Vous pouvez aussi définir des variables d’environnement à l’aide du Panneau de configuration Windows. Cette option est la plus appropriée pour éviter de stocker des informations d’identification dans le code source/fichier de projet. Notez que vous devrez redémarrer Visual Studio pour que les nouvelles variables d’environnement soient disponibles pour l’application.
 
 1.  Le code qui implémente le référentiel MongoDB se trouve dans **models/mongodb.py**.
 
-1.  Exécutez l'application avec <kbd>F5</kbd>.  Les sondages créés avec **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans MongoDB.
+1.  Exécutez l’application avec `F5`. Les sondages créés avec **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans MongoDB.
 
-1.  Accédez à la page **À propos de** pour vérifier que l'application utilise le référentiel **MongoDB**.
+1.  Accédez à la page **À propos** pour vérifier que l’application utilise le référentiel **MongoDB**.
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskMongoDBAbout.png)
 
 ## Exploration de la base de données MongoDB
 
-Vous pouvez utiliser une application telle que [RoboMongo][] pour interroger et modifier une base de données MongoDB.  Dans cette section, nous allons utiliser RoboMongo pour afficher le contenu de la base de données de l'application de sondage.
+Vous pouvez utiliser une application telle que [RoboMongo] pour interroger et modifier une base de données MongoDB. Dans cette section, nous allons utiliser RoboMongo pour afficher le contenu de la base de données de l’application de sondage.
 
-1.  Créez une connexion.  Vous aurez besoin de la valeur **MONGOLAB_URI** que nous avons récupérée dans la section précédente.
+1.  Créez une connexion. Vous aurez besoin de la valeur **MONGOLAB_URI** que nous avons récupérée dans la section précédente.
 
-    Notez le format de l'URI : `mongodb://<name>:<password>@<address>:<port>/<name>`
+    Notez le format de l’URI : `mongodb://<name>:<password>@<address>:<port>/<name>`
 
-    Le nom correspond à celui que vous avez saisi quand vous avez créé le service avec Azure.  Il sert à la fois de nom de base de données et de nom d'utilisateur.
+    Le nom correspond à celui que vous avez saisi quand vous avez créé le service avec Azure. Il sert à la fois de nom de base de données et de nom d’utilisateur.
 
-1.  Sur la page de connexion, définissez le **Nom** à votre gré.  Affectez également aux champs **Adresse** et**Port** les valeurs  *address* et  *port* provenant de **MONGOLAB_URI**.
+1.  Dans la page de connexion, renseignez le champ **Name** avec la valeur de votre choix. Dans les champs **Address** et **Port**, indiquez l’*adresse* et le *port* figurant dans **MONGOLAB_URI**.
 
   	![Boîte de dialogue Paramètre de connexion](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  Sur la page d'authentification, affectez aux champs **Base de données** et **Nom d'utilisateur** la valeur  *name* provenant de **MONGOLAB_URI**.  Affectez également au champ **Mot de passe** la valeur  *password* provenant de **MONGOLAB_URI**.
+1.  Dans la page d'authentification, renseignez les champs **Database** et **User name** avec le *nom* figurant dans **MONGOLAB_URI**. De même, renseignez le champ **Password** avec le *mot de passe* figurant dans **MONGOLAB_URI**.
 
   	![Boîte de dialogue Paramètre de connexion](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
-1.  Enregistrez et connectez-vous à la base de données.  Vous pouvez maintenant interroger la collection de sondages.
+1.  Enregistrez et connectez-vous à la base de données. Vous pouvez maintenant interroger la collection de sondages.
 
   	![Résultats de la requête MongoDB](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoQuery.png)
 
-## Publication sur un site web Azure
+## Publication de l’application web dans Azure App Service
 
-PTVS propose un moyen simple de déployer votre application web sur un site web Azure.
+PTVS offre un moyen simple de déployer votre application web sur Azure App Service.
 
-1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
+1.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
 
-  	![Boîte de dialogue Publier le site Web](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonPublishWebSiteDialog.png)
+1.  Cliquez sur **Microsoft Azure Web Apps**.
 
-1.  Cliquez sur **Sites Web Microsoft Azure**.
+3. Si vous n’êtes pas connecté à Azure, cliquez sur **Se connecter** et utilisez le compte Microsoft de votre abonnement Azure.
 
-1.  Cliquez sur **Nouveau** pour créer un site.
+2.  Cliquez sur **Nouveau** pour créer une application web.
 
-1.  Sélectionnez un **nom de site** et une **région**, puis cliquez sur **Créer**.
+1.  Renseignez les champs suivants et cliquez sur **Créer**.
+	-	**Nom de l’application web**
+	-	**Plan App Service**
+	-	**Groupe de ressources**
+	-	**Région**
+	-	Dans **Serveur de base de données**, conservez **Aucune base de données**.
 
-  	![Boîte de dialogue Créer un site sur Microsoft Azure](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png)
+  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonCreateWebSite.png) -->
 
 1.  Acceptez toutes les valeurs par défaut et cliquez sur **Publier**.
 
-1.  Votre navigateur web ouvre automatiquement le site publié.  Si vous accédez à la page À propos, vous verrez qu'elle utilise le référentiel **en mémoire** et non le référentiel **MongoDB**.
+1.  Votre navigateur web ouvre automatiquement l’application web publiée. Si vous accédez à la page À propos, vous verrez qu’elle utilise le référentiel **In-Memory** et non le référentiel **MongoDB**.
 
-    La raison en est que les variables d'environnement ne sont pas définies sur le site web Azure, donc les valeurs par défaut spécifiées dans **settings.py** sont utilisées.
+    En effet, comme les variables d’environnement ne sont pas définies dans l’instance Web Apps d’Azure App Service, l’application utilise les valeurs par défaut spécifiées dans **settings.py**.
 
-## Configuration du site web Azure
+## Configurer l'instance Web Apps
 
-Dans cette section, vous allez configurer des variables d'environnement pour le site.
+Dans cette section, nous allons configurer les variables d’environnement de l’instance Web Apps.
 
-1.  Sur le [portail de gestion Azure][], cliquez sur le site créé dans la section précédente.
+1.  Dans le [portail de gestion Azure], cliquez sur l’application web créée dans la section précédente.
 
 1.  Dans le menu supérieur, cliquez sur **CONFIGURER**.
 
-  	![Menu supérieur](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
+  	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Accédez à la section **Paramètres de l'application** et définissez les valeurs **REPOSITORY_NAME**, **MONGODB_HOST** et **MONGODB_DATABASE** comme décrit dans la section ci-dessus.
+1.  Accédez à la section **Paramètres de l’application** et définissez les valeurs de **REPOSITORY_NAME**, **MONGODB_HOST** et **MONGODB_DATABASE** comme dans la section ci-dessus.
 
-  	![Paramètres de l'application](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
+  	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png) -->
 
-1.  Dans le menu inférieur, cliquez sur **ENREGISTRER**, puis **REDÉMARRER** et enfin **PARCOURIR**.
+1.  Dans le menu inférieur, cliquez sur **ENREGISTRER**, **REDÉMARRER** et **PARCOURIR**.
 
-  	![Menu inférieur](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png)
+  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureBottomMenu.png) -->
 
-1.  L'application doit fonctionner comme prévu et utiliser le référentiel **MongoDB**.
+1.  L’application doit fonctionner comme prévu et utiliser le référentiel **MongoDB**.
 
-    Félicitations !
+    Félicitations !
 
   	![Navigateur web](./media/web-sites-python-ptvs-flask-mongodb/PollsFlaskAzureBrowser.png)
 
@@ -195,14 +203,17 @@ Dans cette section, vous allez configurer des variables d'environnement pour le 
 
 Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Flask et MongoDB.
 
-- [Documentation de Python Tools pour Visual Studio (en anglais)][]
-  - [Projets web][]
-  - [Projets de Service cloud][]
-  - [Débogage distant sur Microsoft Azure][]
-- [Documentation relative à Flask][]
-- [MongoDB][]
-- [Documentation relative à PyMongo][]
-- [PyMongo][]
+- [Documentation relative à Python Tools for Visual Studio]
+  - [Projets web]
+  - [Projets de service cloud]
+  - [Débogage à distance sur Microsoft Azure]
+- [Documentation relative à Flask]
+- [MongoDB]
+- [Documentation relative à PyMongo]
+- [PyMongo]
+
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+ 
 
 
 <!--Link references-->
@@ -210,23 +221,23 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Flask 
 [Azure Cloud Services]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[Portail de gestion Azure]: https://manage.windowsazure.com
+[portail de gestion Azure]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
-[Python Tools pour Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 pour Visual Studio (en anglais)]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Exemples VSIX de Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Documentation de Python Tools pour Visual Studio (en anglais)]: http://pytools.codeplex.com/documentation
+[Python Tools pour Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
+[Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Documentation relative à Python Tools for Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentation relative à Flask]: http://flask.pocoo.org/
 [MongoDB]: http://www.mongodb.org/
 [Documentation relative à PyMongo]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
-[Débogage distant sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[Débogage à distance sur Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Projets web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Projets de Service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

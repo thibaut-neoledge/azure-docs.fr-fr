@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Utilisation de connecteurs" 
-   description="Utilisation de connecteurs" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Utilisation de connecteurs"
+   description="Utilisation de connecteurs"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@ Azure App Service fournit un certain nombre de connecteurs prêts à l’emploi�
 * [Connecteur HTTP]
 * [Connecteur Office 365]
 * [Connecteur OneDrive]
-* [Connecteur Oracle]
 * [Connecteur POP3]
 * [Connecteur QuickBooks]
 * [Connecteur Salesforce]
@@ -53,18 +52,18 @@ Azure App Service fournit un certain nombre de connecteurs prêts à l’emploi�
 ##Connecteurs Premium et API Apps##
 * Connecteur AS2
 * BizTalk EDIFACT
-* Encodeur de fichier plat BizTalk
+* [Encodeur de fichier plat BizTalk]
 * Service BizTalk Transform
-* Règles BizTalk
+* [Règles BizTalk]
 * BizTalk X12
-* Extracteur XPath BizTalk
-* Validateur XML BizTalk
+* [Extracteur XPath BizTalk]
+* [Validateur XML BizTalk]
 * Connecteur DB2
 * Connecteur Informix
-* Connecteur de base de données Oracle
+* [Connecteur Oracle]
 * Connecteur MQ
 * [Connecteur SAP]
- 
+
 Pour plus d’informations, consultez la référence d’API de connecteur [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Connecteurs et applications logiques##
@@ -108,6 +107,10 @@ Vous pouvez aussi utiliser des connecteurs comme actions dans le cadre de votre 
 [Connecteur OneDrive]: app-service-logic-connector-onedrive.md
 [Connecteur File]: app-service-logic-connector-file.md
 [Connecteur Slack]: app-service-logic-connector-slack.md
+[Encodeur de fichier plat BizTalk]: app-service-logic-flatfile-encoder.md
+[Extracteur XPath BizTalk]: app-service-logic-xpath-extract.md
+[Validateur XML BizTalk]: app-service-logic-xml-validator.md
+[Règles BizTalk]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

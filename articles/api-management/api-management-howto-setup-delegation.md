@@ -13,24 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2015" 
+	ms.date="06/10/2015" 
 	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
 
+Pour plus d’informations sur la délégation, regardez la vidéo suivante.
 
-## Dans cette rubrique
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
--   [Délégation de la connexion et de l'inscription des développeurs][]
--   [Délégation de l'abonnement aux produits][]
-
-## <a name="delegate-signin-up"> </a>Délégation de la connexion et de l'inscription des développeurs
+## <a name="delegate-signin-up"> </a> Délégation de la connexion et de l’inscription des développeurs
 
 Pour déléguer les connexions et inscriptions des développeurs à votre site web existant, vous devez créer un point de terminaison de délégation spécifique sur votre site qui agit en tant que point d'entrée pour toutes les demandes de ce type émanant du portail des développeurs Gestion des API.
 
-Le processus final se présente comme suit :
+Le processus final se présente comme suit :
 
 1. Le développeur clique sur le lien de connexion ou d'inscription sur le portail des développeurs Gestion des API.
 2. Le navigateur est redirigé vers le point de terminaison de délégation.
@@ -38,7 +36,7 @@ Le processus final se présente comme suit :
 4. Si l'authentification est réussie, l'utilisateur revient à la page du portail des développeurs Gestion des API d'où il est parti.
 
 
-Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Dans le portail des éditeurs de la gestion des API, cliquez sur **Sécurité**, puis sur l'onglet **Délégation**. Activez la case à cocher pour activer la connexion et l'inscription déléguées.
+Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Dans le portail des éditeurs de la gestion des API, cliquez sur **Sécurité**, puis sur l’onglet **Délégation**. Activez la case à cocher pour activer la connexion et l'inscription déléguées.
 
 ![Delegation page][api-management-delegation-signin-up]
 
@@ -46,44 +44,52 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 * Dans le champ **Clé d'authentification de la délégation**, entrez le secret utilisé pour calculer une signature qui vous sera fournie pour vérification afin de vous assurer que la demande provient bien de Gestion des API Azure. Vous pouvez cliquer sur le bouton **Générer** pour que la gestion des API génère de manière aléatoire une clé pour vous.
 
-﻿À présent, vous devez créer le **point de terminaison de délégation**. Il doit effectuer certaines actions :
+À présent, vous devez créer le **point de terminaison de délégation**. Il doit effectuer certaines actions :
 
-1. Recevoir une demande au format suivant :
+1. Recevoir une demande au format suivant :
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de la page source}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
-	Paramètres de requête pour le cas connexion/inscription :
-	- **operation** : identifie le type de demande de délégation. Il ne peut s'agir ici que de " SignIn ".
-	- **returnUrl** : URL de la page dans laquelle l'utilisateur a cliqué sur un lien de connexion ou d'inscription.
-	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
-	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage.
+	Paramètres de requête pour le cas de connexion/d’inscription :- **operation** : identifie le type de demande de délégation, dont il s’agit - Ne peut être que **SignIn** dans ce cas - **returnUrl** : URL de la page sur laquelle l’utilisateur a cliqué sur un lien de connexion ou d’inscription - **salt** : une chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité - **sig** : un code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé
 
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
-	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **returnUrl** et **salt** ([exemple de code ci-dessous]) :
-        > HMAC(**salt** + '\n' + **returnUrl**)
+	* Calculez un code de hachage HMAC-SHA512 d’une chaîne basée sur les paramètres de requête **returnUrl** et **salt** ([exemple de code ci-dessous]) :
+        > **returnUrl**
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 
-2. Vérifiez que vous recevez une demande pour une connexion/déconnexion : le paramètre de requête **operation** est défini sur **SignIn**.
+2. Vérifiez que vous recevez une demande de connexion/d’inscription : le paramètre de requête **operation** sera défini sur « **SignIn** ».
 
 3. Présentez à l'utilisateur l'interface de connexion ou d'inscription.
 
 4. Si l'utilisateur s'inscrit, vous devez créer un compte dans Gestion des API. [Créez un utilisateur] avec l'API REST de gestion de Gestion des API. Lors de cette opération, assurez-vous de bien définir l'identifiant utilisateur afin qu'il soit identique à celui de votre magasin utilisateur ou à un identifiant que vous pouvez suivre.
 
-5. Lorsque l'utilisateur est bien authentifié :
+5. Lorsque l'utilisateur est bien authentifié :
 
 	* [Demandez un jeton d'authentification unique (SSO)] via l'API REST Gestion des API.
 
-	* Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
-		> Par exemple, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+	* Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
+		> par exemple, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url
 
 	* Redirigez l'utilisateur vers l'URL générée.
 
+En plus de l’opération **SignIn**, vous pouvez également effectuer la gestion des comptes en suivant les étapes précédentes et en utilisant l’une des opérations suivantes.
 
-## <a name="delegate-product-subscription"> </a>Délégation de l'abonnement aux produits
+-	**ChangePassword**
+-	**ChangeProfile**
+-	**CloseAccount**
 
-La délégation de l'abonnement aux produits fonctionne de la même manière que la délégation de la connexion/inscription. Le processus final se présente comme suit :
+Vous devez transmettre les paramètres de requête suivants pour les opérations de gestion de compte.
+
+-	**operation** : identifie le type de demande de délégation dont il s’agit (ChangePassword, ChangeProfile ou CloseAccount)
+-	**userId** : id d’utilisateur du compte à gérer
+-	**salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
+-	**sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé.
+
+## <a name="delegate-product-subscription"> </a>Délégation de l’abonnement aux produits
+
+La délégation de l'abonnement aux produits fonctionne de la même manière que la délégation de la connexion/inscription. Le processus final se présente comme suit :
 
 1. Le développeur sélectionne un produit dans le portail des développeurs Gestion des API, puis clique sur le bouton d'abonnement.
 2. Le navigateur est redirigé vers le point de terminaison de délégation.
@@ -92,28 +98,20 @@ La délégation de l'abonnement aux produits fonctionne de la même manière que
 
 Pour activer la fonctionnalité, dans la page **Délégation**, cliquez sur **Déléguer l'abonnement au produit**.
 
-Assurez-vous ensuite que le point de terminaison de délégation effectue bien les actions suivantes :
+Assurez-vous ensuite que le point de terminaison de délégation effectue bien les actions suivantes :
 
 
-1. Recevoir une demande au format suivant :
+1. Recevoir une demande au format suivant :
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={opération}&productId={produit auquel s'abonner}&userId={utilisateur faisant la demande}&salt={string}&sid={string}*
+	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
-	Paramètres de requête pour le cas abonnement à un produit :
-	- **operation** : identifie le type de demande de délégation. Pour l'abonnement à un produit, les options valides sont les suivantes :
-		- " Subscribe " : une demande d'abonnement de l'utilisateur à un produit donné avec l'identifiant fourni (voir ci-dessous).
-		- " Unsubscribe " : une demande de désabonnement de l'utilisateur pour un produit.
-		- " Renew " : une demande de renouvellement d'abonnement (par exemple en cas d'expiration).
-	- **productId** : l'ID du produit auquel l'utilisateur demande l'abonnement
-	- **userId** : l'ID de l'utilisateur pour qui la demande est envoyée
-	- **salt** : chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité.
-	- **sig** : code de hachage de sécurité calculé à comparer avec votre propre code de hachage.
+	Paramètres de requête pour le cas d’abonnement aux produits : - **operation** : identifie le type de demande de délégation dont il s’agit. Pour les demandes liées à l’abonnement aux produits, les options valides sont :-« S’abonner » : une demande pour abonner l’utilisateur à un produit donné avec l’ID fourni (voir ci-dessous) - « Annuler l’abonnement » : une demande pour annuler l’abonnement d’un utilisateur à un produit - « Renouveler » : une demande de renouvellement d’abonnement (par exemple, qui peut arriver à expiration) - **productId** : ID du produit demandé par l’utilisateur pour s’y abonner - **userId** : ID de l’utilisateur pour lequel la demande est faite - **salt** : une chaîne salt spéciale utilisée pour calculer un code de hachage de sécurité - **sig** : un code de hachage de sécurité calculé à comparer avec votre propre code de hachage calculé
 
 
 2. Vérifiez si la demande émane bien de Gestion des API Azure (facultatif, mais fortement recommandé pour assurer la sécurité).
 
-	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **productId**, **userId** et **salt** :
-		> HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+	* Calculez un code de hachage HMAC-SHA512 d'une chaîne basée sur les paramètres de requête **ProductId**, **userId** et **salt** :
+		> **productId****userId**
 		 
 	* Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 	
@@ -121,27 +119,29 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 4. Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit].
 
-5. Redirigez l'utilisateur vers l'URL **returnUrl** fournie lorsque vous avez reçu la demande.
+5. Redirigez l’utilisateur vers l’URL **returnUrl** fournie lorsque vous avez reçu la demande.
 
 ## <a name="delegate-example-code"> </a> Exemple de Code ##
 
-Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l'écran Délégation du portail Gestion des API, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l'élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
+Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail Gestion des API, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
-**Code C# pour générer le hachage de returnUrl**
+****Code C# pour générer le hachage de returnUrl****
 
-	using System.Security.Cryptography;
+    using System.Security.Cryptography;
 
-	string key = "delegation validation key";
-	string returnUrl = "returnUrl query parameter";
-	string salt = "salt query parameter";
-	string signature;
-	using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
-	{
-		signature = encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl));
-		// change to (salt + "\n" + productId + "\n" + userId) for point 2 above
-	}
+    string key = "delegation validation key";
+    string returnUrl = "returnUrl query parameter";
+    string salt = "salt query parameter";
+    string signature;
+    using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
+    {
+        signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
+        // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+        // compare signature to sig query parameter
+    }
 
-**Code NodeJS pour générer le hachage de returnUrl**
+
+****Code NodeJS pour générer le hachage de returnUrl****
 
 	var crypto = require('crypto');
 	
@@ -151,19 +151,19 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
 	
 	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 	var digest = hmac.update(salt + '\n' + returnUrl).digest();
-	// change to (salt + '\n' + productId + '\n' + userId) for point 2 above
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
 
-[Délégation de la connexion et de l'inscription des développeurs]: #delegate-signin-up
-[Délégation de l'abonnement aux produits]: #delegate-product-subscription
-[demande un jeton d'authentification unique (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
-[créer un utilisateur]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[appel de l'API REST pour l'abonnement au produit]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[Étapes suivantes]: #next-steps
-[exemple de code fourni ci-dessous]: #delegate-example-code
+[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating product subscription]: #delegate-product-subscription
+[Demandez un jeton d'authentification unique (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
+[Créez un utilisateur]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[appelant l'API REST pour l'abonnement au produit]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[Next steps]: #next-steps
+[exemple de code ci-dessous]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

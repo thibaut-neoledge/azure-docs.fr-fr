@@ -13,30 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Applications Web" class="current">Applications Web</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Applications Web avec Traffic Manager">Applications Web avec Traffic Manager</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps">Acheter un domaine pour Web Apps</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps avec des domaines externes</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps avec Traffic Manager">Web Apps avec Traffic Manager</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
 
 </div>
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-Lorsque vous créez une application web, Azure l’attribue à un sous-domaine de azurewebsites.net. Par exemple, si votre application Web se nomme **contoso**, l’URL est **contoso.azurewebsites.net**. Azure attribue également une adresse IP virtuelle.
+Lorsque vous créez une application web, Azure l'attribue à un sous-domaine de azurewebsites.net. Par exemple, si votre application web se nomme **contoso**, l'URL est **contoso.azurewebsites.net**. Azure attribue également une adresse IP virtuelle.
 
-Pour une application web de production, vous souhaitez probablement afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (Cet article présente des instructions générales pour tout bureau d'enregistrement de domaines. Les onglets en haut de cet article fournissent des liens vers des articles pour des bureaux d'enregistrement de domaines spécifiques.)
+Pour une application web de production, vous souhaitez probablement afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment réserver ou configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (Cet article présente des instructions générales pour tout bureau d’enregistrement de domaines. Les onglets en haut de cet article fournissent des liens vers des articles pour des bureaux d'enregistrement de domaines spécifiques.)
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
 
 ## Vue d'ensemble
 
-Voici les étapes générales de configuration d'un nom de domaine personnalisé :
+Si vous avez déjà un nom de domaine, ou que vous souhaitez réserver un domaine à partir d'autres bureaux d’enregistrement de noms de domaine, voici les étapes générales pour donner un nom de domaine personnalisé à une application web :
 
-1. Réservation de votre nom de domaine. Cet article ne traite pas cette étape. Il existe un grand choix de bureaux d'enregistrement de domaines. Lorsque vous vous inscrivez, leur site vous expliquera les étapes du processus.
+1. Réservation de votre nom de domaine Cet article ne traite pas cette étape. Il existe un grand choix de bureaux d'enregistrement de domaines. Lorsque vous vous inscrivez, leur site vous expliquera les étapes du processus.
 1. Création d’enregistrements DNS qui mappent le domaine vers votre application web Azure.
 1. Ajout du nom de domaine sur le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
@@ -44,7 +44,7 @@ Au-delà de ces fondamentaux, il faut prendre en compte des cas spécifiques :
 
 - Mappage de votre domaine racine. Le domaine racine est le domaine que vous avez réservé auprès du bureau d'enregistrement de domaines. Par exemple, **contoso.com**.
 - Mappage d'un sous-domaine. Par exemple, **blogs.contoso.com**. Vous pouvez mapper différents sous-domaines vers différentes applications web.
-- Mappage d'un caractère générique. Par exemple, ***.contoso.com**. Un entrée à caractère générique s'applique à tous les sous-domaines de votre domaine.
+- Mappage d’un caractère générique. Par exemple, ***.contoso.com**. Une entrée à caractère générique s’applique à tous les sous-domaines de votre domaine.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -81,7 +81,7 @@ Connectez-vous à votre bureau d'enregistrement de domaine et utilisez son utili
 
 La page mentionnera les enregistrements A et les enregistrements CNAME séparément, ou fournira une liste déroulante vous permettant de sélectionner le type d’enregistrement. De plus, il est possible qu'elle utilise d'autres noms pour les types d'enregistrement, comme **enregistrements d’adresses IP** au lieu d’enregistrement A, ou **enregistrements d’alias** au lieu d’enregistrements CNAME. Le bureau d'enregistrement de domaines crée habituellement des enregistrements. Il se peut donc qu'il y ait des enregistrements pour le domaine racine ou les sous-domaines communs comme **www**.
 
-Lorsque vous créez ou éditez un enregistrement, les champs vous permettent de mapper votre nom de domaine vers une adresse IP (enregistrements A) ou un autre domane (enregistrements CNAME). Pour un enregistrement CNAME, vous mapperez *de* votre domaine personnalisé *vers* votre sous-domaine azurewebsites.net.
+Lorsque vous créez ou éditez un enregistrement, les champs vous permettent de mapper votre nom de domaine vers une adresse IP (enregistrements A) ou un autre domaine (enregistrements CNAME). Pour un enregistrement CNAME, vous mapperez *de* votre domaine personnalisé *vers* votre sous-domaine azurewebsites.net.
 
 Dans de nombreux utilitaires de bureaux d'enregistrement, il vous suffit de saisir la partie de sous-domaine de votre domaine, plutôt que la totalité du nom de domaine. De plus, de nombreux utilitaires utilisent « @ » pour désigner le domaine racine. Par exemple :
 
@@ -108,8 +108,10 @@ Dans le cas où le nom de domaine personnalisé est « contoso.com », cela cré
 - **contoso.com** mappé vers 127.0.0.1.
 - **www.contoso.com** mappé vers **contoso.azurewebsites.net**.
 
+>[AZURE.NOTE]Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
+
 <a name="awverify" />
-## Création d'un enregistrement « awverify » (enregistrements A uniquement)
+## Création d’un enregistrement awverify (enregistrements A uniquement)
 
 Si vous créez un enregistrement A, l’application web requiert également un enregistrement CNAME spécial, utilisé pour vérifier que vous possédez le domaine que vous souhaitez utiliser. Cet enregistrement CNAME doit avoir la forme suivante.
 
@@ -124,9 +126,14 @@ Les visiteurs de votre application web ne verront pas le sous-domaine awverify. 
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
+
+## Étapes suivantes
+
+Pour plus d'informations, consultez [Prise en main d’Azure DNS](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) et [Domaine délégué vers Azure DNS](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
+
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- Anchors. -->
 [Overview]: #overview
@@ -137,5 +144,6 @@ Les visiteurs de votre application web ne verront pas le sous-domaine awverify. 
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

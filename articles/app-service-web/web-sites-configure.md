@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
 
 
@@ -41,11 +41,11 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
-**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+<a name="platform"></a> **Plate-forme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le mode De base ou Standard. Les modes Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
 **WebSockets**. Affectez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application Web utilise [ASP.NET SignalR](http://www.asp.net/signalr) ou [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
-**Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d'économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des tâches Web en continu, activez l’option **Toujours actif**. Sinon, les tâches Web risquent de ne pas s’exécuter de façon fiable.
+<a name="alwayson"></a> **Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des tâches Web en continu, activez l’option **Toujours actif**. Sinon, les tâches Web risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application) d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
 
@@ -128,7 +128,7 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 ![](./media/web-sites-configure/configure03.png)
 
 
-Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
+Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -170,7 +170,8 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 - [Surveiller les applications Web dans Azure App Service](web-sites-monitor.md)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

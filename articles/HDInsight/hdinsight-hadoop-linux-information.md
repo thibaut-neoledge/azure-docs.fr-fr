@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ce qu'il faut savoir sur Hadoop dans HDInsight sous Linux | Azure"
-   description="Les clusters HDInsight sous Linux fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure."
+   pageTitle="Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur Linux | Microsoft Azure"
+   description="Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/17/2015"
+   ms.date="05/27/2015"
    ms.author="larryfr"/>
 
-# Utilisation de HDInsight sous Linux (version préliminaire)
+# Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)
 
 Les clusters Azure HDInsight sous Linux fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
@@ -92,13 +92,24 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
         curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
 
-2. Recherchez l’entrée `fs.defaultFS`. Celle-ci contient les noms par défaut du conteneur et du compte de stockage dans un format similaire à ce qui suit :
+2. Dans les données JSON renvoyées, recherchez l’entrée `fs.defaultFS`. Celle-ci contient les noms par défaut du conteneur et du compte de stockage dans un format similaire à ce qui suit :
 
         wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
 
-> [AZURE.TIP]Si vous avez installé [jq](http://stedolan.github.io/jq/), vous pouvez utiliser les éléments suivants pour retourner uniquement l’entrée `fs.defaultFS` :
->
-> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	> [AZURE.TIP]Si vous avez installé [jq](http://stedolan.github.io/jq/), vous pouvez utiliser les éléments suivants pour retourner uniquement l’entrée `fs.defaultFS` :
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+	
+3. Pour trouver la clé utilisée pour s’authentifier auprès du compte de stockage, ou pour rechercher les comptes de stockage secondaire associés au cluster, procédez comme suit :
+
+		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+		
+4. Dans les données JSON renvoyées, recherchez les entrées commençant par `fs.azure.account.key`. Le reste du nom de l’entrée correspond au nom du compte de stockage. Par exemple : `fs.azure.account.key.mystorage.blob.core.windows.net`. La valeur stockée dans cette entrée est la clé utilisée pour s’authentifier auprès du compte de stockage.
+
+	> [AZURE.TIP]Si vous avez installé [jq](http://stedolan.github.io/jq/), vous pouvez utiliser les éléments suivants pour renvoyer uniquement la liste des clés et valeurs :
+	>
+	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+
 
 **Portail Azure**
 
@@ -114,7 +125,7 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
 Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob de plusieurs façons :
 
-* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md) : commandes inter-plateforme fonctionnant avec Azure. Après l’installation, utilisez la commande `azure storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `azure blob` pour obtenir les commandes spécifiques aux objets blob.
+* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `azure storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `azure blob` pour obtenir les commandes spécifiques aux objets blob.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage) : script python pour travailler avec des objets blob dans Azure Storage.
 
@@ -139,5 +150,6 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

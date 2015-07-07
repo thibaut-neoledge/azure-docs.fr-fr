@@ -33,4 +33,4 @@ Lorsque ces fichiers n’existent pas, Azure crée un script de déploiement tem
 
 [interface de ligne de commande Azure]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

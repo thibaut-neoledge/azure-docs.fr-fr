@@ -35,4 +35,4 @@
  
        ![création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

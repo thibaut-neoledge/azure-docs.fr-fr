@@ -1,42 +1,47 @@
-<properties 
-	pageTitle="Créer une application API ASP.NET dans Azure App Service" 
-	description="Découvrez comment créer une application API ASP.NET dans Azure App Service avec Visual Studio 2013" 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
+<properties
+	pageTitle="Créer une application API ASP.NET dans Azure App Service"
+	description="Découvrez comment créer une application API ASP.NET dans Azure App Service avec Visual Studio 2013"
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="bradygaster"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
 # Créer une application API ASP.NET dans Azure App Service
 
+> [AZURE.SELECTOR]
+- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
+- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+
 ## Vue d'ensemble
 
-Ce didacticiel montre comment créer un projet d’API web ASP.NET et le configurer pour un déploiement dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Si vous avez un projet d’API web que vous souhaitez convertir en application API, reportez-vous à l’article [Configurer un projet d’API web comme application API](./app-service-dotnet-create-api-app-visual-studio). Les didacticiels suivants de la série montrent comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API que vous créez dans ce didacticiel.
+Ce didacticiel montre comment créer un projet d’API web ASP.NET en utilisant un modèle Visual Studio 2013 qui le configure pour un déploiement dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Pour plus d'informations sur la configuration d'un projet d'API web existant pour le déploiement en tant qu'application API, consultez la rubrique [Configurer un projet d'API web comme une application API](app-service-dotnet-create-api-app-visual-studio.md).
 
-Pour plus d’informations sur les applications API, consultez la rubrique [Que sont les applications API](app-service-api-apps-why-best-platform.md).
+Les didacticiels suivants de la série montrent comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API que vous créez dans ce didacticiel.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
 Ce didacticiel requiert la version 2.5.1 ou ultérieure du Kit de développement logiciel (SDK) Azure pour .NET.
 
-## Créer un projet d’application API 
-
-Cette section présente l’utilisation du modèle de projet d’application API Azure pour créer une application API. Pour savoir comment configurer un projet d’API web existant comme application API, passez à la [section suivante](#configure-a-web-api-project-as-an-api-app).
+## Créer un projet d’application API
 
 1. Ouvrez Visual Studio 2013.
 
 2. Sélectionnez **Fichier > Nouveau projet**.
 
 3. Sélectionnez le modèle **Application web ASP.NET**.
+
+4. Vérifiez que la case à cocher **Ajouter Application Insights au projet** est désactivée.
 
 4. Nommez ce projet *ContactsList*
 
@@ -61,5 +66,6 @@ Visual Studio crée un projet d’API web configuré pour le déploiement sous f
 ## Étapes suivantes
 
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

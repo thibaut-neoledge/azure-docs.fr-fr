@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/10/2015" 
 	ms.author="bradsev"/>
 
 # Développement d'actions de script avec HDInsight 
@@ -44,11 +44,11 @@ Les utilisateurs doivent s'assurer que tous les scripts et autres artefacts util
 
 
 ### <a name="bPS3"></a>Assurez-vous que le script de personnalisation de cluster est idempotent
-Vous devez tenir compte du réimageage des nœuds d'un cluster HDInsight au cours de la durée de vie du cluster. Le script de personnalisation du cluster est exécuté chaque fois qu'un cluster est réimagé. Ce script doit être conçu pour être idempotent afin que lors du réimageage, le script s’assure que le cluster retrouve l’état personnalisé qui était le sien juste après la première exécution du script lors de la création initiale du cluster. Par exemple, si un script personnalisé a installé une application à l’emplacement D:\\AppLocation lors de sa première exécution, alors, à chaque exécution ultérieure, lors du réimageage, le script doit vérifier si l'application existe à l'emplacement D:\\AppLocation avant de passer aux autres étapes du script.
+Vous devez tenir compte du réimageage des nœuds d'un cluster HDInsight au cours de la durée de vie du cluster. Le script de personnalisation du cluster est exécuté chaque fois qu'un cluster est réimagé. Ce script doit être conçu pour être idempotent afin que lors du réimageage, le script s’assure que le cluster retrouve l’état personnalisé qui était le sien juste après la première exécution du script lors de la création initiale du cluster. Par exemple, si un script personnalisé a installé une application à l’emplacement D:\AppLocation lors de sa première exécution, alors, à chaque exécution ultérieure, lors du réimageage, le script doit vérifier si l'application existe à l'emplacement D:\AppLocation avant de passer aux autres étapes du script.
 
 
 ### <a name="bPS4"></a>Installer des composants personnalisés dans l'emplacement optimal 
-Lorsque les nœuds de cluster sont réimagés, le lecteur des ressources C:\\ et le lecteur du système D:\\ peuvent être reformatés, ce qui entraîne la perte des données et des applications qui avaient été installées sur ces lecteurs. Cela peut également se produire si un nœud de machine virtuelle (VM) Azure qui fait partie du cluster tombe en panne et est remplacé par un nouveau nœud. Vous pouvez installer les composants sur le lecteur D:\\ ou dans l'emplacement C:\\apps sur le cluster. Tous les autres emplacements sur le lecteur C:\\ sont réservés. Indiquez l'emplacement d'installation des applications ou bibliothèques dans le script de personnalisation de cluster.
+Lorsque les nœuds de cluster sont réimagés, le lecteur des ressources C:\ et le lecteur du système D:\ peuvent être reformatés, ce qui entraîne la perte des données et des applications qui avaient été installées sur ces lecteurs. Cela peut également se produire si un nœud de machine virtuelle (VM) Azure qui fait partie du cluster tombe en panne et est remplacé par un nouveau nœud. Vous pouvez installer les composants sur le lecteur D:\ ou dans l'emplacement C:\apps sur le cluster. Tous les autres emplacements sur le lecteur C:\ sont réservés. Indiquez l'emplacement d'installation des applications ou bibliothèques dans le script de personnalisation de cluster.
 
 
 ### <a name="bPS5"></a>Garantir la haute disponibilité de l'architecture de cluster
@@ -96,13 +96,15 @@ Dans le développement d'actions de script, vous aurez souvent besoin de défini
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Cette instruction définit la variable d'environnement **MDS_RUNNER_CUSTOM_CLUSTER** sur la valeur « true » et définit également l'étendue de cette variable à l'échelle de l'ordinateur. Dans certains cas, il est important que les variables d'environnement soient définies avec l’étendue appropriée (machine ou utilisateur). Reportez-vous [ici](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx « ici ») pour plus d'informations sur la définition des variables d'environnement.
+Cette instruction définit la variable d'environnement **MDS_RUNNER_CUSTOM_CLUSTER** sur la valeur « true » et définit également l'étendue de cette variable à l'échelle de l'ordinateur. Dans certains cas, il est important que les variables d'environnement soient définies avec l’étendue appropriée (machine ou utilisateur). Cliquez [ici][1] pour obtenir plus d’informations sur la définition des variables d’environnement.
 
 ### Accès aux emplacements où sont stockés les scripts personnalisés
 
 Les scripts utilisés pour personnaliser un cluster doivent être soit dans le compte de stockage par défaut pour le cluster soit dans un conteneur public en lecture seule sur un autre compte de stockage. Si votre script accède à des ressources situées ailleurs, celles-ci doivent se trouver dans un conteneur accessible publiquement (au moins public en lecture seule). Par exemple, vous souhaitez accéder à un fichier et l’enregistrer à l'aide de la commande HDI SaveFile.
 
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+Dans cet exemple, vous devez vous assurer que le conteneur « somecontainer » du compte de stockage « somestorageaccount » est accessible publiquement. Sinon, le script lève une exception « Introuvable » et échoue.
 
 ### Levée d'exception pour l’échec d’un déploiement de cluster
 
@@ -116,6 +118,17 @@ Si vous souhaitez être notifié précisément du fait que la personnalisation d
 	exit
 	}
 
+Dans cet extrait, si le fichier n’existe pas, le script peut s’arrêter de manière appropriée après l’affichage du message d’erreur et le cluster est défini sur l’état En cours d’exécution, en supposant qu’il a terminé correctement le processus de personnalisation du cluster. Si vous souhaitez être averti précisément du fait que la personnalisation du cluster a échoué de manière inattendue en raison d’un fichier manquant, il est préférable de lever une exception et de faire échouer l’étape de personnalisation du cluster. Pour ce faire, vous devez plutôt utiliser l’extrait de code suivant.
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	throw
+	}
+
+
 ## <a name="deployScript"></a>Liste de vérification pour le déploiement d'une action de script
 Voici les étapes à suivre avant de déployer des scripts :
 
@@ -123,7 +136,7 @@ Voici les étapes à suivre avant de déployer des scripts :
 2. Ajoutez des contrôles dans les scripts pour vous assurer qu'ils s'exécutent de manière idempotente, ce qui permet d'exécuter le script plusieurs fois sur le même nœud.
 3. Utilisez l’applet de commande Azure PowerShell **Write-Output** pour imprimer dans STDOUT et dans STDERR. N'utilisez pas **Write-Host**.
 4. Utilisez un dossier de fichiers temporaires, tel que $env:TEMP, pour conserver le fichier téléchargé utilisé par les scripts, puis nettoyez-le au terme de l'exécution des scripts.
-5. 5.Installez des logiciels personnalisés uniquement aux emplacements suivants : D:\\ ou C:\\apps. N'utilisez pas d'autres emplacements sur le lecteur C:, car ceux-ci sont réservés. Notez que l'installation de fichiers sur le lecteur C: dans des emplacements autres que dans le dossier C:/apps peut entraîner des erreurs d'installation lors des opérations de réimageage du nœud.
+5. 5.Installez des logiciels personnalisés uniquement aux emplacements suivants : D:\ ou C:\apps. N'utilisez pas d'autres emplacements sur le lecteur C:, car ceux-ci sont réservés. Notez que l'installation de fichiers sur le lecteur C: dans des emplacements autres que dans le dossier C:/apps peut entraîner des erreurs d'installation lors des opérations de réimageage du nœud.
 6. En cas de modification des paramètres au niveau du système d'exploitation ou des fichiers de configuration du service Hadoop, vous pouvez redémarrer les services HDInsight pour qu'ils récupèrent des paramètres au niveau du système d'exploitation, tels que les variables d'environnement définies dans les scripts.
 
 
@@ -176,9 +189,9 @@ il peut arriver qu'un script personnalisé dépende de composants HDInsight, par
 
 ## <a name="debugScript"></a>Comment déboguer un script personnalisé
 
-Les journaux des erreurs de script et d'autres sorties sont stockés dans le compte de stockage par défaut que vous avez spécifié pour le cluster au moment de sa création. Les journaux sont stockés dans une table nommée *u<\\cluster-name-fragment><\\time-stamp>setuplog*. Il s'agit de journaux agrégés contenant des enregistrements de tous les nœuds (nœud principal et nœuds de travail) sur lesquels le script s'exécute dans le cluster.
+Les journaux des erreurs de script et d'autres sorties sont stockés dans le compte de stockage par défaut que vous avez spécifié pour le cluster au moment de sa création. Les journaux sont stockés dans une table nommée *u<\cluster-name-fragment><\time-stamp>setuplog*. Il s'agit de journaux agrégés contenant des enregistrements de tous les nœuds (nœud principal et nœuds de travail) sur lesquels le script s'exécute dans le cluster.
 
-Vous pouvez également accéder à distance aux nœuds de cluster pour voir les informations STDOUT et STDERR des scripts personnalisés. Les journaux de chaque nœud sont spécifiques à celui-ci et sont enregistrés dans **C:\\HDInsightLogs\\DeploymentAgent.log**. Ces fichiers journaux enregistrent tous les résultats du script personnalisé. Un extrait de journal pour une action de script Spark ressemble à ceci :
+Vous pouvez également accéder à distance aux nœuds de cluster pour voir les informations STDOUT et STDERR des scripts personnalisés. Les journaux de chaque nœud sont spécifiques à celui-ci et sont enregistrés dans **C:\HDInsightLogs\DeploymentAgent.log**. Ces fichiers journaux enregistrent tous les résultats du script personnalisé. Un extrait de journal pour une action de script Spark ressemble à ceci :
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -234,4 +247,8 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
 
-<!--HONumber=54--> 
+<!--Reference links in article-->
+[1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
+ 
+
+<!---HONumber=62-->

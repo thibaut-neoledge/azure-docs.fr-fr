@@ -1,7 +1,7 @@
 <properties
- pageTitle="Traiter des données de capteur de véhicule avec Azure Event Hubs et Apache Storm dans HDInsight"
- description="Découvrez comment traiter des données de capteur de véhicule à partir d'Azure Event Hubs à l'aide d'Apache Storm dans HDInsight Pendant le traitement, les données sont enrichies par la recherche d'informations sur le modèle du véhicule dans DocumentDB. Les données sont éventuellement écrites dans Azure Storage."
- services="hdinsight"
+ pageTitle="Traitement des données de capteur de véhicules à l’aide d’Apache Storm dans HDInsight | Microsoft Azure"
+ description="Découvrez comment traiter des données de capteur de véhicules à partir d’Event Hubs à l’aide d’Apache Storm dans HDInsight. Ajoutez des données de modèle à partir de DocumentDB et stockez le résultat dans le stockage."
+ services="hdinsight,documentdb,notification-hubs"
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
@@ -16,11 +16,11 @@ ms.workload="big-data"
 ms.date="04/28/2015"
 ms.author="larryfr"/>
 
-#Traitement des données de capteur à partir d'Azure Event Hubs à l'aide d'Apache Storm dans HDInsight
+#Traitement des données de capteur de véhicules à partir d’Azure Event Hubs à l’aide d’Apache Storm dans HDInsight
 
 Découvrez comment traiter des données de capteur de véhicule à partir d'Azure Event Hubs à l'aide d'Apache Storm dans HDInsight Cet exemple lit les données de capteur à partir d'Azure Event Hubs, enrichit les données en référençant les données stockées dans Azure DocumentDB et, enfin, stocke les données dans Azure Storage à l'aide du système de fichiers Hadoop (HDFS).
 
-![Diagramme d'architecture](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![Schéma sur l’architecture de HDInsight et de l’Internet des objets (IoT)](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Vue d'ensemble
 
@@ -57,6 +57,6 @@ Une solution automatisée complète pour ce scénario est disponible dans le ré
 ## Étapes suivantes
 
 Pour plus d'exemples de topologies Storm, consultez les [exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

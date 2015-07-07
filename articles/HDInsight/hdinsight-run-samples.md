@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Exécution des exemples Hadoop dans HDInsight | Azure"
+	pageTitle="Exécution des exemples Hadoop dans HDInsight | Microsoft Azure"
 	description="Prise en main du service Azure HDInsight avec les exemples fournis. Utilisez des scripts PowerShell qui exécutent des programmes MapReduce sur des clusters de données."
 	services="hdinsight"
 	documentationCenter=""
@@ -23,7 +23,7 @@
 
 Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les tâches MapReduce sur les clusters Hadoop en utilisant Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les cmdlets Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
 
-Les programmes MapReduce peuvent également être exécutés par programme à partir d’une application au moyen de l’API Microsoft .NET pour HDInsight. Pour plus d’informations sur l’utilisation des API HDInsight pour envoyer des tâches, consultez la page [Envoi de tâches Hadoop dans HDInsight][hdinsight-submit-hadoop-jobs-programmatically].
+Les programmes MapReduce peuvent également être exécutés par programme à partir d’une application au moyen de l’API Microsoft .NET pour HDInsight. Pour plus d’informations sur l’utilisation des API HDInsight pour envoyer des tâches, consultez la page [Envoi de tâches Hadoop dans HDInsight][hdinsight-submit-jobs].
 
 Une documentation abondante existe sur le Web pour les technologies liées à Hadoop, telles que la programmation et la diffusion MapReduce basées sur Java, ainsi que pour l’utilisation des cmdlets dans les scripts Windows PowerShell. Pour plus d’informations sur ces ressources, consultez la section finale **Ressources relatives à HDInsight** de la rubrique [Présentation d’Azure HDInsight][hdinsight-introduction].
 
@@ -34,11 +34,11 @@ Une documentation abondante existe sur le Web pour les technologies liées à Ha
 
 **Conditions préalables** :
 
-- Vous devez disposer d’un compte Microsoft Azure. Pour les options relatives à l’inscription pour un compte, consultez [Azure : version d’évaluation gratuite d’un mois](http://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md).
 
-- Vous devez avoir installé Azure PowerShell et l’avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d’Azure PowerShell][powershell-install-configure].
 
 ## Exemples disponibles ##
 
@@ -86,5 +86,6 @@ Dans cet article et les articles liés à chacun des exemples, vous avez appris 
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

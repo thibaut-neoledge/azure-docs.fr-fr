@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Débogage d’une application web Node.js dans Azure Web Service" 
+<properties
+	pageTitle="Débogage d’une application web Node.js dans Azure Web Service"
 	description="Apprenez à déboguer une application web Node.js dans Azure Web Service."
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # Débogage d’une application web Node.js dans Azure Web Service
@@ -73,7 +73,7 @@ Pour accéder aux informations de diagnostic par FTP, visitez le [portail Azure 
 
 L'URL FTP renvoyée dans le tableau de bord concerne le répertoire **LogFiles**, qui contient les sous-répertoires suivants :
 
-* [Méthode de déploiement] : si vous utilisez une méthode de déploiement comme Git, un répertoire de même nom est créé et contient les informations relatives aux déploiements.
+* [Méthode de déploiement] : si vous utilisez une méthode de déploiement comme Git, un répertoire portant le même nom est créé et contient les informations relatives aux déploiements.
 
 * nodejs : les informations stdout et stderr capturées à partir de toutes les instances de votre application (lorsque loggingEnabled est défini sur true).
 
@@ -89,7 +89,7 @@ Cela télécharge un fichier **diagnostics.zip** dans le répertoire actuel. Cet
 
 * LogFiles
 
-	* [Méthode de déploiement] : si vous utilisez une méthode de déploiement comme Git, un répertoire de même nom est créé et contient les informations relatives aux déploiements.
+	* [Méthode de déploiement] : si vous utilisez une méthode de déploiement comme Git, un répertoire portant le même nom est créé et contient les informations relatives aux déploiements.
 
 	* nodejs : les informations stdout et stderr capturées à partir de toutes les instances de votre application (lorsque loggingEnabled est défini sur true).
 
@@ -114,14 +114,15 @@ Pour plus d'informations sur la spécification d'une version Node.js de votre ap
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [fichier Lisez-moi IISNode]: https://github.com/tjanczuk/iisnode#readme
-[Utilisation des outils en ligne de commande Azure]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
 [Utilisation des modules Node.js avec les applications Azure]: ../nodejs-use-node-modules-azure-apps.md
 [Spécification d'une version de Node.js dans une application Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

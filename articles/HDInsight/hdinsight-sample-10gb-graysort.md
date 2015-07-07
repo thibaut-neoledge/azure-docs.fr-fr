@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Exemple GraySort 10 Go | Azure"
+	pageTitle="Exemple MapReduce Hadoop GraySort 10 Go | Microsoft Azure"
 	description="Découvrez comment exécuter un programme GraySort généraliste pour de très gros volumes de données, au minimum 100 To, sur Hadoop avec HDInsight et Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# Exemple Hadoop GraySort 10 Go dans HDInsight
+# Exemple MapReduce Hadoop GraySort 10 Go dans HDInsight
 
 Cette rubrique d’exemple explique comment exécuter un programme MapReduce Hadoop GraySort généraliste sur Azure HDInsight au moyen d’Azure PowerShell. Un GraySort est un tri de benchmark dont la mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
 
@@ -36,11 +36,10 @@ Les formats d’entrée et de sortie utilisés par les trois applications lisent
 
 **Configuration requise :**
 
-- Vous devez disposer d’un compte Azure. Pour connaître les options disponibles lors de la création d’un compte, consultez la page [Version d’évaluation gratuite d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un cluster HDInsight**. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Vous devez avoir approvisionné un cluster HDInsight. Pour des instructions sur les diverses méthodes disponibles pour créer ce type de cluster, consultez la page [Approvisionnement de clusters HDInsight](hdinsight-provision-clusters.md).
-
-- Vous devez avoir installé Azure PowerShell et l’avoir configuré pour une utilisation avec votre compte. Pour des instructions sur la marche à suivre, consultez la page [Installation et configuration d'Azure PowerShell][powershell-install-configure].
 
 
 ##Exécution de l'exemple avec Azure PowerShell
@@ -413,12 +412,12 @@ Pour suivre des didacticiels vous présentant l’exécution d’autres exemples
 * [Exemple : Diffusion en continu en C#][hdinsight-sample-csharp-streaming]
 * [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
 * [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
-* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
+* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
@@ -430,5 +429,6 @@ Pour suivre des didacticiels vous présentant l’exécution d’autres exemples
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

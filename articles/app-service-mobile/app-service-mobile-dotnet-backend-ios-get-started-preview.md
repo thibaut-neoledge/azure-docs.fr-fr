@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Prise en main d&#39;Azure App Service pour les applications iOS mobiles"
-	description="Suivez ce didacticiel pour commencer à utiliser Azure App Service pour le développement d&#39;applications iOS."
+	pageTitle="Prise en main d'Azure App Service pour les applications iOS mobiles"
+	description="Suivez ce didacticiel pour commencer à utiliser Azure App Service pour le développement d'applications iOS."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2015"
 	ms.author="yuaxu"/>
 
@@ -47,7 +47,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.
 
-4. Téléchargez et installez [Xcode] v4.4 ou une version plus récente et [Xamarin Studio]. Vous pouvez également utiliser Xamarin pour Visual Studio.
+4. Téléchargez et installez [Xcode] v4.4 ou une version plus récente et Xamarin Studio. Vous pouvez également utiliser Xamarin pour Visual Studio.
 
 5. Sous **Télécharger et publier votre service dans le cloud**, cliquez sur **Télécharger**.
 
@@ -84,6 +84,6 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisez les clés SSH avec Hadoop de HDInsight sous Linux à partir de Linux, Unix ou OS X | Azure"
-   description="Apprenez à créer et utiliser des clés SSH pour l'authentification dans les clusters HDInsight sous Linux."
+   pageTitle="Utilisation de clés SSH avec un cluster Hadoop basé sur Linux sur Linux, Unix ou OS X | Microsoft Azure"
+   description="Vous pouvez accéder à un cluster HDInsight basé sur Linux à l’aide de SSH (Secure Shell). Ce document donne des informations sur l'utilisation de SSH avec HDInsight à partir des clients Linux, Unix ou OS X."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -61,7 +61,7 @@ En créant un cluster HDInsight sous Linux, vous pouvez utiliser un mot de passe
 
 	Les informations suivantes vous seront demandées :
 
-	* l’emplacement du fichier : par défaut dans \~/.ssh/id_rsa ;
+	* l’emplacement du fichier : par défaut dans ~/.ssh/id_rsa ;
 	* une phrase secrète : il vous sera demander de la saisir à nouveau.
 
 		> [AZURE.NOTE]Nous vous recommandons vivement d'utiliser une phrase secrète sûre pour cette clé. Toutefois, si vous oubliez cette phrase secrète, il sera impossible de la récupérer.
@@ -294,5 +294,6 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

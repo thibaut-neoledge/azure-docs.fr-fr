@@ -45,8 +45,9 @@ Azure App Service Web Apps est une plateforme entièrement gérée qui vous pe
 - **Emplacements de déploiement** : mettez en place un [déploiement intermédiaire][Slots] pour vérifier votre code dans un environnement de pré-production identique à celui de votre application web de production dans Azure App Service. Quand vous êtes satisfait du résultat, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d'échange. 
 - **Tests dans un environnement de production** : allez au-delà du déploiement intermédiaire en effectuant des tests A/B pour vérifier votre nouveau code avec une fraction configurable de votre trafic. 
 - **WebJobs** : exécutez n’importe quel programme ou script sur des machines virtuelles Web Apps. Exécutez des tâches en continu ou selon un planning, et effectuez une mise à l'échelle pour une exécution sur plusieurs machines virtuelles. Pour intégrer Azure Storage ou Service Bus, utilisez le [Kit de développement logiciel (SDK) WebJobs][Webjobs] Azure.
+- **Connexions hybrides** - - Accéder aux données locales à l'aide de [connexions hybrides](../integration-hybrid-connection-overview.md) et de [réseaux virtuels](../app-service-web/web-sites-integrate-with-vnet.md).
 
-## Mise en route ##
+## Prise en main ##
 Pour commencer à utiliser Web Apps, suivez le didacticiel [Créer une application web ASP.NET][create].
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure App Service][appservice].
@@ -54,7 +55,7 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
@@ -62,5 +63,6 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [Webjobs]: websites-dotnet-webjobs-sdk-get-started.md
 [Slots]: web-sites-staged-publishing.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

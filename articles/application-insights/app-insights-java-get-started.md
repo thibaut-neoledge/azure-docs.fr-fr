@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
  
 # Prise en main d'Application Insights dans un projet web Java
@@ -26,7 +26,7 @@ En ajoutant Visual Studio Application Insights à votre projet, vous pouvez dét
 
 ![Exemples de données](./media/app-insights-java-get-started/5-results.png)
 
-En outre, vous pouvez configurer des [tests web][availability] pour surveiller la disponibilité de votre application et insérer du [code dans vos pages web][track] pour comprendre les différents types d'utilisation.
+En outre, vous pouvez configurer des [tests web][availability] pour surveiller la disponibilité de votre application et insérer du [code dans vos pages web][api] pour comprendre les différents types d'utilisation.
 
 Vous devez disposer des éléments suivants :
 
@@ -40,9 +40,9 @@ Vous devez disposer des éléments suivants :
 2. Créer une ressource Application Insights dans Azure
 
     ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-get-started/01-create.png)
-3. Définissez le type d'application sur application web Java.
+3. Définissez le type d’application sur Application web Java.
 
-    ![Indiquez le nom, choisissez l'application web Java, puis cliquez sur Créer](./media/app-insights-java-get-started/02-create.png)
+    ![Indiquez le nom, choisissez l’application web Java, puis cliquez sur Créer.](./media/app-insights-java-get-started/02-create.png)
 4. Obtenez la clé d'instrumentation de la nouvelle ressource. Vous devrez la coller rapidement dans le code de votre projet.
 
     ![Dans la nouvelle vue d'ensemble des ressources, cliquez sur Propriétés et copiez la clé d'instrumentation.](./media/app-insights-java-get-started/03-key.png)
@@ -79,7 +79,10 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     </dependencies>
 
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d'utiliser une version spécifique :* `<version>0.9.3</version>`
+* *Des erreurs de validation de build ou de somme de contrôle ?*
+ * Essayez d’utiliser une version spécifique, telle que * `<version>0.9.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](app-insights-release-notes-java.md) ou dans nos [artefacts Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
+ * Actualisez les dépendances de votre projet.
 
 #### Si vous utilisez Gradle...
 
@@ -96,7 +99,9 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       // or applicationinsights-core for bare API
     }
 
-* *Erreurs de validation de build ou de somme de contrôle ? Essayez d'utiliser une version spécifique :* `version:'0.9.3'`
+* *Des erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'0.9.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).* 
+* *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
+ * Actualisez les dépendances de votre projet.
 
 #### Sinon...
 
@@ -106,6 +111,7 @@ Ajouter manuellement le Kit de développement logiciel :
 2. Décompressez les fichiers binaires suivants du fichier zip et ajoutez-les à votre projet :
  * applicationinsights-core
  * applicationinsights-web
+ * annotation-detector
  * commons-codec
  * commons-io
  * commons-lang
@@ -115,15 +121,22 @@ Ajouter manuellement le Kit de développement logiciel :
  * httpcore
  * jsr305
 
+Questions...
 
-*Quelle est la relation entre les composants `-core` et `-web` ?*
+* *Quelle est la relation entre les composants `-core` et `-web` ?*
 
-`applicationinsights-core` vous fournit l'API système sans aucune télémétrie automatique. `applicationinsights-web` vous offre des mesures de suivi du nombre de demandes HTTP et des temps de réponse.
+ * `applicationinsights-core` fournit l’API seule sans télémétrie automatique.
+ * `applicationinsights-web` fournit des mesures qui permettent d’effectuer le suivi du nombre de requêtes HTTP et des temps de réponse. 
+
+* *Pour mettre à jour le kit de développement logiciel (SDK)*
+ * Téléchargez les dernières [bibliothèques Azure pour Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) et remplacez les anciennes.
+ * Les modifications sont décrites dans le [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).
+
 
 
 ## 3. Ajouter un fichier xml Application Insights
 
-Ajoutez ApplicationInsights.xml au dossier de ressources de votre projet. Copiez-y le code XML suivant.
+Ajoutez ApplicationInsights.xml dans le dossier de ressources de votre projet, ou vérifiez qu’il est ajouté au chemin de la classe du déploiement de votre projet. Copiez-y le code XML suivant.
 
 Remplacez la clé d'instrumentation que avez obtenue sur le portail Azure.
 
@@ -205,18 +218,27 @@ Ajoutez cet élément au fichier de configuration Struts (généralement struts.
 
 (Si vous avez défini des intercepteurs dans une pile par défaut, l'intercepteur peut simplement être ajouté à cette pile).
 
-## 5. Voir votre télémétrie dans Application Insights
 
-Exécutez votre application.
+## 5. Activer la collecte des compteurs de performances
 
-Revenez à votre ressource Application Insights dans Microsoft Azure.
+Si votre serveur est doté de Windows, installez
 
-Les données des demandes HTTP apparaissent dans le panneau Vue d'ensemble. (Si elles n'y sont pas, attendez quelques secondes et puis cliquez sur Actualiser).
+* [Redistribuable Microsoft Visual C++](http://www.microsoft.com/download/details.aspx?id=40784)
+
+## 6. Exécuter votre application
+
+Exécutez-le en mode débogage sur votre ordinateur de développement, ou publiez-le sur votre serveur.
+
+## 7. Voir votre télémétrie dans Application Insights
+
+Revenez à votre ressource Application Insights sur le [portail Microsoft Azure](https://portal.azure.com).
+
+Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
 ![Exemples de données](./media/app-insights-java-get-started/5-results.png)
  
 
-Cliquez sur n'importe quel graphique pour afficher des mesures plus détaillées.
+Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
@@ -239,7 +261,15 @@ Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Ho
 
 Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
-## 5. Compteurs de performances
+## Exceptions non gérées et les échecs de requêtes
+
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+Pour collecter des données sur les autres exceptions, [insérez des appels à TrackException dans votre code][apiexceptions].
+
+
+## Compteurs de performances
 
 Cliquez sur la vignette des serveurs et vous verrez un ensemble de compteurs de performances.
 
@@ -298,22 +328,27 @@ Les compteurs de performances sont visibles en tant que mesures personnalisées 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6. Capture le suivi des journaux
+## Obtenir des données utilisateur et de session
+
+Vous envoyez des données de télémétrie depuis votre serveur web. Vous pouvez désormais ajouter plus de surveillance pour obtenir une vue à 360 degrés de votre application :
+
+* [Ajoutez la télémétrie à vos pages web][usage] pour surveiller les affichages de pages et les mesures relatives à l’utilisateur.
+* [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
+
+## Capture le suivi des journaux
 
 Vous pouvez utiliser Application Insights pour traiter les journaux Log4J, Logback ou autres frameworks de journalisation. Vous pouvez mettre en corrélation les journaux avec les demandes HTTP et autres informations de télémétrie. [Découvrez comment][javalogs].
 
-## 7. Envoyer votre propre télémétrie
+## Envoyer votre propre télémétrie
 
 Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous pouvez utiliser l'API pour envoyer votre propre télémétrie.
 
-* [Suivez des événements et des mesures personnalisés][track] pour savoir ce que les utilisateurs font avec votre application.
+* [Suivez des événements et des mesures personnalisés][api] pour savoir ce que les utilisateurs font avec votre application.
 * [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
 
 
-En outre, vous pouvez ajouter d'autres fonctionnalités d'Application Insights à votre application :
 
-* [Ajoutez la télémétrie de client web][usage] pour surveiller les affichages de page et autres mesures utilisateur de base.
-* [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
+
 
 
 ## Des questions ? Des problèmes ?
@@ -324,13 +359,15 @@ En outre, vous pouvez ajouter d'autres fonctionnalités d'Application Insights �
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

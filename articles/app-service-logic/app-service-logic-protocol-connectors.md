@@ -105,7 +105,7 @@ Vous pouvez créer un connecteur à l’aide du portail Azure.
 
 Examinons comment créer un connecteur SMTP à l'aide d'Azure Marketplace.
 
-1. Connectez-vous au [portail](https://manage.windowsazure.com) Microsoft Azure.
+1. Connectez-vous au [portail Microsoft Azure en version préliminaire](https://portal.azure.com).
 2. Sélectionnez **Nouveau** > **Web + Mobile** > **Azure Marketplace**.
 3. Dans la **Zone de recherche**, entrez **protocole** puis appuyez sur **Entrée**. Vous pouvez également le sélectionner dans la liste. Une fois le connecteur sélectionné, un nouveau panneau ou une nouvelle fenêtre s'ouvre. Sélectionnez **Créer**. 
 4. Entrez les propriétés suivantes :
@@ -130,7 +130,7 @@ Microsoft Azure App Service expose différents types d'applications qui peuvent 
 
 Pour utiliser vos connecteurs dans votre application *logique*, vous devez sélectionner un connecteur configuré dans la liste, l’ajouter à votre flux de travail de conception et apporter les modifications de configuration nécessaires. Il est alors prêt à être utilisé.
 
-Pour suivre ces étapes, vous avez besoin d'une application web, mobile ou logique. Consultez <> pour connaître les étapes spécifiques. Une fois que votre application est disponible, ajoutez vos connecteurs. Voici comment procéder :
+Pour suivre ces étapes, vous avez besoin d'une application web, mobile ou logique. Une fois que votre application est disponible, ajoutez vos connecteurs. Voici comment procéder :
 
 Exécutez les étapes suivantes pour ajouter un connecteur à une application logique :
 
@@ -149,11 +149,12 @@ Exécutez les étapes suivantes pour ajouter un connecteur à une application lo
 Les connecteurs utilisent OAuth ou des noms d'utilisateurs et des mots de passe.
 
 ## En savoir plus sur les applications logiques et les applications web
-[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-app-azure-portal.md) |
+[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Autres connecteurs
 
 [Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | [Connecteur B2B](app-service-logic-b2b-connectors.md) | [Connecteurs sociaux](app-service-logic-social-connectors.md) | [Connecteurs application + services de données](app-service-logic-data-connectors.md) | [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -192,16 +192,16 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 ----------
 
-<!-- ======== XPLAT-CLI =========== -->
+<!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
-## Commandes de l’interface de ligne de commande interplateforme Azure (xplat-cli) pour les emplacements de déploiement
+## Commandes de l’interface de ligne de commande Azure pour les emplacements de déploiement
 
-L’interface de ligne de commande interplateforme Azure (xplat-cli) fournit des commandes interplateformes pour utiliser Azure, notamment la prise en charge de la gestion des emplacements de déploiement des applications web.
+L’interface de ligne de commande Azure fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement des applications Web.
 
-- Pour obtenir des instructions sur l'installation et la configuration de l'interface xplat-cli, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez l'article [Installation et configuration de l'interface de ligne de commande interplateforme Azure](../xplat-cli.md).
+- Pour obtenir des instructions sur l'installation et la configuration de l'interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli.md).
 
--  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface xplat-cli, appelez `azure site -h`.
+-  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
 
 ----------
 ### azure site list
@@ -241,8 +241,8 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [Version d’évaluation gratuite de Microsoft Azure](/pricing/free-trial/)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]: ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
@@ -258,6 +258,6 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-<!--HONumber=54-->
  
+
+<!---HONumber=62-->

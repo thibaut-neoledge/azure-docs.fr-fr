@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utiliser un connecteur SaaS à partir du code" 
+	pageTitle="Déployer et configurer une application API de connecteur SaaS" 
 	description="Apprenez à configurer un connecteur SaaS que vous installez dans votre abonnement Azure à partir d’Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,15 +16,15 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Utiliser un connecteur SaaS à partir du code
+# Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Ce didacticiel montre l’installation, la configuration et le test d’un [connecteur SaaS (Software-as-a-Service)](../app-service-logic-what-are-bizTalk-api-apps.md) dans [Azure App Service](/documentation/services/app-service/) pour l’appeler par programme, par exemple à partir d’une application mobile. Un connecteur SaaS est une [application API](app-service-api-apps-why-best-platform.md) qui simplifie l’interaction avec les plateformes SaaS, comme Office 365, Salesforce, Facebook et Dropbox.
 
 Par exemple, si vous souhaitez coder les demandes HTTP pour qu’elles lisent et écrivent des fichiers dans votre compte Dropbox, le processus d’authentification pour travailler directement avec Dropbox est complexe. Le connecteur Dropbox s’occupe de la partie complexe de l’authentification afin que vous puissiez vous concentrer sur l’écriture de votre code.
 
-> [AZURE.WARNING]Les instructions fournies ici **ne doivent *pas* être suivies si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique**. Consultez [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md) pour plus d’informations sur l’utilisation de connecteurs SaaS dans les applications logiques. Cet article est propre à l’utilisation du *code* pour appeler votre connecteur.
+> [AZURE.NOTE]Si vous souhaitez utiliser un connecteur SaaS à partir d’une application logique, les instructions fournies ici ne sont pas nécessaires. Pour en savoir plus sur l’utilisation de connecteurs SaaS au sein d’applications logiques, voir [Créer une application logique](../app-service-logic/app-service-logic-create-a-logic-app.md).
  
 Ce didacticiel utilise un connecteur DropBox à titre d’exemple et vous guide dans les étapes suivantes :
 
@@ -171,13 +171,13 @@ Effectuez les étapes suivantes dans une nouvelle fenêtre du navigateur. En fon
 
 	![URL de la passerelle](./media/app-service-api-connnect-your-app-to-saas-connector/gatewayurl.png)
 
-	La valeur de [providername] valeur est « facebook » pour Facebook, « twitter » pour Twitter, « aad » pour Azure Active directory, etc.
+	La valeur du paramètre [providername] correspond à « facebook » pour Facebook, « twitter » pour Twitter, « aad » pour Azure Active Directory, etc.
 
 	Voici un exemple d’URL de connexion pour Azure Active Directory :
 
 		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
 
-3. Entrez vos informations d'identification quand le navigateur affiche une page de connexion.
+3. Entrez vos informations d’identification quand le navigateur affiche une page de connexion.
  
 	Si vous avez configuré la connexion Azure Active Directory, employez l’un des utilisateurs répertoriés sous l’onglet **Utilisateurs** pour l’application que vous avez créée sous l’onglet Azure Active Directory du [portail Azure], comme admin@contoso.onmicrosoft.com.
 
@@ -275,4 +275,6 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 
 [portail Azure en version préliminaire]: https://portal.azure.com/
 [portail Azure]: https://manage.windowsazure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

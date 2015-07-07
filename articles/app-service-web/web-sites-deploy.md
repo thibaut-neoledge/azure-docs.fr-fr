@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #Déployer une application web dans Azure App Service
@@ -67,8 +67,13 @@ Azure simplifie les tâches de gestion de site qui vous attendent lors d'un dép
 * [Scripts FTP](#ftp2)
 * [Windows PowerShell](#powershell)
 * [API de gestion .NET](#api)
-* [Ligne de commande interplateforme (xplat-cli)](#cli)
+* [Interface de ligne de commande Microsoft Azure](#cli)
 * [Ligne de commande Web Deploy](#webdeploy)
+ 
+###<a name="octopus"></a>Déploiement d’Octopus
+
+[Déploiement d’Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy) peut être utilisé avec les applications web d’App Service. Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -86,7 +91,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 Pour plus d'informations, consultez les ressources suivantes :
 
 * [Publication à partir du contrôle de code source sur Web Apps avec Git](web-sites-publish-source-control.md). Permet d’apprendre à utiliser Git pour publier directement à partir de votre ordinateur local sur Web Apps (dans Azure, cette méthode de publication est appelée Git local). Montre également comment activer le déploiement continu de référentiels Git à partir de GitHub, CodePlex ou BitBucket.
-* [Déploiement vers Web Apps avec GitHub au moyen de Kudu](/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Web Apps.
+* [Déploiement vers Web Apps avec GitHub au moyen de Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vidéo de Scott Hanselman et David Ebbo montrant comment déployer une application web directement depuis GitHub vers Web Apps.
 * [Bouton Deploy to Azure pour Web Apps](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sur une méthode permettant de lancer le déploiement à partir d’un référentiel Git.
 * [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -152,7 +157,7 @@ Pour plus d'informations, consultez les ressources suivantes :
 * [Déploiement de DEUX sites Web sur Azure à partir d'un référentiel Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Billet de blog de Scott Hanselman.
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 Si vous utilisez l'[IDE Visual Studio](#vs) pour le développement, vous pouvez utiliser [MSBuild](http://msbuildbook.com/) pour automatiser tout ce que vous pouvez faire dans votre IDE. Vous pouvez configurer MSBuild pour utiliser [Web Deploy](#webdeploy) ou le [FTP/FTPS](#ftp) pour copier vos fichiers. Web Deploy peut également automatiser de nombreuses autres tâches de déploiement, comme le déploiement des bases de données.
 
@@ -184,15 +189,15 @@ Vous pouvez écrire un code C# pour utiliser des fonctions MSBuild ou FTP pour v
 
 Pour plus d'informations, consultez les ressources suivantes :
 
-* [Tout automatiser avec les bibliothèques de gestion Azure et .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Présente l'API de gestion .NET et fournit des liens vers d'autres documentations.
+* [Tout automatiser avec les bibliothèques de gestion Azure et .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Présente l’API de gestion .NET et fournit des liens vers d’autres documentations.
 
-##<a name="cli"></a>Ligne de commande interplateforme (xplat-cli)
+##<a name="cli"></a>Interface de ligne de commande Microsoft Azure
 
-Vous pouvez utiliser la ligne de commande avec des ordinateurs Mac ou Linux pour vos déploiements en utilisant le FTP. Ce faisant, vous pouvez également accéder à l’API de gestion REST Azure en utilisant l’interface en ligne de commande interplateforme (xplat-cli). Vous pouvez également utiliser xplat-cli sur des ordinateurs Windows.
+Vous pouvez utiliser la ligne de commande avec des ordinateurs Windows, Mac ou Linux pour vos déploiements en utilisant le FTP. Ce faisant, vous pouvez également accéder à l'API de gestion REST Azure en utilisant l'interface en ligne de commande interplateforme.
 
-Pour plus d'informations, consultez les ressources suivantes :
+Pour plus d’informations, consultez les ressources suivantes :
 
-* [Outils en ligne de commande](/downloads/#cmd-line-tools). Page du portail Azure.com qui fournit des informations sur les outils en ligne de commande.
+* [Outils en ligne de commande Azure](/downloads/#cmd-line-tools). Page du portail Azure.com qui fournit des informations sur les outils en ligne de commande.
 
 ##<a name="webdeploy"></a>Ligne de commande Web Deploy
 
@@ -217,7 +222,8 @@ Pour plus d’informations sur l’utilisation du contrôle d’accès en foncti
 Pour plus d’informations concernant d’autres rubriques de déploiement, consultez la section Déploiement figurant dans la [documentation Web Apps](/documentation/services/web-sites/).
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

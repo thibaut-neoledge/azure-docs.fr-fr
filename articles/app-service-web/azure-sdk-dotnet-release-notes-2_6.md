@@ -91,7 +91,16 @@ Le compte de stockage Diagnostics peut désormais être spécifié dans le fichi
  
 ##Problèmes connus
 
-La collecte des journaux de diagnostic dans l'émulateur nécessite un système d'exploitation 64 bits. Les journaux de diagnostic ne seront pas collectés sur les systèmes d'exploitation 32 bits. Cela n'affecte pas les autres fonctionnalités de l'émulateur.
+- La collecte des journaux de diagnostic dans l'émulateur nécessite un système d'exploitation 64 bits. Les journaux de diagnostic ne seront pas collectés sur les systèmes d'exploitation 32 bits. Cela n'affecte pas les autres fonctionnalités de l'émulateur. 
 
-<!--HONumber=52-->
+- Le SDK Azure 2.6 publié le 29/04/2015 présentait deux problèmes :
+
+	- Universal App ne pouvait pas être chargée dans Visual Studio 2015 si le SDK Azure 2.6 était installé sur l'ordinateur.
+	- Le débogage d'un projet Cloud Service échoue dans Visual Studio 2013 et Visual Studio 2015, où Visual Studio cesse de répondre et se bloque en affichant une boîte de dialogue avec le message « Configuration des diagnostics pour l’émulateur ».
+	
+	Une mise à jour vers le SDK Azure 2.6 a été publiée le 18/05/2015. La version mise à jour est 2.6.30508.1601 ; elle contient des correctifs pour les deux problèmes décrits ci-dessus. Vous pouvez identifier la version du SDK à partir du Panneau de configuration -> Programmes et fonctionnalités -> Microsoft Azure Tools pour Microsoft Visual Studio 2013 – v 2.6. La colonne Version affiche le numéro de build.
+
+	Si vous rencontrez toujours les problèmes ci-dessus, installez la dernière version du SDK Azure 2.6 pour [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+
+<!---HONumber=62-->

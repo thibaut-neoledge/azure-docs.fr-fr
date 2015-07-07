@@ -1,202 +1,212 @@
 <properties 
-	pageTitle="Dépannage - Questions et réponses - Application Insights" 
-	description="Incompréhension ou dysfonctionnement ? Essayez ici." 
+	pageTitle="Dépannage et questions : Application Insights" 
+	description="Un aspect de Visual Studio Application Insights vous semble abscons ou ne fonctionne pas correctement ? Essayez ici." 
 	services="application-insights" 
+    documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
-	ms.workload="tbd" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="04/20/2015" 
 	ms.author="awills"/>
  
-# Dépannage - Questions et réponses - Application Insights dans la version préliminaire Microsoft Azure
+# Dépannage et questions : Application Insights pour ASP.NET
 
-+ [Je ne vois pas l'option Ajouter Application Insights à mon projet dans Visual Studio](#q01)
-+ [Mon nouveau projet web a été créé, mais l'ajout de Application Insights a échoué.](#q02)
-+ [J'ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.](#q03)
-+ [Je ne vois aucune donnée sous Analyse de l'utilisation](#q04)
-+ [Je cherche le tableau de démarrage de la version préliminaire de Microsoft Azure. Comment trouver mes données dans Application Insights ?](#q05)
-+ [Comment puis-je modifier la ressource Azure sous laquelle apparaissent mes données ?](#update)
-+ [J'obtiens une erreur " La clé d'instrumentation ne peut pas être vide ".](#emptykey)
-+ [Dans l'écran d'accueil de la version préliminaire de Microsoft Azure, cette carte indique-t-elle l'état de mon application ?](#q06)
-+ [Quand j'ajoute Application Insights à mon application et quand j'ouvre le portail Application Insights, l'affichage est complètement différent de vos captures d'écran.](#q07)
-+ [Puis-je utiliser Application Insights pour surveiller un serveur web intranet ?](#q08)
-+ [Comment obtenir des données Windows Phone ou Windows Store ?](#q09)
-+ [Comment afficher les événements et les vues de pages que j'ai consignés dans mon code ?](#q10)
-+ [Comment se fait-il qu'il existe deux versions de Application Insights ?](#q11)
-+ [Comment retrouver toutes les fonctions que j'avais dans la version Visual Studio Online de Application Insights ?](#q13)
-+ [Que modifie Application Insights dans mon projet ?](#q14)
-+ [Comment trouver mes résultats dans Application Insights ?](#q15)
-+ [Quels ports de mon pare-feu dois-je ouvrir ?](#q16)
-+ [Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?](#q17)
-+ [En savoir plus](#next)
+## Puis-je utiliser Application Insights avec... ?
+
+[Voir Plates-formes.][platforms]
+
+## Ajout du Kit de développement logiciel (SDK)
+
+#### <a name="q01"></a>Je ne vois pas s’afficher l’option Ajouter Application Insights à mon projet dans Visual Studio.
+
++ Vérifiez que vous disposez de [Visual Studio 2013 Update 3 ou plus](http://go.microsoft.com/fwlink/?LinkId=397827). Ce logiciel est fourni avec des outils Application Insights préinstallés.
++ Bien que les outils ne prennent pas en charge tous les types d’applications, vous pouvez éventuellement ajouter manuellement un Kit de développement logiciel (SDK) Application Insights à votre projet. Suivez [cette procédure][windows]. 
 
 
+#### <a name="q02"></a>Mon nouveau projet web a été créé, mais l’ajout de Application Insights a échoué.
 
-## <a name="q01"></a>Je ne vois pas l'option Ajouter Application Insights à mon projet dans Visual Studio
+Cela peut se produire si la communication avec le portail Application Insights a échoué ou si votre compte présente un problème.
 
-+ Vérifiez que vous disposez de [Visual Studio Update 3](http://go.microsoft.com/fwlink/?LinkId=397827). Il est préinstallé avec les Outils Application Insights que vous pouvez voir dans le Gestionnaire d'extensions.
-+ Application Insights dans la version préliminaire de Microsoft Azure est actuellement disponible uniquement pour les projets web ASP.NET en C# ou Visual Basic.
-+ Si vous avez un projet existant, ouvrez l'Explorateur de solutions et vérifiez que vous avez cliqué sur le projet web (et non sur un autre projet ou sur la solution). Vous devez voir l'option de menu " Ajouter la télémétrie Application Insights au projet ".
-+ Si vous créez un projet, dans Visual Studio, ouvrez Fichier > Nouveau projet et sélectionnez {Visual C#|Visual Basic} > Web > Application Web ASP.NET. L'option Ajouter Application Insights au projet doit être affichée.
-
-## <a name="q02"></a>Mon nouveau projet web a été créé, mais l'ajout de Application Insights a échoué.
-
-Cela peut se produire si la communication avec le portail Application Insights a échoué ou si votre compte présente un problème.
-
-+ Vérifiez que les informations d'identification que vous avez fournies correspondent au compte Azure correct. Ces informations d'identification Microsoft Azure, que vous voyez dans la boîte de dialogue Nouveau projet, peuvent être différentes de celles de Visual Studio Online affichées dans le coin supérieur droit de Visual Studio.
++ Vérifiez que les informations d’identification que vous avez fournies correspondent au compte Azure correct. Ces informations d’identification Microsoft Azure, que vous voyez dans la boîte de dialogue Nouveau projet, peuvent être différentes de celles de Visual Studio Online affichées dans le coin supérieur droit de Visual Studio.
 + Attendez quelques instants, puis [ajoutez Application Insights à votre projet existant][start].
-+ Dans les paramètres de votre compte Microsoft Azure, vérifiez la présence de limitations. Voyez si vous pouvez ajouter manuellement une application Application Insights.
++ Dans les paramètres de votre compte Microsoft Azure, vérifiez la présence de limitations. Voyez si vous pouvez ajouter manuellement une application Application Insights.
+
+#### <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
+
+Il semble qu’une erreur est survenue durant l’installation d’Application Insights ou d’un enregistreur de données.
+
+Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante.
 
 
-## <a name="q03"></a>J'ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.
+#### <a name="q14"></a>Que modifie Application Insights dans mon projet ?
 
-+ Vous devez fermer et ouvrir un volet là où vous attendez des données. Dans la version actuelle, le contenu d'un volet n'est pas automatiquement actualisé.
-+ Dans le tableau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
-+ Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
-
-## <a name="q04"></a>Je ne vois aucune donnée sous Analyse de l'utilisation
-
-+ Les données proviennent de scripts dans les pages web. Si vous avez ajouté Application Insights à un projet existant, [vous devez ajouter manuellement les scripts][start].
+Cela dépend du type de projet. Pour une application web :
 
 
-## <a name="q05"></a>Je cherche le tableau de démarrage de la version préliminaire de Microsoft Azure. Comment trouver mes données dans Application Insights ?
++ Ajoute ces fichiers à votre projet :
 
-Voici les choix qui s'offrent à vous :
-
-* Sélectionnez Parcourir, Application Insights, puis le nom de votre projet. Si vous ne voyez pas de projet ici, [ajoutez Application Insights à votre projet web dans Visual Studio][start].
-
-* Dans l'Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur votre projet web, puis sélectionnez Ouvrir le portail Application Insights.
-
-## <a name="update"></a>Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?
-
-Dans l'Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Vous pouvez envoyer les données à une ressource existante ou à une nouvelle ressource dans Azure. L'Assistant Mise à jour modifie la clé d'instrumentation dans ApplicationInsights.config, qui détermine où le Kit de développement logiciel (SDK) du serveur envoie vos données. Cela modifie également la clé où de l'affichage dans vos pages web, sauf si vous désactivez l'option " Tout mettre à jour ".
-
-## <a name="emptykey"></a>J'obtiens une erreur " La clé d'instrumentation ne peut pas être vide ".
-
-Il semble qu'une erreur est survenue durant l'installation d'Application Insights ou d'un enregistreur de données.
-
-Dans l'Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante.
-
-## <a name="q06"></a>Dans l'écran d'accueil de la version préliminaire de Microsoft Azure, cette carte indique-t-elle l'état de mon application ?
-
-Non. Elle indique l'état du service Azure. Pour afficher et examiner les résultats de vos tests web, sélectionnez Parcourir > Application Insights > (votre application). 
-
-
-## <a name="q07"></a>Quand j'ajoute Application Insights à mon application et quand j'ouvre le portail Application Insights, l'affichage est complètement différent de vos captures d'écran.
-
-Vous utilisez peut-être [une ancienne version des Outils Application Insights](http://msdn.microsoft.com/library/dn793604.aspx) qui se connecte à la version Visual Studio Online.
-
-The help pages you're looking at refer to [Les pages d'aide que vous examinez font référence à Application Insights pour la version préliminaire de Microsoft Azure][start] qui est déjà connectée par défaut à Visual Studio Update 3. 
-
-## <a name="q08"></a>Puis-je utiliser Application Insights pour surveiller un serveur web intranet ?
-
-Oui. Vous pouvez surveiller l'intégrité et l'utilisation si votre serveur peut envoyer des données sur le réseau Internet public.
-
-Mais si vous voulez exécuter des tests web sur votre service, il doit être accessible depuis le réseau Internet public.
-
-## <a name="q09"></a>Comment obtenir des données Windows Phone ou Windows Store ?
-
-Ceci n'est encore pris en charge dans cette version de Microsoft Azure. Veuillez utiliser la [version Visual Studio Online][older].
-
-
-## <a name="q10"></a>Comment afficher les événements et les vues de pages que j'ai consignés dans mon code ?
-
-Nous ne prenons pas encore en charge cette fonction dans la version Microsoft Azure. Bientôt disponible. Actuellement, vous pouvez essayer [l'ancienne version][older].
-
-
-## <a name="q11"></a>Comment se fait-il qu'il existe deux versions de Application Insights ?
-
-L'ancien portail fait partie de Visual Studio Online. Nous n'apporterons pas d'autres modifications importantes à cette version. Si vous disposez d'une ancienne version des outils Application Insights pour Visual Studio, ils se connectent au portail Visual Studio Online.
-
-Visual Studio Update 3 est fourni avec une version préinstallée des nouveaux outils Application Insights qui se connectent au nouveau portail Application Insights, composant de la version préliminaire de Microsoft Azure. Nous portons actuellement Application Insights dans ce nouvel environnement. Ce travail n'est pas encore terminé.
-
-## <a name="q13"></a>Comment retrouver toutes les fonctions que j'avais dans la version Visual Studio Online de Application Insights ?
-
-1. Ouvrez le Gestionnaire d'extensions de Visual Studio. 
-2. Désinstallez les Outils Application Insights.
-3. Exécutez [le programme d'installation de l'ancienne version des outils](http://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) et lisez le [Guide de mise en route][older].
-
-## <a name="q14"></a>Que modifie Application Insights dans mon projet ?
-
-Cela dépend du type de projet. Pour une application web : +
-
-
-+ Ajoute ces fichiers à votre projet :
-
- + ApplicationInsights.config. 
+ + ApplicationInsights.config.
  + ai.js
 
 
-+ Installe ces packages NuGet :
++ Installe ces packages NuGet :
 
  -  *Application Insights API* - API de base
 
- -  *Application Insights API for Web Applications* - permet d'envoyer des données de télémétrie depuis le serveur
+ -  *Application Insights API for Web Applications* - permet d’envoyer des données de télémétrie depuis le serveur
 
- -  *Application Insights API for JavaScript Applications* - permet d'envoyer des données de télémétrie depuis le client
+ -  *Application Insights API for JavaScript Applications* - permet d’envoyer des données de télémétrie depuis le client
 
-    Ces packages comprennent les assemblys suivants :
+    Ces packages comprennent les assemblys suivants :
 
  - Microsoft.ApplicationInsights
 
  - Microsoft.ApplicationInsights.Platform
 
-+ Insère des éléments dans :
++ Insère des éléments dans :
 
  - Web.config
 
  - packages.config
 
-+ (Nouveaux projets uniquement - si vous [ajoutez Application Insights à un projet existant][start], vous devez le faire manuellement). Insère des extraits de code dans le code du client et du serveur pour les initialiser avec l'ID de la ressource Application Insights : par exemple, dans une application MVC, le code est inséré dans :
++ (Nouveaux projets uniquement - si vous [ajoutez Application Insights à un projet existant][start], vous devez le faire manuellement). Insère des extraits de code dans le code du client et du serveur, afin de les initialiser avec l’ID de la ressource Application Insights. Par exemple, dans une application MVC, le code est inséré dans la page maître Views/Shared/_Layout.cshtml.
+
+####<a name="NuGetBuild"></a> Un message signalant qu’un ou plusieurs packages NuGet sont manquants s’affiche sur mon serveur de version, même si la compilation fonctionne correctement sur mes ordinateurs de développement.
+
+Consultez les sections relatives à la [restauration des packages NuGet](http://docs.nuget.org/Consume/Package-Restore) et à la [restauration automatique des packages](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+
+####<a name="FailUpdate"></a> Un message signalant que le projet référence un ou plusieurs packages NuGet manquants sur mon PC s’affiche lorsque je tente de lancer la compilation après la mise à jour des packages NuGet vers la version 0.17.
+
+Si vous voyez apparaître cette erreur après la mise à jour vers la version 0.17 ou plus des packages NuGet, vous devez modifier le fichier projet et supprimer les cibles BCL qui ont été abandonnées.
+
+Pour ce faire :
+
+1. Cliquez avec le bouton droit de la souris sur votre projet dans l’Explorateur de solutions, puis sélectionnez Décharger le projet.
+2. Cliquez avec le bouton droit de la souris sur le projet, une nouvelle fois, puis choisissez Modifier *votreProjet.csproj*. 
+3. Atteignez la fin du fichier projet et supprimez les cibles BCL semblables à ce qui suit : ``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+	  
+	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+	  
+	    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+	    
+	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+	    
+	</Target> ```
+4. Enregistrez le fichier .
+5. Cliquez avec le bouton droit de la souris sur le projet, puis choisissez Recharger *votreProjet.csproj*.
+
+## Absence de données
+
+#### <a name="q03"></a>J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.
+
++ Dans la page Vue d’ensemble, cliquez sur la vignette Rechercher pour ouvrir la fonction Recherche de diagnostic. Les données s’affichent ici d’abord.
++ Cliquez sur le bouton Actualiser. Dans la version actuelle, le contenu d’un volet n’est pas automatiquement actualisé.
++ Dans le tableau de démarrage Microsoft Azure, examinez la carte d’état du service. Si des alertes sont indiquées, attendez qu’elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
++ Vérifiez également [notre blog d’état](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
++ Si vous devez utiliser un proxy pour l’envoi de votre réseau d’entreprise, définissez le paramètre [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) dans le fichier Web.config.
++ Windows Server 2008 : assurez-vous que vous avez installé les mises à jour suivantes : [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) et [KB2600217](https://support.microsoft.com/kb/2600217).
+
+#### <a name="q04"></a>Je ne vois apparaître aucune donnée dans la zone Analyse de l’utilisation.
+
++ Les données proviennent de scripts dans les pages web. Si vous avez ajouté Application Insights à un projet existant, [vous devez ajouter manuellement les scripts][start].
++ Assurez-vous que Microsoft Internet Explorer n’affiche pas votre site en mode de compatibilité.
++ Utiliser la fonctionnalité de débogage du navigateur (accessible via F12 dans certains navigateurs, puis Réseau) pour vérifier que les données sont envoyées à l’adresse dc.services.visualstudio.com.
+
+#### <a name="q08"></a>Puis-je utiliser Application Insights pour surveiller un serveur web intranet ?
+
+Oui. Vous pouvez surveiller l’intégrité et l’utilisation si votre serveur peut envoyer des données sur le réseau Internet public.
+
+Cependant, si vous voulez exécuter des tests web sur votre service, ce dernier doit être accessible depuis le réseau Internet public, sur le port 80.
+
+#### Puis-je surveiller un serveur web intranet qui n’a pas accès au réseau Internet public ?
+
+Vous devez configurer un proxy capable de transmettre des appels POST https à l’adresse dc.services.visualstudio.com.
+
+#### Je pouvais voir les données, mais plus maintenant.
+
+* Vérifiez le [blog d’état](http://blogs.msdn.com/b/applicationinsights-status/).
+* Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez les champs Paramètres/Quota et Tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
-## <a name="q15"></a>Comment trouver mes résultats dans Application Insights ?
-1. Ouvrez Microsoft Azure :
- - Dans Visual Studio, cliquez avec le bouton droit sur le projet de votre application web et sélectionnez **Ouvrir le portail de la version préliminaire Application Insights**.
- - Ou, dans un navigateur web, vous pouvez ouvrir votre compte dans la version préliminaire de Microsoft Azure.
 
-2. Sélectionnez Parcourir, Application Insights, puis votre projet.
+## Portail
 
-## <a name="q16"></a>Il existe un pare-feu entre mon serveur ou ma machine de développement et l'Internet public. Quel trafic dois-je autoriser pour activer Application Insights ?
+#### <a name="q05"></a>Je cherche le tableau de démarrage de la version préliminaire de Microsoft Azure. Comment trouver mes données dans Application Insights ?
 
-Les données de performances et d'utilisation sont envoyées vers les ports TCP 80 et 443 à dc.services.visualstudio.com et f5.services.visualstudio.com.
+Voici les choix qui s’offrent à vous :
 
-Les tests de disponibilité web dépendent de l'accès entrant à votre serveur web sur le port 80.
+* Sélectionnez Parcourir, Application Insights, puis le nom de votre projet. Si vous ne voyez pas de projet ici, [ajoutez Application Insights à votre projet web dans Visual Studio][start].
 
-## <a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
+* Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur votre projet web, puis sélectionnez Ouvrir le portail Application Insights.
+
+
+#### <a name="update"></a>Comment puis-je changer la ressource Azure à laquelle mon projet envoie des données ?
+
+Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Vous pouvez envoyer les données à une ressource existante ou à une nouvelle ressource dans Azure. L’Assistant Mise à jour modifie la clé d’instrumentation dans ApplicationInsights.config, qui détermine où le Kit de développement logiciel (SDK) du serveur envoie vos données. Cela modifie également la clé où de l’affichage dans vos pages web, sauf si vous désactivez l’option « Tout mettre à jour ».
+
+
+#### <a name="q06"></a>Sur l’écran d’accueil de la version préliminaire de Microsoft Azure, cette carte indique-t-elle l’état de mon application ?
+
+Non. Elle indique l’état du service Azure. Pour afficher et examiner les résultats de vos tests web, sélectionnez Parcourir > Application Insights > (votre application).
+
+
+#### <a name="q07"></a>Lorsque j’ajoute Application Insights à mon application et que j’ouvre le portail Application Insights, l’affichage est complètement différent de ce qu’affichent vos captures d’écran.
+
+Vous utilisez peut-être une [ancienne version du Kit de développement logiciel (SDK) Application Insights](http://msdn.microsoft.com/library/dn793604.aspx), qui se connecte à Visual Studio Online.
+
+Les pages d’aide que vous voyez font référence à [Application Insights pour la version préliminaire de Microsoft Azure][start], qui est déjà activée dans Visual Studio 2013 Update 3 et plus.
+
+#### <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
+
+Voir [Rétention de données et confidentialité][data].
+
+## Journalisation
+
+#### <a name="post"></a>Comment consulter les données POST dans la fonction Recherche de diagnostic ?
+
+Les données POST ne sont pas automatiquement consignées, mais vous pouvez utiliser un appel TrackTrace ; placez les données dans le paramètre message. Ce dernier présente une limite de taille plus longue que les limites relatives aux propriétés de type chaîne, bien que vous ne puissiez pas lui appliquer de filtres.
+
+## Sécurité
+
+#### Mes données sont-elles sécurisées sur le portail ? Pendant combien de temps sont-elles conservées ?
+
+Voir [Rétention de données et confidentialité][data].
+
+
+## <a name="q17"></a> Comment savoir si j’ai activé tout ce qu’il faut pour utiliser Application Insights ?
 
 <table border="1">
-<tr><th>Ce que vous devez voir</th><th>Comment l'obtenir</th><th>Pourquoi le vouloir</th></tr>
-<tr><td>Graphiques de disponibilité</td><td><a href="../app-insights-monitor-web-app-availability/">Web tests</a></td><td>Vérifiez la disponibilité de votre application web</td></tr>
-<tr><td>Performances de l'application de serveur : temps de réponse, ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Ajoutez Application Insights à votre projet</a><br/>ou <br/><a href="../app-insights-monitor-performance-live-website-now/">Installez AI Status Monitor sur le serveur</a></td><td>Détection des problèmes de performances</td></tr>
-<!-- ####future#### <tr><td>Télémétrie de dépendance</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installez AI Status Monitor sur le serveur</a></td><td>Diagnostic de problèmes rencontrés au niveau des bases de données ou des composants externes</td></tr> -->
-<!-- #####74.1#### <tr><td>Variables globales du serveur : Processeur, mémoire, ...</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installez AI Status Monitor sur le server</a></td><td>Diagnostic des problèmes de capacité</td></tr> --> 
-<tr><td>Recherches de suivis de journalisation</td><td><a href="../app-insights-search-diagnostic-logs/">Ajout d'un enregistreur de données</a></td><td>Diagnostic des exceptions et des problèmes de performances</td></tr>
-<tr><td>Principes de base de l'utilisation client : Affiches des pages, renvois, ...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Programme d'initialisation JavaScript dans les pages web</a></td><td>Analyses de l'utilisation</td></tr>
-<tr><td>Métriques personnalisées du client</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Suivi des appels dans les pages web</a></td><td>Amélioration de l'expérience utilisateur</td></tr>
-<tr><td>Métriques personnalisées du serveur</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Suivi des appels dans le code du serveur</a></td><td>Business intelligence</td></tr>
+<tr><th>Ce qui suit s’afficher</th><th>Comment y accéder</th><th>Utilité</th></tr>
+<tr><td>Graphiques de disponibilité</td><td><a href="../app-insights-monitor-web-app-availability/">Tests&#160;web</a></td><td>Savoir si votre application&#160;web est active</td></tr>
+<tr><td>Performances des applications de serveur (temps de réponse, etc.)
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Ajout de Application&#160;Insights à votre projet</a><br/>ou <br/><a href="../app-insights-monitor-performance-live-website-now/">Installation de AI Status Monitor sur le serveur</a></td><td>Détecter les problèmes de performances</td></tr>
+<tr><td>Télémétrie des dépendances</td><td><a href="../app-insights-monitor-performance-live-website-now/">Installation de AI Status Monitor sur le serveur</a></td><td>Diagnostiquer les problèmes relatifs à des bases de données ou à d’autres composants externes</td></tr>
+<tr><td>Obtention de l’arborescence des appels de procédure à partir des exceptions</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insertion d’appels&#160;TrackException dans votre code</a> (certains d’entre eux sont cependant signalés automatiquement)</td><td>Détecter et diagnostiquer les exceptions</td></tr>
+<tr><td>Recherche des données de suivi des journaux</td><td><a href="../app-insights-search-diagnostic-logs/">Ajout d’un enregistreur de données</a></td><td>Diagnostiquer les exceptions et problèmes de performances</td></tr>
+<tr><td>Principes fondamentaux d’utilisation des clients (vues de page, sessions, etc.)</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Initialiseur&#160;JavaScript dans les pages&#160;web</a></td><td>Analyse de l’utilisation</td></tr>
+<tr><td>Mesures personnalisées des clients</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Appels de suivi dans les pages&#160;web</a></td><td>Améliorer l’expérience utilisateur</td></tr>
+<tr><td>Mesures personnalisées des serveurs</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Appels de suivi dans le code serveur</a></td><td>Décisionnel</td></tr>
 </table>
 
-Si votre service web est exécuté dans une machine virtuelle Azure, vous pouvez également [obtenir des diagnostics][azurediagnostic] ici.
+Si votre service web est exécuté dans une machine virtuelle Azure, vous pouvez également [obtenir des diagnostics][azurediagnostic] ici.
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[azurediagnostic]: ../insights-how-to-use-diagnostics.md
+[data]: app-insights-data-retention-privacy.md
+[platforms]: app-insights-platforms.md
+[start]: app-insights-get-started.md
+[windows]: app-insights-windows-get-started.md
 
-
-
-[azurediagnostic]: ../insights-how-to-use-diagnostics/
-
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

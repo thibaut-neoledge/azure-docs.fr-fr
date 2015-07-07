@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Connecteur d'objet blob de stockage Azure
@@ -22,23 +22,11 @@
 Le connecteur d'objet blob de stockage Azure vous permet de télécharger et supprimer des objets blob dans un conteneur d'objets blob.
 
 ##Créer un connecteur d'objet blob de stockage Azure
-Pour créer un nouveau connecteur de stockage Azure, procédez comme indiqué ci-dessous.
-<ul>
-<li>Lancez le portail Azure <li>Ouvrez Azure Marketplace à l’aide de +Nouveau (au bas de la page) -> Web+Mobile --> Azure Marketplace.
-</ul>
+Pour créer un nouveau connecteur de stockage Azure, procédez comme indiqué ci-dessous. <ul> <li>Lancez le portail Azure <li>Ouvrez Azure Marketplace à l’aide de +Nouveau (au bas de la page) -> Web+Mobile --> Azure Marketplace.</ul>
 
-![Lancez Azure Marketplace][1]<br>
-<ul>
-<li>Cliquez sur Applications API
-<li>Recherchez <i>Blob</i>, puis sélectionnez le connecteur d’objet blob de stockage Azure
-</ul>
+![Lancez Azure Marketplace][1]<br> <ul> <li>Cliquez sur Applications API<li>Recherchez <i>Blob</i>, puis sélectionnez le connecteur d’objet blob de stockage Azure </ul>.
 
-![Sélectionner le connecteur d’objet blob de stockage Azure][2]
-<br>
-<ul>
-<li>Cliquez sur Créer
-<li>Dans le panneau du connecteur d’objet blob de stockage Azure qui s’ouvre, fournissez les données suivantes.
-</ul>
+![Sélectionner le connecteur d’objet blob de stockage Azure][2] <br> <ul> <li>Cliquez sur Créer <li>Dans le panneau du connecteur d’objet blob de stockage Azure qui s’ouvre, fournissez les données suivantes. </ul>
 
 ![Créer le connecteur d’objet blob de stockage Azure][3]
 
@@ -71,7 +59,7 @@ Cliquez sur le connecteur d'objet blob de stockage Azure dans le panneau droit. 
 
 ![Liste des actions de l’objet blob de stockage Azure][10]
 
-Le connecteur d'objet blob de stockage Azure prend en charge quatre actions. Les voici :
+Le connecteur d'objet blob de stockage Azure prend en charge six actions. Les voici :
 
 - **Obtenir un objet blob** : obtenir un objet blob particulier dans le conteneur.
 - **Télécharger un objet blob** : télécharger un nouvel objet blob ou mettre à jour un existant.
@@ -118,5 +106,6 @@ Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'
 [9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

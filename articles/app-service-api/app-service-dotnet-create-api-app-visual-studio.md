@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configurer un projet d’API web comme application API" 
-	description="Découvrez comment configurer un projet d’API web comme  application API à l’aide de Visual Studio 2013" 
+	description="Découvrez comment configurer un projet d’API web comme application API à l’aide de Visual Studio 2013" 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Configurer un projet d’API web comme application API
@@ -33,8 +33,13 @@ Ce didacticiel requiert la version 2.5.1 ou ultérieure du Kit de développemen
 Cette section présente la configuration d’un projet d’API web existant comme application API. Vous commencez avec le modèle de projet d’API web pour créer un projet d’API web, puis vous le configurez comme une application API.
 
 1. Ouvrez Visual Studio 2013.
-2. Sélectionnez **Fichier > Nouveau projet**. 
-3. Sélectionnez le modèle **Application web ASP.NET**.  
+
+2. Sélectionnez **Fichier > Nouveau projet**.
+
+3. Sélectionnez le modèle **Application web ASP.NET**.
+
+4. Vérifiez que la case à cocher **Ajouter Application Insights au projet** est désactivée.
+
 4. Nommez ce projet *ContactsList*
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/01-filenew-v3.png)
@@ -76,5 +81,6 @@ Cette section présente la configuration d’un projet d’API web existant comm
 ## Étapes suivantes
 
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

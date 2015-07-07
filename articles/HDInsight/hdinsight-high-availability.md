@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="05/19/2014" 
 	ms.author="bradsev"/>
 
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
 
-## Introduction ##
+
 Un second nœud principal a été ajouté aux clusters Hadoop déployés par Azure HDInsight pour améliorer la disponibilité et la fiabilité du service requis pour gérer les charges de travail. Les implémentations standard des clusters Hadoop ont normalement un seul nœud principal. Ces clusters sont conçus pour gérer en douceur la défaillance des nœuds de travail, mais toute interruption des services principaux exécutés sur le nœud principal provoquera l’arrêt du fonctionnement du cluster.
 
 ![Diagramme des nœuds principaux hautement fiables dans l’implémentation HDInsight Hadoop.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight élimine ce point de défaillance unique avec l’ajout d’un nœud principal secondaire (Head Node1). Les nœuds [ZooKeeper][zookeeper] (ZK) ont été ajoutés et sont utilisés pour le choix de l’instance responsable des nœuds principaux et pour s’assurer que les nœuds de travail et les passerelles (GW) savent à quel moment doit se faire le basculement vers le nœud principal secondaire (Head Node1) lorsque le nœud principal actif (Node0) devient inactif.
+HDInsight élimine ce point de défaillance unique avec l’ajout d’un nœud principal secondaire (Head Node1). Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et sont utilisés pour le choix de l’instance responsable des nœuds principaux et pour s’assurer que les nœuds de travail et les passerelles (GW) savent à quel moment doit se faire le basculement vers le nœud principal secondaire (Head Node1) lorsque le nœud principal actif (Node0) devient inactif.
 
 
 ## Vérification du statut du service sur le nœud principal actif ##
@@ -33,7 +33,7 @@ Pour déterminer quel est le nœud principal actif et vérifier le statut des se
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Accès aux fichiers journaux sur le nœud principal secondaire ##
+## Accès aux fichiers journaux sur le nœud principal secondaire \
 
 Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
 
@@ -71,17 +71,16 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
 **Informations de référence**
 
-- [ZooKeeper][zookeeper]
+- [ZooKeeper](http://zookeeper.apache.org/)
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk) 
 
 
-[zookeeper]: http://zookeeper.apache.org/
 
 
 
 
 
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

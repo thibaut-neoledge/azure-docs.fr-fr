@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Utiliser Apache Phoenix et SQuirrel dans HDinsight | Azure" 
-   description="Découvrez comment utiliser Apache Phoenix dans HDInsight et comment installer et configurer SQuirrel sur votre station de travail pour vous connecter à un cluster HBase dans HDInsight." 
+   pageTitle="Utiliser Apache Phoenix et SQuirreL dans HDinsight | Microsoft Azure" 
+   description="Découvrez comment utiliser Apache Phoenix dans HDInsight et comment installer et configurer SQuirreL sur votre poste de travail pour vous connecter à un cluster HBase dans HDInsight." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# Utiliser Apache Phoenix et SQuirrel dans HDinsight  
+# Utiliser Apache Phoenix et SQuirreL avec les clusters HBase dans HDinsight  
 
-Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HDInsight et comment installer et configurer SQuirrel sur votre station de travail pour vous connecter à un cluster HBase dans HDInsight. Pour plus d'informations sur Phoenix, consultez [Phoenix en 15 minutes ou moins](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html).
+Découvrez comment utiliser [Apache Phoenix](http://phoenix.apache.org/) dans HDInsight et comment installer et configurer SQuirreL sur votre poste de travail pour vous connecter à un cluster HBase dans HDInsight. Pour plus d'informations sur Phoenix, consultez [Phoenix en 15 minutes ou moins](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Pour en savoir plus sur la grammaire Phoenix, consultez la page [Grammaire Phoenix](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE]Pour des informations sur la version de Phoenix dans HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
 
@@ -34,7 +34,7 @@ Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants 
 **Pour déterminer le nom d'hôte**
 
 1. Ouvrez la **ligne de commande Hadoop** à partir du Bureau.
-2. Exécutez la commande suivante
+2. Exécutez la commande suivante pour obtenir le suffixe DNS :
 
 		ipconfig
 
@@ -43,14 +43,24 @@ Avant de pouvoir utiliser SQLLine, vous devez disposer des éléments suivants 
 **Pour utiliser SQLLine**
 
 1. Ouvrez la **ligne de commande Hadoop** à partir du Bureau.
-2. Exécutez les commandes suivantes :
+2. Exécutez les commandes suivantes pour ouvrir SQLLine :
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-Pour plus d'informations, consultez le [Manuel de SQLLine](http://sqlline.sourceforge.net/#manual).
+	Commandes utilisées dans l’exemple :
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+Pour plus d’informations, consultez le [manuel SQLLine](http://sqlline.sourceforge.net/#manual) et la [grammaire Phoenix](http://phoenix.apache.org/language/index.html).
 
 
 
@@ -69,25 +79,25 @@ Pour plus d'informations, consultez le [Manuel de SQLLine](http://sqlline.source
 
 
 
-##Utiliser SQuirrel
+##Utiliser SQuirreL
 
-Le [client SQuirrel SQL](http://squirrel-sql.sourceforge.net/) est un programme Java graphique qui vous permet d'afficher la structure d'une base de données compatible JDBC, parcourir les données dans des tables, exécuter des commandes SQL, etc..
+Le [client SQuirrel SQL](http://squirrel-sql.sourceforge.net/) est un programme Java graphique qui vous permet d'afficher la structure d'une base de données compatible JDBC, parcourir les données dans des tables, exécuter des commandes SQL, etc.. SQuirreL peut être utilisé pour se connecter à Phoenix Apache sur HDInsight.
 
-Cette section vous indique comment installer et configurer SQuirrel sur votre station de travail pour vous connecter à un cluster HBase dans HDInsight via une connexion VPN.
+Cette section vous indique comment installer et configurer SQuirreL sur votre poste de travail pour vous connecter à un cluster HBase dans HDInsight via une connexion VPN.
 
-###Configuration requise
+###Composants requis
 
 Avant de suivre les procédures, vous devez disposer des éléments suivants :
 
 - Un cluster HBase déployé sur un réseau virtuel Azure avec une machine virtuelle DNS. Pour des instructions, consultez [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT]Vous devez installer un serveur DNS sur le réseau virtuel.
+	>[AZURE.IMPORTANT]Vous devez installer un serveur DNS sur le réseau virtuel. Pour obtenir des instructions, consultez la page [Configurer des serveurs DNS entre deux réseaux virtuels Azure](hdinsight-hbase-geo-replication-configure-DNS.md).
 
 - Obtenez le suffixe DNS propre à la connexion du cluster HBase. Pour l'obtenir, ouvrez une session RDP sur le cluster, puis exécutez IPConfig. Le suffixe DNS doit ressembler à :
 
 		myhbase.b7.internal.cloudapp.net
 - Téléchargez et installez [Microsoft Visual Studio Express 2013 pour Windows Desktop](https://www.visualstudio.com/products/visual-studio-express-vs.aspx) sur votre station de travail. Vous utiliserez l'outil makecert du package pour créer votre certificat.  
-- Téléchargez et installez l'[environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) sur votre station de travail. La version 3.0 ou supérieure du client SQuirrel SQL requiert la version 1.6 ou supérieure de JRE.  
+- Téléchargez et installez l'[environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html) sur votre station de travail. La version 3.0 ou supérieure du client SQL SQuirreL requiert la version 1.6 ou supérieure de JRE.  
 
 
 ###Configurer une connexion VPN de point à site au réseau virtuel Azure
@@ -151,15 +161,15 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 
 - Dans la même invite de commandes (sur le même ordinateur que celui où vous avez créé le certificat racine, le certificat client doit être généré à partir du certificat racine), exécutez la commande suivante :
 
-  makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
+  		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate désigne le nom du certificat racine.  Il doit correspondre au nom de ce certificat.  
+	HBaseVnetVPNRootCertificate est le nom du certificat racine. Il doit correspondre au nom du certificat racine.
 
-	Le certificat racine et le certificat client sont tous deux stockés dans votre magasin de certificats Personnel sur votre ordinateur. Utilisez certmgr.msc pour vérifier ce point.
+	Le certificat racine et le certificat client sont stockés dans le magasin de certificats personnels de votre ordinateur. Utilisez certmgr.msc à des fins de vérification.
 
-	![Azure virtual network point-to-site vpn certificate][img-certificate]
+	![Certificat VPN de point à site du réseau virtuel Azure][img-certificate]
 
-	Un certificat client doit être installé sur chaque ordinateur que vous souhaitez connecter au réseau virtuel. Nous vous recommandons de créer des certificats clients uniques pour chacun de ces ordinateurs. Pour exporter les certificats clients, utilisez certmgr.msc. 
+	Vous devez installer un certificat client sur chaque ordinateur que vous voulez connecter au réseau virtuel. Nous vous recommandons de créer un certificat client unique pour chaque ordinateur que vous souhaitez connecter au réseau virtuel. Pour exporter les certificats clients, utilisez certmgr.msc.
 
 **Pour télécharger le certificat racine sur le portail Azure**
 
@@ -198,17 +208,17 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 		headnode1.myhbase.b7.internal.cloudapp.net
 		workernode0.myhbase.b7.internal.cloudapp.net
 
-###Installer et configurer SQuirrel sur votre station de travail
+###Installation et configuration de SQuirreL sur votre poste de travail
 
-**Pour installer SQuirrel**
+**Pour installer SQuirreL**
 
-1. Télécharger le fichier jar du client SQuirrel SQL à l'adresse [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Téléchargez le fichier jar du client SQL SQuirreL à l’adresse [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Ouvrez/exécutez le fichier jar. Pour cela, vous avez besoin de l'[environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Cliquez sur **Suivant** deux fois.
 4. Spécifiez un chemin d'accès pour lequel vous disposez de l'autorisation d'écriture, puis cliquez sur **Suivant**.
-	>[AZURE.NOTE]Le dossier d'installation par défaut se trouve dans le dossier C:\\Program Files\\squirrel-sql-3.6. Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu'administrateur, accéder au dossier bin de Java et puis exécuter
+	>[AZURE.NOTE]Le dossier d'installation par défaut se trouve dans le dossier C:\Program Files\squirrel-sql-3.6. Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu'administrateur, accéder au dossier bin de Java et puis exécuter
 	>
-	>     java.exe -jar [the path of the SQuirrel jar file] 
+	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Cliquez sur **OK** pour confirmer la création du répertoire cible.
 6. La configuration par défaut installe les packages de base et standard. Cliquez sur **Next**.
 7. Cliquez sur **Suivant** deux fois, puis sur **Terminé**.
@@ -219,11 +229,11 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 Le fichier jar du pilote phoenix se trouve dans le cluster HBase. Le chemin d'accès ressemble au suivant selon les versions :
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-Vous devez le copier sur votre station de travail sous [Dossier d'installation SQuirrel]/lib. Le moyen le plus simple est d'ouvrir une session RDP sur le cluster, puis de copier et coller le fichier (CTRL+C et CTRL+V) pour le copier sur votre station de travail.
+Vous devez le copier sur votre poste de travail sous [Dossier d’installation SQuirreL]/lib. Le moyen le plus simple est d'ouvrir une session RDP sur le cluster, puis de copier et coller le fichier (CTRL+C et CTRL+V) pour le copier sur votre station de travail.
 
-**Pour ajouter un pilote Phoenix à SQuirrel**
+**Pour ajouter un pilote Phoenix à SQuirreL**
 
-1. Ouvrez le client SQuirrel SQL dans votre station de travail.
+1. Ouvrez le client SQL SQuirreL dans votre poste de travail.
 2. Cliquez sur l'onglet **Driver** à gauche.
 2. Dans le menu **Drivers**, cliquez sur **New Driver**.
 3. Entrez les informations suivantes :
@@ -232,28 +242,28 @@ Vous devez le copier sur votre station de travail sous [Dossier d'installation S
 	- **Example URL** : jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Class Name** : org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]N'utilisez que des minuscules dans l'exemple d'URL.
+	>[AZURE.WARNING]N'utilisez que des minuscules dans l'exemple d'URL. Vous pouvez utiliser le quorum complet zookeeper au cas où l’un d’eux est inactif. Les noms d’hôte sont zookeeper0, zookeeper1 et zookeeper2.
 
-	![Pilote HDInsight HBase Phoenix SQuirrel][img-squirrel-driver]
+	![Pilote HDInsight HBase Phoenix SQuirreL][img-squirrel-driver]
 4. Cliquez sur **OK**.
 
 **Pour créer un alias pour le cluster HBase**
 
-1. Dans SQuirrel, cliquez sur l'onglet **Aliases** à gauche.
+1. Dans SQuirreL, cliquez sur l’onglet **Aliases** à gauche.
 2. Dans le menu **Aliases**, cliquez sur **New Alias**.
 3. Entrez les informations suivantes :
 
 	- **Name** : nom du cluster HBase ou un nom de votre choix.
 	- **Driver** : Phoenix. Le nom du pilote doit correspondre à celui que vous avez créé dans la dernière procédure.
 	- **URL** : l'URL est copiée à partir de la configuration de votre pilote. N'utilisez que des minuscules.
-	- **User name** : nom d'utilisateur HTTP du cluster HBase
-	- **Password** : mot de passe de l'utilisateur HTTP du cluster HBase.
+	- **Nom d’utilisateur** : il s’agit de texte. Étant donné que vous utilisez une connectivité VPN ici, le nom d’utilisateur n’est pas du tout utilisé.
+	- **Password** : il s’agit de texte.
 
-	![Pilote HDInsight HBase Phoenix SQuirrel][img-squirrel-alias]
+	![Pilote HDInsight HBase Phoenix SQuirreL][img-squirrel-alias]
 4. Cliquez sur **Test**. 
-5. Cliquez sur **Connecter**. Quand SQuirrel établit la connexion, il ressemble à ce qui suit :
+5. Cliquez sur **Connecter**. Quand la connexion est établie, SQuirreL ressemble à ce qui suit :
 
-	![HBase Phoenix SQuirrel][img-squirrel]
+	![HBase Phoenix SQuirreL][img-squirrel]
 
 **Pour exécuter un test**
 
@@ -263,7 +273,7 @@ Vous devez le copier sur votre station de travail sous [Dossier d'installation S
 		CREATE TABLE IF NOT EXISTS us_population (state CHAR(2) NOT NULL, city VARCHAR NOT NULL, population BIGINT  CONSTRAINT my_pk PRIMARY KEY (state, city))
 3. Cliquez sur le bouton d'exécution.
 
-	![HBase Phoenix SQuirrel][img-squirrel-sql]
+	![HBase Phoenix SQuirreL][img-squirrel-sql]
 4. Revenez à l'onglet **Objects**.
 5. Développez le nom d'alias, puis **TABLE**. La nouvelle table doit être affichée.
  
@@ -294,6 +304,6 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

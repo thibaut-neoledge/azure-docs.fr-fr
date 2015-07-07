@@ -43,11 +43,11 @@ Les types de fichier suivants sont acceptés :
 
 1. Dans le panneau **Application web** du [portail Azure](http://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
 	
-	![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
+	![Panneau Tâches web](./media/web-sites-create-web-jobs/wjblade.png)
 	
 5. Cliquez sur **Ajouter**. La boîte de dialogue **Ajouter une tâche web Azure** s’affiche.
 	
-	![Panneau Ajouter une tâche Web](./media/web-sites-create-web-jobs/addwjblade.png)
+	![Panneau Ajouter une tâche web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
 2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).
 	
@@ -61,7 +61,7 @@ Les types de fichier suivants sont acceptés :
 	
 6. Pour exécuter la tâche Web, cliquez sur son nom dans la liste avec le bouton droit, puis cliquez sur **Exécuter**.
 	
-	![Exécuter une tâche Web](./media/web-sites-create-web-jobs/runondemand.png)
+	![Exécuter une tâche web](./media/web-sites-create-web-jobs/runondemand.png)
 	
 ## <a name="CreateContinuous"></a>Création d’une tâche Web exécutée en continu
 
@@ -71,7 +71,7 @@ Les types de fichier suivants sont acceptés :
 	
 > [AZURE.NOTE]Si votre application web est exécutée sur plusieurs instances, une tâche web exécutée en continu le sera sur toutes vos instances. Les tâches web à la demande et planifiées sont exécutées sur une seule instance sélectionnée pour l’équilibrage de charge par Microsoft Azure.
 	
-> Pour les tâches Web en continu, nous vous recommandons d’activer la fonctionnalité **Toujours actif** pour votre application Web. Cette fonctionnalité, disponible en mode Basique et Standard, empêche le déchargement des applications web, même si elles sont inactives depuis longtemps. Si votre application web est toujours chargée, votre tâche web exécutée en continu sera plus fiable.
+> Pour que les tâches Web continues s'exécutent de façon fiable sur toutes les instances, activez le paramètre de configuration Toujours actif* de l'application Web. Sinon, elles risquent de s’arrêter si le site de l'hôte SCM reste inactif pendant trop longtemps.
 
 ## <a name="CreateScheduled"></a>Création d’une tâche Web planifiée
 
@@ -87,7 +87,7 @@ Le portail de gestion Azure ne permet pas encore de créer une tâche Web plani
 
 3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
 	
-	![Périodicité de la planificiation][SchdRecurrence]
+	![Périodicité de la planification][SchdRecurrence]
 	
 4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
 	
@@ -179,7 +179,7 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
 Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecommendedResources].
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]: http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
@@ -208,5 +208,6 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
