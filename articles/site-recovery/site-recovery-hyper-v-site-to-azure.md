@@ -61,7 +61,11 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Vous devez exécuter la dernière version de ce fournisseur et de cet agent.
 - Tous les serveurs Hyper-V d’un coffre doivent présenter la même version.
 - Le fournisseur devra se connecter à Microsoft Azure Site Recovery via Internet. Vous pouvez décider d’effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur VMM, ou via les paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Pour utiliser un serveur proxy existant, vérifiez que les URL de connexion à Microsoft Azure sont autorisées à traverser le pare-feu :
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com 
+	- *.accesscontrol.windows.net
+	- *..backup.windowsazure.com 
+	- *.blob.core.windows.net
+	- *.store.core.windows.net 
 - Pour utiliser un proxy personnalisé, configurez le serveur proxy avant l’installation du fournisseur. Lors de la configuration du fournisseur, vous devez indiquer l’adresse et le port du serveur proxy et saisir les informations d’identification utilisées pour l’accès.
 
 L'illustration ci-dessous montre les différents canaux et ports de communication utilisés par Azure Site Recovery pour l'orchestration et la réplication.
@@ -139,7 +143,11 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 	- Si le proxy par défaut se trouvant sur le serveur Hyper-V nécessite une authentification, vous devez opter pour l’utilisation d’un serveur proxy personnalisé. Saisissez les informations de proxy par défaut et spécifiez les informations d’identification.
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur. 
 	- Les URL suivantes doivent être accessibles à partir de l'hôte Hyper-V.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com 
+		- *.accesscontrol.windows.net 
+		- *.backup.windowsazure.com 
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 9. Sur la page **Paramètres du coffre**, cliquez sur **Parcourir** pour sélectionner le fichier de clé. Spécifiez l’abonnement Azure Site Recovery, le nom du coffre et le site Hyper-V auquel appartient le serveur Hyper-V.
