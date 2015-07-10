@@ -67,11 +67,13 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 8. Si vous n'avez pas déjà créé d'application web dans Azure, Visual Studio peut vous aider à le faire. Dans la boîte de dialogue **Configurer le site web Microsoft Azure**, vérifiez que le nom de votre site est unique. Cliquez ensuite sur **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Une fois votre application ASP.NET créée, publiez-la sur Azure dans le volet Activité de publication sur le web en cliquant sur **Publier `<app name>` sur ce site dès maintenant**. Cliquez sur **Publier** pour terminer le processus.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Une fois publiée, votre application web s'affiche dans le navigateur.
 
@@ -558,4 +560,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
