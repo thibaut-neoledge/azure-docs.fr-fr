@@ -127,7 +127,8 @@ J'ai un site qui contient des fichiers journaux et des images statiques d'année
 
 J'ai déjà une sauvegarde complète du site qui inclut les anciennes images. Je souhaite désormais effectuer une sauvegarde quotidienne du site, mais je ne veux pas payer pour le stockage des fichiers journaux ou des images statiques qui ne changent jamais.
 
-![Dossier des journaux][LogsFolder] ![Dossier images][ImagesFolder]
+![Dossier des journaux][LogsFolder]
+![Dossier images][ImagesFolder]
 	
 Les étapes ci-dessous expliquent comment exclure ces fichiers de la sauvegarde.
 
@@ -267,4 +268,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

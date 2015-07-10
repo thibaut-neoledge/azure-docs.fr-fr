@@ -35,7 +35,9 @@ Un connecteur peut être créé dans une application logique ou directement à p
 --- | --- | ---
 URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/> ![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :
+<br/>
+![][1]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Online.
 
@@ -56,7 +58,9 @@ Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site Sha
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 Chaîne de connexion Service Bus | Non | Si vous vous connectez sur site, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire des connexions hybrides](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/> ![][2]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :
+<br/>
+![][2]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Server.
 
@@ -71,13 +75,28 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 
 3. Si le connecteur SharePoint est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte SharePoint à l'aide du connecteur.
 
-4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : <br/> ![][3]
+4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint :
+<br/>
+![][3]
 
-5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : <br/> ![][4]
+5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations :
+<br/>
+![][4]
 
-6. Octroyez aux applications logiques l'accès à votre compte pour effectuer des opérations en votre nom : <br/> ![][5]
+6. Octroyez aux applications logiques l'accès à votre compte pour effectuer des opérations en votre nom :
+<br/>
+![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche et vous pouvez choisir l'opération appropriée à effectuer : <br/> ![][6] <br/> **URL relative configurée pour la bibliothèque de documents** <br/> ![][7] <br/> **URL relative configurée pour la liste de documents** <br/>
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche et vous pouvez choisir l'opération appropriée à effectuer :
+<br/>
+![][6]
+<br/>
+**URL relative configurée pour la bibliothèque de documents**
+<br/>
+![][7]
+<br/>
+**URL relative configurée pour la liste de documents**
+<br/>
 
 > [AZURE.NOTE]Pour les déclencheurs suivants, l’utilisateur est supposé avoir spécifié « Documents partagés, Listes/Tâches » dans les paramètres de package du connecteur, où ’Documents partagés’ est une bibliothèque de documents et ’Listes/Tâches’ est une liste.
 
@@ -474,4 +493,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

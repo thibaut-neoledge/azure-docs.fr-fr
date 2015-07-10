@@ -49,13 +49,17 @@ Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarr
 
 1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**.  
 <!-- ![Store][button-store] -->
-2. Cliquez sur le module **MongoLab**. ![MongoLab][entry-mongolab]
-3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo]  
-4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers. ![ÉcranInformationsDeConnexion][screen-connectioninfo]
+2. Cliquez sur le module **MongoLab**.  
+![MongoLab][entry-mongolab]
+3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
+![ConnectionInfoButton][button-connectioninfo]  
+4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers.  
+![ÉcranInformationsDeConnexion][screen-connectioninfo]
 
 	>[AZURE.NOTE]Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.
 
-5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service : ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service :  
+![WebAppConnectionStrings][focus-website-connectinfo]
 6. Dans **Name**, entrez **MONGOLAB_URI**.
 7. Dans **Value**, collez la chaîne de connexion obtenue dans la section précédente.
 8. Sélectionnez **Custom** dans la liste déroulante Type (à la place de la valeur par défaut **SQLAzure**).
@@ -445,7 +449,8 @@ Avant d’utiliser l’interface de ligne de commande Azure, vous devez téléch
 
 Il est très facile de créer une application web dans Azure App Service. S'il s'agit de votre première application web Azure, vous devez utiliser le portail. Si vous en avez déjà créé un ou plusieurs, passez à l'étape 7.
 
-1. Dans le portail Azure, cliquez sur **New**. ![Nouveau][button-new]
+1. Dans le portail Azure, cliquez sur **New**.
+![Nouveau][button-new]
 2. Sélectionnez **Calculer > Application web > Création rapide**.
 <!-- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Saisissez un préfixe d'URL. Sélectionnez le nom de votre choix, tout en gardant à l'esprit qu'il doit être unique (« monappmongo » risque fort de ne pas être disponible).
@@ -570,4 +575,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
