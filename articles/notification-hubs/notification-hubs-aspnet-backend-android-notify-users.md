@@ -434,4 +434,4 @@ L'étape suivante consiste à créer l'application Android.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

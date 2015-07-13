@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Définir votre stratégie Mobile Engagement" 
-	description="Découvrez comment utiliser et optimiser votre Mobile Engagement avec les analyses et les notifications push" 
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Définir votre stratégie Mobile Engagement"
+	description="Découvrez comment utiliser et optimiser votre Mobile Engagement avec les analyses et les notifications push"
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/10/2015"
 	ms.author="kapiteir" />
 
 #Définir votre stratégie Mobile Engagement
@@ -48,9 +48,9 @@ Une fois les cas d'utilisation et les segments définis, vous recevez des consei
 En fonction de l'intégration et une fois que les applications sont publiées, vous pouvez, en tant que spécialiste marketing, surveiller vos analyses en temps réel, segmenter vos audiences et commencer à envoyer des notifications push intelligentes et ciblées pour communiquer avec les utilisateurs finaux dans ou en dehors de l'application.
 
 ###Cas d'utilisation pour la prise en main
-1. Stratégie de bienvenue : créez plusieurs campagnes de notification push basées sur le comportement de l'utilisateur final au lancement de l'application pour relancer la communication à J+2/5/10/15 après la première session et augmenter la fidélisation lors de la première exécution.	
-2. Faites la promotion d'un nouveau contenu (fonctionnalité, article/vidéo, produit, etc.) en fonction du comportement de l'utilisateur final pour envoyer les informations uniquement aux utilisateurs finaux les plus susceptibles de s'engager.	
-3. Évaluez l'application : ciblez moins d'1 % de votre base d'utilisateurs susceptibles d'accorder 5 étoiles à l'application dans la boutique d'applications.	
+1. Stratégie de bienvenue : créez plusieurs campagnes de notification push basées sur le comportement de l'utilisateur final au lancement de l'application pour relancer la communication à J+2/5/10/15 après la première session et augmenter la fidélisation lors de la première exécution.
+2. Faites la promotion d'un nouveau contenu (fonctionnalité, article/vidéo, produit, etc.) en fonction du comportement de l'utilisateur final pour envoyer les informations uniquement aux utilisateurs finaux les plus susceptibles de s'engager.
+3. Évaluez l'application : ciblez moins d'1 % de votre base d'utilisateurs susceptibles d'accorder 5 étoiles à l'application dans la boutique d'applications.
 4. Encouragez les abonnements : faites la promotion d'un contenu intéressant pour les utilisateurs finaux qui ne l'ont pas encore vu, pour encourager l'abonnement.
 5. Didacticiel : n'imposez plus de didacticiel à tous les utilisateurs. Il est plus judicieux de créer des didacticiels intéressants dans l'application, puis de les déclencher par le biais de messages dans l'application uniquement si l'utilisateur semble ne pas utiliser une fonctionnalité ou rencontrer des difficultés pour l'utiliser.
 
@@ -91,7 +91,7 @@ Collectez des informations pour savoir si les utilisateurs finaux ont créé un 
 ###Comment créer un plan de balises efficace ?
 
 Un plan de balises doit s'apparenter à une description du parcours de l'utilisateur ou à une sorte de flux de travail de l'application, et fournir toutes les balises nécessaires (données) qui doivent être collectées pour avoir suffisamment d'analyses afin de comprendre le comportement de l'utilisateur et de segmenter correctement la base d'utilisateurs. Il ne s'agit pas d'un processus technique. Les spécialistes marketing peuvent donc spécifier les données à collecter en fonction de leur stratégie Mobile Engagement.
- 
+
 Il faut baliser tous les écrans (ou `Activities` dans Mobile Engagement) d'une application. Cela permet de comprendre le parcours de l'utilisateur.
 
 Une activité peut contenir `Events` qui collectent des informations d'action, par exemple, un clic sur un bouton. Cela permet de collecter des informations sur l'interaction dans l'application. Les spécialistes marketing peuvent donc identifier les écrans visités par les utilisateurs et savoir ce qu'ils font.
@@ -126,5 +126,6 @@ Tous ces types de données peuvent être agrémentés de paramètres (`extra-inf
 <!-- URLs. -->
 [Concepts de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

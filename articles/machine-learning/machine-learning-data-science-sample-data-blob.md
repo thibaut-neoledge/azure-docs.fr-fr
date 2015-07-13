@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Échantillonner des données dans le stockage d'objets blob Azure | Azure" 
-	description="Échantillonner des données dans le stockage d'objets blob Azure" 
-	services="machine-learning" 
+	pageTitle="Échantillonner des données dans le stockage d’objets blob Azure | Microsoft Azure" 
+	description="Échantillonner des données dans le stockage d’objets blob Azure" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye"/> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Échantillonner des données dans le stockage d'objets blob Azure
+#<a name="heading"></a>Exemple de données dans le stockage d’objets blob Azure
 
-Ce document traite de l'échantillonnage des données conservées dans le stockage d'objets blob Azure via le téléchargement de ces données par programme, puis leur échantillonnage à l'aide d'un exemple de code Python. La procédure est la suivante :
+Ce document traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure via le téléchargement de ces données par programme, puis leur échantillonnage à l’aide d’un exemple de code Python. La procédure est la suivante :
 
-1. Téléchargez les données du stockage d'objets blob Azure à l'aide du service BLOB en utilisant l'exemple de code suivant : 
+1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code suivant : 
 
 	    from azure.storage import BlobService
     	import tables
@@ -38,14 +38,14 @@ Ce document traite de l'échantillonnage des données conservées dans le stocka
     	t2=time.time()
     	print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
-2. Lisez les données dans une trame de données pandas à partir du fichier téléchargé à l'étape précédente.
+2. Lisez les données dans une trame de données pandas à partir du fichier téléchargé à l’étape précédente.
 
 		import pandas as pd
 
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Échantillonnez les données en utilisant l'élément `random.choice` de `numpy`, comme suit :
+3. Échantillonnez les données en utilisant l’élément `random.choice` de `numpy`, comme suit :
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -53,17 +53,17 @@ Ce document traite de l'échantillonnage des données conservées dans le stocka
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	Vous pouvez à présent travailler sur l'échantillon de 1 % de la trame de données ci-dessus à d'autres fins d'exploration et de génération de fonctionnalités.
+	Vous pouvez à présent travailler sur l’échantillon de 1 % de la trame de données ci-dessus à d’autres fins d’exploration et de génération de fonctionnalités.
 
 ##<a name="heading"></a>Connexion à Azure Machine Learning
 
-Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l'exemple de code ci-dessous :
+Vous pouvez sous-échantillonner les données et les utiliser directement dans Azure Machine Learning en utilisant l’exemple de code ci-dessous :
 
-1. Écrivez la trame de données dans un fichier local :
+1. Écrivez la trame de données dans un fichier local :
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Chargez le fichier local dans un objet blob Azure au moyen de l'exemple de code suivant :
+2. Chargez le fichier local dans un objet blob Azure au moyen de l’exemple de code suivant :
 
 		from azure.storage import BlobService
     	import tables
@@ -85,10 +85,15 @@ Vous pouvez sous-échantillonner les données et les utiliser directement dans A
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Lisez les données de l'objet blob Azure à l'aide du *Reader Module* d'Azure Machine Learning, comme illustré dans la capture d'écran ci-dessous :
+3. Lisez les données de l’objet blob Azure à l’aide du [lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) Azure Machine Learning, comme illustré dans la capture d’écran ci-dessous :
  
-![reader blob][1]
+![objet blob de lecteur][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

@@ -93,7 +93,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 	a) Ouvrez le fichier /etc/grub.d/00_header.
 
-	b) Dans la fonction **make_timeout()**, recherchez **if ["\${recordfail}" = 1] ; then**
+	b) Dans la fonction **make_timeout()**, recherchez **if ["\${recordfail}" = 1 ]; then**
 
 	c) Modifiez le texte sous cette ligne comme suit : **set timeout=5**.
 
@@ -122,4 +122,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 11. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

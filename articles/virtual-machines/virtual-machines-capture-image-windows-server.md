@@ -20,7 +20,7 @@
 
 Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows pour l’utiliser comme modèle afin de créer d’autres machines virtuelles. Ce modèle comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Il ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles utilisant le modèle.
 
-Microsoft Azure traite ce modèle comme une image et le stocke sous **Mes Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, consultez [À propos des images de machines virtuelles dans Azure][].
+Microsoft Azure traite ce modèle comme une image et le stocke sous **Mes Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
 
 ##Avant de commencer##
 
@@ -75,7 +75,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Pour ce faire, vous créerez une machine virtuelle personalisée en utilisant la méthode **From Gallery** et en sélectionnant l'image que vous venez de créer. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée][].
 
 	
-[À propos des images de machines virtuelles dans Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
+[À propos des images de machine virtuelle dans Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Création d'une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
@@ -88,5 +88,6 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

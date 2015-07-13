@@ -177,4 +177,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

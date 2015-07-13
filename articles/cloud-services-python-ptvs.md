@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Rôles web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio" 
-	description="Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail." 
-	services="" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Rôles web et rôles de travail Python avec Python Tools 2.1 pour Visual Studio"
+	description="Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail."
+	services=""
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/09/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="get-started-article" 
+	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
 
@@ -104,7 +104,7 @@ Pour plus d'informations sur l'utilisation des rôles web et de travail dans les
 - [Projets de service cloud][]
 
 Pour plus de détails sur l'utilisation des services Azure à partir de vos rôles web et de travail, par exemple pour utiliser le stockage Azure ou Service Bus, consultez les guides suivants :
- 
+
 - [Service BLOB][]
 - [Service de Table][]
 - [Service de File d’attente][]
@@ -139,4 +139,4 @@ Pour plus de détails sur l'utilisation des services Azure à partir de vos rôl
 [Python 2.7 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

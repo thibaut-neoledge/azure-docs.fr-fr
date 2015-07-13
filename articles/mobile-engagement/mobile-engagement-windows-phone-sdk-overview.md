@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -20,7 +20,7 @@
 
 Cette introduction contient les informations nécessaires pour intégrer Azure Mobile Engagement à une application Windows Phone Silverlight. Si vous souhaitez tout d'abord l'essayer, pensez à suivre notre didacticiel de [15 minutes](mobile-engagement-windows-phone-get-started.md).
 
-Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engagement-windows-phone-sdk-content.md)
+Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Procédures d'intégration
 
@@ -32,7 +32,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel](mobile-engageme
 
 ##Notes de publication
 
-###3.0.0 - (03/04/2015)
+###3.0.0 -> (03/04/2015)
 
 -   Icône de notification par défaut mise à jour.
 -   Envoyer des commentaires sur l’action de notification du système lorsque vous cliquez sur une notification.
@@ -53,5 +53,6 @@ Aucune.
 ### Mise à niveau à partir de versions antérieures
 
 Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure/)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

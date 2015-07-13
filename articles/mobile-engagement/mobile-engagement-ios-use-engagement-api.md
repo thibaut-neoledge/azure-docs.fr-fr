@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -25,7 +25,7 @@ Rappelez-vous que si vous souhaitez qu’Engagement établisse uniquement le rap
 
 Si vous souhaitez aller plus loin, par exemple si vous avez besoin de signaler des événements, des erreurs et des tâches spécifiques à l'application, ou si vous devez signaler les activités de votre application d'une autre manière que celle implémentée dans les classes `EngagementViewController`, vous devez alors utiliser l'API Engagement.
 
-L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de cette classe peut être récupérée en appelant la méthode statique `[EngagementAgent shared]` (notez que l'objet `EngagementAgent` retourné est un singleton).
+L'API Engagement est fournie par la classe `EngagementAgent`. Une instance de cette classe peut être récupérée en appelant la méthode statique `[EngagementAgent shared]` (notez que l'objet `EngagementAgent` retourné est un singleton).
 
 Avant les appels d'API, l'objet `EngagementAgent` doit être initialisé en appelant la méthode `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
@@ -37,7 +37,7 @@ Les sections qui suivent affinent les [concepts Mobile Engagement](mobile-engag
 
 Une *activité* est généralement associée à un écran de l'application, c'est-à-dire que l'*activité* démarre lorsque l'écran s'affiche et s'arrête lorsque l'écran est fermé. C'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide des classes `EngagementViewController`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de fractionner un écran donné en plusieurs sous-parties pour obtenir plus d'informations sur l'utilisation de cet écran (par exemple la fréquence et la durée d'utilisation des boîtes de dialogue dans cet écran).
 
 ##Rapports d'activités
 
@@ -45,7 +45,7 @@ Mais les *activités* peuvent également être contrôlées manuellement à l'ai
 
 			[[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
-Vous devez appeler `startActivity()` chaque fois que l'activité de l’utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
+Vous devez appeler `startActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
 ### L'utilisateur met fin à l'activité en cours
 
@@ -236,7 +236,7 @@ Notez que les données supplémentaires peuvent contenir des `arrays(NSArray, NS
 
 #### de clés symétriques
 
-Chaque clé contenue dans le `NSDictionary` doit correspondre à l'expression régulière suivante :
+Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -252,7 +252,7 @@ Dans l'exemple précédent, le JSON envoyé au serveur compte 58 caractères :
 
 ##Rapports d'informations sur l'application
 
-Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques à l’application) à l'aide de la fonction `sendAppInfo:`.
+Vous pouvez signaler manuellement les informations de suivi (ou toutes autres informations spécifiques aux applications) à l'aide de la fonction `sendAppInfo:`.
 
 Notez que ces informations peuvent être envoyées de façon incrémentielle : seule la dernière valeur d'une clé donnée sera conservée pour un périphérique donné.
 
@@ -269,7 +269,7 @@ Comme c'est le cas avec les suppléments d'événement, la classe `NSDictionary
 
 #### de clés symétriques
 
-Chaque clé contenue dans le `NSDictionary` doit correspondre à l'expression régulière suivante :
+Chaque clé dans `NSDictionary` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
@@ -283,5 +283,6 @@ Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"birthdate":"1983-12-07","gender":"female"}
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

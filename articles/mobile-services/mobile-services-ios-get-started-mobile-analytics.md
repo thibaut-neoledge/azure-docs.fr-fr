@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/03/2015" 
 	ms.author="mahender"/>
 
 # Prise en main de Mobile Analytics (Capptain)
@@ -100,5 +100,6 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
 [Mobile Services niveau Standard]: /pricing/details/mobile-services/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

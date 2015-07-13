@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="06/03/2015" 
 	ms.author="ricksal"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -25,7 +25,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
-1. [Activation de Google Cloud Messaging](#register)
+1. [Activer Google Cloud Messaging](#register)
 2. [Configuration de Mobile Services](#configure)
 3. [Ajout de notifications Push à votre application](#add-push)
 4. [Mise à jour des scripts pour l'envoi de notifications Push](#update-scripts)
@@ -194,13 +194,11 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [Prise en main des données]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
-[Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Configuration du Kit de développement logiciel (SDK) des services Google Play]: http://go.microsoft.com/fwlink/?LinkId=389801
-[portail de gestion Azure]: https://manage.windowsazure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Utilisation de la bibliothèque cliente Android pour Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
@@ -213,5 +211,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

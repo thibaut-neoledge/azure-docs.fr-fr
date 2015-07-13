@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Azure" 
-	description="Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision." 
+<properties
+	pageTitle="Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Azure"
+	description="Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision."
 	keywords="quickstart,r language,r programming language,r programming tutorial"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+	services="machine-learning"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/22/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/26/2015"
 	ms.author="larryfr"/>
 
 # Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
@@ -164,23 +164,23 @@ Nous allons commencer par charger le fichier **csdairydata.csv** dans Azure Mach
 
 - Cliquez sur le signe + en bas à gauche de votre écran, puis sélectionnez **Dataset** (Jeu de données).
 
-- Sélectionnez le fichier à l’aide du bouton **Browse** (Parcourir).
+- Sélectionnez **From Local File** (Depuis un fichier local), puis **Browse** (Parcourir) pour sélectionner le fichier.
 
-- Veillez à sélectionner **Generic CSV file with header (.csv)** (Fichier CSV générique avec en-tête (.csv).
+- Veillez à sélectionner **Generic CSV file with header (.csv)** (Fichier CSV générique avec en-tête) comme type de jeu de données.
 
 - Cliquez sur la coche.
 
-- Les nouveaux jeux de données doivent s’afficher quand vous cliquez sur l’onglet **Datasets** (Jeux de données).
+- Une fois le jeu de données téléchargé, vous devez voir le nouveau jeu de données en cliquant sur l’onglet **Datasets** (Jeux de données).
 
 ####Création d'une expérience
 
 Maintenant que Machine Learning Studio contient des données, nous devons créer une expérimentation pour faire l’analyse.
 
-- Cliquez sur le signe + en bas à gauche et sélectionnez **Experiment** (Expérimentation)
+- Cliquez sur le signe + en bas à gauche et sélectionnez **Experiment** (Expérimentation), puis **Blank Experiment** (Expérimentation à blanc).
 
-- Intitulez votre expérimentation. Je vais appeler la mienne **CA Dairy Analysis**.
+- Vous pouvez nommer votre expérimentation en sélectionnant et en modifiant le titre **Experiment created on...** (Expérimentation créée sur) en haut de la page. Vous pouvez par exemple le modifier en **CA Dairy Analysis**.
 
-- Recherchez le jeu de données que vous venez de télécharger.
+- Sur la gauche de la page d’expérimentation, développez **Saved Datasets** (Jeux de données enregistrés), puis **My Datasets** (Mes jeux de données). Vous devez voir le fichier **cadairydata.csv** que vous avez téléchargé précédemment.
 
 - Glissez-déplacez le **jeu de données csdairydata.csv** vers l’expérimentation.
 
@@ -200,7 +200,7 @@ Maintenant que Machine Learning Studio contient des données, nous devons créer
 
 ####Vérification des données
 
-Examinons les données que nous avons chargées dans l'expérimentation. Dans l’expérimentation, double-cliquez sur la sortie du **jeu de données cadairydata.csv** et sélectionnez **Visualize** (Visualiser). Vous obtenez un résultat analogue à la figure 4.
+Examinons les données que nous avons chargées dans l'expérimentation. Dans l’expérimentation, cliquez sur la sortie du **jeu de données cadairydata.csv** et sélectionnez **Visualize** (Visualiser). Vous obtenez un résultat analogue à la figure 4.
 
 ![aperçu du jeu de données cadairydata.csv][4]
 
@@ -432,7 +432,7 @@ Pour une meilleure organisation du code, nous allons créer notre première fonc
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-	
+
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -461,31 +461,31 @@ Dans le code suivant, je définis une nouvelle fonction, `log.transform()`, et l
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-	
+
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-	
+
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-	
+
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-	
-	
+
+
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-	
+
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -523,8 +523,7 @@ Le code complet de cette section se trouve dans le fichier zip que vous avez té
 
 Comme nous l'avons déjà vu, une série chronologique est une série de valeurs de données indexées par le temps. Les objets de série chronologique R servent à créer et gérer l'index chronologique. Il y a plusieurs avantages à utiliser des objets de série chronologique. Les objets de série chronologique vous affranchissent de nombreuses tâches de gestion qu’imposent les valeurs d’index chronologique qui sont encapsulées dans les objets. De plus, ils vous permettent d'utiliser les diverses méthodes associées aux séries chronologiques, comme le traçage, l'impression, la modélisation, etc.
 
-La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemple d’objet de série chronologique
 
@@ -554,11 +553,11 @@ Nous devons ajouter un objet de série chronologique au tableau de données. Rem
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata) # Check the results
 
 Maintenant, vérifions la sortie du périphérique R. Elle doit être similaire à la figure 15.
@@ -591,7 +590,7 @@ La fonction `ts.detrend()` présentée ci-dessous effectue ces deux opérations.
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-	
+
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -602,33 +601,33 @@ La fonction `ts.detrend()` présentée ci-dessous effectue ces deux opérations.
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-	
+
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-	
+
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-	
+
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-	
+
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-	
+
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-	
+
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-	
+
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-	
+
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -655,13 +654,13 @@ Le code permettant de calculer les corrélations en tant qu’objets ccf R est l
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-	
+
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-	
+
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-	
+
 	cadairycorrelations
 
 L'exécution de ce code génère la sortie présentée dans la figure 18.
@@ -679,7 +678,7 @@ Nous avons calculé les corrélations par paire en tant que liste d'objets ccf R
 Le code suivant permet d’extraire les valeurs de décalage de la liste d’objets ccf, qui sont eux-mêmes des listes :
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-	
+
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -687,14 +686,14 @@ Le code suivant permet d’extraire les valeurs de décalage de la liste d’obj
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-	
+
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-	
-	
+
+
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -736,11 +735,11 @@ Comme pour l'analyse des corrélations que nous venons d'effectuer, nous devons 
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-	
+
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-	
+
 	str(cadairydata)
 
 Exécutez ce code et examinez le port de sortie du périphérique R. Le résultat doit être similaire à la figure 21.
@@ -756,12 +755,12 @@ Avec ce résultat, nous sommes en mesure de lancer l'analyse.
 Après avoir construit le tableau de données, nous devons maintenant créer un jeu de données d'apprentissage. Ces données engloberont toutes les observations à l'exception des 12 dernières de l'année 2013, ce qui correspond à notre jeu de données de test. Le code suivant scinde le tableau de données en sous-ensembles et crée des graphiques des variables de production et de prix des produits laitiers. Je crée ensuite des graphiques des quatre variables de production et de prix. Une fonction anonyme est utilisée pour définir des arguments pour le graphique, puis pour itérer sur la liste des deux autres arguments à l’aide de `Map()`. Vous vous dites peut-être qu'une boucle for aurait ici fait l'affaire. Vous avez raison, mais comme le langage R est un langage fonctionnel, je vous montre une approche fonctionnelle.
 
 	cadairytrain <- cadairydata[1:216, ]
-	
+
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-	
+
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 L'exécution du code génère la série de graphiques chronologiques à partir de la sortie du périphérique R présentée dans la figure 22. Notez que l'axe du temps est exprimé en unités de dates, avantage appréciable de la méthode de graphique chronologique.
@@ -843,7 +842,7 @@ Cela semble mieux. Tous les termes sont significatifs. Cependant, la valeur 2e-1
 En guise de test, créons un graphique chronologique à partir des données de production de produits laitiers californiens en affichant la courbe de tendance. J’ai ajouté le code suivant dans le module d’[exécution de script R][execute-r-script] Azure Machine Learning (pas RStudio) pour créer le modèle et tracer un graphique. Ce schéma est illustré dans la Figure 23.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -901,7 +900,7 @@ Nous constatons que le modèle n'a plus de terme intercept et qu'il comporte 12�
 Créons un autre graphique chronologique à partir des données de production laitière californienne pour voir si le modèle saisonnier fonctionne correctement. J’ai ajouté le code suivant dans le module d’[exécution de script R][execute-r-script] Azure Machine Learning pour créer le modèle et tracer un graphique :
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-	
+
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -918,7 +917,7 @@ Intéressons-nous à présent aux résidus, autre point de vérification de notr
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -961,21 +960,21 @@ Un certain nombre de mesures permettent de mesurer les performances des modèles
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-	
+
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-	
+
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-	
+
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-	
+
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -995,7 +994,7 @@ Un certain nombre de mesures permettent de mesurer les performances des modèles
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-	
+
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1019,7 +1018,7 @@ Un certain nombre de mesures permettent de mesurer les performances des modèles
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-	
+
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1117,6 +1116,5 @@ Quelques ressources Internet particulièrement utiles :
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Téléchargement de fichiers dans un compte Media Services à l'aide des API REST" 
+	pageTitle="Téléchargement de fichiers dans un compte Media Services à l’aide des API REST" 
 	description="Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,55 +13,54 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/05/2015" 
 	ms.author="juliako"/>
 
 
 
-# Téléchargement de fichiers dans un compte Media Services à l'aide des API REST
+#Téléchargement de fichiers dans un compte Media Services à l’aide des API REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu. 
+Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
 
->[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name lors de la génération d'URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l'encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#[]". En outre, il ne peut exister qu'un '.' pour l'extension de nom de fichier.
+>[AZURE.NOTE]Media Services utilise la valeur de la propriété IAssetFile.Name au moment de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété **Name** ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
 
-Le flux de travail classique d'ingestion de ressources se divise en différentes parties, à savoir :
+Le flux de travail classique d’ingestion de ressources se divise en différentes parties, à savoir :
 
 - Créer une ressource
 - Chiffrer une ressource (facultatif)
 - Télécharger un fichier vers le stockage d'objets blob
 
 
-## Création d'une ressource
+##Création d’une ressource
 
->[AZURE.NOTE] Lorsque vous utilisez l'API REST de Media Services, les considérations suivantes s'appliquent :
+>[AZURE.NOTE]Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
->Lors de l'accès aux entités dans Media Services, vous devez définir les valeurs et les champs d'en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
+>Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
->Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md). 
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
  
-Une ressource est un conteneur pour plusieurs types ou ensembles d'objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l'API REST, la création d'une ressource nécessite d'envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
+Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
-L'une des propriétés que vous pouvez spécifier lors de la création d'une ressource est **Options**. **Options** est une valeur d'énumération qui décrit les options de chiffrement permettant de créer une ressource. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs. 
+L’une des propriétés que vous pouvez spécifier lors de la création d’un élément multimédia est **Options**. **Options** est une valeur d’énumération qui décrit les options de chiffrement permettant de créer un élément multimédia. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs.
 
-- **None** = **0**: Aucun chiffrement ne sera utilisé. Il s'agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
-	Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
+- **None** = **0** : aucun chiffrement ne sera utilisé. Il s’agit de la valeur par défaut. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
 
-- **StorageEncrypted** = **1**: Spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
+- **StorageEncrypted** = **1** : spécifie si vous souhaitez que vos fichiers soient chiffrés avec le chiffrement AES-256 bits pour le chargement et le stockage.
 
-	Si votre ressource est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez la rubrique [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
+	Si votre ressource est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
-- **CommonEncryptionProtected** = **2**: Spécifie si vous téléchargez des fichiers protégés par une méthode de chiffrement commune (comme PlayReady). 
+- **CommonEncryptionProtected** = **2** : spécifie si vous téléchargez des fichiers protégés par une méthode de chiffrement commune (comme PlayReady).
 
-- **EnvelopeEncryptionProtected** = **4**: Spécifiez si vous téléchargez des fichiers TLS chiffrés avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+- **EnvelopeEncryptionProtected** = **4** : indique si vous téléchargez un contenu au format HLS chiffré avec des fichiers AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
->[AZURE.NOTE]Si votre ressource utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre ressource, comme décrit dans la rubrique suivante :[Création d'une ContentKey](media-services-rest-create-contentkey.md). Notez qu'après avoir téléchargé les fichiers dans la ressource, vous devez mettre à jour les propriétés de cryptage sur l'entité **AssetFile** avec les valeurs obtenues au cours du cryptage **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**. 
+>[AZURE.NOTE]Si votre élément multimédia utilise le chiffrement, vous devez créer une **ContentKey** et la lier à votre élément multimédia, comme décrit dans la rubrique suivante : [Création d’une ContentKey](media-services-rest-create-contentkey.md). Notez qu’après avoir téléchargé les fichiers dans l’élément multimédia, vous devez mettre à jour les propriétés de chiffrement sur l’entité **AssetFile** avec les valeurs obtenues pendant le chiffrement **Asset**. Pour ce faire, utilisez la demande HTTP **MERGE**.
 
 
-L'exemple suivant montre comment créer une ressource.
+L’exemple suivant montre comment créer une ressource.
 
 **Demande HTTP**
 
@@ -72,7 +71,7 @@ L'exemple suivant montre comment créer une ressource.
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"BigBuckBunny.mp4"}
@@ -80,7 +79,7 @@ L'exemple suivant montre comment créer une ressource.
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 	
 	HTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -108,13 +107,13 @@ Si l'opération réussit, l'élément suivant est retourné :
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-## Création d'un AssetFile
+##Création d’un AssetFile
 
-L'entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d'objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n'est pas associé à un fichier numérique dans un conteneur d'objets blob.
+L’entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs fichiers de ressources. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
 
-Notez que l'instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L'instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
+Notez que l’instance **AssetFile** et le fichier multimédia réel sont deux objets distincts. L’instance AssetFile contient des métadonnées concernant le fichier multimédia, tandis que le fichier multimédia contient le contenu multimédia réel.
 
-Après avoir téléchargé le fichier multimédia numérique dans un conteneur d'objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme indiqué ultérieurement dans cette rubrique). 
+Après avoir téléchargé le fichier multimédia numérique dans un conteneur d’objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme indiqué ultérieurement dans cette rubrique).
 
 **Demande HTTP**
 
@@ -125,7 +124,7 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	Content-Length: 164
 	
@@ -173,11 +172,11 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 	}
 
 
-## Création d'AccessPolicy avec autorisation d'écriture. 
+## Création d’AccessPolicy avec autorisation d’écriture. 
 
-Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d'accès pour l'écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d'entités AccessPolicies. N'oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d'erreur interne de serveur 500. Pour plus d'informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d’accès pour l’écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d’entités AccessPolicies. N’oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d’erreur interne de serveur 500. Pour plus d’informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
-L'exemple suivant montre comment créer une stratégie AccessPolicy :
+L’exemple suivant montre comment créer une stratégie AccessPolicy :
 		
 **Demande HTTP**
 
@@ -188,7 +187,7 @@ L'exemple suivant montre comment créer une stratégie AccessPolicy :
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -220,22 +219,22 @@ L'exemple suivant montre comment créer une stratégie AccessPolicy :
 	   "Permissions":2
 	}
 
-## Obtention de l'URL de téléchargement
+##Obtention de l’URL de téléchargement
 
-Pour recevoir l'URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l'heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d'une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d'AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d'informations, consultez la rubrique [Localisateur](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+Pour recevoir l’URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l’heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d’une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d’AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d’informations, consultez la rubrique [Localisateur](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
-Une URL SAS a le format suivant :
+Une URL SAS a le format suivant :
 
 	{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
-Certaines considérations s'appliquent :
+Certaines considérations s’appliquent :
 
-- Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d'informations, consultez la rubrique Localisateur.
-- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l'heure actuelle. Cela vient du fait qu'il peut exister un décalage horaire entre votre ordinateur client et Media Services. En outre, la valeur de StartTime doit être au format DateTime suivant : YYYY-MM-DDTHH:mm:ssZ (par exemple, " 2014-05-23T17:53:50Z ").	
-- Il peut y avoir un délai de 30 à 40 secondes après la création d'un localisateur avant qu'il soit disponible. Ce problème s'applique aux localisateurs d'URL SAS et d'origine.
+- Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d’informations, consultez la rubrique Localisateur.
+- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. De même, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).	
+- Il peut y avoir un délai de 30 à 40 secondes après la création d’un localisateur avant qu’il soit disponible. Ce problème s’applique aux localisateurs d’URL SAS et d’origine.
 
-L'exemple suivant montre comment créer un localisateur d'URL SAS, tel que défini par la propriété Type dans le corps de la demande (" 1 " pour un localisateur SAS et " 2 " pour un localisateur d'origine à la demande). La propriété **chemin d'accès** retournée contient l'URL que vous devez utiliser pour télécharger votre fichier.
+L’exemple suivant montre comment créer un localisateur d’URL SAS, tel que défini par la propriété Type dans le corps de la demande (« 1 » pour un localisateur SAS et « 2 » pour un localisateur d’origine à la demande). La propriété **Path** retournée contient l’URL que vous devez utiliser pour télécharger votre fichier.
 	
 **Demande HTTP**
 	
@@ -246,7 +245,7 @@ L'exemple suivant montre comment créer un localisateur d'URL SAS, tel que défi
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	{  
 	   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -258,7 +257,7 @@ L'exemple suivant montre comment créer un localisateur d'URL SAS, tel que défi
 
 **Réponse HTTP**
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 		
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -288,18 +287,18 @@ Si l'opération réussit, la réponse suivante est retournée :
 	   "Name":null
 	}
 
-## Téléchargement d'un fichier dans un conteneur de stockage d'objets blob
+## Téléchargement d’un fichier dans un conteneur de stockage d’objets blob
 	
-Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d'objets blob Microsoft Azure à l'aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs. 
+Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs.
 
->[AZURE.NOTE] Vous devez ajouter le nom du fichier à télécharger dans la valeur **Path** du localisateur reçue dans la section précédente. Par exemple, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]Vous devez ajouter le nom du fichier à télécharger dans la valeur **Path** du localisateur reçue dans la section précédente. Par exemple : https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
-Pour plus d'informations sur l'utilisation d'objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-## Mise à jour d'AssetFile 
+## Mise à jour d’AssetFile 
 
-Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
+Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
 	
 	MERGE https://media.windows.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
 	Content-Type: application/json
@@ -308,7 +307,7 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 	{  
@@ -322,10 +321,9 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
-	HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
 
-## Suppression du localisateur et d'AcessPolicy 
+## Suppression du localisateur et d’AcessPolicy 
 
 **Demande HTTP**
 
@@ -336,13 +334,13 @@ Si l'opération réussit, l'élément suivant est retourné :
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 	
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 
 	HTTP/1.1 204 No Content 
 	...
@@ -355,18 +353,18 @@ Si l'opération réussit, l'élément suivant est retourné :
 	Accept: application/json
 	Accept-Charset: UTF-8
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 
 	HTTP/1.1 204 No Content 
 	...
 
  
-[Obtention d'un processeur multimédia]: media-services-get-media-processor.md
+[How to Get a Media Processor]: media-services-get-media-processor.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

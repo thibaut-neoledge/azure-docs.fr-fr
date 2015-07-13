@@ -42,4 +42,4 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 Cette procédure pas à pas est basée sur une version simplifiée de l'[Exemple d'expérience de prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans Machine Learning Studio.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -168,4 +168,4 @@ La section suivante présente les composants du service BLOB.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

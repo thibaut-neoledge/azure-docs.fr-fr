@@ -16,7 +16,6 @@
    ms.date="02/19/2015"
    ms.author="kundanap"/>
 
-
 # Extension de script personnalisé pour Windows
 
 Cet article donne une vue d'ensemble de l'utilisation de l'extension de script personnalisé pour Windows à l'aide d'applets de commande Azure Powershell.
@@ -79,5 +78,6 @@ Nous ajouterons bientôt des cas d'utilisation et des exemples de script personn
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

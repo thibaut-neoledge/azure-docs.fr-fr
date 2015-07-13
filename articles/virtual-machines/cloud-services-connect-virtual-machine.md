@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connexion de machines virtuelles à un service cloud Azure" 
-	description="Apprenez à connecter une machine virtuelle à un service cloud Azure." 
+	description="Apprenez à connecter une machine virtuelle à un service cloud Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/28/2015" 
 	ms.author="kathydav"/>
 
 
-
+# Connexion de machines virtuelles à un réseau virtuel ou un service cloud
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
-
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

@@ -276,4 +276,4 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

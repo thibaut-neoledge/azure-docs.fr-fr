@@ -3,8 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
-	writer="" 
+	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="micflan"/>
+	ms.date="06/24/2015" 
+	ms.author="tomfitz"/>
 
 
 # Organisation des ressources Azure à l'aide de balises
@@ -89,6 +88,16 @@ Pour afficher votre classification de balises dans le portail, utilisez le conce
 
 ![Épingler des balises au tableau d'accueil](./media/resource-group-using-tags/pin-tags.png)
 
+## Balisage et facturation
+
+Dans le cas des services pris en charge, vous pouvez utiliser des balises pour regrouper vos données de facturation. Par exemple, les [machines virtuelles intégrées à Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) vous permettent de définir et d’appliquer des balises pour organiser l’utilisation de la facturation pour les machines virtuelles. Si vous exécutez plusieurs machines virtuelles pour différentes organisations, vous pouvez recourir aux balises pour regrouper l’utilisation par centre de coûts. Vous pouvez également utiliser des balises pour catégoriser les coûts par environnement d’exécution ; par exemple, l’utilisation de la facturation pour les machines virtuelles en cours d’exécution dans l’environnement de production.
+
+Vous pouvez récupérer des informations sur les balises par le biais de l’[API Usage](billing-usage-rate-card-overview.md) ou du fichier de valeurs séparées par des virgules (CSV) que vous pouvez télécharger à partir du [portail de comptes Azure](https://account.windowsazure.com/) ou du [portail EA](https://ea.azure.com).
+
+Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui prennent en charge les balises avec la facturation, les balises s’affichent dans la colonne **Balises**. Pour plus d’informations, voir [Comprendre votre facture Microsoft Azure](billing-understand-your-bill.md).
+
+![Voir les balises dans la facturation](./media/resource-group-using-tags/billing_csv.png)
+
 ## Étapes suivantes
 Mise en route
 
@@ -112,4 +121,4 @@ Gestion et audit de l’accès
 - [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

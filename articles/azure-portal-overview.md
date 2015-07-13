@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Présentation de la version préliminaire du portail Microsoft Azure" 
-	description="Apprenez à utiliser le portail Microsoft Azure en version préliminaire." 
-	services="" 
-	documentationCenter="" 
-	authors="davidwrede" 
-	manager="dwrede" 
+<properties
+	pageTitle="Présentation de la version préliminaire du portail Microsoft Azure"
+	description="Apprenez à utiliser le portail Microsoft Azure en version préliminaire."
+	services=""
+	documentationCenter=""
+	authors="davidwrede"
+	manager="dwrede"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="na" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="na"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.topic="hero-article"
+	ms.date="04/28/2015"
 	ms.author="dwrede"/>
 
 # Présentation de la version préliminaire du portail Microsoft Azure
@@ -24,7 +24,7 @@ Le portail Microsoft Azure en version préliminaire permet de configurer et de g
 
 ## Avant de commencer
 
-Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel. Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui. Une fois abonné, vous pourrez accéder au portail situé à l'adresse suivante : [https://portal.azure.com].
+Vous aurez besoin d'un abonnement Azure valide pour suivre ce didacticiel. Si vous n'en avez pas, [inscrivez-vous pour un essai gratuit](http://azure.microsoft.com/pricing/free-trial/) dès aujourd'hui. Une fois abonné, vous pourrez accéder au portail à l’adresse [https://portal.azure.com].
 
 ## Comment créer une ressource
 
@@ -32,7 +32,7 @@ Azure possède un marketplace proposant des milliers d'articles que vous pouvez 
 
 1.	Windows Server 2012 est proposé, vous pouvez donc le sélectionner dans la catégorie Calcul.  
 2.	Saisissez les informations de base dans un formulaire.
-3.	Cliquez sur Créer. Votre machine virtuelle sera immédiatement mise en service. 
+3.	Cliquez sur Créer. Votre machine virtuelle sera immédiatement mise en service.
 
 L'unité Notification Hub vous préviendra une fois votre ressource créée et un panneau de gestion s'ouvrira (vous pourrez toujours accéder à ces ressources plus tard).
 
@@ -87,4 +87,4 @@ Le portail Microsoft Azure en version préliminaire simplifie grandement la cré
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

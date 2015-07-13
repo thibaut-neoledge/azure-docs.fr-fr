@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Détachement d'un disque d'une machine virtuelle Linux dans Azure" 
-	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure." 
+	pageTitle="Détachement d'un disque d'une machine virtuelle Linux dans Azure" 
+	description="Apprenez à détacher un disque de données d'une machine virtuelle Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
-
+# Détachement d'un disque d'une machine virtuelle Linux
 
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=45--> 
+## Ressources supplémentaires
+
+[Association d’un disque de données à une machine virtuelle Linux](virtual-machines-linux-how-to-attach-disk.md)
  
+
+<!---HONumber=July15_HO1-->

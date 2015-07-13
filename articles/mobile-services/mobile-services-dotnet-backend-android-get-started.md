@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/13/2015" 
+	ms.date="05/13/2015" 
 	ms.author="ricksal"/>
 
 
@@ -56,10 +56,6 @@ Maintenant que vous avez créé le service mobile, téléchargez votre projet de
 
 	Cela permet de télécharger le projet Visual Studio qui implémente votre service mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
-<!--
-4. Also, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
--->
-
 ## Test du service mobile
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
@@ -86,12 +82,10 @@ Dans cette section, vous allez créer une application Android connectée à votr
 
 ## Exécution de votre application Android
 
-[WACOM.INCLUDE [mobile-services-run-your-app](mobile-services-android-get-started.md)]
+[AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
-Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
-
-* [Prise en main des données] <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
+Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
@@ -124,7 +118,7 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
 <!-- URLs. -->
 [Prise en main (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
-[Prise en main des données]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
 [Prise en main des notifications Push]: mobile-services-dotnet-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
@@ -133,5 +127,6 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [portail de gestion]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

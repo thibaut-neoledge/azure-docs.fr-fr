@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -272,7 +272,7 @@ L'application peut désormais recevoir des événements de Pusher et mettre à j
 
 
 
-<h2><a name="install-scripts"></a>Installation des scripts serveur</h2>
+##<a name="install-scripts"></a>Installation des scripts serveur
 
 
 
@@ -385,7 +385,7 @@ Il ne reste plus qu'à configurer vos scripts serveur. Nous allons insérer un s
 
 
 
-<h2><a name="test-app"></a>Test de l'application</h2>
+##<a name="test-app"></a>Test de l’application
 
 
 
@@ -442,5 +442,6 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/12/2015" 
 	ms.author="ricksal"/>
 
 # Ajout de notifications push à votre application Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
 
+##Vue d'ensemble
+
 Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android. Dans ce didacticiel, vous ajoutez des notifications Push au projet de démarrage rapide à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
-Ce didacticiel vous familiarise avec les étapes suivantes :
-
-1. [Activation de Google Cloud Messaging](#register)
-2. [Configuration du service mobile pour l'envoi de demandes Push](#configure)
-5. [Mise à jour du serveur pour l'envoi de notifications Push](#update-server)
-7. [Ajout de notifications Push à votre application](#update-app)
-8. [Activation des notifications Push pour les tests en local](#local-testing)
-9. [Test de l'application avec le service mobile publié](#test-app)
-
-
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d'abord le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données] pour connecter votre projet au service mobile. En tant que tel, ce didacticiel requiert également Visual Studio 2013.
-
->[AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
-
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de le lancer, suivez d’abord le didacticiel [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante] pour connecter votre projet au service mobile. En tant que tel, ce didacticiel requiert également Visual Studio 2013.
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
@@ -58,11 +47,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de l
 Votre service mobile est désormais configuré pour utiliser GCM et Notification Hubs.
 
 
-<h2><a name="download-the-service"></a>Téléchargement du service mobile sur votre ordinateur local</h2>
+##<a name="download-the-service"></a>Téléchargement du service sur votre ordinateur local
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>Test du service mobile</h2>
+##<a name="test-the-service"></a>Test du service mobile
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -101,7 +90,7 @@ Votre service mobile est désormais configuré pour utiliser GCM et Notification
     Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d'erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l'onglet **Journaux** du service mobile sur le portail de gestion.
 
 
-<h2><a name="publish-the-service"></a>Publication du service mobile sur Azure</h2>
+##<a name="publish-the-service"></a>Publication du service mobile sur Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -115,7 +104,7 @@ Votre service mobile est désormais configuré pour utiliser GCM et Notification
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
-Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
+Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur et définissez-la correctement.
 
 ###Ajout de services Google Play au projet
 
@@ -125,7 +114,7 @@ Si vous envisagez de procéder à un test avec un appareil ancien, consultez la 
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>Test de l'application avec le service mobile publié</h2>
+##<a name="test-app"></a>Test de l'application avec le service mobile publié
 
 Vous pouvez tester l'application en connectant directement un téléphone Android via un câble USB, ou en utilisant un appareil virtuel dans l'émulateur.
 
@@ -177,7 +166,7 @@ Vous avez terminé ce didacticiel.
 -->
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Prise en main des données] <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de services mobiles.
+* [Prise en main des données] <br/>Obtenez plus d’informations sur le stockage et l’interrogation des données à l’aide de services mobiles.
 
 * [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
@@ -230,19 +219,13 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
-[Prise en main des données]: mobile-services-dotnet-backend-android-get-started-data.md
+[Ajout de Mobile Services à une application existante]: mobile-services-dotnet-backend-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 [Utilisation de la bibliothèque cliente Android pour Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
@@ -252,5 +235,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

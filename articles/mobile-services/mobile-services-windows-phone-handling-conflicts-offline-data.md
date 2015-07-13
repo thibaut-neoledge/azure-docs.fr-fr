@@ -10,16 +10,16 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 ##Vue d'ensemble
 
@@ -206,13 +206,13 @@ Pour résoudre les conflits au profit de l'élément local, essayez simplement �
 
 Pour résoudre les conflits au profit de l'élément serveur, exécutez simplement la méthode `ExecuteTableOperationAsync`. La version locale de l'objet sera ignorée et remplacée par la valeur provenant du serveur.
 
-Pour interrompre l'opération Push (mais conserver les modifications en file d'attente), utilisez la méthode `AbortPush()` :
+Pour interrompre l'opération push (mais conserver les modifications en file d'attente), utilisez la méthode `AbortPush()` :
 
     operation.AbortPush();
 
-Cette procédure interrompt l'opération push actuelle, mais conserve toutes les modifications en attente, y compris l'opération en cours si `AbortPush` est appelé à partir de `ExecuteTableOperationAsync`. La prochaine fois que `PushAsync()` est appelé, ces modifications sont envoyées vers le serveur.
+Cette procédure interrompt l'opération push, mais conserve toutes les modifications en attente, y compris l'opération en cours si `AbortPush` est appelé à partir de `ExecuteTableOperationAsync`. La prochaine fois que `PushAsync()` est appelé, ces modifications sont envoyées vers le serveur.
 
-Lorsqu'une opération push est annulée, `PushAsync` génère une exception `MobileServicePushFailedException`, et la propriété d'exception `PushResult.Status` a la valeur `MobileServicePushStatus.CancelledByOperation`.
+Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileServicePushFailedException`, et la propriété d'exception `PushResult.Status` a la valeur `MobileServicePushStatus.CancelledByOperation`.
 
 
 
@@ -239,5 +239,6 @@ Lorsqu'une opération push est annulée, `PushAsync` génère une exception `Mob
 [Kit de développement logiciel (SDK) Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite pour Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -23,14 +23,12 @@
 Ce guide explique comment ajouter la surveillance des performances New Relic de pointe à vos applications hébergées sur Azure. Nous aborderons les processus rapides et simples permettant d'ajouter New Relic à votre application et vous présenterons certaines des nouvelles fonctionnalités de New Relic. Pour plus d'informations sur l'utilisation de New Relic, consultez la section [Utilisation de New Relic](#using-new-relic).
 
 Présentation de New Relic
---
 
 New Relic est un outil destiné aux développeurs qui surveille vos applications de production et offre des informations approfondies sur leurs performances et leur fiabilité. Ce produit est conçu pour vous permettre de gagner du temps lors de l'identification et du diagnostic des problèmes de performances et il vous donne les informations requises pour résoudre ces problèmes en un instant.
 
 New Relic effectue le suivi de la durée du chargement et du débit de votre transaction Web, à la fois à partir du serveur et des navigateurs des utilisateurs. Il indique le temps que vous passez dans la base de données, analyse les requêtes lentes et les requêtes Web, fournit une surveillance et des alertes en matière de temps d'activité, effectue le suivi des exceptions d'application et bien plus encore.
 
 Tarification spéciale New Relic par l'intermédiaire de l'Azure Store
---
 
 New Relic Standard est gratuit pour les utilisateurs d'Azure, New Relic Pro est fourni selon la taille d'instance d'Azure Cloud Services
 
@@ -41,7 +39,6 @@ Pour des informations de tarification, consultez la [page New Relic dans l'Azur
 Les clients d'Azure reçoivent un abonnement de 2 semaines gratuit à New Relic Pro lorsqu'ils déploient l'agent New Relic.
 
 Inscription à New Relic à l'aide de l'Azure Store
---
 
 New Relic s'intègre en toute transparence aux rôles Web et de travail Azure.
 
@@ -176,4 +173,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
  * [Surveillance des utilisateurs](https://newrelic.com/docs/features/real-user-monitoring) : vue d'ensemble de la manière dont RUM détaille le temps qu'il faut aux navigateurs de vos utilisateurs pour charger vos pages web, leur provenance et les navigateurs qu'ils utilisent
  * [Recherche d'aide](https://newrelic.com/docs/site/finding-help) : ressources disponibles dans le centre d'aide en ligne de New Relic
 
-<!--HONumber=54-->
+<!---HONumber=July15_HO1-->

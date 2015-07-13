@@ -372,11 +372,11 @@ Toutes les entreprises doivent sauvegarder et restaurer des données. Vous pouve
 ###Site Recovery###
 
  
-Azure Site Recovery (anciennement appelé Hyper-V Recovery Manager) vous permet de protéger des applications importantes en coordonnant la réplication et la récupération des images Hyper-V entre les sites. Vous pouvez effectuer la sauvegarde sur votre site secondaire, sur le site d'un hébergeur, ou utiliser Azure et vous affranchir des frais et de la complexité inhérents à la conception et à la gestion d'un site secondaire. Azure chiffre les données et communications, et le chiffrement peut également s'appliquer aux données stockées.
+Azure Site Recovery (anciennement appelé Hyper-V Recovery Manager) vous permet de protéger des applications importantes en coordonnant la réplication et la récupération entre les sites. Site Recovery, qui fournit une fonctionnalité de protection basée sur Hyper-V, VMWare ou SAN sur votre propre site secondaire, sur le site d’un hébergeur ou sur Azure, vous permet d’éviter les frais et la complexité liés au développement et à la gestion de votre propre emplacement secondaire. Azure chiffre les données et communications, et le chiffrement peut également s’appliquer aux données stockées.
 
-Azure surveille en continu l'état de vos services et automatise la récupération organisée des services en cas de panne de site dans le centre de données principal. Les machines virtuelles peuvent être intégrées de manière orchestrée pour restaurer rapidement le service, même pour les charges de travail multiniveau complexes.
+Azure surveille en continu l’état de vos services et automatise la récupération organisée des services en cas de panne de site dans le centre de données principal. Les machines virtuelles peuvent être intégrées de manière orchestrée pour restaurer rapidement les applications, même pour les charges de travail multiniveau complexes.
 
-Azure Site Recovery utilise des technologies existantes telles que Réplica Hyper-V, System Center et SQL Server AlwaysOn.
+Azure Site Recovery utilise des technologies existantes telles que Réplica Hyper-V, System Center et SQL Server AlwaysOn. Pour plus de détails, consultez la [vue d’ensemble Azure Site Recovery](hyper-v-recovery-manager-overview.md).
 
 ###Azure Backup###
 ![Azure Backup](./media/intro-to-azure/AzureBackupIntroNew.png) **Figure : Azure Backup sauvegarde les données des serveurs Windows locaux dans le cloud.**
@@ -578,4 +578,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

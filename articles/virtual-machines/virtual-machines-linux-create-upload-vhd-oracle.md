@@ -62,7 +62,7 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire `/etc/sysconfig/network-scripts/` et entrez-y le texte suivant :
+5.	Créez un fichier nommé **ifcfg-eth0** dans le répertoire et entrez-y le texte suivant :
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -224,4 +224,7 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très 
 
 15. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

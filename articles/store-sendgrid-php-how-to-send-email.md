@@ -1,25 +1,38 @@
-<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="Utilisation du service de messagerie SendGrid (PHP) - Azure" metaKeywords="Azure SendGrid, service de messagerie électronique Azure, Azure SendGrid PHP, Azure messagerie électronique PHP" description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." documentationCenter="PHP" services="" manager="wpickett" editor="mollybos" authors="robmcm" scriptId="" videoId="" />
+<properties 
+	pageTitle="Utilisation du service de messagerie SendGrid (PHP) - Azure" 
+	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
+	authors="thinkingserious"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 
 # Utilisation du service de messagerie électronique SendGrid à partir de PHP
 
-Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en PHP.
-Les scénarios traités incluent la **construction**, l'**envoi de courriers électroniques** et l'**ajout de pièces jointes**. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes][].
+Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en PHP. Les scénarios traités incluent la **construction**, l'**envoi de courriers électroniques** et l'**ajout de pièces jointes**. Pour plus d'informations sur SendGrid et sur l'envoi de courrier électronique, consultez la section [Étapes suivantes][].
 
 ## Sommaire
 
 -   [Présentation du service de messagerie électronique SendGrid][]
 -   [Création d'un compte SendGrid][]
 -   [Utilisation de SendGrid à partir de votre application PHP][]
--   [Procédure : Envoi d'un courrier électronique][]
--   [Procédure : Ajout d'une pièce jointe][]
--   [Procédure : Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse][]
+-   [Envoi d'un message électronique][]
+-   [Ajout d'une pièce jointe][]
+-   [Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse][]
 -   [Étapes suivantes][]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>Présentation du service de messagerie électronique SendGrid
 
-SendGrid est un [service de messagerie électronique dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
+SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques scénarios courants en termes d'utilisation de SendGrid :
 
 -   Envoi automatique d'accusés de réception aux clients
 -   Administration de listes de distribution pour un envoi mensuel de prospectus électroniques et d'offres spéciales aux clients
@@ -32,23 +45,19 @@ Pour plus d'informations, consultez la page [https://sendgrid.com][].
 
 ## <a name="bkmk_CreateSendGrid"> </a>Création d'un compte SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Utilisation de SendGrid à partir de votre application PHP
 
-L'utilisation de SendGrid dans une application Azure PHP ne nécessite ni configuration spéciale,
-ni codage particulier. SendGrid étant un service, il est
-accessible exactement de la même façon à partir d'une application cloud et à partir d'une
-application locale.
+L'utilisation de SendGrid dans une application Azure PHP ne nécessite ni configuration spéciale, ni codage particulier. SendGrid étant un service, l'accès s'effectue exactement de la même manière qu'il s'agisse d'une application cloud ou d'une application locale.
 
-## <a name="bkmk_HowToSendEmail"> </a>Procédure : Envoi d'un courrier électronique
+## <a name="bkmk_HowToSendEmail"> </a>Envoi d'un message électronique
 
-Vous pouvez envoyer un courrier électronique à l'aide de l'API SMTP ou de l'API web fournie
-SendGrid.
+Vous pouvez envoyer un courrier électronique à l'aide de l'API SMTP ou de l'API web fournie par SendGrid.
 
 ### API SMTP
 
-Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez Swift Mailer, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi de courriers électroniques avec la bibliothèque implique la création d'instances des classes <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span>et <span class="auto-style2">Swift_Message</span> , la définition des propriétés appropriées et l'appel de la méthode <span class="auto-style2">Swift_Mailer::send</span> .
+Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilisez *Swift Mailer*, une bibliothèque à base de composants destinée à l'envoi de courriers à partir d'applications PHP. Vous pouvez télécharger la bibliothèque *Swift Mailer* à partir de [http://swiftmailer.org/download][] v5.3.0 (utilisez [Composer] pour installer Swift Mailer). L'envoi d'un courrier électronique avec la bibliothèque suppose la création d'instances des classes <span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> et <span class="auto-style2">Swift_Message</span>, la définition des propriétés appropriées, et l'appel de la méthode <span class="auto-style2">Swift_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";
@@ -112,7 +121,7 @@ Pour envoyer un courrier électronique à l'aide de l'API SMTP SendGrid, utilise
 
 ### API Web
 
-Utilisez la [fonction curl][] de PHP pour envoyer un courrier électronique à l'aide de l'API web ddeSendGrid.
+Utilisez la [fonction curl][] de PHP pour envoyer un courrier électronique à l'aide de l'API web de SendGrid.
 
     <?php
 
@@ -152,13 +161,13 @@ Utilisez la [fonction curl][] de PHP pour envoyer un courrier électronique à l
      // print everything out
      print_r($response);
 
-L'API web de SendGrid présente de nombreuses similitudes avec l'API REST. Cependant, il ne s'agit pas à proprement parler d'une API RESTful, dans la mesure où les verbes GET et POST peuvent être utilisés de manière interchangeable dans la plupart des appels.
+L'API web de SendGrid présente de nombreuses similitudes avec l'API REST. Cependant, il ne s'agit pas à proprement parler d'une API RESTful, dans la mesure où les verbes GET et POST peuvent être utilisés de manière interchangeable dans la plupart des appels.
 
-## <a name="bkmk_HowToAddAttachment"> </a>Procédure : Ajout d'une pièce jointe
+## <a name="bkmk_HowToAddAttachment"> </a>Ajout d'une pièce jointe
 
 ### API SMTP
 
-L'envoi d'une pièce jointe à l'aide de l'API SMTP comprend une seule ligne de code supplémentaire par rapport à l'exemple de script destiné à l'envoi d'un courrier électronique avec Swift Mailer.
+L'envoi d'une pièce jointe à l'aide de l'API SMTP comprend une seule ligne de code supplémentaire par rapport à l'exemple de script destiné à l'envoi d'un courrier électronique avec Swift Mailer.
 
     <?php
      include_once "vendor/autoload.php";
@@ -223,19 +232,19 @@ L'envoi d'une pièce jointe à l'aide de l'API SMTP comprend une seule ligne de 
           print_r($failures);
      }
 
-Cette ligne de code supplémentaire est la suivante :
+Cette ligne de code supplémentaire est la suivante :
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Cette ligne de code appelle la méthode attach sur l'objet <span class="auto-style2">Swift_Message</span> et utilise la méthode statique <span class="auto-style2">fromPath</span> sur la classe <span class="auto-style2">Swift_Attachment</span> pour obtenir et joindre un fichier à un message.
+Cette ligne de code appelle la méthode d'attachement sur l'objet <span class="auto-style2">Swift_Message</span> et utilise la méthode statique <span class="auto-style2">fromPath</span> sur la classe <span class="auto-style2">Swift_Attachment</span> pour obtenir et joindre un fichier à un message.
 
 ### API Web
 
-La procédure d'envoi d'une pièce jointe à l'aide de l'API web est pratiquement identique à celle utilisée pour envoyer un courrier à l'aide de l'API web. Notez toutefois que dans l'exemple suivant, le tableau de paramètres doit contenir cet élément :
+La procédure d'envoi d'une pièce jointe à l'aide de l'API web est pratiquement identique à celle utilisée pour envoyer un courrier à l'aide de l'API web. Notez toutefois que dans l'exemple suivant, le tableau de paramètres doit contenir cet élément :
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
-Exemple :
+Exemple :
 
     <?php
 
@@ -281,15 +290,15 @@ Exemple :
      // print everything out
      print_r($response);
 
-## <a name="bkmk_HowToUseFilters"> </a>Utilisation Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse
+## <a name="bkmk_HowToUseFilters"> </a>Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse
 
 SendGrid offre d'autres fonctionnalités de messagerie grâce à l'utilisation de 'filtres'. Il s'agit de paramètres que vous pouvez ajouter à un message électronique pour activer des fonctionnalités spécifiques telles que le suivi des clics, Google Analytics, le suivi d'abonnement, etc.
 
-Il est possible d'appliquer des filtres à un message par l'intermédiaire de la propriété " filters ". Chaque filtre est spécifié par un hachage contenant des paramètres propres au filtre. L'exemple suivant active le filtre de pied de page et indique un message texte qui sera ajouté au bas du message électronique. Pour cet exemple, nous utiliserons la bibliothèque [sendgrid-php]. Utilisez [Composer] pour installer la bibliothèque :
+Il est possible d'appliquer des filtres à un message par l'intermédiaire de la propriété filters. Chaque filtre est spécifié par un hachage contenant des paramètres propres au filtre. L'exemple suivant active le filtre de pied de page et indique un message texte qui sera ajouté au bas du message électronique. Pour cet exemple, nous utiliserons la bibliothèque [sendgrid-php]. Utilisez [Composer] pour installer la bibliothèque :
     
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-Exemple :    
+Exemple :
 
     <?php
      /*
@@ -333,11 +342,11 @@ Exemple :
      // a sender list IS specified above, this email address becomes irrelevant.
      $to = 'john@contoso.com';
 
-     # Créez le corps du message (une version en texte brut et une version HTML). 
-     # text correspond à votre courrier électronique en texte brut 
-     # html correspond à votre version HTML du courrier électronique
-     # Si le destinataire peut afficher les messages électroniques HTML, eux seuls
-     # seront affichés.
+     # Create the body of the message (a plain-text and an HTML version). 
+     # text is your plain-text email 
+     # html is your html version of the email
+     # if the receiver is able to view html emails then only the html
+     # email will be displayed
 
      /*
       * Note the variable substitution here =)
@@ -386,30 +395,29 @@ Exemple :
 
 ## <a name="bkmk_NextSteps"> </a>Étapes suivantes
 
-Maintenant que vous avez appris les notions de base du service de messagerie SendGrid, consultez
-ces liens pour en savoir plus.
+Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
--   Documentation de SendGrid : <https://sendgrid.com/docs>
--   Bibliothèque PHP SendGrid : <https://github.com/sendgrid/sendgrid-php>
--   Offres spéciales SendGrid pour les clients Azure : <https://sendgrid.com/windowsazure.html>
+-   Documentation de SendGrid : <https://sendgrid.com/docs>
+-   Bibliothèque PHP SendGrid : <https://github.com/sendgrid/sendgrid-php>
+-   Offres spéciales SendGrid pour les clients Azure : <https://sendgrid.com/windowsazure.html>
 
   [Étapes suivantes]: #bkmk_NextSteps
   [Présentation du service de messagerie électronique SendGrid]: #bkmk_WhatIsSendGrid
   [Création d'un compte SendGrid]: #bkmk_CreateSendGrid
   [Utilisation de SendGrid à partir de votre application PHP]: #bkmk_UsingSendGridfromPHP
-  [Procédure : Envoi d'un courrier électronique]: #bkmk_HowToSendEmail
-  [Procédure : Ajout d'une pièce jointe]: #bkmk_HowToAddAttachment
-  [Procédure : Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
-  [ Utilisation de services SendGrid supplémentaires]: #bkmk_HowToUseAdditionalSvcs
+  [Envoi d'un message électronique]: #bkmk_HowToSendEmail
+  [Ajout d'une pièce jointe]: #bkmk_HowToAddAttachment
+  [Utilisation de filtres pour activer les pieds de page, le suivi et l'analyse]: #bkmk_HowToUseFilters
+  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
-  [offre spéciale]: https://www.sendgrid.com/windowsazure.html
-  [Empaquetage et déploiement d'applications PHP pour Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+  [special offer]: https://www.sendgrid.com/windowsazure.html
+  [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [fonction curl]: http://php.net/curl
-  [service de messagerie électronique dans le cloud]: https://sendgrid.com/email-solutions
-  [Remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
-  [Bibliothèque sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+  [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
+  [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
+  [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!--HONumber=35.2-->
+<!---HONumber=July15_HO1-->

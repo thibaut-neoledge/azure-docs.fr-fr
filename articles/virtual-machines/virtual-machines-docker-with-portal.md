@@ -72,25 +72,25 @@ Dans les champs du formulaire, entrez les versions codées en base64 de votre c
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE]Notez que (comme dans l’illustration précédente), 4243 est indiqué par défaut. Vous pouvez entrer ici n’importe quel point de terminaison, mais l’étape suivante consiste à ouvrir le point de terminaison correspondant. Si vous modifiez le point de terminaison par défaut, n'oubliez pas d'ouvrir le point de terminaison correct à l'étape suivante.
+> [AZURE.NOTE]Notez que (comme dans l’illustration précédente), 2376 est indiqué par défaut. Vous pouvez entrer ici n’importe quel point de terminaison, mais l’étape suivante consiste à ouvrir le point de terminaison correspondant. Si vous modifiez le point de terminaison par défaut, n'oubliez pas d'ouvrir le point de terminaison correct à l'étape suivante.
 
 ## Ajout du point de terminaison des communications Docker VM
 Lorsque vous affichez votre machine virtuelle dans le groupe de ressources que vous avez créé, faites défiler l'écran vers le bas et cliquez sur **Point de terminaison** pour afficher les points de terminaison de la machine virtuelle (voir l'illustration).
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-Cliquez sur **+ Ajouter** pour ajouter un point de terminaison ; dans le cas par défaut, entrez un nom pour le point de terminaison (dans cet exemple **docker**) et 4243 pour les ports privés et publics. Laissez le protocole **TCP** et cliquez sur **OK** pour créer le point de terminaison.
+Cliquez sur **+ Ajouter** pour ajouter un point de terminaison ; dans le cas par défaut, entrez un nom pour le point de terminaison (dans cet exemple **docker**) et 2376 pour les ports privés et publics. Laissez le protocole **TCP** et cliquez sur **OK** pour créer le point de terminaison.
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## Tester le client Docker et l’hôte Azure Docker
-Localisez et copiez le nom de domaine de votre machine virtuelle. Dans la ligne de commande de votre ordinateur client, tapez `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (où *dockerextension* est remplacé par le sous-domaine de votre machine virtuelle).
+Localisez et copiez le nom de domaine de votre machine virtuelle. Dans la ligne de commande de votre ordinateur client, tapez `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (où *dockerextension* est remplacé par le sous-domaine de votre machine virtuelle).
 
 Le résultat affiché doit avoir l’aspect suivant :
 
 ```
-$ docker --tls -H tcp://dockerextension.cloudapp.net:4243 info
+$ docker --tls -H tcp://dockerextension.cloudapp.net:2376 info
 Containers: 0
 Images: 0
 Storage Driver: devicemapper
@@ -144,4 +144,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

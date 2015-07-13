@@ -143,12 +143,11 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
 * Bibliothèque Nuget tierce <http://nuget.org/packages/Blitline.Net>
 
 
-[Étapes suivantes]: #nextsteps
-[Présentation de Blitline]: #whatis
-[Éléments non proposés par Blitline]: #whatisnot
-[Création d'un compte Blitline]: #createaccount
-[Création d'une tâche Blitline]: #createjob
-[Enregistrement d'une image sur Azure Storage]: #saveazure
+  [Étapes suivantes]: #nextsteps
+  [Présentation de Blitline]: #whatis
+  [Éléments non proposés par Blitline]: #whatisnot
+  [Création d'un compte Blitline]: #createaccount
+  [Création d'une tâche Blitline]: #createjob
+  [Enregistrement d'une image sur Azure Storage]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

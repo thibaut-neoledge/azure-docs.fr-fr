@@ -142,4 +142,4 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 [Logon]: virtual-machines-linux-how-to-log-on.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

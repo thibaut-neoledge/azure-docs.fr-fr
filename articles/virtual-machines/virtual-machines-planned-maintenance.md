@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="06/29/2015" 
 	ms.author="kenazk"/>
 
 
 # Maintenance planifiée des machines virtuelles Azure
 
 ## Pourquoi Azure exécute une maintenance planifiée
-<p>Microsoft Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte qui supporte les machines virtuelles. Nombre de ces mises à jour sont exécutées sans impact sur les machines virtuelles ou services cloud. Cependant, certaines d'entre elles requièrent un redémarrage de votre machine virtuelle pour appliquer les mises à jour requises sur l'infrastructure. La machine virtuelle est éteinte lorsqu'on applique le correctif sur l'infrastructure, puis les machines virtuelles sont redémarrées. Notez qu'il existe deux sortes de maintenance qui peuvent avoir un impact sur la disponibilité de votre machine virtuelle : maintenance planifiée et non planifiée. Cette page décrit comment Microsoft Azure exécute une maintenance planifiée. Pour plus d'informations sur la maintenance non planifiée, consultez la page [Compréhension de la maintenance planifiée et non planifiée].
+<p>Microsoft Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte qui supporte les machines virtuelles. Nombre de ces mises à jour sont exécutées sans impact sur les machines virtuelles ou les services cloud, y compris les mises à jour de préservation de la mémoire. Cependant, certaines d'entre elles requièrent un redémarrage de votre machine virtuelle pour appliquer les mises à jour requises sur l'infrastructure. La machine virtuelle est éteinte lorsqu'on applique le correctif sur l'infrastructure, puis les machines virtuelles sont redémarrées. Notez qu'il existe deux sortes de maintenance qui peuvent avoir un impact sur la disponibilité de votre machine virtuelle : maintenance planifiée et non planifiée. Cette page décrit comment Microsoft Azure exécute une maintenance planifiée. Pour plus d'informations sur la maintenance non planifiée, consultez la page [Compréhension de la maintenance planifiée et non planifiée].
+
+## Mises à jour de préservation de la mémoire
+Pour une classe de mises à jour dans Microsoft Azure, les clients ne verront aucun impact sur leurs machines virtuelles en cours d'exécution. La plupart de ces mises à jour sont des composants ou des services qui peuvent être mis à jour sans interférer avec l'instance en cours d'exécution. Certaines de ces mises à jour sont des mises à jour d’infrastructure de la plateforme sur le système d'exploitation hôte qui peuvent être appliquées sans requérir un redémarrage complet de la machine virtuelle. Ces mises à jour sont réalisées à l’aide de la technologie développée de l'équipe Azure qui vous permet d’effectuer une migration en direct ou une mise à jour de « préservation de la mémoire ». Lors de la mise à jour, la machine virtuelle est mise en pause, ce qui permet de préserver la mémoire RAM, pendant que le système d'exploitation hôte sous-jacent reçoit les correctifs et mises à jour nécessaires. La machine virtuelle est ensuite redémarrée après 30 secondes, ou moins, d’interruption. Une fois redémarrée, l'horloge de la machine virtuelle est automatiquement synchronisée.
+
+Les mises à jour ne peuvent pas toutes êtes déployées à l'aide de ce mécanisme, mais étant donné la courte interruption, ce type de déploiement des mises à jour réduit considérablement l'impact sur les machines virtuelles. Pour les machines virtuelles multi-instance (d’un groupe à haute disponibilité), ces mises à jour se voient appliquer un seul domaine de mise à jour à la fois.
 
 ## Configurations de machine virtuelle
 Deux types de configuration de machine virtuelle sont disponibles : multi-instance et d'instance unique. Les machines virtuelles multi-instance sont configurées en plaçant des machines virtuelles identiques dans un groupe à haute disponibilité. La configuration multi-instance offre une redondance. Elle est recommandée pour garantir la disponibilité de votre application. Toutes les machines virtuelles du groupe à haute disponibilité doivent être quasiment identiques et servir aux mêmes fins que votre application. Pour plus d’informations sur la configuration des machines virtuelles pour une haute disponibilité, voir l’article <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Gestion de la disponibilité des machines virtuelles</a>.
@@ -33,7 +38,7 @@ Lors de la maintenance planifiée, la plateforme Azure met d'abord à jour l'ens
 
 Pour plus d’informations sur les domaines de mise à jour et d’erreur, voir la section <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configuration de plusieurs machines dans un groupe à haute disponibilité pour assurer la redondance</a>.
 
-Microsoft Azure garantit qu'aucun événement de maintenance planifiée n'entraîne la déconnexion de machines virtuelles de deux domaines de mise à jour simultanément. La maintenance est exécutée en arrêtant chaque machine virtuelle, en appliquant la mise à jour aux machines hôtes, en redémarrant la machine virtuelle et en passant au domaine de mise à jour suivant. L'événement de maintenance planifiée se termine une fois tous les domaines de mise à jour mis à jour. L'ordre de redémarrage des domaines de mise à jour peut ne pas être séquentiel lors de la maintenance planifiée, mais un seul domaine de mise à jour est redémarré à la fois. Aujourd'hui, aucune notification à l'avance de la maintenance planifiée n'est fournie pour les machines virtuelles dans la configuration multi-instance.
+Microsoft Azure garantit qu'aucun événement de maintenance planifiée n'entraîne la déconnexion de machines virtuelles de deux domaines de mise à jour simultanément. La maintenance est exécutée en arrêtant chaque machine virtuelle, en appliquant la mise à jour aux machines hôtes, en redémarrant la machine virtuelle et en passant au domaine de mise à jour suivant. L'événement de maintenance planifiée se termine une fois tous les domaines de mise à jour mis à jour. L'ordre de redémarrage des domaines de mise à jour peut ne pas être séquentiel lors de la maintenance planifiée, mais un seul domaine de mise à jour est redémarré à la fois. Aujourd'hui, Azure vous fournit une notification 48 heures à l'avance de la maintenance planifiée des machines virtuelles dans la configuration multi-instance.
 
 Après la restauration de la machine virtuelle, voici un exemple de ce que votre observateur d'événements Windows peut afficher :
 
@@ -41,16 +46,16 @@ Après la restauration de la machine virtuelle, voici un exemple de ce que votre
 ![][image2]
 
 ## Mise à niveau d'une instance unique
-Une fois les mises à jour multi-instance terminées, Azure exécute la mise à jour sur l'ensemble des machines hôtes hébergeant les machines virtuelles à instance unique. Cette mise à jour entraîne également le redémarrage des machines virtuelles qui ne sont pas exécutées dans des groupes à haute disponibilité. Notez que même si vous n'avez qu'une seule instance fonctionnant dans un groupe à haute disponibilité, la plateforme Azure la considérera comme une multi-instance. Dans une configuration à instance unique, les machines virtuelles sont mises à jour en les éteignant, en appliquant la mise à jour à la machine hôte et en redémarrant la machine virtuelle. Ces mises à jour sont exécutées sur toutes les machines virtuelles d'une région dans une seule fenêtre de maintenance. Cet événement de maintenance planifiée aura un impact sur la disponibilité de votre application pour ce type de configuration de machine virtuelle.
+Une fois les mises à jour multi-instance terminées, Azure exécute la mise à jour sur l'ensemble des machines hôtes hébergeant les machines virtuelles à instance unique. Cette mise à jour entraîne également le redémarrage des machines virtuelles qui ne sont pas exécutées dans des groupes à haute disponibilité. Notez que même si vous n'avez qu'une seule instance fonctionnant dans un groupe à haute disponibilité, la plateforme Azure la considérera comme une multi-instance. Dans une configuration à instance unique, les machines virtuelles sont mises à jour en les éteignant, en appliquant la mise à jour à la machine hôte et en redémarrant la machine virtuelle. Ces mises à jour sont exécutées sur toutes les machines virtuelles d'une région dans une seule fenêtre de maintenance. Cet événement de maintenance planifiée aura un impact sur la disponibilité de votre application pour ce type de configuration de machine virtuelle. Aujourd'hui, Azure vous fournit une notification une semaine à l'avance de la maintenance planifiée des machines virtuelles dans la configuration à instance unique.
  
 ### Notification par courrier électronique
-Pour la configuration de machines virtuelles à instance unique uniquement, Azure envoie des courriers électroniques au moins une semaine à l'avance afin de vous avertir de la maintenance planifiée. Ces courriers électroniques sont envoyés sur le compte électronique principal indiqué lors de l'inscription. Vous en trouverez un exemple ci-dessous :
+Pour les machines virtuelles multi-instance et à instance unique uniquement, Azure vous envoie à l’avance un message électronique pour vous informer de la prochaine maintenance planifiée (une semaine à l'avance pour les instances uniques et 48 heures à l'avance pour les instances multi-instance). Ces courriers électroniques sont envoyés sur le compte électronique principal indiqué lors de l'inscription. Vous en trouverez un exemple ci-dessous :
 
 <!--Image reference-->
 ![][image1]
 
 ## Paires de régions
-Azure organise les régions sous forme de paires et garantit qu’une maintenance planifiée ne portera que sur une seule région de chaque paire. Azure ne déploie pas une mise à jour sur les deux régions d’une même paire dans le cadre d’une maintenance planifiée. Pour plus d’informations sur les paires de régions actuelles, reportez-vous au tableau ci-dessous :
+Azure organise les régions sous forme de paires et garantit que, pour des mises à jour à instance unique, une maintenance planifiée ne portera que sur une seule région de chaque paire. Azure ne déploie pas une mise à jour sur les deux régions d’une même paire dans le cadre d’une maintenance planifiée de machines virtuelles à instance unique. Pour plus d’informations sur les paires de régions actuelles, reportez-vous au tableau ci-dessous :
 
 Région 1 | Région 2
 :----- | ------:
@@ -75,5 +80,6 @@ Par exemple, lors du déploiement d’une maintenance planifiée, Azure n’effe
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Compréhension de la maintenance planifiée et non planifiée]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

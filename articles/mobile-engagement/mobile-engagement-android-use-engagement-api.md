@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
@@ -296,5 +296,6 @@ Les informations de l'application sont limitées à **1024** caractères par ap
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"expiration":"2016-12-07","status":"premium"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -56,4 +56,4 @@ Ce didacticiel vous a montré comment créer une machine virtuelle Windows Serv
 [AzureManagementPortal]: http://manage.windowsazure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

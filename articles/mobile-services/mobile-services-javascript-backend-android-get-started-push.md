@@ -15,25 +15,23 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 
-# Ajout de notifications push à votre application Mobile Services
+# Ajout de notifications push à votre application Android Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ## Résumé
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (GCM). Dans ce didacticiel, vous allez activer des notifications Push dans le projet de démarrage rapide à l'aide d'Azure Notification Hubs. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Android à l'aide de Google Cloud Messaging (« GCM »). Vous allez ajouter des notifications Push au projet de démarrage rapide nécessaire pour ce didacticiel. Les notifications Push sont activées à l'aide du concentrateur de notification Azure qui est inclus dans votre service mobile. Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
 <!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
 -->
 
-> [AZURE.NOTE]Si vous souhaitez consulter la version Eclipse de ce didacticiel, allez à : [Prise en main des notifications Push (Eclipse)].
 
-
-##Configuration requise
+## Composants requis
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -47,9 +45,7 @@ Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des no
 
 ##<a id="add-push"></a>Ajout de notifications Push à votre application
 
-###Vérification de la version du Kit de développement logiciel (SDK) Android
 
-[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
@@ -75,19 +71,13 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 
 ###Configuration de l'émulateur Android pour le test
 
-Lorsque vous exécutez cette application dans l'émulateur, veillez à utiliser un AVD (appareil virtuel Android) qui prend en charge les API Google.
+Quand vous exécutez cette application dans l’émulateur, veillez à utiliser un appareil virtuel Android (AVD) qui prend en charge les API Google.
 
-1. Redémarrez Eclipse, puis dans l'Explorateur de package, cliquez avec le bouton droit sur le projet, cliquez sur **Propriétés** et sur **Android**, activez **API Google** et cliquez sur **OK**.
-
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-import-android-properties.png)
-
-  	Cela permet de cibler le projet pour les API Google.
-
-2. Dans **Fenêtre**, sélectionnez **Gestionnaire d'appareil virtuel Android**, choisissez votre appareil, puis cliquez sur **Modifier**.
+1. À l'extrémité droite de la barre d'outils, sélectionnez le gestionnaire de périphériques virtuels Android, sélectionnez votre appareil, puis cliquez sur l'icône de modification à droite.
 
 	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. Sélectionnez **API Google** dans **Cible**, puis cliquez sur OK.
+2. Sélectionnez **Modifier** dans la ligne de description de l'appareil, sélectionnez **API Google**, puis cliquez sur OK.
 
    	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -95,16 +85,32 @@ Lorsque vous exécutez cette application dans l'émulateur, veillez à utiliser 
 
 ###Exécution du test
 
-1. Dans le menu **Exécuter** d'Eclipse, cliquez sur **Exécuter** pour démarrer l'application.
+1. Depuis l'élément de menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer le projet.
 
 2. Dans l'application, tapez un texte explicite, comme _Nouvelle tâche Mobile Services_ puis cliquez sur le bouton **Ajouter**.
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
-3. Faites glisser votre doigt du haut vers le bas de l'écran pour ouvrir le centre de notifications de l'appareil et afficher la notification.
+3. Balayez l'écran de haut en bas pour ouvrir le tiroir de notification de l'appareil et afficher la notification.
 
 
 Vous avez terminé ce didacticiel.
+
+## Résolution de problèmes
+
+### Vérification de la version du Kit de développement logiciel (SDK) Android
+
+[AZURE.INCLUDE [Vérification du Kit de développement logiciel (SDK)](../../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+## Versions de code antérieures
+
+Si vous souhaitez consulter la version Eclipse de ce didacticiel, allez à [Prise en main des notifications Push (Eclipse)].
+
+
+<!--
+To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
+-->
 
 
 ## <a name="next-steps"> </a>Étapes suivantes
@@ -171,5 +177,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

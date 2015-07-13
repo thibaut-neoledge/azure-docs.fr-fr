@@ -96,19 +96,19 @@ Votre application est maintenant prête et le principal du service est créé su
 ## Étapes suivantes
 Mise en route
 
-- [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
+- [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
+- [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
 - [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
 - [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md)  
   
 Création et déploiement d’applications
   
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
+- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
 - [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)  
 - [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Fonctions du modèle Azure Resource Manager](./resource-group-template-functions.md)  
+- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)  
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)  
-- [Déployer des ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
+- [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
   
 Organisation des ressources
   
@@ -134,4 +134,4 @@ Gestion et audit de l’accès
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

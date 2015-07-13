@@ -142,7 +142,7 @@ Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser 
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[cliasm]: virtual-machines-command-line-tools.md
-[cliarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

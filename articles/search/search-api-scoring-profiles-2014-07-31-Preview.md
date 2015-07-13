@@ -1,26 +1,14 @@
-<properties 
-	pageTitle="Profils de score (API REST Azure Search Version 2014-07-31-Preview)" 
-	description="Profils de score (API REST Azure Search Version 2014-07-31-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="Ajouter des profils de score à un index de recherche (version 2014-07-31-Preview de l’API REST)" description="Ajouter des profils de score à un index de recherche (version 2014-07-31-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
       
-#Profils de score (API REST Azure Search Version 2014-07-31-Preview)#
+#Ajouter des profils de score à un index de recherche (version 2014-07-31-Preview de l’API REST du service Azure Search).
 
-Le calcul de score consiste à calculer un score de recherche pour chaque élément renvoyé dans des résultats de recherche. Le score est un indicateur de la pertinence d'un élément dans le contexte de l'opération de recherche en cours. Plus le score est élevé, plus l'élément est pertinent. Dans des résultats de recherche, les éléments sont classés par ordre décroissant de pertinence, sur la base des résultats de recherche calculés pour chacun d'eux.
+Cette documentation sur les profils de score concerne l’ancienne version 2014-07-31-Preview de l’API REST du service Azure Search, qui a depuis été remplacée par la version disponible sur le marché sur [Profils de score (MSDN)](https://msdn.microsoft.com/library/dn798928.aspx).
 
-Le service Azure Search utilise un système de calcul par défaut pour générer les scores, mais vous pouvez personnaliser le mode de calcul à l'aide d'un profil de score. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock. 
+**À propos des profils de score**
+
+Le calcul de score consiste à calculer un score de recherche pour chaque élément renvoyé dans des résultats de recherche. Le score est un indicateur de la pertinence d'un élément dans le contexte de l'opération de recherche en cours. Plus le score est élevé, plus l'élément est pertinent. Dans des résultats de recherche, les éléments sont classés par ordre décroissant de pertinence, sur la base des résultats de recherche calculés pour chacun d'eux. Le service Azure Search utilise un système de calcul par défaut pour générer les scores, mais vous pouvez personnaliser le mode de calcul à l'aide d'un profil de score. Les profils de score vous permettent de mieux contrôler le classement d'éléments dans des résultats de recherche. Par exemple, vous pouvez privilégier des éléments en fonction de leur revenu potentiel, promouvoir des éléments plus récents, voire en favoriser d'autres restés trop longtemps en stock.
 
 Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres.
 
@@ -51,11 +39,11 @@ Pour utiliser ce profil de score, votre requête est formulée de façon à spé
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)]().
 
-Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#bkmk_ex) 
+Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#bkmk_ex)
 
-## Qu'est-ce qu'un calcul de score par défaut ? ##
+## Qu'est-ce qu'un calcul de score par défaut ?
 
 Un calcul de score détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas. Les éléments dont les scores sont plus élevés sont renvoyés à l'application. Par défaut, il s'agit des 50 premiers éléments, mais le paramètre `$top` vous permet de définir le renvoi d'un nombre supérieur ou inférieur d'éléments (jusqu'à 1 000 par réponse).
 
@@ -63,20 +51,19 @@ Par défaut, un score de recherche est calculé sur la base de propriétés stat
 
 Des valeurs de score de recherche peuvent être répétées dans un jeu de résultats. Par exemple, vous pouvez avoir dix éléments dont le score est 1,2, vingt éléments dont le score est 1,0, et vingt éléments dont le score est 0,5. Quand plusieurs correspondances ont le même score de recherche, le classement des éléments ayant le même score n'est ni défini ni stable. Si vous exécutez de nouveau la requête, il se peut que des éléments changent de position. Si deux éléments ont un score identique, il est impossible de prédire celui qui apparaîtra en première position.
 
-## Quand utiliser un calcul de score personnalisé##
+## Quand utiliser un calcul de score personnalisé
 
 Quand le classement par défaut produit des résultats trop éloignés de vos objectifs, vous devez créer un ou plusieurs profils de calcul de score. Par exemple, vous pouvez décider que la pertinence de la recherche doit privilégier les éléments récemment ajoutés. De même, il se peut qu'un champ affiche une marge bénéficiaire, ou un autre un revenu potentiel. La volonté de privilégier les correspondances qui génèrent des bénéfices pour votre entreprise peut être un facteur important dans la décision d'utiliser des profils de calcul de score.
 
 Un classement basé sur la pertinence peut également être mis en œuvre par l'intermédiaire de profils de calcul de score. Songez aux pages de résultats de recherche que vous avez utilisées par le passé, qui vous permettaient de trier par prix, date, évaluation ou pertinence. Dans Azure Search, les profils de calcul de score déterminent l'option « pertinence ». Vous contrôlez la définition de la pertinence en fonction de vos objectifs et du type d'expérience de recherche que vous souhaitez.
 
-<a name="example"></a>
-## Exemple##
+## Exemple
 
 Comme indiqué précédemment, un calcul de score personnalisé est mis en œuvre à l'aide d'un ou de plusieurs profils de calcul de score définis dans un schéma d'index.
 
 Cet exemple montre le schéma d'un index comprenant deux profils de calcul de score (`boostGenre`, `newAndHighlyRated`). Toute requête sur cet index qui comprend un profil comme paramètre de requête utilise le profil pour évaluer le jeu de résultats.
 
-[Essayez l'exemple suivant](search-get-started-scoring-profiles.md).
+[Essayez l'exemple suivant]().
 
     {
       "name": "musicstoreindex",
@@ -135,53 +122,21 @@ Cet exemple montre le schéma d'un index comprenant deux profils de calcul de sc
     }
 
 
-##Workflow##
+##Workflow
 
 Pour mettre en œuvre un calcul de score personnalisé, ajoutez un profil de calcul de score au schéma qui définit l'index. Vous pouvez avoir plusieurs profils de calcul de score au sein d'un index, mais vous ne pouvez spécifier qu'un seul profil à la fois dans une requête donnée.
 
-Commencez par le [Modèle][#bkmk_template] fourni dans cette rubrique.
+Commencez par le [Modèle](#bkmk_template) fourni dans cette rubrique.
 
-Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous en ajoutez un, le nom est obligatoire. Veillez à respecter les conventions d'affectation des noms pour les champs (commencer par une lettre, en évitant les caractères spéciaux et les mots réservés). Pour en savoir plus sur les règles d'affectation des noms, consultez [Règles d'affectation des noms](http://msdn.microsoft.com/library/azure/dn857353.aspx).
+Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous en ajoutez un, le nom est obligatoire. Veillez à respecter les conventions d'affectation des noms pour les champs (commencer par une lettre, en évitant les caractères spéciaux et les mots réservés). Pour en savoir plus, consultez la rubrique [Règles d'affectation des noms](https://msdn.microsoft.com/library/dn857353.aspx).
 
 Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>élément</td><td>description</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Pondérations</b></td>
-<td>
-Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex], les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.
-</td>
-</tr>
-<tr>
-<td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques.
-<br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness.
-<br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier
-<br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`.
-<br>
-<b>Règles d'utilisation des fonctions</b>
-<br>
-Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules.
-<br>
-Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
-<br>
-Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index](search-api-2014-10-20-preview.md#createindex) (API Azure Search).
-<br>
-Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>élément</td><td>description</td></tr></thead> <tbody <tr> <td><b>Pondérations</b></td> <td> Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante. </td> </tr> <tr> <td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques. <br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness. <br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier <br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`. <br> <b>Règles d'utilisation des fonctions</b> <br> Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules. <br> Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier. <br> Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search). <br> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index. <td> </tr> </tbody> </table> </font>
 
-Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)](search-api-2014-10-20-preview.md#createindex) et [Ajout, mise à jour ou suppression de documents (API Azure Search)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
+Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)]() et [Ajout, mise à jour ou suppression de documents (API Azure Search)](). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
-<a name="bkmk_template"></a>
-##Modèle##
-
+##Modèle
 Cette section présente la syntaxe et le modèle de profils de calcul de score. Pour obtenir la description des attributs, consultez [Référence des attributs d'index](#bkmk_indexref) dans la section suivante.
 
     ...
@@ -228,8 +183,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
     "defaultScoringProfile": (optional) "...",
     ...
 
-<a name="bkmk_indexref"></a>
-##Référence des attributs d'index##
+##Référence des attributs d'index
 
 **Remarque** Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.
 
@@ -278,20 +232,18 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 </tr><tr>
 <td>distance</td>	<td>La fonction de calcul de score à distance est utilisée pour affecter le score de documents sur la base de leur proximité ou de l'éloignement par rapport à un emplacement géographique de référence. L'emplacement de référence est indiqué comme partie intégrante de la requête dans un paramètre (à l'aide de l'option de chaîne scoringParameterquery) en tant qu'argument lon,lat.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Search Documents (API Azure Search)](../search-api-2014-07-31-preview.md#SearchDocs).</td>
+<td>distance | referencePointParameter</td>	<td>Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Search Documents (Azure Search API)]().</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>Nombre indiquant la distance en kilomètres par rapport à l'emplacement de référence où la valorisation se termine.</td>
 </tr><tr>
-<td>functionAggregation</td>	<td>Facultatif. S'applique uniquement quand des fonctions sont spécifiées. Les valeurs autorisées sont les suivantes : sum (par défaut), average, minimum, maximum et firstMatching. Un score de recherche est une valeur unique calculée à partir de plusieurs variables, notamment plusieurs fonctions. Cet attribut indique comment les valorisations de toutes les fonctions sont combinées en une valorisation agrégée qui est ensuite appliquée au score du document de base. Le score de base dépend de la valeur tf-idf calculée à partir du document et de la requête de recherche.</td>
+<td>functionAggregation</td>	<td>facultatif. S'applique uniquement quand des fonctions sont spécifiées. Les valeurs autorisées sont les suivantes : sum (par défaut), average, minimum, maximum et firstMatching. Un score de recherche est une valeur unique calculée à partir de plusieurs variables, notamment plusieurs fonctions. Cet attribut indique comment les valorisations de toutes les fonctions sont combinées en une valorisation agrégée qui est ensuite appliquée au score du document de base. Le score de base dépend de la valeur tf-idf calculée à partir du document et de la requête de recherche.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>Lors de l'exécution d'une demande de recherche, le calcul de score par défaut est utilisé (tf-idf uniquement) si aucun profil de calcul de score n'est spécifié. Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce qu'Azure Search utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche.
-</td>
+<td>defaultScoringProfile</td>	<td>Lors de l'exécution d'une demande de recherche, le calcul de score par défaut est utilisé (tf-idf uniquement) si aucun profil de calcul de score n'est spécifié. Un nom de profil de calcul de score par défaut peut être défini ici de façon à ce qu'Azure Search utilise ce profil quand aucun profil spécifique n'est fourni dans la requête de recherche. </td>
 </tr>
 </tbody>
 </table>
 
-<a name="bkmk_interpolation"></a>
-##Définition d'interpolations##
+##Définition d'interpolations
 
 Les interpolations permettent de définir la pente pour laquelle le score augmente, du début à la fin de la plage. Les interpolations utilisables sont les suivantes :
 
@@ -303,15 +255,14 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 
 - `Logarithmic` Par rapport à une interpolation de type Linear dont la valorisation décroît de façon constante, une interpolation de type Logarithmic décroît initialement plus rapidement, puis, lorsqu'elle approche de la plage de fin, beaucoup plus lentement.
  
-<a name="Figure1"></a>
-![][1]
+<a name="Figure1"></a> ![](https://findable.blob.core.windows.net/docs/scoring_interpolations.png)
 
-<a name="bkmk_boostdur"></a>
-##Définition de boostingDuration##
+<a name="bkmk_boostdu"></a>
+##Définition de boostingDuration
 
 `boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants.
 
-La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle appliqué est : « P[nD][T[nH][nM][nS]] ».
+La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle appliqué est : « P(nD)(T(nH)(nM)(nS)) ».
 
 Le tableau suivant fournit plusieurs exemples.
 
@@ -334,12 +285,12 @@ Le tableau suivant fournit plusieurs exemples.
 </tbody>
 </table>
 
+Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.org)]().
+
 **Voir aussi**
 
-Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.org)](http://www.w3.org/TR/xmlschema11-2/). [API REST du service Azure Search ](http://msdn.microsoft.com/library/azure/dn798935.aspx) sur MSDN <br/> [Création d'index (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798941.aspx) sur MSDN<br/> [Ajouter un profil de score à un index de recherche](http://msdn.microsoft.com/library/azure/dn798928.aspx) sur MSDN<br/>
+Création d’index de l’API REST du services Azure Search (API d’Azure Search) ________________________________________
 
-<!--Image references-->
-[1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
+ 
 
-
-<!---HONumber=54--> 
+<!---HONumber=July15_HO1-->

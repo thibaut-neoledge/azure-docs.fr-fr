@@ -37,4 +37,4 @@
 
    	Cela inscrit un nouveau script d’insertion qui utilise l’[objet gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) pour envoyer une notification Push à tous les appareils inscrits après l’insertion.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

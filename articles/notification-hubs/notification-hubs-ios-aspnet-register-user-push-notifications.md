@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Inscription de l'utilisateur actif aux notifications Push au moyen de l'API web - Notification Hubs" 
-	description="Découvrez comment demander l'inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API web ASP.NET." 
+	pageTitle="Inscription de l’utilisateur actif aux notifications Push au moyen de l’API web - Notification Hubs" 
+	description="Découvrez comment demander l’inscription aux notifications Push dans une application iOS avec Azure Notification Hubs lorsque l’inscription est réalisée par l’API web ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
 	authors="wesmc7777" 
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
-# Inscription de l'utilisateur actif aux notifications Push à l'aide d'ASP.NET
+# Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
     <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
@@ -23,21 +23,21 @@
 
 ##Vue d'ensemble
 
-Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l'inscription est réalisée par l'API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
+Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l’inscription est réalisée par l’API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
 
 ##Mise à jour de votre application  
 
-1. Dans MainStoryboard_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d'objets :
+1. Dans MainStoryboard_iPhone.storyboard, ajoutez les composants suivants de la bibliothèque d’objets :
 
-	+ **Étiquette** : "Push to User with Notification Hubs"
-	+ **Étiquette** : "InstallationId"
-	+ **Étiquette** : "User"
-	+ **Champ de texte** : "User"
-	+ **Étiquette** : "Password"
-	+ **Champ de texte** : "Password"
-	+ **Bouton** : "Login"
+	+ **Étiquette** : « Envoi d’une notification Push à l’utilisateur avec Notification Hubs »
+	+ **Étiquette** : « InstallationId »
+	+ **Étiquette** : « Utilisateur »
+	+ **Zone de texte** : « Utilisateur »
+	+ **Étiquette** : « Mot de passe »
+	+ **Zone de texte** : « Mot de passe »
+	+ **Bouton** : « Connexion »
 
-	À ce stade, votre storyboard a normalement l'aspect suivant :
+	À ce stade, votre storyboard a normalement l’aspect suivant :
 
    	![][0]
 
@@ -45,7 +45,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
    	![][1]
 
-   	Le fichier BreakingNewsViewController.h doit désormais contenir le code suivant :
+   	Le fichier BreakingNewsViewController.h doit désormais contenir le code suivant :
 
 		@property (weak, nonatomic) IBOutlet UILabel *installationId;
 		@property (weak, nonatomic) IBOutlet UITextField *User;
@@ -53,12 +53,12 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 		- (IBAction)login:(id)sender;
 
-5. Créez une classe nommée **DeviceInfo**, puis copiez le code suivant dans la section de l'interface du fichier DeviceInfo.h :
+5. Créez une classe nommée **DeviceInfo**, puis copiez le code suivant dans la section de l'interface du fichier DeviceInfo.h :
 
 		@property (readonly, nonatomic) NSString* installationId;
 		@property (nonatomic) NSData* deviceToken;
 
-6. Copiez le code suivant dans la section d'implémentation du fichier DeviceInfo.m :
+6. Copiez le code suivant dans la section d'implémentation du fichier DeviceInfo.m :
 
 			@synthesize installationId = _installationId;
 
@@ -90,11 +90,11 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 			    return hexToken;
 			}
 
-7. Dans PushToUserAppDelegate.h, ajoutez le singleton de propriété suivant :
+7. Dans PushToUserAppDelegate.h, ajoutez le singleton de propriété suivant :
 
 		@property (strong, nonatomic) DeviceInfo* deviceInfo;
 
-8. Dans la méthode **didFinishLaunchingWithOptions** du fichier PushToUserAppDelegate.m, ajoutez le code suivant :
+8. Dans la méthode **didFinishLaunchingWithOptions** du fichier PushToUserAppDelegate.m, ajoutez le code suivant :
 
 		self.deviceInfo = [[DeviceInfo alloc] init];
 
@@ -102,15 +102,15 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 	La première ligne initialise le singleton **DeviceInfo**. La seconde ligne lance l'inscription pour les notifications Push, qui est déjà présente si vous avez préalablement suivi le didacticiel [Prise en main de Notification Hubs].
 
-9. Dans PushToUserAppDelegate.m, implémentez la méthode **didRegisterForRemoteNotificationsWithDeviceToken** dans AppDelegate et ajoutez le code suivant :
+9. Dans PushToUserAppDelegate.m, implémentez la méthode **didRegisterForRemoteNotificationsWithDeviceToken** dans AppDelegate et ajoutez le code suivant :
 
 		self.deviceInfo.deviceToken = deviceToken;
 
-	Cela définit le jeton d'appareil de la requête.
+	Cela définit le jeton d’appareil de la requête.
 
-	> [AZURE.NOTE] À ce stade, il ne doit pas y avoir d'autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée dans le cadre du didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") vous devez placer l'appel en commentaire ou le supprimer.
+	> [AZURE.NOTE]À ce stade, il ne doit pas y avoir d’autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), vous devez placer l'appel en commentaire ou le supprimer.
 
-10.	Dans le fichier PushToUserAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
+10.	Dans le fichier PushToUserAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
 
 		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
@@ -122,7 +122,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 
 	 Cette méthode affiche une alerte dans l'interface utilisateur lorsque votre application reçoit des notifications alors qu'elle est en cours d'exécution.
 
-9. Ouvrez le fichier PushToUserViewController.m et revenez au clavier dans l'implémentation suivante :
+9. Ouvrez le fichier PushToUserViewController.m et revenez au clavier dans l'implémentation suivante :
 
 		- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
 		    if (theTextField == self.User || theTextField == self.Password) {
@@ -131,17 +131,17 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 		    return YES;
 		}
 
-9. Dans la méthode **viewDidLoad** du fichier PushToUserViewController.m, initialisez l'étiquette installationId comme suit :
+9. Dans la méthode **viewDidLoad** du fichier PushToUserViewController.m, initialisez l'étiquette installationId comme suit :
 
 		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 		Self.installationId.text = deviceInfo.installationId;
 
-10. Ajoutez les propriétés suivantes à l'interface du fichier PushToUserViewController.m :
+10. Ajoutez les propriétés suivantes à l'interface du fichier PushToUserViewController.m :
 
 		@property (readonly) NSOperationQueue* downloadQueue;
 		- (NSString*)base64forData:(NSData*)theData;
 
-11. Ajoutez ensuite l'implémentation suivante :
+11. Ajoutez ensuite l'implémentation suivante :
 
 			- (NSOperationQueue *)downloadQueue {
 			    if (!_downloadQueue) {
@@ -186,7 +186,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
 			}
 
 
-12. Copiez le code suivant dans la méthode de gestionnaire **login** créée par XCode :
+12. Copiez le code suivant dans la méthode de gestionnaire **login** créée par XCode :
 
 			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 
@@ -232,7 +232,8 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 <!-- URLs. -->
 [Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Portail de gestion Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

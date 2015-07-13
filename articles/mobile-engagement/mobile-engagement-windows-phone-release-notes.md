@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -26,8 +26,9 @@
 
 ##2.0.0 (17/02/2015)
 
--   Version initiale d'Azure Mobile Engagement 
+-   Version initiale d'Azure Mobile Engagement
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Améliorations de sécurité.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

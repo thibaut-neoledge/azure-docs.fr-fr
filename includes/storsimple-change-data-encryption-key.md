@@ -1,3 +1,4 @@
+
 ### Étape 1 : autoriser un appareil à modifier la clé de chiffrement des données du service dans le portail de gestion
 
 En règle générale, l’administrateur de l’appareil demande que l’administrateur du service autorise un appareil à modifier les clés de chiffrement des données du service. Ensuite, l’administrateur du service autorise l’appareil à modifier la clé.
@@ -30,7 +31,7 @@ Procédez comme suit pour sélectionner et autoriser un appareil à démarrer la
 
 2. Dans la boîte de dialogue **Modifier la clé de chiffrement de données du service**, sélectionnez et autorisez un appareil à démarrer la modification de clé de chiffrement des données du service. La liste déroulante contient tous les appareils pouvant être autorisés.
 
-3. Cliquez sur l’icône en forme de coche. ![icône en forme de coche](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
 ### Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service
 
@@ -44,7 +45,7 @@ Si vous utilisez la console série de l’appareil pour vous connecter à l’in
 
 1. Sélectionnez Option 1 pour vous connecter avec un accès complet.
 
-2. À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
 
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 
@@ -66,10 +67,10 @@ Procédez comme suit pour mettre à jour le chiffrement des données du service 
 
 1. Utilisez Windows PowerShell pour StorSimple pour vous connecter à la console. Sélectionnez Option 1 pour vous connecter avec un accès complet.
 
-2. À l’invite de commandes, tapez :
+2.  À l’invite de commandes, tapez :
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Entrez la clé de chiffrement des données du service obtenue lors de l’[Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change).
+3. Entrez la clé de chiffrement des données du service obtenue lors de l’[Étape 2 : utiliser Windows PowerShell pour StorSimple pour démarrer la modification de la clé de chiffrement des données du service](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

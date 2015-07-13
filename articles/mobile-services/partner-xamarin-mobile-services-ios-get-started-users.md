@@ -10,17 +10,17 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Cette rubrique vous présente l'authentification des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
+Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
@@ -32,11 +32,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 [Xamarin.iOS], XCode 6.0 et iOS 7.0 ou versions ultérieures sont requis pour suivre ce didacticiel.
 
-<h2><a name="register"></a>Inscription de votre application pour l'authentification et configuration de Mobile Services</h2>
+##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés</h2>
+##<a name="permissions"></a>Restreindre les autorisations aux utilisateurs authentifiés
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,17 +50,17 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-<h2><a name="add-authentication"></a>Ajout de l'authentification à l'application</h2>
+##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
-1. Ouvrez le fichier de projet **TodoService** et ajoutez les variables suivantes.
+1. Ouvrez le fichier de projet **ToDoService** et ajoutez les variables suivantes.
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **TodoService** en la définissant comme suit :
+2. Ensuite, ajoutez une nouvelle méthode intitulée **Authenticate** à **ToDoService** en la définissant comme suit :
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -74,34 +74,34 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 	> [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité qu'un compte Microsoft, remplacez la valeur passée à la méthode **LoginAsync** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
 
-3. Déplacez la demande de la table **TodoItem** depuis le constructeur **TodoService** vers une nouvelle méthode intitulée **CreateTable** :
+3. Déplacez la demande de la table **ToDoItem** du constructeur **ToDoService** vers une nouvelle méthode intitulée **CreateTable** :
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Créez une méthode publique asynchrone nommée **LoginAndGetData** en la définissant comme suit :
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **TodoService** ne possède pas de descripteur sur l'utilisateur :
+5. Dans **TodoListViewController**, annulez la méthode **ViewDidAppear** et définissez-la comme indiqué ci-dessous. Ce code connecte l'utilisateur si le **ToDoService** ne possède pas de descripteur sur l'utilisateur :
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
@@ -149,5 +149,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Azure Management Portal]: https://manage.windowsazure.com/
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

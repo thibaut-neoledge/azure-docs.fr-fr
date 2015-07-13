@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis  un stockage Azure Blob" 
-	description="Déplacer des données vers et depuis  un stockage Azure Blob" 
-	services="machine-learning" 
+	pageTitle="Déplacer des données vers et depuis un stockage Azure Blob | Microsoft Azure" 
+	description="Déplacer des données vers et depuis un stockage Azure Blob" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,sachouks" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,48 +13,46 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,sachouks" />
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;sachouks;mohabib;bradsev" />
 
 # Déplacer des données vers et depuis un stockage Azure Blob
 
-L'article sur les [exemples de scénarios de science des données Cloud](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios) vous aide à déterminer les ressources dont vous avez besoin pour différents processus de science des données. Si vous devez déplacer des données vers ou depuis le stockage Azure Blob basé sur votre scénario, optez pour l'une des méthodes suivantes :
+L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée. Si vous devez déplacer des données vers ou depuis le stockage Azure Blob basé sur votre scénario, optez pour l’une des méthodes suivantes :
 
-- [Utilisation d'Azure Storage Explorer](#explorer)
-- [Utilisation de l'utilitaire de ligne de commande AzCopy](#AzCopy)
-- [Utilisation d'Azure SDK dans Python](#PythonSDK)
+- [Utilisation d’Azure Storage Explorer](#explorer)
+- [Utilisation de l’utilitaire de ligne de commande AzCopy](#AzCopy)
+- [Utilisation du Kit de développement logiciel (SDK) Azure dans Python](#PythonSDK)
 
 
+> [AZURE.TIP]Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/fr-fr/services/data-factory/) pour créer et planifier un pipeline qui permet de télécharger des données depuis le stockage d’objets blob Azure, de le transférer à un service web Azure Machine Learning publié, de recevoir les résultats d’analyse prédictive et de télécharger les résultats dans le stockage. Pour plus d’informations, consultez la page [Créer des pipelines prédictifs à l’aide d’Azure Data Factory et Azure Machine Learning](../data-factory/data-factory-create-predictive-pipelines.md).
 
-> [AZURE.NOTE] Pour une présentation complète du stockage Azure Blob, consultez les articles [Fonctionnalités de base d'Azure Blob](../storage-dotnet-how-to-use-blobs.md) et  [Concepts de service Blob](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
+<para></para>
 
-Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour des instructions sur la façon d'obtenir ces informations, consultez la section " Afficher, copier et regénérer les clés d'accès au stockage " de l'article [Gérer des comptes de stockage](../storage-create-storage-account.md). Ce document suppose que vous avez un compte Azure Storage ainsi que la ou les clés de stockage correspondantes.
+> [AZURE.NOTE]Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+
+Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d'obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d'accès de stockage » de l'article [Gestion des comptes de stockage](../storage-create-storage-account.md). Ce document suppose que vous avez un compte Azure Storage ainsi que la ou les clés de stockage correspondantes.
+
 
 <a id="explorer"></a>
 ## Utiliser Azure Storage Explorer 
 
-Azure Storage Explorer est un outil Windows gratuit qui permet d'examiner et de modifier des données dans un compte de stockage Azure. Il est téléchargeable sur le site [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/). Les étapes suivantes expliquent comment charger ou télécharger des données à l'aide d'Azure Storage Explorer. 
+Azure Storage Explorer est un outil Windows gratuit qui permet d’examiner et de modifier des données dans un compte de stockage Azure. Il est téléchargeable sur le site [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/). Les étapes suivantes expliquent comment charger ou télécharger des données à l’aide d’Azure Storage Explorer.
 
 1.  Lancez Azure Storage Explorer. 
-2.  Si le compte de stockage auquel vous souhaitez accéder ne figure pas dans Azure Storage Explorer, cliquez sur le bouton " Ajouter un compte " pour ajouter le compte. S'il est déjà ajouté, sélectionnez-le dans la liste déroulante " Sélectionner un compte de stockage ".  
-![Create workspace][1]
-<br>
-3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s'affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteur pour en afficher les blobs dans le panneau droit.  
-![Create workspace][2]
-<br>
-![Create workspace][3]
-<br>
-4. Chargez les données en cliquant sur le bouton " Charger ". Sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur " Ouvrir " pour lancer le chargement.
-5. Téléchargez les données en sélectionnant le blob dans le conteneur correspondant et en cliquant sur le bouton " Télécharger ".
+2.  Si le compte de stockage auquel vous souhaitez accéder ne figure pas dans Azure Storage Explorer, cliquez sur le bouton « Ajouter un compte » pour ajouter le compte. S’il est déjà ajouté, sélectionnez-le dans la liste déroulante « Sélectionner un compte de stockage ». ![Create workspace][1] <br>
+3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s’affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteneur pour en afficher les objets blob dans le panneau droit. ![Create workspace][2] <br> ![Create workspace][3] <br>
+4. Chargez les données en cliquant sur le bouton « Charger ». Sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur « Ouvrir » pour lancer le chargement.
+5. Téléchargez les données en sélectionnant le blob dans le conteneur correspondant et en cliquant sur le bouton « Télécharger ».
 
 <a id="AzCopy"></a>
-## Utilisation d'AzCopy
+## Utilisation d’AzCopy
 
-AzCopy est un utilitaire de ligne de commande, qui permet de charger et télécharger des données. 
+AzCopy est un utilitaire de ligne de commande, qui permet de charger et télécharger des données.
 
-**Attention** Si vous utilisez une machine autre que la machine virtuelle créée plus tôt dans le processus de science des données Cloud, installez AzCopy en procédant comme suit : [Téléchargez et installez AzCopy](../storage-use-azcopy.md#install).
+**Attention** Si vous utilisez une autre machine que la machine virtuelle créée plus tôt dans le processus d’analyse avancée, installez AzCopy en procédant comme suit : [Télécharger et installer AzCopy](../storage-use-azcopy.md#install).
 
-####Exemples de chargement/téléchargement de fichiers vers/depuis des blobs :
+###Exemples de chargement/téléchargement de fichiers vers/depuis des blobs :
 
 	# Uploading from local file system
 	AzCopy /Source:<your_local_directory> /Dest: https://<your_account_name>.blob.core.windows.net/<your_container_name> /DestKey:<your_account_key> /S 
@@ -72,50 +70,48 @@ AzCopy est un utilitaire de ligne de commande, qui permet de charger et téléch
 	<your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
 	<file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
 
-> [AZURE.TIP]   
-> 1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés.  
-> 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu'à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés.  
-> 3.  Vous ne pouvez pas spécifier un fichier de blob à télécharger, à l'aide du paramètre /Source. Pour ce faire, indiquez le nom du fichier de blob à télécharger et déclarez le paramètre /Pattern. Le paramètre /S permet à AzCopy de rechercher un type de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire. 
+> [AZURE.TIP]1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés. 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu’à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés. 3. Vous ne pouvez pas spécifier un fichier de blob à télécharger, à l’aide du paramètre /Source. Pour télécharger un fichier spécifique, spécifiez le nom du fichier à télécharger à l’aide du paramètre /Pattern. Le paramètre /S peut être utilisé pour qu’AzCopy recherche un modèle de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire.
 
-Pour une utilisation détaillée d'AzCopy, consultez l'article [Prise en main de l'utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md#install).
+Pour une utilisation détaillée d’AzCopy, consultez l’article [Prise en main de l’utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md#install).
 
 
 <a id="PythonSDK"></a>
 ## Utiliser Python
 
-Avec l'API Python fournie dans le SDK Azure, vous pouvez :
+Avec l’API Python fournie dans le SDK Azure, vous pouvez :
 
-- Créer un conteneur.
+- Création d'un conteneur
 - Charger un blob dans un conteneur.
 - Télécharger des blobs.
-- Dresser la liste des blobs dans un conteneur.
+- Création d'une liste d'objets blob dans un conteneur
 - Supprimer un blob.
 
-Cette section décrit comment répertorier, charger et télécharger des blobs. Pour plus d'informations sur l'utilisation de l'API Python, consultez l'article [Comment utiliser le stockage Azure Blob à partir de Python](../storage-python-how-to-use-blob-storage.md). 
+Cette section décrit comment répertorier, charger et télécharger des blobs. Pour plus d’informations sur l’utilisation de l’API Python, consultez l’article [Comment utiliser le service de stockage d’objets blob à partir de Python](../storage-python-how-to-use-blob-storage.md).
 
-> [AZURE.NOTE] Si vous utilisez une machine autre que la machine virtuelle créée précédemment dans le processus de science des données Cloud, vous devez installer le [SDK Python Azure](../python-how-to-install.md) avant d'utiliser l'exemple de code ci-dessous.
+> [AZURE.NOTE]Si vous utilisez une autre machine que la machine virtuelle créée précédemment dans le processus d’analyse avancée, vous devez installer le [Kit de développement logiciel (SDK) Azure Python](../python-how-to-install.md) avant d’utiliser l’exemple de code ci-dessous.
 
-###Charger les données dans le blob
-Ajoutez la ligne suivante vers le début du code Python dans lequel vous souhaitez programmer l'accès au service Azure Storage :
+### Charger les données dans le blob
+
+Ajoutez la ligne suivante vers le début du code Python dans lequel vous souhaitez programmer l’accès au service Azure Storage :
 
 	from azure.storage import BlobService
 
-L'objet **BlobService** vous permet d'exploiter les conteneurs et les blobs. Le code suivant crée un objet BlobService à l'aide du nom et de la clé du compte de stockage. Remplacez le nom et la clé du compte de stockage par le nom et la clé de votre compte.
+L'objet **BlobService** permet d'utiliser des conteneurs et des objets blob. Le code suivant crée un objet BlobService à l’aide du nom et de la clé du compte de stockage. Remplacez le nom et la clé du compte de stockage par le nom et la clé de votre compte.
 	
 	blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
 
-Pour charger les données dans un blob, utilisez les méthodes suivantes :
+Pour charger les données dans un blob, utilisez les méthodes suivantes :
  
-1. put_block_blob_from_path (charge le contenu d'un fichier situé à l'emplacement spécifié)
-2. put_block_blob_from_file (charge le contenu d'un fichier/flux déjà ouvert)
-3. put_block_blob_from_bytes (charge un tableau d'octets)
-4. put_block_blob_from_text (charge la valeur de texte indiquée, dans l'encodage spécifié)
+1. put_block_blob_from_path (charge le contenu d’un fichier situé à l’emplacement spécifié)
+2. put_block_blob_from_file (charge le contenu d’un fichier/flux déjà ouvert)
+3. put_block_blob_from_bytes (charge un tableau d’octets)
+4. put_block_blob_from_text (charge la valeur de texte indiquée, dans l’encodage spécifié)
  
-L'exemple de code suivant charge un fichier local dans un conteneur :
+L’exemple de code suivant charge un fichier local dans un conteneur :
 	
 	blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-L'exemple de code suivant charge tous les fichiers (à l'exception des sous-répertoires) d'un répertoire local dans le blob :
+L’exemple de code suivant charge tous les fichiers (à l’exception des sous-répertoires) d’un répertoire local dans le blob :
 
 	from azure.storage import BlobService
 	from os import listdir
@@ -140,21 +136,17 @@ L'exemple de code suivant charge tous les fichiers (à l'exception des sous-rép
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
 
-###Télécharger des données à partir d'un blob
+### Télécharger des données à partir d’un blob
 
-Pour télécharger des données à partir d'un blob, utilisez les méthodes suivantes :
-1. get_blob_to_path
-2. get_blob_to_file
-3. get_blob_to_bytes
-4. get_blob_to_text 
+Utilisez les méthodes suivantes pour télécharger des données à partir d’un objet blob : 1. get_blob_to_path 2. get_blob_to_file 3. get_blob_to_bytes 4. get_blob_to_text
 
-Ces méthodes effectuent le traitement nécessaire lorsque les données dépassent 64 Mo. 
+Ces méthodes effectuent le traitement nécessaire lorsque les données dépassent 64 Mo.
 
-L'exemple de code suivant télécharge le contenu d'un blob d'un conteneur dans un fichier local : 
+L’exemple de code suivant télécharge le contenu d’un blob d’un conteneur dans un fichier local :
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-L'exemple de code suivant télécharge tous les blobs d'un conteneur. Il utilise list_blobs pour obtenir la liste des blobs disponibles dans le conteneur et les télécharge dans un répertoire local. 
+L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il utilise list_blobs pour obtenir la liste des objets blob disponibles dans le conteneur et les télécharge dans un répertoire local.
 
 	from azure.storage import BlobService
 	from os.path import join
@@ -181,5 +173,6 @@ L'exemple de code suivant télécharge tous les blobs d'un conteneur. Il utilise
 [1]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img1.png
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

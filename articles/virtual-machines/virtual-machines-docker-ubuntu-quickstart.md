@@ -79,5 +79,6 @@ L’idéal est de commencer en utilisant [Docker].
 [Docker scratch image]: https://docs.docker.com/articles/baseimages/#creating-a-simple-base-image-using-scratch
 [Canonical]: http://www.canonical.com/
 [MSOpenTech]: http://msopentech.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

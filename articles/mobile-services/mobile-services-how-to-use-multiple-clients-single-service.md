@@ -5,18 +5,19 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/> <tags 
+	editor="mollybos"/>
+<tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Prise en charge de plusieurs plateformes d'appareil à partir d'un seul service mobile
  
-L'un des principaux avantages associés à l'utilisation d'Azure Mobile Services dans le développement de vos applications mobiles est la possibilité d'utiliser un seul service backend qui prend en charge votre application sur plusieurs plateformes clientes. Mobile Services fournit des bibliothèques clientes natives pour les principales plateformes d'appareil, ce qui facilite le développement d'applications à l'aide d'un seul service backend et des outils de développement interplateforme. Cette rubrique présente les aspects liés à l’exécution de votre application sur plusieurs plateformes clientes tout en utilisant un seul backend de service mobile. Pour plus d'informations sur Mobile Services, consultez la rubrique [Centre de développement Mobile Services](/documentation/services/mobile-services/).
+L'un des principaux avantages associés à l'utilisation d'Azure Mobile Services dans le développement de vos applications mobiles est la possibilité d'utiliser un seul service backend qui prend en charge votre application sur plusieurs plateformes clientes. Mobile Services fournit des bibliothèques clientes natives pour les principales plateformes d'appareil, ce qui facilite le développement d'applications à l'aide d'un seul service backend et des outils de développement interplateforme. Cette rubrique présente les aspects liés à l’exécution de votre application sur plusieurs plateformes clientes tout en utilisant un seul service mobile principal.
 
 ##<a id="push"></a>Notifications Push interplateforme
 
@@ -205,5 +206,6 @@ La bibliothèque cliente .NET de Mobile Services prend en charge les application
 [L'avenir des développeurs Windows Phone 8]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Créer des applications Windows universelles pour tous les appareils Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Projet d'application Windows universelle pour Azure Mobile Services à l'aide du modèle MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services - Azure" 
+	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services" 
 	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	authors="juliako" 
 	manager="dwrede" 
@@ -13,38 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Procédure : Fourniture de contenu de diffusion en continu
+#Fourniture de contenu de diffusion en continu
 
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
-## Vue d'ensemble
+##Vue d'ensemble
 
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](media-services-encode-asset.md) explique comment encoder en un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise de ressources comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique. 
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise d’éléments multimédias comme décrit dans [cette](media-services-dotnet-configure-asset-delivery-policy.md) rubrique.
 
-Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
+Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.
 
-Cette rubrique montre comment créer un localisateur de diffusion en continu à la demande pour publier votre ressource et créer des URL de diffusion en continu lisse, MPEG DASH et TLS. Elle explique également la création d'URL de téléchargement progressif. 
+Cette rubrique montre comment créer un localisateur de diffusion en continu à la demande pour publier votre ressource et créer des URL de diffusion en continu lisse, MPEG DASH et TLS. Elle explique également la création d’URL de téléchargement progressif.
   	 
-## Création d'un localisateur de diffusion en continu à la demande
+##Création d’un localisateur de diffusion en continu à la demande
 
-Pour créer le localisateur de diffusion en continu à la demande et obtenir les URL, vous devez effectuer les opérations suivantes :
+Pour créer le localisateur de diffusion en continu à la demande et obtenir les URL, vous devez effectuer les opérations suivantes :
 
-   1. Définition d'une stratégie d'accès.
-   2. Création d'un localisateur de diffusion en continu à la demande.
+   1. Définition d’une stratégie d’accès.
+   2. Création d’un localisateur de diffusion en continu à la demande.
    3. Si vous envisagez de diffuser en continu, obtenez le fichier manifeste de diffusion en continu (.ism) dans la ressource. 
    		
 	Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource.  
-   4. Création d'URL vers le fichier manifeste ou les fichiers MP4. 
+   4. Création d’URL vers le fichier manifeste ou les fichiers MP4. 
    
 
-### Utilisation du Kit de développement logiciel (SDK) .NET de Media Services 
+###Utilisation du Kit de développement logiciel (SDK) .NET de Media Services 
 
-Création d'URL de diffusion 
+Création d’URL de diffusion
 
 	private static void BuildStreamingURLs(IAsset asset)
 	{
@@ -82,7 +82,7 @@ Création d'URL de diffusion
 	    Console.WriteLine();
 	}
 
-Le code fournit :
+Le code fournit :
 	
 	URL to manifest for client streaming using Smooth Streaming protocol:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
@@ -92,7 +92,7 @@ Le code fournit :
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
-Génération d'URL de téléchargement progressif 
+Génération d’URL de téléchargement progressif
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
 	{
@@ -122,7 +122,7 @@ Génération d'URL de téléchargement progressif
 	        Console.WriteLine(originLocator.Path + pd.Name);
 	}
 
-Le code fournit :
+Le code fournit :
 	
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -131,7 +131,7 @@ Le code fournit :
 	
 	. . . 
 
-### Utilisation des extensions du Kit de développement logiciel (SDK) Media Services pour .NET
+###Utilisation des extensions du Kit de développement logiciel (SDK) Media Services pour .NET
 
 Le code suivant appelle les méthodes des extensions du Kit de développement logiciel (SDK) .NET, qui créent un localisateur et génèrent les URL de diffusion en continu lisse, HLS et MPEG-DASH pour la diffusion adaptative en continu.
 
@@ -150,6 +150,6 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 	Console.WriteLine(smoothStreamingUri);
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

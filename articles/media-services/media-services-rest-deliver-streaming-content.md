@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Fourniture de contenu de diffusion en continu à partir de Media Services" 
-	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Le code utilise l'API REST." 
+	description="Apprenez à créer un localisateur utilisé pour générer une URL de diffusion en continu. Le code utilise l’API REST." 
 	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
@@ -13,41 +13,41 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Procédure : diffusion de contenu en continu
+#Fourniture de contenu de diffusion en continu
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
-## Vue d'ensemble
+##Vue d'ensemble
 
 
-Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d'un localisateur de diffusion en continu à la demande et la création d'une URL de diffusion en continu. La rubrique [Encodage d'une ressource](media-services-rest-encode-asset.md) indique comment encoder dans un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise de ressources comme décrit dans [cette](media-services-rest-configure-asset-delivery-policy.md) rubrique. 
+Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un localisateur de diffusion en continu à la demande et la création d’une URL de diffusion en continu. La rubrique [Encodage d’un élément multimédia](media-services-rest-encode-asset.md) indique comment encoder un ensemble de fichiers MP4 à débit adaptatif. Avant de créer un localisateur, vous devez configurer la stratégie de remise d’éléments multimédias comme décrit dans [cette](media-services-rest-configure-asset-delivery-policy.md) rubrique.
 
-Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
+Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.
 
-Cette rubrique montre comment créer un localisateur de diffusion en continu à la demande pour publier votre ressource et créer des URL de diffusion en continu lisse, MPEG DASH et TLS. Elle explique également la création d'URL de téléchargement progressif.
+Cette rubrique montre comment créer un localisateur de diffusion en continu à la demande pour publier votre ressource et créer des URL de diffusion en continu lisse, MPEG DASH et TLS. Elle explique également la création d’URL de téléchargement progressif.
 
-La [section](#types) suivante indique les types d'énumération dont les valeurs sont utilisées dans les appels REST.   
+La section [suivante](#types) indique les types d’énumération dont les valeurs sont utilisées dans les appels REST.
   
-## Création d'un localisateur de diffusion en continu à la demande
+##Création d’un localisateur de diffusion en continu à la demande
 
-Pour créer le localisateur de diffusion en continu à la demande et obtenir les URL, vous devez effectuer les opérations suivantes :
+Pour créer le localisateur de diffusion en continu à la demande et obtenir les URL, vous devez effectuer les opérations suivantes :
 
 
-   1. Définition d'une stratégie d'accès.
-   2. Création d'un localisateur de diffusion en continu à la demande.
+   1. Définition d’une stratégie d’accès.
+   2. Création d’un localisateur de diffusion en continu à la demande.
    3. Si vous envisagez de diffuser en continu, obtenez le fichier manifeste de diffusion en continu (.ism) dans la ressource. 
    		
 	Si vous souhaitez télécharger progressivement, obtenez les noms des fichiers MP4 dans la ressource. 
-   4. Création d'URL vers le fichier manifeste ou les fichiers MP4. 
+   4. Création d’URL vers le fichier manifeste ou les fichiers MP4. 
 
 
-### Définition d'une stratégie d'accès.
+###Définition d’une stratégie d’accès.
 
-Demande :
+Demande :
 		
 	POST https://media.windows.net/api/AccessPolicies HTTP/1.1
 	Content-Type: application/json
@@ -63,7 +63,7 @@ Demande :
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Réponse :
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -82,11 +82,11 @@ Response:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#AccessPolicies/@Element","Id":"nb:pid:UUID:69c80d98-7830-407f-a9af-e25f4b0d3e5f","Created":"2015-02-18T06:52:09.8862191Z","LastModified":"2015-02-18T06:52:09.8862191Z","Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 
-### Création d'un localisateur de diffusion en continu à la demande
+###Création d’un localisateur de diffusion en continu à la demande
 
 Créez le localisateur pour la ressource et la stratégie de ressource spécifiées.
 
-Demande :
+Demande :
 	
 	POST https://media.windows.net/api/Locators HTTP/1.1
 	Content-Type: application/json
@@ -102,7 +102,7 @@ Demande :
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Response:
+Réponse :
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -121,42 +121,42 @@ Response:
 	
 	{"odata.metadata":"https://media.windows.net/api/$metadata#Locators/@Element","Id":"nb:lid:UUID:be245661-2bbd-4fc6-b14f-9cf9a1492e5e","ExpirationDateTime":"2015-03-20T06:34:47.267872+00:00","Type":2,"Path":"http://amstest1.streaming.mediaservices.windows.net/be245661-2bbd-4fc6-b14f-9cf9a1492e5e/","BaseUri":"http://amstest1.streaming.mediaservices.windows.net","ContentAccessComponent":"be245661-2bbd-4fc6-b14f-9cf9a1492e5e","AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872+00:00","Name":null}
 
-### Création d'URL de diffusion
+###Création d’URL de diffusion
 
-Utilisez la valeur de **chemin d'accès** renvoyée après la création du localisateur pour générer les URL lisse, TLS et MPEG DASH. 
+Utilisez la valeur **Chemin d’accès** renvoyée après la création du localisateur pour générer les URL Smooth, HLS et MPEG DASH.
 
-Smooth Streaming : **Chemin d'accès** + nom du fichier manifeste + "/manifest"
+Smooth Streaming : **Chemin d’accès** + nom du fichier manifeste + "/manifest"
 
-exemple :
+exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
-HLS : **Chemin d'accès** + nom du fichier manifeste + "/manifest(format=m3u8-aapl)"
+HLS : **Chemin d’accès** + nom du fichier manifeste "/manifest(format=m3u8-aapl)"
 
-exemple :
+exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
-DASH : **Chemin d'accès** + nom du fichier manifeste + "/manifest(format=mpd-time-csf)"
+DASH : **Chemin d’accès** + nom du fichier manifeste + "/manifest(format=mpd-time-csf)"
 
 
-exemple :
+exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-### Génération d'URL de téléchargement progressif
+###Génération d’URL de téléchargement progressif
 
-Utilisez la valeur de **chemin d'accès** renvoyée après la création du localisateur pour générer l'URL de téléchargement progressif.   
+Utilisez la valeur **Chemin d’accès** renvoyée après la création du localisateur pour générer l’URL de téléchargement progressif.
 
-URL : **Chemin d'accès** + nom du fichier de ressource mp4
+URL : **Chemin d’accès** + nom du fichier de ressource mp4
 
-exemple :
+exemple :
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-## <a id="types"></a>Types Enum
+##<a id="types"></a>Types Enum
 
     [Flags]
     public enum AccessPermissions
@@ -173,7 +173,6 @@ exemple :
         None = 0,
         Sas = 1,
         OnDemandOrigin = 2,
-    }
+    } 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

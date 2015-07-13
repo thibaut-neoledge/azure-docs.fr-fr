@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Guide de dépannage pour les problèmes d’intégration du Kit de développement logiciel (SDK)
 
@@ -34,7 +33,7 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 
 - La plupart des problèmes qui doivent être résolus avec le Kit de développement logiciel Azure Mobile Engagement sera découvert par un échec dans votre application (par exemple, un échec de collecte des données de l'interface utilisateur, Échec de transmission, Échec de la fonctionnalité avancée, Échec de l'API, Application tombe en panne ou interruption de service apparente).  
 - Si une fonctionnalité particulière d'Azure Mobile Engagement n'a jamais fonctionné dans votre application auparavant, vous devez terminer l'intégration. 
-- Si une fonctionnalité particulière de l'Engagement Mobile Azure fonctionnait et arrêté, vous devrez peut-être mettre à niveau vers la dernière version avec l'Engagement de Mobile Azure SDK. N'oubliez pas qu'il existe une version différente du Kit de développement logiciel (SDK)d'Azure Mobile Engagement pour chaque plateforme prise en charge par Azure Mobile Engagement (Android, iOS, Web, Windows et Windows Phone).
+- Si une fonctionnalité particulière de l'Engagement Mobile Azure fonctionnait et arrêté, vous devrez peut-être mettre à niveau vers la dernière version avec l'Engagement de Mobile Azure SDK. N’oubliez pas qu’il existe une autre version du Kit de développement logiciel (SDK) d’Azure Mobile Engagement pour chaque plateforme prise en charge par Azure Mobile Engagement (Android, iOS, Windows et Windows Phone).
 
 #### Intégration du Kit de développement logiciel (SDK)
 
@@ -43,19 +42,32 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 - Certificat expiré ou PROD et DEV incorrects (iOS uniquement).
 - GCM ou ADM n'est pas correctement intégré dans le Kit de développement logiciel (Android uniquement - Push spécifique au service).
 - Le suivi n'est pas correctement intégré dans le Kit de développement logiciel (installer le suivi de magasin).
-- Intégration incorrecte de l'emplacement tardif ou de l'emplacement GPS dans le Kit de développement logiciel (ciblage par emplacement géographique). [Documentation du Kit de développement logiciel - Guide d’intégration][Link 5], [Guide de dépannage - Push][Link 23]
+- Intégration incorrecte de l'emplacement tardif ou de l'emplacement GPS dans le Kit de développement logiciel (ciblage par emplacement géographique).
+
+
+**Voir aussi :**
+
+- [Documentation du Kit de développement logiciel - Guide d’intégration][Link 5] 
+- [Guide de dépannage - Push][Link 23]
 
 #### Mise à niveau du Kit de développement logiciel (SDK) :
 
 - Vous devez mettre à niveau le Kit de développement logiciel pour résoudre des problèmes des versions antérieures du Kit de développement logiciel (souvent liés à des versions plus récentes du système d'exploitation du périphérique).
-- Désinstallez toutes les versions précédentes de votre application de votre appareil et réinstallez la version la plus récente de votre application, réenregistrez votre ID de périphérique à partir de l'interface utilisateur d'Azure Mobile Engagement pour confirmer que votre appareil utilise la version la plus récente de votre application. [Documentation du Kit de développement logiciel (SDK) - Notes de publication](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentation du Kit de développement logiciel - Guides de mise à niveau](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentation de l’interface utilisateur - Paramètres][Link 20]
+- Désinstallez toutes les versions précédentes de votre application de votre appareil et réinstallez la version la plus récente de votre application, réenregistrez votre ID de périphérique à partir de l'interface utilisateur d'Azure Mobile Engagement pour confirmer que votre appareil utilise la version la plus récente de votre application.
+
+**Voir aussi :**
+
+- [Documentation du Kit de développement logiciel (SDK) - Notes de publication](http://go.microsoft.com/fwlink/?LinkId= 525554) 
+- [Documentation du Kit de développement logiciel (SDK) - Guides de mise à niveau] (http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### Kit de développement logiciel (SDK), autres :
 
-- Des erreurs dans les sections de code liées à Azure Mobile Engagement peuvent empêcher Azure Mobile Engagement de fonctionner.
 - Des erreurs dans le manifeste d'application « AndroidManifest.xml » peuvent empêcher Azure Mobile Engagement de fonctionner (Android uniquement).
-- Un problème courant avec l'intégration du Kit de développement logiciel et 
-- l'utilisation de l'API est la confusion entre la clé du Kit de développement logiciel et la clé d'API. [Concepts - Glossaire][Link 6]
+- Un autre problème courant avec l’intégration du Kit de développement logiciel (SDK) et l’utilisation de l’API est la confusion entre la clé du Kit de développement logiciel et la clé d’API.
+
+**Voir aussi :**
+
+- [Concepts - Glossaire][Link 6]
 
 ## Problèmes de codage avancé
 
@@ -70,46 +82,38 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 - Les certificats expirés ou qui ne sont pas correctement configurés à l'aide de la version de développement ou de production Prod du certificat, provoquent des problèmes push (iOS uniquement).
 - Il existe certaines limitations inhérentes à une plateforme qu'Azure Mobile Engagement n'est pas en mesure de contrôler (par exemple le fonctionnement de system center pour les push en dehors de l'application dans Android et iOS).
 - Azure Mobile Engagement publie une liste complète des packages internes utilisé par Azure Mobile Engagement pour iOS et Android à des fins de référence. N'oubliez pas que certaines fonctionnalités d'Azure Mobile Engagement sont spécifiques à la plate-forme (Android, iOS, Web, Windows et Windows Phone).
-- Les Kits de développement logiciel pour chaque plateforme sont écrits dans les langages de programmation suivants :
-    -     Kit de développement logiciel (SDK) Android écrit en Java
-    -     Kit de développement logiciel (SDK) iOS écrit en objective C
-    -     Kit de développement logiciel (SDK) Web écrit en JavaScript
-    -     Kit de développement logiciel (SDK) Windows écrit en c# et en JavaScript
-    -     Kit de développement logiciel (SDK) Windows Phone écrit en c# et en JavaScript
 
 ### Voir aussi
 
- - [Guide de dépannage - Push][Link 23], [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5], [Documentation du Kit de développement logiciel (SDK) - Guides de mise à niveau][Link 5], [Documentation du Kit de développement logiciel (SDK) - Android - Documentation technique Azure Mobile Engagement][Link 5], [Documentation du Kit de développement logiciel (SDK) - iOS - Vue d’ensemble de la documentation technique Azure Mobile Engagement][Link 5], [Documentation du Kit de développement logiciel (SDK) - iOS - Préparation de votre application pour les notifications Push d’Apple][Link 5], [Développeur Android](https://developer.android.com/), [Développeur iOS](https://developer.apple.com/), [Développeur Windows](https://developer.windows.com/) 
- 
+ - [Guide de dépannage - Push][Link 23] 
+ - [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5]
+ - [Documentation du Kit de développement logiciel - Guides de mise à niveau][Link 5]
 
-## Incidents de l’application
+## Blocage de l’application
 
 ### Problème
 - Votre application se bloque sur un périphérique de l'utilisateur final.
 
 ### Causes
 
-- Les informations de blocage peuvent être consultées dans l'interface utilisateur de l'analyse ou de l'API d'analyse.
+- Les informations de blocage peuvent être consultées dans l’*interface utilisateur de l’analyse* ou l’*API d’analyse*.
 - Vous pouvez trouver l'ID de périphérique de votre périphérique de test et exécuter l'action à l'origine du blocage de votre application chez un utilisateur final afin d'identifier la cause de l'incident.
-- Les problèmes connus avec le Kit de développement logiciel Mobile Azure Engagement qui provoquent le blocage d'applications sont parfois résolus par la mise à niveau vers la dernière version du Kit de développement logiciel. Par conséquent, veillez à vérifier les notes de publication de votre plateforme lorsque vous recherchez la cause d'un blocage.
+- Les problèmes connus avec le Kit de développement logiciel (SDK) Mobile Azure Engagement qui provoquent le blocage des applications sont parfois résolus par la mise à niveau vers la dernière version du Kit de développement logiciel. Par conséquent, veillez à vérifier les notes de publication de votre plateforme quand vous recherchez la cause d’un blocage.
 
 ### Voir aussi
 
-- [Concepts - FAQ][Link 6], [Concepts - Glossaire][Link 6], [Documentation des API - API d’analyse - Incidents][Link 4], [Documentation de l’interface utilisateur - Analyse - Incidents][Link 15], [Documentation de l’interface utilisateur - Paramètres][Link 20], [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5], [Documentation du Kit de développement logiciel (SDK) - Guides de mise à niveau][Link 5]
+- [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5]
+- [Documentation du Kit de développement logiciel - Guides de mise à niveau][Link 5]
 
 ## Échecs de téléchargement App Store
 
 ### Problème
-- Stockent des erreurs liées à télécharger la dernière version de votre application dans iTunes, GooglePlay, Windows ou Windows Phone.
+- Les erreurs liées au téléchargement de la dernière version de votre application dans Apple, Google ou le magasin d’applications Windows.
 
 ### Causes
 
-- Application stocke parfois empêche les applications avec certaines fonctionnalités activées (l'iTunes store empêche l'utilisation de IDFV dans les applications dans le magasin et le magasin GooglePlay empêche le partage d'informations entre les applications de l'application). 
+- Le magasin d’applications Windows bloque parfois les applications avec certaines fonctionnalités activées (l’Apple Store empêche l’utilisation de IDFV dans les applications du magasin et le magasin GooglePlay empêche le partage d’informations d’application entre les applications). 
 - Veillez à consulter les notes de publication sur votre plateforme et la version actuelle du SDK si vous avez des difficultés à télécharger une application dans le magasin.
-
-### Voir aussi
-
-- [Documentation du Kit de développement logiciel (SDK) - Notes de publication][Link 5], [Documentation du Kit de développement logiciel (SDK) - Guides de mise à niveau][Link 5] 
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
@@ -141,5 +145,6 @@ Les éléments suivants sont des problèmes potentiels liés à la façon dont A
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

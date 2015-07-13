@@ -34,4 +34,4 @@ Le disque reste dans le stockage, mais il n’est plus attaché à une machine v
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

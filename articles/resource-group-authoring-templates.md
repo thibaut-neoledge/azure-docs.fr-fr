@@ -1,6 +1,6 @@
 <properties
    pageTitle="Création de modèles Azure Resource Manager"
-   description="Créez des modèles Azure Resource Manager à l&#39;aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
+   description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
    services="multiple"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
@@ -72,7 +72,7 @@ La liste suivante vous indique les fonctions courantes.
 
     Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
 
-- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
+- **resourceId([nom_groupe_ressources], type_ressource, nom_ressource1, [nom_ressource2]...)**
 
     Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
 
@@ -397,8 +397,9 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md)
+- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
-- [Présentation d’Azure Resource Manager](./resource-group-overview.md)
+- [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO1-->

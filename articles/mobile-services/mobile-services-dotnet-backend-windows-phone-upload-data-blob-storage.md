@@ -3,7 +3,6 @@
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,35 +10,31 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
+##Vue d'ensemble
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application Silverlight pour Windows Phone 8 ou Windows Phone 8.1 de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure.
 
 Vous ne pouvez pas distribuer de manière sécurisée les informations d'identification nécessaires à un téléchargement sécurisé de données vers le service de stockage d'objets blob avec l'application cliente. Au lieu de cela, vous devez stocker ces informations d'identification dans votre service mobile et vous en servir pour générer une signature d'accès partagé qui sera utilisée pour télécharger une nouvelle image. La signature d'accès partagé, information d'identification dont le délai d'expiration est très court (dans ce cas, 5 minutes), est renvoyée de manière sécurisée par Mobile Services à l'application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Dans cet exemple, les téléchargements à partir du service BLOB sont publics.
 
-Dans ce didacticiel, vous allez ajouter une fonctionnalité au [projet de l'exemple d'application GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services. Ce didacticiel vous guide tout au long des étapes de base suivantes pour mettre à jour l'application TodoList simple en vue de télécharger des images vers le service de stockage d'objets blob :
+Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'[exemple de projet d'application GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé (SAP) générée par Mobile Services.
 
-1. [Installation de la bibliothèque du client de stockage]
-2. [Mise à jour de l'application cliente pour capturer des images]
-3. [Installation du client de stockage dans le projet de service mobile]
-4. [Mise à jour de la définition TodoItem dans le modèle de données]
-5. [Mise à jour du contrôleur de table pour générer une signature d'accès partagé]
-6. [Téléchargement des images pour tester l'application]
+##Configuration requise 
 
 Ce didacticiel requiert les éléments suivants :
 
 + Microsoft Visual Studio 2013 ou une version ultérieure.
 + [Kit de développement logiciel (SDK) Windows Phone 8.0] ou supérieur ;
 + Gestionnaire de package Nuget pour Microsoft Visual Studio ;
-+ [ un compte Azure Storage ;][How To Create a Storage Account]
++ [Compte de stockage Azure][How To Create a Storage Account]
 + suivre le didacticiel [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-phone-get-started-data.md).  
 
 >[AZURE.NOTE]Ce didacticiel ne concerne que les applications Silverlight pour Windows Phone 8 et Windows Phone 8.1. Il ne prend pas en charge les applications Windows Phone Store 8.1 ou les applications Windows 8.1 universelles.
@@ -61,12 +56,12 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
  
 <!-- Anchors. -->
-[Installation de la bibliothèque du client de stockage]: #install-storage-client
-[Mise à jour de l'application cliente pour capturer des images]: #add-select-images
-[Installation du client de stockage dans le projet de service mobile]: #storage-client-server
-[Mise à jour de la définition TodoItem dans le modèle de données]: #update-data-model
-[Mise à jour du contrôleur de table pour générer une signature d'accès partagé]: #update-scripts
-[Téléchargement des images pour tester l'application]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Install the storage client in the mobile service project]: #storage-client-server
+[Update the TodoItem definition in the data model]: #update-data-model
+[Update the table controller to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -84,5 +79,6 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 [Kit de développement logiciel (SDK) Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

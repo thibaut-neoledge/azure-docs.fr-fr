@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -36,7 +36,7 @@ Les parties suivantes décrivent plus en détail les concepts de Mobile Engageme
 
 Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel Engagement est intégré à l'aide de la classe `EngagementPage`.
 
-Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
+Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
 
 ##Rapports d'activités
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser le travail pour effectuer le suivi de certaines tâches sur
 
 ### Mettre fin à un travail
 
-#### Référence
+#### du SDK
 
 			void EndJob(string name)
 
@@ -112,7 +112,7 @@ Il existe trois types d'événements :
 
 ### Événements autonomes
 
-#### du Kit de développement logiciel
+#### du SDK
 
 			void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -124,7 +124,7 @@ Les événements autonomes peuvent se produire en dehors du contexte d'une sessi
 
 ### Événements de session
 
-#### du Kit de développement logiciel
+#### Référence
 
 			void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
@@ -168,7 +168,7 @@ Il existe trois types d'erreurs :
 
 ### Erreurs autonomes
 
-#### du Kit de développement logiciel
+#### du SDK
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -180,7 +180,7 @@ Contrairement aux erreurs de session, les erreurs autonomes peuvent se produire 
 
 ### Erreurs de session
 
-#### du Kit de développement logiciel
+#### Référence
 
 			void SendSessionError(string name, Dictionary<object, object> extras = null)
 
@@ -192,7 +192,7 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 
 ### Erreurs de travail
 
-#### du Kit de développement
+#### Référence
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
@@ -377,5 +377,6 @@ Les informations de l'application sont limitées à **1 024** caractères par 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"subscription":"2013-12-07","premium":"true"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -74,4 +74,4 @@ Pour créer une base de données MySQL comme ressource liée lors de la créatio
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

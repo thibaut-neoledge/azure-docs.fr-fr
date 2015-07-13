@@ -3,18 +3,17 @@
 	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application HTML qui utilise Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
-	writer="jparrel" 
+	authors="bureado"  
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Appel d'une API personnalisée à partir d'une application HTML
@@ -25,19 +24,13 @@ Cette rubrique explique comment appeler une API personnalisée à partir d'une a
 
 L'API personnalisée créée dans cette rubrique permet d'envoyer une seule requête POST qui définit l'indicateur complété sur `true` pour toutes les tâches (éléments todo) de la table. En l'absence de cette API personnalisée, le client devrait envoyer des demandes individuelles de mise à jour de l'indicateur pour chaque élément todo de la table.
 
-Vous allez ajouter cette fonctionnalité à l'application que vous avez créée avec le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données]. À cet effet, vous allez exécuter la procédure suivante :
+Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer ce didacticiel, vous devez suivre [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante].
 
-1. [Définition de l'API personnalisée]
-2. [Mise à jour de l'application pour appeler l'API personnalisée]
-3. [Test de l'application] 
-
-Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de commencer, vous devez avoir terminé le didacticiel [Prise en main de Mobile Services] ou [Prise en main des données].
-
-## <a name="define-custom-api"></a>Définition de l'API personnalisée
+## <a name="define-custom-api"></a>Définir l'API personnalisée
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée</h2>
+##<a name="update-app"></a>Mettre à jour l'application pour appeler l'API personnalisée
 
 1. À l'aide de votre éditeur de texte, ouvrez le fichier index.html, localisez l'élément **button** intitulé `buttonRefresh`, et ajoutez le nouvel élément suivant juste après : 
 
@@ -79,19 +72,24 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 
 ## Étapes suivantes
 
-Maintenant que vous avez créé une API personnalisée et que vous l'avez appelée à partir de votre application HTML, vous pouvez consulter les rubriques Mobile Services suivantes pour obtenir plus d'informations :
+Cette rubrique vous a montré comment utiliser la fonction **invokeApi** pour appeler une API personnalisée relativement simple à partir de votre application HTML/JavaScript. Pour en savoir plus sur l’utilisation de la fonction **invokeApi**, consultez le billet [API personnalisée dans Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+
+Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez :
 
 * [Référence de script serveur Mobile Services] <br/>Familiarisez-vous avec la création des API personnalisées.
 
+* [Stockage des scripts serveur dans le contrôle du code source ] <br/> Apprenez à utiliser la fonctionnalité de contrôle du code source pour développer et publier plus facilement et de manière plus sécurisée le code de script de l'API personnalisée.
+
 <!-- Anchors. -->
-[Définition de l'API personnalisée]: #define-custom-api
-[Mise à jour de l'application pour appeler l'API personnalisée]: #update-app
-[Test de l'application]: #test-app
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
 [Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Prise en main de Mobile Services]: mobile-services-html-get-started.md
-[Prise en main des données]: mobile-services-html-get-started-data.md
-<!--HONumber=54--> 
+[Ajout de Mobile Services à une application existante]: mobile-services-html-get-started-data.md
+[Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
+
+<!---HONumber=July15_HO1-->

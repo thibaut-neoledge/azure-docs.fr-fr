@@ -62,7 +62,7 @@ Pour optimiser les résultats, téléchargez la [dernière version d’Azure Pow
 LoadBalancerDistribution peut être défini avec la valeur sourceIP pour un équilibrage de charge à 2 tuples (IP source, IP de destination), sourceIPProtocol pour un équilibrage de charge à 3 tuples (IP source, IP de destination, protocole) ou none si vous préférez le comportement par défaut (équilibrage de charge à 5 tuples).
 
 ### Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
-    PS C:> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -161,4 +161,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

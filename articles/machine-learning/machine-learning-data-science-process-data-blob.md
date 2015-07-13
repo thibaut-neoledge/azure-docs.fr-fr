@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Traiter les données dans  Azure Blob" 
-	description="Traiter les données dans Azure Blob" 
-	metaKeywords="" 
-	services="machine-learning" 
+	pageTitle="Traitement des données d’objets blob Azure avec des analyses de données avancées | Microsoft Azure" 
+	description="Traitez les données dans un stockage d’objets blob Azure." 
+	services="machine-learning,storage" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Traiter les données Azure Blob dans votre environnement de science des données
+#<a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 
-Ce document concerne l'exploration des données et la génération de fonctionnalités à partir des données stockées dans Azure Blob. Pour ce faire, les données doivent être téléchargées de la source du blob dans un fichier local qui peut ensuite être chargé dans une table de données Pandas à des fins d'exploration et de manipulation. Voici la procédure à suivre :
+Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. Pour ce faire, les données doivent être téléchargées de la source du blob dans un fichier local qui peut ensuite être chargé dans une table de données Pandas à des fins d’exploration et de manipulation. Voici la procédure à suivre :
 
-1. Téléchargez les données à partir du blob Azure avec l'exemple de code Python à l'aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
+1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
 
 	    from azure.storage import BlobService
     	import tables
@@ -48,54 +47,54 @@ Ce document concerne l'exploration des données et la génération de fonctionna
 
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
-####<a name="blob-dataexploration"></a>Exploration de données
+##<a name="blob-dataexploration"></a>Exploration des données
 
-Voici quelques méthodes pour explorer des données à l'aide de Pandas :
+Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
 1. Vérifiez le nombre de lignes et de colonnes. 
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
-2. Vérifiez les premières ou dernières lignes de l'ensemble de données, comme indiqué ci-dessous :
+2. Vérifiez les premières ou dernières lignes de l’ensemble de données, comme indiqué ci-dessous :
 
 		dataframe_blobdata.head(10)
 		
 		dataframe_blobdata.tail(10)
 
-3. Vérifiez le type de données dans lequel chaque colonne a été importée, à l'aide du code suivant :
+3. Vérifiez le type de données dans lequel chaque colonne a été importée, à l’aide du code suivant :
  	
 		for col in dataframe_blobdata.columns:
 		    print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 
-4. Vérifiez les statistiques de base des colonnes dans l'ensemble de données, comme indiqué ci-dessous :
+4. Vérifiez les statistiques de base des colonnes dans l’ensemble de données, comme indiqué ci-dessous :
  
 		dataframe_blobdata.describe()
 	
-5. Regardez le nombre d'entrées pour chaque valeur de colonne, comme indiqué ci-dessous :
+5. Regardez le nombre d’entrées pour chaque valeur de colonne, comme indiqué ci-dessous :
 
 		dataframe_blobdata['<column_name>'].value_counts()
 
-6. Comptez les valeurs manquantes par rapport au nombre réel d'entrées dans chaque colonne, à l'aide du code suivant :
+6. Comptez les valeurs manquantes par rapport au nombre réel d’entrées dans chaque colonne, à l’aide du code suivant :
 
 		miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 		print miss_num
 	 
-7.	Si des valeurs sont manquantes dans une colonne spécifique, vous pouvez les supprimer comme suit :
+7.	Si des valeurs sont manquantes dans une colonne spécifique, vous pouvez les supprimer comme suit :
 
 		dataframe_blobdata_noNA = dataframe_blobdata.dropna()
 		dataframe_blobdata_noNA.shape
 
-	L'autre solution pour remplacer les valeurs manquantes consiste à utiliser la fonction mode :
+	L’autre solution pour remplacer les valeurs manquantes consiste à utiliser la fonction mode :
 	
 		dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})		
 
-8. Créez un histogramme à l'aide d'un nombre variable de compartiments pour tracer la distribution d'une variable :	
+8. Créez un histogramme à l’aide d’un nombre variable de compartiments pour tracer la distribution d’une variable :
 	
 		dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 		
 		np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 	
-9. Examinez les corrélations entre les variables à l'aide d'un nuage de points ou de la fonction de corrélation intégrée :
+9. Examinez les corrélations entre les variables à l’aide d’un nuage de points ou de la fonction de corrélation intégrée :
 
 		#relationship between column_a and column_b using scatter plot
 		plt.scatter(dataframe_blobdata['<column_a>'], dataframe_blobdata['<column_b>'])
@@ -104,59 +103,57 @@ Voici quelques méthodes pour explorer des données à l'aide de Pandas :
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>Génération de caractéristiques
+##<a name="blob-featuregen"></a>Génération de fonctionnalités
 	
-Pour générer des caractéristiques à l'aide de Python, procédez comme suit :
+Pour générer des caractéristiques à l’aide de Python, procédez comme suit :
 
-#####<a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d'indicateur
+###<a name="blob-countfeature"></a>Génération de caractéristiques à partir de valeurs d’indicateur
 
-Pour créer des caractéristiques de catégorie, procédez comme suit :
+Pour créer des caractéristiques de catégorie, procédez comme suit :
 
-1. Examinez la distribution de la colonne de catégorie :
+1. Examinez la distribution de la colonne de catégorie :
 	
 		dataframe_blobdata['<categorical_column>'].value_counts()
 
-2. Générez les valeurs d'indicateur pour chacune des valeurs de colonne :
+2. Générez les valeurs d’indicateur pour chacune des valeurs de colonne :
 
 		#generate the indicator column
 		dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
 
-3. Créez une jointure entre la colonne d'indicateurs et le bloc de données d'origine : 
+3. Créez une jointure entre la colonne d’indicateurs et le bloc de données d’origine :
  
 			#Join the dummy variables back to the original data frame
 			dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
 
-4. Supprimez la variable d'origine :
+4. Supprimez la variable d’origine :
 
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>Génération de fonctionnalités de compartimentage
+###<a name="blob-binningfeature"></a>Génération de caractéristiques de compartimentage
 
-Pour générer des fonctionnalités compartimentées, procédez comme suit :
+Pour générer des fonctionnalités compartimentées, procédez comme suit :
 
-1. Ajoutez une séquence de colonnes pour compartimenter une colonne numérique :
+1. Ajoutez une séquence de colonnes pour compartimenter une colonne numérique :
  
 		bins = [0, 1, 2, 4, 10, 40]
 		dataframe_blobdata_bin_id = pd.cut(dataframe_blobdata['<numeric_column>'], bins)
 		
-2. Convertissez le compartimentage en une séquence de variables booléennes :
+2. Convertissez le compartimentage en une séquence de variables booléennes :
 
 		dataframe_blobdata_bin_bool = pd.get_dummies(dataframe_blobdata_bin_id, prefix='<numeric_column>')
 	
-3. Enfin, créez une jointure entre les variables factices et le bloc de données d'origine :
+3. Enfin, créez une jointure entre les variables factices et le bloc de données d’origine :
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Réécriture de données dans le blob Azure et exploitation dans Azure ML
+##<a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
 
-Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un blob Azure et les exploiter dans Azure ML en procédant comme suit :
-Notez qu'il est également possible de créer d'autres fonctionnalités dans Azure ML Studio. 
-1. Écrivez le bloc de données dans le fichier local.
+Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (exemples ou caractéristiques) dans un objet blob Azure et les exploiter dans Azure Machine Learning en procédant comme suit : notez qu’il est également possible de créer d’autres fonctionnalités dans Azure Machine Learning Studio. 1. Écrivez le bloc de données dans le fichier local.
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Chargez les données dans le blob Azure, en procédant comme suit :
+2. Chargez les données dans le blob Azure, en procédant comme suit :
 
 		from azure.storage import BlobService
     	import tables
@@ -178,10 +175,15 @@ Notez qu'il est également possible de créer d'autres fonctionnalités dans Azu
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. À présent, les données sont lisibles à partir du blob à l'aide d'Azure ML *Reader Module* comme le montre l'écran ci-dessous :
+3. À présent, les données sont lisibles à partir de l’objet blob à l’aide du module [Lecteur][reader] d’Azure Machine Learning comme le montre l’écran ci-dessous :
  
-![reader blob][1]
+![objet blob de lecteur][1]
 
 [1]: ./media/machine-learning-data-science-process-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

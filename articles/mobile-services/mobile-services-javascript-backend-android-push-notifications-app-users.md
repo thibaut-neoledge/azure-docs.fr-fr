@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/03/2015" 
 	ms.author="wesmc"/>
 
 
@@ -40,7 +40,7 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 ##Mise à jour du service pour demander l'authentification pour l'inscription
 
-[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 <ol start="5"><li><p>Remplacez la fonction insert par le code suivant, puis cliquez sur <strong>Enregistrer</strong>&#160;:</p>
 <pre><code>function insert(item, user, request) {
@@ -78,11 +78,11 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 ##Mise à jour de l'application pour se connecter avant l'inscription
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)]
 
 ##Test de l'application
 
-[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)] 
+[AZURE.INCLUDE [mobile-services-android-test-push-users](../../includes/mobile-services-android-test-push-users.md)]
 
 <!---##Next steps
 
@@ -93,8 +93,9 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Ajout de l'authentification à votre application Mobile Services]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
-[portail de gestion Azure]: https://manage.windowsazure.com/
+
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

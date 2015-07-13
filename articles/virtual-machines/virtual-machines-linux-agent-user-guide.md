@@ -317,4 +317,4 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

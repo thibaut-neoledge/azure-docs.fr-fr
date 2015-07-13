@@ -1,6 +1,6 @@
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-- Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/fr-fr/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Version d’essai gratuite d’Azure</a>.
+- Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Version d’essai gratuite d’Azure</a>.
 
 
 - Le [Kit de développement logiciel (SDK) Azure Mobile Services Android](http://aka.ms/Iajk6q).
@@ -14,4 +14,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de d
 [Prise en main de Mobile Services]: ../articles/mobile-services/mobile-services-android-get-started.md
 [Ajout de Mobile Services à une application existante]: ../articles/mobile-services/mobile-services-android-get-started-data.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

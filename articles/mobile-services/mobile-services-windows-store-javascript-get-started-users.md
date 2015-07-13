@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -35,7 +35,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 ##<a name="register"></a> Inscrire votre application pour l'authentification et configurer Mobile Services
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 <ol start="5">
 <li><p>(Facultatif) Suivez la procédure décrite dans la rubrique <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Inscription du package de votre application Windows Store pour l'authentification Microsoft</a>.</p>
@@ -48,7 +48,7 @@ Votre service mobile et votre application sont désormais configurés pour utili
 
 ##<a name="permissions"></a>Restreindre les autorisations aux utilisateurs authentifiés
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 <ol start="3">
 <li><p>Dans Visual Studio&#160;2012 Express pour Windows&#160;8, ouvrez le projet que vous avez créé avec le didacticiel <a href="/develop/mobile/tutorials/get-started/">Prise en main de Mobile Services</a>.</p></li> 
@@ -61,11 +61,11 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app](../../includes/mobile-services-windows-store-javascript-authenticate-app.md)]
 
 ##<a name="tokens"></a>Stocker les jetons d'authentification sur le client
 
-[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-store-javascript-authenticate-app-with-token](../../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -92,5 +92,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

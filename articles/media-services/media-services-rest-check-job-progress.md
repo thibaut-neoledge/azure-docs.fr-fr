@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Comment vérifier la progression des tâches à l'aide des API REST" 
+	pageTitle="Comment vérifier la progression des tâches à l’aide des API REST" 
 	description="Apprenez à suivre la progression des tâches." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
-# Procédure : vérification de la progression des tâches
+#Procédure : vérification de la progression des tâches
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
-Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous trouverez l'état de la tâche en utilisant la propriété d'état de la tâche. Pour plus d'informations sur la propriété State, consultez [Propriétés de l'entité Job](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
+Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous trouverez l’état de la tâche en utilisant la propriété d’état de la tâche. Pour plus d'informations sur la propriété State, consultez [Propriétés de l'entité Job](https://msdn.microsoft.com/library/azure/5100ddd7-92ff-4c37-84d2-4f84fee250a7#job_entity_properties).
 
 
-Demande :
+Demande :
 	
 	GET https://media.windows.net/api/Jobs()?$filter=Id%20eq%20'nb%3Ajid%3AUUID%3Af3c43f94-327f-2347-90bb-3bf79f8559f1'&$top=1 HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
@@ -36,7 +36,7 @@ Demande :
 	
 
 
-Réponse :
+Réponse :
 	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -52,7 +52,6 @@ Réponse :
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Wed, 11 Feb 2015 01:46:39 GMT
 	
-	{"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]}
+	{"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]} 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

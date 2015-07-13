@@ -19,7 +19,7 @@
 
 #Forum Aux Questions (FAQ) Azure Machine Learning : facturation, fonctionnalités, limitations et support
 
-Ce FAQ contient des questions et des réponses sur Azure Machine Learning, un service cloud pour la modélisation prédictive et l'opérationnalisation des solutions via les services web. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
+Ce Forum Aux Questions contient des questions et des réponses sur Azure Machine Learning, un service cloud pour la modélisation prédictive et l’opérationnalisation des solutions via les services web. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
  
 ##Questions générales
 
@@ -93,8 +93,7 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
-Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. 
-<!--
+Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -305,4 +304,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

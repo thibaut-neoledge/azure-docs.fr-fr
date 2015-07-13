@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Dépannage des collections hybrides : création"
+    pageTitle="Résolution des problèmes de création de collections hybrides RemoteApp"
     description="Apprenez comment dépanner les échecs de création de collections hybrides RemoteApp" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
@@ -9,51 +9,78 @@
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="vikbucha" />
+    ms.date="06/30/2015" 
+    ms.author="elizapo" />
 
 
 
-# Dépannage des collections hybrides : création
+# Résolution des problèmes de création de collections hybrides Azure RemoteApp
 
-Avant de pouvoir résoudre les échecs lors de la création de collections hybrides, vous devez comprendre comment elles sont créées. Une collection hybride nécessite que les instances RemoteApp soient jointes au domaine : vous effectuez cela lors de la création de la collection.  Au démarrage du processus de création de collection, des copies des images de modèle que vous avez téléchargées sont créées dans le réseau virtuel et sont jointes, via le tunnel VPN de site à site, au domaine qui est résolu par l'enregistrement IP DNS spécifié lors de la création du réseau virtuel.
+Une collection hybride est hébergée dans le cloud Azure et y stocke également les données, mais elle permet aussi aux utilisateurs d'accéder aux données et aux ressources stockées sur votre réseau local. Les utilisateurs peuvent accéder aux applications en se connectant avec leurs informations d'identification d'entreprise synchronisées ou fédérées avec Azure Active Directory. Vous pouvez déployer une collection hybride qui utilise un réseau virtuel Azure existant ou vous pouvez créer un réseau virtuel. Nous vous recommandons d’utiliser une plage CIDR suffisamment étendue lorsque vous créez ou utilisez un sous-réseau de réseau virtuel afin de pouvoir prendre en compte la croissance future d’Azure RemoteApp.
 
-Erreurs courantes dans le portail de gestion Azure :
+Vous n’avez pas encore créé votre collection ? Pour plus d’informations, consultez la page [Création d’une collection hybride](remoteapp-create-hybrid-deployment.md).
 
-	DNS server could not be reached
+Si vous rencontrez des problèmes lors de la création de votre collection, ou si la collection ne fonctionne pas comme elle devrait, vérifiez les informations suivantes.
 
-	Could not join the domain. Unable to reach the domain.
+## Votre réseau virtuel utilise-t-il le tunneling forcé ? ##
+RemoteApp ne prend actuellement pas en charge les réseaux virtuels sur lesquels le tunneling forcé est activé. Si vous avez besoin de cette fonction, contactez l’équipe RemoteApp.
 
-Si l'une des erreurs ci-dessus s'affiche, vérifiez les éléments suivants :
+Une fois votre demande approuvée, assurez-vous que les ports suivants sont ouverts sur le sous-réseau que vous avez choisi pour Azure RemoteApp et les machines virtuelles du sous-réseau. Les machines virtuelles sur vos sous-réseaux doivent également pouvoir accéder aux URL mentionnées dans la section sur les groupes de sécurité réseau.
 
-- Vérifiez que les configurations IP DNS sont valides
-- Assurez-vous que les enregistrements IP DNS sont des enregistrements IP publics ou qu'ils font partie de " l'espace de l'adresse locale " que vous avez spécifié lors de la création du réseau virtuel
-- Vérifiez le tunnel de réseau virtuel pour vous assurer que son état est actif ou connecté 
-- Assurez-vous que le côté local de la connexion VPN ne bloque pas le trafic réseau. Vous pouvez vérifier cela en examinant les journaux de votre périphérique ou logiciel VPN local.
-- Assurez-vous que le domaine que vous avez spécifié lors de la création de la collection est en cours d'exécution.
+Sortant : TCP : 443, TCP : 10101-10175
 
-	ProvisioningTimeout
+## Votre réseau virtuel comporte-t-il des groupes de sécurité réseau ? ##
+Si vous avez défini des groupes de sécurité réseau sur le sous-réseau que vous utilisez pour votre collection, assurez-vous que les URL suivantes sont accessibles à partir de votre sous-réseau :
 
+	https://management.remoteapp.windowsazure.com  
+	https://opsapi.mohoro.com  
+	https://telemetry.remoteapp.windowsazure.com  
+	https://*.remoteapp.windowsazure.com  
+	https://login.windows.net (if you have Active Directory)  
+	https://login.microsoftonline.com  
+	Azure storage *.remoteapp.windowsazure.com  
+	*.core.windows.net  
+	https://www.remoteapp.windowsazure.com  
+	https://www.remoteapp.windowsazure.com  
 
-Si cette erreur s'affiche, vérifiez les éléments suivants :
+Ouvrez les ports suivants sur le sous-réseau de réseau virtuel :
 
-- Assurez-vous que le côté local de la connexion VPN ne bloque pas le trafic réseau. Vous pouvez vérifier cela en examinant les journaux de votre périphérique ou logiciel VPN local.
-- Vérifiez que l'image de modèle RemoteApp que vous avez téléchargée a été correctement préparée avec Sysprep. Vous pouvez vérifier les exigences relatives aux images RemoteApp ici: http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/ 
-- Essayez de créer une machine virtuelle à l'aide de l'image de modèle que vous avez téléchargée et assurez-vous qu'elle démarre et s'exécute correctement soit (a) sur un serveur Hyper-V local, soit (b) par la création d'une machine virtuelle IAAS Azure dans votre abonnement Azure. Si la création ou le démarrage de la machine virtuelle échoue, c'est généralement signe que l'image de modèle n'a pas été préparée correctement et que vous devez résoudre le problème.
+Entrant - TCP : 3030, TCP : 443 Sortant - TCP : 443
 
-	DomainJoinFailed_InvalidUserNameOrPassword
+Vous pouvez ajouter d’autres groupes de sécurité réseau pour les machines virtuelles que vous avez déployées dans le sous-réseau pour un contrôle plus strict.
 
-	DomainJoinFailed_InvalidParameter
+## Utilisez-vous vos propres serveurs DNS ? Et sont-ils accessibles à partir de votre sous-réseau de réseau virtuel ? ##
+Pour les collections hybrides, vous utilisez vos propres serveurs DNS. Vous les spécifiez dans votre schéma de configuration réseau ou via le portail de gestion lorsque vous créez votre réseau virtuel. Les serveurs DNS sont utilisés dans l’ordre dans lequel ils sont spécifiés par basculement, et non par tourniquet (round robin).
 
-Si l'une des erreurs ci-dessus s'affiche, vérifiez les éléments suivants :
+Assurez-vous que les serveurs DNS de votre collection sont accessibles et disponibles à partir du sous-réseau de réseau virtuel spécifié pour cette collection.
 
-- Vérifiez que les informations d'identification pour la jonction de domaine sont valides
-- Vérifiez que les informations d'identification de jonction de domaine sont correctes et disposent des autorisations de jonction de domaine appropriées
-- Vérifiez que l'unité d'organisation est correctement formatée et qu'elle n'existe pas dans Active Directory.
+Par exemple :
 
+	<VirtualNetworkConfiguration>
+    <Dns>
+      <DnsServers>
+        <DnsServer name="" IPAddress=""/>
+      </DnsServers>
+    </Dns>
+	</VirtualNetworkConfiguration>
 
-<!--HONumber=52--> 
+![Définition de votre serveur DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
+
+Pour plus d’informations, consultez la page [Résolution de noms à l’aide de votre propre serveur DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
+
+## Utilisez-vous un contrôleur de domaine Active Directory dans votre collection ? ##
+Actuellement, un seul domaine Active Directory peut être associé à Azure RemoteApp. La collection hybride prend en charge uniquement les comptes Azure Active Directory synchronisés à l’aide de l’outil DirSync à partir d’un déploiement de Windows Server Active Directory. Plus précisément, ils doivent être synchronisés avec l’option de synchronisation de mot de passe ou la fédération des services ADFS doit être configurée. Vous devez créer un domaine personnalisé qui correspond au suffixe de votre domaine local et configurer l'intégration d'annuaire.
+
+Consultez la page [Configuration d’Active Directory pour Azure RemoteApp](remoteapp-ad.md) pour plus d’informations.
+
+Vérifiez que les détails du domaine fournis sont valides et que le contrôleur de domaine est accessible à partir de la machine virtuelle créée dans le sous-réseau utilisé pour Azure RemoteApp. Assurez-vous également que les informations d’identification du compte de service fournies disposent des autorisations nécessaires pour ajouter des ordinateurs au domaine fourni et que le nom Active Directory fourni peut être résolu à partir du DNS fourni dans le réseau virtuel.
+
+## Quel nom de domaine avez-vous spécifié lorsque vous avez créé votre collection ? ##
+
+Le nom de domaine que vous avez créé ou ajouté doit être un nom de domaine interne (et non pas votre nom de domaine Azure AD) et doit être au format DNS pouvant être résolu (contoso.local). Par exemple, vous avez un nom interne Active Directory (contoso.local) et un UPN Active Directory (contoso.com) : vous devez utiliser le nom interne lorsque vous créez votre collection.
+
+<!---HONumber=July15_HO1-->

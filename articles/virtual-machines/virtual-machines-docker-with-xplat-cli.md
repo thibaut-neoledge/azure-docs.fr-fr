@@ -87,7 +87,7 @@ Si la commande a été exécutée correctement, vous devriez normalement obtenir
 
 Pour tester la machine virtuelle Docker que vous avez créée dans Azure, tapez
 
-`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
 où *<vm-name-you-used>* est le nom de la machine virtuelle utilisée dans votre appel vers `azure vm docker create`. Ce que vous devez voir est similaire à ce qui suit ; cela indique que votre machine virtuelle hôte Docker est en service et attend vos commandes.
 
@@ -96,10 +96,10 @@ où *<vm-name-you-used>* est le nom de la machine virtuelle utilisée dans votre
 ### Authentification de la machine virtuelle hôte Docker
 Outre la création de la machine virtuelle Docker, la commande `azure vm docker create` crée automatiquement les certificats nécessaires pour autoriser votre ordinateur client Docker à se connecter à l’hôte de conteneur Azure à l’aide du protocole HTTPS. Les certificats sont stockés sur les ordinateurs clients et hôtes, suivant le cas. Lors des exécutions suivantes, les certificats existants sont réutilisés et partagés avec le nouvel hôte.
 
-Par défaut, les certificats sont placés dans `~/.docker`, et Docker est configuré pour s’exécuter sur le port **4243**. Si vous souhaitez utiliser un autre port ou répertoire, vous pouvez utiliser l’une des options de ligne de commande `azure vm docker create` suivantes afin de configurer votre machine virtuelle hôte de conteneur Docker, de telle sorte qu’elle utilise un port ou des certificats différents pour la connexion des clients :
+Par défaut, les certificats sont placés dans `~/.docker`, et Docker est configuré pour s’exécuter sur le port **2376**. Si vous souhaitez utiliser un autre port ou répertoire, vous pouvez utiliser l’une des options de ligne de commande `azure vm docker create` suivantes afin de configurer votre machine virtuelle hôte de conteneur Docker, de telle sorte qu’elle utilise un port ou des certificats différents pour la connexion des clients :
 
 ```
--dp, --docker-port [port]              Port to use for docker [4243]
+-dp, --docker-port [port]              Port to use for docker [2376]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
@@ -139,4 +139,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

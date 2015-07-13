@@ -163,4 +163,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

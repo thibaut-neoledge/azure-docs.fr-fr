@@ -42,4 +42,4 @@ La page d'aide sur l'API contient des exemples en langages R, C# et Python.
 
 <!-- Add link to Derrick's articles on web services -->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

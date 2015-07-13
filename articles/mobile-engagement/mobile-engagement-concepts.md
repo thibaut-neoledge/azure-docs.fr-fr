@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Concepts de Mobile Engagement" 
+<properties
+	pageTitle="Concepts de Mobile Engagement"
 	description="Concepts de Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="01/24/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="01/24/2015"
 	ms.author="kapiteir" />
 
 #Concepts d'Azure Mobile Engagement
@@ -74,7 +74,9 @@ N'importe quelle quantité d'informations de l'application peut être associée 
 ##Données supplémentaires
 Les données supplémentaires (ou extras) sont des données arbitraires qui peuvent être associées à des événements, des erreurs, des activités et des tâches.
 
-Les extras sont structurés de la même façon que les objets JSON : ils sont constitués d'une arborescence de paires clé/valeur. Les clés sont limitées à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [_]) et la taille totale des extras est limitée à 1 024 caractères (une fois encodés au format JSON par le SDK Mobile Engagement).
+Les extras sont structurés de la même façon que les objets JSON : ils sont constitués d'une arborescence de paires clé/valeur. Les clés sont limitées à 64 lettres ASCII [a-zA-Z], chiffres [0-9] et traits de soulignement [_]) et la taille totale des extras est limitée à 1 024 caractères (une fois encodés au format JSON par le SDK Mobile Engagement).
 
 L'intégralité de l'arborescence de paires clé/valeur est stockée en tant qu'objet JSON. Toutefois, seul le premier niveau de clés/valeurs est décomposé pour être directement accessible à certaines fonctions avancées, telles que les segments (par exemple, vous pouvez facilement définir un segment « Fans SciFi » constitué de tous les utilisateurs ayant envoyé au moins 10 fois l'événement « content_viewed » avec la clé extra « content_type » défini sur la valeur « scifi » le mois dernier). Il est donc fortement recommandé de n'envoyer que des extras constitués de listes simples de paires clé/valeur utilisant des valeurs scalaires (par ex., chaînes, dates, entiers ou valeurs booléennes).
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO1-->

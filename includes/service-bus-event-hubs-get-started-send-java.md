@@ -1,11 +1,11 @@
-## Envoi de messages vers Event Hub
-Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre Event Hub. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l'utilisation des rubriques et des files d'attente Service Bus avec AMQP en partant du langage Java comme indiqué [ici](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Pour plus d'informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
+## Envoi de messages vers Event Hubs
+Dans cette section, nous allons écrire une application console Java pour envoyer des événements à votre Event Hub. Nous allons utiliser le fournisseur JMS AMQP du [projet Apache Qpid](http://qpid.apache.org/). Cette approche est similaire à l’utilisation des rubriques et des files d’attente Service Bus avec AMQP en partant du langage Java comme indiqué [ici](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Pour plus d’informations, consultez la [documentation Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) et la page [Service de messagerie Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. Dans Eclipse, installez le [Kit de ressources Azure pour Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). Il inclut les bibliothèques clientes Qpid JMS AMQP.
 
 2. Dans Eclipse, créez un projet Java nommé **Sender**.
 
-3. Dans l'Explorateur de Package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d'accès de la génération Java**, puis cliquez sur l'onglet **Bibliothèques** et sur le bouton **Ajouter une bibliothèque**. Sélectionnez **Package pour les bibliothèques clientes Apache Qpid pour JMS (par MS Open Tech)**, cliquez sur **Suivant**, puis sur **Terminer**.
+3. Dans l'Explorateur de Package d'Eclipse, cliquez avec le bouton droit sur le projet **Sender** et sélectionnez **Propriétés**. Dans le volet gauche de la boîte de dialogue, cliquez sur **Chemin d’accès de la génération Java**, puis cliquez sur l’onglet **Bibliothèques** et sur le bouton **Ajouter une bibliothèque**. Sélectionnez **Package pour les bibliothèques clientes Apache Qpid pour JMS (par MS Open Tech)**, cliquez sur **Suivant**, puis sur **Terminer**.
 
 	![][8]
 
@@ -95,4 +95,4 @@ Dans cette section, nous allons écrire une application console Java pour envoye
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

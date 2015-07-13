@@ -46,4 +46,4 @@ Une fois que vous avez configuré des alertes, le Centre des comptes les répert
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

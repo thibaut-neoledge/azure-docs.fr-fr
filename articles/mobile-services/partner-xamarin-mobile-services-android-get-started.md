@@ -137,4 +137,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

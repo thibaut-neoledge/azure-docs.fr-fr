@@ -1,5 +1,5 @@
 
-Tout d'abord, vous devez enregistrer votre application auprès d’un fournisseur d’identité sur son site, puis définir les informations d’identification dans votre service mobile.
+Tout d’abord, vous devez enregistrer votre application auprès d’un fournisseur d’identité sur son site, puis définir les informations d’identification dans votre service mobile.
 
 1. Dans le [portail de gestion Azure], accédez à votre service mobile, puis cliquez sur **Tableau de bord** et notez la valeur du champ **URL du service mobile**.
 
@@ -19,4 +19,4 @@ Maintenant que vous avez configuré votre application et votre service mobile po
 
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion d'éléments multimédias dans Media Services - Azure" 
+	pageTitle="Gestion d’éléments multimédias dans Media Services" 
 	description="Apprenez à gérer des éléments multimédias sur Media Services. Vous pouvez également gérer des travaux, des tâches, des stratégies d'accès, des localisateurs et bien d'autres éléments. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Procédure : Gestion des éléments multimédias dans le stockage
+#Gestion d’éléments multimédias dans le stockage
 
-Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).  
+Cet article fait partie des séries [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) et [workflow de vidéo en flux continu Media Services](media-services-live-streaming-workflow.md).
 
 
-Une fois que vous avez créé des éléments multimédias, vous pouvez y accéder et les gérer sur le serveur. Vous pouvez également gérer sur le serveur d'autres objets faisant partie de Media Services, entre autres, des travaux, des tâches, des stratégies d'accès et des localisateurs.
+Une fois que vous avez créé des éléments multimédias, vous pouvez y accéder et les gérer sur le serveur. Vous pouvez également gérer sur le serveur d’autres objets faisant partie de Media Services, entre autres, des travaux, des tâches, des stratégies d’accès et des localisateurs.
 
-L'exemple suivant montre comment lancer une requête pour obtenir un élément multimédia par assetId. 
+L’exemple suivant montre comment lancer une requête pour obtenir un élément multimédia par assetId.
 
 	static IAsset GetAsset(string assetId)
 	{
@@ -39,7 +39,7 @@ L'exemple suivant montre comment lancer une requête pour obtenir un élément m
 	    return asset;
 	}
 
-Pour répertorier tous les éléments multimédias disponibles sur le serveur, vous pouvez utiliser la méthode suivante, qui effectue une itération dans la collection d'éléments multimédias et affiche des informations détaillées sur chaque élément.
+Pour répertorier tous les éléments multimédias disponibles sur le serveur, vous pouvez utiliser la méthode suivante, qui effectue une itération dans la collection d’éléments multimédias et affiche des informations détaillées sur chaque élément.
 	
 	static void ListAssets()
 	{
@@ -77,13 +77,13 @@ Pour répertorier tous les éléments multimédias disponibles sur le serveur, v
 	    Console.Write(builder.ToString());
 	}
 
-L'extrait de code suivant supprime tous les éléments multimédias du compte Media Services. Notez que si une ressource est associée à un programme, vous devez tout d'abord supprimer le programme.
+L’extrait de code suivant supprime tous les éléments multimédias du compte Media Services. Notez que si une ressource est associée à un programme, vous devez tout d’abord supprimer le programme.
 
 	foreach (IAsset asset in _context.Assets)
 	{
 	    asset.Delete();
 	}
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

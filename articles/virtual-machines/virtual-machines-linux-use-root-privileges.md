@@ -40,7 +40,7 @@ Dans ce cas, l'utilisateur est invité à fournir un mot de passe. Une fois le m
 Vous pouvez également activer la méthode sudo sans mot de passe en modifiant le fichier `/etc/sudoers.d/waagent`, par exemple :
 
 	#/etc/sudoers.d/waagent
-	azureuser (ALL) = (ALL) NOPASSWD: ALL
+	azureuser ALL = (ALL) NOPASSWD: ALL
 
 Cette modification permet à l'utilisateur azureuser de poursuivre sans entrer de mot de passe.
 
@@ -52,4 +52,6 @@ Connectez-vous à la machine virtuelle Linux à l’aide de l’authentification
 
 Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une fois la touche `<enter>` activée, `sudo` exécute la commande avec les privilèges `root`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO1-->

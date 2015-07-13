@@ -284,4 +284,4 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

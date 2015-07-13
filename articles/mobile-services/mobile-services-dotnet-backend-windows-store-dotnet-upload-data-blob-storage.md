@@ -3,7 +3,6 @@
 	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,28 +10,24 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
+##Vue d'ensemble
 Cette rubrique vous montre comment utiliser Azure Mobile Services pour permettre à votre application de télécharger et de stocker les images générées par l'utilisateur dans Azure Storage. Mobile Services utilise une base de données SQL pour stocker les données. Toutefois, les données BLOB (Binary Large Object) sont stockées avec plus d'efficacité dans le service de stockage d'objets blob Azure.
 
 Vous ne pouvez pas distribuer de manière sécurisée les informations d'identification nécessaires à un téléchargement sécurisé de données vers le service de stockage d'objets blob avec l'application cliente. Au lieu de cela, vous devez stocker ces informations d'identification dans votre service mobile et vous en servir pour générer une signature d'accès partagé qui sera utilisée pour télécharger une nouvelle image. La signature d'accès partagé, information d'identification dont le délai d'expiration est très court (dans ce cas, 5 minutes), est renvoyée de manière sécurisée par Mobile Services à l'application cliente. L'application utilise ensuite cette information d'identification provisoire pour télécharger l'image. Dans cet exemple, les téléchargements à partir du service BLOB sont publics.
 
-Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de démarrage rapide Mobile Services pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services. Ce didacticiel vous guide tout au long des étapes de base suivantes pour mettre à jour le démarrage rapide de Mobile Services en vue de télécharger des images vers le service de stockage d'objets blob :
+Dans ce didacticiel, vous allez ajouter une fonctionnalité à l'application de démarrage rapide Mobile Services pour prendre des photos et télécharger les images vers Azure en utilisant une signature d'accès partagé générée par Mobile Services.
 
-1. [Installation de la bibliothèque du client de stockage]
-2. [Mise à jour de l'application cliente pour capturer des images]
-3. [Installation du client de stockage dans le projet de service mobile]
-4. [Mise à jour de la définition TodoItem dans le modèle de données]
-5. [Mise à jour du contrôleur de table pour générer une signature d'accès partagé]
-6. [Téléchargement des images pour tester l'application]
+##Composants requis
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -52,7 +47,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 2. Dans le volet gauche, sélectionnez la catégorie **En ligne**, sélectionnez **Inclure la version préliminaire**, recherchez **WindowsAzure.Storage-Preview**, cliquez sur **Installer** au niveau du package **Azure Storage**, puis acceptez les contrats de licence.
 
-  	![][2]
+  	![Ajout du package NuGet Azure Storage](./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	La bibliothèque du client des services de stockage Azure est alors ajoutée au projet.
 
@@ -62,16 +57,15 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 
  
 <!-- Anchors. -->
-[Installation de la bibliothèque du client de stockage]: #install-storage-client
-[Mise à jour de l'application cliente pour capturer des images]: #add-select-images
-[Installation du client de stockage dans le projet de service mobile]: #storage-client-server
-[Mise à jour de la définition TodoItem dans le modèle de données]: #update-data-model
-[Mise à jour du contrôleur de table pour générer une signature d'accès partagé]: #update-scripts
-[Téléchargement des images pour tester l'application]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Install the storage client in the mobile service project]: #storage-client-server
+[Update the TodoItem definition in the data model]: #update-data-model
+[Update the table controller to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
@@ -85,5 +79,6 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

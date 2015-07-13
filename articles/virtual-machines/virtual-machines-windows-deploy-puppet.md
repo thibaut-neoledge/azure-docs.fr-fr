@@ -35,7 +35,7 @@ Pour obtenir des instructions, téléchargez le « Guide de prise en main » d
 
 [Connexion à une machine virtuelle exécutant Linux]
 
-[Fonctionnalités et extensions de machine virtuelle Azure]
+[Gérer les extensions]
 
 <!--Link references-->
 [Nouvelles intégrations avec Microsoft Azure et Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
@@ -43,4 +43,7 @@ Pour obtenir des instructions, téléchargez le « Guide de prise en main » d
 [Connexion à une machine virtuelle exécutant Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

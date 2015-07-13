@@ -2,6 +2,7 @@
 	pageTitle="Autorisation côté service des utilisateurs dans Mobile Services avec un backend .NET | Centre de développement pour appareils mobiles"
 	description="Découvrez comment autoriser les utilisateurs dans un backend .NET Azure Mobile Services."
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="dotnet"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-Cette rubrique montre comment utiliser une logique côté serveur pour autoriser les utilisateurs. Dans ce didacticiel, vous modifiez les méthodes d’accès aux données dans .NET, filtrez des requêtes en fonction de l’ID des utilisateurs et permettez aux utilisateurs d’accéder uniquement à leurs propres données.
+Cette rubrique montre comment utiliser une logique côté serveur pour autoriser les utilisateurs. Dans ce didacticiel, vous modifiez les contrôleurs de table, filtrez des requêtes en fonction de l’ID des utilisateurs et permettez aux utilisateurs d’accéder uniquement à leurs propres données. Le filtrage des résultats de la requête d'un utilisateur par l'ID d'utilisateur est la forme d’autorisation la plus basique. Selon votre scénario spécifique, vous pouvez également créer des tables ou rôles utilisateurs pour effectuer le suivi d’informations d'autorisation utilisateur plus détaillées, telles que les points de terminaison auxquels un utilisateur donné peut accéder.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie sur le didacticiel [Ajout de l'authentification à une application Mobile Services existante]. Veuillez suivre [Ajout de l'authentification à une application Mobile Services existante] tout d'abord.
 
@@ -67,11 +69,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+ 
 
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

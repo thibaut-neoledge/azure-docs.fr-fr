@@ -1,6 +1,6 @@
 <properties
    pageTitle="Fonctions des modèles de gestionnaire des ressources Azure"
-   description="Décrit les fonctions à utiliser dans un modèle de gestionnaire des ressources Azure pour déployer des applications dans Azure."
+   description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Fonctions des modèles de gestionnaire des ressources Azure
 
@@ -52,6 +52,33 @@ L'exemple suivant montre comment combiner plusieurs valeurs pour en retourner un
         }
     }
 
+## deployment
+
+**deployment()**
+
+Renvoie des informations sur l’opération de déploiement actuelle.
+
+Les informations relatives au déploiement sont renvoyées en tant qu’objet avec les propriétés suivantes :
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+L’exemple ci-après indique comment renvoyer les informations de déploiement dans la section « outputs ».
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
 **listKeys (nom_ressource ou identificateur_ressource, [version_api])**
@@ -71,6 +98,28 @@ L'exemple suivant montre comment retourner les clés à partir d'un compte de st
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(chaîne_à_remplir, longueur_totale, caractère_de_remplissage)**
+
+Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la gauche jusqu’à ce que la longueur totale spécifiée ait été atteinte.
+  
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne_à_remplir | Oui | Chaîne à aligner à droite.
+| longueur_totale | Oui | Nombre total de caractères de la chaîne renvoyée.
+| caractère_de_remplissage | Oui | Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte.
+
+L’exemple ci-après indique comment remplir la valeur de paramètre fournie par l’utilisateur avec le caractère zéro jusqu’à ce que la chaîne atteigne 10 caractères. Si la valeur de paramètre d’origine comporte plus de 10 caractères, aucun caractère n’est ajouté.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## parameters
 
@@ -146,6 +195,27 @@ En utilisant l'expression reference, vous déclarez qu'une ressource dépend d'u
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(chaîne_initiale, ancien_caractère, nouveau_caractère)**
+
+Renvoie une nouvelle chaîne dans laquelle toutes les instances d’un caractère de la chaîne initiale spécifiée ont été remplacées par un autre caractère.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne_initiale | Oui | Chaîne pour laquelle toutes les instances d’un caractère seront remplacées par un autre caractère.
+| ancien_caractère | Oui | Caractère à supprimer de la chaîne initiale.
+| nouveau_caractère | Oui | Caractère à ajouter à la place du caractère supprimé.
+
+L’exemple ci-après indique comment supprimer tous les tirets de la chaîne fournie par l’utilisateur.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,6 +326,45 @@ L'exemple suivant montre la fonction subscription appelée dans la section outpu
       } 
     } 
 
+## toLower
+
+**toLower(chaîne_à_modifier)**
+
+Convertit la chaîne spécifiée en minuscules.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne_à_modifier | Oui | Chaîne à convertir en minuscules.
+
+L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en minuscules.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(chaîne_à_modifier)**
+
+Convertit la chaîne spécifiée en majuscules.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| chaîne_à_modifier | Oui | Chaîne à convertir en majuscules.
+
+L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisateur en majuscules.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variables
 
 **variables (nom_variable)**
@@ -270,7 +379,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 ## Étapes suivantes
 - [Création de modèles de gestionnaire des ressources Azure](./resource-group-authoring-templates.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
-- [Déploiement d'une application avec un modèle de gestionnaire des ressources Azure](./resouce-group-template-deploy.md)
+- [Déploiement d'une application avec un modèle de gestionnaire des ressources Azure](azure-portal/resource-group-template-deploy.md)
 - [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

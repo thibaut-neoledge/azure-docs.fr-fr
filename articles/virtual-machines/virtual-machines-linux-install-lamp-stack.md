@@ -123,5 +123,6 @@ Supposons que vous souhaitiez automatiser cette procédure pour déployer les ap
 Il existe de nombreuses autres ressources pour configurer une pile LAMP sur Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

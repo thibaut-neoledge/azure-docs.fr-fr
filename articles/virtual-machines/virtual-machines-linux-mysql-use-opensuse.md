@@ -43,4 +43,4 @@ Dans ce didacticiel, vous avez appris à créer une machine virtuelle exécutant
 [AzurePortal]: http://manage.windowsazure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->
