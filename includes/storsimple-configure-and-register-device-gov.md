@@ -133,7 +133,9 @@
 	
 	![Inscription de l’appareil StorSimple 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Pour copier le texte à partir de la fenêtre de console de série, sélectionnez-le simplement. Vous devez ensuite pouvoir le coller dans le Presse-papiers ou dans un éditeur de texte. > > N’utilisez PAS Ctrl + C pour copier la clé de chiffrement de données de service. Cette combinaison de touches ferme l’Assistant Installation. Par conséquent, le mot de passe administrateur de l’appareil n’est pas modifié et l’appareil rétablit le mot de passe par défaut.
+      >[AZURE.IMPORTANT]Pour copier le texte à partir de la fenêtre de console de série, sélectionnez-le simplement. Vous devez ensuite pouvoir le coller dans le Presse-papiers ou dans un éditeur de texte.
+      > 
+      > N’utilisez PAS Ctrl + C pour copier la clé de chiffrement de données de service. Cette combinaison de touches ferme l’Assistant Installation. Par conséquent, le mot de passe administrateur de l’appareil n’est pas modifié et l’appareil rétablit le mot de passe par défaut.
 
 16. Quittez la console en série.
 
@@ -144,9 +146,9 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        ISi l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        Si l'appareil est toujours hors ligne après quelques minutes, vous devez vous assurer que le réseau de pare-feu a été configuré conformément à la [configuration réseau requise pour votre appareil StorSimple] (https://msdn.microsoft.com/library/dn772371.aspx). Si vous ne bénéficiez d'aucune prise en charge HTTP 1.1 , vérifiez le port 9354 afin de vous assurer qu'il est ouvert pour les communications sortantes. Ce port est utilisé pour la communication entre le service StorSimple Manager et votre appareil StorSimple.
      
         
 
