@@ -362,9 +362,9 @@ Mahout est installé sur les clusters HDInsight 3.1 et peut être installé man
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	Une fois la build terminée, vous trouverez le fichier JAR dans __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] Quand Mahout 1.0 sera publié, vous devriez être en mesure d'utiliser les packages préconçus avec HDInsight 3.0.
 
 2. Téléchargez le fichier jar vers __example/jars__ dans le stockage par défaut de votre cluster. L'exemple suivant utilise add-hdinsightfile depuis [HDInsight-Tools][tools] pour télécharger le fichier :
 

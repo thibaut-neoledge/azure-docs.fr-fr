@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Mener à bien l'installation minimale de l’appareil"
-   description="Explique comment effectuer la configuration minimale d’un appareil StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/21/2015"
-   ms.author="v-sharos" />
 
 #### Pour mener à bien la configuration minimale d’un appareil StorSimple
 
