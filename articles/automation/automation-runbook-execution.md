@@ -45,4 +45,4 @@ Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécuti
 - [Affichage de l'état d'une tâche du Runbook dans Azure Automation](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

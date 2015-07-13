@@ -31,7 +31,7 @@ Si vous utilisez le nom de domaine ***.azurewebsites.net** créé pour votre app
 
 ### Profils et paramètres de publication
 
-Pendant le développement d'applications, la réalisation de tâches de gestion ou de tâches automatiques à l'aide d'utilitaires tels que **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou l'**interface de ligne de commande Azure (CLI d’Azure)**, vous pouvez utiliser un fichier de *paramètres de publication* ou de *profil de publication*. Les deux vous authentifient auprès d’Azure et doivent être sécurisés pour empêcher tout accès sans autorisation.
+Pendant le développement d’applications, la réalisation de tâches de gestion ou de tâches automatiques à l’aide d’utilitaires tels que **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou l’**interface de ligne de commande Azure (CLI Azure)**, vous pouvez utiliser un fichier de *paramètres de publication* ou de *profil de publication*. Les deux vous authentifient auprès d’Azure et doivent être sécurisés pour empêcher tout accès sans autorisation.
 
 * Un fichier de **paramètres de publication** contient :
 
@@ -45,14 +45,14 @@ Pendant le développement d'applications, la réalisation de tâches de gestion 
 
 Si vous faites appel à un utilitaire qui utilise des paramètres de publication ou un profil de publication, importez le fichier contenant les paramètres ou le profil de publication dans l'utilitaire, puis **supprimez** le fichier. Si vous devez garder le fichier, comme par exemple pour le partager avec d'autres personnes travaillant sur le projet, stockez-le dans un emplacement sécurisé comme un répertoire **chiffré** avec autorisations restreintes.
 
-De plus, assurez-vous que les informations d’identification importées sont sécurisées. Par exemple, **Azure PowerShell** et l’**interface de ligne de commande Azure (CLI d’Azure)** stockent des informations importées dans votre **répertoire de base** (*~* sur les systèmes Linux ou OS X et */users/votrenomutilisateur* sur les systèmes Windows.) Pour plus de sécurité, vous pouvez **chiffrer** ces emplacements à l'aide d'outils de chiffrement disponibles pour votre système d'exploitation.
+De plus, assurez-vous que les informations d’identification importées sont sécurisées. Par exemple, **Azure PowerShell** et l’**interface de ligne de commande Azure (CLI Azure)** stockent des informations importées dans votre **répertoire de base** (*~* sur les systèmes Linux ou OS X et */users/votrenomutilisateur* sur les systèmes Windows.) Pour plus de sécurité, vous pouvez **chiffrer** ces emplacements à l’aide d’outils de chiffrement disponibles pour votre système d’exploitation.
 
 ### Paramètres de configuration et chaînes de connexion
 Il est d'usage courant de stocker les chaînes de connexion, les informations d'identification et autres informations sensibles dans les fichiers de configuration. Malheureusement, ces fichiers peuvent être exposés sur votre site web, ou déposés dans un référentiel public, exposant ces informations.
 
 Azure App Service vous permet de stocker les informations de configuration dans l’environnement d’exécution Web Apps en tant que **paramètres d’application** et **chaînes de connexion**. Ces valeurs sont exposées sur votre application au moment de l'exécution via des *variables d'environnement* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l’exécution.
 
-Les **paramètres d’application** et les **chaînes de connexion** sont configurables via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ou des utilitaires tels que PowerShell ou la CLI d’Azure.
+Les **paramètres d’application** et les **chaînes de connexion** sont configurables via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ou des utilitaires tels que PowerShell ou l’interface de ligne de commande Azure.
 
 Pour plus d’informations sur les paramètres d’application et les chaînes de connexion, consultez la page [Configuration des applications web](web-sites-configure.md).
 

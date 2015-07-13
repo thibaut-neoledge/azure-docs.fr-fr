@@ -1,6 +1,6 @@
 <properties 	
-	pageTitle="Fabrique de données Azure - exemples" 
-	description="Fournit des détails sur les exemples fournis avec le service de fabrique de données Azure." 
+	pageTitle="Azure Data Factory - Exemples" 
+	description="Fournit des détails sur les exemples fournis avec le service Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,44 +16,44 @@
 	ms.date="04/25/2015" 
 	ms.author="spelluru"/>
 
-# Fabrique de données Azure - exemples
+# Azure Data Factory - Exemples
 
-## Exemples de portail Azure
-Vous pouvez rapidement déployer, passez en revue et tester un exemple de fabrique de données Azure à l'aide de la **exemples de pipelines** lame dans le portail Azure.
+## Exemples dans le portail Azure
+Vous pouvez déployer, passer en revue et tester rapidement un exemple Azure Data Factory à l’aide du panneau **Exemples de pipelines** dans le portail Azure.
 
-1. Créer une nouvelle fabrique de données ou ouvrez une fabrique de données existant. Voir [mise en route de la fabrique de données Azure][data-factory-get-started] pour connaître les étapes créer une fabrique de données.
-2. Dans le **DATA FACTORY** lame pour la fabrique de données, cliquez sur le **exemples de pipelines** vignette.
+1. Créez une nouvelle fabrique de données ou ouvrez une fabrique de données existante. Consultez la page [Prise en main d’Azure Data Factory][data-factory-get-started] pour connaître les étapes de la création d’une fabrique de données.
+2. Dans le panneau **DATA FACTORY** pour la fabrique de données, cliquez sur la vignette **Exemples de pipelines**.
 
-	![Exemple pipelines mosaïque](./media/data-factory-samples/SamplePipelinesTile.png)
+	![Vignette Exemples de pipelines](./media/data-factory-samples/SamplePipelinesTile.png)
 
-2. Dans le **exemples de pipelines** lame, cliquez sur le **exemple** que vous souhaitez déployer.
+2. Dans le panneau **Exemples de pipelines**, cliquez sur l’**exemple** que vous souhaitez déployer.
 	
-	![Lame de pipelines exemple](./media/data-factory-samples/SampleTile.png)
+	![Panneau Exemples de pipelines](./media/data-factory-samples/SampleTile.png)
 
-3. Spécifier les paramètres de configuration de l'exemple. Par exemple, votre clé de compte et le nom de compte de stockage Azure, nom du serveur SQL Azure, base de données, ID d'utilisateur et mot de passe, etc.
+3. Spécifiez les paramètres de configuration de l’exemple. Par exemple, votre clé de compte et votre nom de compte de stockage Azure, le nom du serveur SQL Azure, la base de données, l’ID d’utilisateur, le mot de passe, etc.
 
-	![Volet d'exemple](./media/data-factory-samples/SampleBlade.png)
+	![Panneau Exemple](./media/data-factory-samples/SampleBlade.png)
 
-4. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **créer** créer/déployer l'exemple pipelines et les services/les tables liées par les pipelines.
-5. L'état du déploiement s'affiche sur la vignette exemple que vous avez cliqué sur le **exemples de pipelines** lame.
+4. Une fois que vous avez fini de spécifier les paramètres de configuration, cliquez sur **Créer** pour créer/déployer les exemples de pipelines et les tables/services liés utilisés par les pipelines.
+5. L’état du déploiement s’affiche sur l’exemple de vignette sur laquelle vous avez cliqué dans le panneau **Exemples de pipelines**.
 
 	![État du déploiement](./media/data-factory-samples/DeploymentStatus.png)
 
-6. Lorsque vous voyez le **déploiement réussi** message sur la vignette de l'exemple, fermez le **exemples de pipelines** lame.
-5. Sur **DATA FACTORY** lame, vous verrez que les services liés, des jeux de données et des pipelines sont ajoutés à votre fabrique de données.  
+6. Lorsque vous voyez le message **Déploiement réussi** sur la vignette de l’exemple, fermez le panneau **Exemples de pipelines**.
+5. Dans le panneau **DATA FACTORY**, vous pouvez voir que les services liés, les jeux de données et les pipelines sont ajoutés à votre fabrique de données.  
 
-	![Lame fabrique](./media/data-factory-samples/DataFactoryBladeAfter.png)
+	![Panneau Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
 
-Le tableau suivant fournit la brève description des exemples disponibles dans les **exemples de pipelines** vignette.
+La table suivante fournit une brève description des exemples disponibles dans la vignette **Exemples de pipelines**.
 
 Exemple de nom | description
 ----------- | -----------
-Création de profils utilisateur de jeu | Contoso est une société de jeu qui crée des jeux pour plusieurs plateformes : consoles de jeux, périphériques de poche et les ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. Objectif de Contoso est pour collecter et analyser les journaux générés par ces jeux pour obtenir des informations sur l'utilisation, identifiez les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes etc.... pour améliorer l'entreprise et offrir une meilleure expérience à ses clients. Cet exemple collecte des exemples de journaux, les processus et enrichit les données de référence et transforme les données pour évaluer l'efficacité d'une campagne marketing Contoso a récemment lancé.
+Profilage des utilisateurs de jeux | Contoso est une société de jeu qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des périphériques de poche et des ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L’objectif de Contoso est de collecter et d’analyser les journaux générés par ces jeux pour obtenir des informations sur l’utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. tout cela afin d’optimiser vos affaires et fournir une meilleure expérience aux clients. Cet exemple collecte des exemples de journaux, les traite et les enrichit avec des données de référence, puis transforme les données pour évaluer l’efficacité d’une campagne marketing lancée dernièrement par Contoso.
  
 ## Exemples sur GitHub
-Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à rapidement d'accélération avec le service de fabrique de données Azure (ou) modifier les scripts et l'utiliser dans une application propre. Le dossier Samples\\JSON contient des extraits de JSON pour les scénarios courants.
+Le [référentiel GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contient plusieurs exemples qui vous aideront à prendre en main rapidement le service Azure Data Factory (ou) à modifier les scripts et à utiliser ce service dans votre propre application. Le dossier Samples\JSON contient des extraits de code JSON pour les scénarios courants.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

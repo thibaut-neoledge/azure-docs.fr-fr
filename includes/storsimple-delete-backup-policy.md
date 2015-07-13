@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Supprimer une stratégie de sauvegarde StorSimple"
-   description="Explique comment utiliser le service StorSimple Manager pour supprimer une stratégie de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Pour supprimer une stratégie de sauvegarde StorSimple
 
@@ -26,4 +10,4 @@
 La page **Stratégies de sauvegarde** affiche la nouvelle liste des stratégies.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

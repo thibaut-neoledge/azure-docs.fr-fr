@@ -1,7 +1,7 @@
 
 ### redisCacheName
 
-The name of the Azure Redis Cache to create.
+Nom du Cache Redis Azure à créer.
 
     "redisCacheName": {
       "type": "string"
@@ -9,7 +9,7 @@ The name of the Azure Redis Cache to create.
 
 ### redisCacheSKU
 
-The pricing tier of the new Azure Redis Cache.
+Niveau de tarification du nouveau Cache Redis Azure.
 
     "redisCacheSKU": {
       "type": "string",
@@ -17,12 +17,11 @@ The pricing tier of the new Azure Redis Cache.
       "defaultValue": "Basic"
     }
 
-The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified. Basic provides a single node with multiple sizes available up to 53 GB.
-Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.
+Le modèle définit les valeurs autorisées pour ce paramètre (De base ou Standard) et affecte une valeur par défaut (De base) si aucune valeur n'est spécifiée. Le niveau De base fournit un nœud unique disponible en plusieurs tailles, jusqu’à 53 Go. Le niveau Standard fournit deux nœuds primaire/réplica disponibles en plusieurs tailles jusqu’à 53 Go et un contrat SLA de 99,9 %.
 
 ### redisCacheFamily
 
-The family for the sku.
+Famille de la référence (SKU).
 
     "redisCacheFamily": {
       "type": "string",
@@ -32,7 +31,7 @@ The family for the sku.
 
 ### redisCacheCapacity
 
-The size of the new Azure Redis Cache instance. 
+Taille de la nouvelle instance de Cache Redis Azure.
 
     "redisCacheCapacity": {
       "type": "int",
@@ -40,15 +39,16 @@ The size of the new Azure Redis Cache instance.
       "defaultValue": 0
     }
 
-The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (0) if no value is specified. Those numbers correspond to following cache sizes: 
-0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+Le modèle définit les valeurs autorisées pour ce paramètre (0, 1, 2, 3, 4, 5 ou 6) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Ces chiffres correspondent aux tailles de cache suivantes : 0 = 250 Mo, 1 = 1 Go, 2 = 2,5 Go, 3 = 6 Go, 4 = 13 Go, 5 = 26 Go, 6 = 53 Go
 
 ### redisCacheVersion
 
-The Redis server version of the new cache.
+Version du serveur Redis du nouveau cache.
 
     "redisCacheVersion": {
       "type": "string",
       "allowedValues": [ "2.8" ],
       "defaultValue": "2.8"
     }
+
+<!---HONumber=62-->

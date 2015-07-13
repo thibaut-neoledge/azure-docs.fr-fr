@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Événements de rapport d'audit d'Azure Active Directory" 
-   description="Événements audités disponibles pour l'affichage et le téléchargement à partir d'Azure Active Directory" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="kenhoff" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Événements de rapport d'audit d'Azure Active Directory"
+   description="Événements audités disponibles pour l'affichage et le téléchargement à partir d'Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,18 +12,24 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/13/2015"
+   ms.workload="identity"
+   ms.date="06/18/2015"
    ms.author="kenhoff"/>
 
 # Événements de rapport d'audit d'Azure Active Directory
 
-Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine). Les rapports fournissent l'enregistrement d'audit pour le nom d'événement, l'acteur qui a effectué l'action, la ressource cible affectée par la modification, ainsi que la date et l'heure (UTC). Les clients sont en mesure de récupérer la liste des événements d'audit pour leur Azure Active Directory via le [Portail de gestion Azure](https://manage.windowsazure.com/).
+Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier les actions privilégiées qui se sont produites dans leur Azure Active Directory. Ces actions privilégiées incluent les modifications d'élévation (par exemple la création de rôle ou les réinitialisations de mot de passe), la modification des configurations de stratégie (par exemple les stratégies de mot de passe) ou bien les modifications apportées à la configuration de répertoire (par exemple les modifications apportées aux paramètres de fédération de domaine). Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’acteur qui a effectué l’action, la ressource cible affectée par la modification, ainsi que la date et l’heure (UTC). Les clients sont en mesure de récupérer la liste des événements d'audit pour leur Azure Active Directory via le [Portail de gestion Azure](https://manage.windowsazure.com/), comme décrit dans [Afficher vos rapports d'accès et d’utilisation](active-directory-view-access-usage-reports.md).
+
+## Rétention des rapports d’audit
+
+Les événements du rapport d’audit d’Azure AD sont conservés pendant 180 jours. Pour plus d’informations sur la rétention des rapports, consultez la page [Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md).
+
+Pour les clients intéressés par le stockage de leurs événements d’audit pour des périodes de rétention plus longues, l’API de création de rapports peut être utilisée pour extraire régulièrement des événements d’audit dans un magasin de données distinct. Consultez la rubrique [Prise en main de l’API de création de rapports](active-directory-reporting-api-getting-started.md) pour en savoir plus.
 
 ## Propriétés incluses dans chaque événement d'audit
 
 | Propriété | Description |
-| ------	| ------								|		
+| ------	| ------								|
 | Date et heure | La date et l'heure auxquelles l'audit s'est produit |
 | Acteur | L'utilisateur ou le principal du service qui a effectué l'action |
 | Action | L'action qui a été effectuée |
@@ -66,7 +72,7 @@ Le rapport d'audit d'Azure Active Directory permet aux clients d'identifier le
 | Définir les informations de l'entreprise | Mise à jour des informations au niveau de l'entreprise Consultez l'applet de commande Powershell [Get-msolcompanyinformation permet](https://msdn.microsoft.com/library/azure/dn194126.aspx) pour obtenir plus de détails. |
 | Définir le mot de passe utilisateur | Définition de la propriété qui force un utilisateur à modifier son mot de passe lors de la connexion |
 
-<!--- 
+<!---
 
 List of events that still need descriptions:
 
@@ -95,5 +101,6 @@ L'événement d'audit « Mettre à jour l'utilisateur » inclut des informatio
 | TelephoneNumber | Numéro de téléphone de l'utilisateur |
 
 Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d'audit d'Azure Active Directory Azure puissent respecter les réglementations de conformité, il leur est recommandé d'envoyer une copie de cette rubrique d'aide avec la copie de leur rapport d'audit exporté afin d'expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

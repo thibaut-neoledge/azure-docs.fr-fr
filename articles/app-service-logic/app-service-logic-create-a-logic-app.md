@@ -29,11 +29,11 @@ Pour activer ce scénario, vous aurez besoin des éléments suivants :
 
 ##Obtention de vos connecteurs
 
-Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [**Connecteur Dropbox**](app-service-logic-connector-dropbox.md) et [**Connecteur Twitter**](app-service-logic-connector-twitter.md). Pour les créer :
+Tout d'abord, vous devez créer les deux connecteurs que vous utiliserez : [**Connecteur Dropbox**](app-service-logic-connector-dropbox.md) et [**Connecteur Twitter**](app-service-logic-connector-twitter.md). Pour les créer :
 
 0. Connectez-vous au portail Azure.
 
-1. Cliquez sur [**Marketplace**](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) dans l'écran d'accueil et recherchez **Twitter** (ou [cliquez ici](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+1. Cliquez sur [**Marketplace** ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) dans l'écran d'accueil et recherchez **Twitter** (ou [cliquez ici](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
 
 2. Sélectionnez Connecteur Twitter et cliquez sur le bouton Créer. Vous obtiendrez une vue pour tous vos paramètres. Vous pouvez conserver le nom **Connecteur Twitter**.
 
@@ -65,7 +65,7 @@ Maintenant, vous devez créer une application logique :
 
 1. Cliquez sur le bouton **+ Nouveau** en bas à gauche de l’écran, développez **Web + Mobile**, puis cliquez sur **Application logique**.
 
- 	Cela affiche la vue Créer une application logique, dans lequel vous fournissez certains paramètres de base pour commencer.
+ 	Cela affiche la vue Créer une application logique, dans laquelle vous fournissez certains paramètres de base pour commencer.
 
 	![Vue Créer une application logique](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
 

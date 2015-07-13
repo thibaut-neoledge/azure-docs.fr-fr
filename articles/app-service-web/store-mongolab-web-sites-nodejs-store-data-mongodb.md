@@ -47,19 +47,15 @@ Avant de poursuivre, vérifiez que les éléments suivants sont installés :
 ## Démarrage rapide
 Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][provision] ci-dessous.
 
-1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**.  
+1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**.  
 <!-- ![Store][button-store] -->
-2. Cliquez sur le module **MongoLab**.  
-![MongoLab][entry-mongolab]
-3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
-![ConnectionInfoButton][button-connectioninfo]  
-4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers.  
-![ÉcranInformationsDeConnexion][screen-connectioninfo]
+2. Cliquez sur le module **MongoLab**. ![MongoLab][entry-mongolab]
+3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo]  
+4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers. ![ÉcranInformationsDeConnexion][screen-connectioninfo]
 
 	>[AZURE.NOTE]Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.
 
-5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service :  
-![WebAppConnectionStrings][focus-website-connectinfo]
+5. Ajoutez la valeur à la liste **Connection Strings** dans le menu **Configuration** de votre application web dans Azure App Service : ![WebAppConnectionStrings][focus-website-connectinfo]
 6. Dans **Name**, entrez **MONGOLAB_URI**.
 7. Dans **Value**, collez la chaîne de connexion obtenue dans la section précédente.
 8. Sélectionnez **Custom** dans la liste déroulante Type (à la place de la valeur par défaut **SQLAzure**).
@@ -402,13 +398,13 @@ Maintenant que votre environnement et votre structure sont prêts, nous pouvons 
 <a name="deploy"></a>
 ## Déploiement de l’application
 
-Maintenant que l'application a été développée, il est temps de créer une application web dans Azure App Service pour l'héberger. Configurez cette application web et déployez le code. L'élément essentiel de cette section est l'utilisation de la chaîne de connexion MongoDB (URI). Vous allez configurer une variable d'environnement dans votre application web avec cet URI, afin de séparer l'URI du code. L'URI doit être traitée comme une information sensible car elle contient les identifiants de connexion à votre base de données.
+Maintenant que l'application a été développée, il est temps de créer une application web dans Azure App Service pour l'héberger. Configurez cette application web et déployez le code. L'élément essentiel de cette section est l'utilisation de la chaîne de connexion MongoDB (URI). Vous allez configurer une variable d'environnement dans votre application web avec cet URI, afin de séparer l'URI du code. L’URI doit être traitée comme une information sensible car elle contient les identifiants de connexion à votre base de données.
 
-Les étapes de cette section utilisent l’interface de ligne de commande Azure pour Mac, Linux et Windows pour créer une application web dans Azure App Service et déployer votre application à l’aide de Git. Pour effectuer ces étapes, vous devez disposer d'un abonnement Azure.
+Dans les étapes de cette section, l’interface de ligne de commande Azure pour Mac, Linux et Windows est utilisée afin de créer une application web dans Azure App Service. Le déploiement de l’application s’effectue ensuite à l’aide de Git. Pour effectuer ces étapes, vous devez disposer d’un abonnement Azure.
 
 ### Installer l’interface de ligne de commande Microsoft Azure
 
-Utilisez la commande suivante pour installer l’interface de ligne de commande Azure :
+Pour installer l’interface de ligne de commande Azure, utilisez la commande suivante :
 
 	npm install azure-cli -g
 
@@ -449,15 +445,14 @@ Avant d’utiliser l’interface de ligne de commande Azure, vous devez téléch
 
 Il est très facile de créer une application web dans Azure App Service. S'il s'agit de votre première application web Azure, vous devez utiliser le portail. Si vous en avez déjà créé un ou plusieurs, passez à l'étape 7.
 
-1. Dans le portail Azure, cliquez sur **New**.
-![Nouveau][button-new]
-2. Sélectionnez **Calculer > Application web > Création rapide**.
+1. Dans le portail Azure, cliquez sur **Nouveau**. ![Nouveau][button-new]
+2. Sélectionnez **Calculer > Application web > Création rapide**.
 <!-- ![Create Web App][screen-mongolab-newwebsite] -->
-3. Saisissez un préfixe d'URL. Sélectionnez le nom de votre choix, tout en gardant à l'esprit qu'il doit être unique (« monappmongo » risque fort de ne pas être disponible).
+3. Saisissez un préfixe d’URL. Sélectionnez le nom de votre choix, tout en gardant à l'esprit qu'il doit être unique (« monappmongo » risque fort de ne pas être disponible).
 4. Cliquez sur **Créer une application web**.
-5. Quand la création de l'application web est terminée, cliquez sur son nom dans la liste des applications web. Le tableau de bord de l’application web s’affiche.
+5. Quand la création de l’application web est terminée, cliquez sur son nom dans la liste des applications web. Le tableau de bord de l’application web s’affiche.
 <!-- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
-6. Cliquez sur **Configurer le déploiement à partir du contrôle de code source** sous **aperçu rapide**, sélectionnez GitHub, puis entrez votre nom d'utilisateur et votre mot de passe git. Vous utiliserez ce mot de passe pour le transfert vers votre application web (étape 9).  
+6. Cliquez sur **Configurer le déploiement à partir du contrôle de code source** sous **aperçu rapide**, sélectionnez GitHub, puis entrez votre nom d’utilisateur et votre mot de passe git. Vous utiliserez ce mot de passe pour le transfert vers votre application web (étape 9).  
 7. Si vous avez créé votre application web en suivant les étapes ci-dessus, la commande suivante clôt le processus. Toutefois, si vous disposez déjà de plusieurs applications web, vous pouvez ignorer les étapes ci-dessus et créer une application web à l'aide de cette même commande. Dans votre répertoire de projet **tasklist** :
 
 		azure site create myuniquewebappname --git  
@@ -524,7 +519,7 @@ Vous vous rappelez de la variable process.env.CUSTOMCONNSTR_MONGOLAB_URI dans le
 
 Exécutez `azure site browse` depuis le répertoire de votre projet pour ouvrir automatiquement un navigateur (ou ouvrez un navigateur et accédez manuellement à l'URL de votre application web, myuniquewebappname.azurewebsites.net) :
 
-![Une page web affiche une liste de tâches vide.][node-mongo-finished]
+![Une page Web affiche une liste de tâches vide.][node-mongo-finished]
 
 <a name="manage"></a>
 ## Gestion de la base de données
@@ -575,4 +570,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

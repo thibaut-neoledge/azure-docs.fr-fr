@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Ajout de notifications push à votre application du Windows Store
@@ -190,4 +190,5 @@ Votre application est maintenant prête à recevoir des notifications toast.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

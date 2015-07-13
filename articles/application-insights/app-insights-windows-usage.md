@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 #  Analyse de l’utilisation des applications Windows Store et Windows Phone avec Application Insights
@@ -87,6 +87,35 @@ Cliquez sur n'importe quelle occurrence pour afficher ses propriétés détaill�
 
 Pour en savoir plus sur les événements personnalisés, consultez la [Référence de l’API][api].
 
+## Sessions
+
+Une session est un concept fondamental dans Application Insights, qui s'efforce d'associer chaque événement de télémétrie, tels que des crashs ou des événements personnalisés que vous codez vous-même, avec une session utilisateur spécifique.
+
+Les informations contextuelles sont collectées pour chaque session, par exemple les caractéristiques du périphérique, la situation géographique, le système d'exploitation, etc.
+
+Lors du [diagnostic des problèmes][diagnostic], vous pouvez trouver toutes les données de télémétrie liées à la session dans laquelle un problème s'est produit, y compris l’ensemble des demandes, événements, exceptions ou traces qui ont été enregistrés.
+
+Les sessions fournissent une bonne indication de la popularité des contextes, par exemple le périphérique, le système d'exploitation ou l’emplacement. En affichant le nombre de sessions regroupées par périphérique, par exemple, vous obtenez un nombre plus précis de la fréquence à laquelle ce périphérique est utilisé avec votre application, plutôt qu’en comptant le nombre de pages affichées. C’est une méthode efficace pour trier les éventuels problèmes spécifiques à un périphérique.
+
+
+#### Qu'est-ce qu’une session ?
+
+Une session représente une rencontre unique entre l'utilisateur et l'application. Dans sa forme la plus simple, la session commence par un utilisateur qui lance l'application et se termine lorsque l'utilisateur quitte l'application. Pour les applications mobiles, la session est terminée lorsque l'application est interrompue (déplacée en arrière-plan) pendant plus de 20 secondes. Si l'application est reprise, une nouvelle session démarre. Naturellement, un utilisateur peut avoir plusieurs sessions par jour voire par heure.
+
+La **durée de la session** est une mesure qui représente l'intervalle de temps entre le premier et le dernier élément de télémétrie de la session. (Elle n'inclut pas le délai d'expiration).
+
+
+Le **nombre de sessions** d’un certain intervalle est défini comme le nombre de sessions uniques avec une certaine activité pendant cet intervalle. Lorsque vous examinez une longue période comme le nombre de sessions quotidiennes de la semaine dernière, cette valeur équivaut généralement au nombre total de sessions.
+
+Toutefois, lorsque vous explorez des périodes plus courtes comme une session horaire, une longue session couvrant plusieurs heures est comptée pour chaque heure pendant laquelle la session a été active.
+
+## Utilisateurs et nombre d'utilisateurs
+
+Chaque session utilisateur est associée à un ID d'utilisateur unique, généré lors de l'utilisation de l'application et conservé dans le stockage local du périphérique. Un utilisateur qui utilise plusieurs périphériques sera compté plusieurs fois.
+
+La métrique du **nombre d'utilisateurs** dans un certain intervalle est définie comme le nombre d'utilisateurs uniques avec des activités enregistrées pendant cet intervalle. Par conséquent, les utilisateurs avec de longues sessions peuvent être pris en compte plusieurs fois, lorsque vous définissez une plage de temps afin que la granularité soit inférieure à une heure environ.
+
+La valeur **Nouveaux utilisateurs** compte les utilisateurs dont les premières sessions avec l'application se sont produites au cours de cet intervalle.
 
 
 ## <a name="debug"></a>Comparaison entre le mode de débogage et le mode de version finale
@@ -114,10 +143,14 @@ Si vous développez en configuration de version finale, les événements sont st
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
+[diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [windows]: app-insights-windows-get-started.md
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

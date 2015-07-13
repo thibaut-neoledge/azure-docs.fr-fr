@@ -25,19 +25,9 @@ Vous pouvez surveiller les indicateurs de performances clés de vos services clo
 
 Les affichages de surveillance dans le portail de gestion sont configurables à loisir. Vous pouvez choisir les mesures à surveiller dans la liste des mesures de la page **Monitor**, et choisir les mesures à afficher dans les graphiques sur la page **Monitor** et dans le tableau de bord.
 
-##Sommaire##
-* [Concepts](#concepts)
-* [Configuration de la surveillance pour les services cloud](#verbose)
-* [Réception d’alertes pour les mesures de services cloud](#receivealerts)
-* [Ajout de mesures au tableau des mesures](#addmetrics)
-* [Personnalisation des graphiques de mesures](#customizechart)
-* [Accès aux données de la surveillance détaillée en dehors du portail de gestion](#accessverbose)
-
-<h2><a id="concepts"></a>Concepts</h2>
+##Concepts##
 
 Par défaut, une surveillance minimale est fournie pour le nouveau service cloud à l'aide de compteurs de performances récupérés sur le système d'exploitation hôte pour les instances de rôle (machines virtuelles). Les mesures minimales sont limitées au pourcentage processeur, aux données entrantes, aux données sortantes, au débit d'écriture sur le disque et au débit de lecture sur le disque. En configurant la surveillance détaillée, vous obtenez des mesures supplémentaires basées sur les données de performances dans les machines virtuelles (instances de rôle). Les mesures détaillées offrent une analyse plus fine des problèmes qui surviennent au cours du fonctionnement de l'application.
-
-> [AZURE.NOTE]Si vous utilisez la surveillance détaillée, vous pouvez ajouter d'autres compteurs de performances au démarrage de l'instance de rôle, via un fichier de configuration du diagnostic. Pour pouvoir surveiller ces mesures dans le portail de gestion, vous devez ajouter les compteurs de performances avant de configurer la surveillance détaillée. Pour plus d'informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](cloud-services-dotnet-diagnostics.md).
 
 Par défaut, les données des compteurs de performances des instances de rôle sont échantillonnées et transférées à partir de l'instance de rôle toutes les 3 minutes. Lorsque vous activez la surveillance détaillée, les données brutes des compteurs de performances sont consolidées pour chaque instance de rôle et pour toutes les instances de rôle de chaque rôle toutes les 5 minutes, toutes les heures et toutes les 12 heures. Les données consolidées sont purgées tous les 10 jours.
 
@@ -46,43 +36,29 @@ Une fois la surveillance détaillée activée, les données de surveillance cons
 Notez que l'activation de la surveillance détaillée va augmenter les coûts de stockage liés au stockage des données, au transfert des données et aux transactions de stockage. La surveillance minimale ne nécessite pas de compte de stockage. Les données des mesures exposées au niveau minimal ne sont pas stockées dans votre compte de stockage, même si vous sélectionnez le niveau de surveillance détaillé.
 
 
-<h2><a id="verbose"></a>Configuration de la surveillance pour les services cloud</h2>
+##Procédure de configuration de la surveillance des services cloud##
 
-Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail de gestion. Vous ne pouvez pas activer la surveillance détaillée tant que vous n'avez pas activé Azure Diagnostics et configuré les chaînes de connexion de diagnostic pour permettre à Azure Diagnostics d'accéder aux comptes de stockage où doivent être placées les données de surveillance détaillées.
+Les procédures suivantes permettent de configurer la surveillance minimale ou détaillée dans le portail de gestion.
 
 ###Avant de commencer###
 
 - Créez un compte de stockage pour stocker les données de surveillance. Vous pouvez utiliser différents comptes de stockage pour différents rôles. Pour plus d'informations, consultez **Comptes de stockage** ou la page [Création d'un compte de stockage](/manage/services/storage/how-to-create-a-storage-account/).
 
+- Activez le diagnostic Azure pour vos rôles de service cloud. Consultez [Configuration des diagnostics pour les services cloud](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
 
-- Activez le diagnostic Azure pour vos rôles de service cloud. <br /><br />Pour plus d’informations, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines.](cloud-services-dotnet-diagnostics.md).
+Assurez-vous que la chaîne de connexion de diagnostic est présente dans la configuration du rôle. Vous ne pouvez pas activer la surveillance détaillée avant d'activer Azure Diagnostics d’inclure une chaîne de connexion de diagnostic dans la configuration du rôle.
 
-Dans le portail de gestion, vous pouvez ajouter ou modifier les chaînes de connexion de diagnostic utilisées par Azure Diagnostics pour accéder aux comptes de stockage qui contiennent les données de la surveillance détaillée, et vous pouvez choisir le niveau de surveillance minimal ou détaillé. Comme la surveillance détaillée stocke les données dans un compte de stockage, vous devez configurer les chaînes de connexion de diagnostic avant de sélectionner le niveau de surveillance détaillé.
+> [AZURE.NOTE]Les projets ciblant le Kit de développement logiciel (SDK) Azure 2.5 n’incluent pas automatiquement la chaîne de connexion de diagnostic dans le modèle de projet. Pour ces projets, vous devez ajouter manuellement la chaîne de connexion de diagnostic à la configuration du rôle.
 
-###Configuration de chaînes de connexion de diagnostic pour la surveillance détaillée###
+**Pour ajouter manuellement la chaîne de connexion de diagnostic à la configuration de rôle**
 
-1. Copiez une clé d'accès au stockage correspondant au compte que vous allez utiliser pour stocker les données de la surveillance détaillée. Dans le [portail de gestion Azure](https://manage.windowsazure.com/), vous pouvez utiliser **Manage Keys** dans la page **Storage Accounts**. Pour plus d'informations, consultez la page [Gestion des services cloud](cloud-services-how-to-manage.md) ou l'aide sur les **Comptes de stockage**. 
+1. Ouvrez le projet Cloud Service dans Visual Studio.
+2. Double-cliquez sur le **rôle** pour ouvrir le concepteur de rôle et sélectionnez l’onglet **Paramètres**
+3. Recherchez un paramètre appelé **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
+4. Si ce paramètre n'est pas présent, cliquez sur le bouton **Ajouter un paramètre** pour l’ajouter à la configuration et modifier le type pour le nouveau paramètre sur **ConnectionString**
+5. Définissez la valeur de chaîne de connexion en cliquant sur le bouton **...**. Ceci ouvrira une boîte de dialogue qui vous permet de sélectionner un compte de stockage.
 
-2. Ouvrez **Cloud Services**. Ensuite, pour ouvrir le tableau de bord, cliquez sur le nom du service cloud que vous voulez configurer.
-
-3. Cliquez sur **Production** ou sur **Staging** pour afficher le déploiement à configurer.
-
-4. Cliquez sur **Configure**.
-
-	Vous allez modifier les paramètres **monitoring** en haut de la page **Configure** présentée ci-dessous. Si vous n'avez pas activé Azure Diagnostics pour le service cloud, l'option **Level** n'est pas disponible. Vous ne pouvez pas modifier la stratégie de rétention des données. Les données de la surveillance détaillée d'un service cloud sont stockées pendant 10 jours.
-
-	![Options de surveillance](./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png)
-
-5. Dans **Diagnostics Connection Strings**, complétez la chaîne de connexion de diagnostic pour chaque rôle pour lequel vous souhaitez une surveillance détaillée.
-	
-	Les chaînes de connexion suivent ce format. (Cet exemple est valable pour un service cloud qui utilise les points de terminaison par défaut.) Pour mettre à jour une chaîne de connexion, entrez un nom de compte de stockage valide, ainsi que la clé d'accès du compte de stockage que vous voulez utiliser.
-         
- 	DefaultEndpointsProtocol=https;AccountName=StorageAccountName;AccountKey=StorageAccountKey
-
-6. Cliquez sur **Save**.
-
-Si vous activez la surveillance détaillée, effectuez la procédure suivante une fois que vous avez configuré les chaînes de connexion de diagnostic pour les rôles de service.
-
+	![Paramètres Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
 
 ###Pour modifier le niveau de surveillance détaillée ou minimale###
 
@@ -96,15 +72,15 @@ Une fois la surveillance détaillée activée, vous devriez commencer à voir le
 
 Les données des compteurs de performances brutes et les données de surveillance consolidées sont stockées dans le compte de stockage dans les tables définies par l'ID de déploiement pour les rôles.
 
-<h2><a id="receivealerts"></a>Réception d’alertes pour les mesures de services cloud</h2>
+##Procédure de réception d’alertes pour les mesures des services cloud##
 
 Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votre service cloud. Dans la page **Management Services** du portail de gestion Azure, vous pouvez créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
-<h2><a id="addmetrics"></a>Ajout de mesures au tableau des mesures</h2>
+##Ajout de mesures au tableau des mesures##
 
 1. Dans le [portail de gestion](http://manage.windowsazure.com/), ouvrez la page **Monitor** du service cloud.
 
-	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
+	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
 
 	![Affichage détaillé](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -135,8 +111,32 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
  
 4. Pour supprimer une mesure de la table, cliquez sur la mesure pour la sélectionner, puis sur **Delete Metric**. (**Delete Metric** ne s'affiche que si une mesure est sélectionnée.)
 
+###Pour ajouter des mesures personnalisées au tableau des mesures###
+Le niveau de surveillance **détaillée** fournit une liste des mesures par défaut que vous pouvez surveiller sur le portail. De plus, vous pouvez surveiller toute mesure personnalisée ou tout compteur de performance définis par votre application via le portail.
 
-<h2><a id="customizechart"></a>Personnalisation des graphiques de mesures</h2>
+Les étapes suivantes supposent que vous avez activé le niveau de surveillance **détaillée** et que vous avez configuré votre application pour collecter et transférer des compteurs de performance personnalisés.
+
+Pour afficher les compteurs de performance personnalisés dans le portail, vous devez mettre à jour la configuration dans wad-control-container :
+ 
+1.	Ouvrez l'objet blob wad-control-container dans votre compte de stockage de diagnostics. Pour cela, vous pouvez utiliser Visual Studio ou tout autre explorateur de stockage.
+
+	![Explorateur de serveurs Visual Studio.](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
+2. Accédez au chemin d'accès de l'objet blob à l'aide du modèle **DeploymentId/RoleName/RoleInstance** pour trouver la configuration de votre instance de rôle. 
+
+	![Explorateur de stockage Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
+3. Téléchargez le fichier de configuration pour votre instance de rôle et mettez-le à jour pour inclure des compteurs de performance personnalisés. Par exemple, pour analyser l’*écriture sur le disque octet/s* pour le *lecteur C*, ajoutez le code suivant sous le nœud **PerformanceCounters\Subscriptions**
+
+	```xml
+	<PerformanceCounterConfiguration>
+	<CounterSpecifier>\LogicalDisk(C:)\Disk Write Bytes/sec</CounterSpecifier>
+	<SampleRateInSeconds>180</SampleRateInSeconds>
+	</PerformanceCounterConfiguration>
+	```
+4. Enregistrez les modifications et téléchargez le fichier de configuration au même emplacement en remplaçant le fichier existant dans l'objet blob.
+5. Passez au mode détaillé dans la configuration du portail de gestion. Si vous étiez déjà en mode détaillé, vous devez passer au niveau minimum puis de nouveau en mode détaillé.
+6. Le compteur de performance personnalisé sera alors disponible dans la boîte de dialogue **Ajouter des mesures**. 
+
+##Procédure de personnalisation des graphiques de mesures##
 
 1. Dans la table des mesures, sélectionnez jusqu'à 6 mesures à afficher dans le graphique. Pour sélectionner une mesure, cliquez sur la case à cocher à sa gauche. Pour supprimer une mesure du graphique, désactivez sa case à cocher dans la table des mesures.
 
@@ -167,7 +167,7 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
 4. Choisissez 1 heure, 24 heures ou 7 jours de données à afficher.
 
-<h2><a id="accessverbose"></a>Accès aux données de la surveillance détaillée en dehors du portail de gestion</h2>
+##Procédure d’accès aux données de la surveillance détaillée en dehors du portail de gestion##
 
 Les données de la surveillance détaillée sont stockées dans des tables dans les comptes de stockage que vous avez spécifiés pour chaque rôle. Pour chaque déploiement de service cloud, six tables sont créées pour le rôle. Deux tables sont créées toutes les (5 minutes, 1 heure et 12 heures). Une de ces tables stocke les consolidations au niveau du rôle, et l'autre table stocke les consolidations pour les instances de rôle.
 
@@ -190,6 +190,6 @@ Par exemple, les tables suivantes stockent les données de la surveillance déta
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

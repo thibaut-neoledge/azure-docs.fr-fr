@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Installer Update 1 à partir du portail de gestion Azure"
-   description="Explique comment utiliser le portail de gestion pour installer StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
 
 #### Pour installer Update 1 à partir du portail de gestion
 
@@ -61,4 +45,4 @@
 
     ![Page Maintenance](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

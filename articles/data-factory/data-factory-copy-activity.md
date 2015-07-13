@@ -56,10 +56,12 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 		<th>Base de données SQL Azure</th>
 		<th>SQL Server local</th>
 		<th>SQL Server sur IaaS</th>
+		<th>Document DB Azure</th>
 	</tr>	
 
 	<tr>
 		<td><b>Objet blob Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Base de données SQL Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>Système de fichiers local</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@ L'activité de copie prend en charge les scénarios de déplacement de données 
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>Système de fichiers local</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de données MySQL locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de données DB2 locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de données Teradata locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de données Sybase locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de données PostgreSQL locale</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Azure DocumentDB</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+Consultez la rubrique [Sources et récepteurs pris en charge](https://msdn.microsoft.com/library/dn894007.aspx) dans la bibliothèque MSDN pour plus d’informations.
+
 ### SQL sur une infrastructure en tant que service (IaaS)
-SQL Server sur IaaS est également pris en charge comme source et le récepteur. Passerelle de gestion des données est requise lors de la création d'un service lié à SQL Server sur IaaS. Vous devez envisager d'installer la passerelle de gestion des données sur un ordinateur virtuel autre que l'un hébergement SQL Server afin d'éviter la dégradation des performances en raison de SQL Server et la passerelle en concurrence pour les ressources. Pour plus d'informations sur la passerelle de gestion des données, consultez [Permettre à vos pipelines d'accéder à des données locales][use-onpremises-datasources].
+SQL Server sur IaaS est également pris en charge en tant que source et récepteur. La passerelle de gestion des données est requise lors de la création d'un service lié à SQL Server sur IaaS. Vous devez envisager l’installation de la passerelle de gestion des données sur une autre machine virtuelle que celle hébergeant SQL Server afin d'éviter une dégradation des performances causée par l’utilisation simultanée des ressources par SQL Server et par la passerelle. Pour plus d'informations sur la passerelle de gestion des données, consultez [Permettre à vos pipelines d'accéder à des données locales][use-onpremises-datasources].
 
 1.	Machine virtuelle avec un nom DNS public et un port public statique : mappage de port privé
 2.	Machine virtuelle avec un nom DNS public sans point de terminaison SQL exposé
@@ -146,7 +225,7 @@ L'activité de copie contient les composants suivants :
 Une activité de copie peut avoir une **table d'entrée** et une **table de sortie**.
 
 ## <a name="CopyActivityJSONSchema"></a>JSON de l'activité de copie
-Un pipeline se compose d'une ou plusieurs activités. Les activités des pipelines sont définies dans la section **Activités[]**. Le JSON d'un pipeline est constitué comme suit :
+Un pipeline se compose d'une ou plusieurs activités. Les activités des pipelines sont définies dans la section **Activités**. Le JSON d'un pipeline est constitué comme suit :
          
 	{
 		"name": "PipelineName",
@@ -316,7 +395,7 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
 
 - La propriété **type** est définie sur **CopyActivity**.
 - **MyOnPremTable** est spécifié en tant que balise d'entrée (**inputs**).
-- **MyAzureBlob** est spécifié en tant que balise de sortie (**outputs**) 
+- **MyAzureBlob** est spécifié en tant que balise de sortie (**outputs**)
 - La section **Transformation** contient deux sections secondaires : **source** et **récepteur**. Le type de la source est défini sur **SqlSource**, tandis que celui du récepteur est défini sur **BlobSink**. **sqlReaderQuery** définit la transformation (projection) qui doit être effectuée sur la source. Pour plus d'informations sur toutes les propriétés, consultez [Référence de script JSON][json-script-reference].
 
          
@@ -355,7 +434,7 @@ Dans cet exemple, le pipeline **CopyActivityPipeline** est défini à l'aide des
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]Pour obtenir des exemples d'utilisation de l'activité de copie, consultez [Exemples d'utilisation de l'activité de copie dans Azure Data Factory][copy-activity-examples] 
+> [AZURE.NOTE]Pour obtenir des exemples d'utilisation de l'activité de copie, consultez [Exemples d'utilisation de l'activité de copie dans Azure Data Factory][copy-activity-examples]
 
 ## Sécurité
 Cette section comprend des instructions et des méthodes conseillées concernant la sécurité globale, qui permettent d'établir un accès sécurisé aux magasins de données pour l'activité de copie.
@@ -364,7 +443,7 @@ Pour les magasins de données qui autorisent les connexions HTTPS, choisissez l
 
 Pour **Azure SQL Database**, demandez explicitement une connexion chiffrée et ne faites pas confiance aux certificats de serveur pour éviter une attaque de l'intercepteur (« man in the middle »). Pour ce faire, utilisez **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Instructions de sécurité et limitations d'Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activer les connexions chiffrées dans le moteur de base de données] (https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
+Pour les bases de données classiques telles que **SQL Server**, en particulier quand les instances se trouvent sur une machine virtuelle Azure, activez l'option de connexion chiffrée en configurant un certificat signé, avec **Encrypt=True** et **TrustServerCertificate=False** dans la chaîne de connexion. Pour plus d'informations, consultez [Activation des connexions chiffrées dans le moteur de base de données] (https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) et [Syntaxe de chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Scénarios avancés
 - **Filtrage de colonne à l'aide de la définition de structure**. En fonction du type de table, il est possible de spécifier un sous-ensemble de colonnes à partir de la source en indiquant un nombre de colonnes dans la définition de **Structure** de la définition de table inférieur à celles qui se trouvent dans la source de données sous-jacente.
@@ -405,5 +484,6 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

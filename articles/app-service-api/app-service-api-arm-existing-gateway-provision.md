@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionner une application API avec une passerelle existante
@@ -22,7 +22,9 @@ Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Ma
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour accéder au modèle complet, voir [Application API avec le nouveau modèle de passerelle](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json).
+Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Pour accéder au modèle complet, voir [Application API avec le nouveau modèle de passerelle](../../templates/app-service-api-arm-existing-gateway-provision/).
 
 ## Ce que vous allez déployer
 

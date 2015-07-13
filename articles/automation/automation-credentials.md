@@ -19,7 +19,7 @@
 
 Une ressource d’informations d’identification Automation conserve un objet [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou le Runbook peut extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook avec l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx).
 
->[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
+>[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
 ## Applets de commande Windows PowerShell
 
@@ -101,4 +101,6 @@ L’image suivante montre un exemple d’utilisation d’informations d’identi
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

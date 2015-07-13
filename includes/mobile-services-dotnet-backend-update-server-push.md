@@ -32,6 +32,4 @@
 
 2. Publiez à nouveau le projet de service mobile dans Azure.
 
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

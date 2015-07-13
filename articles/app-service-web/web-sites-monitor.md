@@ -153,7 +153,7 @@ Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires
 
 ###Téléchargement des fichiers journaux d’une application web
 
-Les fichiers journaux peuvent être téléchargés à l’aide de FTP, Azure PowerShell ou de la CLI d’Azure.
+Les fichiers journaux peuvent être téléchargés à l’aide de FTP, d’Azure PowerShell ou de l’interface de ligne de commande Azure.
 
 **FTP**
 

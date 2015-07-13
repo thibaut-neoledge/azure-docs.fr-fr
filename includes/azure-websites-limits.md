@@ -170,9 +170,9 @@
 
 <sup>2</sup>Les sites De base et Standard fonctionnent sur des machines dédiées. Le nombre de sites qui peuvent être hébergés sur ces machines dépend de l'activité des sites, de la taille des instances des machines et de l'utilisation de ressources correspondante.
 
-<sup>3</sup>À l'exception du niveau Gratuit, les limites des plans d'hébergement web sont définies par groupe de ressources. Pour plus d'informations sur la création et la gestion des groupes de ressources, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure][useresourcegroups].
+<sup>3</sup>À l'exception du niveau Gratuit, les limites des plans d'hébergement web sont définies par groupe de ressources. Pour plus d'informations sur la création et la gestion des groupes de ressources, consultez [Présentation d'Azure Resource Manager](../articles/resource-group-overview.md).
 
-<sup>4</sup>Les instances dédiées peuvent être de petite, moyenne ou grande taille. Consultez la [page de tarification Azure Web Sites][websitespricing] pour plus de détails. Des instances supplémentaires sont disponibles par le biais d'une demande d'assistance.
+<sup>4</sup>Les instances dédiées peuvent être de petite, moyenne ou grande taille. Consultez la [page de tarification Azure Web Sites](http://azure.microsoft.com/pricing/details/web-sites/) pour plus de détails. Des instances supplémentaires sont disponibles par le biais d'une demande d'assistance.
 
 <sup>5</sup>Les sites web partagent les mêmes ressources de stockage pour le contenu. Par conséquent, la limite de stockage correspond à la taille totale de tous les sites, plutôt que par site web. Il est possible d'augmenter les limites de stockage par le biais d'une demande d'assistance.
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>Cette valeur correspond au nombre de connexions web Sockets simultanées par instance de site web. Par exemple, si vous étendez un site web De base à deux instances, vous disposez de 700 connexions simultanées (350 x 2).
 
-<sup>9</sup>Pour le niveau De base, la [tarification SSL standard s'applique][sslpricing].
+<sup>9</sup>Pour le niveau De base, la [tarification SSL standard s'applique](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>Exécution d'exécutables et/ou de scripts personnalisés à la demande, de manière programmée ou en continu en tant que tâche en arrière-plan au sein de votre instance Web Sites. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Azure Scheduler (version Gratuite ou Standard) est nécessaire aux tâches web programmées.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

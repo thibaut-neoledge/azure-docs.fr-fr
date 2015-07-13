@@ -38,7 +38,7 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 ### Diagnostic d'application
 
-Les diagnostics d’application vous permettent de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Les diagnostics d’application vous permettent de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -66,8 +66,8 @@ Lorsque vous activez le **Diagnostic de site**, vous devez sélectionner le **st
 Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d'application** :
 
 * **Niveau de journalisation** : permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées. Le **niveau de journalisation** peut être défini différemment pour **Système de fichiers**, **Stockage de tables** et **Stockage d'objets blob**.
-* **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application Web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
-* **Stockage de tables** : stocke les informations de diagnostic d'application dans la table et le compte Azure Storage spécifiés.
+* **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
+* **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
 * **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
 * **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **stockage d'objets blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
 
@@ -105,7 +105,7 @@ Pour télécharger les fichiers journaux, démarrez une nouvelle instance du mod
 
 Cette commande enregistre les journaux de l’application Web spécifiée par le paramètre **-Name** dans un fichier nommé **logs.zip** du répertoire en cours.
 
-> [AZURE.NOTE]Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Téléchargement avec l’interface de ligne de commande Azure
 
@@ -113,9 +113,9 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
 	azure site log download webappname
 
-Cette commande enregistre les journaux de l’application Web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
+Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
 
-> [AZURE.NOTE]Si vous n'avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de la CLI Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de l’interface de ligne de commande Azure](../xplat-cli.md).
 
 ## Affichage des journaux dans Application Insights
 
@@ -132,11 +132,11 @@ Visual Studio Application Insights fournit des outils de filtrage et de reche
 
 ##<a name="streamlogs"></a> Diffusion en continu des journaux
 
-Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi-réel. Pour ce faire, vous pouvez diffuser ces informations vers votre environnement de développement en utilisant soit Azure PowerShell, soit l’interface de ligne de commande Azure.
+Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Pour ce faire, vous pouvez diffuser ces informations vers votre environnement de développement en utilisant soit Azure PowerShell, soit l’interface de ligne de commande Azure.
 
 > [AZURE.NOTE]Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 
-> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\home\LogFiles\** sont également diffusées.
+> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\home\LogFiles** sont également diffusées.
 
 ### Diffusion d'informations en continu avec Azure PowerShell
 
@@ -156,7 +156,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
 
-> [AZURE.NOTE]Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Diffusion d’informations en continu avec l’interface de ligne de commande Azure
 
@@ -174,7 +174,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Si vous n'avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli.md).
 
 ##<a name="understandlogs"></a> Présentation des journaux de diagnostic
 

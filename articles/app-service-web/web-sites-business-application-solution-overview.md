@@ -46,7 +46,7 @@ Sécurisez les ressources par chiffrement, authentifiez les utilisateurs d’ent
 
 Protégez les ressources internes contre les écoutes clandestines avec [HTTPS]. Le nom de domaine ***.azurewebsites.net** a déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez importer votre certificat SSL pour celui-ci dans App Service Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
 
-[Authentifiez les utilisateurs] par rapport à l’annuaire d’entreprise. App Service Web Apps peut authentifier les utilisateurs avec des fournisseurs d’identité locaux tels que les services AD FS (Active Directory Federation Services) ou avec un client Azure Active Directory qui a été synchronisé avec votre déploiement Active Directory d’entreprise. Les utilisateurs peuvent accéder à vos propriétés web dans Web Apps via l’authentification unique lorsqu’ils sont sur site ou sur le terrain. Les services existants comme Office 365 ou Microsoft Intune utilisent déjà Azure Active Directory. La fonctionnalité d’[authentification simple] permet d’activer facilement l’authentification avec le même client Azure Active Directory de votre application web.
+[Authentifiez les utilisateurs] par rapport à l’annuaire d’entreprise. App Service Web Apps peut authentifier les utilisateurs avec des fournisseurs d’identité locaux tels que les services AD FS (Active Directory Federation Services) ou avec un client Azure Active Directory qui a été synchronisé avec votre déploiement Active Directory d’entreprise. Les utilisateurs peuvent accéder à vos propriétés web dans Web Apps via l’authentification unique lorsqu’ils sont sur site ou sur le terrain. Les services existants, comme Office 365 ou Microsoft Intune, utilisent déjà Azure Active Directory. La fonctionnalité d’[authentification simple] permet d’activer facilement l’authentification avec le même client Azure Active Directory de votre application web.
 
 [Autorisez les utilisateurs] à utiliser les propriétés web. Avec un minimum de code supplémentaire, vous pouvez intégrer le même modèle de codage ASP.NET local dans App Service Web Apps en utilisant la décoration `[Authorize]`, par exemple. Vous conservez un contrôle d’accès précis d’une grande souplesse, équivalent à celui des applications que vous gérez sur site.
 
@@ -124,4 +124,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

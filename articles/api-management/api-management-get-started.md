@@ -20,7 +20,7 @@
 
 ## <a name="overview"> </a>Vue d’ensemble
 
-Ce guide décrit la prise en main rapide de Gestion des API et la création de votre premier appel d'API.
+Ce guide décrit la prise en main rapide de Gestion des API et la création de votre premier appel d’API.
 
 ## <a name="concepts"> </a>Qu’est-ce que Gestion des API Azure ?
 
@@ -33,7 +33,7 @@ Scénarios courants :
 * **Exécution d’un programme d’API interne** en offrant un emplacement centralisé à l’organisation pour communiquer sur la disponibilité et les dernières modifications apportées aux API, tout en régulant l’accès basé sur des comptes professionnels, tous basés sur un canal sécurisé entre la passerelle de l’API et le serveur principal
 
 
-Le système est composé des composants suivants :
+Le système est constitué des composants suivants :
 
 * La **passerelle d’API** est le point de terminaison qui :
   * accepte les appels d’API et les dirige vers vos serveurs principaux ;
@@ -48,7 +48,7 @@ Le système est composé des composants suivants :
 	* intégrer des API aux produits sous forme de packages
 	* définir des stratégies, telles que des quotas ou des transformations sur les API
 	* obtenir des informations issues de l’analyse
-	* manage users
+	* gérer des utilisateurs
 
 * Le **portail des développeurs** est le principal lieu sur le web où les développeurs peuvent :
 	* lire la documentation de l’API ;
@@ -57,39 +57,39 @@ Le système est composé des composants suivants :
 	* accéder aux analyses relatives à leur propre utilisation.
 
 
-## <a name="create-service-instance"> </a>Création d’une instance du service API Management
+## <a name="create-service-instance"> </a>Création d’une instance du service Gestion des API
 
-> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
+> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
 
-La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [portail de gestion][] et cliquez sur **Nouveau**, **Services d'application**, **Gestion des API**, **Créer**.
+La première étape de travail avec Gestion des API consiste à créer une instance de service. Connectez-vous au [portail de gestion][] et cliquez sur **Nouveau**, **Services d’application**, **Gestion des API**, **Créer**.
 
-![API Management new instance][api-management-create-instance-menu]
+![Nouvelle instance Gestion des API][api-management-create-instance-menu]
 
-Pour l'**URL**, spécifiez un nom de sous-domaine unique à utiliser pour l'URL du service.
+Pour l’**URL**, spécifiez un nom de sous-domaine unique à utiliser pour l’URL du service.
 
 Choisissez l’**abonnement** et la **région** souhaités pour votre instance de service. Une fois vos sélections effectuées, cliquez sur le bouton Suivant.
 
-![New API Management service][api-management-create-instance-step1]
+![Nouveau service Gestion des API][api-management-create-instance-step1]
 
-Entrez **Contoso Ltd.** pour le **nom de l'organisation**, ainsi que votre adresse de messagerie dans le champ correspondant pour l'administrateur.
+Entrez **Contoso Ltd.** pour le **nom de l’organisation**, ainsi que votre adresse de messagerie dans le champ correspondant pour l’administrateur.
 
->Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d'informations, consultez la page [Configuration de notifications][].
+>Cette adresse de messagerie est utilisée pour les notifications provenant du système Gestion des API. Pour plus d’informations, consultez la page [Configuration de notifications][].
 
-![New API Management service][api-management-create-instance-step2]
+![Nouveau service Gestion des API][api-management-create-instance-step2]
 
-Les instances de service de Gestion des API sont disponibles aux trois niveaux : Développeur, Standard et Premium. Par défaut, les instances du service API Management sont créées à l'aide du niveau Développeur. Pour sélectionner le niveau Standard ou Premium, cochez la case **Paramètres avancés** et sélectionnez le niveau désiré sur l’écran suivant.
+Les instances du service Gestion des API sont disponibles dans trois niveaux : Développeur, Standard et Premium. Par défaut, les instances du service Gestion des API sont créées à l’aide du niveau Développeur. Pour sélectionner le niveau Standard ou Premium, cochez la case **Paramètres avancés** et sélectionnez le niveau désiré sur l’écran suivant.
 
->Microsoft Azure offre trois niveaux dans lesquels vous pouvez exécuter votre service Gestion des API : Développeur, Standard, et Premium. Le niveau développeur est réservé aux programmes d'API de développement, de test et pilote pour lesquels la haute disponibilité n'est pas un problème. Aux niveaux Standard et Premium, vous pouvez étendre le nombre d’unités réservées pour gérer davantage de trafic. Les niveaux Standard et Premium permettent à votre service Gestion des API de disposer de la puissance de traitement et des performances maximales. Ce didacticiel peut être effectué à l’aide du niveau de votre choix. Pour plus d’informations sur les niveaux du service Gestion des API, consultez la page relative à la [tarification du service Gestion des API][].
+>Microsoft Azure offre trois niveaux dans lesquels vous pouvez exécuter votre service Gestion des API : Développeur, Standard et Premium. Le niveau Développeur est réservé aux programmes d’API de développement, de test et pilote pour lesquels la haute disponibilité n’est pas un problème. Aux niveaux Standard et Premium, vous pouvez étendre le nombre d’unités réservées pour gérer davantage de trafic. Les niveaux Standard et Premium permettent à votre service Gestion des API de disposer de la puissance de traitement et des performances maximales. Ce didacticiel peut être effectué à l’aide du niveau de votre choix. Pour plus d’informations sur les niveaux du service Gestion des API, consultez la page relative à la [tarification du service Gestion des API][].
 
 Cliquez sur la coche pour créer votre instance de service.
 
-![New API Management service][api-management-instance-created]
+![Nouveau service Gestion des API][api-management-instance-created]
 
 Une fois l’instance de service créée, l’étape suivante consiste à créer ou à importer une API.
 
 ## <a name="create-api"> </a>Importation d’une API
 
-Une API se compose d'un ensemble d'opérations pouvant être appelées à partir d'une application cliente. Les opérations de l'API sont transmises par proxy aux services web existants.
+Une API se compose d’un ensemble d’opérations pouvant être appelées à partir d’une application cliente. Les opérations de l’API sont transmises par proxy aux services web existants.
 
 Il est possible de créer des API et d’ajouter des opérations manuellement ou de les importer. Dans ce didacticiel, nous allons importer l’API pour un exemple de service web de calculatrice fourni par Microsoft et hébergé sur Azure.
 
@@ -103,7 +103,7 @@ Pour importer l’API de calculatrice, cliquez sur **API** dans le menu **Gestio
 
 ![Bouton Importer l’API][api-management-import-api]
 
-![Add new API][api-management-import-new-api]
+![Ajouter une nouvelle API][api-management-import-new-api]
 
 Procédez comme suit pour configurer l’API de calculatrice.
 
@@ -113,9 +113,9 @@ Procédez comme suit pour configurer l’API de calculatrice.
 
 Une fois l’API importée, la page Résumé de l’API s’affiche dans le portail des éditeurs.
 
-![API summary][api-management-imported-api-summary]
+![Résumé des API][api-management-imported-api-summary]
 
-La section API comporte plusieurs onglets. L'onglet **Résumé** affiche les mesures de base et les informations concernant l'API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification du proxy pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md), et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md). L’onglet **Problèmes** permet d’afficher les problèmes signalés par les développeurs utilisant vos API et l’onglet **Produits** de configurer les produits qui contiennent cette API.
+La section API comporte plusieurs onglets. L’onglet **Résumé** affiche les mesures de base et les informations concernant l’API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification du proxy pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md) et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md). L’onglet **Problèmes** permet d’afficher les problèmes signalés par les développeurs utilisant vos API et l’onglet **Produits** de configurer les produits qui contiennent cette API.
 
 Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
@@ -124,11 +124,11 @@ Par défaut, chaque instance Gestion des API est fournie avec deux exemples de p
 
 Dans ce didacticiel, l’API de calculatrice de base a été ajoutée au produit Starter lors de l’importation de l’API.
 
-Pour créer des appels à une API, les développeurs doivent commencer par s’abonner à un produit qui leur permet d’y accéder. Les développeurs peuvent s’abonner aux produits dans le portail des développeurs,ou les administrateurs peuvent les y abonner dans le portail des éditeurs. Vous êtes considéré comme un administrateur lorsque vous avez créé l’instance Gestion des API lors des étapes précédentes du didacticiel. Vous êtes également abonné à tous les produits par défaut.
+Pour créer des appels à une API, les développeurs doivent commencer par s’abonner à un produit qui leur permet d’y accéder. Ils peuvent s’abonner aux produits dans le portail des développeurs,ou les administrateurs peuvent les y abonner dans le portail des éditeurs. Vous êtes considéré comme un administrateur puisque vous avez créé l’instance Gestion des API lors des étapes précédentes du didacticiel. Vous êtes également abonné à tous les produits par défaut.
 
 ## <a name="call-operation"> </a>Appel d’une opération à partir du portail des développeurs
 
-Les opérations peuvent être directement appelées depuis le portail des développeurs, ce qui permet d'afficher et de tester les opérations d'une API. Dans cette étape du didacticiel, vous appellerez l’opération **Ajouter deux entiers** de l’API de **calculatrice de base**. Cliquez sur **Portail des développeurs** dans le menu en haut à droite du portail des éditeurs.
+Les opérations peuvent être directement appelées depuis le portail des développeurs, qui permet d’afficher et de tester les opérations d’une API. Dans cette étape du didacticiel, vous appellerez l’opération **Ajouter deux entiers** de l’API de **calculatrice de base**. Cliquez sur **Portail des développeurs** dans le menu en haut à droite du portail des éditeurs.
 
 ![Portail des développeurs][api-management-developer-portal-menu]
 
@@ -166,13 +166,13 @@ Passez la souris sur le graphique relatif à **Calculatrice de base** pour affic
 
 ![Analyse][api-management-mouse-over]
 
-Cliquez sur **Afficher les détails** pour afficher la page Résumé de l'API, incluant une version plus importante des mesures affichées.
+Cliquez sur **Afficher les détails** pour afficher la page Résumé de l’API, incluant une version plus importante des mesures affichées.
 
 ![Résumé][api-management-api-summary-metrics]
 
 Pour des mesures et des rapports détaillés, cliquez sur **Analyse** dans le menu **Gestion des API** à gauche.
 
-![Vue d'ensemble][api-management-analytics-overview]
+![Vue d’ensemble][api-management-analytics-overview]
 
 La section **Analyse** comporte les quatre onglets suivants.
 

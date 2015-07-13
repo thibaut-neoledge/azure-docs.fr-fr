@@ -1178,4 +1178,4 @@ Clonez simplement sur votre ordinateur de développement et configurez comme ind
 [Bibliothèque ADAL pour .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

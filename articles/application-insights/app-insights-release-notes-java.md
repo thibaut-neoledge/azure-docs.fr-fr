@@ -55,4 +55,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

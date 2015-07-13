@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Tableau de bord Power BI de Stream Analytics | Azure" 
-	description="Découvrez comment remplir un tableau de bord Power BI avec les données d’un travail Stream Analytics." 
+	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
+	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,17 +14,23 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="05/12/2015" 
 	ms.author="jeffstok"/>
 	
-#Azure Stream Analytics & Power BI : tableau de bord en direct sur l’analyse en temps réel des flux de données
+# Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
 
-Un des usages courants d’Azure Stream Analytics consiste à analyser des volumes élevés de flux de données en temps réel et obtenir l’analyse dans un tableau de bord en direct (qui se met à jour en temps réel sans que les utilisateurs n’aient à réactualiser le navigateur). [Microsoft Power BI](https://powerbi.com/) est parfait pour générer un tableau de bord en temps réel sans délai. [Voici une vidéo d’exemple pour illustrer le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA). Dans cet article, découvrez comment utiliser Power BI comme sortie pour votre travail Azure Stream Analytics. Remarque - Bien qu’Azure Stream Analytics est disponible, la sortie Power BI est au stade de fonctionnalité en version préliminaire.
+Azure Stream Analytics vous permet de tirer parti de Microsoft Power BI, l’un des principaux outils d’analyse décisionnelle. Découvrez comment utiliser Azure Stream Analytics pour analyser les flux de données volumineux et obtenir les résultats dans un tableau de bord Power BI en temps réel.
 
-##Configuration requise
+Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un tableau de bord dynamique. [Visionnez une vidéo illustrant le scénario](https://www.youtube.com/watch?v=SGUpT-a99MA).
 
-* Un compte Microsoft Azure utilisant un ID d’organisation (Power BI fonctionne avec un ID d’organisation uniquement. L’ID d’organisation est l’adresse de messagerie professionnelle, par exemple xyz@mycompany.com. Les adresses de messagerie personnelles comme xyz@hotmail.com ne sont pas des ID d’organisation. [Plus d’informations sur les ID d’organisation](https://www.arin.net/resources/request/org.html) ).
-* Un flux d’entrée pour alimenter un travail ASA (Azure Stream Analytics) en flux de données. À ce stade, ASA accepte les entrées depuis un concentrateur d’événements Azure ou un magasin d’objets blob Azure.  
+Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics.
+
+> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics.
+
+##Composants requis
+
+* Un compte Microsoft Azure utilisant un ID d’organisation (Power BI fonctionne avec un ID d’organisation uniquement. L’ID d’organisation est l’adresse de messagerie professionnelle, par exemple xyz@mycompany.com. Les adresses de messagerie personnelles comme xyz@hotmail.com ne sont pas des ID d’organisation. Pour en savoir plus sur les ID d’organisation, cliquez [ici](https://msdn.microsoft.com/subscriptions/dn531048.aspx). Un forum aux questions est également disponible sous forme de téléchargement [ici](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409)).
+* Une entrée pour alimenter un travail Stream Analytics en flux de données. Stream Analytics accepte les entrées d'Azure Event Hubs ou d'Azure Blob storage.  
 
 ##Création d’un travail Azure Stream Analytics
 
@@ -72,14 +79,14 @@ Pour ce didacticiel, nous supposons que vous utilisez EventHub comme entrée ave
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Remarque : la sortie Power BI est disponible uniquement pour les comptes Azure utilisant des ID d’organisation. Si vous n’utilisez pas un ID d’organisation pour votre compte Azure (par exemple, votre ID Windows Live/compte personnel Microsoft), l’option de sortie Power BI ne s’affiche pas.
+> [AZURE.NOTE]La sortie Power BI est disponible uniquement pour les comptes Azure utilisant des ID d’organisation. Si vous n’utilisez pas un ID d’organisation pour votre compte Azure (par exemple, votre ID Windows Live/compte personnel Microsoft), l’option de sortie Power BI ne s’affiche pas.
 
 2.  Sélectionnez **Power BI**, puis cliquez avec le bouton droit.
 3.  Un écran de ce type s’affiche :
 
 ![graphic3][graphic3]
 
-4.  Dans cette étape, vous devez veiller à utiliser le même ID d’organisation que pour votre travail ASA. À ce stade, la sortie Power BI doit utiliser le même ID d’organisation que votre travail ASA. Si vous avez déjà un compte Power BI utilisant le même ID d’organisation, sélectionnez « Autoriser maintenant ». Dans le cas contraire, cliquez sur « Inscrivez-vous » et utilisez le même ID d’organisation que votre compte Azure en vous inscrivant à Power BI. [Voici un bon blog décrivant les détails de l’inscription à Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  Dans cette étape, vous devez veiller à utiliser le même ID d’organisation que celui que vous utilisez pour votre travail Stream Analytics. À ce stade, la sortie Power BI doit utiliser le même ID d’organisation que votre travail Stream Analytics. Si vous avez déjà un compte Power BI utilisant le même ID d’organisation, sélectionnez « Autoriser maintenant ». Dans le cas contraire, cliquez sur « Inscrivez-vous » et utilisez le même ID d’organisation que votre compte Azure en vous inscrivant à Power BI. [Voici un bon blog décrivant les détails de l’inscription à Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 5.  Ensuite, un écran de ce type s’affiche :
 
 ![graphic4][graphic4]
@@ -88,13 +95,13 @@ Fournissez les valeurs suivantes :
 
 * **Alias de sortie** - Vous pouvez saisir n’importe quel alias de sortie auquel il vous sera facile de vous référer. Cet alias de sortie est particulièrement utile si vous décidez d’avoir des sorties multiples pour votre travail. Dans ce cas, vous devez faire référence à cette sortie dans votre requête. Par exemple, utilisons la valeur d’alias de sortie = « OutPbi ».
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
-*	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux ASA peut avoir seulement une table dans un jeu de données.
+*	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ##Écriture d’une requête
@@ -120,7 +127,7 @@ Démarrez votre travail. Assurez-vous que votre concentrateur d’événements r
 
 ##Créez le tableau de bord dans Power BI
 
-Accédez à [Powerbi.com](https://powerbi.com) et connectez-vous à l’aide de votre ID d’organisation. Si la requête du travail ASA génère des résultats, vous voyez que votre jeu de données est déjà créé :
+Accédez à [Powerbi.com](https://powerbi.com) et connectez-vous à l’aide de votre ID d’organisation. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé :
 
 ![graphic5][graphic5]
 
@@ -130,7 +137,7 @@ Pour créer le tableau de bord, cliquez sur l’option Tableaux de bord et crée
 
 Dans cet exemple, nous l’appellerons « Tableau de bord de démonstration ».
 
-Cliquez maintenant sur le jeu de données créé par votre travail ASA (pbidemo dans notre exemple). Vous accédez alors à une page pour créer un graphique sur ce jeu de données. Voici un des exemples de rapports que vous pouvez créer :
+Cliquez maintenant sur le jeu de données créé par votre travail Stream Analytics (pbidemo dans notre exemple). Vous accédez alors à une page pour créer un graphique sur ce jeu de données. Voici un des exemples de rapports que vous pouvez créer :
 
 Sélectionnez les champs Σ temp et heure. Ils vont automatiquement dans Valeur et Axe sur le graphique :
 
@@ -150,19 +157,19 @@ Vous obtenez un graphique en courbes de la moyenne dans le temps. En utilisant l
 
 Lorsque vous affichez le tableau de bord avec ce rapport épinglé, vous constatez que celui-ci est mis à jour en temps réel. Essayez de modifier les données de vos événements (par exemple, le pic de température). L’effet apparaît alors en temps réel sur votre tableau de bord.
 
-Notez que ce didacticiel ne vous a montré la création que d’un seul type de graphique pour un jeu de données. Toutefois, les possibilités de Power BI sont illimitées. Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [mise en route avec Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
+Notez que ce didacticiel ne vous a montré la création que d’un seul type de graphique pour un jeu de données. Power BI peut vous aider à créer d’autres outils d’analyse décisionnelle clients pour votre organisation. Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [prise en main de Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
 Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
-- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
@@ -176,6 +183,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

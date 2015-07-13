@@ -24,10 +24,10 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 * installer les bibliothèques clientes Azure et les ajouter dans votre application ;
 * utiliser les bibliothèques clientes pour créer des tables, et créer des entités de la table, exécuter des requêtes sur celles-ci ou les supprimer ;
-* créer un compte Azure Storage et configurer votre application afin de l'utiliser ;
+* créer un compte Azure Storage et configurer votre application afin de l’utiliser ;
 * créer une application web Azure et la déployer à l’aide de Git.
  
-Vous allez créer une application Web Tasklist simple dans PHP. Voici une capture d’écran de l’application terminée :
+Vous allez créer une application web Tasklist simple dans PHP. Voici une capture d’écran de l’application terminée :
 
 ![Application web PHP Azure][ws-storage-app]
 
@@ -90,7 +90,7 @@ Il convient d'exécuter quatre étapes de base avant de pouvoir passer un appel 
 	
 		DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 	
-	Pour accéder au stockage de l'émulateur :
+	Pour accéder au stockage de l’émulateur :
 	
 		UseDevelopmentStorage=true
 
@@ -112,7 +112,7 @@ Avant de stocker des données, vous devez créer le conteneur qui remplira ce r�
 		<?php
 		require_once "init.php";
 
-* Effectuez ensuite un appel à *createTable* en transmettant le nom de la table. À l'instar d'autres magasins de tables NoSQL, aucun schéma n'est requis pour les tables Azure.
+* Effectuez ensuite un appel à *createTable* en transmettant le nom de la table. À l’instar d’autres magasins de tables NoSQL, aucun schéma n’est requis pour les tables Azure.
 	
 		try	{
 			$tableRestProxy->createTable('tasks');
@@ -172,7 +172,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			
 		for ($i = 0; $i < count($entities); $i++) {
 
-* Une fois que vous avez obtenu un `Entity` , le modèle permettant de lire des données est `Entity->getPropertyValue('[name]')` :
+* Une fois que vous avez obtenu un objet `Entity`, le modèle permettant de lire des données est `Entity->getPropertyValue('[name]')` :
 
 			if ($i == 0) {
 				echo "<table border='1'>
@@ -204,7 +204,7 @@ La page d'accueil de l'application Tasklist doit répertorier toutes les tâches
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Enfin, vous devez insérer le formulaire qui fournit les données au script d'insertion de la tâche et compléter le code HTML :
+* Enfin, vous devez insérer le formulaire qui fournit les données au script d’insertion de la tâche et compléter le code HTML :
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -250,7 +250,7 @@ Votre application peut maintenant lire tous les éléments stockés dans la tabl
 		$entity->addProperty('date', EdmType::STRING, $_POST['date']);
 		$entity->addProperty('complete', EdmType::BOOLEAN, false);
 
-* Vous pouvez alors transmettre l'objet `$entity` que vous venez de créer à la méthode `insertEntity` :
+* Vous pouvez alors transmettre l’objet `$entity` que vous venez de créer à la méthode `insertEntity` :
 
 		try{
 			$tableRestProxy->insertEntity('tasks', $entity);
@@ -261,7 +261,7 @@ Votre application peut maintenant lire tous les éléments stockés dans la tabl
 		    echo $code.": ".$error_message."<br />";
 		}
 
-* Enfin, pour revenir à la page d'accueil après l'insertion de l'entité :
+* Enfin, pour revenir à la page d’accueil après l’insertion de l’entité :
 
 		header('Location: index.php');		
 		?>
@@ -276,7 +276,7 @@ L'application de liste de tâches est capable de marquer un élément comme éta
 		require_once "init.php";
 		
 
-* La première étape de mise à jour d'une entité consiste à récupérer celle-ci dans la table :
+* La première étape de mise à jour d’une entité consiste à récupérer celle-ci dans la table :
 		
 		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
 		$entities = $result->getEntities();		
@@ -299,15 +299,15 @@ L'application de liste de tâches est capable de marquer un élément comme éta
 		    echo $code.": ".$error_message."<br />";
 		}
 
-* Pour revenir à la page d'accueil après l'insertion de l'entité :
+* Pour revenir à la page d’accueil après l’insertion de l’entité :
 
 		header('Location: index.php');		
 		?>
 
 
-## Suppression d'une entité
+## Suppression d’une entité
 
-La suppression d’un élément est réalisée par un appel unique à `deleteItem`. Les valeurs transmises sont **PartitionKey** et **RowKey**, qui composent la clé primaire de l'entité. Créez un fichier nommé **deleteitem.php** et insérez le code suivant :
+La suppression d’un élément est réalisée par un appel unique à `deleteItem`. Les valeurs transmises sont **PartitionKey** et **RowKey**, qui composent la clé primaire de l’entité. Créez un fichier nommé **deleteitem.php** et insérez le code suivant :
 
 		<?php
 		
@@ -320,7 +320,7 @@ La suppression d’un élément est réalisée par un appel unique à `deleteIte
 
 ## créer un compte Azure Storage
 
-Afin que votre application stocke des données dans le cloud, vous devez créer au préalable un compte de stockage dans Azure, puis transmettre les informations d'authentification adéquates à la classe *Configuration*.
+Afin que votre application stocke des données dans le cloud, vous devez créer au préalable un compte de stockage dans Azure, puis transmettre les informations d’authentification adéquates à la classe *Configuration*.
 
 1. Connectez-vous au [portail Azure][management-portal].
 
@@ -334,7 +334,7 @@ Afin que votre application stocke des données dans le cloud, vous devez créer 
 
 	![Sélection des clés de gestion][storage-access-keys]
 
-7. Ouvrez **init.php** et remplacez `[YOUR_STORAGE_ACCOUNT_NAME]` et `[YOUR_STORAGE_ACCOUNT_KEY]` par le nom du compte et le nom de la clé que vous avez notés lors de l'étape précédente. Enregistrez le fichier .
+7. Ouvrez **init.php** et remplacez `[YOUR_STORAGE_ACCOUNT_NAME]` et `[YOUR_STORAGE_ACCOUNT_KEY]` par le nom du compte et le nom de la clé que vous avez notés lors de l’étape précédente. Enregistrez le fichier .
 
 ## Création d’une application web Azure et configuration de la publication Git
 
@@ -342,9 +342,9 @@ Suivez cette procédure pour créer une application web Azure :
 
 1. Connectez-vous au [portail Azure][management-portal].
 
-2. Créez une application web vide avec les instructions de la page [Procédure de création d’une application web à l'aide du portail Azure](../web-sites-create-deploy.md#createawebsiteportal). Assurez-vous de sélectionner un nouveau [plan App Service](azure-web-sites-web-hosting-plans-in-depth-overview) et de sélectionnez le groupe de ressources que vous avez créé précédemment pour le compte de stockage.
+2. Créez une application web vide avec les instructions de la page [Procédure de création d’une application web à l’aide du portail Azure](../web-sites-create-deploy.md#createawebsiteportal). Assurez-vous de créer un [plan App Service](azure-web-sites-web-hosting-plans-in-depth-overview) et de sélectionner le groupe de ressources que vous avez créé précédemment pour le compte de stockage.
 
-	Une fois l’application web créée, le bouton **Notifications** clignote en vert et affiche la mention **RÉUSSITE** et le panneau de l’application web s’ouvre pour indiquer qu’elle appartient au nouveau groupe de ressources créé.
+	Une fois l’application web créée, le bouton **Notifications** clignote en vert avec la mention **RÉUSSITE** et le panneau de l’application web s’ouvre pour indiquer qu’elle appartient au nouveau groupe de ressources créé.
 
 6. Sur le panneau de l’application web, cliquez sur **Configurer le déploiement continu** et choisissez **Référentiel Git local**. Cliquez sur **OK**.
 
@@ -360,7 +360,7 @@ Suivez cette procédure pour créer une application web Azure :
 
 	![Instructions de déploiement Git affichées après la création d’un référentiel pour l’application web.][git-instructions]
 
-	Notez les instructions, car elles seront utilisées dans la prochaine section pour la publication de l'application.
+	Notez les instructions, car elles seront utilisées dans la prochaine section pour la publication de l’application.
 
 ##Publication de votre application
 

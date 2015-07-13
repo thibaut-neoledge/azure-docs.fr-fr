@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Ajouter ou modifier une planification de sauvegarde StorSimple"
-   description="Explique comment utiliser le service StorSimple Manager pour créer et modifier des planifications de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
-
 #### Pour ajouter ou modifier une planification de sauvegarde StorSimple
 
 1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
@@ -44,4 +27,4 @@
 La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -3,8 +3,8 @@
    description="Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="05/20/2015"
+   ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous aideront à planifier votre mise à niveau avant la désactivation d’un SE invité.
@@ -28,6 +28,14 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 
 
 ## Nouvelles mises à jour
+
+###### **15 juin 2015**
+Le déploiement du système d'exploitation invité du mois de juin commence dès aujourd'hui, le 15 juin 2015, et devrait être publié le 9 juillet 2015.
+
+Les versions 4.20, 3.27 et 2.39 du SE invité ont été publiées le 12 juin 2015.
+
+###### **20 mai 2015**
+Le déploiement du système d'exploitation invité du mois de mai commence dès aujourd'hui, le 20 mai 2015, et devrait être publié le 12 juin 2015.
 
 ###### **17 avril 2015**
 Les versions 4.19, 3.26 et 2.38 du SE invité ont été publiées aujourd’hui.
@@ -64,16 +72,6 @@ Comme [précédemment annoncé][ssl3 announcement], la mise à jour de sécurit�
 ###### **16 décembre 2014. Mis à jour le 7 janvier 2015**
 Le démarrage de la publication du SE invité de décembre est prévu pour le 9 janvier 2015 au plus tôt.
 
-
-###### **11 novembre 2014.**
-
-La publication de novembre (4.14, 3.21 et 2.33) a été déployée le 11 novembre. Cette mise à jour a été publiée plus tôt, car elle inclut la mise à jour MSRC [Bulletin de sécurité Microsoft MS14-066 - Critique][MS14-066]. Vos rôles web et de travail pour la mise à jour automatique doivent redémarrer une fois au cours des jours suivants pour recevoir ce correctif.
-
-###### **10 novembre 2014**
-La date de désactivation de la publication d’octobre (4.13, 3.20 et 2.32) a été mise à jour en fonction des commentaires des clients. La date de désactivation sera toujours fixée au moins deux mois après la date de publication.
-
-###### **4 novembre 2014**
-La publication d’octobre (4.13, 3.20 et 2.32) a été déployée le 4 novembre 2014. Elle inclut le correctif MSRC ayant provoqué des problèmes avec les publications d’août et de septembre. Pour contourner ce problème, .NET 3.5 et 3.5.1, qui sont inclus dans la publication d’octobre, sont pré-installés mais désactivés. Les scripts essayant d’installer .NET 3.5 ou 3.5.1 parviendront à le réactiver et signaleront la « réussite » de l’installation de .NET, tout en évitant le problème d’installation complète créé par le correctif MSRC.
 
 
 
@@ -113,8 +111,10 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4.21 | WA-GUEST-OS-4.21_201506-01 | Prévu le 9 juillet 2015 | Mise à jour lors de la publication de la version 4.23 | TBD |
+| 4.20 | WA-GUEST-OS-4.20_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 4.22 | TBD |
 | 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 avril 2015 | Mise à jour lors de la publication de la version 4.21 | TBD |
-| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 avril 2015 | Mise à jour lors de la publication de la version 4.20 | TBD |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
 | 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 janvier 2015 | 2 mai 2015 | TBD |
 | 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 janvier 2015 | 9 avril 2015 | TBD |
@@ -134,8 +134,10 @@ Prend en charge .NET 4.0, 4.5
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3.28 | WA-GUEST-OS-3.28_201506-01 | Prévu le 9 juillet 2015 | Mise à jour lors de la publication de la version 3.30 | TBD |
+| 3.27 | WA-GUEST-OS-3.27_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 3.29 | TBD |
 | 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 avril 2015 | Mise à jour lors de la publication de la version 3.28 | TBD |
-| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 avril 2015 | Mise à jour lors de la publication de la version 3.27 | TBD |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
 | 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 janvier 2015 | 2 mai 2015 | TBD |
 | 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 janvier 2015 | 9 avril 2015 | TBD |
@@ -156,8 +158,10 @@ Prend en charge .NET 3.5, 4.0
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2.40 | WA-GUEST-OS-2.40_201506-01 | Prévu le 9 juillet 2015 | Mise à jour lors de la publication de la version 2.42 | TBD |
+| 2.39 | WA-GUEST-OS-2.39_201505-02 | 12 juin 2015 | Mise à jour lors de la publication de la version 2.41 | TBD |
 | 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 avril 2015 | Mise à jour lors de la publication de la version 2.40 | TBD |
-| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 avril 2015 | Mise à jour lors de la publication de la version 2.39 | TBD |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 avril 2015 | 12 juillet 2015 | TBD |
 | 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 mars 2015 | 17 mai 2015 | TBD |
 | 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 janvier 2015 | 2 mai 2015 | TBD |
 | 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 janvier 2015 | 9 avril 2015 | TBD |
@@ -181,7 +185,7 @@ Les publications d’août et de septembre 2014 ont été partiellement déploy
 #### Remarque 2
 Depuis le 19 septembre 2014, .NET 4.5.2 n’a pas été testé spécifiquement sur le SE invité Azure. Mais le SE invité équivaut globalement à Windows Server. Par conséquent, les mêmes règles de compatibilité qui s’appliquent au produit Windows Server s’appliquent aux familles de SE invité équivalentes. Si vous rencontrez une exception à cette règle, veuillez contacter le [support technique Azure][azuresupport]. Microsoft s’efforcera de résoudre votre problème, dans la mesure du possible. [Installation manuelle du package pour .NET 4.5.2][net install pkg].
 
-### Mises à jour MSRC incluses dans le SE invité
+## Mises à jour MSRC incluses dans le SE invité
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
 
 ## Prise en charge du Kit de développement logiciel (SDK)
@@ -214,6 +218,16 @@ Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
  
 ## Archive des dernières nouvelles
+
+###### **11 novembre 2014.**
+
+La publication de novembre (4.14, 3.21 et 2.33) a été déployée le 11 novembre. Cette mise à jour a été publiée plus tôt, car elle inclut la mise à jour MSRC [Bulletin de sécurité Microsoft MS14-066 - Critique][MS14-066]. Vos rôles web et de travail pour la mise à jour automatique doivent redémarrer une fois au cours des jours suivants pour recevoir ce correctif.
+
+###### **10 novembre 2014**
+La date de désactivation de la publication d’octobre (4.13, 3.20 et 2.32) a été mise à jour en fonction des commentaires des clients. La date de désactivation sera toujours fixée au moins deux mois après la date de publication.
+
+###### **4 novembre 2014**
+La publication d’octobre (4.13, 3.20 et 2.32) a été déployée le 4 novembre 2014. Elle inclut le correctif MSRC ayant provoqué des problèmes avec les publications d’août et de septembre. Pour contourner ce problème, .NET 3.5 et 3.5.1, qui sont inclus dans la publication d’octobre, sont pré-installés mais désactivés. Les scripts essayant d’installer .NET 3.5 ou 3.5.1 parviendront à le réactiver et signaleront la « réussite » de l’installation de .NET, tout en évitant le problème d’installation complète créé par le correctif MSRC.
 
 **20 octobre 2014. Mise à jour le 4 novembre 2014** : la publication de septembre (4.12, 3.19, 2.31 et 1.39) est partiellement déployée en raison du même [correctif MSRC MS14-046][MS14-046] provoquant des défaillances pour les utilisateurs essayant d’installer .NET 3.5 ou 3.5.1 sur la famille 3 ou 4. .NET 3.5.x n’est PAS officiellement pris en charge sur une famille, mais Microsoft répond à cette modification de comportement, car les installations de certains clients reposent sur cette version et la modification a été annoncée. Les dates de désactivation du précédent SE invité (juin et juillet) seront retardées en conséquence pour qu’au moins deux SE invités entièrement publiés soient pris en charge et disponibles. Une solution au problème d’installation de .NET est apparue dans la publication d’octobre 2014.
 
@@ -283,6 +297,8 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 | 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 octobre 2013 | N/A | 14 mai 2014 |
 | 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 octobre 2013 | N/A | 14 mai 2014 |
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 septembre 2013 | N/A | 14 mai 2014 |
+
+
 [Paramètres de mise à jour du système d’exploitation invité Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -301,5 +317,6 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

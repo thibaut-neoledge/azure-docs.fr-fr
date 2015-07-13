@@ -5,21 +5,17 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Maintenant générez une nouvelle fois le projet en cliquant sur **Synchronisation du projet avec les fichiers Gradle**.
 
-3. Ouvrez le fichier AndroidManifest.xml et ajoutez la ligne suivante, qui permet à l'application d'accéder à Mobile Services dans Azure.
+3. Ouvrez le fichier AndroidManifest.xml et ajoutez la ligne suivante, qui permet à l’application d’accéder à Mobile Services dans Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Ouvrez le fichier AndroidManifest.xml et ajoutez la ligne suivante, qui permet à l'application d'accéder à Mobile Services dans Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. Dans l’explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => app => src => java** et supprimez les marques de commentaire des lignes de code suivantes :
+4. Dans l’explorateur de projets, ouvrez le fichier TodoActivity.java situé dans le dossier **GetStartedWithData => app => src => java** et supprimez les marques de commentaire des lignes de code suivantes :
 
 
 
@@ -80,7 +76,7 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Cela permet de créer une nouvelle instance de *MobileServiceClient*, qui est utilisée pour accéder à votre service mobile. Cela crée également l'instance de *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
+  	Cela permet de créer une nouvelle instance de *MobileServiceClient*, qui est utilisée pour accéder à votre service mobile. Cela crée également l'instance *MobileServiceTable* utilisée pour traiter par proxy le stockage des données dans le service mobile.
 
 13. Dans le code ci-dessus, remplacez `MobileServiceUrl` et `AppKey` par l'URL et la clé d'application de votre service mobile, dans cet ordre.
 
@@ -165,4 +161,5 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
-<!--HONumber=54-->
+
+<!---HONumber=62-->

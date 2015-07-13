@@ -4,11 +4,11 @@ Les opérations CRUD normales pour les services mobiles fonctionnent comme si l'
 
 Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avons utilisé les méthodes `IMobileServiceSyncTable.PullAsync` et `MobileServiceClient.SyncContext.PushAsync`.
 
-*  Pour transmettre par notification push les modifications au serveur, nous avons appelé `IMobileServiceSyncContext.PushAsync()`. Cette méthode est membre de `IMobileServicesSyncContext` à la place de la table de synchronisation parce qu'elle envoie par Push les modifications sur toutes les tables.
+*  Pour transmettre par push les modifications au serveur, nous avons appelé `IMobileServiceSyncContext.PushAsync()`. Cette méthode est membre de `IMobileServicesSyncContext` à la place de la table de synchronisation parce qu’elle envoie par Push les modifications sur toutes les tables.
 
     Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
    
-* Pour extraire les données d'une table du serveur vers l'application, nous avons appelé `IMobileServiceSyncTable.PullAsync`.
+* Pour envoyer par pull les données d’une table sur le serveur vers l’application, nous avons appelé `IMobileServiceSyncTable.PullAsync`.
 
     Une opération Pull émet toujours d'abord une opération Push. Cela a pour but de garantir que toutes les tables dans le magasin local, ainsi que les relations, restent cohérentes.
 
@@ -20,8 +20,8 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
         await PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
-    Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu'ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel de `PullAsync`, ce qui est potentiellement inefficace.
+    Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `null` en tant qu'ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel à `PullAsync`, ce qui est potentiellement inefficace.
 
-* Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
+* Pour supprimer des enregistrements du magasin local de l’appareil lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler `IMobileServiceSyncTable.PurgeAsync()` régulièrement afin de vider le magasin local.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

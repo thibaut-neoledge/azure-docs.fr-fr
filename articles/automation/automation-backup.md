@@ -42,6 +42,6 @@ Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez 
 
 - [Création ou importation d’un Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
 - [Ressources Automation](https://msdn.microsoft.com/library/dn939988.aspx)
-- [Applets de commande Azure](https://msdn.microsoft.com/library/dn690262.aspx)
+- [Applets de commande Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

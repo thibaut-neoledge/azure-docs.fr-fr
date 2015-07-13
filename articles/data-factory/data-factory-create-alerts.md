@@ -170,5 +170,6 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 Exécutez la commande suivante pour afficher les événements générés :
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

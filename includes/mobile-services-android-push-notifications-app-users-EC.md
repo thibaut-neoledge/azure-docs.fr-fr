@@ -1,12 +1,12 @@
-﻿
-Lorsque vous vous inscrivez aux notifications, vous devez par la suite le modifier afin de vous assurer que l'utilisateur est bien authentifié avant toute tentative d'inscription.
+
+Lorsque vous vous inscrivez aux notifications, vous devez par la suite le modifier afin de vous assurer que l’utilisateur est bien authentifié avant toute tentative d’inscription.
 
 
 1. Dans l'Explorateur de package d'Eclipse, ouvrez le fichier ToDoActivity.java et recherchez la méthode `onCreate`. Déplacez le code suivant de la méthode `onCreate` au début de la méthode `createTable`.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-     La méthode `createTable` est appelée une fois la méthode `authenticate` terminée. Votre méthode `createTable` complète doit être semblable au code suivant.
+     La méthode `createTable` est appelée lorsque la méthode `authenticate` est terminée. Votre méthode complète `createTable` doit être similaire à la méthode suivante.
 
         private void createTable() {
         
@@ -26,6 +26,4 @@ Lorsque vous vous inscrivez aux notifications, vous devez par la suite le modifi
             refreshItemsFromTable();
         }	
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -26,11 +26,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 ##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un simulateur. Vérifiez qu'une exception non gérée avec un code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
@@ -107,5 +107,6 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 [Création d’une application Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

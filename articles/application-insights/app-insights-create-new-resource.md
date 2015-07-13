@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
 
 # Créer une ressource Application Insights dans Azure
@@ -78,6 +78,9 @@ Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][dia
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
+## Création automatique d’une ressource
+
+Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create-resource.md) pour créer automatiquement une ressource.
 
 
 <!--Link references-->

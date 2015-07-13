@@ -22,11 +22,11 @@
 
 Découvrez comment utiliser Azure PowerShell et le kit de développement logiciel (SDK) HDInsight .NET depuis une station de travail pour exécuter Sqoop afin d’importer et d’exporter entre un cluster HDInsight et une base de données SQL Azure ou une base de données SQL Server.
 
-> [AZURE.NOTE]Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, ces étapes fonctionnent uniquement à partir d'un client Windows.
+> [AZURE.NOTE]Les étapes décrites dans cet article peuvent être utilisées avec un cluster HDInsight Windows ou Linux. Toutefois, ces étapes fonctionnent uniquement à partir d’un client Windows.
 >
 > Si vous utilisez un client Linux, OS X ou Unix, et un serveur HDInsight Linux, consultez [Utilisation de Sqoop avec Hadoop dans HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
-##Qu'est-ce que Sqoop ?
+##Qu’est-ce que Sqoop ?
 
 Bien que Hadoop soit préférable pour traiter des données non structurées et semi-structurées, telles que des journaux et des fichiers, il peut être également nécessaire de traiter les données structurées stockées dans des bases de données relationnelles.
 
@@ -38,7 +38,7 @@ Pour obtenir la liste des versions Sqoop prises en charge par les clusters HDIns
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu'administrateur et définir la stratégie d'exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Pour exécuter des scripts Azure PowerShell, vous devez exécuter Azure PowerShell en tant qu’administrateur et définir la stratégie d’exécution sur *RemoteSigned*. Consultez la page [Exécution de scripts Windows PowerShell][powershell-script].
 
 - **Cluster Azure HDInsight** : pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
@@ -129,9 +129,9 @@ Pour plus d'instructions sur l’ajout des comptes de stockage supplémentaires,
 
 > [AZURE.NOTE]Seule la syntaxe *wasb://* est prise en charge dans la version 3.0 du cluster HDInsight. L'ancienne syntaxe *asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
 
-> [AZURE.NOTE]Le chemin d'accès *wasb://* est un chemin d'accès virtuel. Pour plus d'informations, consultez [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+> [AZURE.NOTE]Le chemin d’accès *wasb://* est un chemin d’accès virtuel. Pour plus d’informations, consultez [Utilisation du stockage d’objets blob Azure avec HDInsight][hdinsight-storage].
 
-Un fichier stocké dans le blob du système de fichiers par défaut est accessible depuis HDInsight à l’aide de n'importe lequel des URI suivants (les exemples utilisent le fichier sample.log) :
+Un fichier stocké dans le blob du système de fichiers par défaut est accessible depuis HDInsight à l’aide de n’importe lequel des URI suivants (les exemples utilisent le fichier sample.log) :
 
 	wasb://mycontainer@mystorageaccount.blob.core.windows.net/example/data/sample.log
 	wasb:///example/data/sample.log
@@ -405,7 +405,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Notez que le délimiteur de champ est **\\0x20**, qui est un espace. Le délimiteur est défini dans le fichier sample.log du script Azure PowerShell. Pour plus d'informations sur **-m 1**, consultez le [Guide d'utilisation de Sqoop][sqoop-user-guide-1.4.4].
+	Notez que le délimiteur de champ est **\0x20**, qui est un espace. Le délimiteur est défini dans le fichier sample.log du script Azure PowerShell. Pour plus d'informations sur **-m 1**, consultez le [Guide d'utilisation de Sqoop][sqoop-user-guide-1.4.4].
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
 6. Examinez les données exportées dans le [portail Azure][azure-management-portal].
@@ -645,4 +645,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

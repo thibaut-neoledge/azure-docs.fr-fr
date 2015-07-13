@@ -23,7 +23,7 @@
 
 # Créer et déployer une application web PHP-SQL dans Azure App Service à l’aide de WebMatrix
 
-Ce didacticiel explique comment utiliser WebMatrix pour développer une application PHP utilisant une base de données SQL Azure et la déployer dans  [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix est un outil de développement Web gratuit de Microsoft, qui fournit tout ce dont vous avez besoin pour développer des applications web. WebMatrix prend en charge le PHP et inclut Intellisence pour le développement PHP.
+Ce didacticiel explique comment utiliser WebMatrix pour développer une application PHP utilisant une base de données SQL Azure et la déployer dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix est un outil de développement Web gratuit de Microsoft, qui fournit tout ce dont vous avez besoin pour développer des applications web. WebMatrix prend en charge le PHP et inclut Intellisence pour le développement PHP.
 
 Ce didacticiel part du principe que vous avez installé [SQL Server Express][install-SQLExpress] sur votre ordinateur pour pouvoir tester une application en local. Cependant, cette installation n'est pas obligatoire pour suivre ce didacticiel. En revanche, vous pouvez déployer votre application directement dans Azure App Service Web Apps.
 
@@ -246,5 +246,6 @@ Vous savez désormais créer et déployer une application web WebMatrix dans Azu
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

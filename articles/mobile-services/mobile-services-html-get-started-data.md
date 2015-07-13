@@ -34,9 +34,9 @@ Vous pouvez héberger l'application GetStartedWithData sur n'importe quel serveu
  
 + Pour utiliser localhost, l'un des serveurs Web suivants doit être exécuté sur votre ordinateur local pour pouvoir suivre ce didacticiel :
 
-	+  **Sur Windows** : IIS Express. IIS Express est installé par le [programme d'installation de la plate-forme Web Microsoft].   
+	+  **Sur Windows** : IIS Express. IIS Express est installé par [Microsoft Web Platform Installer].   
 	+  **Sur MacOS X** : Python, qui doit déjà être installé.
-	+  **Sur Linux** : Python. Vous devez installer la [dernière version de Python]. 
+	+  **Sur Linux** : Python. Vous devez installer [la dernière version de Python]. 
 	
 	Vous pouvez utiliser n'importe quel serveur Web pour héberger l'application, mais les serveurs précédents sont les seuls pris en charge par les scripts téléchargés.
 
@@ -74,7 +74,7 @@ Ce didacticiel est basé sur l'application [GetStartedWithData], qui est une app
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-##<a name="add-table"></a>Ajout d'une nouvelle table au service mobile
+##<a name="add-table"></a>Ajouter une nouvelle table au service mobile
 
 Pour pouvoir stocker des données d'application dans le nouveau service mobile, vous devez d'abord créer une table dans l'instance de base de données SQL associée.
 
@@ -99,7 +99,7 @@ Pour pouvoir stocker des données d'application dans le nouveau service mobile, 
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l’application.
 
-##<a name="update-app"></a>Mise à jour de l'application afin d'utiliser le service mobile pour l'accès aux données
+##<a name="update-app"></a>Mettre à jour l'application afin d'utiliser le service mobile pour l'accès aux données
 
 Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour stocker les éléments dans Mobile Services et non dans la collection locale.
 
@@ -255,5 +255,6 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

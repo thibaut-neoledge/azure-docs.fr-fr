@@ -16,7 +16,7 @@
 	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# Didacticiel : déplacement et traitement de fichiers journaux à l'aide de la fonction [PowerShell] de Data Factory
+# Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell]
 Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations.
 
 ## Scénario
@@ -53,8 +53,7 @@ Dans cette procédure pas à pas, nous allons collecter des exemples de journaux
 	
 
 ## Vue d’ensemble
-Le flux de travail de bout en bout est représenté ci-dessous :
-	![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
+Le flux de travail de bout en bout est représenté ci-dessous : ![Didacticiel Flux de bout en bout][image-data-factory-tutorial-end-to-end-flow]
 
 1. Le pipeline **PartitionGameLogsPipeline** lit les événements de jeu bruts depuis un stockage d’objets blob (RawGameEventsTable) et crée des partitions basées sur l’année, le mois et le jour (PartitionedGameEventsTable).
 2. Le pipeline **EnrichGameLogsPipeline** joint les événements de jeu partitionnés (table PartitionedGameEvents, qui est une sortie de PartitionGameLogsPipeline) avec un code géographique (RefGetoCodeDictionaryTable) et enrichit les données en mappant une adresse IP à la géolocalisation correspondante (EnrichedGameEventsTable).
@@ -115,9 +114,9 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
 		$azuresqlPassword = <sql azure password>
 
  
-	> [AZURE.NOTE] Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
+	Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
 	
-	> Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d'objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
+	Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d’objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
 2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp_set_firewall_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
 4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\ADFWalkthrough**).
@@ -194,7 +193,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
  
 ## <a name="MainStep3"></a> Étape 3 : Créer des services liés
 
-> [AZURE.NOTE] Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
+> [AZURE.NOTE]Cet article utilise Microsoft Azure PowerShell pour créer des pipelines, des tables et des services liés. Consultez le didacticiel sur l’[utilisation de l’éditeur Data Factory][adftutorial-using-editor] si vous souhaitez effectuer ce didacticiel à l’aide du portail Microsoft Azure, et plus spécifiquement de l’éditeur Data Factory.
 
 Dans cette étape, vous allez créer les services liés suivants : StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService et HDInsightLinkedService.
 
@@ -297,7 +296,7 @@ Le portail Azure n’autorise pas encore la création de jeux de données/tables
 
 ### Créer des tables
 
-1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\\Tables**) depuis l’emplacement auquel vous avez extrait les exemples. 
+1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\ADFWalkthrough\Tables**) depuis l’emplacement auquel vous avez extrait les exemples. 
 2.	Utilisez l’applet de commande **New-AzureDataFactoryTable** pour créer les tables pour **RawGameEventsTable.json**, comme suit.	
 
 
@@ -560,4 +559,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=62-->

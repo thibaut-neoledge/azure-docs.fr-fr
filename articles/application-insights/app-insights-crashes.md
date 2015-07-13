@@ -74,7 +74,7 @@ Si vous développez en mode débogage, les événements sont envoyés dès qu'il
 
 #### Version finale
 
-Si vous développez en configuration de version finale, les événements sont stockés dans l’appareil, puis envoyés lors de la reprise de l’application. Les données sont également envoyées lors de la première utilisation de l’application. Si vous n’êtes pas connecté à Internet lors du démarrage, les données de télémétrie précédentes, tout comme celles du cycle de vie actuel, sont stockées, puis envoyées lors de la prochaine connexion.
+Si vous développez en configuration de version finale, les événements sont stockés dans l’appareil, puis envoyés lors de la reprise de l’application. Les données sont également envoyées lors de la première utilisation de l’application. S'il vous n’êtes pas connecté à Internet lors du démarrage, les données de télémétrie précédentes, tout comme celles du cycle de vie actuel, sont stockées, puis envoyées lors de la prochaine connexion.
 
 ## <a name="next"></a>Étapes suivantes
 

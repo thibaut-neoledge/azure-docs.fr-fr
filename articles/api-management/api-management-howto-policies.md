@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,9 +25,7 @@ Pour obtenir la liste complète des instructions et des paramètres de stratégi
 
 Les stratégies sont appliquées au niveau du proxy qui se trouve entre le consommateur de l'API et l'API managée. Le proxy reçoit toutes les demandes et les transfère normalement sans les modifier à l'API sous-jacente. Cependant, une stratégie peut appliquer des modifications à la demande entrante et à la réponse sortante.
 
-Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][] et [Définir la variable][], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][], [Expressions de stratégie][] et visionnez la vidéo suivante.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][] et [Définir la variable][], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][] et [Expressions de stratégie][].
 
 ## <a name="scopes"> </a>Configuration des stratégies
 Les stratégies peuvent être configurées de façon globale, ou bien au niveau d'un [produit][], d'une [API][] ou d'une [opération][]. Pour configurer une stratégie, accédez à l'éditeur Stratégies dans le portail des éditeurs.
@@ -105,6 +103,12 @@ Par exemple, si vous avez une stratégie configurée au niveau global et une str
 Dans l'exemple de définition de stratégie ci-dessus, l'instruction interdomaines s'exécute avant toutes les autres stratégies de niveau supérieur, qui sont à leur tour suivies de la stratégie rechercher/remplacer.
 
 Remarque : une stratégie globale n’a aucune stratégie parente et l’utilisation de l’élément `<base>` n’a aucun effet.
+
+## Étapes suivantes
+
+Découvrez la vidéo suivante sur les expressions de stratégie.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Référence de stratégie]: api-management-policy-reference.md
 [produit]: api-management-howto-add-products.md

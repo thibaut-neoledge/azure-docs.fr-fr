@@ -13,4 +13,5 @@ Vous devez ensuite modifier la méthode d'enregistrement des notifications Push 
             App.AcquirePushChannel();
             RefreshTodoItems();
         }
-<!--HONumber=54-->
+
+<!---HONumber=62-->

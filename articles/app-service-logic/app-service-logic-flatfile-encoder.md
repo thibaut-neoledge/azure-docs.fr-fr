@@ -98,5 +98,6 @@ L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie c
 [4]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.ListOfActions.PNG
 [5]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.FlatFileToXml.PNG
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

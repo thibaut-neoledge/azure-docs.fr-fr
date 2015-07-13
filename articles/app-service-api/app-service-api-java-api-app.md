@@ -270,4 +270,4 @@ Vous pouvez essayer cet exemple d'application API sur [TryApp Service](http://tr
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -15,7 +15,7 @@ La procédure suivante permet de créer un service mobile dans Azure et d’ajou
 
 5. Dans la boîte de dialogue **Créer un service mobile**, sélectionnez votre **Abonnement**, le backend **JavaScript** dans **Runtime** et une **Région** pour votre service mobile, puis tapez un **Nom** pour votre service mobile.
 
-	>[AZURE.NOTE]Les noms des services mobiles doivent être uniques. Une croix rouge s'affiche en regard du **Nom** lorsqu'il n'est pas disponible.
+	>[AZURE.NOTE]Les noms des services mobiles doivent être uniques. Une croix rouge s'affiche en regard du **Nom** lorsqu'il n’est pas disponible.
 
 6. Dans **Base de données**, sélectionnez **&lt;Créer une base de données SQL gratuite&gt;**, fournissez le **Nom d'utilisateur du serveur**, le **Mot de passe du serveur** et la **Confirmation du mot de passe du serveur**, puis cliquez sur **Créer**.
 
@@ -28,4 +28,4 @@ La procédure suivante permet de créer un service mobile dans Azure et d’ajou
 
 	Une fois que l'Assistant a terminé, les packages NuGet sont installés, une référence à la bibliothèque cliente Mobile Services est ajoutée au projet et son code source est mis à jour.
 
-<!--HONumber=54-->
+<!---HONumber=62-->

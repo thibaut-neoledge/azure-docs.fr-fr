@@ -99,7 +99,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       // or applicationinsights-core for bare API
     }
 
-* *Des erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'0.9.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).* 
+* *Erreurs de validation de build ou de somme de contrôle ? Essayez d’utiliser une version spécifique, telle que :* `version:'0.9.n'`. *Vous trouverez la version la plus récente dans les [notes de publication du kit de développement logiciel (SDK)](app-insights-release-notes-java.md).* 
 * *Pour effecteur la mise à jour vers un nouveau kit de développement logiciel (SDK)*
  * Actualisez les dépendances de votre projet.
 
@@ -261,7 +261,7 @@ Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Ho
 
 Ceci permet l'agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d'exécution des demandes.
 
-## Exceptions non gérées et les échecs de requêtes
+## Exceptions non gérées et échecs de requêtes
 
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)

@@ -26,8 +26,8 @@ Le Gestionnaire de connexion hybride (ou HCM) est un programme d'installation en
 Pour commencer, vous avez besoin des éléments suivants :
 
 - Chaîne de connexion SAS de l'espace de noms du relais Azure Service Bus. Consultez [Tarification de Service Bus](http://azure.microsoft.com/pricing/details/service-bus/) pour déterminer quel niveau inclut des relais.
-- Informations de connexion au système local, y compris le nom d'utilisateur et le mot de passe. Par exemple, si vous vous connectez à un serveur SQL local, vous avez besoin du compte et du mot de passe de connexion à SQL Server.
-- Informations du serveur local, y compris le nom du serveur et le numéro de port. Par exemple, si vous vous connectez à un serveur SQL local, vous avez besoin du nom du serveur SQL Server et du numéro de port TCP.
+- Informations de connexion au système local, y compris le nom d'utilisateur et le mot de passe. Par exemple, si vous vous connectez à un serveur SQL Server local, vous avez besoin du compte et du mot de passe de connexion à SQL Server.
+- Informations du serveur local, y compris le nom du serveur et le numéro de port. Par exemple, si vous vous connectez à un serveur SQL Server local, vous avez besoin du nom du serveur SQL Server et du numéro de port TCP.
 
 ## Obtenir la chaîne de connexion Service Bus
 

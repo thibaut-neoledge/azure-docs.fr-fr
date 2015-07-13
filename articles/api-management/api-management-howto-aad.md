@@ -3,7 +3,7 @@
 	description="Comment autoriser des utilisateurs avec Azure Active Directory dans Gestion des API." 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
 # Comment autoriser des comptes de développeurs avec Azure Active Directory dans Gestion des API Azure
@@ -207,7 +207,7 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
@@ -228,5 +228,4 @@ Votre utilisateur est maintenant connecté au portail des développeurs pour vot
 
 [Connexion au portail des développeurs avec un compte Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

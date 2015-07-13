@@ -31,6 +31,8 @@ Lorsque vous planifiez cette opération, tenez compte de ce qui suit : - Avant 
 
 - Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu. Si vous voulez en savoir plus sur la taille autorisée pour chaque niveau de service, consultez le tableau relatif aux tailles des bases de données et aux niveaux de service proposé dans cette section.
 
+- Lors de la mise à niveau d’une base de données avec la [géo-réplication standard](https://msdn.microsoft.com/library/azure/dn758204.aspx) ou la [géo-réplication active](https://msdn.microsoft.com/library/azure/dn741339.aspx), vous devez d'abord mettre à niveau les bases de données secondaires associées vers le niveau de performances souhaité avant la mise à niveau de la base de données principale.
+
 - Avant d’effectuer le passage à une version antérieure depuis un niveau de service Premium, vous devez arrêter toutes les relations de géo-réplication. Vous pouvez suivre les étapes décrites dans la section [Arrêt d’une relation de copie continue](https://msdn.microsoft.com/library/azure/dn741323.aspx) pour arrêter le processus de réplication entre la base de données principale et les bases de données secondaires actives.
 
 - Les offres de service de restauration sont différentes selon les niveaux de service. Si vous passez à une version antérieure, vous risquez de ne plus pouvoir effectuer de restauration à un moment donné, ou de bénéficier d’une période de rétention des sauvegardes moins étendue. Pour en savoir plus, voir [Sauvegarde et restauration de base de données SQL Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
@@ -103,7 +105,7 @@ Cet exemple indique comment mettre à niveau une base de données du niveau de s
 
 - Le niveau de performances de la base de données $db est défini sur $S2.
 
-- Spécifiez le niveau de service de la base de données et la taille maximale de cette dernière au moyen des paramètres  –Edition et –MaxSizeGB. La valeur spécifiée pour le paramètre – MaxSizeGB doit être valide pour le niveau de service cible. Pour connaître les valeurs MaxSize pour chaque niveau de service, consultez le tableau disponible plus haut dans cette section.
+- Spécifiez le niveau de service de la base de données et la taille maximale de cette dernière au moyen des paramètres –Edition et –MaxSizeGB. La valeur spécifiée pour le paramètre – MaxSizeGB doit être valide pour le niveau de service cible. Pour connaître les valeurs MaxSize pour chaque niveau de service, consultez le tableau disponible plus haut dans cette section.
 
 		Windows PowerShell:
 
@@ -225,5 +227,6 @@ Créez un contexte de serveur en utilisant le paramètre **New-AzureSqlDatabaseS
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

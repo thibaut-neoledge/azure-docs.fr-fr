@@ -18,7 +18,7 @@
 
 # Validateur XML BizTalk
 
-Le connecteur de validation XML Biztalk aide votre application à valider les données XML par rapport à des schémas XML prédéfinis. Les utilisateurs peuvent se servir des schémas existants ou en générer de nouveaux basés sur une instance de fichier plat, une instance JSON ou des connecteurs existants.
+Le connecteur de validation XML BizTalk aide votre application à valider les données XML par rapport à des schémas XML prédéfinis. Les utilisateurs peuvent se servir des schémas existants ou en générer de nouveaux basés sur une instance de fichier plat, une instance JSON ou des connecteurs existants.
 
 ##Utilisation du Validateur XML BizTalk
 1. Pour utiliser le Validateur XML BizTalk, vous devez d'abord créer une instance de l'application API du Validateur XML BizTalk. Cela est possible inline, lors de la création d'une application logique ou en sélectionnant l'application API du Validateur XML BizTalk à partir d'Azure Marketplace.

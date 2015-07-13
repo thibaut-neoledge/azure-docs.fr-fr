@@ -1,4 +1,3 @@
-> [WACOM.NOTE] Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN][activer les avantages de votre abonnement MSDN] ou [obtenir une version d’évaluation gratuite][obtenir une version d’évaluation gratuite].
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activer les avantages de votre abonnement MSDN</a> ou <a href="/pricing/free-trial/" target="_blank">vous inscrire pour une version d’évaluation gratuite</a>.
 
-  [activer les avantages de votre abonnement MSDN]: /fr-fr/pricing/member-offers/msdn-benefits-details/
-  [obtenir une version d’évaluation gratuite]: /fr-fr/pricing/free-trial/
+<!---HONumber=62-->

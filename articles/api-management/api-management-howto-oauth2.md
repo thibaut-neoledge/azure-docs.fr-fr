@@ -120,7 +120,7 @@ Une fois que vous êtes connecté, les **En-têtes de demandes** sont renseigné
 
 ## Étapes suivantes
 
-Pour plus d'informations sur l'utilisation de OAuth 2.0 et la gestion des API, regardez la vidéo suivante.
+Pour plus d’informations sur l’utilisation de OAuth 2.0 et la gestion des API, regardez la vidéo suivante.
 
 > [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -160,4 +160,4 @@ Pour plus d'informations sur l'utilisation de OAuth 2.0 et la gestion des API, 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

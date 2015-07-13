@@ -33,7 +33,7 @@ Dans le [portail Azure][portal], créez une ressource Application Insights. Choi
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-android/11-new.png)
 
-Dans le panneau qui s'ouvre, vous trouverez des données relatives à l'utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
 
 ## Installez le plug-in Application Insights dans Android Studio
 
@@ -95,8 +95,8 @@ Il est également possible de configurer la clé d'instrumentation dans le code.
 
 ```java
 
-    AppInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
-    AppInsights.start();
+    ApplicationInsights.setup(this, "<YOUR-IKEY-GOES-HERE>");
+    ApplicationInsights.start();
 ```
 
 
@@ -104,22 +104,22 @@ Il est également possible de configurer la clé d'instrumentation dans le code.
 
 Initialisez le Kit de développement logiciel et lancez le suivi télémétrique.
 
-Ajoutez l'importation suivante à votre activité racine d'applications
+Ajoutez l’importation suivante à votre activité racine d’applications.
 
 ```java
 
-     import com.microsoft.applicationinsights.TelemetryClient;
+     import com.microsoft.applicationinsights.library.ApplicationInsights;
 ```
 
 Et ajoutez la ligne suivante au rappel `onCreate` de l’activité.
 
 ```java
 
-    AppInsights.setup(this);
-    AppInsights.start();
+    ApplicationInsights.setup(this.getApplicationContext(), this.getApplication());
+    ApplicationInsights.start();
 ```
 
-Dès lors que `AppInsights.start()` est appelé, le Kit de développement logiciel (SDK) démarre l’activité de suivi du cycle de vie Android et les exceptions non gérées.
+Dès lors que `ApplicationInsights.start()` est appelé, le Kit de développement logiciel (SDK) démarre l’activité de suivi du cycle de vie Android et les exceptions non gérées.
 
 > [AZURE.NOTE]Les événements du cycle de vie de l’application ne sont collectés que dans la version 15 ou ultérieure du Kit de développement logiciel (SDK) Android (Ice Cream Sandwich+).
 
@@ -139,9 +139,9 @@ Voici un exemple d'initialisation et de collecte télémétrique manuelle.
       @Override
       protected void onCreate(Bundle savedInstanceState) {
         
-        AppInsights.setup(this);
+        ApplicationInsights.setup(this);
         //... other initialization code ...//
-        AppInsights.start();
+        ApplicationInsights.start();
         
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
@@ -163,17 +163,17 @@ Exécutez votre application (MAJ + F10 sous Windows, CTRL + R sous OS X) pour g
 
 Revenez à http://portal.azure.com et accédez à vos ressources Application Insights.
 
-Cliquez sur Rechercher pour ouvrir [Recherche de diagnostic][diagnostic] : là où les premiers événements apparaissent. Si vous ne voyez rien, attendez une minute ou deux et cliquez sur Actualiser.
+Cliquez sur Rechercher pour ouvrir [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent. Si vous ne voyez rien, attendez une minute ou deux et cliquez sur Actualiser.
 
 ![Cliquez sur Recherche de diagnostic](./media/app-insights-android/21-search.png)
 
-Lorsque votre application est utilisée, les données s'affichent dans le panneau Vue d'ensemble.
+Lorsque votre application est utilisée, les données s’affichent dans le panneau Vue d’ensemble.
 
-![Panneau Vue d'ensemble](./media/app-insights-android/22-oview.png)
+![Panneau Vue d’ensemble](./media/app-insights-android/22-oview.png)
 
-Cliquez sur n'importe quel graphique pour obtenir plus de détails. Par exemple, des incidents :
+Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exemple, pour les incidents :
 
-![Cliquez sur le graphique de l'incident](./media/app-insights-android/23-crashes.png)
+![Cliquez sur le graphique de l’incident](./media/app-insights-android/23-crashes.png)
 
 
 ## <a name="usage"></a>Étapes suivantes
@@ -182,7 +182,7 @@ Cliquez sur n'importe quel graphique pour obtenir plus de détails. Par exemple,
 
 [Recherche de diagnostic][diagnostic]
 
-[Explorateur de métriques][metrics]
+[Metrics Explorer][metrics]
 
 [Résolution des problèmes][qna]
 
@@ -197,4 +197,6 @@ Cliquez sur n'importe quel graphique pour obtenir plus de détails. Par exemple,
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

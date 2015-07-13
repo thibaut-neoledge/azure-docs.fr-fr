@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -158,7 +158,28 @@ Pour être averti par courrier électronique en cas de valeurs inhabituelles pou
 
 ![Dans Metrics Explorer, sélectionnez Règles d'alerte, Ajouter une alerte](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[En savoir plus][alerts].
+[En savoir plus sur les alertes][alerts]
+
+## Exporter vers Excel
+
+Vous pouvez exporter les données de mesures affichées dans l’Explorateur de mesures vers un fichier Excel. Les données exportées incluent les données de tous les graphiques et de toutes les tables, comme indiqué dans le portail.
+
+
+![Dans Metrics Explorer, sélectionnez Règles d'alerte, Ajouter une alerte](./media/app-insights-metrics-explorer/31-export.png)
+
+Les données de chaque graphique ou de chaque table sont exportées dans une feuille distincte dans le fichier Excel.
+
+Vous voyez ce qui doit être exporté. Si vous voulez modifier la plage des données exportées, modifiez la plage de temps ou les filtres. Pour les tables, si la commande **charger davantage** est affichée, vous pouvez cliquer dessus avant de cliquer sur Exporter, pour pouvoir exporter des données supplémentaires.
+
+*Pour le moment, Excel est uniquement compatible avec Internet Explorer et Chrome. Nous travaillons sur l’ajout de la prise en charge d’autres navigateurs.*
+
+Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l’[Exportation continue](app-insights-export-telemetry.md).
+
+
+## Étapes suivantes
+
+* [Surveillance de l’utilisation avec Application Insights](app-insights-overview-usage.md)
+* [Utilisation de Diagnostic Search](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,6 @@ Pour être averti par courrier électronique en cas de valeurs inhabituelles pou
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

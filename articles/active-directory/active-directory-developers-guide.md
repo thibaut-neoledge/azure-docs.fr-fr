@@ -23,7 +23,7 @@
 En tant que plateforme de gestion des identités en tant que service (IDMaaS), Azure Active Directory fournit aux développeurs un moyen efficace pour intégrer la gestion des identités dans leurs applications. Les articles suivants fournissent une vue d’ensemble sur l’implémentation et les fonctionnalités clés d’Azure Active Directory. Nous vous suggérons de les lire dans l’ordre ou de passer à la rubrique [Prise en main](#getting-started) si vous êtes prêt à examiner les choses de façon approfondie.
 
 
-1. **[Les avantages de l’intégration avec Azure AD](active-directory-how-to-integrate.md)** : découvrez pourquoi l’intégration avec Active Directory Azure offre la meilleure solution pour une connexion et une autorisation sécurisées.
+1. **[Avantages de l’intégration avec Azure AD](active-directory-how-to-integrate.md)** : découvrez pourquoi l’intégration avec Active Directory Azure offre la meilleure solution pour une connexion et une autorisation sécurisées.
 
 1. **[Utilisation d’Azure AD pour la connexion](active-directory-authentication-scenarios.md)** : tirez parti de l’authentification simplifiée d’Azure Active Directory pour fournir une connexion à votre application.
 
@@ -33,7 +33,7 @@ En tant que plateforme de gestion des identités en tant que service (IDMaaS), A
 
 1. **[Bibliothèques](https://msdn.microsoft.com/library/azure/dn151135.aspx)** : facilitez l’authentification des utilisateurs pour l’obtention de jetons d’accès avec les bibliothèques d’authentification Azure.
 
-Pour afficher les vues d'ensemble AAD présentées à la conférence Build 2015, consultez la section de [vidéos](#videos) ci-dessous.
+Pour afficher les vues d’ensemble AAD présentées à la conférence Build 2015, consultez la section de [vidéos](#videos) ci-dessous.
 
 
 ## Prise en main
@@ -66,7 +66,7 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 - [Obtention d’un client Azure AD](active-directory-howto-tenant.md)
 - [Affichage de votre application dans la galerie d’applications Azure AD](active-directory-app-gallery-listing.md)
 - [Prise en main des API Office 365 dans les applications](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
-- [Comment envoyer des applications web pour Office 365 à Mon tableau de bord vendeur](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+- [Envoi d’applications web pour Office 365 à Mon tableau de bord vendeur](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 
 
 ## Référence
@@ -132,4 +132,4 @@ Ces vues d’ensemble sur le développement d’applications avec Azure Active D
 
 - **[Azure AD sur Twitter](https://twitter.com/azuread)** : annonces Azure AD limitées à 140 caractères.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

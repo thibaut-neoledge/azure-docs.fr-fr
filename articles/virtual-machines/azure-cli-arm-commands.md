@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation de l’interface de ligne de commande pour Mac, Linux et Windows avec Azure Resource Management | Microsoft Azure"
-	description="Découvrez comment utiliser CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode arm de l'interface CLI Azure."
+	pageTitle="Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management | Microsoft Azure"
+	description="Découvrez comment utiliser la CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode arm de la CLI Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -305,7 +305,7 @@ Options de paramètre :
 La commande permet de répertorier tous les réseaux virtuels dans un groupe de ressources.
 
 
-	C:>azure network vnet list myresourcegroup
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Options de paramètre :
 Définit un sous-réseau de réseau virtuel spécifique au sein d'un groupe de ressources.
 
 
-	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Options de paramètre
 
 Répertorie les propriétés de sonde pour un jeu d'équilibrage de charge.
 
-	C:>azure network lb probe list -g myresourcegroup -l mylb
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -1737,4 +1737,4 @@ Options de paramètre :
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

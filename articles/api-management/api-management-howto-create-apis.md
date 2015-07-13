@@ -98,4 +98,4 @@ Une fois l'API créée et les paramètres configurés, l'étape suivante consist
 [Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
 [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

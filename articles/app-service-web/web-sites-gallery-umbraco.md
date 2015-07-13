@@ -133,5 +133,6 @@ Et voilà ! Vous avez créé un blog à l’aide d’Umbraco CMS en quelques mi
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

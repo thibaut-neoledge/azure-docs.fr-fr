@@ -81,7 +81,7 @@ App Service Web Apps fournit une plateforme fiable et stable, capable de gérer 
 
 La plateforme Microsoft Azure autorise les contrôles d’autorisation basés sur des rôles, qui assurent un contrôle professionnel des ressources dans Web Apps. Avec RBAC, les entreprises peuvent implémenter leurs propres stratégies de gestion des accès pour l’ensemble de leurs actifs dans l’environnement Azure, en affectant des utilisateurs aux groupes et en attribuant les autorisations nécessaires à ces groupes en fonction des actifs, tels qu’une application web. Pour plus d’informations sur RBAC dans Azure, consultez la page [http://aka.ms/azurerbac](../role-based-access-control-configure/). Avec Web Apps, vous avez l’assurance que vos applications web sont déployées dans un environnement sécurisé et vous avez un contrôle total sur le territoire où vos actifs sont déployés.
 
-De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans la section [Solution de haut niveau élevé], vous utilisez les connexions hybrides et la connectivité au réseau virtuel pour vous connecter à l’infrastructure et aux services locaux.
+De plus, Web Apps peut également tirer pleinement parti de vos investissements locaux en vous permettant de vous reconnecter à vos ressources internes, telles que votre entrepôt de données ou votre environnement SharePoint. Comme indiqué dans [Solution de niveau élevé], vous utilisez des connexions hybrides et la connectivité au réseau virtuel pour établir des connexions à l’infrastructure et aux services locaux.
 
 ### Portée mondiale ###
 
@@ -152,5 +152,6 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

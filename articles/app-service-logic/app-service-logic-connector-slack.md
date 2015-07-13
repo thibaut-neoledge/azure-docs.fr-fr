@@ -46,10 +46,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 	![][2]
 4.	Vous pouvez déposer l'application API du connecteur Slack dans l'éditeur en cliquant sur « Connecteur Slack ». Cliquez sur le bouton Autoriser. Indiquez vos informations d'identification Microsoft (si vous n'êtes pas connecté automatiquement). Connectez-vous à votre compte Slack en suivant les étapes indiquées. À la fin, vous serez invité à autoriser votre connecteur à accéder à votre compte Slack. Cliquez sur « Autoriser ».
  
-	![][3]
-	![][4]
-	![][5]
-	![][6]
+	![][3] ![][4] ![][5] ![][6]
 	
 5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. Actuellement, aucun déclencheur n'est disponible dans le connecteur Slack. Les actions disponibles sont : Publier le message
  
@@ -64,7 +61,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
  - **Texte** : spécifiez le texte du message à publier
  - **Nom du canal** : spécifiez le canal Slack vers lequel ce message doit être téléchargé. Si cette valeur n'est pas spécifiée, le message est publié dans #general.
 
- **Propriétés avancées** - **Nom d'utilisateur du robot** : nom du robot à utiliser pour ce message. Le message est publié en tant que « Robot » si cette valeur n'est pas spécifiée. - **URL de l'icône** : URL vers une image à utiliser comme icône pour ce message - **Emoji de l'icône** : Emoji à utiliser comme icône pour ce message. Remplace l'URL de l'icône.
+ 	**Propriétés avancées** - **Nom d'utilisateur du robot** : nom du robot à utiliser pour ce message. Le message est publié en tant que « Robot » si cette valeur n'est pas spécifiée. - **URL de l'icône** : URL vers une image à utiliser comme icône pour ce message - **Emoji de l'icône** : Emoji à utiliser comme icône pour ce message. Remplace l'URL de l'icône.
  
 
 7. Pour utiliser le connecteur hors d'une application logique, vous devez faire appel aux API REST exposées par celui-ci. Pour afficher ces définitions d'API, sélectionnez Parcourir -> Application API -> Connecteur Slack. Maintenant, cliquez sur le filtre Définition des API sous la section Résumé pour afficher toutes les API exposées par ce connecteur.
@@ -88,6 +85,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Slack
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API Slack ]: https://msdn.microsoft.com/fr-fr/library/dn708020.aspx
 
-
-<!---HONumber=52-->
- 
+<!---HONumber=62-->

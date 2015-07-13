@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # Ajout de l'authentification à votre application Xamarin.Android
@@ -26,11 +26,11 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 ##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur. Vérifiez qu'une exception non gérée avec un code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
@@ -44,7 +44,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 1. Ajoutez la propriété suivante à la classe **TodoActivity** :
 
-			private MobileServiceUser user;
+			private MobileServiceUser user;
 
 2. Ajoutez la méthode suivante à la classe **TodoActivity** :
 
@@ -87,5 +87,6 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Création d’une application Xamarin.Android]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

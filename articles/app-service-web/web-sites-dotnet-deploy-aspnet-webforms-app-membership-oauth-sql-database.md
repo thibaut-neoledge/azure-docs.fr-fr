@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment créer une application web ASP.NET 4.5 Web F
 
 >[AZURE.NOTE]Pour obtenir une version MVC de ce didacticiel, consultez [Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez commencer vos développements Azure gratuitement.
+Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez commencer vos développement Azure gratuitement.
 
 Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur de Microsoft Azure. À la fin de ce didacticiel, vous disposerez d’une application web fonctionnelle dans le cloud qui utilise une base de données du cloud.
 
@@ -272,9 +272,9 @@ enable-migrations
 3. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :  
 	<pre class="prettyprint">
 add-migration Initial
-</pre>La commande `add-migration Initial` génère un fichier nommé <date_stamp>Initial dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (Initial) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l'**Explorateur de solutions**. Dans la classe `Initial`, la méthode `Up` crée la table `Contact`, et la méthode `Down` (utilisée lorsque vous voulez revenir à l’état précédent) annule cette table.  
+</pre>La commande `add-migration Initial` génère un fichier nommé <date_stamp>Initial dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (Initial) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l’**Explorateur de solutions**. Dans la classe `Initial`, la méthode `Up` crée la table `Contact`, et la méthode `Down` (utilisée lorsque vous voulez revenir à l’état précédent) annule cette table.  
 4. Ouvrez le fichier *Migrations\Configuration.cs*. 
-5. Ajoutez l'espace de noms suivant :  
+5. Ajoutez l’espace de noms suivant :  
 	<pre class="prettyprint">
 using ContactManager.Models;
 </pre>
@@ -343,7 +343,7 @@ update-database
 </pre>
 La commande `update-database` exécute la première migration qui crée la base de données. Par défaut, la base de données est créée en tant que base de données SQL Server Express LocalDB. ![Console du gestionnaire de package](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
 
-###Exécution locale de l'application et affichage des données 
+###Exécution locale de l’application et affichage des données 
 Exécutez à présent l'application pour voir comment s'affichent les contacts.
 
 1. Commencez par créer le projet (**Ctrl+Maj+B**).  
@@ -377,7 +377,7 @@ En plus de l’authentification, ce didacticiel va également utiliser des rôle
 Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentification Google.
 
 1. Ouvrez le fichier *App_Start\Startup.Auth.cs*. 
-2. Supprimez les caractères de commentaire de la méthode `app.UseGoogleAuthentication()` de telle sorte qu'elle ait l'aspect suivant :  
+2. Supprimez les caractères de commentaire de la méthode `app.UseGoogleAuthentication()` de telle sorte qu’elle ait l’aspect suivant :  
 	<pre class="prettyprint">
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
@@ -391,12 +391,12 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
 5. Sous l'onglet de gauche, cliquez sur **APIs & auth (API et authentification)**, puis cliquez sur **Credentials (Informations d'identification)**.
 6. Cliquez sur **Créer un identifiant client** sous **OAuth**. La boîte de dialogue **Créer un identifiant client** s’affiche. ![Google - Créer un identifiant client](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. Dans la boîte de dialogue **Créer un identifiant client**, conservez le type d’application par défaut **Application Web**.  
-8. Pour **Origines JavaScript autorisées**, entrez l’URL SSL que vous avez utilisée précédemment dans ce didacticiel (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL). Cette URL est l'origine de votre application. Pour cet exemple, vous entrerez uniquement l'URL de test de l'hôte local (localhost). Vous pouvez cependant entrer plusieurs URL pour l'hôte local (localhost) et la production.  
+8. Pour **Origines JavaScript autorisées**, entrez l’URL SSL que vous avez utilisée précédemment dans ce didacticiel (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL). Cette URL est l'origine de votre application. Pour cet exemple, vous entrerez uniquement l'URL de test de l'hôte local (localhost). Vous pouvez cependant entrer plusieurs URL pour l’hôte local (localhost) et la production.  
 
 9. Définissez les **URI de redirection autorisés** comme suit :
 	<pre class="prettyprint">  
 https://localhost:44300/signin-google  
-</pre>Cette valeur est l'URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).  
+</pre>Cette valeur est l’URI que le protocole OAuth ASP.NET utilise pour communiquer avec le serveur OAuth Google. Souvenez-vous de l’URL SSL que vous avez utilisée précédemment (**https://localhost:44300/**, sauf si vous avez créé d’autres projets SSL).  
 10. Cliquez sur le bouton **Create Client ID (Créer un ID de client)**.
 11. Dans Visual Studio, mettez à jour la méthode `UseGoogleAuthentication` de la page *Startup.Auth.cs* en copiant et collant les valeurs **AppId** et **App Secret** dans la méthode. Les valeurs **AppId** et **App Secret** indiquées ci-après sont de simples exemples et ne fonctionneront pas.  
 	<pre class="prettyprint">  
@@ -415,14 +415,14 @@ namespace ContactManager
 {
     public partial class Startup {
 
-        // Pour plus d'informations sur la configuration de l'authentification, visitez la page http://go.microsoft.com/fwlink/?LinkId=301883
+        // Pour plus d’informations sur la configuration de l’authentification, visitez la page http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {
-            // Configurer le gestionnaire de contexte et d’utilisateur db pour utiliser une seule instance par demande
+            // Configurer le gestionnaire de contexte et d’utilisateur de base de données pour utiliser une seule instance par demande
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 
-            // Enable the application to use a cookie to store information for the signed in user
+            // Autoriser l’application à utiliser un cookie pour stocker les informations de l’utilisateur connecté
             // et à utiliser un cookie pour stocker temporairement des informations sur la connexion d’un utilisateur par le biais d’un fournisseur de connexion tiers
             // Configurer le cookie de connexion
             app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -461,7 +461,7 @@ namespace ContactManager
     }
 }
 </pre>
-12. Appuyez sur **Ctrl+F5** pour générer et exécuter l'application. Cliquez sur le lien **Ouvrir une session**.
+12. Appuyez sur **Ctrl+F5** pour générer et exécuter l’application. Cliquez sur le lien **Ouvrir une session**.
 13. Sous **Utiliser un autre service pour ouvrir une session**, cliquez sur le bouton **Google**. ![Connexion](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
 14. Si vous devez entrer vos informations d’identification, vous êtes redirigé vers le site Google approprié. ![Google - Se connecter](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21e.png)  
 15. Après avoir entré vos informations d’identification, vous êtes invité à accorder des autorisations pour l’application Web que vous venez de créer : ![Compte de service de projet par défaut](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21f.png)  
@@ -476,8 +476,8 @@ En utilisant le modèle ASP.NET Web Forms par défaut, vous disposez d'une fonct
 ###Ajout d'un administrateur 
 ASP.NET Identity vous permet d'ajouter un rôle d'administrateur et d'affecter un utilisateur à ce rôle avec du code.
 
-1. Dans l'**Explorateur de solutions**, ouvrez le fichier *Configuration.cs* dans le dossier *Migrations*.
-2. Ajoutez les instructions `using` suivantes dans l'espace de noms `ContactManger.Migrations` :  
+1. Dans l’**Explorateur de solutions**, ouvrez le fichier *Configuration.cs* dans le dossier *Migrations*.
+2. Ajoutez les instructions `using` suivantes dans l’espace de noms `ContactManger.Migrations` :  
 	<pre class="prettyprint">
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -524,9 +524,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 5. Après avoir enregistré vos modifications, dans la **Console du Gestionnaire de package**, exécutez la commande suivante :  
 	<pre class="prettyprint">
 Update-Database
-</pre>Ce code crée un rôle nommé `canEdit` et un utilisateur local grâce à l’e-mail de canEditUser@wideworldimporters.com. Ensuite, le code ajoute canEditUser@wideworldimporters.com au rôle `canEdit`. Pour plus d'informations, consultez la page de ressources [ASP.NET Identity](http://www.asp.net/identity).
+</pre>Ce code crée un rôle nommé `canEdit` et un utilisateur local grâce à l’e-mail de canEditUser@wideworldimporters.com. Ensuite, le code ajoute canEditUser@wideworldimporters.com au rôle `canEdit`. Pour plus d’informations, consultez la page de ressources [ASP.NET Identity](http://www.asp.net/identity).
 
-###Limitation de l'accès au dossier d'administration 
+###Limitation de l’accès au dossier d’administration 
 L'exemple d'application **ContactManager** permet aux utilisateurs anonymes et aux utilisateurs connectés d'afficher les contacts. Une fois cette section terminée, cependant, les utilisateurs connectés qui sont affectés au rôle « canEdit » seront les seuls utilisateurs en mesure de modifier les contacts.
 
 Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affectés au rôle « canEdit » pourront accéder.
@@ -567,7 +567,7 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
                             &lt;th>E-mail&lt;/th>
                             &lt;th>&amp;nbsp;&lt;/th>
                         &lt;/tr>
-                    &lt; / thead >
+                    &lt;/thead>
                     &lt;tbody>
                         &lt;tr runat="server" id="itemPlaceholder" />
                     &lt;/tbody>

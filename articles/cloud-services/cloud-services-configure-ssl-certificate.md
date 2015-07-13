@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,15 +149,16 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
 
 * [Configuration d’un certificat SSL sur un point de terminaison HTTPS][]
 
-[Création d'un certificat pour un rôle]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Association d'un certificat à un service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Association d’un certificat à un service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[portail de gestion Azure]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[Configuration d’un certificat SSL sur un point de terminaison HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [Création d'un certificat pour un rôle]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [Association d'un certificat à un service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Association d’un certificat à un service]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [portail de gestion Azure]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [Configuration d’un certificat SSL sur un point de terminaison HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -46,7 +46,7 @@ Dans l'éditeur, ouvrez ou créez un fichier JavaScript, ajoutez le code suivant
 
 Vous devez remplacer l'espace réservé `AppUrl` par l'URL d'application de votre service mobile et `AppKey` par la clé d'application. Pour savoir comment obtenir l'URL d'application et la clé d'application pour le service mobile, consultez le didacticiel [Ajout de services mobiles à une application existante](mobile-services-html-get-started-data.md).
 
->[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire par rapport à votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour réellement sécuriser l'accès aux données Mobile Services, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#caching).
+>[AZURE.IMPORTANT]La clé d'application est destinée à filtrer la demande aléatoire par rapport à votre service mobile ; elle est distribuée avec l'application. Cette clé n'étant pas chiffrée, elle ne peut pas être considérée comme sécurisée. Pour vraiment sécuriser l'accès aux données de votre service mobile, vous devez authentifier les utilisateurs avant de leur autoriser l'accès. Pour plus d'informations, consultez [Procédure : authentification des utilisateurs](#caching).
 
 ##<a name="querying"></a>Procédure : interrogation des données à partir d'un service mobile
 
@@ -163,7 +163,7 @@ Il est possible de combiner `where` avec `orderBy`, `take` et `skip`. Pour plus 
 
 ### <a name="sorting"></a>Procédure : tri des données renvoyées
 
-Le code suivant montre comment trier des données en incluant une fonction `orderBy` ou `orderByDescending` dans la requête. Il renvoie des éléments de `todoItemTable`, triés dans l'ordre croissant par le champ `text`. Par défaut, le serveur renvoie uniquement les 50 premiers éléments.
+Le code suivant montre comment trier les données en incluant une fonction `orderBy` ou `orderByDescending` dans la requête. Il renvoie des éléments de `todoItemTable`, triés dans l'ordre croissant par le champ `text`. Par défaut, le serveur renvoie uniquement les 50 premiers éléments.
 
 > [AZURE.NOTE]Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de tous les éléments. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service. Vous pouvez augmenter le nombre d'éléments à renvoyer en appelant `take`, en suivant les instructions de la section suivante. `todoItemTable` est la référence à la table de service mobile que vous avez créée précédemment.
 
@@ -343,7 +343,7 @@ Vous pouvez également spécifier une fonction de rappel à appeler à la fin de
 
 ##<a name="binding"></a>Procédure : affichage des données dans l'interface utilisateur
 
-Cette section montre comment afficher des objets de données renvoyés à l'aide d'éléments d'interface utilisateur. Pour interroger les éléments de la table `todoItemTable` et afficher celle-ci sous forme de liste toute simple, vous pouvez exécuter l'exemple de code suivant. Aucune sélection, ni aucun filtre ou tri n'est effectué.
+Cette section montre comment afficher des objets de données renvoyés à l'aide d'éléments d'interface utilisateur. Pour interroger les éléments de la table `todoItemTable` et afficher celle-ci sous forme de liste toute simple, vous pouvez exécuter l'exemple de code suivant. Aucune sélection, ni aucun filtre ou tri n’est effectué.
 
 	var query = todoItemTable;
 
@@ -363,9 +363,9 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 	   alert("Error: " + err);
 	});
 
-Dans une application Windows Store, les résultats d'une requête peuvent servir à créer un objet [WinJS.Binding.List], qui peut être lié comme source de données d'un objet [ListView]. Pour plus d'informations, consultez la page [Liaison de données (applications du Windows Store en JavaScript et HTML)].
+Dans une application Windows Store, les résultats d’une requête peuvent servir à créer un objet [WinJS.Binding.List], qui peut être lié comme source de données d’un objet [ListView]. Pour plus d’informations, consultez la page [Liaison de données (applications du Windows Store en JavaScript et HTML)].
 
-##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
+##<a name="#custom-api"></a>Procédure : appel d’une API personnalisée
 
 Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un autre format de corps de message que JSON. Pour voir un exemple complet, incluant la création d'une API personnalisée dans votre service mobile, consultez la section [Appel d'une API personnalisée à partir du client].
 
@@ -387,9 +387,9 @@ Pour des exemples plus réalistes et une discussion plus élaborée sur **invoke
 
 ##<a name="caching"></a>Procédure : authentification des utilisateurs
 
-Mobile Services prend en charge l'authentification et l'autorisation des utilisateurs d'applications via divers fournisseurs d'identité externes : Facebook, Google, Microsoft Account et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l'identité des utilisateurs authentifiés pour implémenter des règles d'autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification].
+Mobile Services prend en charge l'authentification et l'autorisation des utilisateurs d'applications via divers fournisseurs d'identité externes : Facebook, Google, Microsoft Account et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d’informations, consultez la page [Prise en main de l’authentification].
 
->[AZURE.NOTE]Quand vous utilisez l'authentification dans une application PhoneGap ou Cordova, vous devez également ajouter les plug-ins suivants au projet :
+>[AZURE.NOTE]Quand vous utilisez l’authentification dans une application PhoneGap ou Cordova, vous devez également ajouter les plug-ins suivants au projet :
 >
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -398,9 +398,9 @@ Mobile Services prend en charge l'authentification et l'autorisation des utilisa
 Deux flux d'authentification sont pris en charge : un _flux serveur_ et un _flux client_. Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux appareils et aux fournisseurs.
 
 ###Flux serveur
-Pour que Mobile Services gère le processus d'authentification dans votre application Windows Store ou HTML5, vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application](mobile-services-html-get-started-users.md).
+Pour que Mobile Services gère le processus d'authentification dans votre application Windows Store ou HTML5, vous devez inscrire votre application auprès de votre fournisseur d'identité. Ensuite, dans votre service mobile, vous devez configurer l'ID d'application et le secret fournis par votre fournisseur. Pour plus d’informations, consultez le didacticiel [Ajout de l’authentification à votre application](mobile-services-html-get-started-users.md).
 
-Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'appeler la [méthode LoginAsync] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant.
+Une fois que vous avez inscrit votre fournisseur d’identité, appelez simplement la [méthode LoginAsync] avec la valeur [MobileServiceAuthenticationProvider] de votre fournisseur. Par exemple, pour vous connecter avec Facebook, utilisez le code suivant.
 
 	client.login("facebook").done(function (results) {
 	     alert("You are now logged in as: " + results.userId);
@@ -410,9 +410,9 @@ Une fois que vous avez inscrit votre fournisseur d'identité, il vous suffit d'a
 
 Si vous utilisez un fournisseur d'identité différent de Facebook, remplacez la valeur transmise à la méthode `login` ci-dessus par l'une des valeurs suivantes : `microsoftaccount`, `facebook`, `twitter`, `google` ou `windowsazureactivedirectory`.
 
-Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La fonction [login], quand elle est utilisée, renvoie un objet JSON (**user**) qui expose l'ID utilisateur et le jeton d'authentification Mobile Services dans les champs **userId** et **authenticationToken**, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification].
+Dans ce cas, Mobile Services gère le flux d'authentification OAuth 2.0 en affichant la page de connexion du fournisseur sélectionné et en générant un jeton d'authentification Mobile Services après avoir établi une connexion avec le fournisseur d'identité. La fonction [login], quand elle est utilisée, renvoie un objet JSON (**user**) qui expose l'ID utilisateur et le jeton d'authentification Mobile Services dans les champs **userId** et **authenticationToken**, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu’à ce qu’il arrive à expiration. Pour plus d’informations, consultez [Mise en cache du jeton d’authentification].
 
-> [AZURE.NOTE]**Application du Windows Store** Quand vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application du Windows Store, vous devez également inscrire le package de l'application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") en fournissant la valeur **true** pour le paramètre <em>useSingleSignOn</em> pour réutiliser les informations d'identification.
+> [AZURE.NOTE]**Application du Windows Store** Quand vous utilisez le fournisseur de connexion du compte Microsoft pour authentifier les utilisateurs de votre application du Windows Store, vous devez également inscrire le package de l’application auprès de Mobile Services. Lorsque vous inscrivez les informations du package de votre application Windows Store auprès de Mobile Services, le client peut réutiliser les informations d'identification du compte Microsoft pour fournir une authentification unique. Si vous ne le faites pas, vos utilisateurs se connectant via le compte Microsoft seront invités à se connecter à chaque appel de la méthode de connexion. Pour savoir comment inscrire votre package d'application Windows Store, consultez la rubrique [Inscription du package de votre application Windows Store pour l'authentification Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Une fois les informations du package inscrites auprès de Mobile Services, appelez la méthode [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") en fournissant la valeur **true** pour le paramètre <em>useSingleSignOn</em> pour réutiliser les informations d'identification.
 
 ###Flux client
 Votre application peut également contacter le fournisseur d'identité de manière indépendante, puis fournir le jeton renvoyé à Mobile Services à des fins d'authentification. Le flux client permet de proposer l'authentification unique aux utilisateurs ou de récupérer d'autres données utilisateur auprès du fournisseur d'identité.
@@ -444,9 +444,9 @@ Lorsque vous utilisez les API Facebook ou Google pour l'authentification client,
 	     alert("Error: " + err);
 	});
 
-Cet exemple part du principe que le jeton fourni par le Kit de développement logiciel (SDK) propre au fournisseur est stocké dans une variable `token`. Vous ne pouvez pas utiliser Twitter pour l'authentification client pour le moment.
+Cet exemple part du principe que le jeton fourni par le Kit de développement logiciel (SDK) propre au fournisseur est stocké dans une variable `token`. Vous ne pouvez pas utiliser Twitter pour l’authentification client pour le moment. Il est actuellement impossible d’utiliser Microsoft Azure Active Directory avec des serveurs JavaScript principaux pour l’authentification du client.
 
-###Mise en cache du jeton d'authentification
+###Mise en cache du jeton d’authentification
 Dans certains cas, l'appel à la méthode de connexion peut être évité après la première authentification de l'utilisateur. Vous pouvez utiliser [sessionStorage] ou [localStorage] pour mettre en cache l'identité de l'utilisateur actif lors de sa première connexion et, par la suite, à chaque fois que vous vérifiez si son identité est présente dans le cache. Si le cache est vide ou échoue (c'est-à-dire que la session de connexion en cours a expiré), l'utilisateur doit toujours effectuer le processus de connexion.
 
     // After logging in
@@ -606,5 +606,6 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [Appel d'une API personnalisée à partir du client]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

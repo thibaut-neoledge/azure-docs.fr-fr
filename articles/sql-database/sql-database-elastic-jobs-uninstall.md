@@ -56,5 +56,6 @@ Pour une vue d'ensemble du service de tâche élastique, voir [Vue d'ensemble de
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -36,39 +36,35 @@ Pour créer une activité personnalisée :
 
 4. Mettez à jour la classe pour implémenter l’interface **IDotNetActivity**.
 	<ol type='a'>
-		<li>
-			Dérivez la classe à partir de l’interface <b>IDotNetActivity</b>.
-			<br/>
-			Exemple&#160;: <br/>
-			public class <b>MyDotNetActivity&#160;: IDotNetActivity</b>
-		</li>
+	<li>
+		Dérivez la classe à partir de l’interface <b>IDotNetActivity</b>.
+		<br/>
+		Exemple&#160;: <br/>
+		public class <b>MyDotNetActivity&#160;: IDotNetActivity</b>
+	</li>
 
-		<li>
-			Implémentez la méthode <b>Execute</b> de l’interface <b>IDotNetActivity</b>.
-		</li>
+	<li>
+		Implémentez la méthode <b>Execute</b> de l’interface <b>IDotNetActivity</b>.
+	</li>
 
-	</ol>
+</ol>
 5. Compilez le projet.
 
 
 ## Utilisation de l’activité personnalisée dans un pipeline
 Pour utiliser l'activité personnalisée dans un pipeline :
 
-1.	**Compressez** tous les fichiers binaires à partir des dossiers de sortie **bin\\debug** ou **bin\\release** du projet. 
+1.	**Compressez** tous les fichiers binaires à partir des dossiers de sortie **bin\debug** ou **bin\release** du projet. 
 2.	**Téléchargez le fichier .zip** comme objet blob sur votre **stockage d’objets blob Azure**. 
 3.	Mettez à jour le fichier **JSON du pipeline** afin qu’il fasse référence au fichier zip, aux DLL de l’activité personnalisée, à la classe d’activité et à l’objet blob qui contient le fichier zip dans le JSON du pipeline. Dans le fichier JSON :
 	<ol type ="a">
-		<li>Le <b>type de l’activité</b> doit être défini sur <b>DotNetActivity</b>.</li>
-		<li><b>AssemblyName</b> est le nom de la&#160;DLL de sortie du projet Visual Studio.</li>
-		<li><b>EntryPoint</b> spécifie l’<b>espace de noms</b> et le <b>nom</b> de la <b>classe</b> qui implémente l’interface <b>IDotNetActivity</b>.</li>
-		<li><b>PackageLinkedService</b> est le service lié qui fait référence à l’objet blob qui contient le fichier .zip. </li>
-		<li><b>PackageFile</b> spécifie l’emplacement et le nom du fichier .zip qui a été téléchargé dans le stockage d’objets blob Azure.</li>
-		<li>L’élément <b>LinkedServiceName</b> est le nom du service lié qui lie un cluster HDInsight (à la demande ou le vôtre) à une fabrique de données. L'activité personnalisée s'exécute comme une tâche de mappage seul du cluster HDInsight spécifié.</li>
-	</ol>
-
-	
-
-	**Exemple de JSON partiel**
+	<li>Le <b>type de l’activité</b> doit être défini sur <b>DotNetActivity</b>.</li>
+	<li><b>AssemblyName</b> est le nom de la&#160;DLL de sortie du projet Visual Studio.</li>
+	<li><b>EntryPoint</b> spécifie l’<b>espace de noms</b> et le <b>nom</b> de la <b>classe</b> qui implémente l’interface <b>IDotNetActivity</b>.</li>
+	<li><b>PackageLinkedService</b> est le service lié qui fait référence à l’objet blob qui contient le fichier .zip. </li>
+	<li><b>PackageFile</b> spécifie l’emplacement et le nom du fichier .zip qui a été téléchargé dans le stockage d’objets blob Azure.</li>
+	<li>L’élément <b>LinkedServiceName</b> est le nom du service lié qui lie un cluster HDInsight (à la demande ou le vôtre) à une fabrique de données. L'activité personnalisée s'exécute comme une tâche de mappage seul du cluster HDInsight spécifié.</li>
+</ol>**Exemple de JSON partiel**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -101,14 +97,14 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
 1.	Créez un projet de bibliothèque de classes .NET.
 	<ol type="a">
-		<li>Lancez <b>Visual Studio&#160;2012</b> ou <b>Visual Studio&#160;2013</b>.</li>
-		<li>Cliquez sur <b>Fichier</b>, pointez le curseur de la souris sur <b>Nouveau</b>, puis cliquez sur <b>Projet</b>.</li> 
-		<li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual&#160;C#</b>. Dans cette procédure pas à pas, vous utilisez&#160;C#, mais vous pouvez utiliser un autre langage&#160;.NET pour développer l'activité personnalisée.</li> 
-		<li>Sélectionnez <b>Bibliothèque de classes</b> dans la liste des types de projet, sur la droite.</li>
-		<li>Entrez <b>MyDotNetActivity</b> dans le champ <b>Nom</b>.</li> 
-		<li>Sélectionnez <b>C:\ADFGetStarted</b> dans le champ <b>Emplacement</b>.</li>
-		<li>Cliquez sur <b>OK</b> pour créer le projet.</li>
-	</ol>
+	<li>Lancez <b>Visual Studio&#160;2012</b> ou <b>Visual Studio&#160;2013</b>.</li>
+	<li>Cliquez sur <b>Fichier</b>, pointez le curseur de la souris sur <b>Nouveau</b>, puis cliquez sur <b>Projet</b>.</li> 
+	<li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual&#160;C#</b>. Dans cette procédure pas à pas, vous utilisez&#160;C#, mais vous pouvez utiliser un autre langage&#160;.NET pour développer l'activité personnalisée.</li> 
+	<li>Sélectionnez <b>Bibliothèque de classes</b> dans la liste des types de projet, sur la droite.</li>
+	<li>Entrez <b>MyDotNetActivity</b> dans le champ <b>Nom</b>.</li> 
+	<li>Sélectionnez <b>C:\ADFGetStarted</b> dans le champ <b>Emplacement</b>.</li>
+	<li>Cliquez sur <b>OK</b> pour créer le projet.</li>
+</ol>
 2.  Cliquez sur <b>Outils</b>, pointez le curseur de la souris sur <b>Gestionnaire de package NuGet</b>, puis cliquez sur <b>Console du gestionnaire de package</b>.
 3.	Dans la <b>Console du gestionnaire de package</b>, exécutez la commande suivante pour importer l’élément <b>Microsoft.Azure.Management.DataFactories</b>. 
 
@@ -290,8 +286,8 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
 
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
-11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
-12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug.
+11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** (selon le type de build).
+12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\bin\Debug.
 13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Microsoft Azure utilisé par le service lié **MyBlobStore** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **blobcustomactivitycontainer**, le cas échéant. 
 
 
@@ -527,4 +523,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=62-->

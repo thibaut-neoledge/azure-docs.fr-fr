@@ -6,9 +6,9 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 5. Comme auparavant, tapez un texte explicite, puis cliquez sur **Ajouter**.
 
-   Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
+   	Cela permet d'envoyer un nouvel élément en tant qu'insertion au service mobile.
 
-    You can restart the app to see that the changes were persisted to the database in Azure. You can also examine the database using the Azure Management portal:  the next two steps do this to view the changes in your database.
+    Vous pouvez redémarrer l'application pour vous assurer que les modifications ont été conservées dans la base de données sous Azure. Vous pouvez aussi examiner la base de données à partir du portail de gestion Azure : les deux étapes suivantes permettent de voir les modifications apportées à votre base de données.
 
 
 4. Dans le portail de gestion Azure, cliquez sur Gérer pour la base de données associée à votre service mobile.
@@ -21,4 +21,6 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
     ![](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png)
 
-Cela conclut le didacticiel **Prise en main des données** pour Android. <!--HONumber=52-->
+Cela conclut le didacticiel **Prise en main des données** pour Android.
+
+<!---HONumber=62-->

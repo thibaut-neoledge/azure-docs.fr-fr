@@ -48,5 +48,6 @@ Il existe deux fonctionnalités supplémentaires qui actuellement ne sont pas di
 1. **Historique de déclencheur** : des déclencheurs d’interrogation vérifient l’API à intervalles réguliers, mais ne démarrent pas nécessairement une exécution. Tout dépend de la réponse (par exemple `200` signifie qu’il faut exécuter et `202` signifie qu’il ne faut pas exécuter). L’historique de déclencheur vous permet de voir tous les appels qui ont lieu, mais qui n’exécutent pas l’application logique (les réponses `202`).
 
 2. **Versions précédentes** : quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l'application logique qui existait lors du démarrage de l'exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L'API REST d'historique des versions vous donne accès à ces informations.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

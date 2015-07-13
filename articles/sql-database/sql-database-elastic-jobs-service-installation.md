@@ -61,5 +61,6 @@ Si de nouvelles informations d'identification ont été fournies lors de l'insta
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -171,8 +171,9 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
-[Sécurisation d’une API web avec Azure AD >](active-directory-devquickstarts-webapi-dotnet.md)
+[Sécurisation d’une API web avec Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >](https://github.com/AzureAdSamples) - [CloudIdentity.com >](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

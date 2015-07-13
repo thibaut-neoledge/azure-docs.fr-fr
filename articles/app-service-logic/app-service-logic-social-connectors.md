@@ -102,7 +102,17 @@ Vous pouvez créer un connecteur sur le portail Azure.
 
 1. Dans le portail Azure, sélectionnez **Nouveau** > **Web + Mobile** > **Azure Marketplace**.
 2. **Recherchez** le connecteur ou sélectionnez-le dans la liste. Une fois le connecteur sélectionné, un nouveau panneau ou une nouvelle fenêtre s'ouvre. Sélectionnez **Créer**. 
-3. Entrez les propriétés suivantes pour le connecteur : <table> <tr><th>Propriété</th> <th>Description</th> </tr> <tr><td>Nom</td> <td>Entrez n’importe quel nom pour votre application API. Par exemple, vous pouvez la nommer RulesDiscountTaxCode ou APIAppValidateXML.</td> </tr> <tr><td>Plan App Service</td> <td>Indique votre plan de paiement. Vous pouvez le modifier si vous avez besoin de plus ou moins de ressources</th> </td> <tr><td>Niveau de tarification</td> <td>Propriété en lecture seule qui indique la catégorie de tarification dans votre abonnement Azure.</td> </tr> <tr><td>Groupe de ressources</td> <td>Créez-en un nouveau ou utilisez un groupe existant. Cette propriété est décrite dans la section Utiliser des groupes de ressources.</td> </tr> <tr><td>Abonnement</td> <td>Propriété en lecture seule qui indique votre abonnement actuel</td> </tr> <tr><td>Emplacement</td> <td>Emplacement géographique qui héberge votre service Azure.</td></tr> <tr><td>Ajouter au tableau d’accueil</td> <td>Sélectionnez cette option pour ajouter l’application API à votre Tableau d’accueil (la page d’accueil)</td></tr> </table> 
+3. Entrez les propriétés suivantes pour le connecteur : 
+	<table>
+    <tr><th>Propriété</th> <th>Description</th> </tr>
+    <tr><td>Nom</td> <td>Entrez un nom pour votre application API. Par exemple, vous pouvez la nommer RulesDiscountTaxCode ou APIAppValidateXML.</td> </tr>
+    <tr><td>Plan App Service</td> <td>Indique votre plan de paiement. Vous pouvez le modifier si vous avez besoin de plus ou moins de ressources.</th> </td>
+    <tr><td>Niveau de tarification</td> <td>Propriété en lecture seule qui indique la catégorie de tarification dans votre abonnement Azure.</td> </tr>
+    <tr><td>Groupe de ressources</td> <td>Créez-en un nouveau ou utilisez un groupe existant. Cette propriété est décrite dans la section Utiliser des groupes de ressources.</td> </tr>
+    <tr><td>Abonnement</td> <td>Propriété en lecture seule qui indique votre abonnement actuel</td> </tr>
+    <tr><td>Emplacement</td> <td>Emplacement géographique qui héberge votre service Azure. </td></tr>
+    <tr><td>Ajouter au Tableau d'accueil</td> <td>Sélectionnez cette option pour ajouter l'application d'API à votre Tableau d'accueil (la page d'accueil).</td></tr>
+</table>
 4. Sélectionnez **Créer**. Votre connecteur est créé. L'opération peut prendre un certain temps et l'écran d'accueil s'affiche lors de la création du connecteur. Utilisez l'élément de menu Notifications à gauche pour surveiller l'état de votre connecteur.
 
 Maintenant que vous avez créé votre premier connecteur, vous pouvez créer une application web, mobile ou logique avec.
@@ -137,11 +147,12 @@ Exécutez les étapes suivantes pour ajouter un connecteur à une application lo
 Les connecteurs utilisent OAuth ou des noms d'utilisateurs et des mots de passe.
 
 ## En savoir plus sur les applications logiques et les applications web
-[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-app-azure-portal.md) |
+[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Autres connecteurs
 
 [Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | [Connecteurs B2B](app-service-logic-b2b-connectors.md) | [Connecteurs de protocole](app-service-logic-protocol-connectors.md) | [Connecteurs application + services de données](app-service-logic-data-connectors.md) | [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

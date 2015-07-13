@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Prise en main d'Azure Active Directory (Projets .NET)" 
-	description="Mise en route d'Azure Active Directory dans Visual Studio" 
+	pageTitle="Prise en main d’Azure Active Directory (Projets .NET)" 
+	description="Mise en route d’Azure Active Directory dans Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
- 
+  
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
-# Prise en main d'Azure Active Directory (Projets .NET)
+# Prise en main d’Azure Active Directory (Projets .NET)
 
 > [AZURE.SELECTOR]
-> - [Prise en main](vs-active-directory-dotnet-getting-started.md)
-> - [Que s'est-il passé ?](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Demander une authentification pour l'accès aux contrôleurs 
 
@@ -28,7 +28,7 @@ Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize
  
 #####Ajouter des contrôles SignIn/SignOut 
 
-Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml**. Voici un exemple où cette fonctionnalité est ajoutée à la vue **_Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
+Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml** et ajouter la fonctionnalité à l’une de vos vues. Voici un exemple de la fonctionnalité ajoutée à la vue **_Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@ Pour ajouter des contrôles SignIn/SignOut à l'une de vos vues, vous pouvez uti
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

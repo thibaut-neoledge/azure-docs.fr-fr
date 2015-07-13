@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="API Application Insights pour les événements et les mesures personnalisés" 
-	description="Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l’utilisation et diagnostiquer les problèmes." 
+	description="Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes." 
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
@@ -17,7 +17,7 @@
 
 # API Application Insights pour les événements et les mesures personnalisés 
 
-*Application Insights est à l’état de version préliminaire.*
+*Application Insights est à l'état de version préliminaire.*
 
 Insérez quelques lignes de code dans votre application pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes. Vous pouvez envoyer la télémétrie depuis des applications de périphérique et de bureau, des clients web et des serveurs web.
 
@@ -41,7 +41,7 @@ Vous pouvez [associer des propriétés et des mesures](#properties) à la plupar
 
 ## <a name="prep"></a>Avant de commencer
 
-Si vous ne l’avez pas encore fait :
+Si vous ne l'avez pas encore fait :
 
 * Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet :
  * [Projet ASP.NET][greenbrown]
@@ -73,7 +73,7 @@ Construisez une instance de TelemetryClient (sauf en JavaScript dans les pages w
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-Nous vous recommandons d’utiliser une instance de `TelemetryClient` pour chaque requête dans une application web ou pour chaque session dans d’autres applications. Vous pouvez définir des propriétés telles que `TelemetryClient.Context.User.Id` pour effectuer un suivi des utilisateurs et des sessions. Cette information est associée à tous les événements envoyés par l’instance.
+Nous vous recommandons d'utiliser une instance de `TelemetryClient` pour chaque requête dans une application web ou pour chaque session dans d'autres applications. Vous pouvez définir des propriétés telles que `TelemetryClient.Context.User.Id` pour effectuer un suivi des utilisateurs et des sessions. Cette information est associée à tous les événements envoyés par l'instance.
 
 TelemetryClient est thread-safe.
 
@@ -85,7 +85,7 @@ Les événements peuvent être affichés dans [Metrics Explorer][metrics] comme 
 
 Insérer des événements dans votre code pour compter la fréquence à laquelle ils utilisent une fonctionnalité particulière, la fréquence à laquelle ils atteignent des objectifs particuliers ou à laquelle ils font des choix particuliers.
 
-Par exemple, dans une application de jeu, envoyez un événement chaque fois qu’un utilisateur gagne le jeu :
+Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'un utilisateur gagne le jeu :
 
 *JavaScript*
 
@@ -111,27 +111,27 @@ Cliquez sur la vignette Événements personnalisés dans le panneau Vue d’ense
 
 Cliquez pour afficher un graphique de vue d’ensemble et une liste complète.
 
-Sélectionnez le graphique et segmentez-le par nom d’événement pour voir les contributions correspondantes des événements les plus importants.
+Sélectionnez le graphique et segmentez-le par nom d'événement pour voir les contributions correspondantes des événements les plus importants.
 
 ![Sélectionnez le graphique et définissez le groupe](./media/app-insights-web-track-usage-custom-events-metrics/02-segment.png)
 
-Dans la liste sous le graphique, sélectionnez un nom d’événement. Cliquez pour voir les occurrences individuelles de l’événement.
+Dans la liste sous le graphique, sélectionnez un nom d'événement. Cliquez pour voir les occurrences individuelles de l'événement.
 
 ![Extrayez les événements](./media/app-insights-web-track-usage-custom-events-metrics/03-instances.png)
 
-Cliquez sur n’importe quelle occurrence pour afficher plus d’informations.
+Cliquez sur n'importe quelle occurrence pour afficher plus d’informations.
 
 ## <a name="properties"></a>Filtrez, recherchez et segmentez vos données avec des propriétés
 
 Vous pouvez associer des propriétés et des mesures à vos événements (et également à des mesures, des affichages de page et d’autres données de télémétrie).
 
-Les **propriétés** sont des valeurs de chaîne que vous pouvez utiliser pour filtrer votre télémétrie dans les rapports d’utilisation. Par exemple, si votre application fournit plusieurs jeux, vous pouvez attacher le nom du jeu à chaque événement pour vous permettre de savoir quels sont les jeux les plus populaires.
+Les **propriétés** sont des valeurs de chaîne que vous pouvez utiliser pour filtrer votre télémétrie dans les rapports d'utilisation. Par exemple, si votre application fournit plusieurs jeux, vous pouvez attacher le nom du jeu à chaque événement pour vous permettre de savoir quels sont les jeux les plus populaires.
 
-Il existe une limite d’environ 1 Ko sur la longueur de chaîne. (Si vous souhaitez envoyer d’importants blocs de données, utilisez le paramètre de message de [TrackTrace](#track-trace).)
+Il existe une limite d'environ 1 Ko sur la longueur de chaîne. (Si vous souhaitez envoyer d’importants blocs de données, utilisez le paramètre de message de [TrackTrace](#track-trace).)
 
-Les **mesures** sont des valeurs numériques qui peuvent être représentées sous forme graphique. Par exemple, observez s’il existe une augmentation progressive des scores atteints par vos joueurs. Les graphiques peuvent être segmentés par les propriétés envoyées avec l’événement pour vous permettre d’obtenir des graphiques distincts ou empilés pour différents jeux.
+Les **mesures** sont des valeurs numériques qui peuvent être représentées sous forme graphique. Par exemple, observez s'il existe une augmentation progressive des scores atteints par vos joueurs. Les graphiques peuvent être segmentés par les propriétés envoyées avec l'événement pour vous permettre d’obtenir des graphiques distincts ou empilés pour différents jeux.
 
-Les valeurs de mesures doivent être > = 0 pour s’afficher correctement.
+Les valeurs de mesures doivent être > = 0 pour s'afficher correctement.
 
 
 Il existe certaines [limites au nombre de propriétés, de valeurs de propriété et de mesures](#limits) que vous pouvez utiliser.
@@ -193,7 +193,7 @@ Il existe certaines [limites au nombre de propriétés, de valeurs de propriét�
 
 ![Ouvrez Metrics Explorer, sélectionnez le graphique puis sélectionnez la mesure](./media/app-insights-web-track-usage-custom-events-metrics/03-track-custom.png)
 
-*Si votre mesure n’apparaît pas, fermez le panneau de sélection, patientez puis cliquez sur Actualiser.*
+*Si votre mesure n'apparaît pas, fermez le panneau de sélection, patientez puis cliquez sur Actualiser.*
 
 **Si vous avez utilisé des propriétés et des mesures**, segmentez la mesure par la propriété :
 
@@ -208,7 +208,7 @@ Dans **Recherche de diagnostic**, vous pouvez afficher les propriétés et les m
 ![Sélectionnez une instance, puis sélectionnez « ... »](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-4.png)
 
 
-Utilisez le champ de recherche pour voir les occurrences de l’événement présentant une valeur de propriété particulière.
+Utilisez le champ de recherche pour voir les occurrences de l'événement présentant une valeur de propriété particulière.
 
 
 ![Tapez un terme dans Rechercher](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-23-customevents-5.png)
@@ -217,7 +217,7 @@ Utilisez le champ de recherche pour voir les occurrences de l’événement pré
 
 #### Autre façon de définir des propriétés et des mesures
 
-Si cela est plus pratique, vous pouvez collecter les paramètres d’un événement dans un objet séparé :
+Si cela est plus pratique, vous pouvez collecter les paramètres d'un événement dans un objet séparé :
 
     var event = new EventTelemetry();
 
@@ -233,7 +233,7 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d’un événem
 
 #### <a name="timed"></a> Événements de durée
 
-Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu. Il s’agit d’un exemple intéressant de l’utilisation du paramètre de mesure.
+Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu. Il s'agit d'un exemple intéressant de l'utilisation du paramètre de mesure.
 
 
 *C#*
@@ -258,11 +258,11 @@ Vous avez parfois besoin d’obtenir une représentation graphique de la durée 
 
 ## Suivi des mesures
 
-Utilisez TrackMetric pour envoyer des mesures qui ne sont pas associées à des événements particuliers. Par exemple, vous pouvez analyser la longueur d’une file d’attente à des intervalles réguliers.
+Utilisez TrackMetric pour envoyer des mesures qui ne sont pas associées à des événements particuliers. Par exemple, vous pouvez analyser la longueur d’une file d'attente à des intervalles réguliers.
 
 Les mesures sont affichées sous forme de graphiques statistiques dans Metrics Explorer, mais contrairement aux événements, vous ne pouvez pas rechercher des occurrences individuelles dans Recherche de diagnostic.
 
-Les valeurs de mesures doivent être > = 0 pour s’afficher correctement.
+Les valeurs de mesures doivent être > = 0 pour s'afficher correctement.
 
 
 *JavaScript*
@@ -281,7 +281,7 @@ Les valeurs de mesures doivent être > = 0 pour s’afficher correctement.
 
     telemetry.trackMetric("Queue", queue.Length);
 
-En fait, vous pouvez procéder ainsi dans un thread d’arrière-plan :
+En fait, vous pouvez procéder ainsi dans un thread d'arrière-plan :
 
 *C#*
 
@@ -302,9 +302,9 @@ Il existe certaines [limites au nombre de mesures](#limits) que vous pouvez util
 
 ## Affichages de page
 
-Dans un périphérique ou une application de page web, la télémétrie d’affichage de page est envoyée par défaut lorsque chaque écran ou page est chargé. Mais vous pouvez modifier cela pour suivre les affichages de page à différents moments. Par exemple, dans une application qui affiche les onglets ou les panneaux, vous pouvez effectuer le suivi d’une « page » chaque fois que l’utilisateur ouvre un nouveau panneau.
+Dans un périphérique ou une application de page web, la télémétrie d'affichage de page est envoyée par défaut lorsque chaque écran ou page est chargé. Mais vous pouvez modifier cela pour suivre les affichages de page à différents moments. Par exemple, dans une application qui affiche les onglets ou les panneaux, vous pouvez effectuer le suivi d'une « page » chaque fois que l'utilisateur ouvre un nouveau panneau.
 
-![Filtre d’utilisation dans le panneau Vue d’ensemble](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-47usage-2.png)
+![Filtre d'utilisation dans le panneau Vue d'ensemble](./media/app-insights-web-track-usage-custom-events-metrics/appinsights-47usage-2.png)
 
 Les données d’utilisateur et de session sont envoyées en tant que propriétés avec les affichages de page, de façon à ce que les graphiques d’utilisateur et de session soient actifs s’il existe une télémétrie de l’affichage de page.
 
@@ -323,13 +323,13 @@ Les données d’utilisateur et de session sont envoyées en tant que propriét�
     telemetry.TrackPageView("GameReviewPage")
 
 
-Si vous avez plusieurs onglets dans différentes pages HTML, vous pouvez aussi spécifier l’URL :
+Si vous avez plusieurs onglets dans différentes pages HTML, vous pouvez aussi spécifier l'URL :
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
 #### Affichages de pages datées
 
-En utilisant cette paire d’appels de méthodes au lieu de trackPageView, vous pouvez analyser la durée pendant laquelle les utilisateurs restent sur vos pages.
+En utilisant cette paire d'appels de méthodes au lieu de trackPageView, vous pouvez analyser la durée pendant laquelle les utilisateurs restent sur vos pages.
 
     // At the start of a page view:
     appInsights.startTrackPage(myPage.name);
@@ -337,7 +337,7 @@ En utilisant cette paire d’appels de méthodes au lieu de trackPageView, vous 
     // At the completion of a page view:
     appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
 
-Utilisez la même chaîne en tant que premier paramètre dans les appels de démarrage et d’arrêt.
+Utilisez la même chaîne en tant que premier paramètre dans les appels de démarrage et d'arrêt.
 
 Regardez la mesure de durée de page dans [Metrics Explorer][metrics].
 
@@ -346,7 +346,7 @@ Regardez la mesure de durée de page dans [Metrics Explorer][metrics].
 
 Utilisé par le Kit de développement logiciel (SDK) du serveur pour consigner les requêtes HTTP.
 
-Vous pouvez également l’appeler vous-même si vous souhaitez simuler des requêtes dans le cas où le module du service web n’est pas en cours d’exécution.
+Vous pouvez également l'appeler vous-même si vous souhaitez simuler des requêtes dans le cas où le module du service web n’est pas en cours d'exécution.
 
 *C#*
 
@@ -367,7 +367,7 @@ Vous pouvez également l’appeler vous-même si vous souhaitez simuler des requ
 
 ## Suivi des exceptions
 
-Envoyez des exceptions à Application Insights : pour [les compter][metrics] comme indication de la fréquence d’un problème, et pour [examiner des occurrences individuelles][diagnostic].
+Envoyez des exceptions à Application Insights : pour [les compter][metrics] comme indication de la fréquence d'un problème, et pour [examiner des occurrences individuelles][diagnostic].
 
 *C#*
 
@@ -441,13 +441,13 @@ Une utilisation typique consiste à identifier la télémétrie provenant de dif
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
-Le client web JavaScript ne propose actuellement aucune méthode de définition des propriétés par défaut.
+Le client Web JavaScript ne propose actuellement aucune méthode de définition des propriétés par défaut.
 
-## <a name="dynamic-ikey"></a>Clé d’instrumentation dynamique
+## <a name="dynamic-ikey"></a>Clé d'instrumentation dynamique
 
 Pour éviter de mélanger la télémétrie fournie par les environnements de développement, de test et de production, vous pouvez [créer des ressources Application Insights distinctes][create] et modifier leurs clés en fonction de l’environnement.
 
-Au lieu de récupérer la clé d’instrumentation à partir du fichier de configuration, vous pouvez la définir dans votre code. Définissez la clé dans une méthode d’initialisation, par exemple global.aspx.cs dans un service ASP.NET :
+Au lieu de récupérer la clé d'instrumentation à partir du fichier de configuration, vous pouvez la définir dans votre code. Définissez la clé dans une méthode d'initialisation, par exemple global.aspx.cs dans un service ASP.NET :
 
 *C#*
 
@@ -465,7 +465,7 @@ Au lieu de récupérer la clé d’instrumentation à partir du fichier de confi
 
 
 
-Dans les pages web, vous pouvez la définir depuis l’état du serveur web au lieu de la coder littéralement dans le script. Par exemple, dans une page web générée dans une application ASP.NET :
+Dans les pages web, vous pouvez la définir depuis l'état du serveur web au lieu de la coder littéralement dans le script. Par exemple, dans une page web générée dans une application ASP.NET :
 
 *JavaScript dans Razor*
 
@@ -517,7 +517,7 @@ Les appels de télémétrie individuels peuvent remplacer les valeurs par défau
 
 
 
-## <a name="ikey"></a> Définir la clé d’instrumentation pour la télémétrie personnalisée sélectionnée
+## <a name="ikey"></a> Définir la clé d'instrumentation pour la télémétrie personnalisée sélectionnée
 
 *C#*
     
@@ -527,7 +527,7 @@ Les appels de télémétrie individuels peuvent remplacer les valeurs par défau
 
 ## Vidage des données
 
-Normalement, le Kit de développement logiciel (SDK) envoie des données à des moments choisis pour minimiser l’impact sur l’utilisateur. Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le Kit de développement logiciel (SDK) dans une application qui s’arrête.
+Normalement, le Kit de développement logiciel (SDK) envoie des données à des moments choisis pour minimiser l'impact sur l'utilisateur. Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le Kit de développement logiciel (SDK) dans une application qui s'arrête.
 
 *C#*
 
@@ -546,7 +546,7 @@ Vous pouvez [désactiver certaines parties de la télémétrie standard][config]
 
 ## <a name="debug"></a>Mode Développeur :
 
-Pendant le débogage, il est utile d’avoir votre télémétrie envoyée par le pipeline afin que vous puissiez voir immédiatement les résultats. Vous obtenez également des messages supplémentaires qui vous permettent de suivre tout problème relatif à la télémétrie. Désactivez-les lors de la production, car ils peuvent ralentir votre application.
+Pendant le débogage, il est utile d'avoir votre télémétrie envoyée par le pipeline afin que vous puissiez voir immédiatement les résultats. Vous obtenez également des messages supplémentaires qui vous permettent de suivre tout problème relatif à la télémétrie. Désactivez-les lors de la production, car ils peuvent ralentir votre application.
 
 
 *C#*
@@ -563,26 +563,26 @@ TelemetryClient a une propriété de contexte contenant un certain nombre de val
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
-* **Composant** : identifie l’application et sa version
-* **Périphérique** : données du périphérique sur lequel l’application est en cours d’exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
-* **Clé d’instrumentation** : identifie la ressource d’Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
-* **Emplacement** : identifie l’emplacement géographique du périphérique.
-* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d’autres types d’application, vous pouvez définir celle-ci sur les événements regroupés.
+* **Composant** : identifie l'application et sa version
+* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Emplacement** : identifie l'emplacement géographique du périphérique.
+* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Nom** : l’URL de la requête HTTP
+ * **Nom** : l'URL de la requête HTTP
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
 * **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
-* **Session** : identifie la session de l’utilisateur. L’ID est défini sur une valeur générée qui est modifiée lorsque l’utilisateur n’a pas été actif pendant un certain temps.
-* **Utilisateur** : permet aux utilisateurs d’être comptés. Dans une application web, s’il existe un cookie, l’ID d’utilisateur est supprimé de celui-ci. S’il n’en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l’utilisateur se connecte à partir d’une autre machine. 
+* **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
+* **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
 
 ## Limites
 
 Il existe certaines limites au nombre de mesures et d’événements par application.
 
-1. Jusqu’à 500 points de données de télémétrie par seconde par clé d’instrumentation (autrement dit, par application). Cela inclut la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code.
-1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l’envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les noms de mesure et de propriété sont globaux pour chaque clé d’instrumentation et ne s’étendent pas au type de données.
+1. Jusqu'à 500 points de données de télémétrie par seconde par clé d'instrumentation (autrement dit, par application). Cela inclut la télémétrie standard envoyée par les modules du Kit de développement logiciel (SDK) et les événements personnalisés, les mesures et autre données de télémétrie envoyées par votre code.
+1.	Un maximum de 200 noms de mesure uniques et de 200 noms de propriété unique pour votre application. Les mesures comprennent l'envoi de données via TrackMetric ainsi que des mesures sur d’autres types de données tels que des événements. Les noms de mesure et de propriété sont globaux pour chaque clé d'instrumentation et ne s’étendent pas au type de données.
 2.	Les propriétés peuvent être utilisées pour le filtrage et le regroupement uniquement lorsqu’il y a moins de 100 valeurs uniques pour chaque propriété. Lorsque les valeurs uniques dépassent 100, la propriété peut toujours être utilisée pour effectuer une recherche et un filtrage, mais elle ne peut plus être utilisée pour des filtres.
-3.	Les propriétés standard telles que le nom de la requête et l’URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d’origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
+3.	Les propriétés standard telles que le nom de la requête et l'URL de la page sont limitées à 1 000 valeurs uniques par semaine. Au-delà de 1 000 valeurs uniques, les valeurs supplémentaires sont marquées comme « Autres valeurs ». La valeur d'origine peut toujours être utilisée pour une recherche de texte intégrale et pour le filtrage.
 
 * *Q : combien de temps sont conservées les données ?*
 
@@ -608,7 +608,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 ## <a name="next"></a>Étapes suivantes
 
 
-[Recherche d’événements et de journaux][diagnostic]
+[Recherche d'événements et de journaux][diagnostic]
 
 [Résolution des problèmes][qna]
 

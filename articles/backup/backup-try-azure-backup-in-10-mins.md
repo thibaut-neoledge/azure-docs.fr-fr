@@ -20,11 +20,11 @@
 Il est très facile de configurer Azure Backup et les vidéos pratiques suivantes vous aideront à le prendre en main.
 
 ## Étape 1 : obtenir un abonnement Azure
-+ Si vous n'avez pas d'abonnement Azure, vous pouvez commencer par une version d'évaluation gratuite qui vous permet d'accéder à n'importe quel service Azure. Consultez le lien suivant [http://azure.microsoft.com/fr-fr/pricing/free-trial/](http://azure.microsoft.com/fr-fr/pricing/free-trial) pour en savoir plus.
++ Si vous n'avez pas d'abonnement Azure, vous pouvez commencer par une version d'évaluation gratuite qui vous permet d'accéder à n'importe quel service Azure. Consultez le lien suivant [http://azure.microsoft.com/fr-fr/pricing/free-trial/](http://azure.microsoft.com/en-in/pricing/free-trial) pour en savoir plus.
 + Vous pouvez ignorer cette étape si vous disposez d'un abonnement Azure.
 
 ## Étape 2 : configurer le service Azure Backup
-Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/](http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) pour effectuer les opérations suivantes :
+Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) pour effectuer les opérations suivantes :
 
 +	Créer un coffre de sauvegarde
 
@@ -35,7 +35,7 @@ Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azu
 > [AZURE.VIDEO getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure]
 
 ## Étape 3 : préparer votre ordinateur local
-Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/](http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) pour effectuer les opérations suivantes :
+Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) pour effectuer les opérations suivantes :
 
 + Installer l'agent Azure Backup sur votre client/serveur Windows ou serveur DPM.
 
@@ -45,7 +45,7 @@ Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azu
 > [AZURE.VIDEO getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup]
 
 ## Étape 4 : sauvegarder et restaurer des données
-Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/](http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) pour effectuer les opérations suivantes :
+Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azure.microsoft.com/fr-fr/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) pour effectuer les opérations suivantes :
 
 + Sauvegarder des données à partir d'un serveur
 
@@ -58,4 +58,4 @@ Passez en revue les étapes présentées dans la vidéo à l'adresse [http://azu
 + Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -74,14 +74,14 @@ Cette étape explique comment l'administrateur d'une société utilisant Azure A
 Le processus de configuration commence par la création d'un principal du service pour l'application. Azure Active Directory utilise les principaux du service pour enregistrer et authentifier des applications dans l'annuaire.
 
 1. Si ce n'est pas déjà fait, téléchargez et installez les cmdlets PowerShell pour Office 365.
-2. Dans le menu  **Démarrer**, exécutez la console du **module Azure Active Directory pour Windows PowerShell**. Celle-ci fournit un environnement en ligne de commande permettant de configurer des attributs de votre client Office 365, comme la création et la modification des principaux du service.
+2. Dans le menu **Démarrer**, exécutez la console du **module Azure Active Directory pour Windows PowerShell**. Celle-ci fournit un environnement en ligne de commande permettant de configurer des attributs de votre client Office 365, comme la création et la modification des principaux du service.
 3. Pour importer le module **MSOnlineExtended** requis, entrez la commande suivante, puis appuyez sur Entrée :
 
 		Import-Module MSOnlineExtended -Force
 4. Pour vous connecter à votre annuaire Office 365, vous devez fournir les informations d'identification de l'administrateur de la société. Tapez la commande suivante et appuyez sur Entrée, puis entrez vos informations d'identification lorsque vous y êtes invité :
 
 		Connect-MsolService
-5. ﻿À présent, vous allez créer un principal du service pour l'application. Tapez la commande suivante, puis appuyez sur Entrée :
+5. À présent, vous allez créer un principal du service pour l'application. Tapez la commande suivante, puis appuyez sur Entrée :
 
 		New-MsolServicePrincipal -ServicePrincipalNames @("phpSample/localhost") -DisplayName "Federation Sample Website" -Type Symmetric -Usage Verify -StartDate "12/01/2012" -EndDate "12/01/2013" 
 Cette étape affiche des informations similaires aux suivantes :
@@ -98,8 +98,7 @@ Cette étape affiche des informations similaires aux suivantes :
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE]
-> Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
+> [AZURE.NOTE]Enregistrez ce résultat, surtout la clé symétrique générée. Cette clé est uniquement affichée pendant la création du principal du service et vous ne pourrez pas la récupérer après cela. Les autres valeurs sont requises pour l'utilisation de l'API Graph pour lire et écrire des informations dans l'annuaire.
 
 6. Dans la dernière étape, vous allez définir l'URL de réponse de votre application. Celle-ci reçoit les réponses après les tentatives d'authentification. Tapez les commandes suivantes, puis appuyez sur Entrée :
 
@@ -126,7 +125,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE] Les valeurs  **audienceuris** et **realm** doivent être précédées de « spn: ».
+	> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
 
 4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
@@ -202,5 +201,6 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [ASP.NET MVC 3]: http://www.microsoft.com/download/details.aspx?id=4211
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
+ 
 
-<!----HONumber=58--> 
+<!---HONumber=62-->

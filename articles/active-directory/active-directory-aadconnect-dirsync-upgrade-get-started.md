@@ -125,7 +125,7 @@ Lorsque vous installez Azure AD Connect sur un nouveau serveur, il ne trouve p
 1. Lancez le programme d’installation d’Azure AD Connect (MSI)
 2. Lorsque vous voyez l’écran Bienvenue à Azure AD Connect. Quittez l’Assistant en cliquant sur le X en haut à droite de la fenêtre.
 3. Ouvrez une invite de commandes
-4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\Program Files\\Microsoft Azure Active Directory Connect), exécutez la commande suivante :
+4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante :
     * AzureADConnect.exe /migrate
 
 Azure AD Connect se connecte et vous présente l’interface utilisateur suivante :
@@ -205,4 +205,4 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

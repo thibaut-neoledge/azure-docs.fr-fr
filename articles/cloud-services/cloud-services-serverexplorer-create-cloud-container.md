@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter=".net" 
    authors="cawaMS" 
-   manager="manager-alias" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/20/2015"
+   ms.date="05/29/2015"
    ms.author="cawa"/>
 
 # Création d'un conteneur de service cloud avec Visual Studio
 
-Pour afficher **l'Explorateur de serveurs** dans Visual Studio, choisissez **Affichage**, puis **Explorateur de serveurs** dans la barre de menus. 
+Pour afficher l'**Explorateur de serveurs** dans Visual Studio, choisissez **Affichage**, puis **Explorateur de serveurs** dans la barre de menus.
 
 1.  Développez le nœud **Azure**
 
-2.  Si l'utilisateur n'est pas connecté, une boîte de dialogue " Connexion " s'affiche automatiquement. Suivez les instructions pour vous connecter à un abonnement Azure
+2.  Si l'utilisateur n'est pas connecté, une boîte de dialogue « Connexion » s'affiche automatiquement. Suivez les instructions pour vous connecter à un abonnement Azure
 
 3.  Cliquez avec le bouton droit de la souris sur le nœud du **service cloud**, puis choisissez **Créer un service cloud...**
 
@@ -31,6 +31,6 @@ Pour afficher **l'Explorateur de serveurs** dans Visual Studio, choisissez **Aff
 ## Étapes suivantes
 
 Maintenant que vous disposez d'un conteneur de service cloud, vous pouvez [créer et déployer](cloud-services-how-to-create-deploy.md) un service cloud.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

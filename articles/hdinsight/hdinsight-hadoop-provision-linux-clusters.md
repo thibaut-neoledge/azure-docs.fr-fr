@@ -17,11 +17,11 @@
    ms.author="nitinme"/>
 
 
-#Approvisionnement de clusters Hadoop Linux dans HDInsight à l'aide d'options personnalisées (version préliminaire)
+#Approvisionnement de clusters Hadoop Linux dans HDInsight à l’aide d’options personnalisées (version préliminaire)
 
 Dans cet article, vous allez découvrir les différentes méthodes pour approvisionner de façon personnalisée un cluster Hadoop Linux sur Azure HDInsight, en utilisant le portail Azure, Azure PowerShell, l’interface de ligne de commande Azure ou le Kit de développement logiciel (SDK) .NET HDInsight.
 
-## Qu'est-ce qu'un cluster HDInsight ?
+## Qu’est-ce qu’un cluster HDInsight ?
 
 Vous êtes-vous déjà demandé pourquoi nous évoquons les clusters à chaque fois que nous parlons d’Hadoop ou des données volumineuses ? C'est parce qu'Hadoop permet le traitement distribué de grandes quantités de données, diffusées entres les différents nœuds d'un cluster. Le cluster dispose d’une architecture maître/esclave composée d’un nœud maître (également nommé nœud principal ou nœud de nom) et de plusieurs nœuds de travail (également nommés nœuds de données). Pour plus d’informations, consultez <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>.
 
@@ -93,36 +93,32 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nom du cluster</td>
-			<td><p>Nom du cluster. </p>
-				<ul>
-				<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
-				<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
-				</ul></td></tr>
-		<tr><td>Type du cluster</td>
-			<td>Sélectionnez <strong>Hadoop</strong>.</td></tr>
-		<tr><td>Système d'exploitation</td>
-			<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
-		<tr><td>Version de HDInsight</td>
-			<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
-		</table>
-
-	Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Nom du cluster</td>
+		<td><p>Nom du cluster. </p>
+			<ul>
+			<li>Le nom DNS (Domain Name System ) doit commencer et finir par un caractère alphanumérique et peut contenir des traits d’union.</li>
+			<li>Le champ doit être une chaîne comportant entre 3&#160;et 63&#160;caractères.</li>
+			</ul></td></tr>
+	<tr><td>Type du cluster</td>
+		<td>Sélectionnez <strong>Hadoop</strong>.</td></tr>
+	<tr><td>Système d'exploitation</td>
+		<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
+	<tr><td>Version de HDInsight</td>
+		<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
+	</table>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
 
 	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nom</th><th>Valeur</th></tr>
-	<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé précédemment. Les clusters HDInsight requièrent en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p></td></tr>
-	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+<tr><th>Nom</th><th>Valeur</th></tr>
+<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
+<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé précédemment. Les clusters HDInsight requièrent en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p></td></tr>
+<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
+<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
+</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 
 5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
@@ -130,26 +126,23 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
     ![Fournir l’utilisateur du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Mot de passe HTTP</td>
-			<td>Spécifiez le mot de passe par défaut de l’utilisateur HTTP, <strong>admin</strong>.</td></tr>
-		<tr><td>Nom d’utilisateur du SSH</td>
-			<td>Spécifiez le nom d’utilisateur du SSH. Vous utiliserez ce nom d’utilisateur pour lancer une session SSH à distance sur les nœuds de cluster HDInsight.</td></tr>
-		<tr><td>Type d’authentification SSH</td>
-			<td>Indiquez si vous souhaitez utiliser un mot de passe ou une clé SSH pour authentifier un utilisateur SSH.</td></tr>
-		<tr><td>Mot de passe SSH</td>
-			<td>Si vous choisissez un mot de passe comme type d’authentification, indiquez le mot de passe SSH pour authentifier un utilisateur SSH. Vous serez invité à entrer ce mot de passe lorsque vous essayerez d'ouvrir une session SSH à distance, sur la machine Linux.</td></tr>
-		<tr><td>Clé publique SSH</td>
-			<td>Si vous choisissez une clé comme type d’authentification, indiquez la clé publique SSH que vous avez déjà générée. Pour lancer une session SSH avec un nœud dans le cluster Linux, vous devrez utiliser la clé privée associée à cette clé publique.<br>
-			Pour savoir comment générer une clé SSH sur un ordinateur Linux, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">ici</a>. Pour savoir comment générer une clé SSH sur un ordinateur Windows, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">ici</a>.
-		</td></tr>
-		<tr><td>Sélection du metastore Hive/Oozie</td>
-			<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster.</td></tr>
-		</td></tr>
-		</table>
-
-
-	> [AZURE.NOTE]Nous vous recommandons d’utiliser l’authentification par clé publique SSH avec SSH car celle-ci est plus sécurisée que l’authentification par mot de passe.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Mot de passe HTTP</td>
+		<td>Spécifiez le mot de passe par défaut de l’utilisateur HTTP, <strong>admin</strong>.</td></tr>
+	<tr><td>Nom d’utilisateur du SSH</td>
+		<td>Spécifiez le nom d’utilisateur du SSH. Vous utiliserez ce nom d’utilisateur pour lancer une session SSH à distance sur les nœuds de cluster HDInsight.</td></tr>
+	<tr><td>Type d’authentification SSH</td>
+		<td>Indiquez si vous souhaitez utiliser un mot de passe ou une clé SSH pour authentifier un utilisateur SSH.</td></tr>
+	<tr><td>Mot de passe SSH</td>
+		<td>Si vous choisissez un mot de passe comme type d’authentification, indiquez le mot de passe SSH pour authentifier un utilisateur SSH. Vous serez invité à entrer ce mot de passe lorsque vous essayerez d'ouvrir une session SSH à distance, sur la machine Linux.</td></tr>
+	<tr><td>Clé publique SSH</td>
+		<td>Si vous choisissez une clé comme type d’authentification, indiquez la clé publique SSH que vous avez déjà générée. Pour lancer une session SSH avec un nœud dans le cluster Linux, vous devrez utiliser la clé privée associée à cette clé publique.<br>
+		Pour savoir comment générer une clé SSH sur un ordinateur Linux, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">ici</a>. Pour savoir comment générer une clé SSH sur un ordinateur Windows, cliquez <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">ici</a>.
+	</td></tr>
+	<tr><td>Sélection du metastore Hive/Oozie</td>
+		<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster.</td></tr>
+	</td></tr>
+	</table>> [AZURE.NOTE]Nous vous recommandons d’utiliser l’authentification par clé publique SSH avec SSH car celle-ci est plus sécurisée que l’authentification par mot de passe.
 
 	Cliquez sur la flèche droite.
 
@@ -170,31 +163,29 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
     ![Fournir un compte de stockage pour le cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Compte de stockage</td>
-			<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
-			<ul>
-				<li><strong>Utiliser le stockage existant</strong></li>
-				<li><strong>Créer un nouveau stockage</strong></li>
-				<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
-			</ul>
-			</td></tr>
-		<tr><td>Nom du compte</td>
-			<td><ul>
-				<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le même centre de données que celui sur lequel vous voulez approvisionner le cluster.</li>
-				<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
-			</ul></td></tr>
-		<tr><td>Clé du compte</td>
-			<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
-		<tr><td>Conteneur par défaut</td>
-			<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
-        	<p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
-        </td></tr>
-		<tr><td>Comptes de stockage supplémentaires</td>
-			<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
-	</table>
-
-	Cliquez sur la flèche droite.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Compte de stockage</td>
+		<td>Spécifiez le compte Azure Storage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Vous pouvez choisir l'une des trois options suivantes&#160;:
+		<ul>
+			<li><strong>Utiliser le stockage existant</strong></li>
+			<li><strong>Créer un nouveau stockage</strong></li>
+			<li><strong>Utiliser le stockage associé à un autre abonnement</strong></li>
+		</ul>
+		</td></tr>
+	<tr><td>Nom du compte</td>
+		<td><ul>
+			<li>Si vous choisissez d’utiliser un stockage existant, pour <strong>Nom du compte</strong>, sélectionnez un compte de stockage existant. La liste déroulante répertorie uniquement les comptes de stockage situés dans le même centre de données que celui sur lequel vous voulez approvisionner le cluster.</li>
+			<li>Si vous choisissez l’option <strong>Créer un nouveau stockage</strong> ou <strong>Utiliser le stockage associé à un autre abonnement</strong>, vous devez fournir le nom du compte de stockage.</li>
+		</ul></td></tr>
+	<tr><td>Clé du compte</td>
+		<td>Si vous choisissez l’option <strong>Utiliser le stockage associé à un autre abonnement</strong>, veuillez indiquer la clé de ce compte de stockage.</td></tr>
+	<tr><td>Conteneur par défaut</td>
+		<td><p>Spécifiez le conteneur par défaut du compte de stockage qui sera utilisé comme système de fichiers par défaut pour le cluster HDInsight. Si vous sélectionnez l’option <strong>Utiliser le stockage existant</strong> pour le champ <strong>Compte de stockage</strong> et qu’il n’y a aucun conteneur existant dans ce compte, le conteneur est créé par défaut avec le même nom que celui du cluster. Si un conteneur portant le nom du cluster existe déjà, un numéro de séquence est ajouté au nom de conteneur. Par exemple, mon_conteneur1, mon_conteneur2, et ainsi de suite. Cependant, si le compte de stockage existant dispose d’un conteneur dont le nom est différent de celui du cluster spécifié, vous pouvez également utiliser ce conteneur.</p>
+        <p>Si vous avez choisi de créer un stockage ou d'utiliser le stockage d'un autre abonnement Azure, vous devez spécifier le nom du conteneur par défaut.</p>
+    </td></tr>
+	<tr><td>Comptes de stockage supplémentaires</td>
+		<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
+</table>Cliquez sur la flèche droite.
 
 7. Si vous avez choisi de configurer un stockage supplémentaire pour le cluster, dans la page **Compte de stockage**, entrez les informations du compte pour le compte de stockage supplémentaire :
 
@@ -249,7 +240,7 @@ Pour configurer votre ordinateur Linux à l’aide de l’interface de ligne de 
 
 **Pour vous connecter à votre abonnement Azure**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d'Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 
 > [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez le chiffrement du lecteur BitLocker.
@@ -266,7 +257,7 @@ Avant d’utiliser l’interface de ligne de commande Azure, vous devez configur
 	La commande ouvre la page web sur laquelle télécharger le fichier de paramètres de publication. Si la page web ne s’ouvre pas, cliquez sur le lien de la fenêtre de terminal pour ouvrir la page du navigateur et connectez-vous au portail.
 
 3.	Téléchargez le fichier de paramètres de publication sur votre ordinateur.
-4.	À partir de la fenêtre d'invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
+4.	À partir de la fenêtre d’invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
 
 		azure account import <path/to/the/file>
 
@@ -279,7 +270,7 @@ Pour configurer votre ordinateur Windows à l’aide de l’interface de ligne d
 - Téléchargement et importation de paramètres de publication de compte Azure
 
 
-L’interface de ligne de commande peut être installée à l’aide de NPM ou de Windows Installer. Microsoft vous recommande de procéder à cette installation en utilisant uniquement l’une des deux options suivantes.
+L’interface de ligne de commande Azure peut être installée à l’aide de NPM ou de Windows Installer. Microsoft vous recommande de procéder à cette installation en utilisant uniquement l’une des deux options suivantes.
 
 **Installation de l’interface de ligne de commande Azure à l’aide de NPM**
 
@@ -306,12 +297,11 @@ L’interface de ligne de commande peut être installée à l’aide de NPM ou d
 
 **Installation de l’interface de ligne de commande à l’aide de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/downloads/**.
-2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
+1.	Accédez à **http://azure.microsoft.com/downloads/**. 2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
 
 **Pour télécharger et importer des paramètres de publication**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d'Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 
 > [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez BitLocker.
@@ -393,7 +383,7 @@ Une fois que le compte de stockage et le conteneur d’objets blob sont prêts, 
 
 Généralement, vous approvisionnez un cluster HDInsight, vous exécutez les tâches, puis vous supprimez le cluster pour réduire les coûts. L’interface de ligne de commande Azure vous donne la possibilité d’enregistrer les configurations dans un fichier, afin de pouvoir les réutiliser chaque fois que vous approvisionnez un cluster.
 
-- À partir de la fenêtre d'invite de commandes, exécutez les commandes suivantes :
+- À partir de la fenêtre d’invite de commandes, exécutez les commandes suivantes :
 
 
 		#Create the config file
@@ -601,19 +591,19 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+<tr>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
+<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
+<tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+</table>
 
 4. Cliquez sur **OK** pour créer le projet.
 

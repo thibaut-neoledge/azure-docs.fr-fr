@@ -27,7 +27,4 @@
 
 9. Cliquez sur **Appliquer**, puis sur **OK**.
 
-
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

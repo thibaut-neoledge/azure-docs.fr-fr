@@ -115,7 +115,7 @@ Par exemple, vous pouvez insérer des appels tels que :
 
 Vous pouvez également rechercher des journaux générés à l’aide d’un framework de journalisation, comme log4Net, NLog ou System.Diagnostics.Trace.
 
-1. Si vous prévoyez d’utiliser log4Net ou NLog, installez-le dans votre projet. 
+1. Si vous prévoyez d'utiliser log4Net ou NLog, installez-le dans votre projet. 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
 3. Sélectionnez En ligne > Tout, puis **Inclure la version préliminaire** et recherchez « Microsoft.ApplicationInsights »
 
@@ -198,7 +198,7 @@ VB
       telemetry.TrackException(ex, properties, measurements)
     End Try
 
-Les paramètres de propriétés et les mesures sont facultatifs, mais sont utiles pour filtrer et ajouter des informations supplémentaires. Par exemple, si vous avez une application qui peut exécuter plusieurs jeux, vous pouvez rechercher tous les rapports d’exception liés à un jeu particulier. Vous pouvez ajouter autant d’éléments que vous le souhaitez à chaque dictionnaire.
+Les paramètres de propriétés et les mesures sont facultatifs, mais sont utiles pour filtrer et ajouter des informations supplémentaires. Par exemple, si vous avez une application qui peut exécuter plusieurs jeux, vous pouvez rechercher tous les rapports d'exception liés à un jeu particulier. Vous pouvez ajouter autant d'éléments que vous le souhaitez à chaque dictionnaire.
 
 #### Affichage des exceptions
 
@@ -238,7 +238,7 @@ Au lieu d’ajouter la propriété séparément pour chaque appel d’exception,
         }
     }
 
-Dans l’initialiseur de l’application, par exemple Global.asax.cs :
+Dans l'initialiseur de l'application, par exemple Global.asax.cs :
 
     protected void Application_Start()
     {
@@ -257,13 +257,13 @@ Si vous souhaitez envoyer des événements supplémentaires, vous pouvez utilise
 
 ### <a name="emptykey"></a>J’obtiens une erreur « La clé d’instrumentation ne peut pas être vide ».
 
-Vous avez peut-être installé le package Nuget de l’enregistreur de données sans installer Application Insights.
+Vous avez peut-être installé le package Nuget de l'enregistreur de données sans installer Application Insights.
 
 Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `ApplicationInsights.config`, puis sélectionnez **Mettre à jour Application Insights**. Une boîte de dialogue vous invite à vous connecter à Azure et à créer une ressource Application Insights, ou à réutiliser une ressource existante. Ceci devrait résoudre le problème.
 
 ### <a name="limits"></a>Quelle est la quantité de données conservée ?
 
-Jusqu’à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
+Jusqu'à 500 événements par seconde pour chaque application. Les événements sont conservés pendant sept jours.
 
 ## <a name="add"></a>Étapes suivantes
 

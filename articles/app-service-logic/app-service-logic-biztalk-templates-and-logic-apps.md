@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modèles BizTalk et Logic Apps" 
+	pageTitle="Modèles BizTalk et Logic Apps" 
 	description="Apprenez à créer des API, des opérations et des produits dans Gestion des API." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -16,8 +16,9 @@
 	ms.date="03/05/2015" 
 	ms.author="jtwist"/>
 
-## Modèles BizTalk et Logic Apps
+##Modèles BizTalk et Logic Apps
 
-### Cette documentation sera bientôt disponible.
+###Cette documentation sera bientôt disponible.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

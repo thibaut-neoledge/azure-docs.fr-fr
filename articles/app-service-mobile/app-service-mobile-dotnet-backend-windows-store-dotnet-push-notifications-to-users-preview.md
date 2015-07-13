@@ -3,7 +3,7 @@
 	description="Découvrez comment envoyer des notifications push à tous les appareils d'un utilisateur spécifique."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
@@ -105,5 +105,6 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 [Prise en main de l'authentification]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Prise en main des notifications Push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [modèles]: https://msdn.microsoft.com/fr-fr/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

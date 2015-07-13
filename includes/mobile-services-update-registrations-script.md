@@ -1,16 +1,16 @@
-﻿
 
-1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **Registrations**. 
+
+1. Dans le portail de gestion, cliquez sur l’onglet **Data**, puis sur la table **Registrations**. 
 
 	![](./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png)
 
-2. Dans **Registrations**, cliquez sur l'onglet **Script**, puis sélectionnez **Insert**.
+2. Dans **Registrations**, cliquez sur l’onglet **Script**, puis sélectionnez **Insert**.
    
 	![](./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png)
 
-	La fonction appelée lors d'une insertion dans la table **Registrations** s'affiche.
+	La fonction appelée lors d’une insertion dans la table **Registrations** s’affiche.
 
-3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
 		function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registrations');
@@ -26,9 +26,6 @@
     	    }
 	    }
 
-   Le nouveau script de la fonction insert est enregistré. Il stocke les informations d'inscription dans une nouvelle table.
+   Le nouveau script de la fonction insert est enregistré. Il stocke les informations d’inscription dans une nouvelle table.
 
-
-
-
-<!--HONumber=42-->
+<!---HONumber=62-->

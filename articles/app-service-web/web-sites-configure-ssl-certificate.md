@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Activer le protocole HTTPS pour une application web dans Azure App Service" 
+	pageTitle="Activer le protocole HTTPS pour une application web dans Azure App Service" 
 	description="Découvrez comment activer SSL avec Azure App Service." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -18,5 +18,6 @@
 
 
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

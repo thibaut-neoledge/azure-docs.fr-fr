@@ -17,7 +17,7 @@
 	ms.author="aashishr"/>
 
 
-# Sauvegarder des machines virtuelles
+# Sauvegarde des machines virtuelles Azure
 
 Cet article est un guide essentiel pour la sauvegarde des machines virtuelles. Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-vms-introduction.md#prerequisites) ont été remplies.
 
@@ -25,8 +25,8 @@ Les trois principales étapes de la sauvegarde des machines virtuelles sont les 
 
 ![Trois étapes pour sauvegarder une machine virtuelle Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## Découvrir les machines virtuelles
-Le processus de découverte interroge Azure pour obtenir la liste des ordinateurs virtuels dans l'abonnement, ainsi que des informations supplémentaires telles que le nom du Service de cloud computing et la région.
+## Découvrir les machines virtuelles Azure
+Le processus de découverte interroge Azure pour obtenir la liste des machines virtuelles de l’abonnement et des informations supplémentaires, comme le nom du service cloud et la région.
 
 > [AZURE.NOTE]Ce processus doit toujours être exécuté en premier. En effet, il permet de vérifier que les nouvelles machines virtuelles ajoutées à l’abonnement sont identifiées.
 
@@ -36,35 +36,35 @@ Pour déclencher le processus de découverte, procédez comme suit :
 
 2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton **Sélectionner**. ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur le **DISCOVER** bouton au bas de la page. ![bouton découverte](./media/backup-azure-vms/discover-button.png)
+3. Cliquez sur le bouton **DÉCOUVRIR** en bas de la page. ![bouton découverte](./media/backup-azure-vms/discover-button.png)
 
 4. Le processus de découverte peut s’exécuter pendant quelques minutes tandis que les machines virtuelles sont affichées sous forme de tableau. Une notification toast s’affiche en bas de l’écran pendant l’exécution du processus de découverte. ![découvrir des machines virtuelles](./media/backup-azure-vms/discovering-vms.png)
 
 5. Une fois le processus de découverte terminé, une autre notification toast s’affiche. ![découverte terminée](./media/backup-azure-vms/discovery-complete.png)
 
 
-## Inscrire des machines virtuelles
-Avant un ordinateur virtuel peut être protégé, il doit être inscrit auprès du service de sauvegarde Azure. Le processus d’inscription a deux objectifs principaux :
+## Inscription des machines virtuelles Azure
+Pour protéger une machine virtuelle, cette dernière doit être inscrite auprès du service Azure Backup. Le processus d’inscription a deux objectifs principaux :
 
 1. Connecter l’extension de sauvegarde à l’agent de machine virtuelle dans la machine virtuelle
 
-2. Pour associer l'ordinateur virtuel avec le service de sauvegarde Azure
+2. Associer la machine virtuelle au service Azure Backup.
 
 L’inscription est généralement une activité unique. Le service Azure Backup gère de façon transparente la mise à niveau et la correction de l’extension de sauvegarde sans aucune intervention fastidieuse pour l’utilisateur. Cela évite à l’utilisateur la « surcharge de gestion des agents » généralement associée aux produits de sauvegarde.
 
 ### Pour inscrire des machines virtuelles
 
-1. Naviguer dans le coffre de sauvegarde qui se trouve sous **Services de récupération** dans le portail Azure, puis cliquez sur le **éléments enregistrés** onglet
+1. Accédez à l’archivage de sauvegarde qui se trouve sous **Services de récupération** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
 
-2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure** puis cliquez sur le bouton de sélection. ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
+2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton Sélectionner. ![sélectionner la charge de travail](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. Cliquez sur le **inscrire** bouton au bas de la page. ![bouton inscription](./media/backup-azure-vms/register-button.png)
+3. Cliquez sur le bouton **INSCRIRE** en bas de la page. ![bouton inscription](./media/backup-azure-vms/register-button.png)
 
-4. Dans la fenêtre contextuelle **Inscrire les éléments** sélectionnez les machines virtuelles que vous souhaitez inscrire. S'il y a deux ou plusieurs ordinateurs virtuels portant le même nom utiliser le service de cloud pour faire la distinction entre les machines virtuelles.
+4. Dans la fenêtre contextuelle **Inscrire les éléments** sélectionnez les machines virtuelles que vous souhaitez inscrire. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
     L’opération **Inscrire** peut être effectuée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour l’inscription. Cela réduit considérablement l’opération unique de préparation de la machine virtuelle pour la sauvegarde.
 
-    >[AZURE.NOTE]Seuls les ordinateurs virtuels qui ne sont pas enregistrés et se trouvent dans la même région que le coffre de sauvegarde s'affichent.
+    >[AZURE.NOTE]Seules les machines virtuelles qui ne sont pas inscrites et se trouvent dans la même région que l’archivage de sauvegarde sont affichées.
 
 5. Un travail est créé pour chaque machine virtuelle à inscrire. La notification toast indique l’état de cette activité. Cliquez sur **Afficher le travail** pour accéder à la page **Travaux**. ![inscrire le travail](./media/backup-azure-vms/register-create-job.png)
 
@@ -72,15 +72,15 @@ L’inscription est généralement une activité unique. Le service Azure Backup
 
 7. Une fois l’opération terminée, l’état affiché dans le portail change pour refléter l’état inscrit. ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
-## Sauvegarder des machines virtuelles
+## Sauvegarde des machines virtuelles Azure
 Cette étape implique la configuration d’une stratégie de sauvegarde et de rétention pour la machine virtuelle. Pour protéger une machine virtuelle, procédez comme suit :
 
 1. Accédez à l’archivage de sauvegarde qui se trouve sous **Recovery Services** dans le portail Azure, puis cliquez sur l’onglet **Éléments inscrits**.
 2. Choisissez le type de charge de travail dans le menu déroulant en tant que **Machine virtuelle Azure**, puis cliquez sur le bouton **Sélectionner**. ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
 
-3. Cliquez sur le **protéger** bouton au bas de la page.
+3. Cliquez sur le bouton **PROTÉGER** en bas de la page.
 
-4. Un Assistant **Protection des éléments** s’affiche, où les machines virtuelles à protéger peuvent être sélectionnées. S'il y a deux ou plusieurs ordinateurs virtuels portant le même nom utiliser le service de cloud pour faire la distinction entre les machines virtuelles.
+4. Un Assistant **Protection des éléments** s’affiche, où les machines virtuelles à protéger peuvent être sélectionnées. Si au moins deux machines virtuelles portent le même nom, utilisez le service cloud pour les distinguer.
 
     L’opération **Protéger** peut être effectuée à grande échelle, ce qui signifie que plusieurs machines virtuelles peuvent être sélectionnées en même temps pour l’inscription. Cela réduit considérablement les opérations nécessaires pour la protection de la machine virtuelle.
 
@@ -103,69 +103,68 @@ Cette étape implique la configuration d’une stratégie de sauvegarde et de r�
 
 9. Une fois la commande exécutée, l’état de protection de la machine virtuelle sous l’onglet **Éléments protégés** s’affiche en tant que *protégé*. ![La machine virtuelle est sauvegardée avec un point de récupération](./media/backup-azure-vms/protect-backedupvm.png)
 
-## Affichage des détails et l'état de sauvegarde
+## Affichage des détails et de l’état de sauvegarde
 Une fois la protection appliquée, le nombre de machines virtuelles augmente également sur la page de synthèse nommée **Tableau de bord**. Cette page affiche également le nombre de travaux à partir des dernières 24 heures ayant réussi, échoué et toujours en cours. Cliquez sur n’importe quelle catégorie pour l’examiner plus en détail dans la page **Travaux**. ![État de la sauvegarde sur la page Tableau de bord](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## Résolution des erreurs
-Vous pouvez résoudre les erreurs rencontrées pendant que l'utilisation d'Azure Backup avec des informations figurant dans le tableau ci-dessous.
+Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
 
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | -------- | -------- | -------|
 | Découverte | Échec de la découverte de nouveaux éléments : Microsoft Azure Backup a rencontré une erreur interne. Patientez quelques minutes et recommencez l’opération. | Recommencez le processus de découverte après 15 minutes.
 | Découverte | Échec de la découverte de nouveaux éléments : une autre opération de découverte est déjà en cours. Veuillez patienter jusqu’à la fin de l’opération de découverte en cours. | Aucun |
 | S’inscrire | Le rôle de machine virtuelle Azure n’est pas en état pour installer l’extension : veuillez vérifier si la machine virtuelle est en cours d’exécution. L’extension Azure Recovery Services requiert l’exécution de la machine virtuelle. | Démarrez la machine virtuelle et, lorsqu’elle est en cours d’exécution, recommencez l’opération d’inscription.|
-| S’inscrire | Nombre de disques de données attaché à la machine virtuelle a dépassé la limite prise en charge : détacher des disques de données sur cet ordinateur virtuel et recommencez l'opération. Sauvegarde Azure prend en charge jusqu'à 5 disques de données attachés à une machine virtuelle Azure pour la sauvegarde | Aucun |
-| S’inscrire | Microsoft Azure Backup a rencontré une erreur interne - attendre quelques minutes et réessayez l'opération. Si le problème persiste, contactez le Support Microsoft. | Vous pouvez obtenir cette erreur en raison d'une des configurations non prises en charge suivantes : <ol><li>LRS Premium <li>multiples NIC <li>équilibrage de charge </ol> |
-| S’inscrire | Certificat de l'Agent invité ordinateur virtuel introuvable | Suivez ces instructions pour résoudre l'erreur : <ol><li>Télécharger la dernière version de l'Agent de machine virtuelle à partir de [ici](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vérifiez que la version de l'agent téléchargé est 2.6.1198.718 ou une version ultérieure. <li>Installez l'Agent de machine virtuelle de la machine virtuelle.</ol> [Apprendre](#validating-vm-agent-installation) comment vérifier la version de l'Agent de machine virtuelle. |
-| S’inscrire | Échec de l'inscription avec le délai d'expiration de l'installation d'Agent opération | Vérifiez si la version du système d'exploitation de l'ordinateur virtuel est prise en charge. |
-| S’inscrire | L'exécution de commande a échoué - une autre opération est en cours sur cet élément. Veuillez patienter jusqu'à la fin de l'opération précédente | Aucun |
-| Sauvegarde | Copie de disques durs virtuels coffre de sauvegarde a expiré - Veuillez recommencer l'opération dans quelques minutes. Si le problème persiste, contactez le Support Microsoft. | Cela se produit lorsqu'il y a trop de données à copier. Vérifiez si vous disposez de six disques de données. |
-| Sauvegarde | Instantané VM sub tâche a expiré, veuillez recommencer l'opération dans quelques minutes. Si le problème persiste, contactez le Support Microsoft | Cette erreur est générée si un problème avec l'Agent de machine virtuelle ou d'accès réseau à l'infrastructure Azure est bloquée d'une certaine façon. <ul><li>En savoir plus sur [débogage des problèmes d'Agent de machine virtuelle](#Troubleshooting-vm-agent-related-issues) <li>en savoir plus sur [débogage des problèmes de réseau](#troubleshooting-networking-issues) </ul> |
-| Sauvegarde | La sauvegarde a échoué avec une erreur interne - Veuillez recommencer l'opération dans quelques minutes. Si le problème persiste, contactez le Support Microsoft | Vous pouvez obtenir cette erreur pour des raisons de 2: <ol><li> est trop de données à copier. Vérifiez si vous disposez de six disques. <li>La machine virtuelle d'origine a été supprimée, et par conséquent la sauvegarde ne peut pas être effectuée. Afin de conserver les données de sauvegarde pour un ordinateur virtuel supprimé, mais arrêter les erreurs de sauvegarde, ôter la protection de la machine virtuelle, puis choisissez l'option Conserver les données. Cela empêchera la planification de sauvegarde, ainsi que les messages d'erreur récurrents. |
-| Sauvegarde | Impossible d'installer les Services de récupération Azure extension sur l'élément sélectionné - Agent de machine virtuelle est requis pour l'Extension des Services de récupération Azure. Installez l'agent de machine virtuelle Azure et recommencez l'opération d'enregistrement | <ol> <li>Vérifier si l'agent de machine virtuelle a été installé correctement. <li>Vérifiez que l'indicateur sur la configuration de l'ordinateur virtuel est défini correctement.</ol> [Plus](#validating-vm-agent-installation) sur l'installation de l'agent de machine virtuelle et comment valider l'installation de l'agent de machine virtuelle. |
-| Sauvegarde | L'exécution de commande a échoué - une autre opération est actuellement en cours sur cet élément. Veuillez patienter jusqu'à la fin de l'opération précédente, puis réessayez | Une sauvegarde existante ou un travail de restauration de l'ordinateur virtuel est en cours d'exécution, et un nouveau travail ne peut être démarré pendant l'exécution du travail existant. <br><br>Si vous souhaitez que la possibilité d'annuler une tâche en cours, ajoutez votre vote pour le [Azure évaluations](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
+| S’inscrire | Le nombre de disques de données attachés à la machine virtuelle a dépassé la limite autorisée : Détachez des disques de données de cette machine virtuelle et recommencez l’opération La sauvegarde Azure prend en charge jusqu’à 5 disques de données attachés à une machine virtuelle à des fins de sauvegarde. | Aucun |
+| S’inscrire | Microsoft Azure Backup a rencontré une erreur interne. Veuillez patienter quelques minutes et réessayez l’opération. Si le problème persiste, contactez le support technique Microsoft. | Vous pouvez obtenir cette erreur en raison d’une des configurations non prises en charge suivantes : <ol><li>LRS Premium <li>Plusieurs cartes interfaces réseau <li>Équilibrage de charge </ol> |
+| S’inscrire | Certificat de l’agent invité de la machine virtuelle introuvable | Suivez ces instructions pour résoudre l’erreur : <ol><li>Téléchargez la dernière version de l’agent de machine virtuelle [ici](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vérifiez que la version de l’agent téléchargé est la version 2.6.1198.718 ou ultérieure. <li>Installez l’agent de machine virtuelle dans la machine virtuelle.</ol> [Découvrez](#validating-vm-agent-installation) comment vérifier la version de l’agent de machine virtuelle. |
+| S’inscrire | Échec de l’inscription avec un délai d’expiration de l’opération Installer l’agent | Vérifiez si la version de système d’exploitation de la machine virtuelle est prise en charge. |
+| S’inscrire | Échec de l’exécution de la commande - Une autre opération est en cours sur cet élément Attendez que l’opération précédente aboutisse | Aucun |
+| Sauvegarde | La copie des disques durs virtuels à partir de l’archive de sauvegarde a expiré - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Cela se produit lorsqu’il y a trop de données à copier. Vérifiez que vous disposez de moins de 6 disques de données. |
+| Sauvegarde | La sous-tâche de capture de la machine virtuelle a expiré - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Cette erreur est générée si un problème existe avec l’agent de machine virtuelle ou si l’accès réseau à l’infrastructure Azure est bloqué. <ul><li>En savoir plus sur le [débogage des problèmes de l’agent de machine virtuelle](#Troubleshooting-vm-agent-related-issues) <li>En savoir plus sur le [débogage des problèmes de mise en réseau](#troubleshooting-networking-issues) </ul> |
+| Sauvegarde | Échec de l’opération de sauvegarde avec une erreur interne - Retentez l’opération dans quelques minutes. Si le problème persiste, contactez le support technique Microsoft. | Vous pouvez obtenir cette erreur pour 2 raisons : <ol><li> Il y a trop de données à copier. Vérifiez que vous disposez de moins de 6 disques. <li>La machine virtuelle d’origine a été supprimée, et par conséquent la sauvegarde ne peut pas être effectuée. Afin de conserver les données de sauvegarde d’une machine virtuelle supprimée, mais d’arrêter les erreurs de sauvegarde, ôtez la protection de la machine virtuelle, puis choisissez l’option de conservation des données. Cela empêchera la planification de sauvegarde, ainsi que l’affichage récurrent de messages d’erreur. |
+| Sauvegarde | Échec de l’installation de l’extension Azure Recovery Services sur l’élément sélectionné - L’agent VM est un composant requis pour l’extension Azure Recovery Services. Installez d’abord l’agent Azure VM, puis recommencez l’opération d’inscription. | <ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> [En savoir plus](#validating-vm-agent-installation) sur l’installation de l’agent de machine virtuelle et la validation de cette opération. |
+| Sauvegarde | Échec de l’exécution de la commande - Une autre opération est en cours sur cet élément. Attendez que l’opération précédente aboutisse, puis réessayez. | Une sauvegarde ou un travail de restauration existant pour la machine virtuelle est en cours d’exécution, et aucun nouveau travail ne peut être démarré pendant l’exécution d’un travail existant. <br><br>Si vous souhaitez avoir la possibilité d’annuler un travail en cours, ajoutez votre vote dans le [forum de commentaires Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
 
-### Problèmes de résolution des problèmes d'Agent de machine virtuelle
+### Résolution des problèmes relatifs à l’agent de machine virtuelle
 
-#### Configuration de l'Agent de machine virtuelle
-En règle générale, l'Agent de machine virtuelle est déjà présent dans les ordinateurs virtuels qui sont créés à partir de la galerie Azure. Cependant, les ordinateurs virtuels qui sont migrés à partir de centres de données sur site n'aurait pas installé l'Agent de machine virtuelle. Pour ces machines virtuelles, l'Agent de machine virtuelle doit être installé de manière explicite. En savoir plus sur [l'installation de l'agent de machine virtuelle sur un ordinateur virtuel existant](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+#### Configuration de l’agent de machine virtuelle
+En règle générale, l’agent de machine virtuelle est déjà présent dans les machines virtuelles qui sont créées à partir de la galerie Azure. Cependant, les machines virtuelles qui sont migrées à partir de centres de données locaux n’ont pas d’agent de machine virtuelle. Pour ces machines virtuelles, l’agent de machine virtuelle doit être installé de manière explicite. Pour en savoir plus, consultez la page [Installation de l’agent de machine virtuelle sur une machine virtuelle existante](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
 
-Pour les machines virtuelles Windows :
+Pour les machines virtuelles Windows :
 
-- Téléchargez et installez le [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin des privilèges d'administrateur pour terminer l'installation.
-- [Mettre à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l'agent est installé.
-
-
-#### Mise à jour de l'Agent de machine virtuelle
-Mise à jour de l'Agent de machine virtuelle est aussi simple que la réinstallation du [binaires de l'Agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Toutefois, vous devez vous assurer qu'aucune opération de sauvegarde ne s'exécute alors que la mise à jour de l'Agent de machine virtuelle.
+- Téléchargez et installez le fichier [MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous aurez besoin de privilèges d’administrateur pour terminer l’installation.
+- [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé.
 
 
-#### Validation de l'installation de l'Agent de machine virtuelle
-Comment vérifier la version de l'Agent de machine virtuelle sur les machines virtuelles Windows :
+#### Mise à jour de l’agent de machine virtuelle
+La mise à jour de l’agent de machine virtuelle est aussi simple que la réinstallation des [fichiers binaires de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Toutefois, vous devez vous assurer qu’aucune opération de sauvegarde n’est en cours pendant la mise à jour de l’agent de machine virtuelle.
 
-- Connexion à la machine virtuelle Azure et accédez au dossier *C:\WindowsAzure\\Packages*.
-- Vous devriez trouver le fichier WaAppAgent.exe présent.
-- Avec le bouton droit sur le fichier, accédez à **propriétés**, puis sélectionnez le **détails** onglet.
-- Le champ de Version du produit doit être 2.6.1198.718 ou une version ultérieure
+
+#### Validation de l’installation de l’agent de machine virtuelle
+Pour vérifier la version de l’agent de machine virtuelle sur les machines virtuelles Windows :
+
+- Connectez-vous à la machine virtuelle Azure et accédez au dossier *C:\WindowsAzure\Packages*.
+- Le fichier WaAppAgent.exe doit être présent.
+- Cliquez avec le bouton droit sur le fichier, accédez à **Propriétés**, puis sélectionnez l’onglet **Détails**.
+- Le champ Version du produit doit être défini sur 2.6.1198.718 ou une version ultérieure
 
 ### Résolution des problèmes de mise en réseau
-Comme toutes les extensions, extension de sauvegarde ont besoin d'accéder à l'internet public à utiliser. Ne pas avoir accès à l'internet public peut se manifester de différentes façons :
+Comme toutes les extensions, l’extension de sauvegarde a besoin d’accéder à l’Internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
 
-- L'installation de l'extension peut échouer.
-- Les opérations de sauvegarde (comme disque snapshot) peuvent échouer.
-- Affichage de l'état de l'opération de sauvegarde peut échouer.
+- L’installation de l’extension peut échouer.
+- Les opérations de sauvegarde (telles que l’instantané de disque) peuvent échouer.
+- L’affichage de l’état de l’opération de sauvegarde peut échouer.
 
-La nécessité pour la résolution des adresses internet publique a été articulée [ici](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Vous devez vérifier la configuration DNS pour le réseau virtuel et vérifiez que les URI Azure peuvent être résolu.
+La nécessité de résoudre des adresses Internet publiques a été évoquée [ici](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Vous devez vérifier la configuration DNS du réseau virtuel et vous assurer que les URI Azure peuvent être résolus.
 
-Une fois que la résolution de noms a été effectuée correctement, l'accès aux adresses IP Azure doit également être fourni. Pour débloquer l'accès à l'infrastructure Azure, procédez comme suit :
+Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, procédez comme suit :
 
-1. Obtenir la liste des [Centre de données Azure IPs]()https://msdn.microsoft.com/
-2. / library/azure/dn175718.aspx) à la liste d'autorisation.
-2. Débloquer les adresses IP à l'aide du [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) applet de commande. Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécuter en tant qu'administrateur).
+1. Obtenez la liste des [adresses IP de centres de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) à débloquer.
+2. Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
 
 
 ## Cohérence des points de récupération
-Lorsque vous traitez des données de sauvegarde, clients vous soucier du comportement de l'ordinateur virtuel après que qu'il a été restaurée. Les questions habituelles des clients sont :
+Lorsque vous traitez des données de sauvegarde, l’une des principales préoccupations des clients concerne le comportement de la machine virtuelle après sa restauration. Les questions habituelles des clients sont :
 
 - La machine virtuelle va-t-elle démarrer ?
 - Les données seront-elles disponibles sur le disque (ou) des données seront-elles perdues ?
@@ -184,6 +183,7 @@ Le tableau ci-dessous décrit les types de cohérence rencontrés pendant la res
 Pour plus d’informations sur la prise en main de Microsoft Azure Backup, consultez :
 
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
-- [Gérer des ordinateurs virtuels](backup-azure-manage-vms)
+- [Gestion des machines virtuelles](backup-azure-manage-vms)
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

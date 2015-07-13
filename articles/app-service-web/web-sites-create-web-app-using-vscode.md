@@ -31,7 +31,7 @@ Ce didacticiel explique comment créer une application Web ASP.NET 5 à l’ai
 * Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous débutez avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l'option vous permettant d’utiliser Git avec GitBash, à partir de l'invite de commandes Windows. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).  
 
 ## Installation d’ASP.NET 5 et de DNX
-ASP.NET 5/DNX est une pile .NET lean vous permettant de créer des applications Web modernes sur le cloud qui s'exécutent sur OS X, Linux et Windows. Elle a été construite intégralement pour fournir une infrastructure de développement optimisée pour les applications qui sont déployées sur le cloud ou qui sont exécutées localement. Elle inclut des composants modulaires associés à des frais généraux réduits. Ainsi, vous bénéficiez d’une certaine flexibilité lors de la création de vos solutions.
+ASP.NET 5/DNX est une pile .NET lean vous permettant de créer des applications web et cloud modernes capables de s’exécuter sur OS X, Linux et Windows. Elle a été construite intégralement pour fournir une infrastructure de développement optimisée pour les applications qui sont déployées sur le cloud ou qui sont exécutées en local. Elle inclut des composants modulaires associés à des frais généraux réduits. Ainsi, vous bénéficiez d’une certaine flexibilité lors de la création de vos solutions.
 
 > [AZURE.NOTE]ASP.NET 5 et DNX (l'environnement d'exécution .NET) sur OS X et Linux sont disponibles en version bêta/d’évaluation.
 
@@ -181,11 +181,11 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 	* Cliquez sur **FTP** pour définir les informations d'identification de déploiement.
 
-	* Créez un nom d'utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
+	* Créez un nom d'utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
 
 	* Cliquez sur **Save**.
 
-	![Informations d’identification de déploiement Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
+	![Informations d’identification sur le déploiement dans Microsoft Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
 9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **
 10.  URL**.

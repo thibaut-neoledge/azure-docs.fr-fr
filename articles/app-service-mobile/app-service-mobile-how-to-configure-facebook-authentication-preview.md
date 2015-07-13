@@ -1,25 +1,25 @@
-<properties 
+<properties
 	pageTitle="Comment configurer l'authentification Facebook pour votre application App Services"
-	description="Découvrez comment configurer l'authentification Facebook pour votre application App Services." 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="Découvrez comment configurer l'authentification Facebook pour votre application App Services."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion Facebook
 
 Cette rubrique montre comment configurer Azure App Services pour utiliser Facebook comme fournisseur d'authentification.
-	
+
 Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur [facebook.com].
 
 ## <a name="register"> </a>Inscription de votre application sur Facebook
@@ -75,4 +75,6 @@ Vous êtes maintenant prêt à utiliser Facebook pour l'authentification dans vo
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /fr-fr/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portail de gestion Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

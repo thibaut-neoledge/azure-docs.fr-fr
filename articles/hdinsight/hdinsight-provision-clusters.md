@@ -398,7 +398,7 @@ Pour configurer votre ordinateur Linux à l’aide de l’interface de ligne de 
 
 **Pour vous connecter à votre abonnement Azure**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d'Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 > [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés du dossier ou utilisez le chiffrement du lecteur BitLocker.
 
@@ -413,7 +413,7 @@ Avant d’utiliser l’interface de ligne de commande Azure, vous devez configur
 	La commande ouvre la page web sur laquelle télécharger le fichier de paramètres de publication. Si la page web ne s’ouvre pas, cliquez sur le lien de la fenêtre de terminal pour ouvrir la page du navigateur et connectez-vous au portail.
 
 3.	Téléchargez le fichier de paramètres de publication sur votre ordinateur.
-5.	À partir de la fenêtre d'invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
+5.	À partir de la fenêtre d’invite de commandes, exécutez la commande suivante pour importer le fichier de paramètres de publication :
 
 		azure account import <path/to/the/file>
 
@@ -426,7 +426,7 @@ Pour configurer votre ordinateur Windows à l’aide de l’interface de ligne d
 - Téléchargement et importation de paramètres de publication de compte Azure
 
 
-L’interface de ligne de commande peut être installée à l’aide de NPM ou de Windows Installer. Microsoft vous recommande de procéder à l’installation en utilisant uniquement l’une des deux options suivantes.
+L’interface de ligne de commande Azure peut être installée à l’aide de NPM ou de Windows Installer. Microsoft vous recommande de procéder à l’installation en utilisant uniquement l’une des deux options suivantes.
 
 **Installation de l’interface de ligne de commande Azure à l’aide de NPM**
 
@@ -456,7 +456,7 @@ L’interface de ligne de commande peut être installée à l’aide de NPM ou d
 
 **Pour télécharger et importer des paramètres de publication**
 
-Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d'Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
+Avant d’utiliser l’interface de ligne de commande Azure, vous devez configurer la connectivité entre votre poste de travail et Azure. L’interface de ligne de commande se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues d’Azure dans un fichier de paramètres de publication. Le fichier de paramètres de publication peut ensuite être importé en tant que paramètre de configuration local persistant dont l’interface de ligne de commande Azure se servira pour les opérations ultérieures. Vous n’avez besoin d’importer vos paramètres de publication qu’une seule fois.
 
 > [AZURE.NOTE]Le fichier de paramètres de publication contient des informations critiques. Microsoft vous recommande de supprimer le fichier ou de prendre des mesures supplémentaires pour chiffrer le dossier utilisateur contenant le fichier. Sous Windows, modifiez les propriétés de dossier ou utilisez BitLocker.
 
@@ -526,7 +526,7 @@ Une fois que le compte de stockage et le conteneur d’objets blob sont prêts, 
 
 Généralement, vous approvisionnez un cluster HDInsight, vous exécutez les tâches, puis vous supprimez le cluster pour réduire les coûts. L’interface de ligne de commande Azure vous donne la possibilité d’enregistrer les configurations dans un fichier, afin de pouvoir les réutiliser chaque fois que vous approvisionnez un cluster.
 
-- À partir de la fenêtre d'invite de commandes, exécutez les commandes suivantes :
+- À partir de la fenêtre d’invite de commandes, exécutez les commandes suivantes :
 
 
 		#Create the config file

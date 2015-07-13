@@ -2,7 +2,7 @@ Vous pouvez acheter des domaines dans le [portail de gestion Azure](https://port
 
 1. Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).
 
-2. Sous l'onglet **Web Apps**, cliquez sur le nom de votre application web, sélectionnez **Paramètres**, puis **Domaines personnalisés et SSL**
+2. Sous l’onglet **Web Apps**, cliquez sur le nom de votre application web et sélectionnez **Paramètres**, puis **Domaines personnalisés et SSL**.
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
@@ -32,4 +32,4 @@ Vous pouvez acheter des domaines dans le [portail de gestion Azure](https://port
 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

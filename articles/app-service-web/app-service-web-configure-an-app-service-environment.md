@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble ##
 
-La fonctionnalité Environnements App Service est une nouvelle fonctionnalité de niveau Premium proposée en version préliminaire. Elle offre de nouvelles possibilités de mise à l'échelle et d'accès réseau. Cette nouvelle fonctionnalité de mise à l'échelle permet de placer une instance d'Azure App Service dans votre réseau virtuel. Si vous n'êtes pas familiarisé avec la fonctionnalité Environnement App Service (ASE), lisez le document disponible ici [Présentation d’un environnement App Service](app-service-app-service-environment-intro.md). Pour plus d'informations sur la création d'un environnement App Service, consultez le document disponible ici [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
+La fonctionnalité Environnements App Service est une nouvelle fonctionnalité de niveau Premium proposée en version préliminaire. Elle offre de nouvelles possibilités de mise à l'échelle et d'accès réseau. Cette nouvelle fonctionnalité de mise à l'échelle permet de placer une instance d'Azure App Service dans votre réseau virtuel. Si vous n'êtes pas familiarisé avec la fonctionnalité Environnement App Service (ASE), lisez le document disponible ici [Présentation d'un environnement App Service]/app-service-app-service-environment-intro.md). Pour plus d'informations sur la création d'un environnement App Service, consultez le document disponible ici [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
 
 Globalement, un environnement App Service se compose de plusieurs composants principaux :
 

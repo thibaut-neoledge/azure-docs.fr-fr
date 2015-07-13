@@ -38,12 +38,12 @@ Avec ce modèle, vous allez déployer une application logique.
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/fr-fr/status/feed/"
       }
     
 ## Ressources à déployer
 
-### Plan de service d'application
+### Plan App Service
 
 Crée un plan de service d'application.
 

@@ -44,7 +44,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
-* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\_Layout.cshtml
+* Dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared_Layout.cshtml
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
@@ -177,4 +177,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

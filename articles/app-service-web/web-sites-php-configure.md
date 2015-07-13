@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Configurer PHP dans Azure App Service Web Apps
@@ -40,30 +40,30 @@ Les versions PHP 5.5 et PHP 5.6 sont également disponibles, mais ne sont pas 
 3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres d’application web**.
 
 	![Enregistrer les paramètres de configuration][save-button]
-	
+
 ### Azure PowerShell (Windows)
 
 1. Ouvrez Windows PowerShell.
 2. Saisissez `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>`, puis appuyez sur Entrée.
 3. La version de PHP est maintenant définie.
-	
+
 	![Définition de la version PHP avec Azure PowerShell][SETPHPVERPS]
 4. Vous pouvez confirmer ces paramètres en tapant `Get-AzureWebiste -Name <site-name>`, puis appuyer sur Entrée.
-	
+
 	![Vérification de la version PHP avec Azure PowerShell][GETPHPVERPS]
 
 ### Interface en ligne de commande Azure (Linux, Mac et Windows)
 
->[Azure.Note]L’interface en ligne de commande Azure nécessite l’installation de **Node.js** sur votre ordinateur.
+L’interface de ligne de commande Azure nécessite l’installation de **Node.js** sur votre ordinateur.
 
 1. Ouvrez Terminal.
 2. Saisissez `azure site set --php-version [5.4 | 5.5] [site-name]`, puis appuyez sur Entrée.
 3. La version de PHP est maintenant définie.
-	
-	![Définition de la version PHP avec l’Interface en ligne de commande Azure][SETPHPVERXPLAT]
+
+	![Définition de la version PHP avec l’Interface en ligne de commande Azure][SETPHPVERCLI]
 4. Vous pouvez confirmer ces paramètres en tapant `azure site show [site-name]`, puis appuyer sur Entrée.
-	
-	![Vérification de la version PHP avec l’Interface en ligne de commande Azure][GETPHPVERXPLAT]
+
+	![Vérification de la version PHP avec l’Interface en ligne de commande Azure][GETPHPVERCLI]
 
 ## Modification des configurations PHP intégrées
 
@@ -151,7 +151,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 
 	![Enregistrer les paramètres de configuration][save-button]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -171,9 +171,10 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

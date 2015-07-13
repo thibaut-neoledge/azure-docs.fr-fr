@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # Migration d'une application Azure Mobile Service existante vers une application Azure App Service Mobile App
@@ -114,4 +114,5 @@ Une fois que vos clients ont eu l'occasion de recevoir ces mises à jour, vous p
 [Azure Scheduler]: /fr-fr/documentation/services/scheduler/
 [tâche web]: ../app-service-web/websites-webjobs-resources.md
 [Envoi de notifications push interplateformes]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

@@ -90,4 +90,5 @@
    	Lorsque vous êtes connecté, l’application doit s’exécuter sans erreur et vous devez pouvoir interroger votre application mobile et mettre à jour les données.
 
 10. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

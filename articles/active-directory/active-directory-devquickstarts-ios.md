@@ -35,18 +35,18 @@ Pour commencer, téléchargez [la structure de l’application](https://github.c
 
 ## *1. Déterminer votre URI de redirection pour iOS*
 
-Afin de pouvoir lancer en toute sécurité vos applications dans certains scénarios SSO, vous devez créer un **URI de redirection** dans un format particulier. Un URI de redirection permet de garantir que les jetons soient renvoyés vers la bonne application qui les a appelés.
+Afin de pouvoir lancer en toute sécurité vos applications dans certains scénarios d’authentification unique, vous devez créer un **URI de redirection** dans un format particulier. Un URI de redirection permet de garantir que les jetons sont renvoyés vers la bonne application qui les a appelés.
 
-Le format d'iOS pour un URI de redirection est :
+Le format iOS d’un URI de redirection est le suivant :
 
 ```
 <app-scheme>://<bundle-id>
 ```
 
 - 	**aap-scheme** : il est enregistré dans votre projet XCode. Cela permet aux autres applications de vous appeler. Vous trouverez cela sous Info.plist -> Types d’URL -> Identificateur d’URL. Vous devez en créer une si vous n’en avez pas encore au moins une configurée.
-- 	**bundle-id** : il s’agit de l'identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
+- 	**bundle-id** : il s’agit de l’identificateur d’offre groupée se trouvant sous « identité » dans les paramètres de votre projet XCode.
 	
-Un exemple de ce code de démarrage rapide serait : ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Voici un exemple de code de démarrage rapide : ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Inscription de l’application DirectorySearcher*
 Pour autoriser votre application à obtenir des jetons, vous devez tout d’abord l’enregistrer dans votre client Azure AD et lui accorder l’autorisation d’accéder à l’API Graph Azure AD :
@@ -57,7 +57,7 @@ Pour autoriser votre application à obtenir des jetons, vous devez tout d’abor
 -	Cliquez sur l’onglet **Applications**, puis sur **Ajouter** dans le menu déroulant inférieur.
 -	Suivez les invites et créez une **application cliente native**.
     -	Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
-    -	L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur spécifique à votre application en fonction des informations ci-dessus.
+    -	L’**URI de redirection** est une combinaison de schémas et de chaînes qu’Azure AD utilise pour renvoyer des réponses concernant les jetons. Entrez une valeur spécifique de votre application en fonction des informations ci-dessus.
 -	Une fois l’inscription terminée, AAD affecte un identificateur client unique à votre application. Copiez cette valeur à partir de l’onglet **Configurer**, car vous en aurez besoin dans les sections suivantes.
 - Toujours sous l’onglet **Configurer**, cherchez la section Autorisations pour d’autres applications. Pour l’application Azure Active Directory, ajoutez l’autorisation **Accéder au répertoire de l’organisation** sous **Autorisations déléguées**. Cela permet à votre application d’interroger l’API Graph concernant les utilisateurs.
 
@@ -77,7 +77,7 @@ xcodeproj 'QuickStart'
 pod 'ADALiOS'
 ```
 
-Chargez maintenant le podfile à l'aide de Cocoapods. Cette opération crée un nouvel espace de travail XCode que vous allez charger.
+Chargez maintenant le podfile à l’aide de Cocoapods. Cette opération crée un nouvel espace de travail XCode que vous allez charger.
 
 ```
 $ pod install
@@ -227,4 +227,4 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

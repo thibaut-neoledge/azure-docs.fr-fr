@@ -15,7 +15,7 @@ Le service de table contient les composants suivants :
 
 ![Table1][Table1]
 
--   **Format d'URL :** le code traite les tables dans un compte à l'aide de ce format d'adresse : http://`<storage account>`.table.core.windows.net/`<table>\`  
+-   **Format d'URL :** le code traite les tables dans un compte à l'aide de ce format d'adresse : http://`<storage account>`.table.core.windows.net/`<table>`  
       
     Vous pouvez traiter les tables Azure directement à l’aide de cette adresse avec le protocole OData. Pour plus d'informations, consultez [OData.org][]
 
@@ -25,11 +25,11 @@ Le service de table contient les composants suivants :
 
 -   **Entité** : une entité est un ensemble de propriétés similaire à une ligne de base de données. Une entité peut avoir une taille maximale de 1 Mo.
 
--   **Propriété** : une propriété est une paire nom-valeur. Chaque entité peut inclure jusqu’à 252 propriétés pour stocker des données. Chaque entité a également 3 propriétés système qui spécifient une clé de partition, une clé de ligne et un horodatage. Les entités ayant la même clé de partition peuvent être interrogées plus rapidement et insérées ou mises à jour dans des opérations atomiques. La clé de ligne d’une entité est son identificateur unique à l’intérieur d’une partition.
+-   **Propriété** : une propriété est une paire nom-valeur. Chaque entité peut inclure jusqu’à 252 propriétés pour stocker des données. Chaque entité a également 3 propriétés système qui spécifient une clé de partition, une clé de ligne et un horodatage. Les entités ayant la même clé de partition peuvent être interrogées plus rapidement et insérées ou mises à jour dans des opérations atomiques. La clé de ligne d'une entité est son identificateur unique à l'intérieur d'une partition.
 
 
   
-[Table1]: ./media/storage-table-concepts-include/table1.png
-[OData.org]: http://www.odata.org/
+  [Table1]: ./media/storage-table-concepts-include/table1.png
+  [OData.org]: http://www.odata.org/
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -185,4 +185,6 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

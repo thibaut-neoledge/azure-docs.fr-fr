@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Facultatif : configuration d’un nouveau compte de stockage pour le service"
-   description="Explique comment configurer un compte de stockage pour le service StorSimple Manager exécutant Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
 
 #### Pour ajouter un compte de stockage dans StorSimple 8000 Series Update 1.0
 
@@ -50,7 +34,7 @@
 	  		
  - Si vous avez sélectionné **Openstack** comme fournisseur de services cloud, indiquez un **Nom d’hôte**, une **Clé d’accès** et une **Clé secrète**.
 
-        > [AZURE.NOTE] Pour l'ensemble des fournisseurs cloud, à l'exception d'Azure, un nom convivial est autorisé. Vous pouvez utiliser différents noms conviviaux et créer plusieurs comptes avec les mêmes informations d'identification.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -62,4 +46,4 @@
 
 7. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

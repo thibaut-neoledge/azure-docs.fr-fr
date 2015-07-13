@@ -22,11 +22,11 @@
 #### Puis-je utiliser Application Insights avec... ?
 
 
-## Langages :
+## Langages
 
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
-+ [C++ (Windows Store)](app-insights-windows-cpp.md)
++ [C#|VB (Windows Store)](app-insights-windows-get-started.md)
++ [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](../app-insights-java.md)
 + [Pages web JavaScript](app-insights-web-track-usage.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
@@ -48,8 +48,8 @@
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
-+ [Windows Store C#|VB](app-insights-windows-get-started.md)
-+ [Windows Store C++](app-insights-windows-cpp.md)
++ [Windows Store C#|VB](app-insights-windows-get-started.md)
++ [Windows Store C++](app-insights-windows-cpp.md)
 + [Services et applications de bureau Windows](app-insights-windows-desktop.md)
 + [Tout autre élément](#projects)
 

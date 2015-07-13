@@ -140,7 +140,7 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@ Article | Description
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

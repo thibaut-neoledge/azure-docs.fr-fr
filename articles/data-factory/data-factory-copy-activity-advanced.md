@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory" 
-	description="Décrit des scénarios avancés pour l'utilisation de l&#39;activité de copie avec Azure Data Factory." 
+	description="Décrit des scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory 
@@ -236,7 +236,6 @@ Les types de données spécifiés dans la section Structure de la définition de
 		<ul>
 			<li> <b>TextFormat</b>&#160;: tous les types de colonne sont traités en tant que chaîne et tous les noms de colonne sont définis en tant que «&#160;Prop_&lt;0-N>&#160;»</li> 
 			<li><b>AvroFormat</b>&#160;: permet d'utiliser les types de colonne intégrés et leurs noms dans le fichier Avro.</li> 
-			<li><b>JsonFormat</b>&#160;: tous les types de colonne sont traités en tant que chaîne et utilisent les noms de colonnes intégrés dans le fichier Json.</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@ Quand vous copiez des données dans SQL Server ou Azure SQL Database, une procé
 La fonction de procédure stockée tire parti des [paramètres Table-Valued][table-valued-parameters].
 
 ## Spécifiez l’encodage pour les fichiers texte.
-Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob Azure utilisent souvent d’autres encodages pour des raisons historiques. La propriété **encodingName** vous permet de spécifier le l’encodage par nom de page de code pour les tables de type TextFormat. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. Par exemple : windows-1250 ou shift_jis. La valeur par défaut est : UTF-8. Consultez la rubrique [Classe d’encodage](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) pour obtenir les noms d’encodage valides.
+Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob Azure utilisent souvent d’autres encodages pour des raisons historiques. La propriété **encodingName** vous permet de spécifier le l’encodage par nom de page de code pour les tables de type TextFormat. Pour obtenir une liste des noms de d’encodage valides, consultez : Propriété Encoding.EncodingName. Par exemple : windows-1250 ou shift_jis. La valeur par défaut est : UTF-8. Consultez [Classe d’encodage](https://msdn.microsoft.com/library/system.text.encoding.aspx) pour des noms d’encodage valides.
 
 ## Voir aussi
 
@@ -341,10 +340,11 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/fr-fr/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

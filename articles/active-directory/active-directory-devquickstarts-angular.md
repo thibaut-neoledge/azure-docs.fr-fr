@@ -44,8 +44,8 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 -	Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com).
 -	Cliquez sur **Active Directory** dans la partie de gauche.
 -	Sélectionnez un client dans lequel inscrire l’application.
--	Cliquez sur l’onglet **Applications** puis sur **Ajouter** dans le menu déroulant inférieur.
--	Suivez les invites et créez une **application web et/ou une API web**.
+-	Cliquez sur l’onglet **Applications**, puis sur **Ajouter** dans le menu déroulant inférieur.
+-	Suivez les invites et créez une **Application Web et/ou API Web**.
     -	Le **nom** de l’application doit décrire votre application aux utilisateurs finaux.
     -	L’**URI de redirection** est l’emplacement auquel AAD renvoie les jetons. L’emplacement par défaut de cet exemple est le suivant :`https://localhost:44326/`
 -	Une fois l’inscription terminée, AAD affecte un **ID client unique** à votre application. Copiez cette valeur à partir de l’onglet **Configurer**, car vous en aurez besoin dans les sections suivantes.
@@ -145,8 +145,9 @@ La bibliothèque Adal.js facilite l’intégration de toutes ces fonctionnalité
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios. Vous pouvez par exemple :
 
-[Appeler une API web CORS à partir d’une application à page unique >](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
+[Appeler une API web CORS à partir d’une application à page unique >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-Pour obtenir des ressources supplémentaires, consultez :- [AzureADSamples sur GitHub >](https://github.com/AzureAdSamples) - [CloudIdentity.com >](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Pour obtenir des ressources supplémentaires, consultez :- [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

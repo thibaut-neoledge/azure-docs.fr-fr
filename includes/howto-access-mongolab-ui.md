@@ -4,15 +4,10 @@ Vous pouvez utiliser l’interface utilisateur de MongoLab pour effectuer la plu
 
 Pour accéder à l’interface utilisateur de MongoLab, procédez comme suit :
 
-1. Sélectionnez **Modules complémentaires**.  
-![BoutonModules][button-addons]
-1. Recherchez le service MongoLab dans la liste de modules.  
-![EntréeMongoLab][entry-mongolabaddon]
+1. Sélectionnez **Modules complémentaires**. ![BoutonModules][button-addons]
+1. Recherchez le service MongoLab dans la liste de modules. ![EntréeMongoLab][entry-mongolabaddon]
 1. Pour accéder à la page du module, cliquez sur son nom.
-1. Cliquez sur **Gérer**.  
-![BoutonGérer][button-manage]  
-Un nouvel onglet de navigateur s'ouvre, affichant la page d'accueil de base de données MongoLab :  
-![AccueilBdd][screen-dblanding]
+1. Cliquez sur **Gérer**. ![BoutonGérer][button-manage] Un nouvel onglet de navigateur s'ouvre, affichant la page d'accueil de base de données MongoLab : ![AccueilBdd][screen-dblanding]
 
 Vous pouvez alors sélectionner une collection spécifique, puis descendre dans la hiérarchie des documents individuels. Déconnectez-vous une fois que vous avez terminé.
 
@@ -21,4 +16,4 @@ Vous pouvez alors sélectionner une collection spécifique, puis descendre dans 
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
 
-<!----HONumber=62-->
+<!---HONumber=62-->

@@ -23,7 +23,7 @@
 ###Autres articles sur le sujet
 [Présentation d’Azure AD](active-directory-whatis.md)<br> [Comment cela fonctionne-t-il ?](active-directory-works.md)<br> [Prise en main](active-directory-get-started.md)<br> [Étapes suivantes](active-directory-next-steps.md)<br> [En savoir plus](active-directory-learn-map.md)
 
-Azure Active Directory (Azure AD) permet à votre entreprise de gérer facilement les identités et les accès, à la fois dans le cloud et en local. Vos utilisateurs peuvent utiliser un compte professionnel ou scolaire pour l'authentification unique pour n'importe quelle application web sur le cloud et en local, à l'aide du périphérique de leur choix, y compris les iOS, Mac OS X, Android et les périphériques Windows. Votre organisation peut protéger les applications et les données sensibles localement et dans le cloud avec l'authentification multifacteur intégrée tout en garantissant un accès local et distant sécurisé. Il également possible d’étendre vos répertoires locaux pour permettre aux professionnels de l’information d’utiliser un seul compte professionnel pour accéder à leurs ressources d'entreprise en toute sécurité et de manière cohérente. Azure AD offre également des fonctionnalités complètes de rapports, d’analyses et de libre-service pour réduire les coûts et améliorer la sécurité. Avec la mise à l'échelle d'entreprise et les contrats SLA d'Azure AD, votre entreprise tourne en permanence.
+Azure Active Directory (Azure AD) permet à votre entreprise de gérer facilement les identités et les accès, à la fois dans le cloud et en local. Vos utilisateurs peuvent utiliser un compte professionnel ou scolaire pour l'authentification unique pour n'importe quelle application web sur le cloud et en local, à l'aide de l’appareil de leur choix, y compris iOS, Mac OS X, Android et Windows. Votre organisation peut protéger les applications et les données sensibles localement et dans le cloud avec l'authentification multifacteur intégrée tout en garantissant un accès local et distant sécurisé. Il est également possible d’étendre vos répertoires locaux pour permettre aux professionnels de l’information d’utiliser un seul compte professionnel pour accéder à leurs ressources d'entreprise en toute sécurité et de manière cohérente. Azure AD offre également des fonctionnalités complètes de rapports, d’analyses et libre-service pour réduire les coûts et améliorer la sécurité. Avec les contrats SLA et la mise à l'échelle au niveau de l’entreprise Azure AD, votre entreprise tourne en permanence.
 
 ![][1]
 
@@ -52,4 +52,4 @@ Suivez les liens pour plus d'informations sur les fonctionnalités d'Azure Activ
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

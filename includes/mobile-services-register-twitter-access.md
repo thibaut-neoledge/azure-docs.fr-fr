@@ -15,9 +15,9 @@ Vous devez authentifier vos applications avant d'accéder aux ressources des API
 	+ **Jeton d'accès**
 	+ **Secret du jeton d'accès**
 
-4. Connectez-vous au [portail de gestion Azure], cliquez sur **Services mobiles**, puis cliquez sur votre service mobile.
+4. Connectez-vous au [portail de gestion Azure], puis cliquez sur **Mobile Services** et sur votre service mobile.
 
-5. Cliquez sur l’onglet **Identité**, entrez les valeurs des champs **Consumer key** et **Consumer secret** obtenues sur le site de Twitter, puis cliquez sur **Enregistrer**.
+5. Cliquez sur l’onglet **Identité**, entrez les valeurs des champs **Clé de consommateur** et **Question secrète du consommateur** obtenues sur le site de Twitter, puis cliquez sur **Enregistrer**.
 
 	![](./media/mobile-services-register-twitter-access/mobile-identity-tab-twitter-only.png)
 
@@ -32,9 +32,9 @@ Vous devez authentifier vos applications avant d'accéder aux ressources des API
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=54-->
+[Paramètres de l'application]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+<!---HONumber=62-->

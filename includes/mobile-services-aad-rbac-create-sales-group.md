@@ -36,4 +36,5 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 4. Revenez à la page de configuration du service mobile et ajoutez l’ID objet en tant que paramètre d’application nommé **AAD_SALES_GROUP_ID**. Ce didacticiel utilise l’ID objet de groupe en tant que paramètre d’application au lieu de rechercher l’ID en fonction du nom du groupe. Le nom de groupe peut en effet changer, contrairement à l’ID.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
-<!--HONumber=54-->
+
+<!---HONumber=62-->

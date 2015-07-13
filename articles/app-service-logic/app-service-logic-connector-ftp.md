@@ -77,19 +77,19 @@ Dans le concepteur de flux vide, cliquez sur le connecteur FTP dans le panneau d
 
 ![Cliquez sur Déclencheur FTP][6]
 
-Le connecteur FTP a un déclencheur - ’File Available (Read then Delete)’. Ce déclencheur
+Le connecteur FTP a un déclencheur - « File Available (Read then Delete) ». Ce déclencheur
 
 - recherche de nouveaux fichiers dans le chemin du dossier ;
 - instancie le flux logique à chaque nouveau fichier ;
 - supprime le fichier du chemin du dossier une fois le flux logique instancié.
 
-Cliquez sur le déclencheur ’Available (Read then Delete)'.
+Cliquez sur le déclencheur « File Available (Read then Delete) ».
 
 ![Entrées de base du déclencheur FTP][7]
 
 Les entrées vous aident à configurer un chemin de dossier spécifique à interroger selon une fréquence planifiée. Les entrées de base sont les suivantes. Fréquence : spécifie la fréquence de l’interrogation FTP. Intervalle : spécifie l’intervalle de fréquence planifiée. Chemin du dossier : spécifie le chemin d’accès du dossier sur le serveur FTP. Type de fichier : indique si le type de fichier est binaire ou texte.
 
-Cliquez sur les ellipses ’...’ pour voir les entrées avancées.
+Cliquez sur les ellipses « ... » pour voir les entrées avancées.
 
 ![Entrées de base du déclencheur FTP][8]
 
@@ -104,7 +104,7 @@ Notez que le déclencheur FTP configuré présente à la fois des paramètres d'
 ####Utilisation de la sortie du déclencheur FTP dans les actions consécutives
 La sortie du déclencheur FTP peut servir d'entrée à certaines autres actions dans le flux.
 
-Vous pouvez cliquer sur ’...’ dans la boîte de dialogue d'entrée d'une action et sélectionner directement la sortie FTP dans la zone de liste déroulante.
+Vous pouvez cliquer sur « ... » dans la boîte de dialogue d'entrée d'une action et sélectionner directement la sortie FTP dans la zone de liste déroulante.
 
 Vous pouvez également écrire une expression directement dans la zone d'entrée de l'action. L'expression du flux à référencer dans la sortie du déclencheur FTP est donnée ci-dessous.
 

@@ -107,5 +107,6 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 4.	Surveillez l’état de la restauration en suivant la procédure de suivi de l’[état de fonctionnement de base de données](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

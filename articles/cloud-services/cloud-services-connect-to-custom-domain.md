@@ -22,15 +22,13 @@
 
 Nous allons tout d'abord définir un réseau virtuel (VNET) dans Azure. Nous allons ensuite ajouter un contrôleur de domaine Active Directory (hébergé sur une machine virtuelle Azure) sur le réseau virtuel. Ensuite, nous ajouterons des rôles de service cloud existants sur le réseau virtuel créé au préalable avant de les connecter au contrôleur de domaine.
 
-Avant de commencer, quelques aspects à prendre en compte :
-1.	Ce didacticiel utilise Powershell. Par conséquent, vérifiez que vous disposez d'Azure Powershell installé et prêt à l'emploi. Pour obtenir de l'aide sur la configuration d'Azure Powershell, consultez l'article [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md).
-2.	Vos instances de contrôleur de domaine Active Directory et de rôle web/de travail doivent se trouver dans le réseau virtuel.
+Avant de commencer, quelques aspects à prendre en compte : 1. Ce didacticiel utilise Powershell. Par conséquent, vérifiez que vous disposez d'Azure Powershell installé et prêt à l'emploi. Pour obtenir de l'aide sur la configuration d'Azure Powershell, consultez l'article [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md) 2. Vos instances de contrôleur de domaine Active Directory et de rôle web/de travail doivent se trouver dans le réseau virtuel.
 
 Suivez ce guide pas à pas et, si vous rencontrez des problèmes, laissez-nous un commentaire ci-dessous. Nous reviendrons vers vous (oui, nous lisons les commentaires).
 
 ## Création d'un réseau virtuel
 
-Vous pouvez créer un réseau virtuel dans Azure via le portail Azure ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l'aide du portail Azure, consultez l'article [Création d'un réseau virtuel](../create-virtual-network.md).
+Vous pouvez créer un réseau virtuel dans Azure via le portail Azure ou Powershell. Pour ce didacticiel, nous utiliserons Powershell. Pour créer un réseau virtuel à l'aide du portail Azure, consultez l'article [Création d’un réseau virtuel](../create-virtual-network.md).
 
     #Create Virtual Network
 
@@ -67,11 +65,11 @@ Pour ce faire, créez une machine virtuelle via Powershell à l'aide des command
 
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
-    $vmsvc1 = '<your-hosted-service>'
-    $vm1 = '<your-vm-name>'
-    $username = '<your-username>'
-    $password = '<your-password>'
-    $ affgrp = '<your- affgrp>'
+    $vmsvc1 = ‘<your-hosted-service>’
+    $vm1 = ‘<your-vm-name>’
+    $username = ‘<your-username>’
+    $password = ‘<your-password>’
+    $ affgrp = ‘<your- affgrp>’
 
     #Create a VM and add it to the Virtual Network
 
@@ -87,11 +85,11 @@ Pour vous connecter à la machine virtuelle, vous pouvez obtenir le fichier RDP 
 
     Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 
-Une fois connecté à la machine virtuelle, configurez votre machine virtuelle comme un contrôleur de domaine Active Directory en suivant le guide pas à pas de [Configuration de votre contrôleur de domaine Active Directory de client](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Une fois connecté à la machine virtuelle, configurez votre machine virtuelle comme un contrôleur de domaine Active Directory en suivant le guide pas à pas de la rubrique [Configuration de votre contrôleur de domaine Active Directory de client](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## Ajout du déploiement de votre service cloud sur le réseau virtuel
 
-Ensuite, vous devez ajouter le déploiement de votre service cloud sur le réseau virtuel que vous venez de créer. Pour ce faire, modifiez votre cscfg de service cloud en ajoutant les sections pertinentes à votre cscfg à l'aide de Visual Studio ou de l'éditeur de votre choix.
+Ensuite, vous devez ajouter le déploiement de votre service cloud sur le réseau virtuel que vous venez de créer. Pour ce faire, modifiez votre cscfg de service cloud en ajoutant les sections pertinentes à votre cscfg à l'aide de Visual Studio ou de l'éditeur de votre choix.
 
     <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
         <Role name="[role-name]">
@@ -121,14 +119,14 @@ Ensuite, vous devez ajouter le déploiement de votre service cloud sur le résea
 
 Générez ensuite votre projet de services cloud et déployez-le dans Azure. Pour obtenir de l'aide pour le déploiement de votre package de services cloud dans Azure, consultez l'article [Création et déploiement d'un service cloud](cloud-services-how-to-create-deploy.md#deploy)
 
-## Connexion de vos rôles web/de travail au domaine personnalisé à l'aide de l'extension de domaine Active Directory
+## Connexion de vos rôles Web/de travail au domaine personnalisé à l'aide de l'extension de domaine Active Directory
 
-Une fois votre projet de service cloud déployé sur Azure, connectez vos instances de rôle pour le domaine Active Directory personnalisé à l'aide de l'extension de domaine Active Directory. Pour ajouter l'extension de domaine Active Directory à votre déploiement de services cloud existants et rejoindre le domaine personnalisé, exécutez les commandes suivantes dans Powershell :
+Une fois votre projet de service cloud déployé sur Azure, connectez vos instances de rôle pour le domaine Active Directory personnalisé à l'aide de l'extension de domaine Active Directory. Pour ajouter l'extension de domaine Active Directory à votre déploiement de services cloud existants et rejoindre le domaine personnalisé, exécutez les commandes suivantes dans Powershell :
 
     #Initialize domain variables
 
-    $domain = '<your-domain-name>';
-    $dmuser = '$domain<your-username>';
+    $domain = ‘<your-domain-name>’;
+    $dmuser = ‘$domain<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
@@ -146,7 +144,7 @@ Vos services cloud doivent désormais être joints à votre contrôleur de domai
 
 Nous aimerions également connaître votre avis sur l'utilité pour vous d'avoir une extension qui promeut une machine virtuelle vers un contrôleur de domaine. Si vous pensez que cela peut vous être utile, merci de nous l'indiquer dans la section des commentaires.
 
-Nous espérons que cela vous a été utile !
+Nous espérons que cela vous a été utile !
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

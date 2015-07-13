@@ -33,7 +33,7 @@ Cette rubrique décrit les quotas et les limitations associées à Microsoft Azu
  
 - Le nombre maximal de travaux dans votre compte ne doit pas dépasser 50 000. Ce nombre comprend les travaux en file d’attente, terminés, actifs et annulés. Il n’inclut pas les travaux supprimés.
  
-- Vous pouvez supprimer les anciens travaux à l'aide d'**IJob.Delete** ou de la requête HTTP **DELETE**. Pour plus d'informations, consultez [Limite des enregistrements de tâche pour Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) et [Gestion de ressources](https://msdn.microsoft.com/library/azure/dn642436.aspx).
+- Vous pouvez supprimer les anciens travaux à l’aide d’**IJob.Delete** ou de la demande HTTP **DELETE**. Pour plus d'informations, consultez [Limite des enregistrements de tâche pour Azure Media Encoder](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) et [Gestion de ressources](https://msdn.microsoft.com/library/azure/dn642436.aspx).
  
 - Lors d’une requête visant à répertorier les entités de travail, un maximum de 1 000 est retourné par requête. Si vous souhaitez effectuer le suivi de l'ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
@@ -62,12 +62,12 @@ Cette rubrique décrit les quotas et les limitations associées à Microsoft Azu
 
 - Par défaut, chaque compte Media Services a une capacité maximale de 25 unités d’encodage. Pour plus d’informations, consultez la page Mise à l’échelle de Media Services. Pour demander une limite plus élevée, consultez Demande d’une limite plus élevée pour les quotas de mise à jour.
 	
-	**Important** Ne créez pas d'autres comptes Media Services pour augmenter les limites, mais envoyez un ticket de support.
+	**Important** Ne créez pas d’autres comptes Media Services pour augmenter les limites, mais envoyez un ticket de support.
 
 
-- Le mécanisme de limitation de Media Services restreint l’utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d’état HTTP Service indisponible (503). Pour plus d'informations, reportez-vous à la description de l'erreur 503 dans la rubrique [Codes d'erreur d'Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+- Le mécanisme de limitation de Media Services restreint l’utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d’état HTTP Service indisponible (503). Pour plus d’informations, reportez-vous à la description de l’erreur 503 dans la rubrique [Codes d’erreur d’Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
 
-##<a id="request_higher_limit"></a>Demande d'une limite plus élevée pour les quotas pouvant être mis à jour
+##<a id="request_higher_limit"></a>Demande d’une limite plus élevée pour les quotas pouvant être mis à jour
 
 ###Quotas pouvant être mis à jour
 
@@ -102,4 +102,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 1. Cliquez sur Envoyer pour ouvrir le ticket.
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

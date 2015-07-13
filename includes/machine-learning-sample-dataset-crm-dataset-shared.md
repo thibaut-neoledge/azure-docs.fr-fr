@@ -1,3 +1,3 @@
 Ces données proviennent du KDD Cup 2009 Customer Relationship Prediction Challenge (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).<p> </p>Le jeu de données contient 50 000 clients de la société de télécoms française Orange. Chaque client possède 230 caractéristiques rendues anonymes, dont 190 sont numériques et 40 sont catégorielles. Elles sont très fragmentées.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

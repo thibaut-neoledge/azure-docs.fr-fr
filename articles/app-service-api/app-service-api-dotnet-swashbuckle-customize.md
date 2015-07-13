@@ -74,7 +74,7 @@ Les étapes suivantes montrent comment personnaliser Swashbuckle en utilisant le
 		    }
 		}
 
-2. Dans le fichier *App_Start\\SwaggerConfig.cs*, appelez la méthode `OperationFilter` afin que Swashbuckle utilise la nouvelle implémentation `IOperationFilter`.
+2. Dans le fichier *App_Start\SwaggerConfig.cs*, appelez la méthode `OperationFilter` afin que Swashbuckle utilise la nouvelle implémentation `IOperationFilter`.
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -239,7 +239,7 @@ L’attribut [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/bl
 
 		using Swashbuckle.Swagger.Annotations;
 		
-1. Accédez à l’URL */swagger/docs/v1* de votre projet et les différents codes de réponse HTTP seront visibles dans le JSON Swagger.
+1. Accédez à la */swagger/docs/v1* URL de votre projet et les différents codes de réponse HTTP sera visible dans le JSON Swagger.
 
 	![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)
 
@@ -250,4 +250,4 @@ Vous trouverez le code pour cette démonstration dans [ce référentiel GitHub](
 Cet article vous a expliqué comment personnaliser la façon dont Swashbuckle génère des identificateurs d'opération et des codes de réponse valides. Pour plus d’informations, consultez [Swashbuckle sur GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

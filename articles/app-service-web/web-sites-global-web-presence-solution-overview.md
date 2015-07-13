@@ -19,7 +19,7 @@
 
 # Créer une présence sur le web à l’international sur Azure App Service Web Apps
 
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps inclut toutes les fonctions requises pour établir une présence sur le web à l’international pour votre site .COM. Quelle que soit la taille de votre organisation, il vous faut une plate-forme robuste, sécurisée et évolutive pour favoriser votre activité, la connaissance de votre marque et vos communications client. App Service Web Apps peut vous aider à assurer la bonne réputation de votre marque et de votre identité, grâce au soutien de votre continuité d’activité par Microsoft.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps inclut toutes les fonctions requises pour établir une présence sur le web à l’international pour votre site .COM. Quelle que soit la taille de votre organisation, il vous faut une plateforme robuste, sécurisée et évolutive pour favoriser votre activité, la connaissance de votre marque et vos communications client. App Service Web Apps peut vous aider à assurer la bonne réputation de votre marque et de votre identité, grâce au soutien de votre continuité d’activité par Microsoft.
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -49,25 +49,25 @@ De plus, lorsque vous envisagez d’apporter des modifications à un site web e
 
 Vous pouvez utiliser gratuitement le domaine App Service Web Apps, ou effectuer un mappage vers le nom de domaine enregistrer, puis sécuriser votre marque au moyen du certificat SSL signé par une autorité de certification.
 
-Le domaine ***.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu
+Le domaine ***.azurewebsites.net** est gratuit lorsque vous exécutez votre site web sur Web Apps. Vous pouvez également mapper votre site web sur un [domaine personnalisé] (par exemple : contoso.com), obtenu à partir d’un registre DNS tel que GoDaddy.
 
-Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec [HTTPS]. Le nom de domaine ***.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
+Si vous collectez des informations sur les utilisateurs, effectuez des transactions de type e-commerce ou gérez des données sensibles, vous pouvez protéger la réputation de votre marque et vos clients avec le protocole [HTTPS]. Le nom de domaine ***.azurewebsites.net** propose déjà un certificat SSL. Si vous utilisez votre domaine personnalisé, vous pouvez intégrer le certificat SSL qui lui est associé dans Web Apps. Une facturation mensuelle (au prorata des heures) est associée à chaque certificat SSL. Pour en savoir plus, consultez [Détails de la tarification d’App Service].
 
 ## Optez pour l’international !
 
 Optez pour l’international, en desservant des sites régionaux avec Microsoft Azure Traffic Manager et en fournissant du contenu très rapidement, grâce à Microsoft Azure Content Delivery Network (CDN).
 
-Pour desservir des clients dans leurs régions respectives, recourez à [Microsoft Azure Traffic Manager] pour rediriger les visiteurs vers un site régional, qui propose des performances améliorées. Vous pouvez également répartir la charge du site entre plusieurs copies de votre site web hébergé dans plusieurs régions et ce, de manière équitable.
+Pour desservir des clients dans leurs régions respectives, recourez à [Microsoft Azure Traffic Manager] pour rediriger les visiteurs vers un site régional offrant des performances optimales. Vous pouvez également répartir la charge du site entre plusieurs copies de votre site web hébergé dans plusieurs régions et ce, de manière équitable.
 
-Fournissez très rapidement un contenu statique aux utilisateurs au niveau international, via l’[intégration de votre application web avec Microsoft Azure CDN]. CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l’utilisateur, ce qui réduit la latence et les connexions à votre site web.
+Fournissez très rapidement un contenu statique aux utilisateurs dans le monde entier via l’[intégration de votre application web avec Microsoft Azure CDN]. CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l’utilisateur, ce qui réduit la latence et les connexions à votre site web.
 
 ## Optimisation
 
 Optimisez votre site .COM en le mettant automatiquement à l’échelle avec la fonction Mise à l’échelle automatique, en le mettant en cache avec le cache Redis Azure, en exécutant des tâches en arrière-plan avec WebJobs et assurant une haute disponibilité avec Azure Traffic Manager.
 
-La capacité de l’application App Service Web Apps à [adapter la taille des sites] répond aux besoins de votre site .COM, quelle que soit la taille de votre charge de travail. Augmentez la taille de votre site manuellement via [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), ou par programme, via l’[API Service Management] ou des [scripts PowerShell], ou encore automatiquement, via la fonction Mise à l’échelle automatique. Dans le plan d’hébergement **standard**, la fonction Mise à l’échelle automatique vous permet d’augmenter automatiquement la taille d’un site web, selon l’utilisation de l’UC. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
+La capacité de l’application App Service Web Apps à [adapter la taille des sites] répond aux besoins de votre site .COM, quelle que soit la taille de votre charge de travail. Augmentez la taille de votre site manuellement, via le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), par programme, via l’[API Service Management] ou des [scripts PowerShell], ou encore automatiquement, via la fonction Mise à l’échelle automatique. Dans le plan d’hébergement **standard**, la fonction Mise à l’échelle automatique vous permet d’augmenter automatiquement la taille d’un site web, selon l’utilisation de l’UC. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
 
-Optimisez la réactivité de votre site web grâce au [cache Azure Redis]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
+Optimisez la réactivité de votre site web grâce au [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
 
 Assurez la haute disponibilité de votre site web à l’aide [Microsoft Azure Traffic Manager]. À l’aide de la méthode **Basculement**, Traffic Manager achemine automatiquement le trafic vers un site secondaire en cas de problème sur le site primaire.
 
@@ -75,7 +75,7 @@ Assurez la haute disponibilité de votre site web à l’aide [Microsoft Azure
 
 Tenez-vous informé sur les performances de votre site web au moyen d’outils Microsoft Azure ou tiers. Recevez des alertes sur des événements critiques de votre site web. Grâce à Application Insight ou à la fonction d’analyse de journaux web du logiciel HDInsight, vous pouvez mieux connaître les utilisateurs.
 
-Consultez un [bref aperçu] des métriques de performance et des quotas de ressources du site web dans le panneau de cette dernière sur le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez aussi recourir à un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour tous vos sites web.
+Consultez un [bref aperçu] des métriques de performance et des quotas de ressources du site web dans le panneau de l’application web sur le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715). Pour une évaluation complète de la disponibilité, des performances et de l’utilisation de votre application web, utilisez [Azure Application Insights] et ses puissantes fonctionnalités d’utilisation, de diagnostic et de dépannage. Vous pouvez aussi recourir à un outil tiers comme [New Relic], qui fournit des données de surveillance avancées pour tous vos sites web.
 
 Dans le plan d’hébergement **Standard**, vous pouvez surveiller la réactivité de votre site, en recevant des notifications par messagerie électronique chaque fois que votre site ne répond pas. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure].
 
@@ -83,7 +83,7 @@ Dans le plan d’hébergement **Standard**, vous pouvez surveiller la réactivit
 
 Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, comme ce qui suit :
 
--  Chargement et diffusion en continu de vidéos avec [Azure Media Services] au niveau global
+-  Chargement et diffusion en continu de vidéos dans le monde entier avec [Azure Media Services]
 -  Envoi de courriers électroniques aux utilisateurs grâce au [service SendGrid de Microsoft Azure Marketplace]
 
 ## Autres ressources
@@ -127,7 +127,7 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 [scripts PowerShell]: https://msdn.microsoft.com/library/azure/jj152841.aspx
 [Troy Hunt]: https://twitter.com/troyhunt
 [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure]: http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
-[cache Azure Redis]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[cache Redis Azure]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
 [état de session ASP.NET]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [cache de sortie]: https://msdn.microsoft.com/library/azure/dn798898.aspx
 

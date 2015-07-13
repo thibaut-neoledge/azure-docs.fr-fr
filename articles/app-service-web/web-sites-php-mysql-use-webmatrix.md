@@ -150,7 +150,7 @@ Durant les prochaines étapes, vous allez développer l'application Tasklist en 
 
 	Enregistrez le fichier `taskmodel.php`.
 
-8. Pour exécuter l’application, vous devez créer la table `items`. Cliquez avec le bouton droit sur le fichier `createtable.php`, puis sélectionnez **Lancer dans le navigateur**. Ceci lance `createtable.php` dans votre navigateur et exécute le code créant la table `items` dans la base de données `tasklist`.
+8. Pour exécuter l’application, vous devez créer la table `items`. Cliquez avec le bouton droit sur le fichier `createtable.php`, puis sélectionnez **Lancer dans le navigateur**. Ceci lance `createtable.php` dans votre navigateur et exécute le code qui crée la table `items` dans la base de données `tasklist`.
 
 	![Lancer createtable.php dans le navigateur WebMatrix][edit_run]
 
@@ -261,5 +261,6 @@ Vous pouvez facilement modifier votre application en modifiant la copie locale d
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

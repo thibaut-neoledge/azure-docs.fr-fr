@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
 
 Cette section fournit un index des stratégies dans la [référence des stratégies de gestion des API][]. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API][].
 
-Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][] et [Définir la variable][], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][], [Expressions de stratégie][] et visionnez la vidéo suivante.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][] et [Définir la variable][], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][], [Expressions de stratégie][].
 
 ## Index de référence de stratégie
 
@@ -54,8 +52,13 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Set body][] : définit le corps du message pour les demandes entrantes et sortantes.
 	-	[Set HTTP header][] : affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
 	-	[Set query string parameter][] : ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur.
-	-	[Rewrite URL][] : convertit une URL de demande de sa forme publique en une forme attendue par le service web.
+	-	[URL de réécriture][] : convertit une URL de demande de sa forme publique en une forme attendue par le service web.
 
+## Étapes suivantes
+
+Pour plus d’informations sur les expressions de stratégie, regardez la vidéo suivante.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Accès aux stratégies de restriction]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Check HTTP header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
@@ -93,7 +96,7 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 [Set body]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
 [Set HTTP header]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
 [Set query string parameter]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter
-[Rewrite URL]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
+[URL de réécriture]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL
 
 
 

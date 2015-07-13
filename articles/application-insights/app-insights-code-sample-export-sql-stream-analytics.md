@@ -31,7 +31,7 @@ Dans cet exemple, nous allons utiliser les données d’affichage de page. Toute
 
 ## Ajouter le kit de développement logiciel (SDK) Application Insights
 
-Pour analyser votre application, vous [ajoutez un kit de développement logiciel (SDK) Application Insights][start] à votre application. Il existe divers kits de développement de logiciel (SDK) et outils d’assistance selon les plateformes, IDE et langages. Vous pouvez surveiller des pages web, des serveurs web Java ou ASP.NET et des appareils mobiles de plusieurs types. Tous les kits de développement logiciels (SDK) envoient les données de télémétrie au [portail Application Insights][portal], où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse et exporter les données vers un emplacement de stockage.
+Pour analyser votre application, vous [ajoutez un kit de développement logiciel (SDK) Application Insights][start] à votre application. Il existe divers kits de développement de logiciel (SDK) et outils d’assistance selon les plateformes, IDE et langages. Vous pouvez surveiller des pages web, des serveurs web Java ou ASP.NET et des appareils mobiles de plusieurs types. Tous les Kits de développement logiciels (SDK) envoient les données de télémétrie au [portail Application Insights][portal], où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse et exporter les données vers un emplacement de stockage.
 
 Pour commencer :
 
@@ -48,28 +48,32 @@ Pour commencer :
 
     Si votre type d’application n’est pas répertorié, consultez la page [Prise en main][start].
 
-4. Dans cet exemple, nous surveillons une application web.Par conséquent, nous pouvons utiliser les outils Azure dans Visual Studio pour installer le kit de développement (SDK). Nous lui indiquons le nom de notre ressource Application Insights :
+4. Dans cet exemple, nous surveillons une application web. Par conséquent, nous pouvons utiliser les outils Azure dans Visual Studio pour installer le Kit de développement (SDK). Indiquez-lui le nom de votre ressource Application Insights :
 
-    ![Dans Visual Studio, dans la boîte de dialogue Nouveau projet, cochez Ajouter Application Insights et sous Envoyer télémétrie vers, choisissez de créer une nouvelle application ou d’en utiliser une existante.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet, puis sélectionnez Ajouter Application Insights. Lorsque Envoyer la télémétrie vers s’affiche, choisissez de créer une ressource ou d’utiliser une ressource existante.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. Publiez votre application et surveillez les données de télémétrie apparaissant dans votre ressource Application Insights.
 
 
-## Créer un stockage dans Azure
+## Création d’un stockage dans Azure
+
+Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
 1. Créez un compte de stockage dans votre abonnement sur le [portail Azure][portal].
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
-2. Création d'un conteneur
+2. Créez un conteneur.
 
     ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, puis Ajouter.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
-3. Copier la clé d’accès au stockage
+3. Copiez la clé d’accès au stockage.
 
     Vous en aurez bientôt besoin pour configurer l’entrée dans le service Stream analytics.
 
     ![Dans le stockage, ouvrez Paramètres, Clés et copiez la clé d’accès principale.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Démarrer l’exportation continue vers le stockage Azure
+## Démarrez l’exportation continue vers le stockage Azure.
 
 1. Sur le portail Azure, accédez à la ressource Application Insights que vous avez créée pour votre application.
 
@@ -95,9 +99,9 @@ Vos données seront également exportées vers votre emplacement de stockage, o�
 
 ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous voudrions écrire du code pour lire les données d’événement et filtrer les champs voulus. Nous pourrions faire toutes sortes de choses avec les données, mais notre objectif aujourd’hui est d’écrire du code pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
+Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d’opérations avec les données, mais notre objectif aujourd’hui est d’utiliser Stream Analytics pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
-## Créer une base de données SQL Azure
+## Création d’une base de données SQL Azure
 
 De nouveau, à partir de votre abonnement sur le [portail Azure][portal], créez la base de données (et un nouveau serveur, sauf si vous en avez déjà un) dans laquelle vous allez écrire les données.
 
@@ -157,7 +161,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-## Créer une instance Azure Stream Analytics
+## Création d’une instance Azure Stream Analytics
 
 À partir du [portail classique Azure](https://manage.windowsazure.com/), sélectionnez le service Azure Stream Analytics et créez une nouvelle tâche Stream Analytics :
 
@@ -172,7 +176,7 @@ Une fois la tâche créée, développez les informations qui s’y rapportent :
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
-#### Définir l’emplacement des objets blob
+#### Définition de l’emplacement des objets blob
 
 Définissez-le pour qu’il tienne compte des données de votre objet blob d’exportation continue :
 
@@ -182,7 +186,7 @@ Vous devez maintenant disposer de la clé d’accès principale issue de votre c
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
-#### Définir la séquence d’octets préfixe du chemin d’accès 
+#### Définition de la séquence d’octets préfixe du chemin d’accès 
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
@@ -201,15 +205,15 @@ Dans cet exemple :
 
 Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez Essentials sur sa page de présentation ou ouvrez Paramètres.
 
-#### Terminer l’installation initiale
+#### Fin de l’installation initiale
 
-Confirmer le format de sérialisation :
+Confirmez le format de sérialisation :
 
 ![Confirmez et fermez l’assistant.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Fermez l’assistant et attendez la fin de l’installation.
 
-## Définir une requête
+## Définition d’une requête
 
 Ouvrez la section de la requête :
 
@@ -255,7 +259,7 @@ Remplacez la requête par défaut par :
 
 Notez que les premières propriétés sont spécifiques aux données d’affichage de page. Les exportations d’autres types de télémétrie disposent de propriétés différentes.
 
-## Configurer la sortie vers la base de données
+## Configuration de la sortie vers la base de données
 
 Sélectionnez SQL comme sortie.
 
@@ -268,7 +272,7 @@ Spécifiez la base de données SQL.
 
 Fermez l’assistant et attendez une notification indiquant que la sortie a été configurée.
 
-## Démarrer le traitement
+## Démarrage du traitement
 
 Démarrez la tâche à partir de la barre d’action :
 
@@ -287,7 +291,7 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
 ## Articles connexes
 
-* [Exporter vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 

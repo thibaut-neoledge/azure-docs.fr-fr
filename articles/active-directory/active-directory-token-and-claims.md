@@ -410,7 +410,7 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
 
 ##Voir aussi
 
-[Protocoles d'authentification d'Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+[Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

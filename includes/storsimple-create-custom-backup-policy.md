@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Créer une stratégie de sauvegarde personnalisée StorSimple"
-   description="Explique comment utiliser le service StorSimple Manager pour créer une stratégie de sauvegarde personnalisée."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Pour créer une stratégie de sauvegarde personnalisée
 
@@ -55,4 +39,4 @@
 
     ![Stratégie de sauvegarde personnalisée](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -30,7 +30,7 @@ Pour utiliser le connecteur SMTP, vous devez d’abord créer une instance de l�
 2.	Accédez à « Web et mobilité > Azure Marketplace » et recherchez « Connecteur SMTP ».
 3.	Configurez le connecteur SMTP comme suit :
  
-	![][1] - **Emplacement** - choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** - choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d’hébergement Web** : sélectionnez ou créez un plan d’hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur SMTP - **Paramètres du package** - **Nom d’utilisateur** : spécifiez le nom d’utilisateur pour la connexion au serveur SMTP - **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur SMTP - **Adresse du serveur** : spécifiez le nom ou l’adresse IP du serveur SMTP - **Port du serveur** : spécifiez le numéro de port du serveur SMTP - **Utiliser SSL** : spécifiez true pour utiliser SMTP sur un canal SSL/TLS sécurisé
+	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur SMTP - **Paramètres du package** - **Nom d'utilisateur** : spécifiez le nom d'utilisateur pour la connexion au serveur SMTP - **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur SMTP - **Adresse du serveur** : spécifiez le nom ou l'adresse IP du serveur SMTP - **Port du serveur** : spécifiez le numéro de port du serveur SMTP - **Utiliser SSL** : spécifiez true pour utiliser SMTP sur un canal SSL/TLS sécurisé
 4.	Cliquez sur Créer. Un connecteur SMTP est créé.
 5.	Une fois l’instance d’application API créée, vous pouvez créer une application dans le même groupe de ressources pour utiliser le connecteur SMTP. 
 
@@ -49,7 +49,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SMTP 
 4.	Vous pouvez déposer l’application API du connecteur SMTP dans l’éditeur en cliquant sur « Connecteur SMTP ». 
 	
 7.	Vous pouvez maintenant utiliser le connecteur SMTP dans le flux. Sélectionnez l’action « Envoyer le message électronique » et configurez les propriétés d’entrée comme suit :
-	- **Pour** : adresse électronique du ou des destinataires. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
+	- **À** : adresse électronique du ou des destinataires. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
 	- **Cc** : adresse électronique du ou des destinataires en copie. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
 	- **Objet** : objet du message électronique.
 	- **Corps** : corps du message électronique.
@@ -58,7 +58,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SMTP 
 	- **Importance** : importance du message électronique. Les options sont Normale, Faible, Haute.
 	- **Pièces jointes** : pièces jointes à envoyer avec le message électronique. Il contient les champs suivants :
 		- Contenu (chaîne)
-		- Encodage de transfert de contenu (num) (« none »|« base64 »)
+		- Encodage de transfert de contenu (Enum) (« none »|« base64 »)
 		- Type de contenu (chaîne)
 		- ID de contenu (chaîne)
 		- Nom de fichier (chaîne)

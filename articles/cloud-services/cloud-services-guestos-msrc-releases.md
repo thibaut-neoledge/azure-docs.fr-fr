@@ -3,8 +3,8 @@
    description="Publications de la liste des mises à jour appliquées au SE invité" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,77 +13,122 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/18/2015"
+   ms.date="04/17/2015"
    ms.author="adegeo"/>
 
 # SE invité d'Azure 
 
-Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la famille [family][family-explain] spécifique avec laquelle elles ont été présentées. 
+Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité juin
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-056 | [3058515] | Mise à jour de sécurité cumulative pour Internet Explorer | 4.21, 3.28, 2.40 | 9 juin 2015 |
+| MS15-057 | [3033890] | Une vulnérabilité dans Windows Media Player pourrait permettre l'exécution du code à distance | 4.21, 3.28, 2.40 | 9 juin 2015 |
+| MS15-060 | [3059317] | Une vulnérabilité dans les contrôles communs Microsoft pourrait permettre l'exécution du code à distance | 4.21, 3.28, 2.40 | 9 juin 2015 |
+| MS15-061 | [3057839] | Des vulnérabilités dans les pilotes de mode de Windows Kernel pourraient permettre une élévation des privilèges | 4.21, 3.28, 2.40 | 9 juin 2015 |
+| MS15-062 | [3062577] | Une vulnérabilité dans Active Directory Federation Services pourrait permettre une élévation de privilèges | 4.21, 3.28, 2.40 | 9 juin 2015 |
+| MS15-063 | [3063858] | Une vulnérabilité dans Windows Kernel pourraient permettre une élévation des privilèges | 4.21, 3.28, 2.40 | 9 juin 2015 |
+
+## SE invité mai
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-043 | [3049563] | Mise à jour de sécurité cumulative pour Internet Explorer | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-044 | [3057110] | Des vulnérabilités dans les pilotes de police de Microsoft pourraient permettre l'exécution du code à distance | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-045 | [3046002] | Une vulnérabilité dans le journal Windows pourrait permettre l'exécution du code à distance | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-048 | [3057134] | Des vulnérabilités dans .NET Framework pourraient permettre une élévation des privilèges | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-050 | [3055642] | Une vulnérabilité dans le gestionnaire de contrôle des services pourrait permettre une élévation des privilèges | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-051 | [3057191] | Des vulnérabilités dans les pilotes de mode de Windows Kernel pourraient permettre une élévation des privilèges | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-052 | [3050514] | Une vulnérabilité dans Windows Kernel pourrait permettre de contourner la fonctionnalité de sécurité | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-053 | [3057263] | Des vulnérabilités dans le moteur de script JScript et VBScript pourraient permettre de contourner la fonctionnalité de sécurité | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-054 | [3051768] | Une vulnérabilité dans le format de fichier de la console de gestion Microsoft pourrait entraîner un déni de service | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-055 | [3061518] | Une vulnérabilité dans Schannel pourrait permettre la divulgation d’informations importantes sur le contournement de la fonctionnalité de sécurité | 4.20, 3.27, 2.39 | 12 mai 2015 |
+| MS15-032 | [3038314] | Mise à jour de sécurité cumulative pour Internet Explorer | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-035 | [3046306] | Une vulnérabilité dans le composant des graphiques Microsoft pourrait permettre l’exécution du code à distance | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-037 | [3046269] | Une vulnérabilité dans le planificateur de tâches Windows pourrait permettre une élévation des privilèges | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-038 | [3049576] | Des vulnérabilités dans Microsoft Windows pourraient permettre une élévation importante des privilèges | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-039 | [3046482] | Une vulnérabilité dans les services de base XML pourrait permettre de contourner la fonctionnalité de sécurité | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-040 | [3045711] | Une vulnérabilité dans ADFS pourrait permettre la divulgation d'informations | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-041 | [3048010] | Une vulnérabilité dans .NET Framework pourrait permettre la divulgation d'informations | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| MS15-042 | [3047234] | Une vulnérabilité dans Windows Hyper-V pourrait entraîner un déni de service | 4.20, 3.27, 2.39 | 17 avril 2015 |
+| N/D | [3045755] | Mise à jour permettant d’améliorer l'authentification PKU2U | 4.20, 3.27, 2.39 | 17 avril 2015 |
+
+## SE invité avril
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| [MS15-034] | [3042553][3042553] | Une vulnérabilité dans HTTP.sys pourrait permettre l'exécution du code à distance | 4.19, 3.26, 2.38 | 17 avril 2015 |
 
 
 ## SE invité mars
 
-| ID de bulletin | Article de la base de connaissances parent   | Description de la vulnérabilité                                                   | SE invité         | Date de première présentation |
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-018    | [3032359][3032359] | Mise à jour de sécurité cumulative pour Internet Explorer                             | 4.18, 3.25, 2.37 | N/A |
-| MS15-019    | [3040297][3040297] | Une vulnérabilité dans le moteur de script VBScript pourrait permettre l'exécution du code à distance | 4.18, 3.25, 2.37 | N/A |
-| MS15-020    | [3041836][3041836] | Des vulnérabilités dans Windows pourraient permettre l'exécution du code à distance                 | 4.18, 3.25, 2.37 | N/A |
-| MS15-021    | [3032323][3032323] | Des vulnérabilités dans le pilote de police d'Adobe pourraient permettre l'exécution du code à distance          | 4.18, 3.25, 2.37 | N/A |
-| MS15-023    | [3034344][3034344] | Des vulnérabilités dans le pilote de mode de Kernel pourraient permettre une élévation des privilèges     | 4.18, 3.25, 2.37 | N/A |
-| MS15-024    | [3035132][3035132] | Une vulnérabilité dans le traitement PNG pourrait permettre la divulgation d'informations           | 4.18, 3.25, 2.37 | N/A |
-| MS15-025    | [3038680][3038680] | Des vulnérabilités dans Windows Kernel pourraient permettre une élévation des privilèges         | 4.18, 3.25, 2.37 | N/A |
-| MS15-027    | [3002657][3002657] | Une vulnérabilité dans NETLOGON pourrait permettre l'usurpation d'identité                               | 4.18, 3.25, 2.37 | N/A |
-| MS15-029    | [3035126][3035126] | Une vulnérabilité dans le composant décodeur de photos Windows pourrait permettre la divulgation d'informations | 4.18, 3.25, 2.37 | N/A |
+| MS15-018 | [3032359][3032359] | Mise à jour de sécurité cumulative pour Internet Explorer | 4.18, 3.25, 2.37 | N/A |
+| MS15-019 | [3040297][3040297] | Une vulnérabilité dans le moteur de script VBScript pourrait permettre l'exécution du code à distance | 4.18, 3.25, 2.37 | N/A |
+| MS15-020 | [3041836][3041836] | Des vulnérabilités dans Windows pourraient permettre l'exécution du code à distance | 4.18, 3.25, 2.37 | N/A |
+| MS15-021 | [3032323][3032323] | Des vulnérabilités dans le pilote de police d'Adobe pourraient permettre l'exécution du code à distance | 4.18, 3.25, 2.37 | N/A |
+| MS15-023 | [3034344][3034344] | Des vulnérabilités dans le pilote de mode de Kernel pourraient permettre une élévation des privilèges | 4.18, 3.25, 2.37 | N/A |
+| MS15-024 | [3035132][3035132] | Une vulnérabilité dans le traitement PNG pourrait permettre la divulgation d'informations | 4.18, 3.25, 2.37 | N/A |
+| MS15-025 | [3038680][3038680] | Des vulnérabilités dans Windows Kernel pourraient permettre une élévation des privilèges | 4.18, 3.25, 2.37 | N/A |
+| MS15-027 | [3002657][3002657] | Une vulnérabilité dans NETLOGON pourrait permettre l'usurpation d'identité | 4.18, 3.25, 2.37 | N/A |
+| MS15-028 | [3030377] | Une vulnérabilité dans le planificateur de tâches Windows pourrait permettre de contourner la fonctionnalité de sécurité | 4.18, 3.25, 2.37 | N/A |
+| MS15-029 | [3035126][3035126] | Une vulnérabilité dans le composant décodeur de photos Windows pourrait permettre la divulgation d'informations | 4.18, 3.25, 2.37 | N/A |
+| MS15-030 | [3039976] | Une vulnérabilité dans le protocole du bureau à distance (RDP) peut entraîner un déni de service | 4.18, 3.25, 2.37 | N/A |
 
-> [AZURE.NOTE] Le bulletin MS15-031 peut apparaître en tant que non installé. Toutefois, cela ne s'applique pas à cette version du SE invité.
+> [AZURE.NOTE]Le bulletin MS15-031 peut apparaître en tant que non installé. Toutefois, cela ne s'applique pas à cette version du SE invité.
 
 ## SE invité février
 
-| ID du bulletin | Article de la base de connaissances parent   | Description de la vulnérabilité                                                   | SE invité         | Date de première présentation |
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-009    | [3034682][3034682] | Mise à jour de sécurité pour Internet Explorer                                                   | 4.17, 3.24, 2.36 | N/A |
-| MS15-010    | [3036220][3036220] | Des vulnérabilités dans Windows pourraient permettre l'exécution du code à distance        | 4.17, 3.24, 2.36 | N/A |
-| MS15-011    | [3000483][3000483] | Une vulnérabilité dans la politique du groupe pourrait permettre l'exécution du code à distance                         | 4.17, 3.24, 2.36 | N/A |
-| MS15-014    | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité                                | 4.17, 3.24, 2.36 | N/A |
-| MS15-015    | [3031432][3031432] | Une vulnérabilité dans Windows pourrait permettre une élévation des privilèges                   | 4.17, 3.24, 2.36 | N/A |
-| MS15-016    | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations        | 4.17, 3.24, 2.36 | N/A |
-| N/A         | [3004375][3004375] | Mise à jour pour améliorer l'audit de la ligne de commande Windows<p/>**Note**: Celle-ci est installée, mais la clé de registre pour l'activer est désactivée | 4.17, 3.24, 2.36 | N/A |
+| MS15-009 | [3034682][3034682] | Mise à jour de sécurité pour Internet Explorer | 4.17, 3.24, 2.36 | N/A |
+| MS15-010 | [3036220][3036220] | Des vulnérabilités dans les pilotes de mode de Windows Kernel pourraient permettre l'exécution du code à distance | 4.17, 3.24, 2.36 | N/A |
+| MS15-011 | [3000483][3000483] | Une vulnérabilité dans la politique du groupe pourrait permettre l'exécution du code à distance | 4.17, 3.24, 2.36 | N/A |
+| MS15-014 | [3004361][3004361] | Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité | 4.17, 3.24, 2.36 | N/A |
+| MS15-015 | [3031432][3031432] | Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges | 4.17, 3.24, 2.36 | N/A |
+| MS15-016 | [3029944][3029944] | Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations | 4.17, 3.24, 2.36 | N/A |
+| N/A | [3004375][3004375] | Mise à jour permettant d’améliorer l'audit de la ligne de commande Windows<p/>** Remarque** : elle est installée, mais la clé de registre permettant de l’activer est désactivée | 4.17, 3.24, 2.36 | N/A |
  
 
 ## SE invité janvier
 
-| ID du bulletin | Article de la base de connaissances parent   | Description de la vulnérabilité                                                   | SE invité         | Date de première présentation |
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-001    | [3023266][3023266]  | Une vulnérabilité dans Windows AppCompatCache pourrait permettre une élévation des privilèges  | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-002    | [3020393][3020393]  | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance   | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-003    | [3021674][3021674]  | Une vulnérabilité dans le service de profil utilisateur Windows pourrait permettre une élévation des privilèges   | 4.16, 3.23, 2.35 | 19 jan 2015    |
-| MS15-004    | [3019978][3019978]  | Une vulnérabilité dans les composants Windows pourrait permettre une élévation des privilèges      | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-005    | [3022777][3022777]  | Une vulnérabilité dans NLA pourrait permettre de contourner la fonctionnalité de sécurité                    | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-006    | [3004365][3004365]  | Une vulnérabilité dans le rapport d'erreur Windows pourrait permettre de contourner la fonctionnalité de sécurité | 4.16, 3.23, 2.35 | 19 jan 2015          |
-| MS15-007    | [3014029][3014029]  | Une vulnérabilité dans le serveur NPS RADIUS pourrait entraîner un déni de service | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-008    | [3019215][3019215]  | Des vulnérabilités dans le pilote de mode de Kernel pourraient permettre une élévation des privilèges | 4.16, 3.23, 2.35 | 19 jan 2015        |
-| MS14-080    | [3008923][3008923]  | Mise à jour de sécurité cumulative pour Internet Explorer                            | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-002    | [3020393][3020393]  | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance   | 4.16, 3.23, 2.35 | 19 jan 2015           |
-| MS15-002    | [3020393][3020393]  | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance   | 4.16, 3.23, 2.35 | 19 jan 2015           |
+| MS15-001 | [3023266][3023266] | Une vulnérabilité dans Windows AppCompatCache pourrait permettre une élévation des privilèges | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-002 | [3020393][3020393] | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-003 | [3021674][3021674] | Une vulnérabilité dans le service de profil utilisateur Windows pourrait permettre une élévation des privilèges | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-004 | [3019978][3019978] | Une vulnérabilité dans les composants Windows pourrait permettre une élévation des privilèges | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-005 | [3022777][3022777] | Une vulnérabilité dans NLA pourrait permettre de contourner la fonctionnalité de sécurité | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-006 | [3004365][3004365] | Une vulnérabilité dans le rapport d'erreurs Windows pourrait permettre de contourner la fonctionnalité de sécurité | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-007 | [3014029][3014029] | Une vulnérabilité dans le serveur NPS RADIUS pourrait entraîner un déni de service | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-008 | [3019215][3019215] | Une vulnérabilité dans les pilotes de mode de Windows Kernel pourrait permettre une élévation des privilèges | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS14-080 | [3008923][3008923] | Mise à jour de sécurité cumulative pour Internet Explorer | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-002 | [3020393][3020393] | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance | 4.16, 3.23, 2.35 | 19 janvier 2015 |
+| MS15-002 | [3020393][3020393] | Une vulnérabilité dans le service Telnet Windows pourrait entraîner l'exécution du code à distance | 4.16, 3.23, 2.35 | 19 janvier 2015 |
  
 ## SE invité décembre
 
-| ID du bulletin | Article de la base de connaissances parent   | Description de la vulnérabilité                                                   | SE invité         | Date de première présentation |
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| N/A         | [3013776][3013776]  | Le système se fige lorsque vous utilisez un compte de domaine pour démarrer une application | 4.15, 3.22, 2.34 | Jan 13 2015 | 
-| N/A         | [3013043][3013043]  | Les données de système de fichiers sont endommagées sur un ordinateur Windows qui a plusieurs nœuds NUMA | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3012712][3012712]  | De nouveaux blocs de données s'initialisent incorrectement lorsqu'un disque dur virtuel de différenciation est développé | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3004905][3004905]  | Amélioration du produit Windows Hyper-V pour les machines virtuelles Linux qui ont des systèmes de fichiers supérieurs à 2 To | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3004394][3004394]  | Mise à jour de décembre 2014 pour le programme de certificat racine Windows dans Windows | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [2999323][2999323]  | Le texte pour l'ID d'événement 17 a été modifié | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3013488][3013488]  | Délai d'attente important pour réinitialiser le serveur WSUS lorsque vous importez des fichiers CSA dans Windows Server 2012 R2 ou Windows Server 2012 | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3012325][3012325]  | Mise à jour des entrées de base de données Windows APN pour les opérateurs mobiles DIGI, Vodafone et Telekom dans Windows 8.1 et Windows 8 | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [3007054][3007054]  | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [2999802][2999802]  | Des lignes pleins sont imprimées dans Windows au lieu de lignes en pointillés | 4.15, 3.22, 2.34 | 13 jan 2015 |
-| N/A         | [2896881][2896881]  | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4.15, 3.22, 2.34 | 13 jan 2015 |
+| N/A | [3013776][3013776] | Le système se fige lorsque vous utilisez un compte de domaine pour démarrer une application | 4.15, 3.22, 2.34 | 13 janvier 2015 | 
+| N/A | [3013043][3013043] | Les données de système de fichiers sont endommagées sur un ordinateur Windows qui a plusieurs nœuds NUMA | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3012712][3012712] | De nouveaux blocs de données s'initialisent incorrectement lorsqu'un disque dur virtuel de différenciation est développé | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3004905][3004905] | Amélioration du produit Windows Hyper-V pour les machines virtuelles Linux qui ont des systèmes de fichiers supérieurs à 2 To | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3004394][3004394] | Mise à jour de décembre 2014 pour le programme de certificat racine Windows dans Windows | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [2999323][2999323] | Le texte pour l'ID d'événement 17 a été modifié | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3013488][3013488] | Délai d'attente important pour réinitialiser le serveur WSUS lorsque vous importez des fichiers CSA dans Windows Server 2012 R2 ou Windows Server 2012 | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3012325][3012325] | Mise à jour des entrées de base de données Windows APN pour les opérateurs mobiles DIGI, Vodafone et Telekom dans Windows 8 et Windows 8.1 | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [3007054][3007054] | Option d'impression protégée par code PIN toujours présente lors de l'impression d'un document dans une application Windows Store dans Windows | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4.15, 3.22, 2.34 | 13 janvier 2015 |
+| N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4.15, 3.22, 2.34 | 13 janvier 2015 |
 
 
+[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
+[3042553]: https://support.microsoft.com/fr-fr/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -126,9 +171,41 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [3002657]: http://support.microsoft.com/kb/3002657
 [3035126]: http://support.microsoft.com/kb/3035126
 
+[3049563]: http://support.microsoft.com/kb/3049563
+[3057110]: http://support.microsoft.com/kb/3057110
+[3046002]: http://support.microsoft.com/kb/3046002
+[3057134]: http://support.microsoft.com/kb/3057134
+[3055642]: http://support.microsoft.com/kb/3055642
+[3057191]: http://support.microsoft.com/kb/3057191
+[3050514]: http://support.microsoft.com/kb/3050514
+[3057263]: http://support.microsoft.com/kb/3057263
+[3051768]: http://support.microsoft.com/kb/3051768
+[3061518]: http://support.microsoft.com/kb/3061518
+
+[3038314]: http://support.microsoft.com/kb/3038314
+[3042553]: http://support.microsoft.com/kb/3042553
+[3046306]: http://support.microsoft.com/kb/3046306
+[3046269]: http://support.microsoft.com/kb/3046269
+[3049576]: http://support.microsoft.com/kb/3049576
+[3046482]: http://support.microsoft.com/kb/3046482
+[3045711]: http://support.microsoft.com/kb/3045711
+[3048010]: http://support.microsoft.com/kb/3048010
+[3047234]: http://support.microsoft.com/kb/3047234
+[3045755]: http://support.microsoft.com/kb/3045755
+[3030377]: http://support.microsoft.com/kb/3030377
+[3039976]: http://support.microsoft.com/kb/3039976
+
+[3058515]: http://support.microsoft.com/kb/3058515
+[3033890]: http://support.microsoft.com/kb/3033890
+[3059317]: http://support.microsoft.com/kb/3059317
+[3057839]: http://support.microsoft.com/kb/3057839
+[3062577]: http://support.microsoft.com/kb/3062577
+[3063858]: http://support.microsoft.com/kb/3063858
+
+
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

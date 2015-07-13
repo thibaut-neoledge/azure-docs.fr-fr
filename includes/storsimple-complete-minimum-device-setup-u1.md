@@ -1,4 +1,3 @@
-
 #### Pour mener à bien la configuration minimale d’un appareil StorSimple
 
 1. Sélectionnez l’appareil et cliquez sur **Création rapide**. Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l'Assistant Configurer l’appareil.
@@ -29,4 +28,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

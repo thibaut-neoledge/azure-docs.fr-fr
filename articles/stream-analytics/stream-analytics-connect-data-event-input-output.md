@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion à des entrées et sorties | Azure" 
+	pageTitle="Connexion à des entrées et sorties | Microsoft Azure" 
 	description="Apprenez à vous connecter aux sources d’entrée et cibles de sortie pour les solutions Stream Analytics et à les configurer." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -73,20 +73,22 @@ Dans cet exemple, les informations d’identification fournies étaient incorrec
 
 ##Utilisation d’Event Hubs
 
-###Vue d'ensemble
+###Vue d’ensemble
+ 
 Event Hubs est un service de réception d’événements hautement évolutif qui constitue le chemin d’entrée le plus répandu pour l’absorption des données Stream Analytics. Il est conçu pour recevoir des flux d’événements à partir d’appareils et de services divers. Event Hubs et Stream Analytics fournissent au client une solution complète pour des analyses en direct : Event Hubs permet aux clients d’alimenter Azure en événements en temps réel et les travaux de Stream Analytics peuvent les traiter en temps réel. Par exemple, les clients peuvent publier des clics web, des lectures de capteurs ou des journaux d’événements en ligne sur Event Hubs et créer des travaux Stream Analytics pour utiliser Event Hubs comme flux de données d’entrée pour les opérations de filtrage, d’agrégation et de jointure en temps réel. Event Hubs peut également être utilisé pour la sortie des données. L’utilisation la plus courante d’Event Hubs en tant que sortie est le cas où la sortie d’un travail Stream Analytics est l’entrée d’un autre travail de diffusion.
 
 ###Groupes de consommateurs
-Chaque entrée d’un travail Stream Analytics doit être configurée pour disposer de son propre groupe de consommateurs d’un concentrateur d’événements. Lorsqu’un travail contient une jointure réflexive ou plusieurs sorties, des entrées peuvent être lues par plus d’un lecteur et le nombre de lecteurs d’un même groupe de consommateurs peut excéder la limite du concentrateur d’événements de 5 lecteurs par groupe de consommateurs. Dans ce cas, la requête doit être divisée en plusieurs requêtes différentes et les résultats intermédiaires routés via des concentrateurs d’événements supplémentaires. Notez qu’il existe également une limite de 20 groupes de consommateurs par concentrateur d’événements. Pour en savoir plus, consultez le guide de développement de Concentrateurs d'événements.
+Chaque entrée d’un travail Stream Analytics doit être configurée pour disposer de son propre groupe de consommateurs d’un concentrateur d’événements. Lorsqu'un travail contient une jointure réflexive ou plusieurs sorties, des entrées peuvent être lues par plus d'un lecteur et le nombre de lecteurs d'un même groupe de consommateurs peut excéder la limite du concentrateur d'événements de 5 lecteurs par groupe de consommateurs. Dans ce cas, la requête doit être divisée en plusieurs requêtes différentes et les résultats intermédiaires routés par le biais de concentrateurs d'événements supplémentaires. Notez qu’il existe également une limite de 20 groupes de consommateurs par concentrateur d’événements. Pour en savoir plus, consultez le guide de développement de Concentrateurs d'événements.
 
- 
+ 
 ###Paramètres
+ 
 Quelques paramètres doivent être configurés pour les flux de données Event Hubs. Ces paramètres s’appliquent à la fois aux flux de données d’entrée et de sortie du concentrateur d’événements, sauf indication contraire.
 
 1. Espace de noms Service Bus : espace de noms Service Bus du concentrateur d’événements. Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un concentrateur d’événements, vous avez également créé un espace de noms Service Bus. 
 2. Nom du concentrateur d’événements : nom donné au concentrateur d’événements. C’est le nom que vous avez spécifié lors de la création d’un concentrateur d’événements. 
 3. Nom de la stratégie du concentrateur d’événements : nom de la stratégie d’accès partagé au concentrateur d’événements. La stratégie d’accès partagé peut être configurée pour un concentrateur d’événements sous l’onglet Configurer. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès.
-4. Nom de la clé de la stratégie du concentrateur d’événements : clé principale ou secondaire de la stratégie d’accès partagé au concentrateur d’événements. 
+4. Nom de la clé de la stratégie du concentrateur d’événements : clé principale ou secondaire de la stratégie d’accès partagé au concentrateur d’événements.  
 5. Groupe de consommateurs du concentrateur d’événements : paramètres facultatifs pour les entrées du concentrateur d’événements. Groupe de consommateurs qui absorbe les données du concentrateur d’événements. En l’absence de spécification, les travaux Stream Analytics utilisent le groupe de consommateurs par défaut pour recevoir les données à partir du concentrateur d’événements. Nous recommandons d’utiliser un groupe de consommateurs distinct pour chaque travail Stream Analytics.
 
 Colonne de clé de partition : paramètre facultatif pour les sorties du concentrateur d’événements. Colonne d’attributs des données utilisée comme clé de partition pour la sortie du concentrateur d’événements.
@@ -148,14 +150,14 @@ Dans cet exemple, les informations d’identification fournies étaient incorrec
 ![graphic19][graphic19]
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
-- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
@@ -180,6 +182,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [graphic17]: ./media/stream-analytics-connect-data-event-input-output/17-stream-analytics-connect-data-event-input-output.png
 [graphic18]: ./media/stream-analytics-connect-data-event-input-output/18-stream-analytics-connect-data-event-input-output.png
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

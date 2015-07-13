@@ -118,7 +118,7 @@ Les tables, les types définis par l’utilisateur et les procédures stockées 
  
 	Pour ce script, l'utilitaire sqlcmd doit être installé sur votre ordinateur. Si SQL Server est installé, l'utilitaire l'est également. Sinon, [téléchargez][sqlcmd-install] et installez l'utilitaire.
 	
-	Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d'objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
+	Vous pouvez également utiliser les fichiers du dossier : C:\ADFWalkthrough\Scripts pour télécharger les scripts pig/hive et des exemples de fichiers dans le conteneur adfwalkthrough du stockage d'objets blob, et créer la table MarketingCampaignEffectiveness dans la base de données SQL Azure MarketingCampaigns.
    
 2. Vérifiez que votre ordinateur local est autorisé à accéder à la base de données SQL Azure. Pour activer l’accès, utilisez le **portail de gestion Microsoft Azure** ou l’élément **sp_set_firewall_rule** sur la base de données MASTER pour créer une règle de pare-feu pour l’adresse IP de votre ordinateur. Cela peut prendre jusqu’à cinq minutes pour que cette modification prenne effet. Voir [Définition des règles de pare-feu pour Azure SQL][azure-sql-firewall].
 4. Dans Azure PowerShell, accédez à l’emplacement auquel vous avez extrait les exemples (par exemple, **C:\ADFWalkthrough**).
@@ -292,7 +292,7 @@ L’image ci-dessus présente les pipelines sur la ligne du milieu et les tables
 ### Créer des tables
 	
 1. Dans l’**éditeur** de Data Factory, cliquez sur le bouton **Nouveau jeu de données** de la barre d’outils et sélectionnez **Stockage d’objets blob Azure** dans le menu déroulant. 
-2. Remplacez le script JSON du volet de droite par le script JSON du fichier **RawGameEventsTable.json**, dans le dossier **C:\ADFWalkthrough\\Tables**.
+2. Remplacez le script JSON du volet de droite par le script JSON du fichier **RawGameEventsTable.json**, dans le dossier **C:\ADFWalkthrough\Tables**.
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer la table. Vérifiez que le message **TABLE CORRECTEMENT CRÉÉE** s’affiche sur la barre de titre de l’éditeur.
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. PartitionedGameEventsTable.json
@@ -314,7 +314,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 ### Pour créer des pipelines
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau pipeline** dans la barre d’outils. Si ce bouton n’est pas affiché dans la barre d’outils, cliquez sur **... (points de suspension)**. Vous pouvez également cliquer sur **Pipelines** dans l’arborescence, puis sur **Nouveau pipeline**.
-2. Remplacez le script JSON du volet de droite par le script JSON du fichier **PartitionGameLogsPipeline.json** dans le dossier **C:\ADFWalkthrough\\Pipelines**.
+2. Remplacez le script JSON du volet de droite par le script JSON du fichier **PartitionGameLogsPipeline.json** dans le dossier **C:\ADFWalkthrough\Pipelines**.
 3. Ajoutez une **virgule (« , »)** à la fin du **crochet fermant (« ] »)** dans le script JSON puis ajoutez les trois lignes suivantes après le crochet fermant. 
 
         "start": "2014-05-01T00:00:00Z",
@@ -525,4 +525,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

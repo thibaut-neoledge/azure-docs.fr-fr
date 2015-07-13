@@ -1,10 +1,4 @@
-<properties
-    pageTitle="Application Insights pour les applications en C++"
-    description="Analysez l’utilisation et les performances de votre application en C++ avec Application Insights." 
-    services="application-insights"
-    documentationCenter="cpp"
-    authors="crystk"
-    manager="jakubo"/>
+<properties pageTitle="Application Insights pour les applications en C++" description="Analysez l’utilisation et les performances de votre application en C++ avec Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -32,9 +26,9 @@ Dans le [portail Azure][portal], créez une ressource Application Insights. Choi
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-windows-cpp/01-universal.png)
 
-Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l’écran d’accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
 
-####  Copiez la clé d’instrumentation.
+####  Copiez la clé d'instrumentation.
 
 La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de développement logiciel (SDK) pour diriger les données vers la ressource.
 
@@ -49,7 +43,7 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 
 2. Installez le Kit de développement logiciel (SDK) Application Insights pour les applications en C++.
 
-    ![Sélectionnez **En ligne**, **Inclure la version préliminaire**, puis recherchez « Application Insights »](./media/app-insights-windows-cpp/04-ai-nuget.png)
+    ![Sélectionnez **Inclure la version préliminaire**, puis recherchez « Application Insights »](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. Dans les paramètres de vos projets relatifs à la publication et au débogage, procédez comme suit :
   - Ajoutez la chaîne « $(RepSolution)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc » dans les propriétés du projet -> Répertoires VC++ -> Répertoires Include.
@@ -57,6 +51,14 @@ La clé identifie la ressource. Vous allez bientôt l’installer dans le Kit de
 
 4. Ajoutez le fichier « ApplicationInsights.winmd » en tant que référence à votre projet à partir du chemin suivant : $(RepSolution)packages\ApplicationInsights.1.0.0-Beta\lib\native<TYPE_PLATEFORME>\release\ApplicationInsights.
 5. Ajoutez le fichier « AppInsights_Win10-UAP.dll » à partir du chemin suivant : $(RepSolution)packages\ApplicationInsights.1.0.0-Beta\lib\native<TYPE_PLATEFORME>\release\AppInsights_Win10-UAP. Accédez aux propriétés et définissez le contenu sur la valeur Oui. Cette opération copie le fichier dll dans votre répertoire de build.
+
+
+#### Pour mettre à jour le Kit de développement logiciel avec les versions ultérieures
+
+Lorsqu'un nouveau [Kit de développement logiciel et publié](app-insights-release-notes-windows-cpp.md) :
+
+* Dans le gestionnaire de package NuGet, sélectionnez le Kit de développement installé et choisissez Action : Mettre à niveau.
+* Répétez les étapes d'installation en utilisant le nouveau numéro de version.
 
 ## Utilisez le Kit de développement logiciel (SDK)
 
@@ -114,7 +116,7 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
 ## <a name="usage"></a>Étapes suivantes
 
-[Suivi de l’utilisation de votre application][track]
+[Suivi de l'utilisation de votre application][track]
 
 [Utilisation de l’API pour envoyer des mesures et des événements personnalisés][api]
 

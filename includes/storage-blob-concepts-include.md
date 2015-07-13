@@ -23,12 +23,11 @@ Le service d’objets blob contient les composants suivants :
 -   **Objet blob :** fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les blobs, consultez la page [Présentation des objets BLOB de blocs et des objets BLOB de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 -   **Format d'URL :** les objets blob sont adressables à l'aide du format d'URL suivant : http://`<storage
-    account>`.blob.core.windows.net/`<container>`/`<blob>\`
+    account>`.blob.core.windows.net/`<container>`/`<blob>`
       
     L'URL de l'exemple suivant peut être utilisée pour traiter l'un des fichiers dans le schéma ci-dessus : `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

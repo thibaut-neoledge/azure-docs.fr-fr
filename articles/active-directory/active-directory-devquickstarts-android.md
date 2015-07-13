@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath.m2\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -268,8 +268,7 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker** : 
-l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
+11. **Broker** : l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -281,8 +280,7 @@ l’application Portail d’entreprise de Microsoft Intune fournira le composant
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ```
-L’utilisateur de Service Broker est renvoyé si le compte est valide.
+ ``` L’utilisateur de Service Broker est renvoyé si le compte est valide.
 
  Votre manifeste d’application doit disposer des autorisations requises pour utiliser des comptes AccountManager : http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -311,12 +309,9 @@ L’URL de l’autorité a besoin de l’instance STS et du nom du client :http
 
 ### Interrogation des éléments de cache
 
-ADAL fournit un cache par défaut dans SharedPrefrecens avec certaines fonctions simples de requête de cache. Vous pouvez obtenir le cache actuel d’AuthenticationContext avec :
-```Java
+ADAL fournit un cache par défaut dans SharedPrefrecens avec certaines fonctions simples de requête de cache. Vous pouvez obtenir le cache actuel d’AuthenticationContext avec : ```Java
  ITokenCacheStore cache = mContext.getCache();
-```
-Vous pouvez également fournir votre implémentation du cache, si vous souhaitez le personnaliser.
-```Java
+```. Vous pouvez également fournir votre implémentation du cache, si vous souhaitez le personnaliser. ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -362,8 +357,7 @@ Vous pouvez configurer la bibliothèque pour générer des messages de journal q
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ```
- Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
+ ``` Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -384,8 +378,7 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (information)
 + Verbose (plus de détails)
 
-Vous définissez le niveau de journal comme suit : 
-```Java
+Vous définissez le niveau de journal comme suit : ```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -393,8 +386,7 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
- Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Suivis réseau
 
@@ -419,14 +411,12 @@ La classe AuthenticationParameters fournit les fonctionnalités pour obtenir aut
 
 ### Cookies de session dans Webview
 
-Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant :
-```java
+Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant : ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-```
-Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Remplacements de ressources
 
@@ -450,4 +440,4 @@ Votre application doit les remplacer si des chaînes localisées sont désirées
 Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée par l’événement onReceivedHttpAuthRequest de WebViewClient. La mise en page et les chaînes de la boîte de dialogue peuvent être personnalisés.### Étape 5 : Téléchargement de l’exemple de code de client natif iOS
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=62-->

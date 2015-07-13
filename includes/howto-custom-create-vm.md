@@ -1,5 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
-
 #Création d'une machine virtuelle personnalisée
 
 Une machine virtuelle *personnalisée* fait référence à une machine virtuelle créée via la méthode **From Gallery**, qui vous permet de configurer plus d'options que la méthode **Quick Create**. Ces options sont les suivantes :
@@ -53,7 +51,7 @@ Une machine virtuelle *personnalisée* fait référence à une machine virtuelle
 17. Cliquez sur la flèche pour créer la machine virtuelle.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![Création d’une machine virtuelle personnalisée réussie](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##Étapes suivantes##
 Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le portail indique qu'elle est active, vous pouvez vous connecter à la machine virtuelle. Pour plus d'informations, consultez l'un des articles suivants :
@@ -61,6 +59,4 @@ Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le port
 - [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

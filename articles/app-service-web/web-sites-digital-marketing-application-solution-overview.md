@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Créer une campagne marketing numérique sur Azure App Service Web Apps" 
-	description="Ce guide fournit un aperçu technique de l’utilisation d’Azure App Service Web Apps en vue de créer des campagnes marketing numériques. Il aborde notamment le déploiement, l'intégration aux médias sociaux, les stratégies de mise à l'échelle et l'analyse." 
+	description="Ce guide fournit un aperçu technique de l’utilisation d’Azure App Service Web Apps en vue de créer des campagnes marketing numériques. Il aborde notamment le déploiement, l’intégration aux médias sociaux, les stratégies de mise à l’échelle et l’analyse." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
@@ -17,7 +17,7 @@
 	ms.author="cephalin"/>
 
 # Créer une campagne marketing numérique sur Azure App Service Web Apps
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est l’outil de prédilection des campagnes marketing numériques. Les campagnes marketing numériques sont des entités à durée de vie limitée, conçues pour promouvoir des objectifs marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l'agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne. est approprié dans les deux cas.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est l’outil de prédilection des campagnes marketing numériques. Les campagnes marketing numériques sont des entités à durée de vie limitée, conçues pour promouvoir des objectifs marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l’agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne. est approprié dans les deux cas.
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -25,7 +25,7 @@ Vous trouverez ci-dessous un exemple de campagne marketing numérique multi-cana
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Ce guide présente certaines des zones et des tâches les plus courantes correspondant à l’exécution d’une campagne marketing numérique dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes que vous pouvez implémenter dans App Service Web Apps. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l'international](web-sites-global-web-presence-solution-overview.md) et aux [Applications métier](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]Ce guide présente certaines des zones et des tâches les plus courantes correspondant à l’exécution d’une campagne marketing numérique dans Azure App Service Web Apps. Toutefois, il existe d’autres solutions courantes que vous pouvez implémenter dans App Service Web Apps. Pour les découvrir, consultez les guides relatifs à la [Présence sur le Web à l’international](web-sites-global-web-presence-solution-overview.md) et aux [Applications métier](web-sites-business-application-solution-overview.md).
 
 ## Créer des ressources ou utiliser des ressources existantes
 
@@ -39,7 +39,7 @@ Vos ressources web existantes peuvent s’exécuter sur des applications web, m�
 
 Préservez votre flexibilité par une publication en continu directement à partir de votre contrôle de code source existant et exécutez des tests A/B dans App Service Web Apps.
 
-Lors des phases de planification, de prototypage et de développement initial d’une application web, l’agence et le client peuvent travailler sur des versions fonctionnelles réelles de l’application de campagne avant sa mise en service par [déploiement vers un emplacement intermédiaire] de votre application web. L’intégration du contrôle de code source à App Service Web Apps, vous permet d’effectuer la [publication en continu] vers un emplacement intermédiaire et de mettre l’application en production sans temps d’interruption dès que celle-ci est prête.
+Lors des phases de planification, de prototypage et de développement initial d’une application web, l’agence et le client peuvent travailler sur des versions fonctionnelles réelles de l’application de campagne avant sa mise en service par [déploiement vers un emplacement intermédiaire] de votre application web. L’intégration du contrôle de code source à App Service Web Apps vous permet d’effectuer la [publication en continu] vers un emplacement intermédiaire et de mettre l’application en production sans temps d’interruption dès que celle-ci est prête.
 
 Lorsque vous planifiez des modifications à apporter à une application web active, vous pouvez également facilement [exécuter des tests A/B] sur les mises à jour proposées à l’aide de la fonctionnalité de test en production intégrée et analyser le comportement des utilisateurs réels pour vous permettre de prendre des décisions avisées sur la conception de l’application.
 
@@ -54,24 +54,24 @@ Par ailleurs, chaque site de réseau social fournit habituellement des informati
 
 Enrichissez votre campagne marketing numérique avec d’autres services Azure :
 
--  Chargement et diffusion en continu de vidéos avec [Azure Media Services] au niveau global
+-  Chargement et diffusion en continu de vidéos dans le monde entier avec [Azure Media Services]
 -  Envoi de courriers électroniques aux utilisateurs grâce au [service SendGrid de Microsoft Azure Marketplace]
--  Établir une présence sur les appareils Windows, iOS et Android grâce à [Mobile Services]
--  Envoyer des notifications Push à des millions d’appareils avec [Notification Hub]
+-  Établissement d’une présence sur les appareils Windows, iOS et Android grâce à [Mobile Services]
+-  Envoi de notifications Push à des millions d’appareils avec [Notification Hub]
 
 ## Optez pour l’international !
 
 Optez pour l’international, en desservant des sites régionaux avec Microsoft Azure Traffic Manager et en fournissant du contenu très rapidement, grâce à Microsoft Azure Content Delivery Network (CDN).
 
-Pour desservir des clients dans leurs régions respectives, recourez à [Microsoft Azure Traffic Manager] pour rediriger les visiteurs vers un site régional, qui propose des performances améliorées. Vous pouvez également répartir uniformément la charge du site entre plusieurs copies de votre application web hébergée dans plusieurs régions.
+Pour desservir des clients dans leurs régions respectives, recourez à [Microsoft Azure Traffic Manager] pour rediriger les visiteurs vers un site régional offrant des performances optimales. Vous pouvez également répartir uniformément la charge du site entre plusieurs copies de votre application web hébergée dans plusieurs régions.
 
-Fournissez très rapidement un contenu statique aux utilisateurs au niveau international, via l’[intégration de votre application web avec Azure CDN]. Azure CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l’utilisateur, ce qui réduit la latence et les connexions à votre application web.
+Fournissez très rapidement un contenu statique aux utilisateurs dans le monde entier via l’[intégration de votre application web avec Azure CDN]. Azure CDN met en cache le contenu statique dans le [nœud CDN] le plus proche de l’utilisateur, ce qui réduit la latence et les connexions à votre application web.
 
 ## Optimisation
 
 Optimisez votre application web en procédant à une mise à l’échelle automatique à l’aide de la fonctionnalité Échelle automatique, à la mise en cache avec le Cache Redis Azure, à l’exécution de tâches en arrière-plan avec WebJobs et au maintien d’une haute disponibilité avec Azure Traffic Manager.
 
-La capacité de [mise à l’échelle] d’App Service Web Apps est idéale pour faire face aux charges de travail imprévisibles des campagnes marketing numériques. Mettez votre application web manuellement à l’échelle via le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), par programmation via l’[API de gestion de service] ou des [scripts PowerShell] ou automatiquement via la fonctionnalité de mise à l’échelle automatique. Au niveau **Standard**, la fonctionnalité de mise à l’échelle automatique vous permet dimensionner une application web automatiquement selon l’utilisation du processeur. Elle vous permet dans le même temps d’optimiser la flexibilité et de réduire les coûts en mettant à l’échelle l’application web uniquement lorsque cela est nécessaire en fonction de l’activité des utilisateurs. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
+La capacité de [mise à l’échelle] d’App Service Web Apps est idéale pour faire face aux charges de travail imprévisibles des campagnes marketing numériques. Mettez votre application web à l’échelle manuellement, via le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), par programme, via l’[API de gestion de service] ou des [scripts PowerShell], ou encore automatiquement, via la fonctionnalité de mise à l’échelle automatique. Au niveau **Standard**, la fonctionnalité de mise à l’échelle automatique vous permet de dimensionner une application web automatiquement selon l’utilisation du processeur. Elle vous permet dans le même temps d’optimiser la flexibilité et de réduire les coûts en mettant à l’échelle l’application web uniquement lorsque cela est nécessaire en fonction de l’activité des utilisateurs. Pour connaître les bonnes pratiques, consultez [10 choses que j’ai apprises sur la mise à l’échelle rapide d’applications web avec Azure] sur le site de [Troy Hunt].
 
 Améliorez la réactivité de votre application web avec le [cache Redis Azure]. Utilisez-le pour mettre en cache les données des bases de données principales et d’autres éléments, par exemple l’[état de session ASP.NET] et le [cache de sortie].
 

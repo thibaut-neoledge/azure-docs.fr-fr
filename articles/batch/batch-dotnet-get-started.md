@@ -80,7 +80,7 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	Remplacez les valeurs suivantes: - **[name-of-pool]** : le nom que vous souhaitez utiliser pour le pool. - **[name-of-batch-account]** : le nom du compte Batch - **[key-of-batch-account]** : la clé qui vous a été fournie pour le compte Batch.
+	Remplacez les valeurs suivantes : - **[name-of-pool]** : le nom que vous souhaitez utiliser pour le pool. - **[name-of-batch-account]** : le nom du compte Batch - **[key-of-batch-account]** : la clé qui vous a été fournie pour le compte Batch.
 5.	Ajoutez le code suivant à la section Main pour définir les informations d'identification à utiliser :
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -89,8 +89,8 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		IBatchClient client = BatchClient.Connect(Uri, cred);
 7.	Ajoutez le code suivant à la section Main pour créer le pool s'il n'existe pas :
 
-			using (IPoolManager pm = client.OpenPoolManager())
-			{
+		using (IPoolManager pm = client.OpenPoolManager())
+		{
 		   IEnumerable<ICloudPool> pools = pm.ListPools();
 		   if (!pools.Select(pool => pool.Name).Contains(PoolName))
 		   {
@@ -102,9 +102,9 @@ Un pool de machines virtuelles de tâche est le premier jeu de ressources que vo
 		         targetDedicated: NumOfMachines);
 		       newPool.Commit();
 		    }
-			}
-			Console.WriteLine("Created pool {0}", PoolName);
-			Console.ReadLine();
+		}
+		Console.WriteLine("Created pool {0}", PoolName);
+		Console.ReadLine();
 8.	Enregistrez et exécutez le programme. L'état est **Actif** pour un pool correctement ajouté.  
 
 ###Procédure pour répertorier les pools dans un compte
@@ -326,7 +326,7 @@ Vous devez avoir un compte de stockage pour suivre le reste de ce didacticiel. S
 1.	Ajoutez les variables suivantes à la classe Program :
 
 		private const string BlobPath = "[storage-path]";
-	Remplacez les valeurs suivantes :- **[storage-path]** : chemin d'accès de l'objet blob dans le stockage. Par exemple : http://yiding.blob.core.windows.net/gettingstarted/
+	Remplacez les valeurs suivantes : - **[storage-path]** : chemin d'accès de l'objet blob dans le stockage. Par exemple : http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Mettez à jour le code d'envoi de tâche comme suit.
 
@@ -602,4 +602,4 @@ Un travail décrit une charge de travail à exécuter et doit inclure toutes les
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

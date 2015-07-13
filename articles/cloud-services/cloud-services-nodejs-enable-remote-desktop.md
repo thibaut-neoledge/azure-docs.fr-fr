@@ -13,46 +13,52 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="05/29/2015" 
 	ms.author="mwasson"/>
-
-
-
-
 
 
 # Activation du Bureau à distance dans Azure
 
 Le Bureau à distance vous permet d'accéder au bureau d'une instance de rôle en cours d'exécution dans Azure. Vous pouvez utiliser une connexion Bureau à distance pour configurer la machine virtuelle ou résoudre des problèmes avec votre application.
 
-> [AZURE.NOTE]Cet article concerne les applications Node hébergées en tant que service cloud Azure.
+> [AZURE.NOTE]Cet article concerne les applications Node.js hébergées en tant que service cloud Azure.
+
+
+## Composants requis
+
+- Installez et configurez [Azure PowerShell](../install-configure-powershell.md).
+- Déploiement d'une application Node.js dans les services cloud Azure Pour plus d'informations, consultez [Création et déploiement d'une application Node.js dans un service cloud Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
 ## Étape 1 : configuration du service pour l’accès au Bureau à distance au moyen d’Azure PowerShell
 
-Pour utiliser le Bureau à distance, vous devez configurer votre définition de service et votre configuration de service au moyen d'un nom d'utilisateur, d'un mot de passe et d'un certificat afin de vous authentifier auprès des instances de rôle dans le cloud. [Azure PowerShell] inclut la cmdlet **Enable-AzureServiceProjectRemoteDesktop**, qui effectue cette configuration pour vous.
+Pour utiliser le Bureau à distance, vous devez mettre à jour la définition et la configuration du service Azure avec un nom d'utilisateur, un mot de passe et un certificat.
 
-Effectuez les étapes suivantes sur l'ordinateur sur lequel la définition de service a été créée.
+Effectuez les opérations suivantes à partir d'un ordinateur qui contient les fichiers source de votre application.
 
-1.  Dans le menu **Démarrer**, sélectionnez **Azure PowerShell**.
+1. Exécutez **Azure PowerShell** en tant qu’administrateur. (À partir du **menu Démarrer** ou de l’**écran d'accueil**, recherchez **Azure PowerShell**.
 
-	![Entrée du menu Démarrer Azure PowerShell][powershell-menu]
+2.  Accédez au répertoire qui contient les fichiers de définition de service (.csdef) et de configuration de service (.cscfg).
 
-2.  Accédez au service d'annuaire, tapez **Enable-AzureServiceProjectRemoteDesktop**, puis entrez le nom d'utilisateur et le mot de passe à utiliser lors de l'authentification auprès d'instances de rôle dans le cloud.
+3. Entrez la cmdlet PowerShell suivante :
+
+		Enable-AzureServiceProjectRemoteDesktop
+
+4. Lorsque vous y êtes invité, entrez un nom d'utilisateur et un mot de passe.
 
 	![enable-azureserviceprojectremotedesktop][enable-rdp]
 
-3.  Publiez les modifications apportées à la configuration du service dans le cloud. À l'invite **Azure PowerShell**, tapez **Publish-AzureServiceProject**.
+3.  Entrez la cmdlet PowerShell suivante pour publier les modifications :
+
+    	Publish-AzureServiceProject
 
 	![publish-azureserviceproject][publish-project]
 
-Une fois ces étapes effectuées, les instances de rôle du service dans le cloud sont configurées pour l'accès au Bureau à distance.
-
 ## Étape 2 : connexion à l’instance de rôle
 
-Votre déploiement étant opérationnel dans Azure, vous pouvez vous connecter à l'instance de rôle.
+Une fois que vous avez publié la définition de service de mise à jour, vous pouvez vous connecter à l'instance de rôle.
 
-1.  Dans le [portail de gestion Azure], sélectionnez **Cloud Services**, puis le service déployé à l'étape 1 ci-dessus.
+1.  Dans le [Portail de gestion Azure], sélectionnez **Cloud Services**, puis sélectionnez votre service.
 
 	![portail de gestion azure][cloud-services]
 
@@ -60,7 +66,7 @@ Votre déploiement étant opérationnel dans Azure, vous pouvez vous connecter �
 
     ![Page des instances][3]
 
-2.  Lorsque vous cliquez sur **Connexion**, le navigateur Web vous invite à enregistrer un fichier .rdp. Si vous utilisez Internet Explorer, cliquez sur **Ouvrir**.
+2.  Lorsque vous cliquez sur **Connexion**, le navigateur Web vous invite à enregistrer un fichier .rdp. Ouvrez ce fichier. (Par exemple, si vous utilisez Internet Explorer, cliquez sur **Ouvrir**.)
 
     ![invite à ouvrir ou enregistrer le fichier .rdp][4]
 
@@ -68,23 +74,25 @@ Votre déploiement étant opérationnel dans Azure, vous pouvez vous connecter �
 
     ![Invite de sécurité Windows][5]
 
-4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe que vous avez créé à l'[étape 1][Step 1: Configure the service for Remote Desktop access using Azure PowerShell], puis cliquez sur **OK**.
+4.  Cliquez sur **Connexion**. Une invite de sécurité vous permet d'entrer des informations d'identification pour accéder à l'instance. Entrez le mot de passe créé à l’[étape 1][Étape 1 : configuration du service pour l'accès au Bureau à distance à l’aide d'Azure PowerShell], puis cliquez sur **OK**.
 
     ![invite du nom d'utilisateur/mot de passe][6]
 
-Une fois la connexion établie, la connexion Bureau à distance affiche le bureau de l'instance dans Azure. Vous disposez à présent d'un accès distant à votre instance et vous pouvez effectuer toutes les tâches nécessaires à la gestion de votre application.
+Une fois la connexion établie, la connexion Bureau à distance affiche le bureau de l'instance dans Azure.
 
 ![session Bureau à distance][7]
 
 ## Étape 3 : configuration du service pour désactiver l’accès au Bureau à distance 
 
-Une fois que vous n'avez plus besoin des connexions Bureau à distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à distance au moyen d'[Azure PowerShell]
+Une fois que vous n'avez plus besoin des connexions Bureau à distance aux instances de rôle dans le cloud, désactivez l'accès Bureau à distance via [Azure PowerShell].
 
-1.  Dans le menu **Démarrer**, sélectionnez **Azure PowerShell**.
+1.  Entrez la cmdlet PowerShell suivante :
 
-2.  Accédez au service d'annuaire et tapez **Disable-AzureServiceProjectRemoteDesktop** :
+    	Disable-AzureServiceProjectRemoteDesktop
 
-3.  Publiez les modifications apportées à la configuration du service dans le cloud. À l'invite **Azure PowerShell**, tapez **Publish-AzureServiceProject**.
+2.  Entrez la cmdlet PowerShell suivante pour publier les modifications :
+
+    	Publish-AzureServiceProject
 
 ## Ressources supplémentaires
 
@@ -92,19 +100,20 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
 - [Utilisation du Bureau à distance avec des rôles Azure]
 
 
-[Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[portail de gestion Azure]: http://manage.windowsazure.com
-[powershell-menu]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
+[Portail de gestion Azure]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
-[Accès à distance aux instances de rôle dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-[Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+  
+  [Accès à distance aux instances de rôle dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+  [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

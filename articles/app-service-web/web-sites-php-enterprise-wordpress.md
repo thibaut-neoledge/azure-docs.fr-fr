@@ -22,11 +22,11 @@ Azure App Service fournit un environnement modulable, sécurisé et facile à 
 
 ## Architecture et planification
 
-Il y a seulement deux conditions requises pour l'installation WordPress de base.
+Il y a seulement deux conditions requises pour l’installation WordPress de base.
 
 * **Base de données MySQL** : disponible via [ClearDB dans Azure Marketplace][cdbnstore]. Vous pouvez également gérer votre propre installation de MySQL dans Azure Virtual Machines sous [Windows][mysqlwindows] ou [Linux][mysqllinux].
 
-    > [AZURE.NOTE]ClearDB fournit plusieurs configurations MySQL, avec différentes caractéristiques de performance pour chaque configuration. Rendez-vous dans le [Magasin Azure][cdbnstore] pour plus d'informations sur les offres disponibles ou sur [Tarifs ClearDB](http://www.cleardb.com/pricing.view) pour voir les offres directement sur ClearDB.
+    > [AZURE.NOTE]ClearDB fournit plusieurs configurations MySQL, avec différentes caractéristiques de performance pour chaque configuration. Rendez-vous dans le [Magasin Azure][cdbnstore] pour plus d’informations sur les offres disponibles ou sur [Tarifs ClearDB](http://www.cleardb.com/pricing.view) pour voir les offres directement sur ClearDB.
 
 * **PHP 5.2.4 ou une version ultérieure** : Azure App Service fournit actuellement les [versions PHP 5.3, 5.4 et 5.5][phpwebsite].
 
@@ -34,30 +34,30 @@ Il y a seulement deux conditions requises pour l'installation WordPress de base.
 
 ###Déploiement basique
 
-Vous pouvez créer une solution de base au sein d'une région Azure rien qu'avec les conditions requises de base.
+Vous pouvez créer une solution de base au sein d’une région Azure rien qu’avec les conditions requises de base.
 
 ![une application web Azure et une base de données MySQL hébergées dans une seule région Azure][basic-diagram]
 
-Même si vous pouvez mettre votre application à l’échelle en créant plusieurs instances Web Apps du site, tout est hébergé au sein des centres de données d’une région géographique spécifique. Les visiteurs à l'extérieur de cette région peuvent rencontrer des temps de réponse lents en utilisant le site. De plus, si les centres de données de cette région tombent en panne, votre application en subira les conséquences.
+Même si vous pouvez mettre votre application à l’échelle en créant plusieurs instances Web Apps du site, tout est hébergé au sein des centres de données d’une région géographique spécifique. Les visiteurs à l’extérieur de cette région peuvent rencontrer des temps de réponse lents en utilisant le site. De plus, si les centres de données de cette région tombent en panne, votre application en subira les conséquences.
 
 
 ###Déploiement multi-régions
 
-À l'aide d'Azure [Traffic Manager][trafficmanager], il est possible de mettre à l'échelle votre site WordPress dans plusieurs régions géographiques tout en fournissant une URL unique aux visiteurs. Tous les visiteurs passent par Traffic Manager et sont ensuite dirigés vers une région selon la configuration de l'équilibrage de charge.
+À l'aide d'Azure [Traffic Manager][trafficmanager], il est possible de mettre à l'échelle votre site WordPress dans plusieurs régions géographiques tout en fournissant une URL unique aux visiteurs. Tous les visiteurs passent par Traffic Manager et sont ensuite dirigés vers une région selon la configuration de l’équilibrage de charge.
 
 ![une application web Azure, hébergée dans de nombreuses régions, utilisant un routeur CDBR haute disponibilité pour assurer un acheminement vers MySQL à travers les régions][multi-region-diagram]
 
 Au sein de chaque région, le site WordPress est toujours mis à l’échelle dans plusieurs instances Web Apps, mais cette mise à l’échelle est spécifique à la région ; les régions à fort trafic peuvent être mises à l’échelle différemment par rapport à celles qui ont un trafic moindre.
 
-La réplication et le routage vers plusieurs bases de données MySQL peuvent être effectués à l'aide du [Routeur CDBR haute disponibilité][cleardbscale] ClearDB (à gauche) ou du [Cluster CGE MySQL][cge].
+La réplication et le routage vers plusieurs bases de données MySQL peuvent être effectués à l’aide du [Routeur CDBR haute disponibilité][cleardbscale] ClearDB (à gauche) ou du [Cluster CGE MySQL][cge].
 
 ###Déploiement multi-régions avec stockage multimédia et mise en cache
 
-Si le site accepte les chargements ou héberge des fichiers multimédias, utilisez le stockage d'objets blob Azure. S'il vous faut une mise en cache, pensez au [Cache Redis][rediscache], à [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), à [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou à l'une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/gallery/store/).
+Si le site accepte les chargements ou héberge des fichiers multimédias, utilisez le stockage d'objets blob Azure. S’il vous faut une mise en cache, pensez au [Cache Redis][rediscache], à [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), à [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou à l’une des autres offres de mise en cache du [Magasin Azure](http://azure.microsoft.com/gallery/store/).
 
 ![une application web Azure, hébergée dans de nombreuses régions, utilisant un routeur CDBR haute disponibilité pour MySQL, avec le service de cache géré, le stockage d’objets blob et le CDN][performance-diagram]
 
-Le stockage d'objets blob est par défaut géo-distribué dans les régions ; vous n'avez donc pas besoin de répliquer les fichiers sur tous les sites. Vous pouvez également activer le [Réseau de distribution de contenu (CDN)][cdn] Azure pour le stockage d'objets blob, qui distribue des fichiers à des nœuds finaux plus proches de vos visiteurs.
+Le stockage d’objets blob est par défaut géo-distribué dans les régions ; vous n’avez donc pas besoin de répliquer les fichiers sur tous les sites. Vous pouvez également activer le [Réseau de distribution de contenu (CDN)][cdn] Azure pour le stockage d'objets blob, qui distribue des fichiers à des nœuds finaux plus proches de vos visiteurs.
 
 ###Planification
 
@@ -66,18 +66,18 @@ Le stockage d'objets blob est par défaut géo-distribué dans les régions ; v
 Action à réaliser... | Élément à utiliser...
 ------------------------|-----------
 **Téléchargement ou stockage de fichiers volumineux** | [Plug-in WordPress pour l'utilisation du stockage d'objets blob][storageplugin]
-**Envoi d’e-mail** | [SendGrid][storesendgrid] et le [plug-in WordPress pour l'utilisation de SendGrid][sendgridplugin]
+**Envoi d’e-mail** | [SendGrid][storesendgrid] et le [plug-in WordPress pour l’utilisation de SendGrid][sendgridplugin]
 **Noms de domaines personnalisés** | [Configuration d’un nom de domaine personnalisé dans Azure App Service][customdomain]
 **HTTPS** | [Activation du protocole HTTPS pour une application web dans Azure App Service][httpscustomdomain]
 **Validation de pré-production** | [Installation d’environnements intermédiaires pour les applications web dans Azure App Service][staging] <p>Notez que le fait de passer une application web de la version intermédiaire à la production modifie également la configuration de WordPress. Assurez-vous que tous les paramètres sont mis à jour en fonction des conditions requises pour votre application de production avant de passer de l’application en version intermédiaire à la production.</p>
 **Surveillance et résolution de problèmes** | [Activation de la journalisation des diagnostics pour les applications web dans Azure App Service][log] et [Surveillance des applications web dans Azure App Service][monitor]
 **Déploiement de votre site** | [Déploiement d’une application web dans Azure App Service][deploy]
 
-####Disponibilité et récupération d'urgence
+####Disponibilité et récupération d’urgence
 
 Action à réaliser... | Élément à utiliser...
 ------------------------|-----------
-**Sites d'équilibrage de charge** ou **sites de géo-distribution** | [Acheminer le trafic avec Azure Traffic Manager][trafficmanager]
+**Sites d’équilibrage de charge** ou **sites de géo-distribution** | [Acheminer le trafic avec Azure Traffic Manager][trafficmanager]
 **Sauvegarde et restauration** | [Sauvegarde d’une application web dans Azure App Service][backup] et [Restauration d’une application web dans Azure App Service][restore]
 
 ####Performances
@@ -87,8 +87,8 @@ La performance du cloud est principalement assurée via la mise en cache et la m
 Action à réaliser... | Élément à utiliser...
 ------------------------|-----------
 **Compréhension des capacités des instances App Service** | [Détails sur la tarification, y compris les capacités des niveaux App Service][websitepricing]
-**Ressources de cache** | [Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) ou l'une des autres offres de mise en cache du [Magasin Azure](/gallery/store/).
-**Mise en échelle de votre application** | [Mise à l’échelle d’une application dans Azure App Service][websitescale] et [Routage à haute disponibilité ClearDB][cleardbscale] Si vous choisissez d'héberger et de gérer votre propre installation MySQL, pensez au [Cluster CGE MySQL][cge] pour la montée en charge
+**Ressources de cache** | [Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) ou l’une des autres offres de mise en cache du [Magasin Azure](/gallery/store/).
+**Mise en échelle de votre application** | [Mise à l’échelle d’une application dans Azure App Service][websitescale] et [Routage à haute disponibilité ClearDB][cleardbscale] Si vous choisissez d’héberger et de gérer votre propre installation MySQL, pensez au [Cluster CGE MySQL][cge] pour la montée en charge
 
 ####Migration
 
@@ -110,7 +110,7 @@ Il existe deux méthodes permettant de migrer un site WordPress existant vers Az
 
 Si vous migrez un site WordPress existant, consultez [Migration d'un site WordPress existant dans Azure](#Migrate-an-existing-WordPress-site-to-Azure) après la création d’une nouvelle application web.
 
-### Migration d'un site WordPress existant sur Azure
+### Migration d’un site WordPress existant sur Azure
 
 Comme mentionné dans la section [Architecture et planification](#planning), il existe deux méthodes pour migrer un site WordPress.
 
@@ -122,28 +122,28 @@ Utilisez l'une des sections suivantes pour migrer votre site.
 
 ####Méthode d'exportation et d'importation
 
-1. Utilisez l'outil [Exporter de WordPress][export] pour exporter votre site existant.
+1. Utilisez l’outil [Exporter de WordPress][export] pour exporter votre site existant.
 
 2. Créez une nouvelle application web en suivant les étapes de la section [Création d’un nouveau site WordPress](#Create-a-new-WordPress-site).
 
-3. Connectez-vous à votre site WordPress sur Web Apps et cliquez sur **Plug-ins** -> **Ajouter nouveau**. Recherchez et installez l'extension **Importer de WordPress**.
+3. Connectez-vous à votre site WordPress sur Web Apps et cliquez sur **Plug-ins** -> **Ajouter nouveau**. Recherchez et installez l’extension **Importer de WordPress**.
 
-4. Une fois que l'extension Importer est installée, cliquez sur **Outils** -> **Importation**, puis sélectionnez **WordPress** pour utiliser l'extension Importer de WordPress.
+4. Une fois que l’extension Importer est installée, cliquez sur **Outils** -> **Importation**, puis sélectionnez **WordPress** pour utiliser l’extension Importer de WordPress.
 
 5. Sur la page **Importation WordPress**, cliquez sur **Choisir un fichier**. Recherchez le fichier WXR exporté de votre site WordPress existant, puis sélectionnez **Chargement du fichier et importation**.
 
-6. Cliquez sur **Envoyer**. Un message vous signalera que l'importation est terminée.
+6. Cliquez sur **Envoyer**. Un message vous signalera que l’importation est terminée.
 
 8. Une fois que vous avez complété toutes les étapes, redémarrez votre site depuis le panneau de son application web sur le [portail Azure en version préliminaire][mgmtportal].
 
-Après avoir importé le site, vous devez suivre les étapes suivantes pour activer les paramètres non présents dans le fichier d'importation.
+Après avoir importé le site, vous devez suivre les étapes suivantes pour activer les paramètres non présents dans le fichier d’importation.
 
 Si vous utilisiez ceci... | Procédez comme suit...
 ------------------ | ----------
 **Permaliens** | À partir du tableau de bord WordPress du nouveau site, cliquez sur **Réglages** -> **Permaliens**, puis mettez à jour la structure Permaliens.
 **image/liens média** | Pour mettre à jour les liens vers le nouvel emplacement, utilisez le [plug-in Velvet Blues Update URLs][velvet], un outil Rechercher et remplacer ou procédez manuellement dans votre base de données.
 **Thèmes** | Accédez à **Apparence** -> **Thème** et mettez à jour le thème du site comme vous le souhaitez
-**Menus** | Si votre thème prend en charge les menus, les liens vers votre page d'accueil peuvent toujours avoir l'ancien sous-répertoire d'incorporé. Rendez-vous dans **Apparence** -> **Menus** et mettez-les à jour.
+**Menus** | Si votre thème prend en charge les menus, les liens vers votre page d’accueil peuvent toujours avoir l’ancien sous-répertoire d’incorporé. Rendez-vous dans **Apparence** -> **Menus** et mettez-les à jour.
 
 ####Méthode de sauvegarde et de restauration
 
@@ -155,7 +155,7 @@ Si vous utilisiez ceci... | Procédez comme suit...
 
 	1. Achetez une nouvelle base de données dans [Azure Marketplace][cdbnstore] ou configurez une base de données MySQL sur une machine virtuelle [Windows][mysqlwindows] ou [Linux][mysqllinux].
 
-	2. À l'aide d'un client MySQL comme [MySQL Workbench][workbench], connectez-vous à la nouvelle base de données et importez votre base de données WordPress.
+	2. À l’aide d’un client MySQL comme [MySQL Workbench][workbench], connectez-vous à la nouvelle base de données et importez votre base de données WordPress.
 
 	3. Mettez à jour la base de données pour modifier les entrées de domaine sur votre nouveau domaine Azure App Service. Par exemple, mywordpress.azurewebsites.net. Utilisez la fonction [Rechercher et remplacer du script de bases de données WordPress][searchandreplace] pour modifier de manière sécurisée toutes les instances.
 

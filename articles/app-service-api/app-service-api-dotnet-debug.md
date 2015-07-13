@@ -18,7 +18,7 @@
 
 # Déboguer une application API dans Azure App Service
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Dans ce didacticiel, vous allez déboguer le code de l’API web ASP.NET configuré pour une exécution au sein d’une [application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous allez déboguer ce code en local et à distance (lors de son exécution dans Microsoft Azure). Le didacticiel fonctionne avec l’application API que vous avez [créée](app-service-dotnet-create-api-app.md) et [déployée](app-service-dotnet-deploy-api-app.md) dans les didacticiels précédents de cette série.
 
@@ -117,7 +117,7 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 
 ## Étapes suivantes
 
-Le débogage distant pour les applications API vous permet de mieux voir l’exécution du code dans Azure App Service. Des données complètes de diagnostic et de débogage sont disponibles directement dans l’IDE de Visual Studio pour vos applications API Azure.
+Le débogage distant pour les applications API vous permet de mieux voir l'exécution du code dans Azure App Service. Des données complètes de diagnostic et de débogage sont disponibles directement dans l’IDE de Visual Studio pour vos applications API Azure.
 
 Les applications API App Service sont des applications web App Service qui présentent des fonctionnalités supplémentaires pour l’hébergement des services web. Vous pouvez donc utiliser les mêmes outils de débogage et de résolution des problèmes pour les applications API que ceux que vous utilisez pour les applications web. Pour plus d’informations, consultez [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 

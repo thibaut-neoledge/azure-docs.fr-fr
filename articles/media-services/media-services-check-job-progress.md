@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Vérification de la progression des tâches à l'aide de .NET" 
-	description="Apprenez à utiliser le code du gestionnaire d'événements pour suivre la progression des tâches et envoyer des mises à jour de l'état. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
+	pageTitle="Vérification de la progression des tâches à l’aide de .NET" 
+	description="Apprenez à utiliser le code du gestionnaire d’événements pour suivre la progression des tâches et envoyer des mises à jour de l’état. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
-# Procédure : vérification de la progression des tâches
+#Procédure : vérification de la progression des tâches
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md) . 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
-Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez vérifier la progression en [définissant un gestionnaire d'événements StateChanged](#statechange_event_handler) ou en [utilisant le stockage de files d'attente Azure pour surveiller les notifications de tâches Media Services](#check_progress_with_queues). Les deux méthodes sont décrites dans cette rubrique. 
+Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez vérifier la progression en [définissant un gestionnaire d'événements StateChanged](#statechange_event_handler) ou en [utilisant le stockage de files d'attente Azure pour contrôler les notifications de tâches Media Services](#check_progress_with_queues). Les deux méthodes sont décrites dans cette rubrique.
 
-## <a id="statechange_event_handler"></a>Définir le gestionnaire d'événements StateChanged pour surveiller la progression des tâches
+##<a id="statechange_event_handler"></a>Définir le gestionnaire d'événements StateChanged pour surveiller la progression des tâches
 
-L'exemple de code suivant définit un gestionnaire d'événements StateChanged. Ce dernier suit la progression du travail et fournit l'état mis à jour, selon l'état. Le code définit également la méthode LogJobStop. Cette méthode d'assistance journalise les détails de l'erreur.
+L’exemple de code suivant définit un gestionnaire d’événements StateChanged. Ce dernier suit la progression du travail et fournit l'état mis à jour, selon l'état. Le code définit également la méthode LogJobStop. Cette méthode d’assistance journalise les détails de l’erreur.
 
 	private static void StateChanged(object sender, JobStateChangedEventArgs e)
 	{
@@ -103,42 +103,42 @@ L'exemple de code suivant définit un gestionnaire d'événements StateChanged. 
 
 
 
-## <a id="check_progress_with_queues"></a>Utiliser le stockage de files d'attente Azure pour surveiller les notifications de tâches Media Services
+##<a id="check_progress_with_queues"></a>Utiliser le stockage de files d'attente Azure pour surveiller les notifications de tâches Media Services
 
-Microsoft Azure Media Services peut assurer la remise de messages de notification au [stockage de files d'attente Azure](../storage-dotnet-how-to-use-queues.md#what-is) lors du traitement de tâches multimédias. Cette rubrique explique comment obtenir ces messages de notification à partir du stockage de files d'attente.
+Microsoft Azure Media Services peut assurer la remise de messages de notification au [stockage de files d'attente Azure](../storage-dotnet-how-to-use-queues.md#what-is) pendant le traitement de tâches multimédias. Cette rubrique explique comment obtenir ces messages de notification à partir du stockage de files d’attente.
 
-Les messages transmis au stockage de files d'attente sont accessibles n'importe où dans le monde. L'architecture de messagerie des files d'attente Azure est hautement évolutive. Le stockage avec interrogation des files d'attente est préférable aux autres méthodes. 
+Les messages transmis au stockage de files d’attente sont accessibles n’importe où dans le monde. L’architecture de messagerie des files d’attente Azure est hautement évolutive. Le stockage avec interrogation des files d’attente est préférable aux autres méthodes.
 
-Un scénario courant pour écouter les notifications Media Services se présente si vous développez un système de gestion de contenu qui doit exécuter une tâche supplémentaire une fois une tâche d'encodage terminée (par exemple, déclencher l'étape suivante d'un flux de travail ou publier du contenu). 
+Un scénario courant pour écouter les notifications Media Services se présente si vous développez un système de gestion de contenu qui doit exécuter une tâche supplémentaire une fois une tâche d’encodage terminée (par exemple, déclencher l’étape suivante d’un flux de travail ou publier du contenu).
 
-### Considérations
+###Considérations
 
-Considérez les éléments suivants lors du développement d'applications Media Services qui utilisent les files d'attente de stockage Azure.
+Considérez les éléments suivants lors du développement d’applications Media Services qui utilisent les files d’attente de stockage Azure.
 
-- Le service de files d'attente ne garantit pas une remise dans l'ordre d'arrivée (FIFO). Pour plus d'informations, consultez la page [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-- Les files d'attente de stockage Azure ne constituent pas un service de type Push ; vous devez interroger les files d'attente. 
-- Le nombre de files d'attente est illimité. Pour plus d'informations, consultez la page [API REST du service de File d'attente](https://msdn.microsoft.com/library/azure/dd179363.aspx).
-- Les files d'attente de stockage Azure présentent certaines limitations et spécificités décrites dans l'article suivant : [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx)
+- Le service de files d’attente ne garantit pas une remise dans l’ordre d’arrivée (FIFO). Pour plus d'informations, consultez [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+- Les files d’attente de stockage Azure ne constituent pas un service de type Push ; vous devez interroger les files d’attente. 
+- Le nombre de files d’attente est illimité. Pour plus d'informations, consultez [API REST du service de file d'attente](https://msdn.microsoft.com/library/azure/dd179363.aspx).
+- Les files d'attente de stockage Azure présentent certaines limitations et spécificités décrites dans l'article suivant : [Files d'attente Azure et files d'attente Azure Service Bus - comparaison et différences](https://msdn.microsoft.com/library/azure/hh767287.aspx)
 
-### Exemple de code
+###Exemple de code
 
-L'exemple de code de cette section permet d'effectuer les opérations suivantes :
+L’exemple de code de cette section permet d’effectuer les opérations suivantes :
 
-1. Définir la classe **EncodingJobMessage** qui assure le mappage au format des messages de notification. Le code désérialise les messages reçus à partir de la file d'attente en des objets du type **EncodingJobMessage**.
+1. Définir la classe **EncodingJobMessage** qui assure le mappage au format des messages de notification. Le code désérialise les messages reçus à partir de la file d'attente en objets du type **EncodingJobMessage**.
 1. Charger les informations de compte Media Services et Storage à partir du fichier app.config. Utiliser ces informations pour créer les objets **CloudMediaContext** et **CloudQueue**.
-1. Créer la file d'attente qui recevra les messages de notification concernant la tâche d'encodage.
-1. Créer le point de terminaison de notification mappé à la file d'attente.
-1. Associer le point de terminaison de notification à la tâche et soumettre la tâche d'encodage. Vous pouvez avoir plusieurs points de terminaison de notification associés à une tâche.
+1. Créer la file d’attente qui recevra les messages de notification concernant la tâche d’encodage.
+1. Créer le point de terminaison de notification mappé à la file d’attente.
+1. Associer le point de terminaison de notification à la tâche et soumettre la tâche d’encodage. Vous pouvez avoir plusieurs points de terminaison de notification associés à une tâche.
 1. Dans cet exemple, comme seuls les derniers états du traitement de la tâche nous intéressent, nous transmettons **NotificationJobState.FinalStatesOnly** à la méthode **AddNew**. 
 		
 		job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-1. Si vous transmettez NotificationJobState.All, vous obtiendrez des notifications de modification pour tous les états : En attente -> Planifié -> Traitement en cours -> Terminé. Toutefois, comme indiqué précédemment, le service de files d'attente de stockage Azure ne garantit pas une remise dans l'ordre d'arrivée. Vous pouvez utiliser la propriété Timestamp (définie sur le type EncodingJobMessage dans l'exemple ci-dessous) pour ordonner les messages. Il est possible que vous receviez des messages de notification en double. Utilisez la propriété ETag (définie sur le type EncodingJobMessage) pour rechercher les éventuels doublons. Notez qu'il se peut également que certaines notifications de modification d'état soient ignorées. 
-1. Attendre que la tâche atteigne l'état Terminé en vérifiant la file d'attente toutes les 10 secondes. Supprimer les messages une fois qu'ils ont été traités.
-1. Supprimer la file d'attente et le point de terminaison de notification.
+1. Si vous transmettez NotificationJobState.All, vous obtiendrez des notifications de modification pour tous les états : En attente -> Planifié -> Traitement en cours -> Terminé. Toutefois, comme indiqué précédemment, le service de files d’attente de stockage Azure ne garantit pas une remise dans l’ordre d’arrivée. Vous pouvez utiliser la propriété Timestamp (définie sur le type EncodingJobMessage dans l’exemple ci-dessous) pour ordonner les messages. Il est possible que vous receviez des messages de notification en double. Utilisez la propriété ETag (définie sur le type EncodingJobMessage) pour rechercher les éventuels doublons. Notez qu’il se peut également que certaines notifications de modification d’état soient ignorées. 
+1. Attendre que la tâche atteigne l’état Terminé en vérifiant la file d’attente toutes les 10 secondes. Supprimer les messages une fois qu’ils ont été traités.
+1. Supprimer la file d’attente et le point de terminaison de notification.
 
->[AZURE.NOTE]La méthode recommandée pour surveiller l'état d'une tâche consiste à écouter les messages de notification, comme illustré dans l'exemple suivant.
+>[AZURE.NOTE]La méthode recommandée pour surveiller l’état d’une tâche consiste à écouter les messages de notification, comme illustré dans l’exemple suivant.
 >
->Vous pouvez également contrôler l'état d'une tâche à l'aide de la propriété **IJob.State**.  Notez qu'il se peut qu'un message de notification annonçant la fin d'une tâche arrive avant que l'état sur **IJob** soit défini sur **Terminé**. La propriété **IJob.State** reflète l'état correct avec un léger retard.
+>Vous pouvez également contrôler l'état d'une tâche à l'aide de la propriété **IJob.State**. Notez qu'il se peut qu'un message de notification annonçant la fin d'une tâche arrive avant que l'état sur **IJob** soit défini sur **Terminé**. La propriété **IJob.State** reflète l'état correct avec un léger retard.
 
 	
 	using System;
@@ -398,7 +398,7 @@ L'exemple de code de cette section permet d'effectuer les opérations suivantes 
 	    }
 	}
 
-L'exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
+L’exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
 	
 	Created assetFile BigBuckBunny.mp4
 	Upload BigBuckBunny.mp4
@@ -425,6 +425,6 @@ L'exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

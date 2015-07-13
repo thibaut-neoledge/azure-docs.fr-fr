@@ -91,4 +91,4 @@ Une fois le compte de développeur créé, vous pouvez l'associer à des rôles 
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Configuration des modèles de courrier électronique]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

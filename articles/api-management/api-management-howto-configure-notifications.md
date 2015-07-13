@@ -114,4 +114,4 @@ Cliquez sur **Aperçu** ou **Envoyer un test** pour voir à quoi ressemble le me
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

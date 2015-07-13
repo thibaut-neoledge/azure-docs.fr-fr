@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion d'une base de données SQL avec SSMS - Azure" 
+	pageTitle="Gestion d’une base de données SQL avec SSMS - Azure" 
 	description="Découvrez comment utiliser SQL Server Management Studio pour gérer des serveurs et les bases de données de la base de données SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -21,7 +21,7 @@
 
 
 
-[AZURE.INCLUDE [sql-azure-management](../../includes/sql-azure-management.md)] 
-
-<!--HONumber=47-->
+[AZURE.INCLUDE [sql-azure-management](../../includes/sql-azure-management.md)]
  
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="J&#39;utilise Mobile Services. Comment App Service peut-il m&#39;aider ?"
-	description="Découvrez les avantages qu&#39;App Service apporte dans le cadre de vos projets Mobile Services existants."
+	pageTitle="J'utilise Mobile Services. Comment App Service peut-il m'aider ?"
+	description="Découvrez les avantages qu'App Service apporte dans le cadre de vos projets Mobile Services existants."
 	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="kirillg"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -24,18 +24,18 @@ Votre service Mobile Service existant est sécurisé et restera pris en charge. 
 - Offre plus simple, plus facile et plus économique pour les applications qui incluent à la fois des clients web et mobiles
 - Nouvelles fonctionnalités d'hôte, y compris les tâches web, les enregistrements CName personnalisés et une meilleure analyse
 - Intégration clé en main avec Office 365, Dynamics CRM, Salesforce et d'autres API SaaS stratégiques
-- Prise en charge du code de backend Java et PHP, outre Node.js et .NET 
+- Prise en charge du code de backend Java et PHP, outre Node.js et .NET
 - Intégration clé en main avec Traffic Manager
 - Connectivité à vos ressources locales et réseaux privés virtuels à l'aide de VNet outre les connexions hybrides
 - Surveillance et dépannage de votre application à l'aide de NewRelic ou d'AppInsights, ainsi que des alertes
-- Plus riche éventail de ressources de calcul sous-jacentes, p. ex. de tailles de machines virtuelles 
+- Plus riche éventail de ressources de calcul sous-jacentes, p. ex. de tailles de machines virtuelles
 - Fonctionnalités intégrées de mise à l'échelle automatique, d'équilibrage de la charge et d'analyse des performances
-- Fonctionnalités intégrées intermédiaires, de sauvegarde, de restauration et de test en production 
+- Fonctionnalités intégrées intermédiaires, de sauvegarde, de restauration et de test en production
 
 ## Nouvelles fonctionnalités d'hébergement
 Dans *Azure App Service*, le code de backend de la fonctionnalité *Applications mobiles* s'exécute dans le même conteneur que l'application web et l'application API. Par conséquent, vous pouvez tirer parti de toutes les fonctionnalités dans ce conteneur, y compris de certaines qui ne figurent pas actuellement dans Mobile Services :
 
-- ajoutez une logique de backend qui s'exécute en permanence via les tâches web ; 
+- ajoutez une logique de backend qui s'exécute en permanence via les tâches web ;
 - assurez-vous que votre code de backend est toujours en cours d'exécution ;
 - utilisez des enregistrements CName personnalisés pour fournir des noms conviviaux et stables aux points de terminaison de votre backend mobile ;
 - dimensionnez géographiquement votre application avec Traffic Manager.
@@ -65,8 +65,6 @@ Sauvegardez automatiquement votre backend et votre base de données. Votre code 
 
 
 D'ici à ce que la fonctionnalité *Azure App Service Mobile Apps* devienne disponible pour tous, nous vous fournirons une expérience de migration transparente pour vos applications Mobile Services vers App Service, si vous choisissez d'effectuer une migration. En attendant, vous pouvez commencer à explorer *App Service* et à tirer parti d'*App Service* pour votre application Mobile Service existante en suivant ce [didacticiel](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

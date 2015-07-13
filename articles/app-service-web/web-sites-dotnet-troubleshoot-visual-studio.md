@@ -85,13 +85,13 @@ En général, vous déployez un projet Web avec l’indicateur `customErrors` d
 
 **Le site Web ne peut pas afficher la page**
 
-![Page d'erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
+![Page d’erreur inutile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Généralement, la méthode la plus simple pour rechercher la cause d’une erreur consiste à activer les messages d’erreur détaillés : la première capture d’écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet et redéployer le projet, ou créer une [transformation Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) et déployer une build de débogage, mais il existe un moyen plus rapide : dans l’**Explorateur de solutions**, vous pouvez directement afficher et modifier des fichiers dans l’application Web distante en utilisant la fonctionnalité d’*affichage distant*.
+Généralement, la méthode la plus simple pour rechercher la cause d’une erreur consiste à activer les messages d’erreur détaillés : la première capture d’écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet et redéployer le projet, ou créer une [transformation Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) et déployer une build de débogage, mais il existe un moyen plus rapide : dans l’**Explorateur de solutions**, vous pouvez directement afficher et modifier des fichiers dans l’application web distante en utilisant la fonctionnalité d’*affichage distant*.
 
-1. Dans l’**Explorateur de serveurs**, développez l’élément **Azure**, **Service d’applications**, puis le groupe de ressources où se trouve votre application Web et développez le nœud de votre application Web.
+1. Dans l’**Explorateur de serveurs**, développez l’élément **Azure**, **Service d’applications**, puis le groupe de ressources où se trouve votre application web et développez le nœud de votre application web.
 
-	Pour afficher les nœuds qui vous donnent accès aux fichiers de contenu et les fichiers journaux de l’application web.
+	Pour afficher les nœuds qui vous donnent accès aux fichiers de contenu et les fichiers journaux de l’application web.
 
 2. Développez le nœud **Fichiers**, puis double-cliquez sur le fichier *Web.config*.
 
@@ -269,7 +269,7 @@ Si votre fonction [a écrit des journaux](websites-dotnet-webjobs-sdk-storage-qu
 
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 
-* Vous pouvez manuellement connecter le débogueur à n’importe quel processus, et non au seul processus d’application web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Vous pouvez manuellement connecter le débogueur à n’importe quel processus, et non au seul processus d’application web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/fr-fr/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Présentation des journaux de diagnostic
 
@@ -751,7 +751,7 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 
 ### Débogage de Cloud Services
 
-Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une application Web, consultez [Débogage de services cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
+Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une application Web, consultez [Débogage de services cloud](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx).
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 

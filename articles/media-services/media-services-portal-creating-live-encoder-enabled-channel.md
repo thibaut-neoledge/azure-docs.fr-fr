@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple (version préliminaire)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
@@ -58,7 +62,7 @@ Dans ce didacticiel, le portail de gestion Azure est utilisé pour effectuer les
 3.  Créez un canal qui est activé pour effectuer un encodage en temps réel.
 1.  Obtenez l’URL de réception afin de la fournir à l’encodeur dynamique. L’encodeur dynamique utilise cette URL pour recevoir le flux dans le canal.
 1.  Créez un programme (et une ressource).
-1.  Publiez la ressource et obtenez les URL de diffusion en continu.  
+1.  Publier la ressource et obtenir les URL de diffusion en continu  
 1.  Lecture de votre contenu 
 2.  Nettoyage
 
@@ -71,7 +75,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 ##Configurer un point de terminaison de diffusion en continu à l’aide du portail
 
-Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
+Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu en continu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
 Lorsque vous utilisez la diffusion en continu dynamique, un encodeur dynamique local (dans notre cas Wirecast) reçoit un flux dynamique à débit binaire multiple dans votre canal. Lorsque le flux est demandé par un utilisateur, Media Services utilise l’empaquetage dynamique pour empaqueter à nouveau le flux source dans le flux à débit binaire adaptatif demandé (TLS, DASH ou Smooth).
 
@@ -216,7 +220,7 @@ Si vous basculez vers la page **CONTENU**, vous verrez les ressources qui ont é
 
 ##Lecture de contenu
 
-Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu, vous devez d’abord « publier » votre ressource (comme indiqué dans la section précédente) en créant un localisateur (lorsque vous publiez une ressource à l’aide du portail, des localisateurs sont créés pour vous). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
+Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser votre contenu en continu, vous devez d’abord « publier » votre ressource (comme indiqué dans la section précédente) en créant un localisateur (lorsque vous publiez une ressource à l’aide du portail, des localisateurs sont créés pour vous). Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia.
 
 En fonction du protocole de diffusion en continu à utiliser pour lire votre contenu, vous devrez peut-être modifier l’URL que vous obtenez à partir du lien **URL DE PUBLICATION** du canal/programme.
 
@@ -244,7 +248,7 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 
 - Arrêtez d’envoyer le flux à partir de l’encodeur.
 - Arrêtez le canal. Une fois le canal arrêté, aucun frais n’est encouru. Lorsque vous devez le redémarrer, il possède la même URL de réception. Vous n’avez donc pas besoin de reconfigurer votre encodeur.
-- Vous pouvez arrêter votre point de terminaison de diffusion en continu, sauf si vous souhaitez continuer à fournir l’archive de votre événement en direct comme un flux à la demande. Si le canal est arrêté, aucun frais n’est encouru.
+- Vous pouvez arrêter votre point de terminaison de diffusion en continu, sauf si vous souhaitez continuer à fournir l’archive de votre événement en direct en tant que flux à la demande. Si le canal est arrêté, aucun frais n’est encouru.
   
 
 
@@ -254,5 +258,5 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 [standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

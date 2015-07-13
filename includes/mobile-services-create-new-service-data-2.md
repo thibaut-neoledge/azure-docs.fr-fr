@@ -1,60 +1,51 @@
-﻿Pour pouvoir stocker des données d'application dans le nouveau service mobile, vous devez d'abord créer une table dans l'instance de base de données SQL associée.
+Pour pouvoir stocker des données d’application dans le nouveau service mobile, vous devez d’abord créer une table dans l’instance de base de données SQL associée.
 
 1. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
-2. Cliquez sur l'onglet **Données**, puis sur **+Créer**.
-	
-   	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
+2. Cliquez sur l'onglet **Données**, puis sur **+Create**.
 
-   	La boîte de dialogue **Créer une table** s'affiche.
+   	La boîte de dialogue **Create new table** s’affiche.
 
 3. Dans **Nom de la table**, tapez _TodoItem_, puis cliquez sur le bouton de vérification.
 
- 	![mobile-create-todoitem-table](./media/mobile-services-create-new-service-data-2/mobile-create-todoitem-table.png)
+  Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l’application, qui est distribuée avec l’application, peut accéder aux données de la table et les modifier.
 
-  Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l'application, qui est distribuée avec l'application, peut accéder aux données de la table et les modifier. 
+	>[AZURE.NOTE] The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
 
-> [AZURE.NOTE] 
-> Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
+4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu’aucune ligne de données n’est présente.
 
-4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu'il n'y a aucune ligne de données.
-
-5. Cliquez sur l'onglet **Colonnes**. Vérifiez si les colonnes par défaut suivantes ont été automatiquement créées pour vous : 
+5. Cliquez sur l’onglet **Colonnes**. Vérifiez si les colonnes par défaut suivantes ont été automatiquement créées pour vous :
 	
 	<table border="1" cellpadding="10">
- 	<tr>
- 	<th>Nom de la colonne</th>
- 	<th>Type</th>
- 	<th>Index</th>
- 	</tr>
- 	<tr>
- 	<td>id</td>
- 	<td>string</td>
- 	<td>Indexé</td>
- 	</tr>
- 	<tr>
- 	<td>__createdAt</td>
- 	<td>date</td>
- 	<td>Indexé</td>
- 	</tr>
- 	<tr>
- 	<td>__updatedAt</td>
- 	<td>date</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr>
- 	<tr>
- 	<td>__version</td>
- 	<td>timestamp (MSSQL)</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr> 	
- 	</table> 	
-		
+<tr>
+<th>Nom de la colonne</th>
+<th>Type</th>
+<th>Index</th>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Indexé</td>
+</tr>
+<tr>
+<td>__createdAt</td>
+<td>date</td>
+<td>Indexé</td>
+</tr>
+<tr>
+<td>__updatedAt</td>
+<td>date</td>
+<td><font color="transparent">-</font></td>
+</tr>
+<tr>
+<td>__version</td>
+<td>timestamp (MSSQL)</td>
+<td><font color="transparent">-</font></td>
+</tr> 	
+</table>Cela correspond à la configuration minimale requise pour une table dans Mobile Services.
 
-  	Cela correspond à la configuration minimale requise pour une table dans Mobile Services. 
-
-    > [AZURE.NOTE] Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d'insertion ou de mise à jour.
+    > [AZURE.NOTE]Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d'insertion ou de mise à jour.
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 
-
-<!--HONumber=47-->
+<!---HONumber=62-->

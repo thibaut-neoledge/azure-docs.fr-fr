@@ -43,11 +43,11 @@ Les types de fichier suivants sont acceptés :
 
 1. Dans le panneau **Application web** du [portail Azure](http://portal.azure.com), cliquez sur **Tous les paramètres** > Tâches web pour afficher le panneau **Tâches web**.
 	
-	![Panneau Tâches web](./media/web-sites-create-web-jobs/wjblade.png)
+	![Panneau Tâches Web](./media/web-sites-create-web-jobs/wjblade.png)
 	
 5. Cliquez sur **Ajouter**. La boîte de dialogue **Ajouter une tâche web Azure** s’affiche.
 	
-	![Panneau Ajouter une tâche web](./media/web-sites-create-web-jobs/addwjblade.png)
+	![Panneau Ajouter une tâche Web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
 2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).
 	
@@ -61,7 +61,7 @@ Les types de fichier suivants sont acceptés :
 	
 6. Pour exécuter la tâche Web, cliquez sur son nom dans la liste avec le bouton droit, puis cliquez sur **Exécuter**.
 	
-	![Exécuter une tâche web](./media/web-sites-create-web-jobs/runondemand.png)
+	![Exécuter une tâche Web](./media/web-sites-create-web-jobs/runondemand.png)
 	
 ## <a name="CreateContinuous"></a>Création d’une tâche Web exécutée en continu
 
@@ -87,7 +87,7 @@ Le portail de gestion Azure ne permet pas encore de créer une tâche Web plani
 
 3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez un type de **périodicité** : **travail unique** ou **travail périodique**.
 	
-	![Périodicité de la planification][SchdRecurrence]
+	![Périodicité de la planificiation][SchdRecurrence]
 	
 4. Choisissez également une date/heure de **début** : **maintenant** ou **à un moment donné**.
 	

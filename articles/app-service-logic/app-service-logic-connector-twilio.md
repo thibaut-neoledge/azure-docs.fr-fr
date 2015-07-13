@@ -27,10 +27,10 @@ Le connecteur Twilio vous permet d’envoyer et de recevoir des SMS à l’aide 
 Pour utiliser le connecteur Twilio, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
 
 1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « API Apps » et recherchez « Connecteur Twilio ».
+2.	Accédez à « API Apps » et recherchez « Connecteur Twilio ».
 3.	Configurez le connecteur Twilio comme suit :
  
-	![][1] - **Emplacement** - choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** - choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d’hébergement Web** : sélectionnez ou créez un plan d’hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Twilio - **Paramètres du package** - **SID du compte** : identificateur unique du compte. Le SID de votre compte peut être récupéré à partir de <https://www.twilio.com/user/account/settings> - **Jeton d'autorisation** : jeton d'autorisation associé au compte. Vous pouvez récupérer ce jeton à l’adresse <https://www.twilio.com/user/account/settings>
+	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d’hébergement Web** : sélectionnez ou créez un plan d’hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Twilio - **Paramètres du package** - **SID du compte** : identificateur unique du compte. Le SID de votre compte peut être récupéré à partir de <https://www.twilio.com/user/account/settings> - **Jeton d'autorisation** : jeton d'autorisation associé au compte. Vous pouvez récupérer ce jeton à l'adresse <https://www.twilio.com/user/account/settings>
 
 
 4.	Cliquez sur Créer. Un connecteur Twilio est créé.
@@ -52,7 +52,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twili
  
 5.	Vous pouvez maintenant utiliser le connecteur Twilio dans le flux. Vous pouvez utiliser l’action « Envoyer un message » dans le flux pour envoyer un message. Configurez les propriétés d’entrée de l’action « Envoyer un message » comme suit :
 	- **À partir du numéro de téléphone** : saisissez un numéro de téléphone Twilio autorisant le type de message que vous souhaitez envoyer. Seuls les numéros de téléphone ou les codes courts achetés auprès de Twilio fonctionnent avec ce connecteur.
-	- **Vers le numéro de téléphone** : numéro de téléphone de destination. Le format accepté est : + suivi du préfixe du pays et du numéro de téléphone. Par exemple, +16175551212. Si vous oubliez le +, Twilio utilise le préfixe de pays que vous avez saisi dans le champ 'À partir'.
+	- **Vers le numéro de téléphone** : numéro de téléphone de destination. Le format accepté est : + suivi du préfixe du pays et du numéro de téléphone. Par exemple, +16175551212. Si vous oubliez le +, Twilio utilise le préfixe de pays que vous avez saisi dans le champ « À partir ».
 	- **Texte** : texte du message à envoyer.
  
 	![][5] ![][6]

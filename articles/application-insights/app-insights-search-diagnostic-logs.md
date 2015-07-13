@@ -152,7 +152,7 @@ Les messages s’affichent dans Recherche de diagnostic lorsque vous sélectionn
 
 La fonctionnalité d’obtention de rapports d’exception dans Application Insights est très puissante, d’autant plus qu’elle vous permet de parcourir les demandes ayant échoué et les exceptions, et de lire la pile d’exceptions.
 
-Dans certains cas, vous devez [Insérez quelques lignes de code][exceptions] pour vous assurer que vos exceptions sont détectées automatiquement.
+Dans certains cas, vous devez [insérer quelques lignes de code][exceptions] pour vous assurer que vos exceptions sont détectées automatiquement.
 
 Vous pouvez également écrire du code explicite pour l’envoi de données de télémétrie concernant les exceptions :
 

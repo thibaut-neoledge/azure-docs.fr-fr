@@ -1,4 +1,4 @@
-﻿1. Dans le fichier insert.js de la table **channels**, recherchez les lignes de code suivantes, placez-les en commentaire ou supprimez-les du fichier, puis enregistrez les modifications.
+1. Dans le fichier insert.js de la table **channels**, recherchez les lignes de code suivantes, placez-les en commentaire ou supprimez-les du fichier, puis enregistrez les modifications.
 
 		sendNotifications(item.channelUri);
 
@@ -13,9 +13,9 @@
 		    });
 		}
 		
-	Lors de l'enregistrement des modifications apportées au fichier insert.js, une nouvelle version du script est chargée sur votre service mobile.
+	Lors de l’enregistrement des modifications apportées au fichier insert.js, une nouvelle version du script est chargée sur votre service mobile.
 
-2. Dans l'Explorateur de serveurs, développez la table TodoItem, ouvrez le fichier insert.js et remplacez la fonction insert actuelle par le code suivant, puis enregistrez les modifications : 
+2. Dans l’Explorateur de serveurs, développez la table TodoItem, ouvrez le fichier insert.js et remplacez la fonction insert actuelle par le code suivant, puis enregistrez les modifications :
 
 		function insert(item, user, request) {
 			request.execute({
@@ -43,6 +43,6 @@
 			}
 		}
 		
-	Désormais, lors de l'insertion d'un nouveau TodoItem, une notification Push est envoyée à tous les appareils inscrits.
+	Désormais, lors de l’insertion d’un nouveau TodoItem, une notification Push est envoyée à tous les appareils inscrits.
 
-<!--HONumber=47-->
+<!---HONumber=62-->

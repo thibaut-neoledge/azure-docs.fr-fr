@@ -23,4 +23,5 @@ Lorsque vous exécutez cette application dans l'émulateur, veillez à utiliser 
 2. Faites glisser votre doigt du haut vers le bas de l'écran pour ouvrir le centre de notifications de l'appareil et afficher la notification.
 
 	![Afficher la notification dans le Centre de notifications](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
-<!--HONumber=54-->
+
+<!---HONumber=62-->

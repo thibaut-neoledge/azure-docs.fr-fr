@@ -18,7 +18,7 @@
 
 # Ressources de documentation relatives à Azure WebJobs
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Cette rubrique fournit des liens vers des ressources de documentation sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) Azure WebJobs. Azure WebJobs permet d’exécuter facilement des scripts ou des programmes sous la forme de processus d’arrière-plan dans [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Vous pouvez télécharger et exécuter un fichier exécutable comme cmd, bat, exe (.NET), ps1, sh, php, py, js et jar. Ces programmes s’exécutent en tant que tâches WebJobs selon une planification (cron) ou en continu.
 
@@ -31,7 +31,7 @@ Le tableau de bord WebJobs dans le portail Azure fournit de puissantes fonctionn
 ##<a name="getstarted"></a>Prise en main de WebJobs et du Kit de développement logiciel (SDK) WebJobs
 
 * [Présentation d’Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Billet de Blog de Troy Hunt).
+* [Azure WebJobs est extraordinaire, utilisez-le dès maintenant !](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Billet de blog de Troy Hunt).
 * [Fonctionnalités Azure WebJobs](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Présentation du Kit de développement logiciel (SDK) WebJobs](websites-dotnet-webjobs-sdk.md)
 * [Conseils de travaux d’arrière-plan par Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
@@ -56,7 +56,7 @@ Consultez également les sections suivantes sur le [déploiement de WebJobs](#de
 * [Déploiement de WebJobs à l’aide du portail de gestion Azure](web-sites-create-web-jobs.md)
 * [Activation de la ligne de commande ou livraison en continu d’Azure WebJobs](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Déploiement avec Git d’une application de console .NET sur Azure à l’aide de WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
-* [Déploiement d'un WebJob F# dans Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
+* [Déploiement d’un WebJob F# dans Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * Vidéos
 	* [Présentation des outils de WebJobs pour Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Outils de WebJobs et débogage distant](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 

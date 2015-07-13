@@ -1,9 +1,9 @@
 
-1. Dans le panneau **Connexions hybrides**, cliquez sur la connexion hybride que vous avez créée, puis sur **Configuration de l’écouteur**.
+1. Dans le panneau **Connexions hybrides**, cliquez sur la connexion hybride que vous avez créée, puis sur **Configuration de l'écouteur**.
 	
 	![Click Listener Setup](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
 	
-4. Le volet **Propriétés de la connexion hybride** s'ouvre. Sous **Gestionnaire des connexions hybrides local**, choisissez **télécharger et configurer manuellement**, enregistrez le package HybridConnectionManager.msi téléchargé, puis copiez la chaîne de connexion de la passerelle.
+4. Le volet **Propriétés de la connexion hybride** s'ouvre. Sous **Gestionnaire de connexion hybride local**, choisissez **télécharger et configurer manuellement**, enregistrez le package HybridConnectionManager.msi téléchargé, puis copiez la chaîne de connexion de la passerelle.
 	
 	![Click here to install](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
 	
@@ -11,7 +11,7 @@
 
 		start HybridConnectionManager.msi
  
-7. Une fois le programme d'installation lancé, cliquez sur **Pas maintenant**, accédez au dossier %ProgramFiles%\Microsoft\HybridConnectionManager, exécutez HCMConfigWizard.exe puis cliquez sur **Oui** dans la boîte de dialogue **Contrôle de compte d'utilisateur**.
+7. Une fois le programme d'installation lancé, cliquez sur **Pas maintenant**, accédez au dossier %ProgramFiles%\Microsoft\HybridConnectionManager, exécutez HCMConfigWizard.exe, puis cliquez sur **Oui** dans la boîte de dialogue **Contrôle de compte d'utilisateur**.
 		
 7. Collez la chaîne de connexion hybride copiée précédemment, puis cliquez sur **OK**.
 	

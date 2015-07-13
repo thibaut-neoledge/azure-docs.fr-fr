@@ -75,7 +75,7 @@ Après s’être abonné à la version d'évaluation gratuite, l'utilisateur dé
 
 ## Utiliser votre compte professionnel ou scolaire pour gérer un abonnement Azure qui a été créé à l'aide d'un compte Microsoft
 
-Nous vous recommandons de [vous inscrire à Azure en tant qu'organisation](sign-up-organization.md) et d’utiliser un compte professionnel ou scolaire pour gérer les ressources dans Azure. Des comptes professionnels ou scolaires sont préférables, car ils peuvent être gérés de manière centralisée par l'organisation qui les a émis. Ils possèdent plus de fonctionnalités que les comptes Microsoft et sont directement authentifiés par Azure AD. Ce compte permet d'accéder à d'autres services Microsoft en ligne qui sont offerts aux entreprises et organisations, tels que Office 365 ou Microsoft Intune. Si vous possédez déjà un compte que vous utilisez avec ces autres propriétés, vous préférerez certainement utiliser ce même compte Azure.  Vous disposez également d’une instance Active Directory qui sauvegarde ces propriétés que vous souhaiterez que votre abonnement Azure approuve.
+Nous vous recommandons de [vous inscrire à Azure en tant qu'organisation](sign-up-organization.md) et d’utiliser un compte professionnel ou scolaire pour gérer les ressources dans Azure. Des comptes professionnels ou scolaires sont préférables, car ils peuvent être gérés de manière centralisée par l'organisation qui les a émis. Ils possèdent plus de fonctionnalités que les comptes Microsoft et sont directement authentifiés par Azure AD. Ce compte permet d'accéder à d'autres services Microsoft en ligne qui sont offerts aux entreprises et organisations, tels que Office 365 ou Microsoft Intune. Si vous possédez déjà un compte que vous utilisez avec ces autres propriétés, vous préférerez certainement utiliser ce même compte Azure. Vous disposez également d’une instance Active Directory qui sauvegarde ces propriétés que vous souhaiterez que votre abonnement Azure approuve.
 
 En outre, vous pouvez gérer des comptes professionnels ou scolaires de bien plus de manières qu’un compte Microsoft. Un administrateur peut, par exemple, réinitialiser le mot de passe d'un compte professionnel ou scolaire, ou requérir pour lui l'authentification multi-facteur.
 
@@ -88,7 +88,7 @@ Si vous avez créé, à un moment donné, un compte consommateur Microsoft à l'
 
 ![][3]
 
-Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Vous disposez, sous le même nom, de comptes utilisateur, un dans Azure AD et l'autre dans le système de comptes Microsoft consommateur. Vous devez sélectionner le compte qui est associé à l'abonnement Azure que vous souhaitez utiliser. Si une erreur s’affiche et vous indique qu'un abonnement n'existe pas pour cet utilisateur, cela veut certainement dire que vous avez sélectionné la mauvaise option. Déconnectez-vous et réessayez. Pour découvrir les raisons pour lesquelles vous ne parvenez pas à vous connecter, consultez la rubrique [Résolutions des problèmes vous indiquant qu’il est « impossible de trouver un abonnement associé à votre compte »](https://social.msdn.microsoft.com/Forums/fr-fr/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Gestion du répertoire de l’abonnement Office 365 dans Azure
 
@@ -104,7 +104,7 @@ Si vous vous êtes abonné à Office 365 à l'aide d'un compte professionnel ou
 
 Pour gérer les deux répertoires dans le portail de gestion, procédez comme suit.
 
-> [AZURE.NOTE]Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Lorsque l'utilisateur est connecté à l’aide d’un  compte professionnel ou scolaire, l'option **Utiliser un répertoire existant** est indisponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
+> [AZURE.NOTE]Ces étapes ne peuvent être effectuées que lorsqu'un utilisateur est connecté via un compte Microsoft. Lorsque l'utilisateur est connecté à l’aide d’un compte professionnel ou scolaire, l'option **Utiliser un répertoire existant** est indisponible, car un compte professionnel ou scolaire ne peut être authentifié qu’à l’aide d’un répertoire de base (autrement dit, le répertoire du compte professionnel ou scolaire, qui est détenu par l’organisation ou l’établissement scolaire).
 
 1. Connectez-vous au portail de gestion Azure via votre compte Azure.
 2. Cliquez sur **Nouveau** > **Services d’application** > **Active Directory** > **Répertoire** > **Création personnalisée**.
@@ -124,4 +124,6 @@ Pour gérer les deux répertoires dans le portail de gestion, procédez comme su
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

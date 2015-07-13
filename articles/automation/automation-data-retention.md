@@ -34,6 +34,6 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
 
 ## Articles connexes
-- [Sauvegarde d’Azure Automation](https://msdn.microsoft.com/library/dn643635.aspx)
+- [Sauvegarde d’Azure Automation](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -94,6 +94,6 @@ Les exemples de commandes suivants montrent comment désactiver une planificatio
 ## Articles connexes
 
 - [Planifier les ressources dans Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
+- [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

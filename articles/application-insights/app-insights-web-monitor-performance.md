@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Surveillez l’intégrité et l’utilisation de votre application avec Application Insights" 
-	description="Prise en main d’Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
+	pageTitle="Surveillez l'intégrité et l'utilisation de votre application avec Application Insights" 
+	description="Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -17,7 +17,7 @@
  
 # Analyse des performances dans les applications web
 
-*Application Insights est à l’état de version préliminaire.*
+*Application Insights est à l'état de version préliminaire.*
 
 
 Assurez-vous que votre application fonctionne correctement et identifiez rapidement toutes les défaillances éventuelles. [Application Insights][start] vous signale tous les problèmes et exceptions de performances, et vous aide à diagnostiquer les causes principales.
@@ -27,10 +27,10 @@ Application Insights est capable de surveiller des applications web ASP.NET et 
 
 ## <a name="setup"></a>Configurer la surveillance des performances
 
-Si vous n’avez pas encore ajouté Application Insights à votre projet (il n’inclut pas ApplicationInsights.config), sélectionnez l’une des options suivantes pour commencer :
+Si vous n'avez pas encore ajouté Application Insights à votre projet (il n'inclut pas ApplicationInsights.config), sélectionnez l'une des options suivantes pour commencer :
 
-* [Ajout d’Application Insights à votre projet dans Visual Studio][greenbrown] : recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l’utilisation.
-* [Analyse des performances d’un site Web en direct dès maintenant][redfield] - De cette façon, vous n’avez plus besoin de mettre à jour le projet de l’application ni de redéployer le site Web.
+* [Ajout d’Application Insights à votre projet dans Visual Studio][greenbrown] : recommandé. Vous pouvez effectuer une analyse passive des performances, insérer des journalisations de diagnostic et procéder au suivi de l'utilisation.
+* [Analyse des performances d'un site Web en direct dès maintenant][redfield] - De cette façon, vous n'avez plus besoin de mettre à jour le projet de l'application ni de redéployer le site Web.
 * Vous pouvez déjà consulter les mesures des [sites web Microsoft Azure](../insights-how-to-customize-monitoring.md) via le filtre Monitoring du site web. 
 
 Via l’une ou l’autre de ces méthodes, vous verrez rapidement apparaître les données sur le volet Vue d’ensemble dans Application Insights.
@@ -41,18 +41,18 @@ Via l’une ou l’autre de ces méthodes, vous verrez rapidement apparaître le
 Cliquez sur n’importe quelle vignette pour afficher plus de détails et davantage de résultats et ce, pendant plus longtemps. Par exemple, cliquez sur la vignette Demandes et sélectionnez une plage de temps :
 
 
-![Cliquez sur d’autres éléments pour afficher plus de données et sélectionnez une plage de temps](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![Cliquez sur d'autres éléments pour afficher plus de données et sélectionnez une plage de temps](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 Cliquez sur un graphique pour choisir les métriques à afficher, ou ajoutez un nouveau graphique et sélectionnez ses métriques :
 
 ![Cliquez sur un graphique pour sélectionner les métriques](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu’un membre d’un groupe est sélectionné, seuls les autres membres de ce groupe s’affichent.
+> [AZURE.NOTE]**Décochez toutes les mesures** pour afficher toutes les options disponibles. Les métriques se répartissent en trois groupes ; lorsqu'un membre d'un groupe est sélectionné, seuls les autres membres de ce groupe s'affichent.
 
 
 ## <a name="metrics"></a>Signification Vignettes de performances et rapports
 
-Vous pouvez accéder à de multiples métriques de performances. Commençons par celles qui s’affichent par défaut dans le volet de l’application.
+Vous pouvez accéder à de multiples métriques de performances. Commençons par celles qui s'affichent par défaut dans le volet de l'application.
 
 
 ### Demandes
@@ -67,9 +67,9 @@ Cliquez sur la vignette pour obtenir les décomptes associés aux URL spécifiqu
 
 Mesure le temps entre le moment où une demande Web est reçue par votre application et le moment où la réponse est renvoyée.
 
-Les points indiquent une moyenne qui évolue. En présence de nombreuses demandes, certaines d’entre elles peuvent s’écarter de la moyenne sans indiquer de pic ou de creux dans le graphique.
+Les points indiquent une moyenne qui évolue. En présence de nombreuses demandes, certaines d'entre elles peuvent s'écarter de la moyenne sans indiquer de pic ou de creux dans le graphique.
 
-Recherchez les pics inhabituels. En règle générale, il est normal que le temps de réponse augmente lorsque le nombre de demandes augmente. Si l’augmentation est disproportionnée, il se peut que votre application ait atteint une limite de ressources telles que l’UC ou la capacité d’un service qu’elle utilise.
+Recherchez les pics inhabituels. En règle générale, il est normal que le temps de réponse augmente lorsque le nombre de demandes augmente. Si l'augmentation est disproportionnée, il se peut que votre application ait atteint une limite de ressources telles que l'UC ou la capacité d'un service qu'elle utilise.
 
 Cliquez sur la vignette pour obtenir les temps associés aux URL spécifiques.
 
@@ -95,12 +95,12 @@ Seul un échantillon représentatif des échecs est prélevé pour chaque inspec
 
 ### Autres métriques
 
-Pour savoir quelles autres métriques vous pouvez afficher, cliquez sur un graphique, puis désélectionnez toutes les métriques afin d’afficher l’ensemble des options disponibles. Cliquez sur (i) pour afficher la définition de chaque métrique.
+Pour savoir quelles autres métriques vous pouvez afficher, cliquez sur un graphique, puis désélectionnez toutes les métriques afin d'afficher l'ensemble des options disponibles. Cliquez sur (i) pour afficher la définition de chaque métrique.
 
-![Désélectionnez toutes les métriques afin d’afficher l’ensemble des options disponibles](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![Désélectionnez toutes les métriques afin d'afficher l'ensemble des options disponibles](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
-La sélection d’une métrique désactive les autres métriques qui peuvent s’afficher sur le même graphique.
+La sélection d'une métrique désactive les autres métriques qui peuvent s'afficher sur le même graphique.
 
 ## Collecte de compteurs de performances supplémentaires
 
@@ -134,11 +134,11 @@ Si vous préférez, vous pouvez écrire le code suivant, pour obtenir le même e
 
 ## Définir des alertes
 
-Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d’envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
+Pour être averti par courrier électronique en cas de valeurs inhabituelles pour une métrique, ajoutez une alerte. Vous pouvez choisir d'envoyer le courrier électronique aux administrateurs de compte ou à des adresses de messagerie spécifiques.
 
 ![](./media/app-insights-web-monitor-performance/appinsights-413setMetricAlert.png)
 
-Définissez la ressource avant les autres propriétés. Ne choisissez pas les ressources de test web si vous souhaitez définir des alertes pour les métriques de performances ou d’utilisation.
+Définissez la ressource avant les autres propriétés. Ne choisissez pas les ressources de test web si vous souhaitez définir des alertes pour les métriques de performances ou d'utilisation.
 
 Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
 
@@ -154,11 +154,11 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
 ## <a name="next"></a>Étapes suivantes
 
-[Tests Web][availability] - Faites envoyer des tests Web à votre application à intervalles réguliers et depuis n’importe où dans le monde.
+[Tests Web][availability] - Faites envoyer des tests Web à votre application à intervalles réguliers et depuis n'importe où dans le monde.
 
-[Capture et recherche de traces de diagnostic][diagnostic] - Insérez des appels de trace et passez au crible les résultats afin d’identifier les problèmes.
+[Capture et recherche de traces de diagnostic][diagnostic] - Insérez des appels de trace et passez au crible les résultats afin d'identifier les problèmes.
 
-[Suivi de l’utilisation][usage] - Découvrez ce que les utilisateurs font avec votre application.
+[Suivi de l'utilisation][usage] - Découvrez ce que les utilisateurs font avec votre application.
 
 [Résolution des problèmes][qna] - et questions et réponses
 

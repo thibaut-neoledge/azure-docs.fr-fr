@@ -26,11 +26,11 @@ Voici les notes de publication détaillées et les instructions de mise à jour 
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
 * [Windows Phone et Windows Store C#|VB](app-insights-release-notes-windows.md)
-* [Windows Phone et Windows Store C++](app-insights-release-notes-windows-cpp.md)
+* [Windows Phone et Store C++](app-insights-release-notes-windows-cpp.md)
 * [autres plateformes](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updates/?service=application-insights) qui résument les améliorations principales qui ont été apportées au service Application Insights.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

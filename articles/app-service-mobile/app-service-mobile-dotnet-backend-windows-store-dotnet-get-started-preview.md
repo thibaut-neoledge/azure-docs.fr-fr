@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@ Dans cette section, vous allez créer une application Windows universelle connec
 
 2. En haut du panneau, cliquez sur **Ajouter un client** et développez **Windows (C#)**.
 
-   ![Étapes du démarrage rapide avec les applications mobiles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![Étapes du démarrage rapide avec les applications mobiles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   Cette opération affiche les trois étapes faciles permettant de créer une application du Windows Store connectée à votre backend d'application mobile.
+    Cette opération affiche les trois étapes faciles permettant de créer une application du Windows Store connectée à votre backend d'application mobile.
 
 3. Si ce n'est déjà fait, téléchargez et installez <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> sur votre ordinateur local ou sur votre machine virtuelle.
 
 4. Sous **Télécharger et exécuter votre application et votre service en local**, sélectionnez la langue de votre application Windows Store, puis cliquez sur **Télécharger**.
 
-   Cette opération lance le téléchargement d'une solution contenant les projets du backend d'application mobile et de l'exemple d'application _To do list_ connecté à votre backend d'application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
+    Cette opération lance le téléchargement d'une solution contenant les projets du backend d'application mobile et de l'exemple d'application _To do list_ connecté à votre backend d'application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
 ## Test de l'application mobile
 
@@ -86,6 +86,6 @@ Maintenant que le backend d'application mobile est publié et que le client est 
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

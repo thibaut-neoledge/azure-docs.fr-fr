@@ -89,5 +89,6 @@ Le tableau suivant montre la correspondance entre les services Azure existants e
 </table>
 
 Pour plus d’informations, consultez la [documentation App Service](http://azure.microsoft.com/documentation/services/app-service/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

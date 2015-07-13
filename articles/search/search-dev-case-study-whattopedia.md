@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Étude de cas d'un développeur Azure Search</h1>
+# Étude de cas d’un développeur Azure Search
 
-<font size="5">Comment [WhatToPedia.com](http://whattopedia.com/) a créé un portail infomédia sur Microsoft Azure</font>
+## Comment [WhatToPedia.com](http://whattopedia.com/) a créé un portail infomédia sur Microsoft Azure
 
  ![][6] &nbsp;&nbsp;&nbsp; <font size="9">Une idée lumineuse</font>
 
@@ -419,5 +419,6 @@ Le code suivant génère l'indexeur mentionné dans la section sur la création 
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

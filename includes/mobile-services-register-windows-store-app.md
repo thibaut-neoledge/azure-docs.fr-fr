@@ -62,4 +62,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l'authentificat
 [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

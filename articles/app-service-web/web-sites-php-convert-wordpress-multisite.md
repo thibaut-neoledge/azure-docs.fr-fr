@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -70,7 +70,7 @@ Après avoir effectué ces mises à jour, vous devez vous déconnecter et vous r
 
 Un menu supplémentaire nommé **Mes sites** doit désormais être présent sur la page d'administration. Celui-ci vous permet de contrôler votre nouveau réseau via le tableau de bord **Admin du réseau**.
 
-# Ajout de domaines personnalisés
+## Ajout de domaines personnalisés
 
 Le plug-in [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] facilite grandement l'ajout de domaines personnalisés à un site de votre réseau. Pour que ce plug-in fonctionne correctement, vous devez effectuer quelques configurations supplémentaires sur le portail et auprès de votre bureau d'enregistrement de domaines.
 
@@ -152,5 +152,6 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
 [wordpress-manage-domains]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

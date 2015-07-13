@@ -69,9 +69,9 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 
 > [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d’essai gratuite d’Azure</a>.
 
-1. Installez l’interface de ligne de commande Azure (CLI d’Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de la CLI d’Azure](xplat-cli).
+1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli).
 
-2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de la CLI d’Azure, entrez la commande suivante :
+2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de l’interface de ligne de commande Azure, entrez la commande suivante :
 
 		azure site deployment user set [username] [password]
 

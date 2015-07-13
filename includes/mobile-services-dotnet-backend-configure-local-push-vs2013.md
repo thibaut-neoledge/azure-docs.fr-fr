@@ -14,4 +14,5 @@ Vous pouvez éventuellement tester les notifications push en exécutant votre se
 	Il s'agit de l'URL de l'hôte local pour le projet du backend .NET. Cette URL sera utilisée pour tester l'application avec le service mobile exécuté sur l'ordinateur local.
 
 Le projet de service mobile est désormais configuré pour se connecter au concentrateur de notification Azure lorsqu'il est exécuté localement. Notez qu'il est impératif d'utiliser le même nom de concentrateur de notification et la même chaîne de connexion que sur le portail, car ces paramètres de projet situés dans le fichier Web.config sont remplacés par les paramètres du portail lors d'une exécution sous Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

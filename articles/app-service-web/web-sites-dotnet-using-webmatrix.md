@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Connexion à Azure
 
@@ -116,7 +116,7 @@ L'exemple « Bakery » comprend un formulaire de commande simulée qui envoie un
         }*/
 
 
-5. Ajoutez le code pour utiliser SendGrid au lieu de WebMail pour envoyer des messages électroniques. Ajoutez le code suivant à la place du code que vous avez supprimé à l'étape précédente.
+5. Ajoutez le code pour utiliser SendGrid au lieu de WebMail pour envoyer des messages électroniques. Ajoutez le code suivant à la place du code que vous avez supprimé à l'étape précédente. Veillez à ajouter votre nom d'utilisateur et votre mot de passe SendGrid lors de la création de la classe NetworkCredential.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@ L'exemple « Bakery » comprend un formulaire de commande simulée qui envoie un
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -213,10 +213,10 @@ Vous pouvez utiliser WebMatrix pour modifier le site et le republier sur votre i
 
 ## Étapes suivantes
 
-* [Site Web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [Site web WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -248,5 +248,6 @@ Vous pouvez utiliser WebMatrix pour modifier le site et le republier sur votre i
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

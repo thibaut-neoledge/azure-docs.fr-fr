@@ -50,12 +50,12 @@ Azure App Service fournit un certain nombre de connecteurs prêts à l’emploi�
 * [Connecteur Yammer]
 
 ##Connecteurs Premium et API Apps##
-* Connecteur AS2
-* BizTalk EDIFACT
+* [Connecteur AS2]
+* [BizTalk EDIFACT]
 * [Encodeur de fichier plat BizTalk]
 * Service BizTalk Transform
 * [Règles BizTalk]
-* BizTalk X12
+* [BizTalk X12]
 * [Extracteur XPath BizTalk]
 * [Validateur XML BizTalk]
 * Connecteur DB2
@@ -111,6 +111,8 @@ Vous pouvez aussi utiliser des connecteurs comme actions dans le cadre de votre 
 [Extracteur XPath BizTalk]: app-service-logic-xpath-extract.md
 [Validateur XML BizTalk]: app-service-logic-xml-validator.md
 [Règles BizTalk]: app-service-logic-use-biztalk-rules.md
- 
+[Connecteur AS2]: app-service-logic-connector-as2.md
+[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk X12]: app-service-logic-connector-x12.md
 
 <!---HONumber=62-->

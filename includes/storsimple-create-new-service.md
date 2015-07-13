@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Création d’un service StorSimple Manager"
-   description="Décrit comment créer une instance du service StorSimple Manager."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
 
 
 #### Création d’un service

@@ -1,10 +1,10 @@
 ## Réception des messages avec Apache Storm
 
-[**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande " spout " de concentrateurs d'événements Storm pour recevoir des événements de concentrateurs d'événements. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration de concentrateurs d'événements à Storm simplifie la consommation d'événements grâce au contrôle en toute transparence de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle des concentrateurs d'événements.
+[**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
-Pour plus d'informations sur les modèles de réception des concentrateurs d'événements, consultez la page [Vue d'ensemble des concentrateurs d'événements].
+Pour plus d'informations sur les modèles de réception Event Hubs, consultez la page [Vue d'ensemble d'Event Hubs].
 
-Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la commande " spout " des concentrateurs d'événements déjà disponible.
+Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
 
 1. Suivez la procédure [Prise en main de Storm avec HDInsight](../articles/hdinsight-storm-getting-started.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 
@@ -14,17 +14,17 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. Dans Eclipse, créez un nouveau projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
+4. Dans Eclipse, créez un projet Maven (cliquez sur **Fichier**, **Nouveau**, puis **Projet**).
 
    	![][12]
 
-5. Sélectionnez l'option **Utiliser l'emplacement d'espace de travail par défaut**, puis cliquez sur **Suivant**
+5. Sélectionnez l'option **Utiliser l'emplacement d'espace de travail par défaut**, puis cliquez sur **Suivant**.
 
 6. Sélectionnez l'archétype **maven-archetype-quickstart**, puis cliquez sur **Suivant**.
 
-7. Insérez un **GroupId** et un **ArtifactId**, puis cliquez sur **Terminer**
+7. Insérez un **GroupId** et un **ArtifactId**, puis cliquez sur **Terminer**.
 
-8. Dans **pom.xml**, ajoutez les dépendances suivantes dans le nœud <dependency>.
+8. Dans **pom.xml**, ajoutez les dépendances suivantes dans le nœud `<dependency>`.
 
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -54,7 +54,7 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 			<scope>provided</scope>
 		</dependency>
 
-9. Dans le dossier **src**, créez un fichier nommé **Config.properties** et copiez le contenu suivant, en remplaçant les valeurs suivantes :
+9. Dans le dossier **src**, créez un fichier nommé **Config.properties** et copiez le contenu suivant, en remplaçant les valeurs suivantes :
 
 		eventhubspout.username = ReceiveRule
 
@@ -73,9 +73,9 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 		eventhub.receiver.credits = 10
 
-	La valeur de **eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être défini sur des valeurs plus élevées ; par exemple 1024.
+	La valeur d'**eventhub.receiver.credits** détermine le nombre d'événements traités par lot avant leur introduction dans le pipeline Storm. Par souci de simplicité, cet exemple définit cette valeur à 10. En production, il doit généralement être défini sur des valeurs plus élevées ; par exemple 1024.
 
-10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
+10. Créez une classe nommée **LoggerBolt** en utilisant le code suivant :
 
 		import java.util.Map;
 		import org.slf4j.Logger;
@@ -112,9 +112,9 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 
 		}
 
-	Cette commande " bolt " de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. Le [didacticiel Analyse des données de capteur dans HDInsight] utilise cette approche pour stocker des données dans HBase.
+	Cette commande « bolt » de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. Le didacticiel [Analyse des données de capteur dans HDInsight] utilise cette approche pour stocker des données dans HBase.
 
-11. Créez une classe appelée **LogTopology** en utilisant le code suivant :
+11. Créez une classe appelée **LogTopology** en utilisant le code suivant :
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -164,14 +164,14 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 						namespaceName, entityPath, partitionCount, zkEndpointAddress,
 						checkpointIntervalInSeconds, receiverCredits);
 
-				// Définir le nombre de processus pour qu'il soit identique au nombre de de partitions.
-				// Le but est de faire coexister une commande " spout " et un enregistreur au sein d'un même
-				// processus afin d'éviter les messages aléatoires entre les processus au sein du cluster Storm.
+				// set the number of workers to be the same as partition number.
+				// the idea is to have a spout and a logger bolt co-exist in one
+				// worker to avoid shuffling messages across workers in storm cluster.
 				numWorkers = spoutConfig.getPartitionCount();
 
 				if (args.length > 0) {
-					// Définir le nom de la topologie de sorte que la topologie Trident d'exemple puisse l'utiliser en tant que
-					// nom de séquence.
+					// set topology name so that sample Trident topology can use it as
+					// stream name.
 					spoutConfig.setTopologyName(args[0]);
 				}
 			}
@@ -217,12 +217,12 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 		}
 
 
-	Cette classe crée une commande " spout " de concentrateurs d'événements en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches " spout " que le nombre de partitions dans le concentrateur d'événements, afin d'utiliser le parallélisme maximal autorisé par ce concentrateur d'événements.
+	Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
 
 <!-- Links -->
-[Vue d'ensemble des concentrateurs d'événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Vue d'ensemble d'Event Hubs]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Didacticiel Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

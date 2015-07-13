@@ -37,21 +37,21 @@ Pour que ces données aient une valeur sous la forme de renseignements ou d'info
 
 ## <a name="overview"></a>Présentation de l'écosystème Hadoop dans HDInsight
 
-HDInsight est une implémentation dans le cloud Microsoft Azure de la pile de technologies Apache Hadoop, qui connaît actuellement un développement rapide. Cette implémentation constitue la solution pertinente pour l'analyse des données volumineuses. Elle comprend, entre autres, des implémentations de Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari. HDInsight peut également être intégré aux outils décisionnels tels qu'Excel, SQL Server Analysis Services et SQL Server Reporting Services.
+HDInsight est une implémentation dans le cloud Microsoft Azure de la pile de technologies Apache Hadoop, qui connaît actuellement un développement rapide. Cette implémentation constitue la solution pertinente pour l'analyse des données volumineuses. Elle comprend, entre autres, des implémentations de Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari. HDInsight peut également être intégré aux outils décisionnels tels qu’Excel, SQL Server Analysis Services et SQL Server Reporting Services.
 
 ### Clusters Linux et Windows
 
-Azure HDInsight déploie et approvisionne les clusters Hadoop dans le cloud, en utilisant **Linux** ou **Windows** en tant que système d'exploitation sous-jacent.
+Azure HDInsight déploie et approvisionne les clusters Hadoop dans le cloud, en utilisant **Linux** ou **Windows** en tant que système d’exploitation sous-jacent.
 
 * **HDInsight sur Linux (version préliminaire)** - Cluster Hadoop sur Ubuntu. Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, effectuez une migration à partir d'une solution Hadoop Linux existante ou souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux.
 
-* **HDInsight sur Windows** - Cluster Hadoop sur Windows Server. Utilisez cette option si vous maîtrisez Windows, migrez à partir d’une solution Hadoop Windows ou souhaitez intégrer des fonctionnalités .NET ou d'autres fonctionnalités de Windows.
+* **HDInsight sur Windows** - Cluster Hadoop sur Windows Server. Utilisez cette option si vous maîtrisez Windows, migrez à partir d’une solution Hadoop Windows ou souhaitez intégrer des fonctionnalités .NET ou d’autres fonctionnalités de Windows.
 
 Le tableau suivant compare les deux systèmes d’exploitation :
 
 Catégorie | Hadoop sur Linux | Hadoop sur Windows
 ---------| -------------------| --------------------
-**Système d'exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04 | Windows Server 2012 R2
+**Système d’exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04 | Windows Server 2012 R2
 **Type de cluster** | Hadoop | Hadoop, Hbase, Storm
 **Déploiement** | Portail de gestion Azure, interface de ligne de commande Azure, Azure PowerShell | Portail de gestion Azure, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
 **IU du cluster** | Ambari | Tableau de bord du cluster
@@ -96,7 +96,7 @@ Outre les configurations globales précédentes, les composants individuels suiv
 
 * **[ZooKeeper](#zookeeper)** : coordination des processus dans les systèmes distribués.
 
-> [AZURE.NOTE]Pour plus d'informations sur les composants et leurs versions, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][component-versioning].
+> [AZURE.NOTE]Pour plus d’informations sur les composants et leurs versions, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][component-versioning].
 
 ###<a name="ambari"></a>Ambari
 
@@ -113,7 +113,7 @@ HDFS (Hadoop Distributed File System) est un système de fichiers distribués qu
 
 ### <a name="hive"></a>Hive et HCatalog
 
-<a target="_blank" href="http://hive.apache.org/">Apache Hive</a> est un logiciel d'entrepôt de données basé sur Hadoop qui vous permet d'interroger et de gérer des jeux de données volumineux dans un système de stockage distribué au moyen d'un langage similaire à SQL appelé HiveQL. À l'instar de Pig, Hive est une abstraction qui s'appuie sur MapReduce. Lorsque vous l’exécutez, Hive traduit des requêtes en une série de tâches MapReduce. D'un point de vue conceptuel, Hive est plus proche d'un système de gestion de base de données relationnelle que Pig et convient dès lors mieux à une utilisation avec des données plus structurées. Pour les données non structurées, Pig est le meilleur choix. Consultez la rubrique [Utilisation de Hive avec Hadoop dans HDInsight](hdinsight-use-hive.md).
+<a target="_blank" href="http://hive.apache.org/">Apache Hive</a> est un logiciel d’entrepôt de données basé sur Hadoop qui vous permet d’interroger et de gérer des jeux de données volumineux dans un système de stockage distribué au moyen d’un langage similaire à SQL appelé HiveQL. À l'instar de Pig, Hive est une abstraction qui s'appuie sur MapReduce. Lorsque vous l’exécutez, Hive traduit des requêtes en une série de tâches MapReduce. D'un point de vue conceptuel, Hive est plus proche d'un système de gestion de base de données relationnelle que Pig et convient dès lors mieux à une utilisation avec des données plus structurées. Pour les données non structurées, Pig est le meilleur choix. Consultez la rubrique [Utilisation de Hive avec Hadoop dans HDInsight](hdinsight-use-hive.md).
 
 <a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> est une couche de gestion du stockage et des tables pour Hadoop qui offre aux utilisateurs une vue relationnelle des données. Dans HCatalog, vous pouvez lire et écrire des fichiers dans les formats pour lesquels un sérialiseur-désérialiseur Hive peut être écrit.
 
@@ -158,11 +158,11 @@ En tant que partie intégrante de l'écosystème du cloud Azure, Hadoop dans HDI
 
 * Disponibilité et fiabilité élevées des clusters. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability.md) pour plus d'informations.
 
-* Stockage efficace et économique des données avec le stockage d'objets blob Azure, une option compatible Hadoop. Consultez la rubrique [Utilisation du stockage d'objets blob Azure avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md) pour plus d'informations.
+* Stockage efficace et économique des données avec le stockage d'objets blob Azure, une option compatible Hadoop. Consultez la rubrique [Utilisation du stockage d’objets blob Azure avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md) pour plus d’informations.
 
 * Intégration aux autres services Azure, y compris [Web Apps](../documentation/services/app-service/web/) et [Base de données SQL](../documentation/services/sql-database/).
 
-* Faible coût d'entrée. Essayez une [version d'évaluation gratuite](/pricing/free-trial/) ou consultez la rubrique [Tarification HDInsight](/pricing/details/hdinsight/).
+* Faible coût d’entrée. Essayez une [version d'évaluation gratuite](/pricing/free-trial/) ou consultez la rubrique [Tarification HDInsight](/pricing/details/hdinsight/).
 
 
 Pour plus d'informations sur les avantages de Hadoop dans HDInsight, consultez la rubrique [Page de fonctionnalités Azure pour HDInsight][marketing-page].
@@ -218,7 +218,7 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 
 Les outils décisionnels courants que sont Excel, PowerPivot, SQL Server Analysis Services et Reporting Services permettent de récupérer des données intégrées à HDInsight, de les analyser et de générer des rapports à leur sujet via le complément Power Query ou le pilote ODBC Microsoft Hive.
 
-Ces outils décisionnels peuvent s'avérer utiles lors de vos analyses de données volumineuses :
+Ces outils décisionnels peuvent s’avérer utiles lors de vos analyses de données volumineuses :
 
 * [Connexion d’Excel à Hadoop à l’aide de Power Query](hdinsight-connect-excel-power-query.md) : apprenez à connecter Excel au compte de stockage Azure dans lequel sont stockées les données associées à votre cluster HDInsight via Microsoft Power Query pour Excel.
 
@@ -235,7 +235,7 @@ Ces outils décisionnels peuvent s'avérer utiles lors de vos analyses de donné
 
 Utilisez l’analyse de données volumineuses sur les données de votre organisation pour vous familiariser avec vos activités. Voici quelques exemples :
 
-* [Analyse des données de capteur du système de chauffage, de ventilation et de climatisation](hdinsight-hive-analyze-sensor-data.md) : découvrez comment analyser les données de capteur au moyen de Hive avec HDInsight (Hadoop), puis visualisez les données dans Microsoft Excel. Dans cet exemple, vous utiliserez Hive pour traiter les données d'historique produites par les systèmes de chauffage, de ventilation et de climatisation, afin identifier les systèmes qui ne sont pas en mesure de maintenir de façon fiable une température donnée.
+* [Analyse des données de capteur du système de chauffage, de ventilation et de climatisation](hdinsight-hive-analyze-sensor-data.md) : découvrez comment analyser les données de capteur au moyen de Hive avec HDInsight (Hadoop), puis visualisez les données dans Microsoft Excel. Dans cet exemple, vous utiliserez Hive pour traiter les données d’historique produites par les systèmes de chauffage, de ventilation et de climatisation, afin identifier les systèmes qui ne sont pas en mesure de maintenir de façon fiable une température donnée.
 
 * [Utilisation de Hive avec HDInsight pour analyser les journaux de site web](hdinsight-hive-analyze-website-log.md) : découvrez comment utiliser HiveQL dans HDInsight pour analyser des fichiers journaux de site web afin d’obtenir des informations sur la fréquence des accès en une journée provenant de sites web externes, ainsi qu’un résumé des erreurs de site web rencontrées par les utilisateurs.
 

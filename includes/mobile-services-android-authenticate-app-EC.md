@@ -11,10 +11,9 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Ajoutez la méthode suivante à la classe **ToDoActivity** : 
+2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
 	
-		private void authenticate() {
-	    // Login using the Google provider.
+	private void authenticate() { // Login using the Google provider.
 	    
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
@@ -31,12 +30,12 @@
     			createTable();	
     		}
     	});   	
-		}
+	}
 
 
-	Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Google. Une boîte de dialogue affiche l'ID de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
+	Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'un nom d'utilisateur Google. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
-    > [AZURE.NOTE] Si vous utilisez un fournisseur d'identité différent de Google, remplacez la valeur transmise à la méthode **login** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
+    > [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité que Google, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
 3. Dans la méthode **onCreate**, ajoutez la ligne de code suivante après le code qui permet d'instancier l'objet `MobileServiceClient`.
 
@@ -44,7 +43,7 @@
 
 	Cet appel lance le processus d'authentification.
 
-4. Déplacez le code restant après " authenticate(); " dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
+4. Déplacez le code restant après `authenticate();` dans la méthode **onCreate** vers une nouvelle méthode **createTable** qui ressemble à ceci :
 
 		private void createTable() {
 	
@@ -62,9 +61,8 @@
 			refreshItemsFromTable();
 		}
 
-9. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi. 
+9. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour démarrer l'application et vous connecter avec le fournisseur d'identité choisi.
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -87,4 +87,7 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

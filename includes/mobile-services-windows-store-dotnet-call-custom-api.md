@@ -67,4 +67,4 @@
 
 	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

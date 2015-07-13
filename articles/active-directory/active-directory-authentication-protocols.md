@@ -51,9 +51,9 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-[Utilisation d'Azure AD pour l'authentification](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Utilisation d’Azure AD pour l’authentification](https://msdn.microsoft.com/library/azure/dn385718.aspx)
 
 [Exemples de code Azure Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

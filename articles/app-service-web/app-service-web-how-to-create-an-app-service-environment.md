@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Comment créer un environnement App Service" 
 	description="Description du flux de création pour les environnements App Service" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -124,9 +124,12 @@ D'autres dépendances, telles que la base de données et le stockage, ne peuvent
 
 Pour prendre en main les environnements App Service, consultez [Présentation de l'environnement App Service][WhatisASE].
 
-Pour plus d'informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service][AzureAppService].
+Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+ 
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
@@ -138,5 +141,5 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez la rubri
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

@@ -1,5 +1,3 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
-
 **Important** : si vous voulez que votre machine virtuelle utilise un réseau virtuel, veillez à bien indiquer celui-ci lorsque vous la créez. Vous pouvez configurer une machine virtuelle pour qu’elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 
@@ -60,4 +58,4 @@ Vous allez utiliser SSH ou PuTTY pour vous connecter à la machine virtuelle, se
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

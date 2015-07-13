@@ -128,9 +128,10 @@ Les étapes suivantes permettent d'ajouter des applications API BizTalk à des a
 
 
 ## En savoir plus sur les applications logiques et les applications web
-[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md)<br/> [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-app-azure-portal.md)
+[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md)<br/> [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md)
 
 
 ## Autres connecteurs
 [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md)<br/> [Connecteurs B2B](app-service-logic-b2b-connectors.md)<br/> [Connecteurs sociaux](app-service-logic-social-connectors.md)<br/> [Connecteurs de protocole](app-service-logic-protocol-connectors.md)<br/> [Connecteurs application + services de données](app-service-logic-data-connectors.md)<br/> [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

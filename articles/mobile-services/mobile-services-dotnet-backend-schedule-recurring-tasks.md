@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services 
@@ -29,16 +28,9 @@ Cette rubrique explique comment utiliser la fonctionnalité de planification de 
 + Demande et stockage de données externes, par exemple, des tweets, des entrées RSS et des informations d'emplacement.
 + Traitement ou redimensionnement des images stockées.
 
-Ce didacticiel explique comment utiliser la planification des travaux pour créer un travail planifié qui demande des données de tweets à Twitter et stocke les tweets dans une nouvelle table Updates. La procédure comporte les étapes suivantes :
+Ce didacticiel explique comment utiliser la planification des travaux pour créer un travail planifié qui demande des données de tweets à Twitter et stocke les tweets dans une nouvelle table Updates.
 
-1. [Inscription pour l'accès à Twitter et stockage des informations d'identification]
-2. [Téléchargement et installation de la bibliothèque LINQ to Twitter]
-3. [Création de la table Updates]
-4. [Création d'une tâche planifiée]
-5. [Test local de la tâche planifiée]
-6. [Publication du service et inscription de la tâche]
-
->[AZURE.NOTE]Ce didacticiel utilise la bibliothèque tierce LINQ to Twitter pour simplifier l'accès d'OAuth 2.0 aux API Twitter v1.1 . Vous devez télécharger et installer le package NuGet LINQ to Twitter pour suivre ce didacticiel. Pour plus d'informations, consultez la page [Projet CodePlex LINQ to Twitter].
+>[AZURE.NOTE]Ce didacticiel utilise la bibliothèque tierce LINQ to Twitter pour simplifier l’accès d’OAuth 2.0 aux API Twitter v1.1 . Vous devez télécharger et installer le package NuGet LINQ to Twitter pour suivre ce didacticiel. Pour plus d'informations, consultez la page [Projet CodePlex LINQ to Twitter].
 
 ##<a name="get-oauth-credentials"></a>Inscription pour l'accès aux API de Twitter v1.1 et stockage des informations d'identification
 
@@ -258,7 +250,7 @@ La tâche doit être enregistrée dans l'onglet **Planificateur** afin que Mobil
 
 2. Cliquez sur l'onglet **Scheduler**, puis sur **+Créer**.
 
-    >[AZURE.NOTE]Quand vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une seule tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
+    >[AZURE.NOTE]Lorsque vous exécutez votre service mobile en mode <em>Gratuit</em>, vous ne pouvez exécuter qu'une tâche planifiée à la fois. Aux niveaux payants, vous pouvez exécuter jusqu'à dix travaux planifiés à la fois.
 
 3. Dans la boîte de dialogue du planificateur, entrez _Sample_ comme **Nom du travail**, définissez l'intervalle et les unités de planification, puis cliquez sur le bouton de vérification.
    
@@ -283,12 +275,12 @@ La tâche doit être enregistrée dans l'onglet **Planificateur** afin que Mobil
 Félicitations, vous avez créé un nouveau travail planifié dans votre service mobile. Celui-ci sera exécuté conformément à la planification jusqu'à ce que vous la désactiviez ou la modifiiez.
 
 <!-- Anchors. -->
-[Inscription pour l'accès à Twitter et stockage des informations d'identification]: #get-oauth-credentials
-[Téléchargement et installation de la bibliothèque LINQ to Twitter]: #install-linq2twitter
-[Création de la table Updates]: #create-table
-[Création d'une tâche planifiée]: #add-job
-[Test local de la tâche planifiée]: #run-job-locally
-[Publication du service et inscription de la tâche]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

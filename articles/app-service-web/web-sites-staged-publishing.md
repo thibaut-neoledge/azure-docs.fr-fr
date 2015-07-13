@@ -199,7 +199,7 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 L’interface de ligne de commande Azure fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement des applications Web.
 
-- Pour obtenir des instructions sur l'installation et la configuration de l'interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli.md).
+- Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md).
 
 -  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
 

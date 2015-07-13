@@ -109,4 +109,6 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 [portal]: http://portal.azure.com/
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

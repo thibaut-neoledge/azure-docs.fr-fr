@@ -29,7 +29,7 @@ La première étape pour créer une application web consiste à créer ou à sé
 
 Si vous utilisez un plan App Service que vous avez déjà créé dans votre environnement App Service, choisissez le plan, entrez le nom de votre application web, puis sélectionnez Créer. Le flux est identique à celui que vous obtenez normalement lors de la création d'une application web. La principale différence est que votre application web est accessible à l'adresse suivante :
 
-[*nom du site*].[*nom de votre environnement App Service*].p.azurewebsites.net
+[*nom du site*].[*nom de votre environnement App Service*].p.azurewebsites.net
 
 et non à l'adresse
 

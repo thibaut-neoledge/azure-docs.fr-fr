@@ -127,20 +127,9 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
-[Création d'un compte de stockage]: /manage/services/storage/how-to-create-a-storage-account
+[Création d'un compte de stockage]: ../articles/storage/storage-create-storage-account.md
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=54-->
+<!---HONumber=62-->

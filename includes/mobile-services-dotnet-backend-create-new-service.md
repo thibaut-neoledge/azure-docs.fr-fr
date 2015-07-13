@@ -19,4 +19,4 @@ Suivez cette procédure pour créer un service mobile.
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

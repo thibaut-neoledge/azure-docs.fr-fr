@@ -62,7 +62,7 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
  - **Port public** : 27017
  - **Port privé** : 27017
  
- Cela permet d'accéder à distance à MongoDB.
+ Cela permet d’accéder à distance à MongoDB.
 
 
 
@@ -72,4 +72,4 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

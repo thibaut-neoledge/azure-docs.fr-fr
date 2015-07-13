@@ -21,7 +21,7 @@
 
 ## Qu'est-ce qu'un locataire Azure AD ?
 
-Dans le monde réel, le terme « client » peut être défini comme un groupe ou une société qui occupe un immeuble. Par exemple, votre organisation peut avoir des bureaux dans un immeuble  situé dans une rue où se trouvent d’autres organisations. Votre organisation est dans ce cas considérée comme l’occupant des lieux. Cet immeuble est un actif de votre organisation qui vous permet d’exercer votre activité en toute sécurité. Il définit les limites entre votre entreprise et les autres entreprises de votre rue. Autrement dit, il vous permet d’isoler votre organisation et ses actifs des autres organisations.
+Dans le monde réel, le terme « client » peut être défini comme un groupe ou une société qui occupe un immeuble. Par exemple, votre organisation possède probablement des bureaux dans un immeuble. Cet immeuble se trouve peut-être dans une rue, entouré de nombreuses autres organisations. Votre organisation est dans ce cas considérée comme l’occupant des lieux. Cet immeuble est un actif de votre organisation qui vous permet d’exercer votre activité en toute sécurité. Il définit les limites entre votre entreprise et les autres entreprises de votre rue. Autrement dit, il vous permet d’isoler votre organisation et ses actifs des autres organisations.
 
 Dans le contexte du cloud, un client peut être défini comme un client ou une organisation qui possède et gère une instance spécifique de ce service cloud. Avec la plateforme d’identité fournie par Microsoft Azure, un client consiste simplement en une instance dédiée d’Azure Active Directory (Azure AD) que votre organisation reçoit et possède quand elle s’inscrit à un service cloud Microsoft tel qu’Azure ou Office 365.
 
@@ -99,7 +99,7 @@ Vous pouvez ajouter un annuaire Azure AD dans le portail de gestion Azure. Séle
 Vous pouvez gérer chaque annuaire comme une ressource entièrement indépendante : chaque annuaire est un homologue complet et logiquement indépendant des autres annuaires que vous gérez ; il n’existe aucune relation parent-enfant entre les annuaires. Cette indépendance entre les annuaires vaut pour les ressources, l’administration et la synchronisation.
 
 - **Indépendance des ressources**. Si vous créez ou supprimez une ressource dans un annuaire, cela n’a aucun effet sur les ressources d’un autre annuaire, si l’on excepte le cas des utilisateurs externes, comme décrit ci-dessous. Si vous utilisez un domaine personnalisé (par exemple, « contoso.com ») pour un annuaire, il ne peut être utilisé avec aucun autre annuaire. 
-- **Indépendance de l’administration**. Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors :  
+- **Indépendance de l’administration**. Si un utilisateur non administrateur de l’annuaire « Contoso » crée l’annuaire de test « Test », alors : 
     - ◦l’outil de synchronisation d’annuaires, pour synchroniser les données avec une seule forêt Active Directory ; 
     - ◦les administrateurs de l’annuaire « Contoso » n’ont pas de privilèges d’administration directs sur l’annuaire « Test », à moins qu’un administrateur de « Test » leur ait spécifiquement accordé ces privilèges. Les administrateurs de « Contoso » peuvent contrôler l’accès à l’annuaire « Test » en vertu du contrôle qu’ils exercent sur le compte d’utilisateur qui a créé « Test ». 
 
@@ -145,4 +145,7 @@ Les conditions à remplir sont les suivantes :
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

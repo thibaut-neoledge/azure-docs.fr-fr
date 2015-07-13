@@ -31,13 +31,13 @@ Voici quelques scénarios que vous pouvez activer en utilisant le service Batch�
 
 - traitement par lots.
 
-## <a name="resource"></a> Ressources du service de traitement par lots
+## <a name="resource"></a> Ressources du service Batch
 
 Lorsque vous utilisez le service Batch, vous profitez des ressources suivantes :
 
 - [Compte](#account)
 
-- [Machine virtuelle](#taskvm)
+- [Machine virtuelle de tâche](#taskvm)
 
 - [Pool](#pool)
 
@@ -47,22 +47,22 @@ Lorsque vous utilisez le service Batch, vous profitez des ressources suivantes 
 
 - [Tâche](#task)
 
-	- [Démarrer la tâche](#starttask)
+	- [Tâche de démarrage](#starttask)
 	
-	- [ManagerTask de travail](#jobmanagertask)
+	- [Tâche du gestionnaire de travaux](#jobmanagertask)
 
 ### <a name="account"></a>Compte
 
-Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s'effectue via un compte Batch. Lorsque vous effectuez des opérations avec le service Batch, vous avez besoin du nom et de la clé du compte. Pour créer un compte de traitement par lots, reportez-vous à la section compte de traitement de [vue d'ensemble du lot Azure][].
+Un compte Batch est une entité identifiée de façon unique au sein du service Batch. Tout le traitement s'effectue via un compte Batch. Lorsque vous effectuez des opérations avec le service Batch, vous avez besoin du nom et de la clé du compte. Pour créer un compte Batch, reportez-vous à la section Compte Batch de la [vue d'ensemble d’Azure Batch][].
 
 
-### <a name="taskvm"></a>Machine virtuelle
+### <a name="taskvm"></a>Machine virtuelle de tâche
 
-Une machine virtuelle de tâche est une machine virtuelle Azure dédiée à une charge de travail spécifique pour votre application. La taille d'une machine virtuelle de tâche détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Une TVM peut être une machine virtuelle extra large, grande ou petite comme décrit dans [Machine virtuelle et les tailles de Service Cloud pour Azure](http://msdn.microsoft.com/library/dn197896.aspx).
+Une machine virtuelle de tâche est une machine virtuelle Azure dédiée à une charge de travail spécifique pour votre application. La taille d'une machine virtuelle de tâche détermine le nombre de cœurs du processeur, la capacité de mémoire et la taille du système de fichiers local qui lui est allouée. Une machine virtuelle de tâche peut être une machine virtuelle de petite, grande ou très grande taille, comme décrit dans la rubrique [Tailles des machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 Les types de programme qu'une machine virtuelle de tâche peut exécuter incluent les fichiers exécutables (.exe), les fichiers de commandes (.cmd et .bat) et les fichiers de script. Une machine virtuelle de tâche a également les attributs suivants :
 
-- Dossiers de système de fichiers qui sont spécifiques aux tâches et partagées. Un variables d'environnement et de la structure de dossier sont créés sur chaque ordinateur virtuel du pool. La structure de dossiers suivante est créée avec un dossier « partagé » pour les applications et les données partagées entre les tâches, plus un dossier pour chaque tâche.
+- Dossiers de systèmes de fichiers partagés et spécifiques d'une tâche. Une structure des dossiers et des variables d’environnement sont créées sur chaque machine virtuelle du pool. La structure des dossiers suivante est créée avec un dossier «partagé » pour les applications et des données partagées entre les tâches, ainsi qu’un dossier pour chacune d’entre elles.
 
 ![][1]
 
@@ -74,14 +74,14 @@ Les types de programme qu'une machine virtuelle de tâche peut exécuter incluen
 
 >Accès aux machines virtuelles
 >
->Si l'accès à une machine virtuelle est requis pour le débogage par exemple, le fichier RDP peut être obtenu, qui peut ensuite être utilisé pour accéder à la machine virtuelle via le Bureau à distance.
+>Si l'accès à une machine virtuelle est requis, pour le débogage par exemple, le fichier RDP peut être obtenu et ensuite utilisé pour accéder à la machine virtuelle via le Bureau à distance.
 
 
 ### <a name="pool"></a>Pool
 
 Un pool est une collection de machines virtuelles de tâche sur lesquelles votre application s'exécute. Vous pouvez créer le pool ou laisser le service Batch le créer automatiquement lorsque vous spécifiez le travail à accomplir. Vous pouvez créer et gérer un pool qui répond aux besoins de votre application. Un pool peut être utilisé uniquement par le compte Batch dans lequel il a été créé. Un compte Batch peut avoir plusieurs pools.
 
-Azure pools par lots basées sur la plate-forme principale de calcul Azure ; Pools de lot fournissent allocation à grande échelle, application et installation de données, le déplacement des données, analyse du fonctionnement et évolution flexible de l'ordinateur virtuel.
+Pools Azure Batch créés sur la plate-forme de calcul principale Azure ; les pools Batch permettent l’allocation à grande échelle, l’installation d’applications et de données, le transfert de données, l’analyse de l’état d’intégrité et la mise à l’échelle flexible des machines virtuelles.
 
 Chaque machine virtuelle de tâche ajoutée à un pool se voit attribuer un nom unique et l'adresse IP associée. Lorsqu'une machine virtuelle de tâche est supprimée d'un pool, elle perd les modifications apportées au système d'exploitation, tous ses fichiers locaux, son nom et son adresse IP. Quand une machine virtuelle de tâche quitte un pool, sa durée de vie est terminée.
 
@@ -89,28 +89,28 @@ Vous pouvez configurer un pool pour permettre la communication entre les machine
 
 Lorsque vous créez un pool, vous pouvez spécifier les attributs suivants :
 
-- Le **taille des machines virtuelles** dans le pool.
-	- La taille appropriée de la machine virtuelle doit être choisi, selon les caractéristiques et les spécifications de l'application ou les applications qui vont être utilisées sur l'ordinateur virtuel. Normalement la taille de la machine virtuelle est récupérée en supposant qu'une tâche s'exécute à la fois sur l'ordinateur virtuel ; par exemple, si l'application est multithread et quelle mémoire que requise détermine la taille de machine virtuelle plus appropriée et rentable. Il est possible d'avoir plusieurs tâches affectées et plusieurs instances de l'application en cours d'exécution en parallèle, auquel cas une machine virtuelle supérieure est généralement choisi – voir ci-dessous sur « nombre maximum de tâches par ordinateur virtuel ». 
-	- Tous les la machine virtuelle dans un pool doit être de la même taille. Si différentes applications doivent être exécutées avec la même configuration système requise et/ou avec charge différents pools distincts doivent être créés.
-	- Toutes les tailles de machine virtuelle de service cloud peuvent être configurés pour un pool, à l'exception de A0.
+- La **taille des machines virtuelles** dans le pool.
+	- La taille appropriée de la machine virtuelle doit être définie en fonction des caractéristiques et des spécifications de l'application ou des applications qui vont être utilisées sur la machine virtuelle. La taille d’une machine virtuelle est généralement déterminée en partant du principe que les tâches sont exécutées les unes à la suite des autres. Une taille plus appropriée et plus rentable vous est, par exemple, proposée lorsqu’une application est multithread et que celle-ci requiert une mémoire plus ou moins importante. Il est possible que plusieurs tâches soient attribuées et que plusieurs instances d’application s’exécutent en parallèle. Dans ce cas, une machine virtuelle plus volumineuse est généralement choisie – voir ci-dessous le « nombre maximum de tâches autorisées par machine virtuelle ». 
+	- Toutes les machines virtuelles du pool doivent avoir la même taille. Si différentes applications doivent être exécutées avec la même configuration système requise et/ou avec une charge différente, plusieurs pools devront alors être créés.
+	- Toutes les tailles de machine virtuelle du service cloud peuvent être configurées pour un pool, hormis A0.
 
-- La famille de systèmes d'exploitation et la version qui s'exécute sur les machines virtuelles.
-	- Comme avec les rôles de travail, la famille de systèmes d'exploitation et la Version du système d'exploitation peuvent être configuré.
-	- La famille de systèmes d'exploitation détermine également les versions de .NET sont installées avec le système d'exploitation.
-	- Comme avec les rôles de travail, pour la Version du système d'exploitation qu'il est recommandé que « * » est utilisé afin que sont la machine virtuelle automatiquement mis à niveau et il n'a aucune tâche nécessaire pour répondre aux nouvelles versions. Cas d'usage principal pour récupérer une version de système d'exploitation spécifique est d'assurer le maintien de la compatibilité des applications, en permettant aux tests à réaliser avant d'autoriser la version mise à jour de compatibilité descendante. Une fois validée, la version du système d'exploitation pour le pool peut être mis à jour et la nouvelle image du système d'exploitation installé – toutes les tâches en cours d'exécution seront interrompue et nouveau en file d'attente.
+- La famille de système d'exploitation et la version qui s'exécute sur les machines virtuelles.
+	- Comme avec les rôles de travail, la famille de système d’exploitation et la version de système d’exploitation peuvent être configurées.
+	- La famille de système d’exploitation détermine également les versions de .NET qui sont installées avec le système d'exploitation.
+	- Comme avec les rôles de travail, il est recommandé d’utiliser « * » pour que la version du système d’exploitation installée sur la machine virtuelle soit automatiquement mise à niveau et qu’aucune tâche supplémentaire ne soit requise pour gérer ces nouvelles versions. Une version spécifique de système d'exploitation est généralement utilisée pour assurer la compatibilité des applications, et permettre aux tests de compatibilité descendante d’être réalisés avant d'autoriser la mise à jour de la version. Une fois validée, la version du système d'exploitation du pool peut être mise à jour et la nouvelle image du système d'exploitation peut également être installée – toutes les tâches en cours d'exécution seront interrompues et remises en file d'attente.
 
-- Nombre d'ordinateurs virtuels qui doivent être disponibles pour le pool cible.
+- Nombre cible de machines virtuelles qui doivent être disponibles pour le pool.
 
-- stratégie de mise à l'échelle du pool ; Outre le nombre de machines virtuelles, vous pouvez également spécifier une formule de mise à l'échelle pour chaque pool. Service de traitement par lots s'exécute la formule pour ajuster le nombre de machines virtuelles basées sur les statistiques de pool et élément de travail.
+- stratégie de mise à l'échelle du pool ; Outre le nombre de machines virtuelles, vous pouvez également spécifier une formule de mise à l'échelle pour chaque pool. Le service Batch exécutera la formule pour modifier le nombre de machines virtuelles utilisées en fonction des statistiques du pool et de l’élément de travail.
 
 - Configuration de la planification
-	- La configuration par défaut est une tâche à exécuter sur un pool de machines virtuelles à tout moment, mais il existe des scénarios où il est avantageux d'avoir plusieurs tâches exécuter en même temps sur un ordinateur virtuel. Un exemple consiste à augmenter l'utilisation des ordinateurs virtuels si une application doit attendre les e/s ; avoir plusieurs applications à exécuter augmentera l'utilisation du processeur. Un autre exemple consiste à réduire le nombre de l'ordinateur virtuel dans la liste. Cela risque de réduire la quantité de copies de données requis pour les jeux de données de référence de grande taille. Si un A1 serait la taille correcte de l'application, puis un A4 peut être choisi et la configuration définie pour exécuter jusqu'à 8 tâches simultanément, chaque utilisation d'un cœur.
-	- La configuration « max tâches par ordinateur virtuel » détermine le nombre maximal de tâches qui peuvent être exécutés en parallèle.
-	- Un « stratégie de remplissage » peut également être spécifié qui détermine si le lot remplit première la machine virtuelle ou si les tâches sont répartis sur tous les VM.
+	- Une tâche peut, par défaut, s’exécuter à tout moment sur une machine virtuelle du pool, mais il est parfois préférable que plusieurs tâches soient exécutées en même temps sur une machine virtuelle. Vous pouvez, par exemple, augmenter l'utilisation d’une machine virtuelle si une application requiert davantage d’E/S ; l’exécution de plusieurs applications optimisera l'utilisation du processeur. Il vous est également possible de réduire le nombre de machines virtuelles présentes dans le pool, mais ceci risque de réduire le nombre de copies de données requises pour les groupes de données de référence de grande taille. Pour une taille d’application A1, une taille A4 pourrait être utilisée, de même qu’une configuration permettant aux utilisateurs d’exécuter jusqu'à 8 tâches simultanément, consommant chacune un cœur.
+	- La configuration « tâches maximales par machine virtuelle » détermine le nombre maximal de tâches qui peuvent être exécutées en parallèle.
+	- Une « stratégie de remplissage » peut également être spécifiée et déterminer si Batch remplit d’abord les machines virtuelles ou si les tâches sont réparties sur toutes les machines virtuelles.
  
 - L'état de communication des ordinateurs virtuels dans le pool.
- 	- Dans une grande partie des scénarios tâches fonctionnent indépendamment et n'avez pas besoin de communiquer avec d'autres tâches, mais il existe certaines applications où les tâches communiqueront (par exemple, les applications à l'aide de MPI).
-	- Il existe de configuration qui contrôle si la machine virtuelle sera en mesure de communiquer, qui est utilisée pour configurer le placement d'infrastructure et impacts de réseau sous-jacente de la machine virtuelle.
+ 	- Les tâches s’exécutent généralement de manière indépendante et elles n’ont pas besoin de communiquer entre elles, mais ceci n’est pas toujours le cas pour certaines applications (notamment les applications utilisant MPI).
+	- Une configuration peut vous permettre de découvrir si la machine virtuelle peut communiquer, et elle peut être utilisée pour configurer l'infrastructure sous-jacente du réseau et avoir un impact sur le placement des machines virtuelles.
 
 - tâche de démarrage des machines virtuelles de tâche du pool.
 
@@ -120,13 +120,13 @@ Lorsque vous créez un pool, vous pouvez spécifier le compte de stockage auquel
 
 Un élément de travail spécifie comment le calcul est effectué sur les machines virtuelles de tâche d'un pool.
 
-- Un élément de travail peut avoir un ou plusieurs travaux lui est associé. Une planification facultative peut être spécifiée pour un élément de travail dans ce cas, une tâche est créée pour chaque occurrence de la planification. Si aucune planification n'est spécifiée, pour le travail à la demande, un travail est créé immédiatement.
-- L'élément de travail spécifie le pool sur lequel le travail sera exécuté. Le pool peut être un existant, déjà créé un pool qui est utilisé par nombreux éléments de travail, mais un pool peut également être créé pour chaque tâche associée à l'élément de travail ou pour toutes les tâches associées à l'élément de travail.
-- Une priorité facultative peut être spécifiée. Lorsqu'un élément de travail est envoyé avec une priorité plus élevée que les autres éléments de travail en cours d'exécution, les tâches priorité plus élevées insérés dans la file d'attente avant les tâches d'élément de travail priorité inférieures. Tâches de faible priorité sont déjà en cours d'exécution ne sera pas devancées.
-- Contraintes peuvent être spécifiées pour le travail associé ou les travaux qui sera appliqué.
-	- Une fois wallclock maximale peut être définie pour les tâches. Si les travaux s'exécute plus longtemps que la durée de wallclock maximale spécifiée, le travail et toutes les tâches associées seront terminées.
-	- Lot Azure peut détecter les tâches qui échouent et les tâches de nouvelle tentative. Nombre maximal de tentatives de tâche peut être spécifié comme une contrainte, notamment spécifiant qu'une tâche est toujours retentée ou jamais une nouvelle tentative. Nouvelle tentative de tâches d'un signifie que la tâche est de nouveau en file d'attente et s'exécute de nouveau.
-- Tâches à exécuter pour l'élément de travail peuvent être spécifiés par le client de la même manière que l'élément de travail a été créé, mais une tâche Job Manager peut également être spécifiée. Une tâche de gestionnaire utilise l'API de lot et contient le code pour créer les tâches requises pour un travail avec la tâche en cours d'exécution sur un de du pool d'ordinateurs virtuels. Les tâches de gestionnaire est gérée par lot : il est en file d'attente dès que le travail est créé et est redémarré si elle échoue pour une raison quelconque. Un gestionnaire de travaux est requis pour les éléments de travail avec une planification associée comme c'est le seul moyen de définir les tâches avant l'instanciation de travail.
+- Un élément de travail peut disposer d’un ou plusieurs travaux qui lui sont associés. Une planification facultative peut être spécifiée pour un élément de travail. Dans ce cas, une tâche est créée pour chaque occurrence de la planification. Si aucune planification n'est spécifiée, pour le travail à la demande, un travail est alors créé immédiatement.
+- L'élément de travail spécifie le pool sur lequel le travail sera exécuté. Le pool peut être un pool déjà créé, qui est utilisé par de nombreux éléments de travail, mais il peut également être créé pour chaque travail associé à l'élément de travail ou pour toutes les tâches associées à l'élément de travail.
+- Une priorité facultative peut être spécifiée. Lorsqu'un élément de travail est envoyé avec une priorité plus élevée que les autres éléments de travail en cours d'exécution, les tâches des éléments de travail de priorité plus élevée sont mises en file d'attente, devant les tâches des éléments de travail de priorité inférieure. Les tâches de priorité inférieure qui sont déjà en cours d'exécution ne seront pas annulées.
+- Des contraintes peuvent être spécifiées et appliquées aux travaux qui leur sont associés.
+	- Une durée maximale peut être définie pour ces tâches. Si la durée d’exécution des travaux est supérieure à la durée maximale spécifiée, le travail et toutes les tâches qui lui sont associées seront terminés.
+	- Azure Batch peut détecter les tâches qui échouent et les relancer. Le nombre maximal de tentatives de tâche peut être spécifié, par défaut, comme une contrainte, et indiquer notamment qu'une tâche doit toujours être relancée (ou bien qu’elle ne doit jamais l’être). Lorsqu’une tâche est relancée, cela signifie qu’elle est remise en file d'attente et qu’elle sera de nouveau exécutée.
+- Les tâches qui doivent être exécutées pour l'élément de travail peuvent être spécifiées par le client de la même manière que l'élément de travail a été créé, mais une tâche de gestionnaire de travaux peut également être spécifiée. Une tâche de gestionnaire de travaux utilise l'API Batch et contient le code permettant de créer les tâches requises pour un travail avec la tâche qui s’exécute sur une des machines virtuelles du pool. Les tâches de gestionnaire de travaux sont gérées essentiellement par Batch : elles sont mises en file d'attente dès que le travail est créé et elles sont relancées lorsqu’elles échouent pour une raison quelconque. Un gestionnaire de travaux est requis pour les éléments de travail disposant d’une planification puisqu’il est le seul moyen permettant de définir les tâches avant que le travail soit instancié.
 
 ### <a name="job"></a>Travail
 
@@ -134,7 +134,7 @@ Un travail est une instance en cours d'exécution d'un élément de travail et s
 
 ### <a name="task"></a>Tâche
 
-Une tâche est une unité de calcul associée à un travail et exécutée sur une machine virtuelle de tâche. Les tâches sont affectées à une machine virtuelle pour l'exécution ou en file d'attente jusqu'à ce qu'une machine virtuelle devient disponible. Elle utilise les ressources suivantes :
+Une tâche est une unité de calcul associée à un travail et exécutée sur une machine virtuelle de tâche. Les tâches sont affectées à une machine virtuelle dans le but d’être exécutées ou mises en file d'attente jusqu'à ce qu'une machine virtuelle soit disponible. Elle utilise les ressources suivantes :
 
 - Programme spécifié dans l'élément de travail.
 
@@ -146,23 +146,23 @@ Une tâche est une unité de calcul associée à un travail et exécutée sur un
 
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur une machine virtuelle de tâche, vous pouvez utiliser les tâches spéciales suivantes fournies par le service Batch :
 
-- [Démarrer la tâche](#starttask)
+- [Tâche de démarrage](#starttask)
 
-- [Le gestionnaire tâche](#jobmanagertask)
+- [Tâche du gestionnaire de travaux](#jobmanagertask)
 
-#### <a name="starttask"></a>Démarrer la tâche
+#### <a name="starttask"></a>Tâche de démarrage
 
-Vous pouvez configurer le système d'exploitation des ordinateurs virtuels dans un pool en associant une tâche de démarrage du pool. Une tâche de démarrage peut effectuer certaines actions, dont l'installation du logiciel et le démarrage des processus en arrière-plan. Cette tâche s'exécute chaque fois qu'une machine virtuelle commence pour tant qu'il reste dans le pool.
+Vous pouvez configurer le système d'exploitation des machines virtuelles d'un pool en associant une tâche de démarrage au pool. Une tâche de démarrage peut effectuer certaines actions, dont l'installation du logiciel et le démarrage des processus en arrière-plan. Elle s'exécute chaque fois qu'une machine virtuelle démarre pendant sa durée de présence dans le pool.
 
-Comme avec n'importe quelle tâche de traitement par lots, une liste de fichiers dans le stockage Azure peut spécifiée en plus d'une ligne de commande est exécutée par lots. Lot Azure sera d'abord copier les fichiers du stockage Azure, puis exécutez la ligne de commande. Pour une tâche de démarrage pool, la liste des fichiers contient généralement les fichiers des applications ou le package, mais elle pourrait également inclure des données de référence qui seront utilisées par toutes les tâches en cours d'exécution sur le pool VM. La ligne de commande peut exécuter de script PowerShell ou de robocopy, par exemple, pour copier les fichiers d'application dans le dossier « partagé » ; Il peut également exécuter un MSI.
+Comme avec n'importe quelle tâche Batch, une liste de fichiers peut être spécifiée dans le stockage Azure, en plus d'une ligne de commande qui est exécutée par Batch. Azure Batch copiera les fichiers du stockage Azure et exécutera ensuite la ligne de commande. Pour une tâche de démarrage du pool, la liste des fichiers contient généralement les fichiers des applications ou un package, mais elle peut également inclure des données de référence qui seront utilisées par toutes les tâches qui s’exécutent sur les machines virtuelles du pool. La ligne de commande peut exécuter des scripts PowerShell ou bien Robocopy pour copier, par exemple, les fichiers d'application dans le dossier « partagé », et également exécuter un MSI.
 
-Normalement, il est souhaitable pour attendre la tâche de démarrage pour s'exécuter, envisagez la machine virtuelle prête à être affectés à des tâches du lot, mais il est configurable.
+Bien que ceci soit configurable, il est généralement préférable pour Batch d’attendre que la tâche de démarrage s'exécute, pour que la machine virtuelle soit prête à être affectée.
 
-Si une tâche de démarrage échoue pour un pool d'ordinateurs virtuels, puis l'état de la machine virtuelle est mise à jour pour refléter l'échec et l'ordinateur virtuel ne sera pas disponible pour les tâches à affecter. Une tâche de démarrage peut échouer si un problème de copie des fichiers spécifiés pour la tâche de démarrage ou le processus de tâche de démarrage renvoie différente de zéro.
+Si une tâche de démarrage échoue pour une machine virtuelle du pool, l'état de la machine virtuelle est mis à jour pour refléter l'échec et la machine virtuelle ne sera pas disponible pour les tâches qui doivent être affectées. Une tâche de démarrage peut échouer si un problème de copie de fichiers est spécifié pour la tâche de démarrage ou que le processus de tâche de démarrage renvoie une valeur différente de zéro.
 
-Le fait que toutes les informations nécessaires pour configurer la machine virtuelle et installer des applications sont déclarées signifie que l'augmentation du nombre de machines virtuelles dans un pool est aussi simple en spécifiant le nombre requis de nouveau ; Traitement par lots a toutes les informations nécessaires pour configurer la machine virtuelle et préparez-vous à accepter les tâches.
+Le fait que toutes les informations nécessaires à la configuration des machines virtuelles et à l’installation des applications soient déclarées signifie qu’il est aussi simple d’augmenter le nombre de machines virtuelles dans un pool que de spécifier le nouveau nombre requis ; Batch dispose de toutes les informations lui permettant de configurer les machines virtuelles et de les préparer à accepter des tâches.
 
-Une tâche de démarrage est définie en ajoutant une section JSON pour le corps de la demande pour l'opération Ajouter un Pool. L'exemple suivant montre une définition de base d'une tâche de démarrage :
+Une tâche de démarrage est définie lors de l’ajout d’une section JSON au corps de la demande pour l'opération Ajouter un pool. L'exemple suivant montre une définition de base d'une tâche de démarrage :
 
 	{
 		“commandLine”:”mypoolsetup.exe”,
@@ -180,7 +180,7 @@ Une tâche de démarrage est définie en ajoutant une section JSON pour le corps
 		“maxTaskRetryCount”:0
 	}
 
-Une interface c# ressemble à ceci :
+Une interface C# ressemble à ceci :
 
 	ICloudPool pool = pm.CreatePool(poolName, targetDedicated: 3, vmSize: "small", osFamily: "3");
 	pool.StartTask = new StartTask();
@@ -190,7 +190,7 @@ Une interface c# ressemble à ceci :
 	pool.Commit();
 
 
-#### <a name="jobmanagertask"></a>Le gestionnaire tâche
+#### <a name="jobmanagertask"></a>Tâche du gestionnaire de travaux
 
 Une tâche du gestionnaire de travaux est lancée avant toutes les autres tâches. La tâche du gestionnaire de travaux offre les avantages suivants :
 
@@ -234,69 +234,69 @@ Une tâche du gestionnaire de travaux associée à un travail n'a pas la priorit
 
 
 
-## <a name="workflow"></a>Flux de travail du service de traitement par lots
+## <a name="workflow"></a>Flux de travail du service Batch
 
 Vous avez besoin d'un compte Batch pour utiliser le service Batch et vous utilisez plusieurs ressources du service pour planifier le calcul. Utilisez le flux de travail de base suivant lorsque vous créez un scénario de calcul distribué avec le service Batch :
 
-1. Téléchargez les fichiers que vous souhaitez utiliser dans votre scénario à un compte de stockage Windows Azure. Ils doivent être situés dans le compte de stockage afin que le service Batch puisse y accéder. Ce dernier les charge sur une machine virtuelle de tâche quand la tâche s'exécute.
+1. Téléchargez les fichiers que vous souhaitez utiliser dans votre scénario de calcul distribué dans un compte de stockage Azure. Ils doivent être situés dans le compte de stockage afin que le service Batch puisse y accéder. Ce dernier les charge sur une machine virtuelle de tâche quand la tâche s'exécute.
 
-2. Téléchargez les fichiers binaires dépendants au compte de stockage. notamment le programme exécuté par la tâche et les assemblys dépendants. Ces fichiers doivent également être accessibles à partir du stockage et sont chargés dans la machine virtuelle de tâche.
+2. Téléchargez les fichiers binaires dépendants dans le compte de stockage. notamment le programme exécuté par la tâche et les assemblys dépendants. Ces fichiers doivent également être accessibles à partir du stockage et sont chargés dans la machine virtuelle de tâche.
 
-3 créer un pool de TVMs. Vous pouvez attribuer la taille de la machine virtuelle de tâche à utiliser lors de la création du pool. Quand une tâche s'exécute, elle reçoit une machine virtuelle de tâche à partir de ce pool.
+3. Créez un pool de machines virtuelles de tâche. Vous pouvez attribuer la taille de la machine virtuelle de tâche à utiliser lors de la création du pool. Quand une tâche s'exécute, elle reçoit une machine virtuelle de tâche à partir de ce pool.
 
-4 créer un élément de travail. Un travail est créé automatiquement lorsque vous créez un élément de travail. Un élément de travail vous permet de gérer un travail constitué de tâches.
+4. Créez un élément de travail. Un travail est créé automatiquement lorsque vous créez un élément de travail. Un élément de travail vous permet de gérer un travail constitué de tâches.
 
-5 ajouter des tâches à l'élément de travail. Chaque tâche utilise le programme téléchargé pour traiter les informations à partir d'un fichier téléchargé.
+5. Ajoutez des tâches à l'élément de travail. Chaque tâche utilise le programme téléchargé pour traiter les informations à partir d'un fichier téléchargé.
 
-6 contrôler les résultats de la sortie.
+6. Analysez les résultats de la sortie.
 
 ## <a name="files"></a>Fichiers et répertoires
 
 Chaque tâche possède un répertoire de travail dans lequel elle crée zéro ou plusieurs répertoires et fichiers pour stocker le programme qu'elle exécute, les données qu'elle traite et la sortie du traitement qu'elle effectue. Ces fichiers et répertoires sont ensuite disponibles pour une utilisation par d'autres tâches pendant l'exécution d'un travail. L'ensemble des tâches, fichiers et répertoires d'une machine virtuelle de tâche sont la propriété d'un seul compte d'utilisateur.
 
-Le service Batch expose une partie du système de fichiers sur une machine virtuelle de tâche en tant que répertoire racine. Le répertoire racine de la TVM est disponible pour une tâche via la variable d'environnement WATASK_TVM_ROOT_DIR. Pour plus d'informations sur l'utilisation de variables d'environnement, consultez la section Paramètres d'environnement des tâches.
+Le service Batch expose une partie du système de fichiers sur une machine virtuelle de tâche en tant que répertoire racine. Le répertoire racine de la machine virtuelle de tâche est disponible pour une tâche via la variable d'environnement WATASK_TVM_ROOT_DIR. Pour plus d'informations sur l'utilisation de variables d'environnement, consultez la section Paramètres d'environnement des tâches.
 
 Le répertoire racine contient les sous-répertoires suivants :
 
-- **Tâches** – cet emplacement est où tous les fichiers sont stockés qui appartiennent à des tâches qui s'exécutent sur la TVM. Pour chaque tâche, le service de traitement par lots crée un répertoire de travail avec le chemin d'accès unique sous la forme % WATASK_TVM_ROOT_DIR%/tasks/workitemName/jobName/taskName/. Ce répertoire fournit un accès en lecture/écriture à la tâche. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire, et ce dernier est conservé en fonction de la contrainte RetentionTime spécifiée pour la tâche.
+- **Tâches** – Cet emplacement est celui où tous les fichiers qui appartiennent à des tâches qui s'exécutent sur la machine virtuelle de tâche sont stockés. Pour chaque tâche, le service Batch crée un répertoire de travail avec le chemin d'accès unique au format %WATASK_TVM_ROOT_DIR%/tasks/workitemName/jobName/taskName/. Ce répertoire fournit un accès en lecture/écriture à la tâche. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire, et ce dernier est conservé en fonction de la contrainte RetentionTime spécifiée pour la tâche.
 
-- **Shared** – cet emplacement est un répertoire partagé pour toutes les tâches sous le compte. Sur la TVM, le répertoire partagé est % WATASK_TVM_ROOT_DIR%/shared. Ce répertoire fournit un accès en lecture/écriture à la tâche. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire.
+- **Partagé** – Cet emplacement est un répertoire partagé pour toutes les tâches situées dans le compte. Dans la machine virtuelle de tâche, le répertoire partagé est %WATASK_TVM_ROOT_DIR%/shared. Ce répertoire fournit un accès en lecture/écriture à la tâche. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire.
 
-- **Démarrer** – cet emplacement est utilisé par une tâche de démarrage comme répertoire de travail. Tous les fichiers téléchargés par le service Batch pour lancer la tâche de démarrage sont également stockés dans ce répertoire. Sur la TVM, le répertoire de démarrage est % WATASK_TVM_ROOT_DIR%/start. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire, et ce dernier est utilisable par les tâches de démarrage pour configurer le système d'exploitation.
+- **Démarrer** – Cet emplacement est utilisé par une tâche de démarrage comme répertoire de travail. Tous les fichiers téléchargés par le service Batch pour lancer la tâche de démarrage sont également stockés dans ce répertoire. Dans la machine virtuelle de tâche, le répertoire de démarrage est %WATASK_TVM_ROOT_DIR%/start. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire, et ce dernier est utilisable par les tâches de démarrage pour configurer le système d'exploitation.
 
 Lorsqu'une machine virtuelle de tâche est supprimée du pool, tous les fichiers stockés dans celle-ci sont supprimés.
 
-## <a name="lifetime"></a>Pool et la durée de vie de machine virtuelle
+## <a name="lifetime"></a>Pool et durée de vie des machines virtuelles
 
-Une décision de conception fondamental est lorsque les pools sont créés et la durée pendant laquelle l'ordinateur virtuel restent disponibles.
+Avant de démarrer la conception, il est tout d’abord nécessaire de déterminer la date de création des pools et la période durant laquelle les machines virtuelles resteront disponibles.
 
-Une approche consiste à un pool peut être créé pour chaque tâche lorsque le travail est envoyé et la machine virtuelle supprimées lorsque des tâches de fin d'exécution. Ceci permettra de maximiser l'utilisation la machine virtuelle est allouée uniquement lorsque cela est absolument nécessaire et arrêt dès qu'elles deviennent inactives. Cela signifie que la tâche doit attendre pour la machine virtuelle à allouer, même s'il est important de noter que les tâches seront planifiées pour l'ordinateur virtuel dès qu'elles sont disponibles individuellement, alloué et cette tâche est terminée ; par exemple, lot n'attend pas jusqu'à ce que tous les ordinateurs virtuels dans un pool sont disponibles comme qui entraînerait une faible utilisation.
+Un pool peut être créé pour chaque travail envoyé et les machines virtuelles peuvent être supprimées dès lors que les tâches cesseront de s’exécuter. Ceci permet d’optimiser l'utilisation puisque les machines virtuelles ne sont allouées que lorsque cela est absolument nécessaire et qu’elles s’arrêtent dès qu'elles deviennent inactives. Cela signifie que la tâche doit attendre que les machines virtuelles soient allouées, même s'il est important de noter que les tâches seront planifiées sur les machines virtuelles dès qu'elles seront individuellement disponibles, allouées et que cette tâche de démarrage sera terminée ; Batch n'attend pas, par exemple, que toutes les machines virtuelles d’un pool soient disponibles, car cela entraînerait une faible utilisation.
 
-Si des travaux de démarrer son exécution immédiatement est la priorité un pool doit être créé et de machine virtuelle disponible avant l'envoi de la tâche. Les tâches peuvent démarrer immédiatement, mais l'ordinateur virtuel peut être inactif en attendant les tâches de projet, en fonction de la charge.
+Si la priorité est de lancer immédiatement les travaux, un pool doit alors être créé et des machines virtuelles doivent être disponibles avant l'envoi de la tâche. Les tâches peuvent être immédiatement lancées, mais il se peut qu’en fonction de la charge, la machine virtuelle soit inactive en attendant les tâches projet.
 
-Un commun motif pour lorsqu'il existe une quantité variable de charge en cours doit disposer d'un pool à laquelle plusieurs travaux sont envoyés, mais l'échelle vers le haut ou vers le bas le nombre de machines virtuelles en fonction de la charge ; Cela peut être effectué de manière réactive ou de manière proactive si la charge peut être prédite.
+Lorsqu’une quantité variable de charge est en cours, l’utilisateur doit disposer d'un pool vers lequel plusieurs travaux sont envoyés, mais également augmenter ou réduire le nombre de machines virtuelles en fonction de la charge. Ceci peut être effectué de manière réactive ou proactive lorsque la charge peut être prédite.
 
 ## <a name="scaling"></a>Mise à l'échelle des applications
 
 Votre application peut facilement être mise à l'échelle (dans un sens ou dans l'autre) automatiquement pour accueillir le calcul dont vous avez besoin. Vous pouvez ajuster dynamiquement le nombre de machines virtuelles de tâche d'un pool en fonction de la charge de travail actuelle et des statistiques sur l'utilisation des ressources. Vous pouvez également optimiser le coût total de l'exécution de votre application en la configurant à l'échelle automatiquement. Vous pouvez spécifier les paramètres de mise à l'échelle d'un pool lorsqu'il est créé, et mettre à jour la configuration à tout moment.
 
-Une diminution du nombre de machines virtuelles, peuvent être des tâches en cours d'exécution sur l'ordinateur virtuel qui doivent être pris en compte. Une stratégie de désallocation est spécifiée qui détermine si les tâches en cours d'exécution sont arrêtés pour supprimer l'ordinateur virtuel immédiatement ou si les tâches sont autorisées à se terminer avant que la machine virtuelle est supprimée. Définissant le nombre cible de la machine virtuelle à zéro à la fin d'un travail, mais permettant d'exécuter les tâches à terminer, optimiser le taux d'utilisation.
+Lors d’une diminution du nombre de machines virtuelles, les tâches s’exécutant sur la machine virtuelle doivent être prises en compte. Une stratégie de désallocation est spécifiée et détermine si les tâches en cours d'exécution doivent être interrompues pour supprimer immédiatement la machine virtuelle ou si les tâches peuvent être terminées avant que la machine virtuelle soit supprimée. Définir le nombre cible de machines virtuelles sur zéro à la fin d'un travail, mais permettre à des tâches en cours d’être achevées, optimisera l'utilisation.
 
 Spécifiez la mise à l'échelle automatique d'une application à l'aide d'un jeu de formules de mise à l'échelle. Les formules peuvent servir à déterminer le nombre de machines virtuelles de tâche qui se trouvent dans le pool pendant le prochain intervalle de mise à l'échelle. Par exemple, vous devez envoyer un grand nombre de tâches qui doivent être planifiées sur un pool. Vous pouvez attribuer une formule de mise à l'échelle au pool qui spécifie la taille du pool selon le nombre actuel de tâches en attente et la vitesse d'exécution des tâches. Le service Batch évalue la formule régulièrement et redimensionne le pool en fonction de la charge de travail.
 
 Une formule peut être basée sur les mesures suivantes :
 
-- **Métriques temporelles** – selon les statistiques collectées toutes les cinq minutes dans le nombre d'heures spécifié.
+- **Mesures temporelles** – Celles-ci sont basées sur les statistiques collectées toutes les cinq minutes dans le nombre d'heures spécifié.
 
-- **Métriques de ressource** – basée sur l'utilisation de l'UC, l'utilisation de la bande passante, utilisation de la mémoire et nombre TVMs.
+- **Mesures de ressources** – Celles-ci sont basées sur l'utilisation du processeur, de la bande passante et de la mémoire, et sur le nombre de machines virtuelles de tâche.
 
-- **Tâches métriques** – basé sur l'état des tâches, telles que les actifs, en attente et terminées.
+- **Mesures de tâches** – Celles-ci sont basées sur l'état des tâches (Actif, En attente et Terminé).
 
 Pour plus d'informations sur la mise à l'échelle automatique d'une application, consultez la section Configuration de la mise à l'échelle automatique de machines virtuelles de tâche.
 
->Supprimer l'ordinateur virtuel
+>Supprimer des machines virtuelles
 >
->Il n'est pas souvent nécessaire, mais il est possible de spécifier des ordinateurs virtuels pour supprimer un pool de. S'il existe un ordinateur virtuel qui semble être moins fiable il pourrait être supprimé, par exemple.
+>Bien que ceci soit rarement nécessaire, il est possible de spécifier des machines virtuelles pour qu’elles soient supprimées d’un pool. Si une machine virtuelle paraît peu fiable, celle-ci peut être supprimée.
 
 ## <a name="cert"></a>Certificats pour les applications
 
@@ -304,7 +304,7 @@ En général, vous devez utiliser des certificats lorsque vous chiffrez des info
 
 Vous utilisez l'opération Ajouter un certificat pour ajouter un certificat à un compte Batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu'un certificat est associé à un pool, le service Batch installe le certificat sur chaque machine virtuelle de tâche du pool. Le service Batch installe les certificats appropriés au démarrage de la machine virtuelle de tâche, avant de lancer toutes les tâches, y compris les tâches de démarrage et celles du gestionnaire de travaux.
 
-## <a name="scheduling"></a>La priorité de planification
+## <a name="scheduling"></a>Priorité de la planification
 
 Lorsque vous créez un élément de travail, vous pouvez lui attribuer une priorité. Chaque travail de l'élément de travail est créé avec cette priorité. Le service Batch utilise les valeurs de priorité du travail pour déterminer l'ordre de planification des travaux dans un compte. Les valeurs de priorité peuvent être comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Vous pouvez mettre à jour la priorité d'un travail à l'aide de l'opération UpdateJob.
 
@@ -312,7 +312,7 @@ Dans le même compte, les tâches à la priorité plus élevée ont la priorité
 
 La planification des travaux dans différents pools est indépendante. Entre les différents pools, il n'est pas systématique qu'un travail avec une priorité plus élevée soit planifié en premier, si son pool n'a pas suffisamment de machines virtuelles de tâche inactives. Dans le même pool, les travaux avec le même niveau de priorité ont autant de chance d'être planifiés.
 
-## <a name="environment"></a>Paramètres d'environnement pour les tâches
+## <a name="environment"></a>Paramètres d'environnement des tâches
 
 Vous pouvez spécifier des paramètres d'environnement qui peuvent être utilisés dans le contexte d'une tâche. Les paramètres d'environnement d'une tâche de démarrage et de tâches en cours d'exécution sous un travail sont définis en ajoutant une section XML dans le corps de demande des opérations Ajouter une tâche ou Mettre à jour une tâche.
 
@@ -396,38 +396,38 @@ Vous pouvez récupérer la valeur des paramètres d'environnement à l'aide de l
 ## <a name="errorhandling"></a>Gestion des erreurs
 
 ###Gestion des erreurs de tâche
-Échecs de tâches se répartissent dans les catégories suivantes :
+Les échecs de tâche peuvent être classés dans les catégories suivantes :
 
-- Échecs de planification :
-	- Si les fichiers sont spécifiés pour la tâche, la copie d'un ou plusieurs des fichiers peut échouer. Il est possible que les fichiers ont déplacé, le compte de stockage n'est plus disponible, etc..
-	- Une planification « erreur » est définie pour la tâche dans ce cas.
-- Échecs d'application :
-	- Le processus de tâche spécifié par la ligne de commande peut également échouer. Le processus est considéré comme ayant échoué lorsqu'un code de sortie différent de zéro est retourné.
-	- Pour les défaillances d'application, il est possible de configurer le traitement par lots pour réessayer d'effectuer automatiquement la tâche jusqu'à un nombre spécifié de fois. 
-- Échecs de contrainte :
-	- Une contrainte peut être spécifiée pour la quantité maximale d'exécution d'un travail ou une tâche pour. Le peut être utile pour mettre fin à une tâche qui a été suspendu.
-	- Lorsque le délai a été dépassé alors la tâche est marquée comme terminée, mais la volonté de code de sortie est marqué comme `0xC000013A` et champ schedulingError est marqué comme `{ category:“ServerError”, code=“TaskEnded”}`.
+- Échecs de planification :
+	- Si des fichiers sont spécifiés pour la tâche, la copie d'un ou plusieurs des fichiers peut échouer. Les fichiers ont peut-être été déplacés, le compte de stockage n'est peut-être plus disponible, etc.
+	- Une « erreur de planification » est définie pour la tâche dans ce cas.
+- Échecs d’application :
+	- Le processus de la tâche spécifié par la ligne de commande peut également échouer. Le processus est considéré comme ayant échoué lorsqu'un code de sortie différent de zéro est renvoyé.
+	- Pour les échecs d'application, il est possible de configurer Batch pour relancer automatiquement la tâche autant de fois que l’utilisateur l’aura spécifié. 
+- Échecs de contrainte :
+	- Une contrainte peut être spécifiée pour fixer le nombre maximal de tentatives d'exécution d'un travail ou d’une tâche. Celle-ci peut être utile pour mettre fin à une tâche qui a été suspendue.
+	- Lorsque ce nombre maximal de tentatives est atteint, la tâche est marquée comme terminée, mais le code de sortie sera marqué comme `0xC000013A` et le champ schedulingError sera marqué comme `{ category:“ServerError”, code=“TaskEnded”}`.
 
-###Débogage des échecs d'Application
+###Débogage des échecs d'application
 
-Une application peut produire des diagnostics qui peut être utilisé pour résoudre les problèmes. Souvent les applications écrit les informations dans stdout et stderr fichiers ou la sortie vers les fichiers personnalisés. Dans ce cas une API est fournie pour obtenir des fichiers, en spécifiant la tâche ou la machine virtuelle.
+Une application peut produire des diagnostics qui peuvent être utilisés pour résoudre les problèmes. Les applications écriront souvent des informations dans les fichiers stdout et stderr ou fourniront leur résultat dans des fichiers personnalisés. Une API est, dans ce cas, fournie pour obtenir des fichiers, en spécifiant la tâche ou la machine virtuelle.
 
-Il est également possible de connecter du pool d'ordinateurs virtuels. Une API renvoie le fichier RDP pour une machine virtuelle, qui peut ensuite être utilisée pour se connecter à la machine virtuelle.
+Il est également possible de se connecter aux machines virtuelles du pool. Une API renvoie le fichier RDP d’une machine virtuelle, qui peut ensuite être utilisée pour se connecter à la machine virtuelle.
 
-###Des échecs de tâches et des problèmes de restauration
+###Gestion des échecs et des problèmes de tâches
 
-Tâches peuvent échouer ou être interrompues pour plusieurs raisons. L'application de la tâche elle-même peut échouer, obtient du redémarrage de l'ordinateur virtuel sur lequel la tâche est en cours d'exécution ou l'ordinateur virtuel est supprimé par un redimensionnement pool avec la stratégie désallocation pour supprimer l'ordinateur virtuel immédiatement sans attendre la fin de la tâche. Dans tous les cas, la tâche peut être automatiquement ré-file d'attente par lot et s'exécuter sur une autre machine virtuelle.
+Des tâches peuvent échouer ou être interrompues pour plusieurs raisons. L'application de la tâche peut également échouer, la machine virtuelle sur laquelle la tâche s’exécute peut alors être relancée ou supprimée par un redimensionnement du pool d’après la stratégie de désallocation qui a été définie pour supprimer immédiatement la machine virtuelle sans attendre que la tâche se termine. Dans tous les cas, la tâche peut être automatiquement remise en file d'attente par Batch et exécutée sur une autre machine virtuelle.
 
-Il est également possible qu'un problème intermittent provoquer une tâche de blocage ou est trop longue à exécuter. La durée d'exécution maximale peut être définie pour une tâche et si lot dépassé interrompt l'application de la tâche. Actuellement, nouveau queuing automatique n'est pas possible dans ce cas, mais le cas peuvent être détecté par le client qui peut envoyer une nouvelle tâche.
+Un problème intermittent peut également provoquer la suspension d’une tâche ou ralentir son exécution. La durée maximale pendant laquelle la tâche est autorisée à s’exécuter peut être définie par l’utilisateur, mais lorsque celle-ci est dépassée, Batch interrompt l'application de la tâche. La remise en file d’attente automatique n'est pas possible dans ce cas, mais ce dernier peut être détecté par le client qui peut, quant à lui, soumettre une nouvelle tâche.
 
-###Restauration de l'ordinateur virtuel « Mauvais »
+###Gestion des « mauvaises » machines virtuelles
 
-Chaque ordinateur virtuel dans un pool est donné un nom unique et l'ordinateur virtuel sur lequel s'exécute une tâche inclus dans les métadonnées de tâche. Dans le cas où il existe un ordinateur virtuel qui provoque l'échec des tâches pour une raison quelconque, cela peut être déterminé par le client et le suspect que machine virtuelle est supprimée du pool. Si une tâche a été exécuté sur l'ordinateur virtuel qui a été supprimé, puis il est automatiquement ré-en file d'attente et exécutée sur une autre machine virtuelle.
+Chaque machine virtuelle du pool se voit attribuer un nom unique et la machine virtuelle sur laquelle s'exécute une tâche est incluse dans les métadonnées de la tâche. Si une machine virtuelle provoque l'échec des tâches pour une raison quelconque, ceci peut être déterminé par le client et la machine virtuelle suspecte est supprimée du pool. Si une tâche a été exécutée sur la machine virtuelle qui a été supprimée, celle-ci est automatiquement remise en file d'attente et exécutée sur une autre machine virtuelle.
 
 
 <!--Image references-->
 [1]: ./media/batch-api-basics/batch-api-basics-01.png
 
-[vue d'ensemble du lot Azure]: batch-technical-overview.md
+[vue d'ensemble d’Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=62-->

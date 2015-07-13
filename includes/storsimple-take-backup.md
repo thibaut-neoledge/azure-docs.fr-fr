@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Effectuer une sauvegarde"
-   description="Décrit comment définir une stratégie de sauvegarde StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 ### Pour effectuer une sauvegarde
 
@@ -40,4 +24,4 @@
 
 Vous avez terminé la configuration de l’appareil.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

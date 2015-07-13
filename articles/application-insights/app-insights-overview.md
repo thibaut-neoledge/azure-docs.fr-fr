@@ -107,4 +107,6 @@ Si votre application est un site Web ou un service, il existe certains ajouts fa
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

@@ -29,7 +29,7 @@ Pour utiliser le connecteur Dropbox, vous devez d’abord créer une instance de
 2.	Accédez à « Web et mobilité --> Azure Marketplace » et recherchez « Connecteur Dropbox ».
 3.	Configurez le connecteur Dropbox comme suit :
  
-	![][1] - **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan de service de l’application** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Dropbox
+	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan de service de l'application** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Dropbox
 4. Cliquez sur Créer. Un connecteur Dropbox est créé.
 5. Une fois l’installation de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Dropbox.
 
@@ -54,8 +54,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Dropb
 
 Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
-- **Chemin du fichier** : spécifiez le chemin de destination du fichier à charger. Exemple : Photos/image.png
-- **Contenu** : spécifie le contenu du fichier à télécharger. Souvent, cette opération se fera à partir d'une étape précédente de application logique.
+- **Chemin du fichier** : spécifiez le chemin de destination Dropbox du fichier à charger. Exemple : Photos/image.png
+- **Contenu** : spécifie le contenu du fichier à télécharger. Souvent, cette opération s'effectue à partir d'une étape précédente de l'application logique.
 - **Encodage de transfert de contenu** : spécifiez none ou base64.
 - **Remplacer** : spécifiez « true » pour remplacer le fichier existant.
 

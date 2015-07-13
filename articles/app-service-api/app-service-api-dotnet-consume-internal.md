@@ -137,7 +137,7 @@ Toutefois, pour ajouter des en-têtes d’authentification, vous devez accéder 
 		    public class ContactNamesController : ApiController
 		    {
 		        [HttpGet]
-		        public async Task<IEnumerable<string> Get()
+		        public async Task<IEnumerable<string>> Get()
 		        {
 		            var names = new List<string>();
 
@@ -226,7 +226,7 @@ Le kit de développement logiciel (SDK) App Service dépend des définitions de
 		httpRequest.RequestUri = new Uri("https://{yourapiappurl}/api/contacts");
 		Runtime.FromAppSettings(this.Request).SignHttpRequest(httpRequest);
 		var response = await httpClient.SendAsync(httpRequest); 
-		var contacts2 = await response.Content.ReadAsAsync<List<Contact>();
+		var contacts2 = await response.Content.ReadAsAsync<List<Contact>>();
 		foreach (Contact contact in contacts2)
 		{
 		    names.Add(contact.Name);
@@ -261,5 +261,6 @@ Le kit de développement logiciel (SDK) App Service dépend des définitions de
 Cet article vous a montré comment utiliser une application API interne à partir d’un client .NET. Pour plus d’informations sur l’utilisation d’applications API configurées pour des niveaux d’accès **Public (anonyme)** et **Public (authentifié)**, consultez l’article [Utiliser une application API à partir d’un client .NET dans Azure App Service](app-service-api-dotnet-consume.md).
 
 Pour d'autres exemples de code appelant une application API à partir de clients .NET, téléchargez l'exemple d'application [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

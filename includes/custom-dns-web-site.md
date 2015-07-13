@@ -33,7 +33,7 @@ Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contos
 > [AZURE.NOTE]L'enregistrement A étant associé à une adresse IP statique, les changements d'adresse IP de votre site web ne sont donc pas pris en compte automatiquement. Une adresse IP à utiliser avec les enregistrements A est fournie lorsque vous configurez les paramètres de nom de domaine personnalisé pour votre site web. Cette valeur est toutefois susceptible d'être modifiée si vous supprimez et recréez votre site web ou que vous faites de nouveau passer votre site web en mode Gratuit.
 
 > [AZURE.NOTE]Les enregistrements A ne peuvent pas être utilisés pour équilibrer la charge avec Traffic Manager. Pour plus d’informations, consultez [Contrôle du trafic des sites Web Azure avec Azure Traffic Manager][trafficmanager].
- 
+
 <a name="bkmk_configsharedmode"></a><h2>Configuration des sites web pour le mode Partagé ou Standard</h2>
 
 Seuls les modes Partagé et Standard autorisent la définition d'un nom de domaine personnalisé pour les sites web Azure. Avant de faire passer un site web du mode Gratuit au mode Partagé ou Standard, vous devez d'abord supprimer les limites de dépense mises en place pour l'abonnement de votre site web. Pour plus d'informations sur la tarification des modes standard et partagé, consultez la page [Tarification][PricingDetails].
@@ -47,7 +47,7 @@ Seuls les modes Partagé et Standard autorisent la définition d'un nom de domai
 
 	![][standardmode2]
 
-	
+
 4. Dans la section **Général**, définissez le mode du site web en cliquant sur **PARTAGÉ**.
 
 	![][standardmode3]
@@ -57,9 +57,7 @@ Seuls les modes Partagé et Standard autorisent la définition d'un nom de domai
 5. Cliquez sur **Save**.
 6. Un message vous informe de l'augmentation des coûts en mode Partagé (ou en mode Standard si vous avez sélectionné cette option). Cliquez sur **Yes** si vous acceptez.
 
-	<!--![][standardmode4]-->
-
-	**Remarque**<br /> Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
+	<!--![][standardmode4]-->**Remarque**<br /> Si un message d'erreur indiquant l'échec de la mise à l'échelle du site web choisi s'affiche, vous pouvez cliquer sur le bouton des détails pour obtenir plus d'informations.
 
 <a name="trafficmanager"></a><h2>(Facultatif) Ajouter vos sites web à Traffic Manager</h2>
 
@@ -108,7 +106,7 @@ Pour créer un enregistrement CNAME, vous devez ajouter une nouvelle entrée dan
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Installez et configurez l'[interface de ligne de commande interplateforme Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
+	* Installez et configurez l’[interface de ligne de commande Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
 
 			azure site domain list yoursitename
 
@@ -143,11 +141,11 @@ Un utilisateur consultant le site **www.contoso.com** ne verra jamais l’adress
 
 ###Ajout du nom de domaine à votre site web
 
-Une fois la propagation de l'enregistrement CNAME comme nom de domaine terminée, vous devez associer cet enregistrement à votre site web. Vous pouvez ajouter le nom de domaine personnalisé défini par l'enregistrement CNAME à votre site web en utilisant l'interface de ligne de commande interplateforme Azure ou le portail de gestion Azure.
+Une fois la propagation de l'enregistrement CNAME comme nom de domaine terminée, vous devez associer cet enregistrement à votre site web. Vous pouvez ajouter le nom de domaine personnalisé défini par l’enregistrement CNAME à votre site web en utilisant l’interface de ligne de commande Azure (Azure CLI) ou le portail de gestion Azure.
 
 **Ajout d'un nom de domaine via les outils en ligne de commande**
 
-Installez et configurez l'[interface de ligne de commande interplateforme Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
+Installez et configurez l’[interface de ligne de commande Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
 
 	azure site domain add customdomain yoursitename
 
@@ -159,7 +157,7 @@ Vous pouvez vérifier que le nom de domaine personnalisé a été ajouté au sit
 
 	azure site domain list yoursitename
 
-La liste renvoyée par cette commande doit contenir le nom de domaine personnalisé, ainsi que l'entrée par défaut **.azurewebsite.net**.
+La liste renvoyée par cette commande doit contenir le nom de domaine personnalisé, ainsi que l’entrée par défaut **.azurewebsite.net**.
 
 **Ajout d'un nom de domaine via le portail de gestion Azure**
 
@@ -199,24 +197,22 @@ Pour créer un enregistrement A, vous devez tout d'abord connaître l'adresse 
 
 	1. Sélectionnez ou entrez le domaine ou sous-domaine qui utilisera l’enregistrement A. Par exemple, sélectionnez **www** si vous souhaitez créer un alias pour **www.domainepersonnalisé.com**. Pour créer une entrée avec des caractères génériques pour l'ensemble des sous-domaines, entrez « __*__ ». Ceci permet de couvrir tous les sous-domaines tels que **mail.customdomain.com**, **login.customdomain.com** ou **www.domainepersonnalisé.com**.
 
-		If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+		Si vous voulez créer un enregistrement A pour le domaine racine, l'entrée correspondante devrait être répertoriée avec le symbole '**@** dans les outils DNS de votre bureau d'enregistrement.
 
-	2. Entrez l'adresse IP de votre service cloud dans le champ prévu à cet effet. Cette opération permet d’associer le domaine de l’enregistrement A avec l’adresse IP de votre déploiement de service cloud.
+	2. Entrez l’adresse IP de votre service cloud dans le champ prévu à cet effet. Cette opération permet d’associer le domaine de l’enregistrement A avec l’adresse IP de votre déploiement de service cloud.
 
-		For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of our deployed application:
+		Par exemple, l’enregistrement A suivant transfère tout le trafic de **contoso.com** vers **137.135.70.239**, l’adresse IP de notre application déployée :
 
 		<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-		<td><strong>Host name/Subdomain</strong></td>
-		<td><strong>IP address</strong></td>
-		</tr>
-		<tr>
-		<td>@</td>
-		<td>137.135.70.239</td>
-		</tr>
-		</table>
-
-		This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
+<tr>
+<td><strong>Nom d’hôte/Sous-domaine</strong></td>
+<td><strong>Adresse&#160;IP</strong></td>
+</tr>
+<tr>
+<td>@</td>
+<td>137.135.70.239</td>
+</tr>
+</table>Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « __*__ » comme sous-domaine.
 
 7. Créez ensuite un enregistrement CNAME, avec **awverify** comme alias et **awverify.monsite.azurewebsites.net** comme domaine canonique (obtenu plus tôt).
 
@@ -239,11 +235,11 @@ Pour créer un enregistrement A, vous devez tout d'abord connaître l'adresse 
 
 ###Ajout du nom de domaine à votre site web
 
-Une fois la propagation de l'enregistrement CNAME **awverify** pour le nom de domaine terminée, vous pouvez associer le domaine personnalisé défini par l'enregistrement A à votre site web. Vous pouvez ajouter le nom de domaine personnalisé défini par l'enregistrement A à votre site web en utilisant l'interface de ligne de commande interplateforme Azure ou le portail de gestion Azure.
+Une fois la propagation de l'enregistrement CNAME **awverify** pour le nom de domaine terminée, vous pouvez associer le domaine personnalisé défini par l'enregistrement A à votre site web. Vous pouvez ajouter le nom de domaine personnalisé défini par l’enregistrement A à votre site web en utilisant l’interface CLI Azure ou le portail de gestion Azure.
 
-**Ajout d'un nom de domaine via les outils en ligne de commande**
+**Ajout d’un nom de domaine à l’aide de l’interface de ligne de commande Azure (interface CLI Azure)**
 
-Installez et configurez l'[interface de ligne de commande interplateforme Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
+Installez et configurez l’[interface CLI Azure](/manage/install-and-configure-cli/), puis utilisez la commande suivante :
 
 	azure site domain add customdomain yoursitename
 
@@ -315,4 +311,4 @@ Une fois la configuration terminée, le nom de domaine personnalisé est répert
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -15,7 +15,7 @@
 
 5. Sous *defaultConfig*, remplacez la valeur de *minSdkVersion* par 9.
  
-6. Cliquez sur le bouton **Synchronisation du projet avec les fichiers Gradle** dans la barre d’outils.
+6. Cliquez sur l’icône **Synchronisation du projet avec les fichiers Gradle** dans la barre d’outils.
 
 7. Ouvrez **AndroidManifest.xml** et ajoutez cette balise à la balise *application*.
 
@@ -23,8 +23,4 @@
             android:value="@integer/google_play_services_version" />
  
 
-
-
-
-
-<!--HONumber=54-->
+<!---HONumber=62-->

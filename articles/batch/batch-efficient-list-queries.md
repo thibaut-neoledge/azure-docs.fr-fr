@@ -80,4 +80,4 @@ Le nombre d'appels d'API peut être réduit avec une chaîne complète. Vous pou
 
 > [AZURE.NOTE]Il est recommandé de toujours utiliser le filtre et les clauses select pour vos appels d'API de liste pour garantir une efficacité maximale et les meilleures performances pour votre application.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -61,8 +61,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twitt
 	![][6]
 7.	De la même façon, vous pouvez utiliser les actions Twitter dans le flux. Sélectionnez une action Twitter et configurez les entrées de cette action respective.
 
-	![][7] 
-	![][8]
+	![][7] ![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -73,5 +72,6 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Twitt
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

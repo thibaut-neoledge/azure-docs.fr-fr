@@ -1,72 +1,71 @@
 <properties
-	pageTitle="Sauvegarde Azure permet de remplacer votre infrastructure sur bande"
-	description="Découvrez comment Azure Backup fournit une sémantique de type bande qui permet de sauvegarder et restaurer des données dans Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande"
+   description="Découvrez comment Azure Backup fournit une sémantique de type bande qui permet de sauvegarder et de restaurer des données dans Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
-# Sauvegarde Azure permet de remplacer votre infrastructure sur bande
+# Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
 
-Les clients de sauvegarde et de System Center Data Protection Manager Azure peuvent :
+Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
 
-+ Données de sauvegarde dans les planifications qui mieux adaptées à leurs besoins de l'organisation
++ sauvegarder des données selon la planification qui convient le mieux aux besoins de leur organisation ;
 
-+ Conserver les données de sauvegarde pour des durées plus longues
++ conserver plus longtemps les données de sauvegarde ;
 
-+ Rendre Azure a besoin d'une partie de leur rétention à long terme (au lieu de bandes).
++ intégrer Azure à leurs besoins de rétention à long terme (à la place des bandes).
 
-Cet article explique comment les clients peuvent permettre de sauvegarde et de rétention. Les clients qui utilisent des bandes pour résoudre leur long-terme rétention doivent ont désormais une alternative puissante et viable avec la disponibilité de cette fonctionnalité. La fonctionnalité est activée dans la dernière version de la sauvegarde Azure (disponible [ici](http://aka.ms/azurebackup_agent)). Les clients SCDPM qu'à UR5 avant d'utiliser cette fonctionnalité.
+Cet article explique comment les clients peuvent mettre en place des stratégies de sauvegarde et de rétention. Les clients qui utilisent des bandes pour répondre à leurs besoins de rétention à long terme disposent désormais d’une alternative puissante et viable grâce à cette fonctionnalité. La fonctionnalité est activée dans la dernière version d’Azure Backup (disponible [ici](http://aka.ms/azurebackup_agent)). Les clients SCDPM doivent migrer vers UR5 avant d’utiliser cette fonctionnalité.
 
-## Quelle est la planification de sauvegarde ?
-Planification de sauvegarde indique la fréquence (ou procédure souvent) de l'opération de sauvegarde, par exemple les paramètres dans l'écran ci-dessous indique que les sauvegardes seront prises tous les jours à 18 h 00 et à minuit. <br/>
+## Qu’est-ce que la planification de sauvegarde ?
+La planification de sauvegarde indique la fréquence de l’opération de sauvegarde, par exemple, les paramètres de l’écran ci-dessous indiquent que les sauvegardes sont effectuées tous les jours à 18 h 00 et à minuit. <br/>
 
 ![Planification quotidienne][1]
 
-Les clients peuvent également planifier une sauvegarde hebdomadaire, par exemple, les paramètres dans l'écran ci-dessous indique que les sauvegardes s'affichera alors chaque dimanche autre & le mercredi à 9 h 30 et 1 h 00. <br/>
+Les clients peuvent également planifier une sauvegarde hebdomadaire, par exemple, les paramètres de l’écran ci-dessous indiquent que les sauvegardes sont effectuées le dimanche et le mercredi à 9 h 30 et à 1 h 00. <br/>
 
 ![Planification hebdomadaire][2]
 
-## Qu'est la stratégie de rétention ?
-Stratégie de rétention spécifie la durée pour laquelle la sauvegarde doit être stockée. Plutôt que de simplement spécifier une stratégie « plate » pour tous les points de sauvegarde, les clients peuvent spécifier des stratégies de rétention différentes basées sur lorsque la sauvegarde est effectuée. Pour par exemple, le point de sauvegarde effectuée à la fin de chaque trimestre peut devoir être conservés pendant une durée supérieure à des fins d'audit, alors que le point de sauvegarde effectuée quotidiennement (point qui sert d'une récupération opérationnelle) doit être conservé pendant 90 jours. <br/>
+## Qu’est-ce que la stratégie de rétention ?
+La stratégie de rétention spécifie la durée de stockage de la sauvegarde. Au lieu de simplement spécifier une même stratégie pour tous les points de sauvegarde, les clients peuvent spécifier différentes stratégies de rétention en fonction du moment où est effectuée la sauvegarde. Par exemple, le point de sauvegarde effectué à la fin de chaque trimestre peut devoir être conservé plus longtemps à des fins d’audit, alors que le point de sauvegarde effectué quotidiennement (qui fait office de point de récupération opérationnel) doit être conservé pendant 90 jours. <br/>
 
 ![Stratégie de rétention][3]
 
-Le nombre total de points de rétention « » spécifié dans cette stratégie est 90 (points quotidiens) + 40 (un pour chaque trimestre depuis 10 ans) = 130.
+Le nombre total de « points de rétention » spécifié dans cette stratégie est 90 (points quotidiens) + 40 (un par trimestre pendant 10 ans) = 130.
 
-## Exemple – les assembler
-<br/> ![Exemple d'écran][4]
+## Exemple – Combinaison des deux
+<br/> ![Exemple d’écran][4]
 
-1. **Quotidienne de rétention**: les sauvegardes effectuées quotidiennement sont stockés pendant 7 jours.
-2. **Hebdomadaire de rétention**: les sauvegardes effectuées tous les jours à minuit et 18 h 00 samedi seront conservées pendant 4 semaines
-3. **Stratégie de rétention mensuelles**: les sauvegardes effectuées à minuit et 18 h 00 le samedi de chaque mois dernier seront conservés pour 12months
-4. **Stratégie de rétention annuelles**: effectuées à minuit le dernier samedi de mars, toutes les sauvegardes seront conservées pendant 10 ans
+1. **Stratégie de rétention quotidienne** : les sauvegardes effectuées quotidiennement sont stockées pendant 7 jours.
+2. **Stratégie de rétention hebdomadaire** : les sauvegardes effectuées tous les samedis à minuit et 18 h 00 sont conservées pendant 4 semaines.
+3. **Stratégie de rétention mensuelle** : les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
+4. **Stratégie de rétention annuelle** : les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
 
-Le nombre total de « points de rétention » (points à partir de laquelle un client peut restaurer les données) dans le diagramme ci-dessus est calculée comme suit :
+Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma ci-dessus est calculé comme suit :
 
-+ 2 points par jour pour la récupération de 7 jours = 14 points
++ 2 points par jour pendant 7 jours = 14 points de récupération
 
-+ 2 points par semaine pour 4 semaines = 8 points de récupération
++ 2 points par semaine pendant 4 semaines = 8 points de récupération
 
-+ 2 points par mois pendant 12 mois = 24 points de récupération
++ 2 points par mois pendant 12 mois = 24 points de récupération
 
-+ 1 point par an et par récupération de 10 ans = 10 points
++ 1 point par an pendant 10 ans = 10 points de récupération
 
-Le nombre total de points de récupération est 56.
+Le nombre total de points de récupération est 56.
 
 ## Configuration avancée
 
-En cliquant sur **Modifier** dans l'écran précédent, les clients ont davantage de flexibilité dans la spécification des planifications de rétention. <br/>
+En cliquant sur **Modifier** dans l’écran précédent, les clients peuvent spécifier les planifications de rétention de manière plus flexible. <br/>
 
 ![Modifier][5]
 
@@ -77,5 +76,6 @@ En cliquant sur **Modifier** dans l'écran précédent, les clients ont davantag
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

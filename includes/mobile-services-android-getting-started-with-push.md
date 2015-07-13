@@ -20,15 +20,12 @@
         </receiver>
 
 
-4. Ajoutez ces lignes sous *dépendances* dans le fichier **build.gradle** dans le répertoire de l’application :
+4. Ajoutez la ligne suivante sous *dependencies* dans le fichier **build.gradle** dans le répertoire d’application, puis synchronisez à nouveau le fichier gradle avec le projet :
 
-	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
 	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
 
 
-5. Ouvrez le fichier *ToDoItemActivity.java*, puis ajoutez l'instruction import suivante :
+5. Ouvrez le fichier *ToDoItemActivity.java*, puis ajoutez l’instruction import suivante :
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
@@ -43,9 +40,9 @@
 
 
 
-8. Ensuite, nous devons ajouter une nouvelle classe pour gérer les notifications. Dans l’explorateur de projets, recherchez le nœud `src`, ouvrez-le et cliquez avec le bouton droit sur le nœud de nom de package : cliquez sur **Nouveau**, puis cliquez sur **Classe Java**.
+8. Ensuite, nous devons ajouter une nouvelle classe pour gérer les notifications. Dans l’Explorateur de projets, ouvrez les nœuds **src** => **main** => **java**, cliquez avec le bouton droit sur le nœud de nom de package, cliquez sur **Nouveau**, puis cliquez sur **Classe Java**.
 
-9. Dans **Nom** tapez `MyHandler`, puis cliquez sur **OK**.
+9. Dans **Nom**, tapez `MyHandler`, puis cliquez sur **OK**.
 
 
 	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
@@ -138,4 +135,4 @@
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -71,7 +71,7 @@ Pour ajouter une règle d’alerte, cliquez sur le graphique puis sur **Ajouter 
  
 ![](./media/web-sites-manage/manage05.png)
 
-- Configurer un déploiement continu Consultez la page [Utilisation de Git pour déployer des applications web dans Azure App Service](web-sites-publish-source-control.md).
+- Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications Web dans Azure App Service](web-sites-publish-source-control.md)
 - Emplacements de déploiement Consultez la page [Configurer des environnements intermédiaires pour les applications web dans Azure App Service](web-sites-staged-publishing.md).
 - Définir les informations d’identification de déploiement pour Git ou FTP 
 
@@ -92,5 +92,6 @@ Pour ajouter une règle d’alerte, cliquez sur le graphique puis sur **Ajouter 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

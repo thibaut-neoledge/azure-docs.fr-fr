@@ -87,4 +87,4 @@ Une partie de la documentation qui a été créée pour Azure AD Sync est toujo
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

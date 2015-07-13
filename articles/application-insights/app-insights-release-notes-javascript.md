@@ -18,4 +18,6 @@
 
 [Utilisation du Kit de développement logiciel (SDK) Azure pour JavaScript](app-insights-javascript.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

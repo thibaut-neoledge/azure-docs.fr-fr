@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Créer une application web Node.js sur Azure avec MongoDB dans une machine virtuelle" 
+<properties
+	pageTitle="Créer une application web Node.js sur Azure avec MongoDB dans une machine virtuelle"
 	description="Découvrez comment utiliser MongoDB pour stocker des données dans une application Node.js hébergée sur Azure."
-	tags="azure-portal" 
-	services="app-service\web, virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web, virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 
@@ -26,12 +26,12 @@ Vous apprendrez à effectuer les opérations suivantes :
 
 * Configuration d'une machine virtuelle avec Ubuntu et MongoDB depuis le VM Depot.
 * Accès à MongoDB depuis une application Node
-* Utilisation des outils interplateforme pour Azure pour créer une application web dans Azure App Service
+* Utilisation de l’interface de ligne de commande Azure pour créer une application web dans Azure App Service
 
 Dans ce didacticiel, vous allez concevoir une application Web simple pour la gestion des tâches qui vous permet de créer et de récupérer des tâches et de les marquer comme terminées. Les tâches sont stockées dans MongoDB.
 
 > [AZURE.NOTE]Ce didacticiel utilise une instance MongoDB installée sur une machine virtuelle. Si vous préférez utiliser une instance MongoDB hébergée fournie par MongoLabs, consultez la page [Créer une application web Node.js sur Azure avec MongoDB à l’aide du module complémentaire MongoLab](store-mongolab-web-sites-nodejs-store-data-mongodb).
- 
+
 Les fichiers de projets de ce didacticiel sont stockés dans un répertoire appelé **tasklist** et l'application terminée ressemble à ce qui suit :
 
 ![Une page Web avec une liste de tâches vide][node-mongo-finished]
@@ -86,7 +86,7 @@ Bien qu’il soit possible de créer une machine virtuelle puis d’y installer 
 	* Protocole : TCP
 	* Port public : 28017
 	* Port privé : 28017
-	
+
 	![capture d'écran de la configuration du point de terminaison][vmendpoint]
 
 9. Cliquez sur **OK** deux fois, puis sur **Créer** pour créer la machine virtuelle.
@@ -113,20 +113,20 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 1. Dans la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
 
-	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **\~/node/tasklist** ou **c:\\node\\tasklist**
+	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\node\tasklist**
 
 2. Entrez la commande suivante pour installer la commande express.
 
 	npm install express-generator -g
- 
+
 	> [AZURE.NOTE]Lorsque vous utilisez le paramètre ’-g’ sur certains systèmes d’exploitation, vous pouvez recevoir une erreur de type ___Error: EPERM, chmod ’/usr/local/bin/express’___ et une demande d’exécution du compte en tant qu’administrateur. Dans ce cas, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
 
     Le résultat de cette commande doit ressembler à ceci :
 
 		express-generator@4.0.0 C:\Users\username\AppData\Roaming\npm\node_modules\express-generator
 		├── mkdirp@0.3.5
-		└── commander@1.3.2 (keypress@0.1.0)                                                                         
- 
+		└── commander@1.3.2 (keypress@0.1.0)
+
 	> [AZURE.NOTE]Avec le paramètre '-g', le module express est installé dans sa globalité. Ceci nous permet d’accéder à la commande ___express___ pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires dans le chemin d’accès.
 
 4. Pour créer la structure qui sera utilisée pour cette application, utilisez la commande **express** :
@@ -152,10 +152,10 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 		   create : ./public/javascripts
 		   create : ./bin
 		   create : ./bin/www
-		
+
 		   install dependencies:
 		     $ cd . && npm install
-		
+
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 ###Installation de modules supplémentaires
 
 Le fichier **package.json** est un des fichiers créés par la commande **express**. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Express. Ensuite, quand vous déployez cette application dans App Service Web Apps, ce fichier permet de déterminer les modules à installer sur Azure pour prendre en charge votre application.
-	
+
 1. Dans le dossier **tasklist**, utilisez la commande suivante pour installer les modules décrits dans le fichier **package.json** :
 
         npm install
@@ -184,19 +184,19 @@ Le fichier **package.json** est un des fichiers créés par la commande **expres
     Le résultat de cette commande doit ressembler à ceci :
 
 		debug@0.7.4 node_modules\debug
-		
+
 		cookie-parser@1.0.1 node_modules\cookie-parser
 		├── cookie-signature@1.0.3
 		└── cookie@0.1.0
-		
+
 		morgan@1.0.0 node_modules\morgan
 		└── bytes@0.2.1
-		
+
 		body-parser@1.0.2 node_modules\body-parser
 		├── qs@0.6.6
 		├── raw-body@1.1.4 (bytes@0.3.0)
 		└── type-is@1.1.0 (mime@1.2.11)
-		
+
 		express@4.0.0 node_modules\express
 		├── methods@0.1.0
 		├── parseurl@1.0.1
@@ -214,7 +214,7 @@ Le fichier **package.json** est un des fichiers créés par la commande **expres
 		├── type-is@1.0.0 (mime@1.2.11)
 		├── accepts@1.0.0 (negotiator@0.3.0, mime@1.2.11)
 		└── serve-static@1.0.1 (send@0.1.4)
-		
+
 		jade@1.3.1 node_modules\jade
 		├── character-parser@1.2.0
 		├── commander@2.1.0
@@ -222,7 +222,7 @@ Le fichier **package.json** est un des fichiers créés par la commande **expres
 		├── monocle@1.1.51 (readdirp@0.2.5)
 		├── constantinople@2.0.0 (uglify-js@2.4.13)
 		├── with@3.0.0 (uglify-js@2.4.13)
-		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)                                                                
+		└── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 
 	Ceci installe tous les modules utilisés par défaut par les applications Express.
 
@@ -241,7 +241,7 @@ Le fichier **package.json** est un des fichiers créés par la commande **expres
 		├── mpromise@0.4.3
 		├── ms@0.1.0
 		├── mquery@0.5.3
-		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)         
+		└── mongodb@1.3.23 (kerberos@0.0.3, bson@0.2.5)
 
     > [AZURE.NOTE]Vous pouvez ignorer tout message concernant l'installation de l'analyseur C++ bson.
 
@@ -309,7 +309,7 @@ Dans cette section, vous allez étendre l'application de base créée par la com
     	    });
     	  	res.redirect('/');
   		  },
-  
+
 
   		  completeTask: function(req,res) {
     		var completedTasks = req.body;
@@ -383,14 +383,14 @@ Dans cette section, vous allez étendre l'application de base créée par la com
 		  input(type="submit", value="Update tasks")
 		hr
 		form(action="/addtask", method="post")
-		  table(border="1") 
+		  table(border="1")
 		    tr
-		      td Item Name: 
-		      td 
+		      td Item Name:
+		      td
 		        input(name="item[name]", type="textbox")
 		    tr
-		      td Item Category: 
-		      td 
+		      td Item Category:
+		      td
 		        input(name="item[category]", type="textbox")
 		  input(type="submit", value="Add item")
 
@@ -443,9 +443,9 @@ Les étapes de cette section utilisent les outils en ligne de commande Azure pou
 
 > [AZURE.NOTE]S’il s’agit de votre première application web App Service, vous devez utiliser le portail Azure pour la déployer.
 
-###Installation de l'interface de ligne de commande interplateforme Azure
+###Installer l’interface de ligne de commande Azure
 
-L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas déjà installé et configuré xplat-cli dans votre environnement de développement, consultez les instructions dans [Installation de l'interface de ligne de commande interplateforme Azure][xplatcli].
+L’interface de ligne de commande Azure vous permet d'effectuer des opérations de gestion sur les services Azure. Si vous n'avez pas encore installé et configuré l'interface de ligne de commande Azure dans votre environnement de développement, consultez [Installer et configurer l'interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ###Créer une application web App Service
 
@@ -454,15 +454,15 @@ L'interface de ligne de commande interplateforme Azure (xplat-cli) vous permet d
 2. Utilisez la commande suivante pour créer une application web App Service. Remplacez « myuniquewebappname » par le nom unique de votre application web. Cette valeur est utilisée comme une partie de l’URL de l’application web obtenue.
 
 		azure site create myuniqueappname --git
-		
+
 	Vous devez indiquer le centre de données qui héberge votre application web. Sélectionnez un centre de données géographiquement proche de votre emplacement.
-	
+
 	Le paramètre `--git` crée un référentiel Git localement dans le dossier **tasklist** s’il n’existe pas. Il crée également une télécommande [Git remote] appelée « azure », qui sera utilisée pour publier l'application sur Azure. Il crée un fichier [iisnode.yml], qui contient les paramètres utilisés par Azure pour héberger les applications Node. Enfin, il crée également un fichier .gitignore afin d'exclure le dossier node-modules de la publication sur .git.
-	
+
 	> [AZURE.NOTE]Si cette commande est exécutée depuis un répertoire qui contient déjà un référentiel Git, le répertoire n'est pas réinitialisé.
-	
+
 	> [AZURE.NOTE]Si le paramètre --git est omis, mais que le répertoire contient un référentiel Git, la commande distante « azure » est quand même créée.
-	
+
 	Une fois cette commande terminée, le résultat doit ressembler à ce qui suit. Notez que la ligne commençant par **Created website at** contient l’URL de l’application web App Service.
 
 		info:   Executing command site create
@@ -498,7 +498,7 @@ Ceci crée un paramètre d’application pour l’application web, qui sera int�
 3. Quand vous transférez les dernières modifications du référentiel Git à l’application web App Service, vous devez spécifier que la branche cible est **master**, car elle est utilisée pour le contenu de l’application web.
 
 		git push azure master
-	
+
 	Vous devez voir des informations similaires à ce qui suit. À mesure que le déploiement s'effectue, Azure télécharge tous les modules npm.
 
 		Counting objects: 17, done.
@@ -516,7 +516,7 @@ Ceci crée un paramètre d’application pour l’application web, qui sera int�
 		remote: Deployment successful.
 		To https://username@mongodbtasklist.azurewebsites.net/MongoDBTasklist.git
  		 * [new branch]      master -> master
- 
+
 4. Une fois l’opération push terminée, accédez à l’application web à l’aide de la commande `azure site browse` pour voir votre application.
 
 ##Étapes suivantes
@@ -529,9 +529,7 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 
 ##Ressources supplémentaires
 
-[Outil en ligne de commande Azure pour Mac et Linux]    
-[Build and deploy a Node.js web app in Azure App Service]    
-[Déploiement continu à l’aide de GIT dans Azure App Service]    
+[Outil en ligne de commande Azure pour Mac et Linux][Build and deploy a Node.js web app in Azure App Service] [Déploiement continu à l’aide de GIT dans Azure App Service]
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -560,7 +558,7 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://portal.azure.com
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: ../xplat-cli.md
+[Azure CLI]: ../xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png
@@ -571,4 +569,6 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

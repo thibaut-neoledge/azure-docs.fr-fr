@@ -43,7 +43,7 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Java
 
 #### Je pouvais voir les données, mais plus maintenant
 
-* Vérifiez le [blog d’état](http://blogs.msdn.com/b/applicationinsights-status/).
+* Vérifiez le [blog d'état](http://blogs.msdn.com/b/applicationinsights-status/).
 * Vous souhaitez savoir si vous avez atteint votre quota mensuel de points de données ? Ouvrez Paramètres/Quota et tarification pour le savoir. Le cas échéant, vous pouvez mettre à niveau votre forfait ou payer pour disposer d’une capacité supplémentaire. Consultez le [mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="02/22/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Ajout de notifications push à votre application Xamarin iOS
@@ -334,5 +334,6 @@ Vous avez terminé ce didacticiel.
 [Composant Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

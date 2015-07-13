@@ -18,12 +18,12 @@
 
 # Créer une application web en PHP dans Microsoft Azure App Service
 
-## Vue d'ensemble
-Cet article explique comment créer une application web PHP dans [Azure App Service] à l’aide du [portail Azure en version préliminaire](https://portal.azure.com), de la [CLI Azure][Azure CLI] ou des [cmdlets PowerShell Azure][powershell-cmdlets].
+## Vue d’ensemble
+Cet article explique comment créer une application web PHP dans [Azure App Service] à l’aide du [portail Azure en version préliminaire](https://portal.azure.com), de l’[interface de ligne de commande Azure][Azure CLI] ou des [cmdlets PowerShell Azure][powershell-cmdlets].
 
 En général, la création d’une application web en PHP diffère peu de la création de *toute autre* application web dans Azure App Service. Par défaut, le langage PHP est activé pour toutes les applications Web. Pour en savoir plus sur la configuration de PHP (ou le fait de fournir votre propre runtime personnalisé en PHP), consultez [Configuration PHP dans Azure App Service Web Apps].
 
-Chaque option décrite ci-dessous indique comment créer gratuitement une application Web dans un environnement d’hébergement partagé, en respectant certaines limites d’utilisation en termes de processeur et de bande passante. Pour en savoir plus, consultez [Tarification d’App Service]. Pour en savoir plus sur la mise à niveau et la mise à l’échelle de votre application web dans App Service, consultez [Mise à l’échelle d’une application web dans Azure App Service].
+Chaque option décrite ci-dessous indique comment créer gratuitement une application web dans un environnement d’hébergement partagé, en respectant certaines limites d’utilisation en termes de processeur et de bande passante. Pour en savoir plus, consultez [Tarification d’App Service]. Pour en savoir plus sur la mise à niveau et la mise à l’échelle de votre application web dans App Service, consultez [Mise à l’échelle d’une application web dans Azure App Service].
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -32,14 +32,14 @@ Chaque option décrite ci-dessous indique comment créer gratuitement une applic
 Lorsque vous créez une application web en PHP dans le portail Azure en version préliminaire, vous disposez de trois options :
 
 - **Création rapide** : consultez [Procédure de création d’une application web à l’aide du portail Azure en version préliminaire](../web-sites-create-deploy.md#createawebsiteportal).
-- **Création avec une base de données** : consultez [Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git]
-- **Depuis le Marketplace** : consultez [Création d’une application web WordPress dans Azure App Service]
+- **Création avec une base de données** : consultez [Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git].
+- **Depuis le Marketplace** : consultez [Création d’une application web WordPress dans Azure App Service].
 
-## Création d’une application web en PHP à l’aide de la CLI Azure
+## Création d’une application web en PHP à l’aide de l’interface de ligne de commande Azure
 
-Pour créer une application web à l’aide de la CLI Azure, procédez comme suit :
+Pour créer une application web à l’aide de l’interface de ligne de commande Azure, procédez comme suit :
 
-1. Installez la CLI Azure en suivant les instructions dans : [Installation de la CLI Azure](../xplat-cli.md#install).
+1. Installez l’interface de ligne de commande Azure en suivant les instructions dans : [Installation de l’interface de ligne de commande Azure](../xplat-cli.md#install).
 
 1. Téléchargez et importez votre fichier de paramètres de publication en suivant les instructions disponibles ici : [Procédure de téléchargement et d’importation des paramètres de publication](../xplat-cli.md#configure).
 
@@ -79,11 +79,11 @@ Remarque : vous pouvez exécuter la commande `New-AzureWebsite` avec l’une ou
 
 Maintenant que vous avez créé une application web en PHP dans Microsoft Azure App Service, vous pouvez gérer, configurer, surveiller, déployer et mettre votre application à l’échelle. Pour plus d’informations, consultez les liens suivants :
 
-* [Configuration des applications web dans Azure App Service](web-sites-configure.md)
-* [Configuration PHP dans Azure App Service Web Apps]
-* [Gestion des applications web à l’aide du portail de Azure](web-sites-manage.md)
-* [Surveillance des applications web dans Azure App Service](web-sites-monitor.md)
-* [Faire évoluer une application Web dans Azure App Service]
+* [Configurer des applications web dans Azure App Service](web-sites-configure.md)
+* [Configurer PHP dans Azure App Service Web Apps]
+* [Gérer les applications web à l’aide de Microsoft Azure Portal](web-sites-manage.md)
+* [Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
+* [Mise à l’échelle d’une application web dans Microsoft Azure App Service]
 * [Déploiement continu à l’aide de Git dans Azure App Service](web-sites-publish-source-control.md)
 
 Pour des didacticiels complets, rendez-vous sur la page [Didacticiels du Centre de développement PHP](/develop/php/tutorials/).
@@ -97,10 +97,11 @@ Pour des didacticiels complets, rendez-vous sur la page [Didacticiels du Centre 
 [Azure CLI]: ../xplat-cli.md
 [powershell-cmdlets]: ../powershell-install-configure.md
 [Configuration PHP dans Azure App Service Web Apps]: web-sites-php-configure.md
+[Configurer PHP dans Azure App Service Web Apps]: web-sites-php-configure.md
 [Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git]: web-sites-php-mysql-deploy-use-git.md
 [Création d’une application web WordPress dans Azure App Service]: web-sites-php-web-site-gallery.md
 [Tarification d’App Service]: /pricing/details/app-service/
-[Faire évoluer une application Web dans Azure App Service]: web-sites-scale.md
+[Mise à l’échelle d’une application web dans Microsoft Azure App Service]: web-sites-scale.md
 [Mise à l’échelle d’une application web dans Azure App Service]: web-sites-scale.md
  
 

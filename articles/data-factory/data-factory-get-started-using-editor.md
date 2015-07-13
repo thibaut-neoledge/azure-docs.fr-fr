@@ -268,7 +268,7 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
 	- L'entrée de l'activité a la valeur **EmpTableFromBlob** et la sortie de l'activité a la valeur **EmpSQLTable**.
 	- Dans la section **transformation**, **BlobSource** est spécifié en tant que type de source et **SqlSink** est spécifié en tant que type de récepteur.
 
-	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end** par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. Par exemple, « 2015-02-03 », qui est équivalent à « 2015-02-03T00:00:00Z »
+	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end** par le jour suivant. Si vous le souhaitez, spécifiez uniquement la date et ignorez l'heure. For example, "2015-02-03", which is equivalent to "2015-02-03T00:00:00Z"
 	
 	Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
@@ -314,7 +314,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 5. Dans le panneau **Jeux de données**, cliquez sur **EmpTableFromBlob**. Il s'agit de la table d'entrée pour **ADFTutorialPipeline**.
 
 	![Jeux de données avec EmpTableFromBlob sélectionné][image-data-factory-get-started-datasets-emptable-selected]   
-5. Notez que les tranches de données jusqu'à l'heure actuelle ont déjà été produites et sont **prêtes**, car le fichier **emp.txt** existe en permanence dans le conteneur d'objets blob **adftutorial\\input**. Vérifiez qu'aucune tranche n'apparaît dans la section inférieure **Tranches ayant échoué récemment**.
+5. Notez que les tranches de données jusqu'à l'heure actuelle ont déjà été produites et sont **prêtes**, car le fichier **emp.txt** existe en permanence dans le conteneur d'objets blob **adftutorial\input**. Vérifiez qu'aucune tranche n'apparaît dans la section inférieure **Tranches ayant échoué récemment**.
 
 	Les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l'**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
     
@@ -506,4 +506,4 @@ Article | Description
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

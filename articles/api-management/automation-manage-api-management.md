@@ -42,5 +42,6 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 
 * Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
 * Consultez le billet de blog de la communauté intitulé [Module PowerShell pour les API REST de gestion d’API #Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

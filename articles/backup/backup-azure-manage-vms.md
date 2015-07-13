@@ -95,7 +95,7 @@ Pour arrêter la protection d’une machine virtuelle :
 
     ![Arrêter la protection](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, à la fin du travail, l’état de la protection devient **Protection arrêtée**. Les données restent dans la sauvegarde Azure jusqu'à ce qu'elles soient explicitement supprimées. Vous pouvez toujours supprimer les données en sélectionnant la machine virtuelle sur la page **Éléments protégés** et en cliquant sur **Supprimer**.
+    Si vous n’avez pas sélectionné l’option **Supprimer les données de sauvegarde associées** dans l’Assistant **Arrêter la protection**, à la fin du travail, l’état de la protection devient **Protection arrêtée**. Les données restent dans Azure Backup jusqu'à ce qu'elles soient explicitement supprimées. Vous pouvez toujours supprimer les données en sélectionnant la machine virtuelle sur la page **Éléments protégés** et en cliquant sur **Supprimer**.
 
     ![Protection arrêtée](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
@@ -160,4 +160,4 @@ Dans la page **Tableau de bord**, vous pouvez consulter les informations des mac
   ![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

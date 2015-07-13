@@ -136,8 +136,9 @@ Enfin, nettoyez, générez et exécutez chaque projet. Si vous ne l’avez pas e
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni [ici](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Vous pouvez à présent aborder d’autres scénarios d’identité, par exemple :
 
-[Génération d’un client natif .NET avec Azure AD >](../active-directory-devquickstarts-native-dotnet.md)
+[Génération d’un client natif .NET avec Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >](https://github.com/AzureAdSamples) - [CloudIdentity.com >](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

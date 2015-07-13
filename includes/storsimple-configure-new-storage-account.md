@@ -1,20 +1,5 @@
-<properties 
-   pageTitle="Facultatif : configuration d’un nouveau compte de stockage pour le service"
-   description="Explique comment configurer un compte de stockage pour le service StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-### Configuration d’un nouveau compte de stockage
+#### Pour ajouter un nouveau compte de stockage dans StorSimple version GA
 
 1. Sur la page d’accueil du service StorSimple Manager, sélectionnez votre service et double-cliquez dessus. La page **Démarrage rapide** s’affiche. Sélectionnez la page **Configurer**.
 
@@ -32,4 +17,4 @@
 
 4. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

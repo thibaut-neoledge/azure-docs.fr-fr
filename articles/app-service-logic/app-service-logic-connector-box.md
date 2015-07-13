@@ -33,85 +33,79 @@ L'application de la galerie Box vous fournit des actions en tant que mécanismes
 	a. *Liste des fichiers* : cette opération retourne les informations de tous les fichiers inclus dans un dossier. Voici la liste des paramètres obligatoires pour l'action :
 
 	<table>
-	  <tr>
-	    <td><b>Nom du paramètre</b></td>
-	    <td><b>Description</b></td>
-	    <td><b>Obligatoire</b></td>
-	  </tr>
-	  <tr>
-	    <td>Chemin d'accès du dossier</td>
-	    <td>Chemin du dossier dont les fichiers sont à répertorier.</td>
-	    <td>Oui</td>
-	  </tr>
-	</table>
-
-	>[AZURE.NOTE] Ce paramètre ne permet pas de retourner le contenu d'un fichier.
+  <tr>
+    <td><b>Nom du paramètre</b></td>
+    <td><b>Description</b></td>
+    <td><b>Obligatoire</b></td>
+  </tr>
+  <tr>
+    <td>Chemin d'accès du dossier</td>
+    <td>Chemin du dossier dont les fichiers sont à répertorier.</td>
+    <td>Oui</td>
+  </tr>
+</table>>[AZURE.NOTE]Ce paramètre ne permet pas de retourner le contenu d'un fichier.
 
 
 
     b. *Obtenir un fichier* : cette opération récupère un fichier, à savoir son contenu et ses propriétés. Voici la liste des paramètres obligatoires pour l'action :
 
 	<table>
-	  <tr>
-	    <td><b>Nom du paramètre</b></td>
-	    <td><b>Description</b></td>
-	    <td><b>Obligatoire</b></td>
-	  </tr>
-	  <tr>
-	    <td>Chemin de fichier</td>
-	    <td>Chemin du dossier dans lequel le fichier est présent.</td>
-	    <td>Oui</td>
-	  </tr>
-	  <tr>
-	    <td>Type de fichier</td>
-	    <td>Spécifie s'il s'agit d'un fichier texte ou binaire.</td>
-	    <td>Non</td>
-	  </tr>
-	</table>
-	>[AZURE.NOTE] Cette opération ne supprime pas le fichier une fois qu'il a été lu.
+  <tr>
+    <td><b>Nom du paramètre</b></td>
+    <td><b>Description</b></td>
+    <td><b>Obligatoire</b></td>
+  </tr>
+  <tr>
+    <td>Chemin de fichier</td>
+    <td>Chemin du dossier dans lequel le fichier est présent.</td>
+    <td>Oui</td>
+  </tr>
+  <tr>
+    <td>Type de fichier</td>
+    <td>Spécifie s'il s'agit d'un fichier texte ou binaire.</td>
+    <td>Non</td>
+  </tr>
+</table>>[AZURE.NOTE]Cette opération ne supprime pas le fichier une fois qu'il a été lu.
 
 
 
     c. Télécharger un fichier : comme son nom le suggère, cette action télécharge le fichier vers le compte Box. Si le fichier existe déjà, alors il n'est pas remplacé et une erreur est générée. Voici la liste des paramètres obligatoires pour l'action :
 
 	<table>
-	  <tr>
-	    <td><b>Nom du paramètre</b></td>
-	    <td><b>Description</b></td>
-	    <td><b>Obligatoire</b></td>
-	  </tr>
-	  <tr>
-	    <td>Chemin de fichier</td>
-	    <td>Chemin d'accès au fichier.</td>
-	    <td>Oui</td>
-	  </tr>
-	  <tr>
-	    <td>Contenu du fichier</td>
-	    <td>Contenu du fichier à télécharger.</td>
-	    <td>Oui</td>
-	  </tr>
-	  <tr>
-	    <td>Encodage de transfert de contenu</td>
-	    <td>Type d'encodage du contenu, à savoir Base64 ou None.</td>
-	    <td> </td>
-	  </tr>
-	</table>
-
-
-    d. Supprimer un fichier : l’action supprime un fichier spécifié d’un dossier. Si le fichier/dossier est introuvable, une exception est levée. Voici la liste des paramètres obligatoires pour l'action :
+  <tr>
+    <td><b>Nom du paramètre</b></td>
+    <td><b>Description</b></td>
+    <td><b>Obligatoire</b></td>
+  </tr>
+  <tr>
+    <td>Chemin de fichier</td>
+    <td>Chemin d'accès au fichier.</td>
+    <td>Oui</td>
+  </tr>
+  <tr>
+    <td>Contenu du fichier</td>
+    <td>Contenu du fichier à télécharger.</td>
+    <td>Oui</td>
+  </tr>
+  <tr>
+    <td>Encodage de transfert de contenu</td>
+    <td>Type d'encodage du contenu, à savoir Base64 ou None.</td>
+    <td> </td>
+  </tr>
+</table>d. Supprimer un fichier : l’action supprime un fichier spécifié d’un dossier. Si le fichier/dossier est introuvable, une exception est levée. Voici la liste des paramètres obligatoires pour l'action :
 
  	<table>
-	  <tr>
-	    <td><b>Nom du paramètre</b></td>
-	    <td><b>Description</b></td>
-	    <td><b>Obligatoire</b></td>
-	  </tr>
-	  <tr>
-	    <td>Chemin de fichier</td>
-	    <td>Chemin d'accès complet aux fichiers y compris les dossiers.</td>
-	    <td>Oui</td>
-	  </tr>
-	</table>
+  <tr>
+    <td><b>Nom du paramètre</b></td>
+    <td><b>Description</b></td>
+    <td><b>Obligatoire</b></td>
+  </tr>
+  <tr>
+    <td>Chemin de fichier</td>
+    <td>Chemin d'accès complet aux fichiers, y compris les dossiers.</td>
+    <td>Oui</td>
+  </tr>
+</table>
 
 
 
@@ -166,4 +160,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!-----HONumber=62-->
+<!---HONumber=62-->

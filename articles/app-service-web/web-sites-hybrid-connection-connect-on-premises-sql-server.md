@@ -180,7 +180,7 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 
 [AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
-Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application web qui l'utilise.
+Maintenant que l’infrastructure de connexion hybride est terminée, vous pouvez créer une application web qui l’utilise.
 
 <a name="CreateASPNET"></a>
 ## E. Création d’un projet web ASP.NET de base, modification de la chaîne de connexion à la base de données et exécution locale du projet ##

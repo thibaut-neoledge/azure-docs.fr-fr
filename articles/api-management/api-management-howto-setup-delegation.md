@@ -13,18 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="antonba"/>
 
 # Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
 
-Pour plus d’informations sur la délégation, regardez la vidéo suivante.
-
-> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
-
-## <a name="delegate-signin-up"> </a> Délégation de la connexion et de l’inscription des développeurs
+## <a name="delegate-signin-up"> </a>Délégation de la connexion et de l’inscription des développeurs
 
 Pour déléguer les connexions et inscriptions des développeurs à votre site web existant, vous devez créer un point de terminaison de délégation spécifique sur votre site qui agit en tant que point d'entrée pour toutes les demandes de ce type émanant du portail des développeurs Gestion des API.
 
@@ -155,6 +151,12 @@ Ces exemples de code montrent comment prendre la *clé de validation de déléga
     // compare signature to sig query parameter
 	
 	var signature = digest.toString('base64');
+
+## Étapes suivantes
+
+Pour plus d’informations sur la délégation, regardez la vidéo suivante.
+
+> [AZURE.VIDEO delegating-user-authentication-and-product-subscription-to-a-3rd-party-site]
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription

@@ -1,4 +1,3 @@
-﻿Pour utiliser cette fonctionnalité et autres nouvelles fonctionnalités Azure, inscrivez-vous à la [version d'évaluation gratuite](https://account.windowsazure.com/PreviewFeatures).
+Pour utiliser cette fonctionnalité et d’autres fonctionnalités Azure inédites, inscrivez-vous à l’[aperçu gratuit](https://account.windowsazure.com/PreviewFeatures).
 
-
-<!--HONumber=47-->
+<!---HONumber=62-->

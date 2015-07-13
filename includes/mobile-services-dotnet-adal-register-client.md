@@ -30,4 +30,5 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 
 
 [portail de gestion Azure]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -17,90 +17,90 @@
 	ms.author="spelluru"/>
 
 # Surveillance d'Azure Data Factory à l'aide de la version préliminaire du portail Azure
-Cet article décrit différents scénarios d'utilisation du portail Azure Preview pour surveiller et gérer la fabrique de données Azure.
+Cet article décrit différents scénarios d'utilisation du portail Azure en version préliminaire pour la surveillance et la gestion d'Azure Data Factory.
 
-## <a name="AllDataFactories"></a> Afficher toutes les fabriques de données dans un abonnement Azure
+## <a name="AllDataFactories"></a> Affichage de toutes les fabriques de données d’un abonnement Azure
 
-- Ouvrez une session dans le [portail Azure Preview][azure-preview-portal].
-- Cliquez sur **Parcourir** concentrateur à gauche et cliquez sur **fabriques données**.  
+- Connectez-vous au [Portail Azure en version préliminaire][azure-preview-portal].
+- Cliquez sur le concentrateur **PARCOURIR** à gauche, puis sur **Fabriques de données**.  
 
-	![Parcourir hub -> fabriques de données][image-data-factory-browse-datafactories]
+	![Concentrateur PARCOURIR -> Fabriques de données][image-data-factory-browse-datafactories]
 
-	Si vous ne voyez pas **fabriques données**, cliquez sur **tout** puis cliquez sur **factorries de données** dans les **Parcourir** lame.
+	Si vous ne voyez pas **Fabriques de données**, cliquez sur **Tout**, puis sur **Fabriques de données** dans le panneau **Parcourir**.
 
-	![Parcourir hub -> tout][image-data-factory-browse-everything]
+	![Concentrateur PARCOURIR -> Tout][image-data-factory-browse-everything]
 
-- Vous devez voir toutes les fabriques de données dans le **fabriques données** lame.
+- Vous devez voir toutes les fabriques de données dans le panneau **Fabriques de données**.
 
-	![Lame fabriques][image-data-factory-datafactories-blade]
+	![Panneau Fabriques de données][image-data-factory-datafactories-blade]
 
     
-## <a name="DataFactoryDetails"></a> Afficher les détails sur une fabrique de données
+## <a name="DataFactoryDetails"></a> Affichage des détails d’une fabrique de données
 
 Pour afficher les détails d'une fabrique de données, effectuez l'une des opérations suivantes :
 
 
-- Cliquez sur une fabrique de données dans le **fabriques données** lame ci-dessus.
-- Cliquez sur le lien de la fabrique de données sur le **tableau d'accueil**. **Tableau d'accueil** est le volet que vous voyez lorsque vous vous connectez au portail Azure Preview. Si vous aviez sélectionné **Ajouter au tableau d'accueil** lors de la création d'une fabrique de données (option par défaut), vous devez voir le factory de données sur le tableau d'accueil lien comme indiqué dans l'image suivante. Dans cet exemple, **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** et **LogProcessingFactory** données fabrique de liens est disponibles sur le **tableau d'accueil**.
+- Cliquez sur une fabrique de données dans le panneau **Fabriques de données** illustré ci-dessus.
+- Cliquez sur le lien de la fabrique de données dans le **tableau d’accueil**. Le **tableau d’accueil** est le panneau affiché quand vous vous connectez au portail Azure en version préliminaire. Si vous avez sélectionné **Ajouter au tableau d’accueil** durant la création d’une fabrique de données (option par défaut), vous devez voir le lien de la fabrique de données sur le tableau d’accueil comme illustré ci-après. Dans cet exemple, les liens des fabriques de données **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** et **LogProcessingFactory** sont disponibles sur le **tableau d’accueil**.
 
 
-![Fabrique de données depuis le tableau d'accueil][image-data-factory-datafactory-from-startboard]
+![Fabrique de données depuis le tableau d’accueil][image-data-factory-datafactory-from-startboard]
 
-Dans les deux cas, vous verrez la **DATA FACTORY** lame pour la fabrique de données sélectionnée, comme indiqué dans l'image suivante.
+Dans les deux cas, le panneau **FABRIQUE DE DONNÉES** est affiché pour la fabrique de données comme illustré ci-après.
 
- ![Page d'accueil de fabrique de données][image-data-factory-datafactory-home-page]
+ ![Page d’accueil Data Factory][image-data-factory-datafactory-home-page]
  
-## <a name="DataFactoryDiagram"></a> Vue de diagramme de vue de la fabrique de données
-Dans le **DATA FACTORY** lame pour la fabrique de données, cliquez sur **diagramme** vignette pour afficher la vue de diagramme de la fabrique de données.
+## <a name="DataFactoryDiagram"></a> Affichage d’une vue schématique d’une fabrique de données
+Dans le panneau **FABRIQUE DE DONNÉES** de la fabrique de données, cliquez sur la vignette **Diagramme** pour afficher la vue schématique de la fabrique de données.
 
-![Affichage de schéma de fabrique de données][image-data-factory-diagram-view]
+![Vue schématique Data Factory][image-data-factory-diagram-view]
  
-### Ouvrez un pipeline dans la vue de diagramme
-Vous pouvez afficher toutes les activités dans un pipeline en cliquant le pipeline de la vue de diagramme, puis en cliquant sur **ouverte**. Vous devez voir les activités dans le pipeline, ainsi que des groupes de données d'entrée et de sortie pour les activités. ![Ouverte](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
+### Ouverture d’un pipeline dans la vue schématique
+Vous pouvez afficher toutes les activités dans un pipeline en cliquant sur ce dernier avec le bouton droit dans la vue schématique, puis en cliquant sur **Ouvrir un pipeline**. Vous devez voir les activités dans le pipeline, ainsi que des jeux de données d’entrée et de sortie pour les activités. ![Pipeline ouvert](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
-Cliquez sur **Data factory** dans l'arborescence de navigation dans le coin supérieur gauche pour revenir à la vue de diagramme. La vue de diagramme affiche tous les pipelines. Dans cet exemple, vous avez seulement créé un pipeline.
+Cliquez sur **Fabrique de données** dans la barre de navigation située dans le coin supérieur gauche pour revenir à la vue schématique. La vue schématique affiche tous les pipelines. Dans cet exemple, vous avez créé un seul pipeline.
 
-## <a name="DataFactoryLinkedServices"></a> Afficher les services liés dans une fabrique de données
-Dans le **DATA FACTORY** lame pour la fabrique de données, cliquez sur **Services liés** carré pour voir tous les services liés dans une liste.
+## <a name="DataFactoryLinkedServices"></a> Affichage des services liés dans une fabrique de données
+Dans le panneau **FABRIQUE DE DONNÉES** de la fabrique de données, cliquez sur la vignette **Services liés** pour voir la liste de tous les services liés.
 
-![Lame de Services liés][image-data-factory-linked-services]
+![Panneau Services liés][image-data-factory-linked-services]
 
-## <a name="DataFactoryLinkedService"></a> Afficher les détails sur un service lié
-Dans le **SERVICES liés** lame, cliquez sur le service lié à partir de la liste pour afficher les détails.
+## <a name="DataFactoryLinkedService"></a> Affichage des détails d’un service lié
+Dans le panneau **SERVICES LIÉS**, cliquez sur le service lié dans la liste pour en afficher les détails.
 
-![Lame de services liés][image-data-factory-linked-service]
+![Panneau Service lié][image-data-factory-linked-service]
 
-## <a name="DataFactoryDatasets"></a> Afficher les datasets dans une fabrique de données 
-Dans le **DATA FACTORY** lame pour la fabrique de données, cliquez sur **Datasets** carré pour voir toutes les tables de la fabrique de données.
+## <a name="DataFactoryDatasets"></a> Affichage des jeux de données dans une fabrique de données 
+Dans le panneau **FABRIQUE DE DONNÉES** de la fabrique de données, cliquez sur la vignette **Jeux de données** pour afficher toutes les tables de la fabrique de données.
 
-![Lame de jeux de données][image-data-factory-datasets]
+![Panneau Jeux de données][image-data-factory-datasets]
 
-## <a name="DataFactoryDataset"></a> Afficher les détails sur un groupe de données
+## <a name="DataFactoryDataset"></a> Affichage des détails d’un jeu de données
 Cliquez sur le jeu de données dans la liste des jeux de données du panneau JEUX DE DONNÉES pour en afficher les détails. Notez qu'une table est un jeu de données rectangulaire qui dispose d'un schéma. Il s'agit du seul type de jeu de données pris en charge actuellement.
 
-![Lame de table][image-data-factory-table]
+![Panneau Table][image-data-factory-table]
 
-Dans le **TABLE** lame ci-dessus, les deux **récemment mis à jour les tranches** et **Échec récemment tranches** listes sont triés par le **heure de dernière mise à jour**. L'heure de mise à jour d'une tranche de données est modifié dans les situations suivantes.
+Dans le panneau **TABLE** ci-dessus, les listes **Tranches récemment mises à jour** et **Tranches ayant échoué récemment** sont triées en fonction de l’**HEURE DE LA DERNIÈRE MISE À JOUR**. L’heure de mise à jour d’une tranche est modifiée dans les situations suivantes.
 
--  Vous mettre à jour l'état de la coupe manuellement, par exemple, à l'aide de la **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **exécuter** sur la **tranche** lame pour la tranche.
--  La tranche modifie l'état en raison d'une exécution (par exemple, une exécution démarré, une exécution s'est terminée et a échoué, une exécution s'est terminée et réussie, etc.).
+-  Vous mettez à jour l’état de la tranche manuellement, par exemple, à l’aide de **Set-AzureDataFactorySliceStatus** (ou) en cliquant sur **EXÉCUTER** dans le panneau **TRANCHE** de la tranche.
+-  La tranche change d’état en raison d’une exécution (par exemple, une exécution a démarré, une exécution s’est terminée et a échoué, une exécution s’est terminée et a réussi, etc.).
  
 	
-Pour afficher les tranches de données triés par les heures de début et de fin de tranche au lieu de cela, cliquez sur **tranches de données (par heure de tranche)** vignette.
+Pour afficher les tranches de données triées en fonction des heures de début et de fin de tranche, cliquez sur la vignette **Tranches de données (par heure de tranche)**.
  
-![Tranches de données par heure de secteur][DataSlicesBySliceTime]
+![Tranches de données par heure de tranche][DataSlicesBySliceTime]
 
-Cliquez sur le titre des listes ou des **... (points de suspension)** Pour consulter la liste supérieure des tranches.
+Cliquez sur le titre des listes ou sur **... (points de suspension)** pour consulter la liste plus complète des tranches.
 
-![Toutes les tranches d'une Table][image-data-factory-all-slices]
+![Toutes les tranches d’une table][image-data-factory-all-slices]
 
-Sur le **tranches de données** lame, cliquez sur le **filtre** bouton pour afficher les **filtre** volet qui vous permet de **filtre** tranches pour voir les tranches spécifiques que vous souhaitez examiner. La lame semblable à celle ci-dessous s'affiche lorsque vous cliquez sur **filtre** sur la **tranches de données** lame avec secteurs **classées par heure de la mise à jour**.
+Dans le panneau **Tranches de données**, cliquez sur le bouton **Filtrer** pour voir le panneau **Filtre**. Celui-ci vous permet de **filtrer** les tranches et d’afficher les tranches spécifiques que vous souhaitez examiner. Un panneau semblable à celui figurant ci-dessous s’affiche lorsque vous cliquez sur **Filtrer** dans le panneau **Tranches de données** avec les tranches **classées par heure de mise à jour**.
 
-![Volet de filtre][image-data-factory-filter-blade]
+![Panneau Filtrer][image-data-factory-filter-blade]
 
-Le **filtre** lame vous permet de filtrer selon **dernière mise à jour de temps** et **découper état**. Le tableau suivant décrit tous les États de tranche et leur description.
+Le panneau **Filtre** vous permet de filtrer selon l’**heure de dernière mise à jour** et l’**état de la tranche**. Le tableau suivant fournit l’état de toutes les tranches et leur description.
  
-État du secteur | Description
+État de la tranche | Description
 ------------ | ------------
 PendingExecution | Le traitement des données n'a pas encore démarré.
 InProgress | Le traitement des données est en cours.
@@ -110,68 +110,68 @@ Skip | Le traitement de la tranche est ignoré.
 Retry | Nouvelle tentative de l'exécution qui produit la tranche.
 Timed Out | Le traitement des données du secteur a expiré.
 PendingValidation | La tranche de données est en attente de validation par rapport aux stratégies de validation avant d'être traitée.
-RetryValidation | Nouvelle tentative de la validation du secteur.
+RetryValidation | Nouvelle tentative de validation de la tranche.
 FailedValidation | Échec de validation de la tranche.
 LongRetry | Une tranche est dans cet état si LongRetry est spécifié dans le tableau JSON et si les tentatives régulières de la tranche ont échoué.
 ValidationInProgress | Validation de la tranche (en fonction des stratégies définies du tableau JSON) en cours d'exécution.
 
-Lorsque vous cliquez sur **filtre** sur le **tranches de données** lame avec secteurs **triés par le temps de tranche**, vous verrez un autre type de **filtre** lame.
+Lorsque vous cliquez sur **Filtrer** dans le panneau **Tranches de données** avec les tranches **triées par heure de tranche**, vous voyez un autre type de panneau **Filtre**.
 
-![Volet filtre 2][image-data-factory-filter-blade-2]
+![Panneau Filtrer 2][image-data-factory-filter-blade-2]
 
 
-Lorsque vous lancez le **filtre** lames, le **à** champ est automatiquement défini sur l'heure la plus récente (arrondie) pour limiter le nombre d'enregistrements renvoyés. Le **de** champ est défini automatiquement ainsi. Vous pouvez modifier le **de** date en cliquant sur le **calendrier** bouton. Le **à** date est automatiquement modifié lorsque vous modifiez le **de** date.
+Quand vous lancez le panneau **Filtre**, le champ **À** prend automatiquement la valeur de l’heure la plus récente (arrondie) pour limiter le nombre d’enregistrements retournés. Le champ **De** est également défini automatiquement. Vous pouvez modifier la date **De** en cliquant sur le bouton **Calendrier**. La date **À** change automatiquement quand vous modifiez la date **De**.
 
-Vous pouvez cliquer sur **Précédent**/ ** suivant ** boutons pour afficher les tranches précédente période/période suivante. La plage de temps pour **Précédent** et **Suivant** boutons est définie en fonction de la fréquence du secteur et l'intervalle comme indiqué dans le tableau suivant.
+Vous pouvez cliquer sur les boutons **Précédent**/**Suivant** pour afficher les tranches de la période précédente/suivante. L’intervalle de temps des boutons **Précédent** et **Suivant** est défini en fonction de la fréquence et de l’intervalle des tranches, comme indiqué dans le tableau suivant.
 
-Fréquence | Valeur d'intervalle | Segment de temps obtenu
+Fréquence | Plage de valeurs de l’intervalle | Bloc de temps résultant
 ----------| -------------------- | --------------------
-Minute | 1-4 | 6 heures
-Minute | 5-29 | 1 jour
-Minute | 30 à 180 | 7 derniers jours
-Minute | 180 + | 28 jours (approximatif. mois)
-Heure | 1-3 | 7 derniers jours
-Heure | 4-11 | 28 jours (approximatif. mois)
-Heure | 12-72 | 182 jours (approximatifs. 6 mois)
-Heure | 73 + | 1 an
-Jour | 1-6 | 1 an
-Jour | 7-20 | 5 ans
-Jour | + 21 | 10 ans
-Semaine | 1-3 | 5 ans
-Semaine | 4 + | 10 ans
-Mois | tout | 10 ans
+Minute | 1 à 4 | 6 heures
+Minute | 5 à 29 | 1 jour
+Minute | 30 à 180 | 7 jours
+Minute | Plus de 180 | 28 jours (environ mois calendaire)
+Heure | 1 à 3 | 7 jours
+Heure | 4 à 11 | 28 jours (environ mois calendaire)
+Heure | 12 à 72 | 182 jours (environ 6 mois)
+Heure | Plus de 73 | 1 an
+Jour | 1 à 6 | 1 an
+jour | 7 à 20 | 5 ans
+jour | Plus de 21 | 10 ans
+Semaine | 1-3 | 5 ans
+Semaine | Plus de 4 | 10 ans
+Mois | Quelconque | 10 ans
  
-Par exemple, si vous définissez **fréquence** en tant que **heure** et **intervalle** de **2**, sur le **Suivant**/ ** précédent ** boutons déplacement la plage horaire **7 jours** dans les deux sens. Cette logique s'applique au panneau Filtre, quels que soient les tranches que vous affichez : totalité des tranches, tranches récentes ou tranches à problème.
+Par exemple, si vous définissez la **fréquence** en **heures** et si vous définissez un **intervalle** égal à **2**, quand vous cliquez sur les boutons **Suivant/**Précédent****, cela entraîne un déplacement de l’intervalle de temps de **7 jours** dans les deux directions. Cette logique s'applique au panneau Filtre, quels que soient les tranches que vous affichez : totalité des tranches, tranches récentes ou tranches à problème.
 
 
 
 
-## <a name="DataFactorySlice"></a> Afficher les détails sur une tranche de données
-Cliquez sur un secteur dans la liste des tranches soit sur le **TABLE** lame ou **tranches de données** blade pour afficher des détails sur ce secteur.
+## <a name="DataFactorySlice"></a> Affichage des détails d’une tranche
+Cliquez sur une tranche dans la liste dans l’un des panneaux **TABLE** ou **Tranches de données** pour afficher les détails de cette tranche.
 
 ![Tranche de données][image-data-factory-dataslice]
 
-Si la section n'est pas dans le **prêt** état, vous pouvez voir les tranches en amont qui ne sont pas prêts et bloquent la tranche actuelle à partir de l'exécution dans le **tranches en amont qui ne sont pas prêts** liste.
+Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
 
-### <a name="DataFactoryActivtyRuns"></a> Afficher que toutes les activités s'exécute pour une tranche de données
-Une tranche peut compter plusieurs exécutions. Par exemple, lorsqu'une tranche échoue, le service peut réessayer pendant un certain temps. Vous pouvez également réexécuter une tranche dont toutes les tentatives ont échoué. Vous pouvez voir toutes les activités qui s'exécute sur le ** tranche de données ** lames dans la liste du bas.
+### <a name="DataFactoryActivtyRuns"></a> Affichage de l’exécution de l’activité pour une tranche
+Une tranche peut compter plusieurs exécutions. Par exemple, lorsqu'une tranche échoue, le service peut réessayer pendant un certain temps. Vous pouvez également réexécuter une tranche dont toutes les tentatives ont échoué. Vous pouvez afficher toutes les exécutions d’activité dans le panneau **Tranches de données** dans la liste en bas.
 
-## <a name="DataFactoryActivtyRunDetails"></a> Afficher les détails sur une activité à exécuter
-Cliquez sur une activité à exécuter à partir de la liste des exécutions sur le **tranche de données** lame pour afficher les détails sur l'activité de s'exécuter.
+## <a name="DataFactoryActivtyRunDetails"></a> Affichage des détails d’une exécution d’activité
+Cliquez sur une exécution d’activité dans la liste des exécutions du panneau **Tranches de données** pour afficher tous les détails de l’exécution d’activité.
 
-![Activité exécuter des détails][image-data-factory-activity-run-details]
+![Détails sur l’exécution d’activité][image-data-factory-activity-run-details]
 
-## <a name="EventsInThePastweek"></a> Opérations LENTILLE - événements de la semaine dernière
-Dans le **DATA FACTORY** blade (ou page d'accueil) de la fabrique de données, cliquez sur **les événements de la semaine dernière** dans **Operations** lentille pour afficher les événements de la semaine dernière. Cela vous permet d'obtenir une vue d'ensemble des opérations effectuées par la fabrique de données au cours de la semaine écoulée. Cela vous permet également de résoudre des erreurs de déplacement/traitement des données.
+## <a name="EventsInThePastweek"></a> Filtre Opérations - Événements au cours de la dernière semaine
+Dans le panneau **FABRIQUE DE DONNÉES** (ou sur la page d’accueil) de la fabrique de données, cliquez sur **Événements** au cours de la dernière semaine dans le filtre **Opérations** pour afficher les événements de la semaine écoulée. Cela vous permet d'obtenir une vue d'ensemble des opérations effectuées par la fabrique de données au cours de la semaine écoulée. Cela vous permet également de résoudre des erreurs de déplacement/traitement des données.
 
-![Événements de fabrique de données][image-data-factory-events]
+![Événements Data Factory][image-data-factory-events]
 
 
 ## Voir aussi
 
 Article | Description
 ------ | ---------------
-[Analyse et gestion de fabrique données Azure à l'aide de PowerShell][monitor-manage-using-powershell] | Cet article décrit comment surveiller une fabrique de données Azure à l'aide des applets de commande PowerShell Azure. 
+[Surveillance et gestion d’Azure Data Factory à l’aide de PowerShell][monitor-manage-using-powershell] | Cet article décrit comment surveiller une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. 
 
 
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
@@ -221,4 +221,4 @@ Article | Description
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -1,41 +1,26 @@
-<properties 
-   pageTitle="StorSimple system limits table"
-   description="Describes system limits and recommended sizes for StorSimple components and connections."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="alkohli" />
-
-| Limit identifier | Limit | Comments |
+| Identificateur de la limite | Limite | Commentaires |
 |----------------- | ------|--------- |
-| Maximum number of storage account credentials | 64 | |
-| Maximum number of volume containers | 64 | |
-| Maximum number of volumes | 255 | |
-| Maximum number of bandwidth templates | 25 | |
-| Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
-| Maximum size of a volume | 64 TB |  |
-| Maximum number of iSCSI connections | 512 | |
-| Maximum number of iSCSI connections from initiators | 512 | |
-| Maximum number of access control records per device | 64 | |
-| Maximum number of volumes per backup policy | 24 | |
-| Maximum number of backups retained per backup policy | 64 | |
-| Maximum number of schedules per backup policy | 10 | |
-| Maximum number of snapshots of any type that can be retained per volume | 256 | This includes local snapshots and cloud snapshots. |
-| Maximum number of snapshots that can be present in any device | 10,000 | |
-| Maximum number of volumes that can be processed in parallel for backup, restore, or clone | 16 |<ul><li>If there are more than 16 volumes, they will be processed sequentially as processing slots become available.</li><li>New backups of a cloned or a restored volume cannot occur until the operation is finished.</li></ul>|
-| Restore and clone recover time | < 2 minutes | <ul><li>The volume is made available within 2 minutes of restore or clone operation, regardless of the volume size.</li><li>The volume performance may initially be slower than normal as most of the data and metadata still resides in the cloud. Performance may increase as data flows from the cloud to the StorSimple device.</li><li>The total time to download metadata depends on the allocated volume size. Metadata is automatically brought into the device in the background at the rate of 5 minutes per TB of allocated volume data. This rate may be affected by Internet bandwidth to the cloud.</li><li>The restore or clone operation is complete when all the metadata is on the device.</li><li>Backup operations cannot be performed until the restore or clone operation is fully complete.|
-| Thin-restore availability | Last failover | |
-| Maximum client read/write throughput (when served from the SSD tier)* | 920/720 MB/s with a single 10GbE network interface | Up to 2x with MPIO and two network interfaces. |
-| Maximum client read/write throughput (when served from the HDD tier)* | 120/250 MB/s |
-| Maximum client read/write throughput (when served from the cloud tier)* | 11/41 MB/s | Read throughput depends on clients generating and maintaining sufficient I/O queue depth. |
+| Nombre maximal d'informations d'identification du compte de stockage | 64 | |
+| Nombre maximal de conteneurs de volumes | 64 | |
+| Nombre maximal de volumes | 255 | |
+| Nombre maximal de modèles de bande passante | 25 | |
+| Nombre maximal de planifications par modèle de bande passante | 168 | Une planification par heure, tous les jours de la semaine (24*7). |
+| Taille maximale d'un volume | 64 To | La taille recommandée pour un volume NTFS est de 64 To. |
+| Nombre maximal de connexions iSCSI | 512 | |
+| Nombre maximal de connexions iSCSI à partir d'initiateurs | 512 | |
+| Nombre maximal d'enregistrements de contrôle d'accès par appareil | 64 | |
+| Nombre maximal de volumes par stratégie de sauvegarde | 24 | |
+| Nombre maximal de sauvegardes conservées par stratégie de sauvegarde | 64 | |
+| Nombre maximal de planifications par stratégie de sauvegarde | 10 | |
+| Nombre maximal d'instantanés de n'importe quel type pouvant être conservés par volume | 256 | Cela inclut les instantanés locaux et les instantanés cloud. |
+| Nombre maximal d'instantanés pouvant être présents dans n'importe quel appareil | 10 000 | |
+| Nombre maximal de volumes pouvant être traités en parallèle pour sauvegarder, restaurer ou cloner | 16 |<ul><li>S'il existe plus de 16 volumes, ils seront traités séquentiellement au fur et à mesure que des emplacements de traitement se libèrent.</li><li>Il n’est pas possible de générer de nouvelles sauvegardes d’un volume cloné ou restauré tant que l’opération n’est pas terminée.</li></ul>|
+| Temps de récupération d’un clone et d’une restauration | < 2 minutes | <ul><li>Le volume sera disponible dans les 2 minutes suivant l’opération de restauration ou de clonage, quelle que soit la taille du volume.</li><li>Les performances du volume peuvent initialement être inférieures à la normale, car la plupart des données et des métadonnées se trouvent toujours dans le cloud. Les performances vont augmenter au fur et à mesure que les données provenant du cloud se dirigent vers l’appareil StorSimple.</li><li>La durée totale de téléchargement des métadonnées dépend de la taille du volume alloué. Les métadonnées sont automatiquement intégrées à l’appareil en arrière-plan, à une vitesse de 5 minutes par To de données du volume alloué. Cette vitesse peut être affectée par la bande passante Internet vers le cloud.</li><li>L'opération de restauration ou de clonage est terminée lorsque toutes les métadonnées se trouvent dans l’appareil.</li><li>Impossible d’effectuer des opérations de sauvegarde tant que la restauration ou le clonage n’est pas totalement terminé(e).|
+| Disponibilité de la restauration légère | Dernier basculement | |
+| Débit maximal de lecture/d’écriture du client (si traité à partir du niveau SSD)* | 920/720 Mo/s avec une seule interface réseau de 10 Gigabit Ethernet | Jusqu'à 2x avec MPIO et deux interfaces réseau. |
+| Débit maximal de lecture/d’écriture du client (si traité à partir du niveau HDD)* | 120/250 Mo/s |
+| Débit maximal de lecture/d’écriture du client (si traité à partir du niveau cloud)* | 11/41 Mo/s | Le débit de lecture dépend de si les clients génèrent et conservent une profondeur de file d’attente d’E/S suffisante. |
 
-&#42; Maximum throughput per I/O type was measured with 100 percent read and 100 percent write scenarios. Actual throughput may be lower and depends on I/O mix and network conditions.
+&#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
+
+<!---HONumber=62-->

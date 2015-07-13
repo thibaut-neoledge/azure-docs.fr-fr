@@ -78,15 +78,16 @@ Vous avez correctement effectué un déploiement intermédiaire et mis à niveau
 - [Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]
 - [Présentation de la gestion des déploiements dans Azure]
 
-[Étape 1 : déploiement intermédiaire d'une application]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[Étape 2 : déploiement d'une application en production en échangeant les adresses IP virtuelles]: #step2
-[portail de gestion Azure]: http://manage.windowsazure.com
+  [Étape 1 : déploiement intermédiaire d'une application]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Étape 2 : déploiement d'une application en production en échangeant les adresses IP virtuelles]: #step2
+  [portail de gestion Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Comment déployer une mise à niveau de service vers l’environnement de production en échangeant les adresses IP virtuelles dans Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

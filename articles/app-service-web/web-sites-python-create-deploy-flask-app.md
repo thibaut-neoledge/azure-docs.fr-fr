@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d’applications web avec Flask dans Azure" 
+	pageTitle="Création d’applications web avec Flask dans AzureCréation d’applications web avec Flask dans Azure" 
 	description="Un didacticiel qui vous présente l’exécution d’une application web Python sur Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 

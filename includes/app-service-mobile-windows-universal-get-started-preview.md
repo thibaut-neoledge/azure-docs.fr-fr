@@ -7,4 +7,4 @@ Voici les captures d’écran générées à partir de l’application terminée
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Mobile App pour les applications du Windows Store et du Windows Phone Store.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

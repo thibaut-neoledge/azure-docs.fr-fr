@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introduction à la sauvegarde Azure"
-	description="Cet article fournit une vue d'ensemble du service sauvegarde Azure qui permet aux clients de sauvegarder les données vers Azure"
+	pageTitle="Présentation d’Azure Backup"
+	description="Cet article fournit une vue d’ensemble du service Azure Backup qui permet aux clients de sauvegarder des données dans Azure"
 	services="backup"
 	documentationCenter=""
 	authors="prvijay"
@@ -16,44 +16,44 @@
 	ms.date="04/08/2015"
 	ms.author="prvijay"/>
 
-# Introduction à la sauvegarde Azure
-Cet article fournit une vue d'ensemble de haut niveau de la solution sauvegarde de Microsoft cloud intégré qui permet aux clients de sauvegarder leurs données locales vers Azure.
+# Présentation d’Azure Backup
+Cet article fournit une vue d’ensemble générale de la solution de sauvegarde intégrée au cloud de Microsoft qui permet aux clients de sauvegarder leurs données locales dans Azure.
 
-## Quelle est la sauvegarde Azure ?
-Sauvegarde Azure est un service Azure multi-avec clients qui vous permet de sauvegarder vos données sur site vers Azure. Il remplace votre local existant ou une solution de sauvegarde hors site par un cloud compétitif fiable, sécurisé et coût en fonction de l'offre. Sauvegarde Azure repose sur une infrastructure de classe mondiale est évolutive, fiable et hautement disponible. À l'aide de cette solution, vous pouvez sauvegarder des données et des applications à partir de leurs serveurs de System Center Data Protection Manager (SCDPM), les serveurs Windows ou les machines clientes Windows. Sauvegarde Azure et SCDPM sont les technologies fondamentales qui composent la solution de sauvegarde intégrée de cloud de Microsoft.
+## Qu’est-ce qu’Azure Backup ?
+Azure Backup est un service Azure mutualisé qui vous permet de sauvegarder vos données locales dans Azure. Il remplace votre solution de sauvegarde locale ou hors site par une offre basée dans le cloud, fiable, sécurisée et économiquement compétitive. Azure Backup repose sur une infrastructure de classe mondiale extensible, durable et hautement disponible. À l’aide de cette solution, vous pouvez sauvegarder des données et des applications à partir de serveurs System Center Data Protection Manager (SCDPM), de serveurs Windows ou d’ordinateurs clients Windows. Azure Backup et SCDPM sont les technologies fondamentales qui composent la solution de sauvegarde intégrée au cloud de Microsoft.
 
-## Point de conception de cloud
-Solutions de sauvegarde traditionnelles ont évolué pour traiter de nuage comme un point de terminaison similaire sur disque ou bande. Bien que cette approche est simple et facile à déployer et offre une expérience cohérente, il a des utilisations limitées et ne pas tire pleinement parti de la plate-forme sous-jacente. Cela se traduit par une solution inefficace et coûteuse pour les clients finaux. En traitant Azure comme « simplement en tant que stockage point de terminaison », les solutions de sauvegarde ne peuvent pas tirer parti de la richesse et la puissance de la plateforme de cloud public. Sauvegarde Azure, propose quant à lui, un service qui utilise le cloud construit pour offrir une solution puissante et abordable. Il s'intègre à votre solution de sauvegarde sur site (SCDPM) pour fournir une solution hybride de bout en bout.
+## Point de conception cloud
+Les solutions de sauvegarde traditionnelles ont évolué et considèrent désormais le cloud comme un point de terminaison similaire aux disques ou bandes. Bien que cette approche soit simple, facile à déployer et qu’elle offre une expérience cohérente, elle présente des utilisations limitées et ne tire pas pleinement parti de la plateforme sous-jacente. Cela se traduit par une solution inefficace et coûteuse pour les clients finaux. En réduisant Azure à un « simple point de terminaison de stockage », les solutions de sauvegarde ne peuvent pas tirer parti de la richesse et la puissance de la plateforme cloud publique. En revanche, Azure Backup propose un véritable service qui utilise les constructions du cloud pour offrir une solution puissante et abordable. Il s’intègre à votre solution de sauvegarde locale (SCDPM) pour fournir une solution hybride de bout en bout.
 
-Les avantages de cette approche sont :
+Les avantages de cette approche sont les suivants :
 
-+ Architecture de stockage cloud efficace qui assure le stockage des données économiques et résilientes
++ Architecture de stockage cloud efficace qui fournit un stockage de données abordable et résilient
 
-+ Non intrusive, mise à l'échelle du service avec des garanties de haute disponibilité
++ Mise à l’échelle automatique non intrusive du service avec des garanties de haute disponibilité
 
-+ Sauvegarde sur site, hybrides et les déploiements IaaS de manière cohérente
++ Sauvegarde de déploiements locaux, hybrides et IaaS de manière cohérente
 
-Les fonctionnalités clées de cette solution sont :
+Les fonctionnalités clés de cette solution sont les suivantes :
 
-1. **Service fiable**: en adoptant Azure Backup, vous obtenez un service de sauvegarde qui est hautement disponible. Le service est multi-avec clients et vous n'avez pas à vous soucier de la gestion de calcul sous-jacent ou stockage.
+1. **Service fiable** : en adoptant Azure Backup, vous obtenez un service de sauvegarde à haut niveau de disponibilité. Le service est mutualisé et vous n’avez pas à vous soucier de la gestion du calcul ou du stockage sous-jacent.
 
-2. **Stockage fiable**: sauvegarde Azure est basé sur le stockage cloud fiable qui est sauvegardé par SLA élevés. Vous n'avez pas à vous soucier des dépenses de capital ou opération à la gestion du stockage. En outre, vous avez le choix de la sauvegarde pour LRS (stockage localement redondant) ou GRS (géo-réplication) de stockage. Tandis que LRS permet 3 copies des données dans le même géographique qui protège contre les défaillances matérielles locales ; GRS fournit des copies supplémentaires 3 (total de 6 copies) dans un centre de données associés. Cela garantit que vos données de sauvegarde soient hautement disponibles. Même s'il existe un problème grave Azure-au niveau du site, les données de sauvegarde sont sécurisées avec nous.
+2. **Stockage fiable** : Azure Backup repose sur un stockage cloud fiable qui est soutenu par des contrats SLA élevés. Vous n’avez pas à vous soucier des investissements ou des frais d’exploitation liés à l’entretien du stockage. En outre, vous pouvez choisir entre une sauvegarde dans un stockage LRS (stockage localement redondant) ou GRS (stockage de géo-réplication). Tandis que le stockage LRS permet 3 copies des données dans la même zone géographique, ce qui offre une protection contre les défaillances matérielles locales, le stockage GRS fournit 3 copies supplémentaires (pour un total de 6 copies) dans un centre de données associé. Cela garantit la haute disponibilité de vos données de sauvegarde. Même en cas de problème grave au niveau du site Azure, les données de sauvegarde sont en sécurité.
 
-3. **Secure**: les données de sauvegarde Azure sont chiffrées à la source, durant la transmission et Azure cryptée dans stockées. La clé de chiffrement sont stockée sur la source et jamais transmise ou stockée dans Azure. La clé de chiffrement est nécessaire pour restaurer les données et que le client a un accès complet aux données dans le service.
+3. **Sécurisé** : les données de sauvegarde Azure sont chiffrées à la source, pendant la transmission, et stockées et chiffrées dans Azure. La clé de chiffrement est stockée au niveau de la source et n’est jamais transmise ou stockée dans Azure. La clé de chiffrement est nécessaire pour restaurer les données et seul le client dispose d’un accès complet aux données dans le service.
 
-4. **Protection hors site**: au lieu de payer pour des solutions de sauvegarde sur bande hors site, les clients peuvent sauvegarder vers Azure qui offre une solution incontournable sémantique de type de bande à un coût très bas.
+4. **Protection hors site** : au lieu d’acheter des solutions de sauvegarde sur bande hors site, les clients peuvent sauvegarder leurs données dans Azure, qui offre une solution attractive avec une sémantique de type bande à un coût très bas.
 
-5. **Simplicité**: sauvegarde Azure fournit une interface familière capable d'évoluer pour protéger un déploiement de n'importe quelle taille. Que le service évolue, fonctionnalités, telles que la gestion centralisée vous permettra de gérer votre infrastructure de sauvegarde depuis un emplacement unique.
+5. **Simplicité** : Azure Backup fournit une interface familière capable d’évoluer pour protéger un déploiement de n’importe quelle taille. À mesure de l’évolution du service, des fonctionnalités comme la gestion centralisée vous permettront de gérer votre infrastructure de sauvegarde depuis un emplacement unique.
 
-6. **Rentable**: tarification Azure Backup inclut un frais de gestion des sauvegardes par instance et le coût du stockage (prix de blob de bloc) consommée sur Azure. Contrairement aux autre offre sauvegarde cloud grâce à Azure Backup ne facture pas ses clients pour chaque opération de restauration. En outre, les clients n'êtes pas facturés pour les transferts de données (sortant) de sortie de coûts pendant une opération de restauration.
+6. **Rentable** : la tarification Azure Backup inclut des frais de gestion de sauvegarde par instance et un coût lié au stockage (prix par objet blob de blocs) consommé sur Azure. Contrairement aux autre offres de sauvegarde dans le cloud, Azure Backup ne facture pas ses clients pour chaque opération de restauration. En outre, les clients ne sont pas facturés pour les coûts de transfert de données sortant pendant une opération de restauration.
 
 
-## Applications et charges de travail qui peuvent être sauvegardés dans Azure
-Combiné avec SCDPM Azure Backup peut sauvegarder :
+## Application et charges de travail pouvant être sauvegardées dans Azure
+Combiné avec SCDPM, Azure Backup peut sauvegarder les éléments suivants :
 
-+ Fichiers et des dossiers à partir du client d'entreprise, les ordinateurs de serveur
++ Fichiers et dossiers des ordinateurs serveur et client de l’entreprise
 
-+ Sauvegardes d'ordinateurs virtuels au niveau de l'hôte d'ordinateurs virtuels Hyper-V de Microsoft
++ Sauvegardes de machines virtuelles hôtes des machines virtuelles Microsoft Hyper-V
 
 + Microsoft SQL Server
 
@@ -62,7 +62,8 @@ Combiné avec SCDPM Azure Backup peut sauvegarder :
 + Microsoft Exchange
 
 ## Étapes suivantes
-+ Forum aux questions sur le service de sauvegarde Azure sont répertoriée [ici](backup-azure-backup-faq.md).
++ Le Forum Aux Questions sur le service Azure Backup se trouve [ici](backup-azure-backup-faq.md).
 + Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

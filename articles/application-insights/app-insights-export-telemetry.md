@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -21,7 +21,9 @@ Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou
 
 L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Configurer l’exportation continue
+Si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du volet.
+
+## <a name="setup"></a> Configuration de l’exportation continue
 
 Dans le panneau Vue d’ensemble de votre application dans le portail Application Insights, ouvrez Exportation continue :
 
@@ -60,7 +62,7 @@ Les données exportées sont celles de la télémétrie brute que nous recevons 
 
 Les mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
-## <a name="get"></a> Inspecter les données
+## <a name="get"></a> Inspection des données
 
 Lorsque vous ouvrez votre magasin d’objets blob avec un outil comme l’[Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx), vous voyez un conteneur avec un ensemble de fichiers blob. L’URI de chaque fichier est id-application/type-télémétrie/date/heure.
 
@@ -114,7 +116,7 @@ L’autre possibilité consiste à déplacer les données vers une base de donn�
 
 Nous disposons d’exemples illustrant deux autres méthodes de déplacement des données depuis le stockage d’objets blob dans une base de données :
 
-* [Exporter vers SQL à l’aide d’un rôle de travail][exportcode]
+* [Exportation vers SQL à l’aide d’un rôle de travail][exportcode]
 * [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
 
 
@@ -138,7 +140,7 @@ L’exportation continue redémarre.
 
 * *Je veux simplement télécharger un graphique.*  
  
-    Nous travaillons sur cette option séparément.
+    Oui, vous pouvez le faire. En haut du panneau, cliquez sur [Exporter les données](app-insights-metrics-explorer.md#export-to-excel).
 
 * *J’ai configuré une exportation, mais il n’y a pas de données dans mon magasin.*
 
@@ -152,7 +154,7 @@ L’exportation continue redémarre.
 
 * *Puis-je exporter directement vers mon propre magasin local ?*
 
-    Non. Notre moteur d’exportation doit pouvoir compter sur un haut débit pour transmettre les données.
+    Non. Pour le moment, notre moteur d’exportation fonctionne uniquement avec le stockage Azure.
 
 * *Existe-t-il une limite à la quantité de données qu’il est possible de placer dans mon magasin ?*
 

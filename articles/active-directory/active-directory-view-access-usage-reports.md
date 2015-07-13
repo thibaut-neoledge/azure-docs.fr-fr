@@ -44,8 +44,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Connexions à partir de périphériques potentiellement infectés |	Peut indiquer une tentative de connexion à partir de périphériques potentiellement infectés. |
 |	Activité de connexion anormale |	Peut indiquer les événements anormaux des modèles de connexion des utilisateurs. |
 |	Utilisateurs ayant une activité de connexion anormale |	Indique des utilisateurs dont les comptes ont été compromis. |
-|	Utilisateurs avec des informations d'identification volées |	Utilisateurs avec des informations d'identification volées |
-|	Rapport d'audit |	Événements audités dans votre répertoire |
+|	Utilisateurs avec des informations d’identification volées |	Utilisateurs avec des informations d’identification volées |
+|	Rapport d’audit |	Événements audités dans votre répertoire |
 |	Activité de réinitialisation de mot de passe |	Fournit une vue détaillée des réinitialisations de mot de passe qui se produisent dans votre organisation. |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe |	Fournit une vue détaillée des réinitialisations de mot de passe qui se produisent dans votre organisation. |
 |	Activité de groupes en libre-service |	Fournit un journal d'activité pour toutes les activités de groupes en libre-service dans votre répertoire |
@@ -56,7 +56,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Utilisation de RMS |	Fournit un résumé de l'utilisation de Rights Management |
 |	Utilisateurs RMS les plus actifs |	Répertorie les 1 000 premiers utilisateurs actifs ayant accédé aux fichiers protégés par RMS |
 |	Utilisation d’un périphérique RMS |	Répertorie les périphériques utilisés pour l'accès aux fichiers protégés par RMS |
-|	Utilisation d'applications fonctionnant avec RMS |	Fournit des applications activées pour l'utilisation de RMS |
+|	Utilisation d’applications fonctionnant avec RMS |	Fournit des applications activées pour l'utilisation de RMS |
 
 ## Éditions de rapport
 
@@ -69,8 +69,8 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Connexions à partir de périphériques potentiellement infectés | | |	✓ |
 |	Activité de connexion anormale | | |	✓ |
 |	Utilisateurs ayant une activité de connexion anormale | | |	✓ |
-|	Utilisateurs avec des informations d'identification volées | | |	✓ |
-|	Rapport d'audit | | |	✓ |
+|	Utilisateurs avec des informations d’identification volées | | |	✓ |
+|	Rapport d’audit | | |	✓ |
 |	Activité de réinitialisation de mot de passe | | |	✓ |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe | | |	✓ |
 |	Activité de groupes en libre-service | | |	✓ |
@@ -81,7 +81,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Utilisation de RMS | | |	RMS uniquement |
 |	Utilisateurs RMS les plus actifs | | |	RMS uniquement |
 |	Utilisation d’un périphérique RMS | | |	RMS uniquement |
-|	Utilisation d'applications fonctionnant avec RMS | | |	RMS uniquement |
+|	Utilisation d’applications fonctionnant avec RMS | | |	RMS uniquement |
 
 ## Détails du rapport
 
@@ -220,7 +220,7 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 | :-------------     | :-------        |
 | Indique un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours. <br />Pour plus d'informations, consultez la rubrique [Événements de rapport d’audit d'Azure Active Directory](active-directory-reporting-audit-events.md)  | Répertoire > onglet Rapports |
 
-![Rapport d'audit](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
+![Rapport d’audit](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
 
 
 ### Rapport d'activité de groupes
@@ -329,4 +329,4 @@ Oui, pour désactiver les notifications liées à des connexions anormales dans 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

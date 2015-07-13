@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Ajouter des stratégies de sauvegarde StorSimple"
-   description="Explique comment utiliser le service StorSimple Manager pour créer une stratégie de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
 #### Pour ajouter une stratégie de sauvegarde StorSimple
 
 1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
@@ -30,4 +13,4 @@
 La stratégie ajoutée s’affiche dans le tableau de la page **Stratégies de sauvegarde**.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

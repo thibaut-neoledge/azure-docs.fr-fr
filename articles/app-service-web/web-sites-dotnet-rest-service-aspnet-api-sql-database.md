@@ -75,10 +75,10 @@ Si vous avez un serveur de bases de données, utilisez-le pour créer une base d
 ### Définition de l'en-tête et du pied de page de la page
 
 
-1. Dans l’**Explorateur de solutions**, développez le dossier *Views\\Shared* et ouvrez le fichier *__Layout.cshtml. 
+1. Dans l’**Explorateur de solutions**, développez le dossier *Views\Shared* et ouvrez le fichier *__Layout.cshtml. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Remplacez le contenu du fichier *Views\\Shared_Layout.cshtml* par le code suivant :
+1. Remplacez le contenu du fichier *Views\Shared_Layout.cshtml* par le code suivant :
 
 
 		<!DOCTYPE html>
@@ -235,7 +235,7 @@ L'étape suivante consiste à activer la fonctionnalité [Migrations Code First]
 
 	Dans la classe **Initial**, la méthode **Up** crée la table des contacts et la méthode **Down** (utilisée lorsque vous voulez revenir à l'état précédent) annule cette table.
 
-3. Ouvrez le fichier *Migrations\\Configuration.cs*.
+3. Ouvrez le fichier *Migrations\Configuration.cs*.
 
 4. Ajoutez les espaces de noms suivants.
 
@@ -318,7 +318,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 <h2><a name="bkmk_addview"></a>Modification de l'affichage</h2>
 
-1. Ouvrez le fichier *Views\\Home\\Index.cshtml*. Dans l'étape suivante, nous allons remplacer le balisage généré par un code utilisant [jQuery](http://jquery.com/) et [Knockout.js](http://knockoutjs.com/). Ce nouveau code récupère la liste des contacts à l’aide de l’API web et de JSON, puis relie les données de contact à l’interface utilisateur à l’aide de knockout.js. Pour plus d’informations, consultez la section [Étapes suivantes](#nextsteps) à la fin de ce didacticiel. 
+1. Ouvrez le fichier *Views\Home\Index.cshtml*. Dans l'étape suivante, nous allons remplacer le balisage généré par un code utilisant [jQuery](http://jquery.com/) et [Knockout.js](http://knockoutjs.com/). Ce nouveau code récupère la liste des contacts à l’aide de l’API web et de JSON, puis relie les données de contact à l’interface utilisateur à l’aide de knockout.js. Pour plus d’informations, consultez la section [Étapes suivantes](#nextsteps) à la fin de ce didacticiel. 
 
 
 2. Remplacez le contenu du fichier par le code suivant.
@@ -475,7 +475,7 @@ L'application affiche les données amorcées, ainsi que des liens pour les modif
 
 	Nous allons utiliser cette feuille de style pour la disposition, les couleurs et les styles de l'application Gestionnaire de contacts.
 
-6. Ouvrez le fichier *App_Start\\BundleConfig.cs*.
+6. Ouvrez le fichier *App_Start\BundleConfig.cs*.
 
 
 7. Ajoutez le code suivant pour inscrire le plug-in [Knockout](http://knockoutjs.com/index.html "KO").
@@ -546,11 +546,11 @@ Par :
 
 Une falsification de requête intersites (également connue sous le nom de XSRF ou CSRF) est une attaque contre des applications hébergées sur le Web durant lesquelles un site Web malveillant peut influencer l'interaction entre un navigateur client et un site Web approuvé par ce navigateur. Ces attaques sont rendues possibles par le fait que les navigateurs Web envoient automatiquement des jetons d'authentification avec chaque requête vers un site Web. L'exemple classique est le cookie d'authentification, comme le ticket d'authentification d'ASP.NET. Cependant, les sites Web utilisant un mécanisme d'authentification persistant (comme l'authentification Windows, Basic, etc.) peuvent être visés par ces attaques.
 
-Une attaque XSRF est différente d'une attaque par hameçonnage (ou « phishing »). Les attaques par hameçonnage requièrent une interaction avec la victime. Dans ce genre d'attaque, un site Web malveillant va imiter un site Web cible et la victime est dupée pour fournir des informations sensibles à l'attaquant. Dans une attaque XSRF, il n'y a généralement pas d'interaction avec la victime. L'attaquant se repose plutôt sur le fait que le navigateur envoie automatiquement tous les cookies utiles au site Web de destination.
+Une attaque XSRF est différente d'une attaque par hameçonnage (ou « phishing »). Les attaques par hameçonnage requièrent une interaction avec la victime. Dans ce genre d'attaque, un site Web malveillant va imiter un site Web cible et la victime est dupée pour fournir des informations sensibles à l'attaquant. Dans une attaque XSRF, il n'y a généralement pas d'interaction avec la victime. L’attaquant se repose plutôt sur le fait que le navigateur envoie automatiquement tous les cookies utiles au site Web de destination.
 
-Pour plus d’informations, consultez [projet de sécurité d’application Web ouvert](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF].https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
+Pour plus d’informations, consultez la page [Projet de sécurité d’application web ouvert](https://www.owasp.org/index.php/Main_Page) (ou OWASP pour « Open Web Application Security Project ») (en anglais) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
-1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **ContactManager**, cliquez sur **Ajouter**, puis sur **Classe**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **ContactManager**, cliquez sur **Ajouter**, puis sur **Classe**.
 
 2. Nommez le fichier *ValidateHttpAntiForgeryTokenAttribute.cs* et ajoutez le code suivant :
 
@@ -622,15 +622,15 @@ Pour plus d’informations, consultez [projet de sécurité d’application Web 
             }
         }
 
-1. Ajoutez l’instruction *using* suivante au contrôleur de contacts pour accéder à l’attribut **[ValidateHttpAntiForgeryToken]**.
+1. Ajoutez l'instruction *using* suivante au contrôleur de contacts pour accéder à l'attribut **[ValidateHttpAntiForgeryToken]**.
 
 	using ContactManager.Filters;
 
-1. Ajoutez l’attribut **[ValidateHttpAntiForgeryToken]** aux méthodes Post du **ContactsController** pour le protéger des menaces XSRF. Vous l'ajouterez aux méthodes d'action « PutContact », « PostContact » et **DeleteContact**.
+1. Ajoutez l’attribut **[ValidateHttpAntiForgeryToken]** aux méthodes Post du **ContactsController** pour le protéger des menaces XSRF. Vous l'ajouterez aux méthodes d'action « PutContact », « PostContact » et **DeleteContact**.
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Mettez à jour la section *Scripts* du fichier *Views\\Home\\Index.cshtml* pour inclure le code d'obtention des jetons XSRF.
+1. Mettez à jour la section *Scripts* du fichier *Views\Home\Index.cshtml* pour inclure le code d’obtention des jetons XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -739,8 +739,8 @@ Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson
 N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce qui pourrait être amélioré... pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Nous aimerions particulièrement savoir si l'automatisation du processus de configuration et de déploiement de la base de données d'appartenance vous intéresse.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -809,5 +809,6 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

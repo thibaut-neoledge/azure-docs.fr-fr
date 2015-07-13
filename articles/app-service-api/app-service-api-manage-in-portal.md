@@ -82,7 +82,7 @@ Les panneaux Passerelle et Hôte de passerelle partagent l’interface utilisate
 
 Vous utilisez le panneau **Hôte de passerelle** pour toutes les tâches applicables à n’importe quelle application web. Pour plus d’informations, consultez [Gérer les applications web dans le portail](web-sites-manage.md).
 
-## Comment accéder aux panneaux Application API et Passerelle 
+## <a id="navigate"></a>Accéder aux panneaux Application API et Passerelle 
 
 Pour accéder au panneau **Application API**, vous avez diverses méthodes, l’une d’elles consistant à utiliser la fonctionnalité de navigation du portail Azure. Dans la page d’accueil du portail, cliquez sur **Parcourir > Applications API** pour voir toutes les applications API que vous pouvez gérer.
 

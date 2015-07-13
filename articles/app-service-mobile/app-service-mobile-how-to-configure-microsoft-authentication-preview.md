@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Comment configurer l'authentification par compte Microsoft pour votre application App Services"
-	description="Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Services." 
-	authors="mattchenderson,ggailey777" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+	description="Découvrez comment configurer l'authentification par compte Microsoft pour votre application App Services."
+	authors="mattchenderson" 
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion par compte Microsoft
@@ -22,7 +22,7 @@ Cette rubrique montre comment configurer Azure App Services pour utiliser un com
 
 ## <a name="register"> </a>Inscrivez votre application avec un compte Microsoft
 
-1. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire. 
+1. Accédez à la page [Mes applications] dans le Centre des développeurs de compte Microsoft, puis connectez-vous avec votre compte Microsoft si nécessaire.
 
 2. Cliquez sur **Créer une application**, puis tapez le **Nom de l'application** et cliquez sur **J'accepte**.
 
@@ -64,4 +64,6 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portail de gestion Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

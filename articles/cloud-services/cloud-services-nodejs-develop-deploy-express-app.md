@@ -39,7 +39,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressap
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
+2. Remplacez les répertoires du répertoire **c:\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -129,9 +129,10 @@ Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page W
 ![Navigateur web affichant la page Express. L'URL indique que la page est maintenant hébergée sur Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
-[http://jade-lang.com]: http://jade-lang.com
+  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Express]: http://expressjs.com/
+  [http://jade-lang.com]: http://jade-lang.com
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

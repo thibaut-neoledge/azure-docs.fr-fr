@@ -71,7 +71,7 @@ Vous pouvez créer une source de données au sein d'un service Azure Search à l
     Content-Type: application/json
     api-key: [admin key]
 
-Vous pouvez également utiliser une requête PUT en spécifiant le nom de la source de données dans l'URI. Si la source de données n'existe pas, elle est créée.
+Vous pouvez également utiliser une requête PUT en spécifiant le nom de source de données sur l'URI. Si la source de données n'existe pas, elle est créée.
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
@@ -79,7 +79,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de la sou
 
 **Requête**
 
-Le protocole HTTPS est nécessaire pour toutes les requêtes de service. Vous pouvez construire la requête **Create Data Source** à l'aide d'une méthode POST ou PUT. Si vous utilisez la méthode POST, vous devez fournir un nom de source de données dans le corps de la requête, ainsi que la définition de la source de données. Avec la méthode PUT, le nom fait partie de l'URL. Si la source de données n’existe pas, elle est créée. Si elle existe déjà, elle est mise à jour en fonction de la nouvelle définition.
+Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Data Source** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom de source de données dans le corps de la requête avec la définition de source de données. Avec la méthode PUT, le nom fait partie de l'URL. Si la source de données n’existe pas, elle est créée. Si elle existe déjà, elle est mise à jour en fonction de la nouvelle définition.
 
 Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres ou chiffres quelconques, ainsi que des tirets (non consécutifs). Pour en savoir plus, consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx).
 
@@ -90,16 +90,16 @@ Le paramètre `api-version` est obligatoire. La version actuelle est `2015-02-28
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche (Search). Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête de création d'une source de données (**Create Data Source**) doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
  
 Vous avez également besoin du nom du service pour construire l'URL de la requête. Pour obtenir le nom du service et l'en-tête `api-key`, consultez votre tableau de bord de service dans le [portail de gestion Azure](https://portal.azure.com/). Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Search dans le portail](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Syntaxe du corps de la requête**
 
-Le corps de la requête contient une définition de source de données, qui inclut le type de la source de données, des informations d'identification pour la lecture des données, ainsi que des stratégies facultatives de détection des modifications et suppressions de données, qui permettent d'identifier efficacement les données modifiées ou supprimées dans la source de données quand celle-ci est utilisée avec un indexeur planifié à intervalles réguliers.
+Le corps de la requête contient une définition de source de données, qui inclut le type de la source de données, des informations d'identification pour lire les données, ainsi que des stratégies facultatives de détection des modifications et suppressions de données, qui permettent d'identifier efficacement les données modifiées ou supprimées dans la source de données quand celle-ci est utilisée avec un indexeur planifié à intervalles réguliers.
 
 
-Vous trouverez ci-dessous la syntaxe de structuration de la charge utile de la requête. Vous trouverez un exemple de requête dans cette rubrique.
+La syntaxe de structuration de la charge utile de la requête est la suivante. Vous trouverez un exemple de requête dans cette rubrique.
 
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
@@ -130,7 +130,7 @@ La requête peut contenir les propriétés suivantes :
 
 <a name="DataChangeDetectionPolicies"></a> **Stratégies de détection des modifications de données**
 
-L'objectif d'une stratégie de détection des modifications de données est d'identifier efficacement les éléments de données modifiés. Les stratégies prises en charge varient selon le type de source de données. Les sections ci-dessous décrivent chaque stratégie.
+L'objectif d'une stratégie de détection des changements de données est d'identifier efficacement les données modifiées. Les stratégies prises en charge varient selon le type de source de données. Les sections ci-dessous décrivent chaque stratégie.
 
 **REMARQUE** : une fois l'indexeur créé, vous pouvez basculer entre les stratégies de détection de données à l'aide de l'API [Reset Indexer](#ResetIndexer).
 
@@ -162,7 +162,7 @@ Le suivi intégré des modifications SQL est pris en charge à partir des versio
 
 En cas d'utilisation d'une stratégie SQL de suivi des modifications intégrée, ne spécifiez pas de stratégie de détection des suppressions de données distincte. Cette stratégie intègre la prise en charge de l'identification des lignes supprimées.
 
-Elle peut être utilisée uniquement avec des tables, non avec des vues. Avant d'appliquer cette stratégie, vous devez activer le suivi des modifications pour la table que vous utilisez. Consultez [Activer et désactiver le suivi des modifications](https://msdn.microsoft.com/library/bb964713.aspx) pour obtenir des instructions.
+Elle peut être utilisée uniquement avec des tables, non avec des vues. Pour pouvoir appliquer cette stratégie, vous devez activer le suivi des modifications sur la table. Consultez [Activer et désactiver le suivi des modifications](https://msdn.microsoft.com/library/bb964713.aspx) pour obtenir des instructions.
  
 Lors de la structuration de la requête **Create Data Source**, vous pouvez spécifier une stratégie SQL de suivi des modifications intégrée comme suit :
 
@@ -225,7 +225,7 @@ La clé `api-key` doit être une clé d'administration (par opposition à une cl
 
 **Requête** La syntaxe du corps de la requête est la même que celle des [requêtes Create Data Source](#CreateDataSourceRequestSyntax).
 
-**Réponse** Pour une requête réussie : 201 Créé si une source de données a été créée, et 204 Pas de contenu si une source de données existante a été mise à jour.
+**Réponse** Pour une requête réussie : 201 Créé est renvoyé si une source de données a été créée, et 204 Pas de contenu si une source de données existante a été mise à jour.
 
 **REMARQUE :** certaines propriétés ne peuvent pas être mises à jour dans une source de données existante. Par exemple, vous ne pouvez pas modifier le type d'une source de données existante.
 
@@ -304,7 +304,7 @@ La réponse est similaire aux exemples dans [Exemple de requêtes Create Data So
 **REMARQUE** Lors de l'appel de cette API, ne définissez pas l'en-tête de requête `Accept` sur `application/json;odata.metadata=none`. L'attribut `@odata.type` serait omis dans la réponse, et vous ne pourriez pas faire la différence entre les différents type de stratégies de détection de modification et de suppression de données.
 
 <a name="DeleteDataSource"></a>
-## Suppression de sources de données 
+## Suppression de sources de données
 
 L'opération de suppression de sources de données (**Delete Data Source**) supprime une source de données de votre service Azure Search.
 
@@ -330,7 +330,7 @@ Vous pouvez créer un indexeur dans un service Azure Search à l'aide d'une requ
     Content-Type: application/json
     api-key: [admin key]
 
-Vous pouvez également utiliser une requête PUT en spécifiant le nom de la source de données dans l'URI. Si la source de données n'existe pas, elle est créée.
+Vous pouvez également utiliser une requête PUT en spécifiant le nom de source de données sur l'URI. Si la source de données n'existe pas, elle est créée.
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
@@ -360,9 +360,9 @@ Vous trouverez ci-dessous la syntaxe de structuration de la charge utile de la r
 
 **Planification de l'indexeur**
 
-Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. Les attributs de la planification sont les suivants :
+Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
 
-- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle utilisé est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
+- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
 
 - `startTime` : obligatoire. Date/heure UTC (temps universel coordonné) à laquelle l'exécution de l'indexeur doit commencer.
 
@@ -378,7 +378,7 @@ Un indexeur peut éventuellement spécifier plusieurs paramètres qui affectent 
 
 **Mappages de champs**
 
-Vous pouvez utiliser des mappages de champs pour mapper un nom de champ dans la source de données sur un autre nom de champ dans l'index cible.  Par exemple, considérez une table source avec un champ `_id`. Azure Search n'autorise pas un nom de champ commençant par un trait de soulignement. Le champ doit être renommé. Pour cela, utilisez la propriété `fieldMappings` de l'indexeur comme suit :
+Vous pouvez utiliser des mappages de champs pour mapper un nom de champ dans la source de données sur un autre nom de champ dans l'index cible. Par exemple, considérez une table source avec un champ `_id`. Azure Search n'autorise pas un nom de champ commençant par un trait de soulignement. Le champ doit être renommé. Pour cela, utilisez la propriété `fieldMappings` de l'indexeur comme suit :
 	
 	"fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
 
@@ -774,4 +774,5 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 <td>Non pris en charge. Azure Search prend actuellement en charge uniquement les types primitifs et les collections de chaînes de caractères</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

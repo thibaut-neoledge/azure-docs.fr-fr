@@ -61,5 +61,6 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 * [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
 * [Affichage des événements et journaux d'audit](insights-debugging-with-events.md) pour découvrir tout ce qui s'est produit dans votre service.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

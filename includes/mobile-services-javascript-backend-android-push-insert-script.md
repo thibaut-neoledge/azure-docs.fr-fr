@@ -1,11 +1,11 @@
-﻿
-1. Dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**. 
+
+1. Dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**. 
  
-2. Dans **TodoItem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
+2. Dans **todoitem**, cliquez sur l'onglet **Script** et sélectionnez **Insérer**.
    
    	La fonction appelée lors d'une insertion dans la table **TodoItem** s'affiche.
 
-3. Remplacez la fonction d'insertion par le code suivant, puis cliquez sur **Enregistrer** :
+3. Remplacez la fonction insert par le code suivant, puis cliquez sur **Enregistrer** :
 
 		function insert(item, user, request) {
 		// Define a simple payload for a GCM notification.
@@ -35,7 +35,6 @@
 		  });
 		}
 
-   	Cela enregistre un nouveau script d'insertion qui utilise l'[objet gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) pour envoyer une notification Push à tous les appareils enregistrés après l'insertion. 
+   	Cela inscrit un nouveau script d’insertion qui utilise l’[objet gcm](http://go.microsoft.com/fwlink/p/?LinkId=282645) pour envoyer une notification Push à tous les appareils inscrits après l’insertion.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

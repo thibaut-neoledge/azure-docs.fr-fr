@@ -27,7 +27,7 @@ Les ressources Automation de chaque compte Automation sont associées à une seu
 
 >[AZURE.NOTE]Les comptes Automation et les ressources qu'ils contiennent, créés avec la version d'évaluation du portail Azure, ne sont pas accessibles dans le portail Azure. Si vous souhaitez gérer ces comptes ou leurs ressources avec Windows PowerShell, vous devez utiliser les modules Azure Resource Manager.
 >
->Les comptes Automation créés avec le portail Azure peuvent être gérés soit par le portail, soit par le jeu d'applets de commande. Une fois que le compte est créé, la façon de créer et gérer des ressources au sein du compte n’importe pas. Si vous envisagez de continuer à utiliser le portail Azure, vous devez alors l’utiliser au lieu d’utiliser le portail d’évaluation Azure pour créer des comptes Automation.
+>Les comptes Automation créés avec le portail Azure peuvent être gérés soit par le portail, soit par le jeu d'applets de commande. Une fois que le compte est créé, la façon de créer et de gérer des ressources au sein du compte n'importe pas. Si vous envisagez de continuer à utiliser le portail Azure, vous devez alors l'utiliser au lieu d'utiliser le portail d'évaluation Azure pour créer des comptes Automation.
 
 
 Un compte Automation peut être suspendu s’il existe un problème avec votre compte Azure, comme un retard de paiement. Dans ce cas, vous ne pouvez pas accéder au compte, tous les travaux en cours d’exécution sont interrompus et toutes les planifications sont désactivées. Vous pouvez afficher le compte, mais vous ne pouvez pas voir les ressources qu’il contient. Lorsque vous avez corrigé le problème et que le compte Automation est activé, vous devez activer vos planifications et redémarrer les Runbooks qui ont été interrompus.
@@ -67,4 +67,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](automation-runb
 - [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

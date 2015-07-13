@@ -85,7 +85,7 @@ Nom | Entrez un nom pour l’instance TPM. Par exemple, vous pouvez la nommer *A
 Paramètres du package | Entrez la **chaîne de connexion de base de données** ADO.NET à la base de données SQL Azure que vous avez créée. <br/><br/>Quand vous copiez la chaîne de connexion, le mot de passe n’y est pas ajouté. Veillez à entrer le mot de passe dans la chaîne de connexion.
 Plan App Service | Indique votre plan de paiement. Vous pouvez le modifier si vous avez besoin de plus ou moins de ressources.
 Niveau de tarification | Propriété en lecture seule qui indique la catégorie de tarification dans votre abonnement Azure. 
-Groupe de ressources | Créez-en un nouveau ou utilisez un groupe existant. Toutes les applications API et tous les connecteurs pour vos applications logiques, web et mobiles doivent être dans le même groupe de ressources. <br/><br/>Cette propriété est décrite dans la section [Utiliser des groupes de ressources](../resource-group-overview.md). 
+Groupe de ressources | Créez-en un nouveau ou utilisez un groupe existant. Toutes les applications API et tous les connecteurs pour vos applications logiques, web et mobiles doivent être dans le même groupe de ressources. Cette propriété est décrite dans la section <br/><br/>[Utiliser des groupes de ressources](../resource-group-overview.md). 
 Abonnement | Propriété en lecture seule qui indique votre abonnement actuel.
 Emplacement | Emplacement géographique qui héberge votre service Azure. 
 Ajouter au Tableau d'accueil | Sélectionnez cette option pour ajouter l'application API B2B à votre tableau d'accueil (la page d'accueil).
@@ -97,7 +97,7 @@ Une fois l'application API TPM (instance TPM) créée, vous pouvez créer le con
 
 #### Créer le connecteur AS2
 
-1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et les applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
+1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
 2. Sélectionnez **Connecteur AS2**. Dans le nouveau panneau, sélectionnez **Créer**. 
 3. Entrez les propriétés : 
 
@@ -126,7 +126,7 @@ Nom de l'instance TPM | Entrez le nom de l’application API **Gestion des parte
 
 #### Créer les applications API X12 ou EDIFACT
 
-1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et les applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
+1. Dans le Tableau d’accueil du portail Azure (la page d’accueil), sélectionnez **Marketplace**. **Applications API** répertorie tous les connecteurs et applications API existants. Vous pouvez également **rechercher** les applications API B2B spécifiques.
 2. Sélectionnez **BizTalk X12** ou **BizTalk EDIFACT**. Dans le nouveau panneau, sélectionnez **Créer**. 
 3. Entrez les propriétés : 
 
@@ -181,7 +181,7 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 1. Dans le Tableau d’accueil du portail Azure (page d’accueil), accédez au **Marketplace** et recherchez vos applications logiques, mobiles ou web. 
 
-	Si vous créez une application, recherchez Applications logiques, Applications mobiles ou Applications web. Sélectionnez l’application et, dans le nouveau panneau, sélectionnez **Créer**. [Créer une application logique](app-service-logic-create-a-logic-app.md) répertorie les étapes.
+	Si vous créez une application, recherchez Applications logiques, Applications mobiles ou Applications web. Sélectionnez l’application puis, dans le nouveau panneau, sélectionnez **Créer**. [Créer une application logique](app-service-logic-create-a-logic-app.md) répertorie les étapes.
 
 2. Ouvrez votre application et sélectionnez **Déclencheurs et actions**.
 
@@ -198,9 +198,10 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 
 ## En savoir plus sur les applications logiques et les applications web
-[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md)<br/> [Sites web et applications web dans Azure App Service](../app-service-web/app-service-web-app-azure-portal.md)
+[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md)<br/> [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md)
 
 
 ## Autres connecteurs
 [Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md)<br/> [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md)<br/> [Connecteurs sociaux](app-service-logic-social-connectors.md)<br/> [Connecteurs de protocole](app-service-logic-protocol-connectors.md)<br/> [Connecteurs application + services de données](app-service-logic-data-connectors.md)<br/> [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

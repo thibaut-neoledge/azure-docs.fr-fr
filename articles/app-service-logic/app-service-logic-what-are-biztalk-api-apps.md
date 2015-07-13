@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/08/2015" 
 	ms.author="mandia"/>
 
 # Qu'est-ce qu'un connecteur et une application API BizTalk ?
@@ -40,12 +40,12 @@ Les connecteurs Premium étendent la portée d’App Service dans l’entreprise
 ## Services IAE et EDI
 La création d’applications professionnelles critiques nécessite plus qu’une simple connectivité. Basées sur la plateforme d'intégration Microsoft bien connue (BizTalk Server), les applications API BizTalk procurent des fonctionnalités d'intégration avancées qui peuvent être intégrées à vos applications web, mobiles et logiques en toute simplicité. Certaines de ces fonctionnalités d’intégration incluent la validation, l’extraction, les transformations, les encodeurs, la gestion des partenaires commerciaux et la prise en charge des formats EDI tels que X12, EDIFACT et AS2.
 
-
 ## Règles
 Les règles d'entreprise englobent les stratégies et les décisions qui contrôlent les processus d'entreprise. En règle générale, les règles sont dynamiques et changent au fil du temps pour différentes raisons, y compris les plans d’activités, les réglementations, etc. Les règles BizTalk dans App Service vous permet de découpler ces stratégies à partir de votre code d’application et de simplifier/accélérer le processus de modification.
 
 
 ## Liste des connecteurs et applications API
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

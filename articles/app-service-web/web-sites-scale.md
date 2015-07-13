@@ -28,8 +28,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 
 > [AZURE.NOTE]Avant de faire évoluer une application web du mode **Gratuit** vers le mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Microsoft Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> 
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## Évolution vers le mode Partagé ou De base
 <!-- ===================================== -->
 
@@ -49,8 +48,7 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Qu’
 	
 	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## Évolution vers le mode Standard ou Premium
 <!-- ================================= -->
 
@@ -130,8 +128,8 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 
 ### Prise en charge du débogueur ###
 
-- Le débogueur est pris en charge dans les modes **Gratuit**, **Partagé** et **De base** pour 1 connexion simultanée par plan App Service.
-- Le débogueur est pris en charge dans les modes **Standard** et **Premium** pour 5 connexions simultanées par plan App Service.
+- Une prise en charge du débogueur est disponible en modes **Gratuit**, **Partagé** et **De base** pour 1 connexion simultanée par plan App Service.
+- Une prise en charge du débogueur est disponible en modes **Standard** et **Premium** pour 5 connexions simultanées par plan App Service.
 
 <a name="OtherFeatures"></a>
 ## Autres fonctionnalités
@@ -142,7 +140,7 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 
 - Pour obtenir des informations détaillées sur toutes les autres fonctionnalités des plans App Service, notamment la tarification et les fonctionnalités intéressant tous les utilisateurs (y compris les développeurs), consultez la page [Détails sur la tarification d’App Service](/pricing/details/web-sites/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="Next Steps"></a>
 ## Étapes suivantes
@@ -150,19 +148,19 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 - Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite de Microsoft Azure](/pricing/free-trial/).
 - Pour plus d'informations sur la tarification, le support et les contrats SLA, accédez aux liens suivants.
 	
-	[Détails sur la tarification des transferts de données](/pricing/details/data-transfers/)
+	[Détails de la tarification – Transferts de données](/pricing/details/data-transfers/)
 	
-	[Plans de support Azure](/support/plans/)
+	[Plans de support Microsoft Azure](/support/plans/)
 	
 	[Contrats de niveau de service](/support/legal/sla/)
 	
-	[Détails sur la tarification de Base de données SQL](/pricing/details/sql-database/)
+	[Tarification – Base de données SQL](/pricing/details/sql-database/)
 	
 	[Tailles de machines virtuelles et services cloud pour Microsoft Azure][vmsizes]
 	
-	[Détails sur la tarification d’App Service](/pricing/details/web-sites/)
+	[Détails de la tarification – App Service](/pricing/details/web-sites/)
 	
-	[Détails de la tarification d’App Service - Connexions SSL](/pricing/details/web-sites/#ssl-connections)
+	[Détails de la tarification – App Service - Connexions SSL](/pricing/details/web-sites/#ssl-connections)
 
 - Pour plus d’informations sur les meilleures pratiques liées à Azure App Service, notamment la création d’une architecture évolutive et résiliente, consultez la page [Meilleures pratiques : Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
@@ -197,5 +195,6 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

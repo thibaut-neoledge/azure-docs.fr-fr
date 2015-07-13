@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="06/18/2015"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
 
 Ce guide vous montre combien il est facile d’ajouter une protection à votre API principale en configurant des limites de débit et des stratégies de quota avec la gestion des API Azure.
-
-Pour obtenir plus d’informations et voir une démonstration relative à la définition de limites de débit et de quotas, regardez la vidéo suivante.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
 
 Ce didacticiel vous permet de créer une version d’évaluation gratuite d’un produit API qui permet aux développeurs de passer jusqu’à 10 appels par minute dans la limite de 200 appels par semaine vers votre API. Vous pourrez ensuite publier l’API et tester la stratégie de limite de débit
 
@@ -185,7 +181,7 @@ Maintenant que le produit est publié, il est disponible pour abonnement et util
 
 >Les administrateurs d'une instance Gestion des API sont automatiquement abonnés à chaque produit. Dans cette étape du didacticiel, nous abonnerons l'un des comptes de développeur non-administrateurs au produit en version d'évaluation gratuite. Si votre compte de développeur fait partie du rôle Administrateur, vous pouvez suivre cette étape, même si vous êtes déjà abonné.
 
-Cliquez sur **Users** sur le menu **Gestion des API** sur la gauche et cliquez sur le nom de votre compte de développeur. Dans cet exemple, nous utilisons le compte de développeur **Clayton Gragg**.
+Cliquez sur **Utilisateurs** sur le menu **Gestion des API** situé à gauche, puis cliquez sur le nom de votre compte de développeur. Dans cet exemple, nous utilisons le compte de développeur **Clayton Gragg**.
 
 ![Configure developer][api-management-configure-developer]
 
@@ -197,7 +193,7 @@ Cochez la case située en regard de **Version d'évaluation gratuite** et clique
 
 ![Add subscription][api-management-add-subscription]
 
->[AZURE.NOTE]Dans ce didacticiel, l’option permettant plusieurs abonnements simultanés est désactivée pour le produit en **version d’évaluation gratuite**. Dans le cas contraire, vous auriez été invité à nommer l’abonnement, comme indiqué dans l’exemple suivant.
+>[AZURE.NOTE]Dans ce didacticiel, l’option permettant plusieurs abonnements simultanés est désactivée pour le produit en **essai gratuit**. Dans le cas contraire, vous auriez été invité à nommer l’abonnement, comme indiqué dans l’exemple suivant.
 
 ![Add subscription][api-management-add-subscription-multiple]
 
@@ -240,6 +236,9 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 ## <a name="next-steps"> </a>Étapes suivantes
 
 -	Consultez les autres rubriques du didacticiel [Prise en main de la configuration avancée des API][].
+-	Consultez une démonstration relative à la définition de limites de débit et de quotas dans la vidéo suivante.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png

@@ -1,31 +1,34 @@
 <properties
-   pageTitle="Analyse en temps réel des sentiments et des tendances sur Twitter | Microsoft Azure"
-   description="Apprenez à utiliser Stream Analytics pour analyser en temps réel les sentiments et les tendances sur Twitter. Ce didacticiel présente une procédure allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
-   services="stream-analytics"
-   documentationCenter=""
-   authors="jeffstokes72"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Analyse de sentiments Twitter en temps réel avec Stream Analytics | Microsoft Azure"
+	description="Découvrez comment utiliser Stream Analytics pour l’analyse de sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="stream-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/28/2015"
-   ms.author="jeffstok"/>
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="jeffstok"/>
 
 
-# Analyse des médias sociaux : analyse de sentiments Twitter en temps réel
+# Analyse des médias sociaux : analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
-Dans ce didacticiel, vous allez apprendre à créer une solution pour intégrer les événements Twitter à des concentrateurs d’événements, à écrire des requêtes Stream Analytics pour analyser les données, puis à stocker les résultats ou à utiliser un tableau de bord pour fournir des informations en temps réel.
+Dans ce didacticiel, vous allez apprendre à créer une solution d’analyse de sentiments. Pour cela, vous allez intégrer des événements Twitter en temps réel dans des concentrateurs d'événements, écrire des requêtes Stream Analytics pour analyser les données, puis stocker les résultats ou utiliser un tableau de bord pour fournir des informations en temps réel.
+
+Les outils d’analyse de médias sociaux aident les organisations à comprendre les sujets populaires, les sujets significatifs et les attitudes apparaissant dans un nombre élevé de billets sur les médias sociaux. L’analyse de sentiments, aussi appelée « exploration d’opinions », utilise des outils d’analyse de médias sociaux pour déterminer les attitudes envers un produit, une idée, etc.
 
 ## Scénario
 
-Un site web de médias souhaite obtenir un avantage sur ses concurrents en présentant des contenus immédiatement pertinents pour ses lecteurs. Il utilise des informations tirées des réseaux sociaux sur des sujets pertinents pour ses lecteurs en analysant en temps réel les données de Twitter. Pour identifier les tendances, il doit analyser en temps réel le volume et le sentiment des tweets relatifs aux principaux sujets.
+Un site web de médias souhaite obtenir un avantage sur ses concurrents en présentant des contenus immédiatement pertinents pour ses lecteurs. Il utilise l’analyse des réseaux sociaux sur des sujets pertinents à ses lecteurs en effectuant une analyse de sentiments en temps réel sur les données de Twitter. Pour identifier les tendances en temps réel dans Twitter. il doit analyser en temps réel le volume et le sentiment des tweets relatifs aux principaux sujets.
 
-## Configuration requise
+## Composants requis
 1.	Un compte Twitter est requis pour ce didacticiel.  
 2.	Cette procédure pas à pas utilise un générateur d’événements disponible sur GitHub. Téléchargez-le [ici](https://github.com/streamanalytics/samples/tree/master/TwitterClient), puis procédez comme suit pour configurer votre solution.
 
@@ -41,8 +44,7 @@ Procédez comme suit pour créer un concentrateur d’événements.
 4.	Sous **STRATÉGIES D’ACCÈS PARTAGÉ**, créez une stratégie ayant les autorisations **GÉRER**.
 
 
-
-  ![Stratégies d’accès partagé où vous pouvez créer une stratégie ayant les autorisations Gérer.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![Stratégies d’accès partagé où vous pouvez créer une stratégie ayant les autorisations Gérer.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Cliquez sur **ENREGISTRER** en bas de la page.
 6.	Accédez au **TABLEAU DE BORD**, cliquez sur **INFORMATIONS DE CONNEXION** en bas de la page, puis copiez et enregistrez les informations de connexion. Utilisez l’icône de copie qui apparaît sous l’icône de recherche.
@@ -58,19 +60,19 @@ Procédez comme suit pour configurer l’application :
 
 	[Procédure de génération d’un jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Notez que vous devez créer une application vide pour générer un jeton.
+	Notez que vous devez créer une application vide pour générer un jeton.  
 3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier App.config par la chaîne de connexion et le nom de votre concentrateur d’événements.
 4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter_keywords dans App.config.
 5.	Générez la solution.
 6.	Lancez l’application. Vous voyez s’afficher les événements de Tweet tandis que les valeurs CreatedAt, Topic et SentimentScore sont transmises à votre concentrateur d’événements :
 
-	![Valeurs SentimentScore transmises à un concentrateur d’événements.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![Analyse de sentiments : valeurs SentimentScore transmises à un concentrateur d’événements.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## Création d’un travail Stream Analytics
 
-Maintenant que nous avons un flux d’événements Tweet, nous pouvons configurer un travail Stream Analytics pour analyser ces événements en temps réel.
+Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel depuis Twitter, nous pouvons configurer un travail Stream Analytics pour analyser ces événements en temps réel.
 
-### Configuration d'un travail Stream Analytics
+### Configuration d’un travail Stream Analytics
 
 1.	Dans le portail [Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **SERVICES DE DONNÉES** > **STREAM ANALYTICS** > **CRÉATION RAPIDE**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
@@ -92,15 +94,15 @@ Maintenant que nous avons un flux d’événements Tweet, nous pouvons configure
 
 	* **ALIAS D’ENTRÉE** : entrez un nom convivial pour cette entrée de travail, comme TwitterStream. Notez que vous utiliserez ce nom dans la requête par la suite. **CONCENTRATEUR D’ÉVÉNEMENTS** : si le concentrateur d’événements que vous avez créé est situé dans le même abonnement que le travail Stream Analytics, sélectionnez l’espace de noms dans lequel est situé le concentrateur d’événements.
 
-		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription**, and then manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.
+		Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**ESPACE DE NOMS SERVICE BUS**, le **NOM DU CONCENTRATEUR D’ÉVÉNEMENTS**, le **NOM DE LA STRATÉGIE DU CONCENTRATEUR D’ÉVÉNEMENTS**, la **CLÉ DE STRATÉGIE DU CONCENTRATEUR D’ÉVÉNEMENTS** et le **NOMBRE DE PARTITIONS DU CONCENTRATEUR D’ÉVÉNEMENTS**.
 
 	* **NOM DU CONCENTRATEUR D’ÉVÉNEMENTS** : sélectionnez le nom du concentrateur d’événements.
-	* **NOM DE LA STRATÉGIE DU CONCENTRATEUR D’﻿﻿﻿ÉVÉNEMENTS** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
+	* **NOM DE LA STRATÉGIE DU CONCENTRATEUR D’ÉVÉNEMENTS** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 	* **GROUPE DE CONSOMMATEURS DU CONCENTRATEUR D’ÉVÉNEMENTS** : entrez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
 5.	Cliquez avec le bouton droit.
 6.	Spécifiez les valeurs suivantes :
 
-	* **FORMAT ﻿﻿﻿DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
+	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
 	* **ENCODAGE** : UTF8
 
 7.	Cliquez sur la coche pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d’événements.
@@ -203,7 +205,7 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 
 4.	Cliquez avec le bouton droit.
 5.	Spécifiez les valeurs suivantes :
-	* **FORMAT ﻿﻿﻿DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
+	* **FORMAT DU SÉRIALISEUR D’ÉVÉNEMENT** : JSON
 	* **ENCODAGE** : UTF8
 6.	Cliquez sur le bouton de vérification pour ajouter cette source et vérifier que Stream Analytics peut se connecter au compte de stockage.
 
@@ -215,23 +217,23 @@ Après avoir spécifié une entrée, une requête et une sortie pour le travail 
 2.	Dans la boîte de dialogue qui s’affiche, sélectionnez **HEURE DE DÉBUT DU TRAVAIL**, puis activez la case à cocher en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
 
 
-## Affichage de la sortie
+## Afficher la sortie de l’analyse de sentiments
 
-Pour afficher la sortie de votre travail en temps réel, utilisez un outil comme l’[explorateur Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou l’[explorateur Azure](http://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre votre application en incluant un tableau de bord personnalisé à votre sortie, comme celui affiché ci-dessous.
+Une fois que votre travail en cours d’exécution traite le flux Twitter en temps réel, choisissez la façon dont vous souhaitez afficher la sortie de l’analyse de sentiments. Pour afficher la sortie de votre travail en temps réel, utilisez un outil comme l’[explorateur Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou l’[explorateur Azure](http://www.cerebrata.com/products/azure-explorer/introduction). À ce stade, vous pouvez utiliser [Power BI](https://powerbi.com/) pour étendre votre application en incluant un tableau de bord personnalisé à votre sortie, comme celui affiché ci-dessous.
 
-![Sortie de Stream Analytics dans un tableau de bord Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![Analyse des médias sociaux : sortie de l’analyse de sentiments Stream Analytics (exploration d’opinions) dans un tableau de bord Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
 
-- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

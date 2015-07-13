@@ -212,7 +212,7 @@ Dans cette section, vous allez désactiver le Wi-Fi dans le simulateur pour cré
 
 Pour pouvoir prendre en charge la fonctionnalité de synchronisation hors connexion, nous avons utilisé l’interface `MSSyncTable` et initialisé `MSClient.syncContext` avec un magasin local. Dans ce cas, le magasin local était une base de données avec données de base.
 
-Quand vous utilisez un magasin de données de base local, vous devez définir certaines tables avec les [propriétés système correctes][Review the Core Data model].
+Lorsque vous utilisez un magasin de données de base local, vous devez définir certaines tables avec les [propriétés système correctes] [Examen du modèle des données de base].
 
 Les opérations normales de création, lecture, mise à jour et suppression pour Mobile Apps fonctionnent comme si l’application était toujours connectée, mais toutes les opérations se rapportent au magasin local.
 
@@ -239,7 +239,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]
 
-* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] (Remarque : les démonstrations sont destinées à Windows, mais la discussion sur cette fonctionnalité s’applique à toutes les plateformes)
+* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] (Remarque : les démonstrations s'appuient sur Windows, mais la présentation de cette fonctionnalité s'applique à toutes les plateformes)
 
 <!-- URLs. -->
 
@@ -275,6 +275,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/fr-fr/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

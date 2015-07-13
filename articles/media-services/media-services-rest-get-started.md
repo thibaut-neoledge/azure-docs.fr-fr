@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Distribution de vidéo à la demande avec les API REST Media Services" 
-	description="Ce didacticiel vous guide à travers les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l'aide des API REST." 
+	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST" 
+	description="Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide des API REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -16,93 +16,91 @@
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
 
-# Démarrage rapide : Distribution de vidéo à la demande avec les API REST Media Services 
+#Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+>[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d’essai gratuite d’Azure</a>.
 
-Ce document de démarrage rapide vous guide à travers les étapes d'implémentation d'une application de diffusion de contenu vidéo à la demande (VoD) avec les API REST Azure Media Services (AMS). 
+Ce document de démarrage rapide vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec les API REST Azure Media Services (AMS).
 
-Il présente le workflow Media Services de base et les objets et tâches de programmation les plus courants requis pour le développement Media Services. À la fin de ce didacticiel, vous pourrez lire en continu ou télécharger de façon progressive un exemple de fichier multimédia que vous aurez chargé, encodé et téléchargé.  
+Il présente le workflow Media Services de base et les objets et tâches de programmation les plus courants requis pour le développement Media Services. À la fin de ce didacticiel, vous pourrez lire en continu ou télécharger de façon progressive un exemple de fichier multimédia que vous aurez chargé, encodé et téléchargé.
 
-## Conditions préalables
+## Composants requis
 Les conditions préalables suivantes sont requises pour commencer à développer avec les API REST et Media Services.
 
-- Présentation du développement avec l'API REST Media Services. Pour plus d'informations, consultez la page [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
+- Présentation du développement avec l’API REST Media Services. Pour plus d’informations, consultez la page [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
 - Une application de votre choix qui peut envoyer des demandes et réponses HTTP. Ce didacticiel utilise [Fiddler](http://www.telerik.com/download/fiddler). 
 
 Ce document de démarrage rapide présente les tâches suivantes.
 
-1.  Création d'un compte Media Services grâce à la méthode Création rapide
-1.  Connexion à un compte Media Services à l'aide de l'API REST
-1.  Création d'une ressource et téléchargement d'un fichier vidéo à l'aide de l'API REST
-1.  Configuration des unités de diffusion en continu avec l'API REST
-2.  Encodage du fichier source en un ensemble de fichiers MP4 à débit adaptatif avec l'API REST
-1.  Configuration de la stratégie de remise pour la ressource encodée avec l'API REST
-1.  Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l'API REST 
+1.  Création d’un compte Media Services grâce à la méthode Création rapide
+1.  Connexion à un compte Media Services à l’aide de l’API REST
+1.  Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
+1.  Configuration des unités de diffusion en continu avec l’API REST
+2.  Encodage du fichier source en un ensemble de fichiers MP4 à débit adaptatif avec l’API REST
+1.  Configuration de la stratégie de remise pour la ressource encodée avec l’API REST
+1.  Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST 
 1.  Lecture de votre contenu 
 
 
-## <a id="create_ams"></a>Création d'un compte Media Services grâce à la méthode Création rapide
+## <a id="create_ams"></a>Création d’un compte Media Services grâce à la méthode Création rapide
 
-1. Dans le [portail de gestion][], cliquez sur **Nouveau**, sur **Service de média**, puis sur **Création rapide**.
+1. Dans le [portail de gestion][], cliquez sur **New**, sur **Service de média**, puis sur **Création rapide**.
    
-	![Media Services Quick Create](./media/media-services-rest-get-started/wams-QuickCreate.png)
+	![Media Services - Création rapide](./media/media-services-rest-get-started/wams-QuickCreate.png)
 
-2. Dans **NOM**, entrez le nom du nouveau compte. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères. 
+2. Dans **NAME**, entrez le nom du nouveau compte. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
 
-3. Dans **RÉGION**, sélectionnez la région géographique qui sera utilisée pour stocker les enregistrements de métadonnées pour votre compte Media Services. Seules les régions Media Services disponibles s'affichent dans la liste déroulante. 
+3. Dans **RÉGION**, sélectionnez la région géographique qui sera utilisée pour stocker les enregistrements de métadonnées pour votre compte Media Services. Seules les régions Media Services disponibles s'affichent dans la liste déroulante.
 
-4. Dans **COMPTE DE STOCKAGE**, sélectionnez un compte de stockage pour fournir un stockage d'objets blob du contenu multimédia à partir de votre compte Media Services. Vous pouvez sélectionner un compte de stockage existant dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région. 
+4. Dans **COMPTE DE STOCKAGE**, sélectionnez un compte de stockage pour fournir un stockage d'objets blob du contenu multimédia à partir de votre compte Media Services. Vous pouvez sélectionner un compte de stockage existant dans la même région géographique que votre compte Media Services ou en créer un. Ce dernier sera créé dans la même région.
 
 5. Si vous avez créé un compte de stockage, entrez un nom dans **NOUVEAU NOM DU COMPTE DE STOCKAGE**. Les règles des noms de compte de stockage sont identiques à celles des comptes Media Services.
 
-6. Cliquez sur **Création rapide**, en bas du formulaire.
+6. Cliquez sur **Création rapide** en bas du formulaire.
 
-	Vous pouvez surveiller l'état du processus dans la zone de message en bas de la fenêtre.
+	Vous pouvez surveiller l’état du processus dans la zone de message en bas de la fenêtre.
 
-	Une fois que le compte est créé, l'état devient actif. 
+	Une fois que le compte est créé, l’état devient actif.
 	
-	Au bas de la page, le bouton **GÉRER LES CLÉS** s'affiche. Lorsque vous cliquez sur ce bouton, une boîte de dialogue avec le nom du compte Media Services et les clés primaires et secondaires s'affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services. 
+	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une boîte de dialogue avec le nom du compte Media Services et les clés primaires et secondaires s’affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
 
 	
 	![Media Services Page](./media/media-services-rest-get-started/wams-mediaservices-page.png)
 
-	Lorsque vous double-cliquez sur le nom de compte, la page Démarrage rapide s'affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
+	Lorsque vous double-cliquez sur le nom de compte, la page Démarrage rapide s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page CONTENU.
 
 
-## <a id="connect"></a>Connexion à un compte Media Services à l'aide de l'API REST
+## <a id="connect"></a>Connexion à un compte Media Services à l’aide de l’API REST
 
-Vous avez besoin de deux choses pour accéder à Azure Media Services : un jeton d'accès fourni par les Services de contrôle d'accès (ACS) Azure et l'URI de Media Services. Vous pouvez utiliser la méthode de votre choix lors de la création de ces demandes, tant que vous spécifiez les valeurs d'en-têtes appropriées et transmettez le jeton d'accès correctement lors de l'appel dans Media Services.
+Vous avez besoin de deux choses pour accéder à Azure Media Services : un jeton d’accès fourni par les Services de contrôle d’accès (ACS) Azure et l’URI de Media Services. Vous pouvez utiliser la méthode de votre choix lors de la création de ces demandes, tant que vous spécifiez les valeurs d’en-têtes appropriées et transmettez le jeton d’accès correctement lors de l’appel dans Media Services.
 
-Les étapes suivantes décrivent le flux de travail habituel lors de l'utilisation de l'API REST Media Services pour se connecter à Media Services :
+Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisation de l’API REST Media Services pour se connecter à Media Services :
 
-1. Obtention d'un jeton d'accès 
-2. Connexion à l'URI Media Services 
+1. Obtention d’un jeton d’accès 
+2. Connexion à l’URI Media Services 
 	
-	>[AZURE.NOTE]
-	Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d'autres appels au nouvel URI.
+	>[AZURE.NOTE]Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 	> 
-	> Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l'API ODATA.
-3. Envoi de vos appels d'API suivants vers la nouvelle URL. 
+	> 
+3. Envoi de vos appels d’API suivants vers la nouvelle URL. 
 	
-	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
+	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
 		
 		HTTP/1.1 301 Moved Permanently
 		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Vous devez envoyer vos appels d'API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
+	Vous devez envoyer vos appels d’API suivants à https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-### obtention d'un jeton d'accès
+###Obtention d’un jeton d’accès
 
-Pour accéder à Media Services directement par le biais de l'API REST, obtenez un jeton d'accès ACS et utilisez-le lors de chaque demande HTTP adressée au service. Ce jeton est semblable aux autres jetons fournis par ACS basés sur les revendications d'accès fournies dans l'en-tête d'une demande HTTP et à l'aide du protocole OAuth v2. Il n'existe pas d'autre condition préalable pour vous connecter directement à Media Services.
+Pour accéder à Media Services directement par le biais de l’API REST, obtenez un jeton d’accès ACS et utilisez-le lors de chaque demande HTTP adressée au service. Ce jeton est semblable aux autres jetons fournis par ACS basés sur les revendications d’accès fournies dans l’en-tête d’une demande HTTP et à l’aide du protocole OAuth v2. Il n’existe pas d’autre condition préalable pour vous connecter directement à Media Services.
 
-L'exemple suivant montre l'en-tête et le corps de demande HTTP qui permet de récupérer un jeton.
+L’exemple suivant montre l’en-tête et le corps de demande HTTP qui permet de récupérer un jeton.
 
-**En-tête** :
+**En-tête** :
 
 	POST https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13 HTTP/1.1
 	Content-Type: application/x-www-form-urlencoded
@@ -113,21 +111,21 @@ L'exemple suivant montre l'en-tête et le corps de demande HTTP qui permet de r�
 	Accept: application/json
 
 	
-**Corps** :
+**Corps** :
 
-Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte. 
+Il convient de vérifier les valeurs client_id et client_secret dans le corps de cette demande ; client_id et client_secret correspondent aux valeurs AccountName et AccountKey, respectivement. Ces valeurs sont fournies par Media Services pour vous lorsque vous configurez votre compte.
 
-Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l'URL quand vous l'utilisez comme valeur client_secret dans votre demande de jeton d'accès.
+Notez que la valeur AccountKey de votre compte Media Services doit être encodée dans l’URL quand vous l’utilisez comme valeur client_secret dans votre demande de jeton d’accès.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Par exemple : 
+Par exemple :
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
 
-L'exemple suivant montre la réponse HTTP qui contient le jeton d'accès dans le corps de réponse.
+L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dans le corps de réponse.
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache, no-store
@@ -148,20 +146,19 @@ L'exemple suivant montre la réponse HTTP qui contient le jeton d'accès dans le
 	}
 	
 
->[AZURE.NOTE]
-Il est recommandé de mettre en cache les valeurs " access_token " et " expires_in " sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d'API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
+>[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access_token » et « expires_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
 
-Veillez à analyser la valeur " expires_in " du jeton d'accès et à mettre à jour vos appels d'API REST avec de nouveaux jetons le cas échéant.
+Veillez à analyser la valeur « expires_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
 
-### connexion à l'URI Media Services
+###Connexion à l’URI Media Services
 
-L'URI racine de Media Services est https://media.windows.net/. Pour commencer, connectez-vous à cet URI. Si vous obtenez une redirection 301 en réponse, adressez les appels suivants au nouvel URI. En outre, n'utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
+L’URI racine de Media Services est https://media.windows.net/. Pour commencer, connectez-vous à cet URI. Si vous obtenez une redirection 301 en réponse, adressez les appels suivants au nouvel URI. En outre, n’utilisez pas de logique de redirection automatique/de suivi dans vos demandes. Les verbes HTTP et les corps de demande ne seront pas transférés au nouvel URI.
 
-Notez que l'URI racine pour le téléchargement de fichiers de ressources est https://yourstorageaccount.blob.core.windows.net/, le nom du compte de stockage étant le même que celui que vous avez utilisé à l'étape de configuration de votre compte Media Services.
+Notez que l’URI racine pour le téléchargement de fichiers de ressources est https://yourstorageaccount.blob.core.windows.net/, le nom du compte de stockage étant le même que celui que vous avez utilisé à l’étape de configuration de votre compte Media Services.
 
-L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (https://media.windows.net/). La demande obtient une redirection 301 en réponse. La demande suivante utilise le nouvel URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
+L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services (https://media.windows.net/). La demande obtient une redirection 301 en réponse. La demande suivante utilise le nouvel URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
 
-**Demande HTTP** :
+**Demande HTTP** :
 	
 	GET https://media.windows.net/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -170,7 +167,7 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 	Host: media.windows.net
 
 
-**Réponse HTTP** :
+**Réponse HTTP** :
 	
 	HTTP/1.1 301 Moved Permanently
 	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
@@ -187,7 +184,7 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 	</body></html>
 
 
-**Demande HTTP** (à l'aide du nouvel URI) :
+**Demande HTTP** (à l’aide du nouvel URI) :
 			
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -196,7 +193,7 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 	Host: wamsbayclus001rest-hs.cloudapp.net
 
 
-**Réponse HTTP** :
+**Réponse HTTP** :
 	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -215,27 +212,25 @@ L'exemple suivant montre la demande HTTP vers l'URI racine de Media Services (ht
 	 
 
 
->[AZURE.NOTE] Désormais, le nouvel URI sera utilisé dans ce didacticiel.
+>[AZURE.NOTE]Désormais, le nouvel URI sera utilisé dans ce didacticiel.
 
-## <a id="upload"></a>Création d'une ressource et téléchargement d'un fichier vidéo à l'aide de l'API REST
+## <a id="upload"></a>Création d’une ressource et téléchargement d’un fichier vidéo à l’aide de l’API REST
 
-Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L'entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers).  Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l'objet d'un traitement et d'une diffusion en continu. 
+Dans Media Services, vous téléchargez vos fichiers numériques dans une ressource. L’entité **Asset** peut contenir des fichiers vidéo et audio, des images, des collections de miniatures, des pistes textuelles et des légendes (et les métadonnées concernant ces fichiers). Une fois les fichiers téléchargés dans la ressource, votre contenu est stocké en toute sécurité dans le cloud et peut faire l’objet d’un traitement et d’une diffusion en continu.
 
-Les options de création de ressources sont une des valeurs que vous devez fournir lors de la création d'une ressource. La propriété **Options** est une valeur d'énumération qui décrit les options de chiffrement permettant de créer une ressource. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs de cette liste :
+Les options de création de ressources sont une des valeurs que vous devez fournir lors de la création d’une ressource. La propriété **Options** est une valeur d’énumération qui décrit les options de chiffrement permettant de créer une ressource. Une valeur valide est une des valeurs de la liste ci-dessous, et non une combinaison de valeurs de cette liste :
 
  
-- **None** = **0** : aucun chiffrement. À noter que quand vous utilisez cette option, votre contenu n'est pas protégé pendant le transit ou le repos dans le stockage.
+- **None** = **0** : aucun chiffrement. À noter que quand vous utilisez cette option, votre contenu n’est pas protégé pendant le transit ou le repos dans le stockage. Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
+- **StorageEncrypted** = **1** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d’être encodés, puis éventuellement rechiffrés avant d’être rechargés sous la forme d’un nouvel élément multimédia de sortie. Le principal cas d’utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d’entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
+- **CommonEncryptionProtected** = **2** : utilisez cette option lorsque vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse protégée par gestion des droits numériques (DRM) PlayReady).
+- **EnvelopeEncryptionProtected** = **4** : utilisez cette option lorsque vous téléchargez un contenu au format TLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
 
-	Si vous prévoyez de fournir un MP4 sous forme de téléchargement progressif, utilisez cette option. 
-- **StorageEncrypted** = **1** : permet de chiffrer votre contenu en clair localement en utilisant le chiffrement AES-256 bits, puis de le télécharger vers Azure Storage où il est chiffré pour le stockage, au repos. Les éléments multimédias protégés par le chiffrement de stockage sont automatiquement déchiffrés et placés dans un système de fichiers chiffré avant d'être encodés, puis éventuellement rechiffrés avant d'être rechargés sous la forme d'un nouvel élément multimédia de sortie. Le principal cas d'utilisation du chiffrement de stockage concerne la sécurisation de fichiers multimédias d'entrée de haute qualité avec un chiffrement renforcé au repos sur le disque.
-- **CommonEncryption** = **2** : utilisez cette option lorsque vous téléchargez du contenu qui a déjà été chiffré et protégé par chiffrement commun ou gestion des droits numériques (DRM) PlayReady (par exemple, une diffusion en continu lisse protégée par gestion des droits numériques (DRM) PlayReady).
-- **EnvelopeEncrypted** = **4** : utilisez cette option lorsque vous téléchargez un contenu au format TLS chiffré avec AES. Notez que les fichiers doivent avoir été encodés et chiffrés par le gestionnaire de transformation Transform Manager.
+### Création d’une ressource
 
-### Création d'une ressource
+Une ressource est un conteneur pour plusieurs types ou ensembles d’objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l’API REST, la création d’une ressource nécessite d’envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
 
-Une ressource est un conteneur pour plusieurs types ou ensembles d'objets dans Media Services, y compris des fichiers vidéo, audio, des images, des collections de miniatures, des pistes textuelles et des légendes. Dans l'API REST, la création d'une ressource nécessite d'envoyer une demande POST vers Media Services et de placer les informations de propriété concernant votre ressource dans le corps de la demande.
-
-L'exemple suivant montre comment créer une ressource.
+L’exemple suivant montre comment créer une ressource.
 
 **Demande HTTP**
 
@@ -256,7 +251,7 @@ L'exemple suivant montre comment créer une ressource.
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 	
 	HTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -286,11 +281,11 @@ Si l'opération réussit, l'élément suivant est retourné :
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-### Création d'un AssetFile
+### Création d’un AssetFile
 
-L'entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d'objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs AssetFiles. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n'est pas associé à un fichier numérique dans un conteneur d'objets blob.
+L’entité [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) représente un fichier audio ou vidéo stocké dans un conteneur d’objets blob. Un fichier de ressources est toujours associé à une ressource et une ressource peut contenir un ou plusieurs AssetFiles. La tâche de Media Services Encoder échoue si un objet de fichier de ressources n’est pas associé à un fichier numérique dans un conteneur d’objets blob.
 
-Après avoir téléchargé le fichier multimédia numérique dans un conteneur d'objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme indiqué ultérieurement dans cette rubrique). 
+Après avoir téléchargé le fichier multimédia numérique dans un conteneur d’objets blob, vous utiliserez la demande HTTP **MERGE** pour mettre à jour AssetFile avec des informations sur votre fichier multimédia (comme indiqué ultérieurement dans cette rubrique).
 
 **Demande HTTP**
 
@@ -349,11 +344,11 @@ Après avoir téléchargé le fichier multimédia numérique dans un conteneur d
 	}
 
 
-### Création d'AccessPolicy avec autorisation d'écriture. 
+### Création d’AccessPolicy avec autorisation d’écriture. 
 
-Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d'accès pour l'écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d'entités AccessPolicies. N'oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d'erreur interne de serveur 500. Pour plus d'informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+Avant de télécharger des fichiers dans le stockage blob, définissez les droits de la stratégie d’accès pour l’écriture sur une ressource. Pour ce faire, utilisez POST avec une demande HTTP sur le jeu d’entités AccessPolicies. N’oubliez pas de définir une valeur DurationInMinutes après la création ou vous recevrez en réponse un message d’erreur interne de serveur 500. Pour plus d’informations sur AccessPolicies, consultez [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
-L'exemple suivant montre comment créer une stratégie AccessPolicy :
+L’exemple suivant montre comment créer une stratégie AccessPolicy :
 		
 **Demande HTTP**
 
@@ -398,22 +393,22 @@ L'exemple suivant montre comment créer une stratégie AccessPolicy :
 	   "Permissions":2
 	}
 
-### Obtention de l'URL de téléchargement
+### Obtention de l’URL de téléchargement
 
-Pour recevoir l'URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l'heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d'une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d'AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d'informations, consultez la rubrique [Localisateur](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+Pour recevoir l’URL de téléchargement réelle, créez un localisateur SAS. Les localisateurs définissent l’heure de début et le type de point de terminaison de connexion pour les clients qui souhaitent accéder aux fichiers d’une ressource. Vous pouvez créer plusieurs entités de localisateurs pour une paire AccessPolicy et Asset donnée, afin de gérer les différentes demandes et besoins des clients. Chacun de ces localisateurs utilise la valeur StartTime et la valeur DurationInMinutes d’AccessPolicy pour déterminer la durée pendant laquelle une URL peut être utilisée. Pour plus d’informations, consultez la rubrique [Localisateur](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 
-Une URL SAS a le format suivant :
+Une URL SAS a le format suivant :
 
 	{https://myaccount.blob.core.windows.net}/{asset name}/{video file name}?{SAS signature}
 
-Certaines considérations s'appliquent :
+Certaines considérations s’appliquent :
 
-- Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d'informations, consultez la rubrique Localisateur.
-- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l'heure actuelle. Cela vient du fait qu'il peut exister un décalage horaire entre votre ordinateur client et Media Services. En outre, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, " 2014-05-23T17:53:50Z ").	
-- Il peut y avoir un délai de 30 à 40 secondes après la création d'un localisateur avant qu'il soit disponible. Ce problème s'applique aux localisateurs d'URL SAS et d'origine.
+- Vous ne pouvez avoir plus de cinq localisateurs uniques associés à une ressource donnée. Pour plus d’informations, consultez la rubrique Localisateur.
+- Si vous avez besoin de télécharger vos fichiers immédiatement, vous devez définir la valeur StartTime sur cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre votre ordinateur client et Media Services. De même, la valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).	
+- Il peut y avoir un délai de 30 à 40 secondes après la création d’un localisateur avant qu’il soit disponible. Ce problème s’applique aux localisateurs d’URL SAS et d’origine.
 
-L'exemple suivant montre comment créer un localisateur d'URL SAS, tel que défini par la propriété Type dans le corps de la demande (" 1 " pour un localisateur SAS et " 2 " pour un localisateur d'origine à la demande). La propriété **chemin d'accès** retournée contient l'URL que vous devez utiliser pour télécharger votre fichier.
+L’exemple suivant montre comment créer un localisateur d’URL SAS, tel que défini par la propriété Type dans le corps de la demande (« 1 » pour un localisateur SAS et « 2 » pour un localisateur d’origine à la demande). La propriété **Path** retournée contient l’URL que vous devez utiliser pour télécharger votre fichier.
 	
 **Demande HTTP**
 	
@@ -438,7 +433,7 @@ L'exemple suivant montre comment créer un localisateur d'URL SAS, tel que défi
 
 **Réponse HTTP**
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 		
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -468,18 +463,18 @@ Si l'opération réussit, la réponse suivante est retournée :
 	   "Name":null
 	}
 
-### Téléchargement d'un fichier dans un conteneur de stockage d'objets blob
+### Téléchargement d’un fichier dans un conteneur de stockage d’objets blob
 	
-Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d'objets blob Microsoft Azure à l'aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs. 
+Après avoir défini AccessPolicy et Locator, le fichier réel est téléchargé vers un conteneur de stockage d’objets blob Microsoft Azure à l’aide des API REST Azure Storage. Vous pouvez le télécharger dans des objets blob de page ou de blocs.
 
->[AZURE.NOTE] Vous devez ajouter le nom du fichier à télécharger dans la valeur **Path** du localisateur reçue dans la section précédente. Par exemple, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]Vous devez ajouter le nom du fichier à télécharger dans la valeur **Path** du localisateur reçue dans la section précédente. Par exemple : https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
-Pour plus d'informations sur l'utilisation d'objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-### Mise à jour d'AssetFile 
+### Mise à jour d’AssetFile 
 
-Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
+Maintenant que vous avez téléchargé votre fichier, mettez à jour les informations de taille FileAsset (et autres). Par exemple :
 	
 	MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
 	Content-Type: application/json
@@ -502,10 +497,9 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
-	HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
 
-## Suppression du localisateur et d'AcessPolicy 
+## Suppression du localisateur et d’AcessPolicy 
 
 **Demande HTTP**
 
@@ -522,7 +516,7 @@ Si l'opération réussit, l'élément suivant est retourné :
 	
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 
 	HTTP/1.1 204 No Content 
 	...
@@ -540,35 +534,34 @@ Si l'opération réussit, l'élément suivant est retourné :
 
 **Réponse HTTP**
 
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 
 	HTTP/1.1 204 No Content 
 	...
 
  
-## <a id="configure_streaming_units"></a>Configuration des unités de diffusion en continu avec l'API REST
+## <a id="configure_streaming_units"></a>Configuration des unités de diffusion en continu avec l’API REST
 
-Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l'utilisation de l'UC et d'autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement). 
+Lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Media Services fournit l'empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats. 
+Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) sans avoir à recréer de nouveaux packages dans ces formats.
 
-Pour tirer parti de l'empaquetage dynamique, vous devez effectuer les opérations suivantes :
+Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion **à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section).
-- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
+- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion **à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section). - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
 
-Avec l'empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients. 
+Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
 
->[AZURE.NOTE] Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification de Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE]Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-Pour changer le nombre d'unités réservées de diffusion en continu, procédez comme suit :
+Pour changer le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 	
 ### Obtention du point de terminaison de diffusion en continu à mettre à jour
 
-Par exemple, nous allons obtenir le premier point de terminaison de diffusion en continu dans votre compte (vous pouvez avoir jusqu'à 2 points de terminaison de diffusion en continu en cours d'exécution en même temps).
+Par exemple, nous allons obtenir le premier point de terminaison de diffusion en continu dans votre compte (vous pouvez avoir jusqu’à 2 points de terminaison de diffusion en continu en cours d’exécution en même temps).
 
-**Demande HTTP** :
+**Demande HTTP** :
 
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints()?$top=1 HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
@@ -581,14 +574,14 @@ Par exemple, nous allons obtenir le premier point de terminaison de diffusion en
 
 **Réponse HTTP**
 	
-Si l'opération réussit, l'élément suivant est retourné :
+Si l’opération réussit, l’élément suivant est retourné :
 	
 	HTTP/1.1 200 OK
 	. . . 
 	
-### Mise à l'échelle du point de terminaison
+### Mise à l’échelle du point de terminaison
  
-**Demande HTTP** :
+**Demande HTTP** :
 
 	POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
 	Content-Type: application/json;odata=verbose
@@ -618,13 +611,13 @@ Si l'opération réussit, l'élément suivant est retourné :
 	Content-Length: 0
 
 	
-### <a id="long_running_op_status"></a>Vérification de l'état d'une opération longue
+### <a id="long_running_op_status"></a>Vérification de l’état d’une opération longue
 
-L'allocation de nouvelles unités prend environ 20 minutes. Pour vérifier l'état de l'opération, utilisez la méthode **Operations** et spécifiez l'Id de l'opération. L'Id d'opération a été retourné dans la réponse à la demande **Scale**.
+L’allocation de nouvelles unités prend environ 20 minutes. Pour vérifier l’état de l’opération, utilisez la méthode **Operations** et spécifiez l’Id de l’opération. L’Id d’opération a été retourné dans la réponse à la demande **Scale**.
 
 	operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
  
-**Demande HTTP** :
+**Demande HTTP** :
 	
 	GET https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7') HTTP/1.1
 	MaxDataServiceVersion: 3.0;NetFx
@@ -667,22 +660,22 @@ L'allocation de nouvelles unités prend environ 20 minutes. Pour vérifier l'ét
 
 ## <a id="encode"></a>Encoder le fichier source en un ensemble de fichiers MP4 à débit adaptatif
 
-Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s'appellent des travaux et chaque [travail](http://msdn.microsoft.com/library/azure/hh974289.aspx) se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource. 
+Après avoir reçu des éléments multimédias dans Media Services, vous pouvez encoder un média, modifier le format de ce dernier, lui appliquer un filigrane, etc. avant de le livrer à des clients. Afin de garantir des performances et une disponibilité optimales, ces activités sont planifiées et exécutées dans de nombreuses instances de rôle en arrière-plan. Ces activités s’appellent des travaux et chaque [travail](http://msdn.microsoft.com/library/azure/hh974289.aspx) se compose de tâches atomiques qui effectuent le travail à proprement parler sur le fichier de ressource.
 
-Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services peut regrouper de façon dynamique un ensemble de fichiers MP4 à débit adaptatif dans un des formats suivants : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement). 
+Comme mentionné précédemment, lorsque vous travaillez avec Azure Media Services, un des scénarios les plus courants est la diffusion de contenu à débit adaptatif à vos clients. Media Services peut regrouper de façon dynamique un ensemble de fichiers MP4 à débit adaptatif dans un des formats suivants :HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Pour tirer parti de l'empaquetage dynamique, vous devez effectuer les opérations suivantes :
+Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
+- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif.  
 - Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. 
 
-La section suivante montre comment créer un travail contenant une tâche d'encodage. La tâche spécifie de transcoder le fichier mezzanine en un ensemble de MP4 à débit adaptatif à l'aide d'**Azure Media Encoder**. La section indique également comment surveiller la progression du traitement du travail. Une fois le travail terminé, vous pourrez créer les localisateurs nécessaires pour accéder à vos ressources. 
+La section suivante montre comment créer un travail contenant une tâche d’encodage. La tâche spécifie de transcoder le fichier mezzanine en un ensemble de MP4 à débit adaptatif à l’aide de l’**Encodeur multimédia Azure**. La section indique également comment surveiller la progression du traitement du travail. Une fois le travail terminé, vous pourrez créer les localisateurs nécessaires pour accéder à vos ressources.
 
-### Obtention d'un processeur multimédia
+### Obtention d’un processeur multimédia
 
-Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l'encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Pour la tâche d'encodage indiquée dans ce didacticiel, nous allons utiliser Azure Media Encoder.
+Dans Media Services, un processeur multimédia est un composant qui gère une tâche de traitement spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Pour la tâche d’encodage indiquée dans ce didacticiel, nous allons utiliser l’Encodeur multimédia Azure.
 
-Le code suivant demande l'ID de l'encodeur. 
+Le code suivant demande l’ID de l’encodeur.
 
 **Demande HTTP**
 
@@ -725,11 +718,11 @@ Le code suivant demande l'ID de l'encodeur.
 	   ]
 	}
 
-### Création d'un travail
+### Création d’un travail
 
-Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l'API REST, vous pouvez créer des travaux et les tâches associées de deux manières : Les tâches peuvent être définies inline via la propriété de navigation de tâches sur les entités de travail ou le traitement par lots OData. Le Kit de développement logiciel (SDK) Media Services utilise le traitement par lots. Toutefois, pour une meilleure lisibilité des exemples de code dans cette rubrique, les tâches sont définies inline. Pour plus d'informations sur le traitement par lots, consultez [Traitement par lots d'Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Chaque travail peut comporter une ou plusieurs tâches, en fonction du type de traitement que vous souhaitez accomplir. Via l’API REST, vous pouvez créer des travaux et leurs tâches associées de deux manières : les tâches peuvent être définies en ligne via la propriété de navigation de tâches sur les entités de travail ou via le traitement par lots OData. Le Kit de développement logiciel (SDK) Media Services utilise le traitement par lots. Toutefois, pour une meilleure lisibilité des exemples de code dans cette rubrique, les tâches sont définies inline. Pour plus d’informations sur le traitement par lots, consultez [Traitement par lots d’Open Data Protocol (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-L'exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. La section suivante de la documentation contient la liste de toutes les [présélections de tâches](http://msdn.microsoft.com/library/azure/dn619392.aspx) prises en charge par le processeur multimédia Azure.  
+L’exemple suivant montre comment créer et publier un projet avec une tâche visant à encoder une vidéo en une résolution et une qualité spécifiques. La section suivante de la documentation contient la liste de toutes les [présélections de tâches](http://msdn.microsoft.com/library/azure/dn619392.aspx) prises en charge par le processeur multimédia Azure.
 
 **Demande HTTP**
 	
@@ -765,7 +758,7 @@ L'exemple suivant montre comment créer et publier un projet avec une tâche vis
 
 **Réponse HTTP**
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -825,35 +818,35 @@ Si l'opération réussit, la réponse suivante est retournée :
 	}
 
 
-Il convient de noter quelques points importants concernant les demandes de travail :
+Il convient de noter quelques points importants concernant les demandes de travail :
 
-- les propriétés TaskBody DOIVENT utiliser un XML littéral pour définir le nombre de ressources d'entrée ou de sortie qui seront utilisées par la tâche. La rubrique Tâche contient la définition du schéma XML pour le XML.
-- Dans la définition TaskBody, chaque valeur interne de <inputAsset > et <outputAsset> doit être définie en tant que JobInputAsset(valeur) ou JobOutputAsset(valeur).
-- Une tâche peut comporter plusieurs ressources de sortie. Un JobOutputAsset(x) ne peut être utilisé qu'une fois en tant que résultat d'une tâche dans un travail.
-- Vous pouvez spécifier JobInputAsset ou JobOutputAsset en tant que ressource d'entrée d'une tâche.
+- les propriétés TaskBody DOIVENT utiliser un XML littéral pour définir le nombre de ressources d’entrée ou de sortie qui seront utilisées par la tâche. La rubrique Tâche contient la définition du schéma XML pour le XML.
+- Dans la définition TaskBody, chaque valeur interne de <inputAsset> et <outputAsset> doit être définie en tant que JobInputAsset(valeur) ou JobOutputAsset(valeur).
+- Une tâche peut comporter plusieurs ressources de sortie. Un JobOutputAsset(x) ne peut être utilisé qu’une fois en tant que résultat d’une tâche dans un travail.
+- Vous pouvez spécifier JobInputAsset ou JobOutputAsset en tant que ressource d’entrée d’une tâche.
 - Les tâches ne doivent pas former un cycle.
-- Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d'index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d'entité de travail. 
+- Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d’index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d’entité de travail. 
 
->[AZURE.NOTE] Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur " __metadata : uri ". 
+>[AZURE.NOTE]Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « __metadata : uri ».
 
 - InputMediaAssets mappe vers une ou plusieurs ressources que vous avez créées dans Media Services. Les OutputMediaAssets sont créés par le système. Ils ne font pas référence à une ressource existante.
-- OutputMediaAssets peut être nommé à l'aide de l'attribut assetName. Si cet attribut n'est pas présent, le nom d'OutputMediaAsset sera la valeur de texte interne de l'élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l'ID de travail (dans le cas où la propriété Name n'est pas définie). Par exemple, si vous affectez à assetName la valeur " Sample ", la propriété de Nom d'OutputMediaAsset est définie sur " Sample ". Toutefois, si vous n'avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme " NewJob ", le nom d'OutputMediaAsset est " JobOutputAsset(value)_NewJob ". 
+- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)_NewJob ». 
 
 	L’exemple suivant montre comment définir l’attribut assetName :
 	
 		"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"
 
 
-- Pour activer le chaînage des tâches :
+- Pour activer le chaînage des tâches :
 
-	- un travail doit comporter au moins 2 tâches
-	- il doit y avoir au moins une tâche dont l'entrée correspond à la sortie d'une autre tâche du travail.
+	- un travail doit comporter au moins 2 tâches
+	- il doit y avoir au moins une tâche dont l’entrée correspond à la sortie d’une autre tâche du travail.
 
-Pour plus d'informations, consultez la page [Création d'une tâche d'encodage avec l'API REST Media Services](http://msdn.microsoft.com/library/azure/jj129574.aspx).
+Pour plus d’informations, consultez la page [Création d’une tâche d’encodage avec l’API REST Media Services](http://msdn.microsoft.com/library/azure/jj129574.aspx).
 
 ### Surveillance de la progression du traitement
 
-Vous pouvez récupérer l'état du travail à l'aide de la propriété State, comme l'illustre l'exemple suivant. 
+Vous pouvez récupérer l’état du travail à l’aide de la propriété State, comme l’illustre l’exemple suivant.
 
 **Demande HTTP**
 
@@ -870,7 +863,7 @@ Vous pouvez récupérer l'état du travail à l'aide de la propriété State, co
 
 **Réponse HTTP**
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
@@ -887,11 +880,11 @@ Si l'opération réussit, la réponse suivante est retournée :
 	{"d":{"State":2}}
 
 
-### Annulation d'une tâche
+### Annulation d’une tâche
 
-Media Services vous permet d'annuler les travaux en cours d'exécution via la fonction CancelJob. Cet appel renvoie un code d'erreur 400 si vous essayez d'annuler une tâche dont l'état est annulé, en cours d'annulation, erreur ou terminé.
+Media Services vous permet d’annuler les travaux en cours d’exécution via la fonction CancelJob. Cet appel renvoie un code d’erreur 400 si vous essayez d’annuler une tâche dont l’état est annulé, en cours d’annulation, erreur ou terminé.
 
-L'exemple suivant montre comment appeler CancelJob.
+L’exemple suivant montre comment appeler CancelJob.
 
 
 **Demande HTTP**
@@ -907,14 +900,14 @@ L'exemple suivant montre comment appeler CancelJob.
 	Host: wamsbayclus001rest-hs.net
 
 
-Si l'opération réussit, un code de réponse 204 est retourné, sans corps de message.
+Si l’opération réussit, un code de réponse 204 est retourné, sans corps de message.
 
->[AZURE.NOTE] Vous devez encoder par l'URL l'ID de travail (normalement nb:jid:UUID: valeur) lorsque vous la transmettez en tant que paramètre à la fonction CancelJob.
+>[AZURE.NOTE]Vous devez encoder par l’URL l’ID de travail (normalement nb:jid:UUID: valeur) lorsque vous la transmettez en tant que paramètre à la fonction CancelJob.
 
 
 ### Obtention de la ressource de sortie 
 
-Dans la section suivante, nous allons configurer la stratégie de remise pour la ressource de sortie du travail (la ressource encodée). Le code suivant montre comment demander l'ID de la ressource de sortie 
+Dans la section suivante, nous allons configurer la stratégie de remise pour la ressource de sortie du travail (la ressource encodée). Le code suivant montre comment demander l’ID de la ressource de sortie
 
 
 **Demande HTTP**
@@ -963,14 +956,14 @@ Dans la section suivante, nous allons configurer la stratégie de remise pour la
 	}
 
 
-## <a id="configure_delivery_method"></a>Configurer la stratégie de distribution de l'élément encodé
+## <a id="configure_delivery_method"></a>Configurer la stratégie de distribution de l’élément encodé
 
-Une des étapes du processus de distribution de contenu Media Services est la configuration des stratégies de distribution des éléments multimédias. Voici ce que comprend la configuration de stratégie de distribution de l'élément : les types de protocoles qui peuvent être utilisés pour la distribution (par exemple, MPEG DASH, TLS, HDS, Smooth Streaming ou tous), si vous souhaitez chiffrer dynamiquement votre élément multimédia et comment (enveloppe ou chiffrement commun). 
+Une des étapes du processus de distribution de contenu Media Services est la configuration des stratégies de distribution des éléments multimédias. Voici ce que comprend la configuration de stratégie de distribution de l’élément : les types de protocoles qui peuvent être utilisés pour la distribution (par exemple, MPEG DASH, TLS, HDS, Smooth Streaming ou tous), si vous souhaitez chiffrer dynamiquement votre élément multimédia et comment (enveloppe ou chiffrement commun).
 
-La demande HTTP **AssetDeliveryPolicies** suivante spécifie de ne pas appliquer le chiffrement dynamique (AssetDeliveryPolicyType peut avoir une des valeurs suivantes : None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) et pour fournir le flux dans un des protocoles suivants :  MPEG DASH, HLS et diffusion en continu lisse (AssetDeliveryProtocol peut être une combinaison des valeurs suivantes : None = 0,         SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535). 
+Les demandes HTTP **AssetDeliveryPolicies** suivantes spécifient de ne pas appliquer de chiffrement dynamique (AssetDeliveryPolicyType peut être une des valeurs suivantes : None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) et pour fournir le flux dans un des protocoles suivants : MPEG DASH, HLS et Smooth Streaming (AssetDeliveryProtocol peut être une combinaison des valeurs suivantes : None = 0, SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535).
 
 
-### Création d'AssetDeliveryPolicies
+### Création d’AssetDeliveryPolicies
 
 
 **Demande HTTP**
@@ -1019,7 +1012,7 @@ La demande HTTP **AssetDeliveryPolicies** suivante spécifie de ne pas appliquer
 
 ### Liaison de la stratégie de remise de ressource avec une ressource
 
-La demande HTTP suivante associe la stratégie de remise spécifiée à la ressource spécifiée.  
+La demande HTTP suivante associe la stratégie de remise spécifiée à la ressource spécifiée.
 
 **Demande HTTP**
 
@@ -1043,41 +1036,41 @@ La demande HTTP suivante associe la stratégie de remise spécifiée à la resso
     . . . 
 
 
-## <a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l'API REST
+## <a id="publish_get_urls"></a>Publication des éléments et obtention des URL de diffusion et de téléchargement progressif avec l’API REST
 
-Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d'abord le " publier " en créant un localisateur. Les localisateurs assurent l'accès aux fichiers contenus dans l'élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d'URL SAS (signature d'accès partagé), utilisés pour télécharger des fichiers multimédias.
+Pour diffuser en continu ou télécharger un élément multimédia, vous devez tout d’abord le « publier » en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
 
-Une fois que vous avez créé les localisateurs, vous pouvez générer les URL utilisées pour transmettre en continu ou télécharger les fichiers. 
+Une fois que vous avez créé les localisateurs, vous pouvez générer les URL utilisées pour transmettre en continu ou télécharger les fichiers.
 
 
-Les URL de diffusion en continu pour Smooth Streaming ont le format suivant :
+Les URL de diffusion en continu pour Smooth Streaming ont le format suivant :
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Les URL de diffusion en continu pour HLS ont le format suivant :
+Les URL de diffusion en continu pour HLS ont le format suivant :
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Les URL de diffusion en continu pour MPEG DASH ont le format suivant :
+Les URL de diffusion en continu pour MPEG DASH ont le format suivant :
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
-Les URL SAS permettant de télécharger les fichiers ont le format suivant :
+Les URL SAS permettant de télécharger les fichiers ont le format suivant :
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-Cette section montre comment effectuer les tâches suivantes, nécessaires pour " publier " vos ressources.  
+Cette section montre comment effectuer les tâches suivantes, nécessaires pour « publier » vos ressources.
 
-- Création d'AccessPolicy avec autorisation de lecture 
-- Création d'une URL SAS pour le téléchargement de contenu 
-- Création d'une URL d'origine pour la diffusion en continu de contenu 
+- Création d’AccessPolicy avec autorisation de lecture 
+- Création d’une URL SAS pour le téléchargement de contenu 
+- Création d’une URL d’origine pour la diffusion en continu de contenu 
 
-### Création d'AccessPolicy avec autorisation de lecture
+###Création d’AccessPolicy avec autorisation de lecture
 
-Avant de télécharger ou de diffuser en continu du contenu multimédia, il convient tout d'abord de définir une AccessPolicy avec des autorisations de lecture et de créer l'entité de localisateur appropriée, qui spécifie le type de mécanisme de remise que vous souhaitez activer pour vos clients. Pour plus d'informations sur les propriétés disponibles, consultez [Propriétés de l'entité AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
+Avant de télécharger ou de diffuser en continu du contenu multimédia, il convient tout d’abord de définir une AccessPolicy avec des autorisations de lecture et de créer l’entité de localisateur appropriée, qui spécifie le type de mécanisme de remise que vous souhaitez activer pour vos clients. Pour plus d’informations sur les propriétés disponibles, consultez [Propriétés de l’entité AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
-L'exemple suivant montre comment spécifier AccessPolicy pour les autorisations de lecture d'une ressource donnée.
+L’exemple suivant montre comment spécifier AccessPolicy pour les autorisations de lecture d’une ressource donnée.
 
 	POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
 	Content-Type: application/json
@@ -1092,15 +1085,14 @@ L'exemple suivant montre comment spécifier AccessPolicy pour les autorisations 
 	
 	{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Si l'opération réussit, un code de succès 201 est renvoyé et décrit l'entité AccessPolicy que vous avez créée. Vous utiliserez ensuite l'ID de l'AccessPolicy et l'ID de la ressource contenant le fichier que vous souhaitez remettre (par exemple, une ressource de sortie) pour créer l'entité de localisateur.
+Si l’opération réussit, un code de succès 201 est renvoyé et décrit l’entité AccessPolicy que vous avez créée. Vous utiliserez ensuite l’ID de l’AccessPolicy et l’ID de la ressource contenant le fichier que vous souhaitez remettre (par exemple, une ressource de sortie) pour créer l’entité de localisateur.
 
->[AZURE.NOTE]
-Ce flux de travail de base est le même que pour le téléchargement d'un fichier lors de la réception d'une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l'heure actuelle. Cela vient du fait qu'il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : YYYY-MM-DDTHH:mm:ssZ (par exemple, " 2014-05-23T17:53:50Z ").
+>[AZURE.NOTE]Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
 
 
-### Création d'une URL SAS pour le téléchargement de contenu 
+###Création d’une URL SAS pour le téléchargement de contenu 
 
-Le code suivant montre comment obtenir une URL qui peut être utilisée pour télécharger une ressource créée et téléchargée précédemment. AccessPolicy dispose d'autorisations en lecture et le chemin d'accès du localisateur fait référence à une URL de téléchargement SAS.
+Le code suivant montre comment obtenir une URL qui peut être utilisée pour télécharger une ressource créée et téléchargée précédemment. AccessPolicy dispose d’autorisations en lecture et le chemin d’accès du localisateur fait référence à une URL de téléchargement SAS.
 
 	POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
 	Content-Type: application/json
@@ -1115,7 +1107,7 @@ Le code suivant montre comment obtenir une URL qui peut être utilisée pour té
 	
 	{"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 
 	
 	HTTP/1.1 201 Created
@@ -1159,20 +1151,19 @@ Si l'opération réussit, la réponse suivante est retournée :
 	}
 
 
-La propriété **chemin d'accès** retournée contient l'URL SAS.
+La propriété **Path** retournée contient l’URL SAS.
 
->[AZURE.NOTE]
-Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d'informations sur le traitement, consultez la page Création d'une tâche d'encodage avec l'API REST Media Services En outre, les localisateurs d'URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l'expiration d'un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
+>[AZURE.NOTE]Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
 
-### Téléchargement de fichiers
+###Téléchargement de fichiers
 
-Après avoir défini AccessPolicy et le localisateur, vous pouvez télécharger des fichiers à l'aide des API REST Azure Storage.  
+Après avoir défini AccessPolicy et le localisateur, vous pouvez télécharger des fichiers à l’aide des API REST Azure Storage.
 
->[AZURE.NOTE] Vous devez ajouter le nom de fichier du fichier à télécharger à la valeur de **chemin d'accès** du Localisateur, obtenue dans la section précédente. Par exemple, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE]Vous devez ajouter le nom de fichier du fichier à télécharger à la valeur **Path** du Localisateur, obtenue dans la section précédente. Par exemple : https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
-Pour plus d'informations sur l'utilisation d'objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Pour plus d’informations sur l’utilisation d’objets blob de stockage Microsoft Azure, consultez [API REST du service BLOB](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Suite à la tâche de codage que vous avez exécutée antérieurement (encodage vers un jeu de MP4 adaptatifs), vous disposez de plusieurs fichiers MP4 que vous pouvez télécharger progressivement. Par exemple :    
+Suite à la tâche de codage que vous avez exécutée antérieurement (encodage vers un jeu de MP4 adaptatifs), vous disposez de plusieurs fichiers MP4 que vous pouvez télécharger progressivement. Par exemple :
 	
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 	
@@ -1191,10 +1182,10 @@ Suite à la tâche de codage que vous avez exécutée antérieurement (encodage 
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-### Création d'une URL pour la diffusion en continu de contenu
+###Création d’une URL pour la diffusion en continu de contenu
 
 
-Le code suivant montre comment créer un localisateur d'URL de diffusion en continu  :
+Le code suivant montre comment créer un localisateur d’URL de diffusion en continu  :
 
 	POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
 	Content-Type: application/json
@@ -1209,7 +1200,7 @@ Le code suivant montre comment créer un localisateur d'URL de diffusion en cont
 	
 	{"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
-Si l'opération réussit, la réponse suivante est retournée :
+Si l’opération réussit, la réponse suivante est retournée :
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -1251,36 +1242,33 @@ Si l'opération réussit, la réponse suivante est retournée :
 	   }
 	}
 
-Pour diffuser une URL d'origine de diffusion en continu lisse dans un lecteur multimédia de diffusion en continu, vous devez ajouter la propriété de chemin d'accès avec le nom du fichier manifeste de diffusion en continu lisse, suivie de " /manifest ".
+Pour diffuser une URL d’origine de diffusion en continu lisse dans un lecteur multimédia de diffusion en continu, vous devez ajouter la propriété de chemin d’accès avec le nom du fichier manifeste de diffusion en continu lisse, suivie de « /manifest ».
 
 	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
-Pour la diffusion en continu HLS, ajoutez (format=m3u8-aapl) après " /manifest ".
+Pour la diffusion en continu HLS, ajoutez (format=m3u8-aapl) après « /manifest ».
 
 	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-Pour la diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) après " /manifest ".
+Pour la diffusion en continu MPEG DASH, ajoutez (format=mpd-time-csf) après « /manifest ».
 
 	http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
 ## <a id="play"></a>Lecture de votre contenu  
 
-Une fois que vous disposez de l'URL SAS, vous pouvez progressivement télécharger vos fichiers MP4 en collant une URL dans un navigateur (par exemple, Internet Explorer, Chrome, Safari).
+Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-Pour tester les URL de diffusion en continu adaptatif, utilisez les lecteurs suivants :
+Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
-Pour tester la diffusion Smooth Streaming, utilisez [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) ou [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+##Étape suivante
 
-Pour tester MPEG DASH, utilisez [http://dashif.org](http://dashif.org/reference/players/javascript/).
-
-Pour tester TLS, utilisez un appareil iOS ou Safari ou un lecteur [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+Pour en savoir plus sur la création d’applications de vidéo à la demande, consultez la page [Création d’applications de vidéo à la demande](media-services-video-on-demand-workflow.md).
 
 
-
-## Ressources supplémentaires
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Empaquetage dynamique et appareils mobiles</a>
+##Ressources supplémentaires
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
+- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Empaquetage dynamique et appareils mobiles</a>
 
 
 <!-- Anchors. -->
@@ -1288,9 +1276,9 @@ Pour tester TLS, utilisez un appareil iOS ou Safari ou un lecteur [3ivx-hls-play
 
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portail de gestion]: http://manage.windowsazure.com/
+  [portail de gestion]: http://manage.windowsazure.com/
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

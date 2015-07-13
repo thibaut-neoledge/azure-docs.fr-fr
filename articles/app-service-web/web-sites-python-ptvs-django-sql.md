@@ -46,7 +46,7 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 1.  Dans Visual Studio, sélectionnez **Fichier** puis **Nouveau projet**.
 
-1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Projet web de sondage Django** et cliquez sur OK pour créer le projet.
+1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Polls Django Web Project** et cliquez sur OK pour créer le projet.
 
   	![Boîte de dialogue Nouveau projet](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
@@ -70,7 +70,7 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 1.  Vérifiez que l’application fonctionne en appuyant sur <kbd>F5</kbd>.
 
-1.  Cliquez sur **Connexion** dans la barre de navigation en haut.
+1.  Cliquez sur **Log in** dans la barre de navigation en haut.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
 
@@ -78,15 +78,15 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 
-1.  Cliquez sur **Créer un exemple de sondage**.
+1.  Cliquez sur **Create Sample Polls**.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
 
-1.  Cliquez sur un sondage et vote.
+1.  Cliquez sur un sondage et votez.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
-## Création d'une base de données SQL
+## Création d’une base de données SQL
 
 Pour la base de données, nous allons créer une base de données SQL Azure.
 
@@ -94,17 +94,17 @@ Pour cela, procédez comme suit :
 
 1.  Connectez-vous au [portail Azure].
 
-1.  En bas du panneau de navigation, cliquez sur **NOUVEAU**, cliquez sur **Données + stockage** > **Base de données SQL**.
+1.  En bas du panneau de navigation, cliquez sur **NOUVEAU**, puis sur **Données + stockage** > **Base de données SQL**.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
 
-1.  Configurer la nouvelle base de données SQL en créant un nouveau groupe de ressources, puis sélectionnez l'emplacement approprié pour celui-ci.
+1.  Configurez la nouvelle base de données SQL en créant un nouveau groupe de ressources, puis sélectionnez l’emplacement approprié pour celui-ci.
 
   	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  Une fois la base de données SQL créée, cliquez sur **Ouvrir dans Visual Studio** dans le panneau de la base de données.
 2.  Cliquez sur **Configurer votre pare-feu**.
-3.  Dans le panneau **Paramètres de pare-feu**, ajoutez une règle de pare-feu avec **IP de début** et **IP de fin** définie sur l'adresse IP publique de votre ordinateur de développement. Cliquez sur **Enregistrer**.
+3.  Dans le panneau **Paramètres de pare-feu**, ajoutez une règle de pare-feu avec les champs **IP de début** et **IP de fin** définis sur l’adresse IP publique de votre ordinateur de développement. Cliquez sur **Enregistrer**.
 
 	Les connexions au serveur de base de données de votre ordinateur de développement sont alors autorisées.
 
@@ -153,12 +153,12 @@ Modifiez la définition de `DATABASES` pour utiliser les valeurs ci-dessus.
 
   	![Fenêtre Console de gestion Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans la base de données SQL.
+1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Create Sample Polls** et les données soumises par vote sont sérialisés dans la base de données SQL.
 
 
-## Publication sur de l’application web dans Azure App Service
+## Publication de l’application web dans Azure App Service
 
-Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service Web Apps.
+Le Kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service Web Apps.
 
 1.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
 

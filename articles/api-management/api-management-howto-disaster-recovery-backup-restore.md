@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
@@ -38,7 +38,7 @@ Toutes les tâches que vous effectuez sur les ressources à l'aide d’Azure Res
 
 La première étape consiste à créer une application Azure Active Directory. Connectez-vous au [portail de gestion](http://manage.windowsazure.com/) à l'aide de l'abonnement qui contient votre instance de service de gestion des API et accédez à l’onglet **Applications** pour votre Azure Active Directory par défaut.
 
->[AZURE.NOTE]Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d'informations sur l'emplacement de votre répertoire par défaut, consultez [Localiser votre répertoire par défaut dans le portail Azure](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Si le répertoire par défaut de Azure Active Directory n'est pas visible sur votre compte, contactez l'administrateur de l'abonnement Azure pour accorder les autorisations requises de votre compte. Pour plus d'informations sur l'emplacement de votre répertoire par défaut, consultez [Localiser votre répertoire par défaut dans le portail Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Création d’une application Azure Active Directory][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@ Dans le corps de la demande, spécifiez l’emplacement du fichier de sauvegarde
 	    backupName : {backup blob name}  
 	}'
 
-Définissez la valeur de l’en-tête de la demande `Content-Type` sur `application\json`.
+Définissez la valeur de l’en-tête de la demande `Content-Type` sur `application/json`.
 
 La récupération est une opération de longue durée qui peut prendre jusqu'à 30 minutes, voire plus. Si la demande a réussi et que le processus de récupération a été lancé, vous recevez un code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Lorsque la récupération est en cours, vous continuez à recevoir le code d'état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de récupération a réussi.
 
@@ -189,4 +189,4 @@ Consultez les blogs Microsoft suivants pour les deux procédures pas à pas diff
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

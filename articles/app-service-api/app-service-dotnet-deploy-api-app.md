@@ -28,9 +28,9 @@ Il existe de nombreuses autres manières de déployer les applications API. Une 
 
 Le fait que les applications API soient basées sur les applications web signifie également que vous pouvez déployer le code écrit pour les plateformes autres qu’ASP.NET pour les applications API. Pour obtenir un exemple qui utilise Git pour déployer le code Node.js vers une application API, consultez la page [Créer une application API Node.js dans Azure App Service](app-service-api-nodejs-api-app.md).
  
-## Déployer l'application API 
+## <a id="provision"></a>Créer une application API dans Azure 
 
-Dans cette section, vous verrez les étapes requises pour déployer une application API vers un abonnement Azure.
+Dans cette section, vous utilisez l'Assistant **Publier le site Web** de Visual Studio pour créer une application API dans Azure.
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet (pas la solution), puis cliquez sur **Publier**. 
 
@@ -63,7 +63,11 @@ Dans cette section, vous verrez les étapes requises pour déployer une applicat
 
 	![Notification d’état via la fenêtre Activité d’Azure App Service](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. Une fois que l’application API est configurée, cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions** et sélectionnez **Publier** pour rouvrir la boîte de dialogue de publication. Le profil de publication créé à l'étape précédente doit être sélectionné au préalable. Cliquez sur **Publier** pour commencer le processus de déploiement.
+## <a id="deploy"></a>Déploiement de votre code dans la nouvelle application API
+
+Dans cette section, vous utilisez le même Assistant **Publier le site Web** pour déployer votre code.
+
+7. Cliquez avec le bouton droit sur le projet dans l’**Explorateur de solutions** et sélectionnez **Publier** pour rouvrir la boîte de dialogue de publication. Le profil de publication créé à l'étape précédente doit être sélectionné au préalable. Cliquez sur **Publier** pour commencer le processus de déploiement. 
 
 	![Déploiement de l’application API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 

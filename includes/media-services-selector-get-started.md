@@ -1,6 +1,6 @@
 > [AZURE.SELECTOR]
-- [Portail](../articles/media-services/media-services-portal-get-started.md)
-- [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](../articles/media-services/media-services-dotnet-get-started.md)
-- [API REST](../articles/media-services/media-services-rest-get-started.md)
+- [Portal](../articles/media-services/media-services-portal-get-started.md)
+- [.NET SDK](../articles/media-services/media-services-dotnet-get-started.md)
+- [REST API](../articles/media-services/media-services-rest-get-started.md)
 
-<!--HONumber=52--> 
+<!---HONumber=62-->

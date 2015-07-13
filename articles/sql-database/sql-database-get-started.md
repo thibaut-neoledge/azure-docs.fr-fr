@@ -111,4 +111,4 @@ Les étapes suivantes indiquent comment spécifier les plages d’adresses IP a
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

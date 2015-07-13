@@ -147,5 +147,6 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

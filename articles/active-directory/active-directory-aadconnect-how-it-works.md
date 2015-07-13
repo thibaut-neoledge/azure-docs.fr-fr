@@ -33,7 +33,7 @@ Azure Active Directory Connect est constitué de trois parties principales. Il s
 
 ## Composants de prise en charge d’Azure AD Connect
 
-Voici une liste de prérequis et de composants de prise en charge qu’Azure AD Connect installe sur le serveur sur lequel vous configurez Azure AD Connect. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL Server sur la page d’installation des services de synchronisation, les composants SQL Server 2012 ci-dessous ne sont pas installés.
+Voici une liste de prérequis et de composants de prise en charge qu’Azure AD Connect installe sur le serveur sur lequel vous configurez Azure AD Connect. Cette liste est destinée à une installation rapide de base. Si vous choisissez d’utiliser un autre serveur SQL Server sur la page d’installation des services de synchronisation, les composants SQL Server 2012 ci-dessous ne sont pas installés.
 
 - Connecteur Azure AD d’Azure AD Connect
 - Utilitaires de ligne de commande Microsoft SQL Server 2012
@@ -48,4 +48,4 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

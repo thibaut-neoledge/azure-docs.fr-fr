@@ -29,7 +29,7 @@ Il s’agit d’une compilation d’exemples de code qui vous montrent comment u
 
 Pour analyser les données de télémétrie avec vos propres outils, [exportez-les](app-insights-export-telemetry.md) vers un emplacement de stockage, où vous pouvez les analyser et les traiter.
 
-* [Exporter vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exporter vers SQL à l’aide de Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 
 

@@ -1,36 +1,36 @@
-# Déploiement continu à l'aide de Git dans Azure App Service
+# Déploiement continu à l’aide de Git dans Azure App Service
 
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge le déploiement continu vers Web Apps à partir d'outils de contrôle de code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre application, puis d'envoyer (par transmission de type push) rapidement et facilement les modifications à votre application web Azure à votre convenance.
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge le déploiement continu vers Web Apps à partir d'outils de contrôle de code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre application, puis d’envoyer (par transmission de type push) rapidement et facilement les modifications à votre application web Azure à votre convenance.
 
-Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online].
+Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online].
 
-> [AZURE.NOTE] La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d'une application web avec les [outils en ligne de commande Azure pour Mac et Linux](/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE]La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d'une application web avec les [outils en ligne de commande Azure pour Mac et Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
-<h2><a id="Step2"></a>Installation de Git</h2>
+<h2><a id="Step1"></a>Étape&#160;1&#160;: installation de Git</h2>
 
-La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Pour accéder aux distributions et conseils d'installation propres aux différents systèmes d'exploitation, voir [Installation de Git].
+La procédure requise pour installer Git diffère selon les systèmes d’exploitation. Consultez la rubrique [Installation de Git] pour accéder aux distributions et consignes d'installation propres aux différents systèmes d'exploitation.
 
-> [AZURE.NOTE] Sur certains systèmes d'exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
+> [AZURE.NOTE]Sur certains systèmes d’exploitation, une version en ligne de commande et une version avec interface utilisateur graphique sont toutes deux disponibles. Les instructions fournies dans cet article utilisent la version en ligne de commande.
 
-## <a id="Step2"></a>Étape 2 : Création d'un référentiel local
+## <a id="Step2"></a>Étape 2 : création d'un référentiel local
 
 Effectuez les tâches suivantes pour créer un nouveau référentiel Git.
 
-1. Créez un répertoire nommé MyGitRepository qui contiendra votre référentiel Git et vos fichiers d'application web.
+1. Créez un répertoire nommé MyGitRepository qui contiendra votre référentiel Git et vos fichiers d’application web.
 
-2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, vous pouvez accéder à la ligne de commande via l'application **Terminal**.
+2. Ouvrez une ligne de commande, telle que **GitBash** (Windows) ou **Bash** (Unix Shell). Sur les systèmes OS X, la ligne de commande est accessible depuis l'application **Terminal**.
 
 3. À partir de la ligne de commande, indiquez le répertoire MyGitRepository.
 
 		cd MyGitRepository
 
-4. Utilisez la commande suivante pour initialiser un nouveau référentiel Git :
+4. Utilisez la commande suivante pour initialiser un nouveau référentiel Git :
 
 		git init
 
-	Cette commande doit renvoyer un message similaire au suivant : " **Initialized empty Git repository in [chemin d'accès]** ".
+	Cette commande doit renvoyer un message similaire au suivant **Initialized empty Git repository in [chemin d'accès]**.
 
-## <a id="Step3"></a>Étape 3 : Ajout d'une page Web
+## <a id="Step3"></a>Étape 3 : ajout d'une page web
 
 Web Apps prend en charge des applications créées dans différents langages de programmation. Pour les besoins de cet exemple, vous allez utiliser un fichier .html statique. Pour plus d'informations sur la publication des applications web dans d'autres langages de programmation vers Azure, voir le [Centre de développement Azure].
 
@@ -40,17 +40,17 @@ Web Apps prend en charge des applications créées dans différents langages de 
 
 		Hello Git!
 
-3. Dans la ligne de commande, vérifiez que vous êtes bien à la racine de votre référentiel Git. Utilisez ensuite la commande suivante pour ajouter le fichier **index.html** au référentiel :
+3. Dans la ligne de commande, vérifiez que vous êtes bien à la racine de votre référentiel Git. Utilisez ensuite la commande suivante pour ajouter le fichier **index.html** au référentiel :
 
 		git add index.html 
 
-	> [AZURE.NOTE] Pour obtenir de l'aide concernant les commandes git, tapez -help ou --help à la suite de la commande. Par exemple, pour les options de paramètre de la commande add, tapez 'git add -help' pour obtenir de l'aide sur la ligne de commande ou 'git add --help' pour accéder à une aide plus détaillée.
+	> [AZURE.NOTE]Pour obtenir de l’aide concernant les commandes git, tapez -help ou --help à la suite de la commande. Par exemple, pour les options de paramètre de la commande add, tapez « git add -help » pour obtenir de l'aide sur la ligne de commande ou « add --help » pour accéder à une aide plus détaillée.
 
-4. Ensuite, validez les modifications apportées au référentiel au moyen de la commande suivante :
+4. Ensuite, validez les modifications apportées au référentiel au moyen de la commande suivante :
 
 		git commit -m "Adding index.html to the repository"
 
-	You should see output similar to the following:
+	Le résultat ressemble à ce qui suit :
 
 		[master (root-commit) 369a79c] Adding index.html to the repository
 		 1 file changed, 1 insertion(+)
@@ -58,27 +58,27 @@ Web Apps prend en charge des applications créées dans différents langages de 
 
 <h2><a id="Step4"></a>Activer le référentiel d'application web</h2>
 
-Pour activer un référentiel Git pour votre application web au moyen du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), procédez comme suit :
+Pour activer un référentiel Git pour votre application web au moyen du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), procédez comme suit :
 
 1. Connectez-vous au [portail Azure].
 
-2. Faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.  
+2. Faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez successivement sur **Choisir une source**, **Référentiel Git local** et **OK**.
 
-2. Patientez jusqu'à la fin du processus de création de l'application web, puis sélectionnez-la dans le panneau Web Apps.
+2. Patientez jusqu’à la fin du processus de création de l’application web, puis sélectionnez-la dans le panneau Web Apps.
 
 	![Image affichant une application web sélectionnée](./media/publishing-with-git/azure1-local-git.png)
 
-4. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d'identification de connexion pour ce référentiel. Vous les utiliserez pour vous connecter au référentiel Azure et pour envoyer les modifications depuis votre référentiel Git local. Dans le panneau de votre application web, cliquez sur **Configurer les informations d'identification du déploiement**, puis configurez le nom d'utilisateur et le mot de passe de votre déploiement. Lorsque vous avez terminé, cliquez sur **OK**.
+4. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion pour ce référentiel. Vous les utiliserez pour vous connecter au référentiel Azure et pour envoyer les modifications depuis votre référentiel Git local. Dans le panneau de votre application web, cliquez sur **Configurer les informations d'identification du déploiement**, puis configurez le nom d'utilisateur et le mot de passe de votre déploiement. Quand vous avez terminé, cliquez sur **OK**.
 
 	![](./media/publishing-with-git/azure2-credentials.png)
 
-<h2><a id="Step5"></a>Déployer votre projet</h2>
+<h2><a id="Step5"></a>Déploiement du projet</h2>
 
 * [Envoi des fichiers locaux vers Azure (Git local)](#Step6)
-* [Déploiement de fichiers à partir d'un site Web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step7)
-* [Déploiement d'une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step75)
+* [Déployer des fichiers à partir d'un site web de référentiel tel que BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step7)
+* [Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial](#Step75)
 
-Pour publier votre application web vers Azure à l'aide de Git local, procédez comme suit :
+Pour publier votre application web vers Azure à l’aide de Git local, procédez comme suit :
 
 1. Dans la section Déploiement du panneau de votre application web, cliquez sur **Déploiement introuvable**.
 
@@ -88,17 +88,17 @@ Pour publier votre application web vers Azure à l'aide de Git local, procédez 
 
 1. Dans la ligne de commande, vérifiez que vous êtes bien à la racine de votre référentiel Git local contenant le fichier index.html créé précédemment.
 
-2. Utilisez Git distant pour ajouter la référence hors programme répertoriée dans **URL Git** à l'étape 1. Votre commande ressemble à ce qui suit :
+2. Utilisez Git distant pour ajouter la référence hors programme répertoriée dans **URL Git** à l'étape 1. Votre commande ressemble à ce qui suit :
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE] La commande **remote** ajoute une référence nommée dans un référentiel distant. Dans cet exemple, une référence nommée 'azure' est créée pour le référentiel de votre application web.
+    > [AZURE.NOTE]La commande **remote** ajoute une référence nommée dans un référentiel distant. Dans cet exemple, une référence nommée « azure » est créée pour le référentiel de votre application web.
 
-1. Utilisez la commande suivante dans la ligne de commande pour transmettre le contenu du référentiel actuel du référentiel local vers le 'azure' distant :
+1. Entrez la commande suivante à partir de la ligne de commande pour envoyer le contenu de référentiel actuel du référentiel local au référentiel distant « azure » :
 
 		git push azure master
 
-	Vous êtes invité à indiquer le mot de passe créé précédemment lorsque vous réinitialisez vos informations d'identification de déploiement dans le portail. Entrez le mot de passe (notez que Gitbash ne génère pas d'astérisques dans la console lorsque vous tapez votre mot de passe). Le résultat ressemble à ce qui suit :
+	Vous êtes invité à indiquer le mot de passe créé précédemment lorsque vous réinitialisez vos informations d'identification de déploiement dans le portail. Entrez le mot de passe (notez que Gitbash ne génère pas d'astérisques dans la console lorsque vous tapez votre mot de passe). Le résultat ressemble à ce qui suit :
 
 		Counting objects: 6, done.
 		Compressing objects: 100% (2/2), done.
@@ -112,19 +112,19 @@ Pour publier votre application web vers Azure à l'aide de Git local, procédez 
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE] Le référentiel créé pour votre application web s'attend à ce que les requêtes de transmission de type push ciblent la branche <strong>principale</strong> de son référentiel, qui sera dès lors utilisée comme contenu de l'application web.
+	> [AZURE.NOTE]Le référentiel créé pour votre application web s'attend à ce que les requêtes de transmission de type push ciblent la branche <strong>principale</strong> de son référentiel, qui sera dès lors utilisée comme contenu de l'application web.
 
-2. Revenez au panneau de votre application web dans le portail Azure. **L'option **Déploiement introuvable** doit être remplacée par **Déploiement actif** avec une entrée de journal de votre dernière transmission de type push. 
+2. Revenez au panneau de votre application web dans le portail Azure. L'option **Déploiement introuvable** doit être remplacée par **Déploiement actif** avec une entrée de journal de votre dernière transmission de type push.
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. En haut du portail, cliquez sur l'URL pour vérifier que le fichier **index.html** a été déployé. Une page contenant " Hello Git! " s'affiche.
+2. En haut du portail, cliquez sur l'URL pour vérifier que le fichier **index.html** a été déployé. Une page contenant « Hello Git! » s’affiche.
 
-	![A webpage containing 'Hello Git!'][hello-git]
+	![Page Web contenant « Hello Git! »][hello-git]
 
-3. Au moyen d'un éditeur de texte, modifiez le fichier **index.html** de façon à ce qu'il contienne " Super ! ", puis enregistrez le fichier.
+3. Au moyen d'un éditeur de texte, modifiez le fichier **index.html** de façon à ce qu'il contienne « Super ! », puis enregistrez le fichier.
 
-4. Utilisez les commandes suivantes à partir de la ligne de commande pour **ajouter** et **valider** les modifications, puis les **envoyer** au référentiel distant :
+4. Utilisez les commandes suivantes à partir de la ligne de commande pour **ajouter** et **valider** les modifications, puis **les envoyer** vers le référentiel distant :
 
 		git add index.html
 		git commit -m "Celebration"
@@ -132,45 +132,45 @@ Pour publier votre application web vers Azure à l'aide de Git local, procédez 
 
 	Une fois que la commande **push** a été exécutée, actualisez le navigateur (vous devrez peut-être appuyer sur Ctrl+F5 pour qu'il soit actualisé correctement). Notez que le contenu de la page reflète à présent la dernière modification validée.
 
-	![A webpage containing 'Yay!'][yay]
+	![Page Web contenant « Super ! »][yay]
 
 <h3><a id="Step7"></a>Déployer des fichiers à partir d'un site référentiel comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial</h3>
 
-La transmission de type push des fichiers locaux vers Azure au moyen de Git local vous permet d'envoyer manuellement des mises à jour d'un projet local vers votre application web Azure, alors qu'un déploiement depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial donne lieu à un processus de déploiement continu au cours duquel Azure va récupérer les mises à jour les plus récentes de votre projet.
+La transmission de type push des fichiers locaux vers Azure au moyen de Git local vous permet d’envoyer manuellement des mises à jour d’un projet local vers votre application web Azure, alors qu’un déploiement depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial donne lieu à un processus de déploiement continu au cours duquel Azure va récupérer les mises à jour les plus récentes de votre projet.
 
-Bien que les deux méthodes aboutissent au déploiement de votre projet vers Web Apps, le déploiement continu est utile quand plusieurs personnes travaillent sur un projet et qu'elles veulent s'assurer que la version la plus récente est toujours publiée, quel qu'en soit l'auteur. Le déploiement continu s'avère également utile si vous vous servez de l'un des outils mentionnés ci-dessus en tant que référentiel central pour votre application.
+Bien que les deux méthodes aboutissent au déploiement de votre projet vers Web Apps, le déploiement continu est utile quand plusieurs personnes travaillent sur un projet et qu’elles veulent s’assurer que la version la plus récente est toujours publiée, quel qu’en soit l’auteur. Le déploiement continu s’avère également utile si vous vous servez de l’un des outils mentionnés ci-dessus en tant que référentiel central pour votre application.
 
-Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert que vous ayez publié votre projet local sur l'un de ces services. Pour plus d'informations sur la publication de votre projet à ces services, consultez les rubriques [Création d'un référentiel (GitHub)], [Utilisation de Git avec CodePlex], [Création d'un référentiel (BitBucket)], [Utilisation de Dropbox pour partager des référentiels Git] et [Démarrage rapide - Mercurial].
+Le déploiement de fichiers à partir de GitHub, CodePlex ou BitBucket requiert que vous ayez publié votre projet local sur l'un de ces services. Pour plus d'informations sur la publication de votre projet sur ces services, consultez les pages [Création d'un référentiel (GitHub)], [Utilisation de Git avec CodePlex], [Création d'un référentiel (BitBucket)], [Utilisation de Dropbox pour partager des référentiels Git] et [Démarrage rapide - Mercurial].
 
-1. Commencez par placer vos fichiers d'application web dans le référentiel sélectionné qui sera utilisé dans le cadre d'un déploiement continu.
+1. Commencez par placer vos fichiers d’application web dans le référentiel sélectionné qui sera utilisé dans le cadre d’un déploiement continu.
 
-2. Dans le portail, faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez sur **Choisir une source**, puis sur **GitHub** par exemple.  
+2. Dans le portail, faites défiler le panneau de votre application web vers le bas jusqu'à la section **Déploiement**, puis cliquez sur **Configurer le déploiement continu**. Cliquez sur **Choisir une source**, puis sur **GitHub** par exemple.
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
-2. Dans le panneau **Déploiement continu**, cliquez sur **Autorisation**, puis sur **Autoriser**. Le portail Azure va vous rediriger vers le site référentiel afin de terminer la procédure d'autorisation. 
+2. Dans le panneau **Déploiement continu**, cliquez sur **Autorisation**, puis sur **Autoriser**. Le portail Azure va vous rediriger vers le site référentiel afin de terminer la procédure d’autorisation.
 
-4. Lorsque vous avez terminé, revenez au portail Azure, puis cliquez sur **OK** dans le panneau **Autorisation**.
+4. Quand vous avez terminé, revenez au portail Azure, puis cliquez sur **OK** dans le panneau **Autorisation**.
 
-5. Dans le panneau **Déploiement continu**, choisissez l'organisation, le projet et la branche à partir desquels vous souhaitez effectuer le déploiement. Lorsque vous avez terminé, cliquez sur **OK**.
+5. Dans le panneau **Déploiement continu**, choisissez l'organisation, le projet et la branche à partir desquels vous souhaitez effectuer le déploiement. Quand vous avez terminé, cliquez sur **OK**.
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE] Lors de l'activation du déploiement continu avec GitHub ou BitBucket, les projets publics et privés sont tous deux affichés.
+	> [AZURE.NOTE]Lors de l’activation du déploiement continu avec GitHub ou BitBucket, les projets publics et privés sont tous deux affichés.
 
 Azure crée une association avec le référentiel sélectionné et récupère les fichiers à partir de la branche spécifiée. À l'issue de cette procédure, la section **Déploiement** du panneau de votre application web affiche un message **Déploiement actif** qui indique la réussite du déploiement.
 
-7. À ce stade, votre projet a été déployé à partir du référentiel de votre choix vers votre application web. Pour vérifier que cette application est active, cliquez sur l'**URL** en haut du portail. Le navigateur doit accéder à l'application web.
+7. À ce stade, votre projet a été déployé à partir du référentiel de votre choix vers votre application web. Pour vérifier que cette application web est active, cliquez sur l'**URL** en haut du portail. Le navigateur doit accéder à l’application web.
 
-8. Pour vérifier que le déploiement continu s'effectue à partir du référentiel de votre choix, envoyez une modification vers le référentiel par le biais d'une transmission de type push. Votre application web doit se mettre à jour pour prendre en compte les modifications, peu de temps après la transmission de type push vers le référentiel. Vous pouvez vérifier que la mise à jour a été récupérée dans le panneau **Déploiements** de votre application web.
+8. Pour vérifier que le déploiement continu s’effectue à partir du référentiel de votre choix, envoyez une modification vers le référentiel par le biais d’une transmission de type push. Votre application web doit se mettre à jour pour prendre en compte les modifications, peu de temps après la transmission de type push vers le référentiel. Vous pouvez vérifier que la mise à jour a été récupérée dans le panneau **Déploiements** de votre application web.
 
-### <a id="Step75"></a>Déploiement d'une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial
+### <a id="Step75"></a>Déployer une solution Visual Studio depuis BitBucket, CodePlex, Dropbox, GitHub ou Mercurial
 
-La transmission de type push d'une solution Visual Studio vers Web Apps dans Azure App Service est tout aussi simple que celle d'un simple fichier index.html. Le processus de déploiement de Web Apps simplifie tous les détails, notamment la restauration des dépendances NuGet et la génération des fichiers binaires de l'application. Vous pouvez suivre les meilleures pratiques de contrôle de code source pour la maintenance du code seulement dans votre référentiel Git et laisser le déploiement de Web Apps s'occuper du reste.
+La transmission de type push d’une solution Visual Studio vers Web Apps dans Azure App Service est tout aussi simple que celle d’un simple fichier index.html. Le processus de déploiement de Web Apps simplifie tous les détails, notamment la restauration des dépendances NuGet et la génération des fichiers binaires de l’application. Vous pouvez suivre les meilleures pratiques de contrôle de code source pour la maintenance du code seulement dans votre référentiel Git et laisser le déploiement de Web Apps s’occuper du reste.
 
-Les étapes pour envoyer par transmission push votre solution Visual Studio vers Web Apps sont identiques à celles de la [section précédente](#Step7), si vous configurez votre solution et le référentiel comme suit :
+Les étapes pour envoyer votre solution Visual Studio vers Web Apps sont les mêmes que celles de la [section précédente](#Step7), à condition de configurer votre solution et votre référentiel de la façon suivante :
 
--	À la racine de votre référentiel, ajoutez un fichier `.gitignore`, puis spécifiez tous les fichiers et dossiers que vous souhaitez exclure de votre référentiel, tels que les dossiers `Obj`, `Bin` et `packages` (voir [gitignore documentation](http://git-scm.com/docs/gitignore) pour la mise en forme). Par exemple :
+-	À la racine de votre référentiel, ajoutez un fichier `.gitignore`, puis spécifiez tous les fichiers et dossiers que vous souhaitez exclure de votre référentiel, tels que les dossiers `Obj`, `Bin` et `packages` (voir la [documentation de gitignore](http://git-scm.com/docs/gitignore) pour la mise en forme). Par exemple :
 
 		[Oo]bj/
 		[Bb]in/
@@ -188,101 +188,101 @@ Les étapes pour envoyer par transmission push votre solution Visual Studio vers
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE] Si vous utilisez GitHub, vous pouvez éventuellement générer un fichier .gitignore propre à Visual Studio quand vous créez votre référentiel, qui comprend tous les fichiers temporaires, les résultats de la génération, etc. Vous pouvez ensuite le personnaliser pour l'adapter à vos besoins spécifiques.
+	>[AZURE.NOTE]Si vous utilisez GitHub, vous pouvez éventuellement générer un fichier .gitignore propre à Visual Studio quand vous créez votre référentiel, qui comprend tous les fichiers temporaires, les résultats de la génération, etc. Vous pouvez ensuite le personnaliser pour l'adapter à vos besoins spécifiques.
 
--	Ajoutez l'arborescence des répertoires de toute la solution à votre référentiel, avec le fichier .sln dans la racine du référentiel.
+-	Ajoutez l’arborescence des répertoires de toute la solution à votre référentiel, avec le fichier .sln dans la racine du référentiel.
 
 -	Dans votre solution Visual Studio, [activez la restauration de packages NuGet](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages) pour que Visual Studio restaure automatiquement les packages manquants.
 
-Une fois que vous avez configuré votre référentiel comme indiqué ainsi que votre application web dans Azure pour la publication en continu depuis l'un des référentiels Git en ligne, vous pouvez développer votre application ASP.NET localement dans Visual Studio et déployer en continu votre code, en envoyant simplement les modifications apportées à votre référentiel Git en ligne par une transmission de type push.
+Une fois que vous avez configuré votre référentiel comme indiqué ainsi que votre application web dans Azure pour la publication en continu depuis l’un des référentiels Git en ligne, vous pouvez développer votre application ASP.NET localement dans Visual Studio et déployer en continu votre code, en envoyant simplement les modifications apportées à votre référentiel Git en ligne par une transmission de type push.
 
 <h2>Désactiver le déploiement continu</h2>
 
 Le déploiement continu peut être désactivé dans le panneau **Déploiements**. Dans la section **Déploiement** du panneau de votre application web, cliquez sur Déploiement actif, puis sur **Déconnecter**.
 
-![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)	
+![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
 Après avoir répondu **Oui** au message de confirmation, vous pouvez revenir au panneau de votre application web et cliquer sur **Configurer un déploiement continu** si vous souhaitez configurer la publication à partir d'une autre source.
 
 ## <a id="Step8"></a>Résolution des problèmes
 
-Voici les erreurs ou les problèmes rencontrés couramment lors de l'utilisation de Git pour publier vers une application web dans Azure :
+Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisation de Git pour publier vers une application web dans Azure :
 
 ****
 
-**Symptôme **: Impossible d'accéder à " [URL_du_site] " : Impossible de se connecter à [Adresse_scm]
+**Symptôme** : Impossible d'accéder à '[URL_du_site]' : Impossible de se connecter à [Adresse_scm]
 
-**Cause** : cette erreur peut se produire si l'application web n'est pas opérationnelle.
+**Cause** : Cette erreur peut se produire si l'application web n'est pas opérationnelle.
 
-**Résolution** : démarrez l'application web dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l'application web n'est pas en cours d'exécution. 
+**Résolution** : Démarrez l'application web dans le portail Azure. Le déploiement Git ne fonctionne pas tant que l’application web n’est pas en cours d’exécution.
 
-
-****
-
-**Symptôme **: Impossible de résoudre l'hôte 'hostname'
-
-**Cause** : Cette erreur peut se produire si les informations d'adresse entrées lors de la création du référentiel 'azure' distant étaient incorrectes.
-
-**Résolution** : Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l'URL associée. Vérifiez que l'URL du référentiel 'azure' distant est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l'URL correcte.
 
 ****
 
-**Symptôme **: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
+**Symptôme** : Impossible de résoudre l'hôte « nom_hôte »
 
-**Cause** : cette erreur peut se produire si vous ne spécifiez pas de branche lors de l'exécution d'une opération git push et que vous n'avez pas défini la valeur push.default utilisée par Git.
+**Cause** : Cette erreur peut se produire si les informations d'adresse entrées au moment de la création du référentiel distant « azure » sont incorrectes.
 
-**Résolution** : réexécutez l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution** : Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l'URL associée. Vérifiez que l'URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.
+
+****
+
+**Symptôme** : aucune référence en commun, ni spécifiée ; aucune action effectuée. Perhaps you should specify a branch such as 'master'.
+
+**Cause** : Cette erreur peut se produire si vous ne spécifiez pas de branche au moment de l'exécution d'une opération git push et que vous n'avez pas défini la valeur push.default utilisée par Git.
+
+**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
 	git push azure master
 
 ****
 
-**Symptôme** : src refspec [branchname] ne correspond à aucun élément.
+**Symptôme** : src refspec [nom_branche] ne correspond à aucun élément.
 
-**Cause** : cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel 'azure' distant.
+**Cause** : Cette erreur peut se produire si vous tentez d'effectuer une opération Push sur une autre branche que la branche principale sur le référentiel distant « azure ».
 
-**Résolution** : réexécutez l'opération Push, en spécifiant la branche principale. Par exemple :
+**Résolution** : Exécutez de nouveau l'opération Push, en spécifiant la branche principale. Par exemple :
 
 	git push azure master
 
 ****
 
-**Symptôme **: erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n'a pas été mise à jour.
+**Symptôme** : erreur : des modifications ont été validées dans le référentiel distant, mais votre application web n'a pas été mise à jour.
 
-**Cause** : cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
+**Cause** : Cette erreur peut se produire si vous déployez une application Node.js contenant un fichier package.json spécifiant des modules obligatoires supplémentaires.
 
-**Résolution** : des messages supplémentaires contenant " npm ERR! " doivent être consignés avant cette erreur et peuvent fournir davantage de contexte sur la défaillance. Voici les causes connues de cette erreur et le message " npm ERR! " correspondant :
+**Résolution** : Des messages supplémentaires contenant « npm ERR! » doivent être consignés avant cette erreur et peuvent fournir davantage de contexte sur la défaillance. Voici les causes connues de cette erreur et le message « npm ERR! » correspondant :
 
-* **Fichier package.json incorrect **: npm ERR! Couldn't read dependencies.
+* **Fichier package.json incorrect** : npm ERR! Couldn’t read dependencies.
 
 * **Native module that does not have a binary distribution for Windows**:
 
-	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+	* npm ERR! `cmd "/c" "node-gyp rebuild"` failed with 1
 
-		OR
+		OU
 
-	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
+	* npm ERR! [nom-module@version] preinstall: `make || gmake`
 
 
 ## Ressources supplémentaires
 
-* [Utilisation de PowerShell pour Azure]
-* [Utilisation des outils en ligne de commande Azure pour Mac et Linux]
+* [Comment utiliser PowerShell pour Azure]
+* [Comment utiliser les outils en ligne de commande Azure pour Mac et Linux]
 * [Documentation Git]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE] Si vous souhaitez prendre en main Azure App Service avant de créer un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pouvez immédiatement créer une application web de démarrage de courte durée dans App Service. Aucune carte de crédit n'est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-## Nouveautés
-* Pour obtenir un guide sur la transformation de Sites web en App Service, voir : [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide sur les modifications apportées à l'ancien portail dans le nouveau portail, voir : [Référence pour naviguer dans la version préliminaire du portail](http://go.microsoft.com/fwlink/?LinkId=529715)
+## Changements apportés
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-[Centre de développement Azure]: http://azure.microsoft.com/develop/overview/
-[Portail Azure]: https://portal.azure.com
-[Site web Git]: http://git-scm.com
+[Centre de développement Azure]: http://www.windowsazure.com/fr-fr/develop/overview/
+[portail Azure]: https://portal.azure.com
+[Git website]: http://git-scm.com
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Utilisation de PowerShell pour Azure]: ../articles/install-configure-powershell.md
-[Utilisation des outils en ligne de commande Azure pour Mac et Linux]: ../articles/xplat-cli.md
+[Comment utiliser PowerShell pour Azure]: ../articles/install-configure-powershell.md
+[Comment utiliser les outils en ligne de commande Azure pour Mac et Linux]: ../articles/xplat-cli.md
 [Documentation Git]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -301,7 +301,7 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l'utilisation
 [Utilisation de Git avec CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Création d'un référentiel (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
-[Utilisation de Dropbox pour partager les référentiels Git]: https://gist.github.com/trey/2722927
+[Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
 [Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!--HONumber=49-->
+<!---HONumber=62-->

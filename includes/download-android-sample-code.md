@@ -1,7 +1,7 @@
 Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L'interface utilisateur de cette application est identique à celle figurant dans le démarrage rapide Mobile Services Android, sauf que les éléments ajoutés à la liste sont stockés localement dans la mémoire. Vous allez ajouter le code nécessaire à la conservation des données à stocker.
 
 
-1. Téléchargez le projet d’application sur gitHub en cliquant <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio" target="blank">ici</a>, puis cliquez sur **Download ZIP**.
+1. Téléchargez le référentiel d’exemples sur le site gitHub en cliquant <a href="https://github.com/Azure/mobile-services-samples" target="blank">ici</a>, puis cliquez sur **Download ZIP**.
 
 2. Décompressez le fichier téléchargé et notez son emplacement ou déplacez-le vers votre répertoire de projets Android Studio.
 
@@ -14,8 +14,5 @@ Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L
 
 	Le projet est maintenant prêt à être utilisé.
  
->[AZURE.NOTE]Si vous souhaitez obtenir l’exemple de fichier utilisé dans la version précédente du Kit de développement logiciel (SDK) Android de Mobile Services, vous pouvez l’obtenir [ici][GitHub].
 
-<!-- URLs. -->
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=54-->
+<!---HONumber=62-->

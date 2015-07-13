@@ -3,4 +3,5 @@
 2. Dans le gestionnaire de packages NuGet, cliquez sur **En ligne**. Entrez **Microsoft.IdentityModel.Clients.ActiveDirectory** comme terme de recherche. Cliquez ensuite sur **Installer** pour installer le [package NuGet de la bibliothèque d’authentification Active Directory].
 
 [package NuGet de la bibliothèque d’authentification Active Directory]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
-<!--HONumber=54-->
+
+<!---HONumber=62-->

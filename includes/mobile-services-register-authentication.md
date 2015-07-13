@@ -1,25 +1,22 @@
 
+Tout d'abord, vous devez enregistrer votre application auprès d’un fournisseur d’identité sur son site, puis définir les informations d’identification dans votre service mobile.
 
-Pour authentifier les utilisateurs, inscrivez votre application auprès d’un fournisseur d’identité, puis enregistrez les informations d’identification de client générées par le fournisseur avec Azure Mobile Services.
+1. Dans le [portail de gestion Azure], accédez à votre service mobile, puis cliquez sur **Tableau de bord** et notez la valeur du champ **URL du service mobile**.
 
-1. Connectez-vous au portail de gestion Azure, puis cliquez sur **Mobile Services** et sur votre service mobile.
+2. Enregistrez votre application auprès de l’un des fournisseurs d’identité pris en charge suivants.
 
-2. Cliquez sur l'onglet **Tableau de bord** et notez la valeur **URL du service mobile**. Il se peut que le fournisseur d'identité vous demande cette valeur lorsque vous inscrivez votre application.
+	* [Google](mobile-services-how-to-register-google-authentication.md)
+	* [Facebook](mobile-services-how-to-register-facebook-authentication.md)
+	* [Twitter](mobile-services-how-to-register-twitter-authentication.md)
+	* [Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
+	* [Azure Active Directory](mobile-services-how-to-register-active-directory-authentication.md).  
+	
+    >[AZURE.IMPORTANT]Veillez à définir correctement l’URI de redirection pour votre service mobile dans le site de développement du fournisseur d’identité. Comme décrit dans les instructions pour chaque fournisseur ci-dessus, le chemin d’accès de l’URL de redirection est différent pour un service mobile principal .NET (`/signin-<provider>`) et pour un service mobile principal JavaScript (`/login/<provider>`). Un URI de redirection mal configuré empêche le client de se connecter à votre application. <br/>Gardez la clé secrète cliente pour vous, ne la communiquez pas.
 
-3. Choisissez un fournisseur d’identité pris en charge dans la liste ci-dessous. Suivez les étapes pour inscrire votre application auprès de ce fournisseur. N'oubliez pas de noter les valeurs de l'identité du client et de la clé secrète cliente générées par le fournisseur.
+3. Dans votre service mobile dans le [portail de gestion Azure], cliquez sur l’onglet **Identité** et entrez l’ID et le secret d’application que vous venez d’obtenir auprès du fournisseur d’identité.
 
- - <a href="/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Compte Microsoft</a>
- - <a href="/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Facebook</a>
- - <a href="/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Twitter</a>
- - <a href="/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Google </a>
- - <a href="/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+Maintenant que vous avez configuré votre application et votre service mobile pour prendre en charge un fournisseur d’identité pour l’authentification, vous pouvez répéter ces étapes pour prendre en charge des fournisseurs d’identité supplémentaires.
 
-    > [AZURE.IMPORTANT]La clé secrète générée par le fournisseur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
+[portail de gestion Azure]: https://manage.windowsazure.com/
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Identité**, entrez les valeurs de l'identificateur d'application et de la clé secrète partagée fournies par votre fournisseur d'identité, puis cliquez sur **Enregistrer**. Votre service mobile et votre application sont désormais configurés pour utiliser le fournisseur d'authentification choisi.
-
-    > [AZURE.IMPORTANT]Vérifiez que vous avez défini le bon URI de redirection sur le site du développeur de votre fournisseur d'identité. Comme décrit dans les instructions pour chaque fournisseur ci-dessus, l'URI de redirection peut être différent pour un backend .NET et pour un backend JavaScript. Un URI de redirection mal configuré peut faire que l’écran de connexion ne s’affiche pas correctement et que l’application fonctionne mal, de façon inattendue.
-
-5. (Facultatif) Répétez les étapes 3 et 4 pour configurer tout autre fournisseur d'identité que votre application doit prendre en charge.
-
-<!--HONumber=54-->
+<!---HONumber=62-->

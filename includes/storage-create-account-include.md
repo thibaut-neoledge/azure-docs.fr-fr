@@ -1,4 +1,4 @@
-## créer un compte Azure Storage
+## Créer un compte de stockage Azure
 
 Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail de gestion Azure](https://manage.windowsazure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/storage-create-storage-account.md#create-a-storage-account).
 

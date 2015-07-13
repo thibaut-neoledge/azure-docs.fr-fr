@@ -23,7 +23,7 @@
 </div>
 
 
-La documentation suivante vous aide à faire vos premiers pas avec Azure Active Directory Connect. Cette documentation traite de l'installation d’Express pour Azure AD Connect. Pour plus d'informations sur une installation personnalisée, consultez [Installation personnalisée pour Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour plus d'informations sur la mise à niveau depuis la synchronisation d'annuaire vers Azure AD Connect, consultez [Mise à niveau de la synchronisation d'annuaire pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+La documentation suivante vous aide à faire vos premiers pas avec Azure Active Directory Connect. Cette documentation traite de l’installation rapide d’Azure AD Connect. Pour plus d'informations sur une installation personnalisée, consultez [Installation personnalisée pour Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour plus d’informations sur la mise à niveau depuis DirSync vers Azure AD Connect, consultez [Mise à niveau de DirSync pour Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 ## Téléchargez Azure AD Connect
 
@@ -46,7 +46,7 @@ Avant d’installer Azure AD Connect avec les paramètres Express, voici ce don
 Pour les options personnalisées telles que les forêts multiples ou des authentifications fédérées, découvrez les conditions requises supplémentaires [ici.](active-directory-aadconnect-get-started-custom.md)
 
 
-## Installation d’Express pour Azure AD Connect
+## Installation rapide pour Azure AD Connect
 La sélection des paramètres Express est l’option par défaut et s’applique à la plupart des scénarios. Ce faisant, Azure AD Connect déploie la synchronisation avec l’option de synchronisation du hachage de mot de passe. Cela concerne une seule forêt et permet aux utilisateurs d’utiliser leur mot de passe local pour se connecter au cloud. L’utilisation des paramètres Express lancera automatiquement une synchronisation une fois l’installation terminée (mais vous pouvez également choisir de ne pas le faire). Avec cette option, l’extension de votre répertoire local dans le cloud n’est plus qu’à quelques clics.
 
 <center>![Bienvenu dans Azure AD Connect](./media/active-directory-aadconnect-get-started/welcome.png)</center>
@@ -72,7 +72,7 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 
 <br> <br>
 
-Suivez ce lien pour une vidéo sur l'utilisation de l'installation d’Express :
+Suivez ce lien pour une vidéo sur l’utilisation de l'installation rapide :
 
 <center>[AZURE.VIDEO azure-active-directory-connect-express-settings]</center>
 
@@ -87,11 +87,11 @@ Une fois que vous avez correctement installé Azure AD Connect vous pouvez véri
 3.  Double-cliquez sur le répertoire que vous venez d'utiliser pour configurer Azure AD Connect.
 4.  En haut, sélectionnez l'intégration de répertoires. Notez l’heure de la dernière synchronisation.
 
-<center>![Installation d’Express](./media/active-directory-aadconnect-get-started/verify.png)</center>
+<center>![Installation rapide](./media/active-directory-aadconnect-get-started/verify.png)</center>
 
 ## Que faire ensuite ?
 Maintenant que vous avez Azure AD Connect installé, vous pouvez utiliser le lien [ici](active-directory-aadconnect-whats-next.md) pour commencer avec les tâches suivant l'installation telles que l'attribution des licences Azure AD Premium ou Enterprise Mobility à vos utilisateurs ou la configuration d’options supplémentaires.
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

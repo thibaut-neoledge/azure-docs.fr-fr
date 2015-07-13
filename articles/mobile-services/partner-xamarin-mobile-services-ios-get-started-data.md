@@ -240,5 +240,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

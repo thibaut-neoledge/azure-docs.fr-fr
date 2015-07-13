@@ -1,7 +1,7 @@
-﻿#####Création d'une table
-Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer une table. Il tente de référencer la table nommée " people ". S'il ne trouve aucune table ainsi nommée, il en crée une.
+#####Création d'une table
+Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l'utilise pour créer une table. Il tente de référencer la table nommée « people ». S'il ne trouve aucune table ainsi nommée, il en crée une.
 
-**Remarque :** tous les codes de ce guide partent du principe que l'application développée est un projet Azure Cloud Service et utilise une chaîne de connexion de stockage stockée dans la configuration de service de l'application Azure.
+**REMARQUE :** : le code figurant dans ce guide part du principe que l’application développée est un projet Azure Cloud Service et utilise une chaîne de connexion de stockage stockée dans la configuration de service de l’application Azure.
 
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -11,7 +11,7 @@ Un objet **CloudTableClient** vous permet d'obtenir les objets de référence po
 	table.CreateIfNotExists();
 
 #####Ajout d'une entité à une table
-Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité nommée **CustomerEntity**, qui utilise le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition.
+Pour ajouter une entité à une table, commencez par créer une classe définissant les propriétés de votre entité. Le code suivant définit une classe d'entité nommée **CustomerEntity**, utilisant le prénom du client en tant que clé de ligne et son nom de famille en tant que clé de partition.
 
 	public class CustomerEntity : TableEntity
 	{
@@ -28,7 +28,7 @@ Pour ajouter une entité à une table, commencez par créer une classe définiss
 	    public string PhoneNumber { get; set; }
 	}
 
-Les opérations de table impliquant des entités sont effectuées en utilisant l'objet **CloudTable** créé à l'étape précédente, " Création d'une table ". L'objet **TableOperation** représente l'opération à effectuer. L'exemple de code suivant montre comment créer des objets **CloudTable** et **CustomerEntity**. Pour préparer l'opération, un objet **TableOperation** est créé pour insérer l'entité du client dans la table. Pour terminer, l'opération est exécutée en appelant CloudTable.Execute.
+Les opérations de table impliquant des entités sont effectuées en utilisant l'objet **CloudTable** créé à l'étape précédente, « Création d'une table ». L'objet **TableOperation** représente l'opération à effectuer. L'exemple de code suivant montre comment créer des objets **CloudTable** et **CustomerEntity**. Pour préparer l’opération, un objet **TableOperation** est créé pour insérer l’entité du client dans la table. Pour terminer, l'opération est exécutée en appelant CloudTable.Execute.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -45,7 +45,7 @@ Les opérations de table impliquant des entités sont effectuées en utilisant l
 	table.Execute(insertOperation);
 
 #####Insertion d'un lot d'entités
-Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L'exemple de code suivant crée deux objets d'entité (" Jeff Smith " et " Ben Smith ") et les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert. L'opération est ensuite exécutée par l'appel de CloudTable.Execute.
+Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L'exemple de code suivant crée deux objets d'entité (« Jeff Smith » et « Ben Smith ») et les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert. L'opération est ensuite exécutée par l'appel de CloudTable.Execute.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -71,7 +71,7 @@ Vous pouvez insérer plusieurs entités dans une table en une seule opération d
 	table.ExecuteBatch(batchOperation);
 
 #####Recherche de toutes les entités d'une partition
-Pour exécuter une requête de table portant sur toutes les entités d'une partition, utilisez un objet **TableQuery**. L'exemple de code suivant indique un filtre pour les entités où 'Smith' est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
+Pour exécuter une requête de table portant sur toutes les entités d'une partition, utilisez un objet **TableQuery**. L’exemple de code suivant indique un filtre pour les entités où ’Smith’ est la clé de partition. Il imprime les champs de chaque entité dans les résultats de requête vers la console.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -87,7 +87,7 @@ Pour exécuter une requête de table portant sur toutes les entités d'une parti
 	}
 
 #####Obtention d'une seule entité
-Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier un client nommé 'Ben Smith'. Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans TableResult.Result est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité dans le service de **Table** consiste à spécifier une clé de partition et une clé de ligne.
+Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant utilise un objet **TableOperation** pour spécifier le client « Ben Smith ». Cette méthode renvoie une seule entité (et non une collection). De plus, la valeur renvoyée dans TableResult.Result est un objet **CustomerEntity**. La méthode la plus rapide pour extraire une seule entité du service **Table** consiste à spécifier une clé de partition et une clé de ligne.
 
 	// Create the CloudTable object that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -105,7 +105,7 @@ Vous pouvez écrire une requête pour obtenir une seule entité. Le code suivant
 	   Console.WriteLine("The phone number could not be retrieved.");
 
 #####Suppression d'une entité
-Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche l'entité de client " Ben Smith ", puis la supprime.
+Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche l'entité de client « Ben Smith », puis la supprime.
 
 	// Create the CloudTable that represents the "people" table.
 	CloudTable table = tableClient.GetTableReference("people");
@@ -133,8 +133,6 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-[En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-Voir aussi [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+[En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/) Voir aussi [Consultation et gestion des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

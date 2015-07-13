@@ -81,7 +81,7 @@ Quand vous accédez au panneau du groupe de ressources dans le [portail Azure en
 
 ![Diagramme du groupe de ressources](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
-### Configurer l’application API afin d’exiger une authentification
+### <a id="apiapp"></a>Configurer l’application API afin d’exiger une authentification
 
 Pour configurer votre application API pour accepter uniquement les demandes authentifiées, vous devez définir le paramètre d’accessibilité **Public (authentifié)** et configurer la passerelle pour exiger l’authentification auprès d’un fournisseur comme Azure Active Directory, Google ou Facebook.
 

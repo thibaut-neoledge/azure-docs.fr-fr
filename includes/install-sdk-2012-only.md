@@ -14,9 +14,9 @@ Pour commencer, configurez l'environnement de développement en installant le Ki
 
 	![Web Platform Installer - Kit de développement logiciel (SDK) Azure pour .NET][WebPIAzureSdk]
 
-Une fois l'installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement.
+Une fois l’installation terminée, vous disposez de tous les éléments nécessaires pour commencer le développement.
 
 [Kit de développement logiciel (SDK) Azure pour Visual Studio 2012]: http://go.microsoft.com/fwlink/?LinkID=324323
 [WebPIAzureSdk]: ./media/install-sdk-2012-only/WebPI46-2012.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

@@ -47,7 +47,7 @@ Si vous ne connaissez pas les concepts de base de l’authentification dans Azur
 
 Prenons l’exemple du scénario le plus élémentaire dans lequel une identité est requise : un utilisateur doit s’authentifier auprès d’une application web dans un navigateur web. Ce scénario est décrit plus en détail dans la section [Navigateur web vers application web](#web-browser-to-web-application), mais c’est un bon point de départ pour illustrer les fonctionnalités d’Azure AD et conceptualiser le fonctionnement du scénario. Considérez le diagramme suivant pour ce scénario :
 
-![Vue d’ensemble des applications avec authentification sur le web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
+![Vue d’ensemble de l’authentification des applications web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus :
 
@@ -138,7 +138,7 @@ Chaque scénario répertorié dans ce document inclut une sous-section décrivan
 
 ## Types d’application et scénarios
 
-Chaque scénario décrit dans ce document peut être développé à l’aide de différents langages et plateformes, et vous trouverez des [exemples de code complets sur GitHub](https://github.com/AzureADSamples) pour chacun d’entre eux. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
+Chaque scénario décrit dans ce document peut être développé à l’aide de différents langages et plateformes, et vous trouverez des [exemples de code complets sur GitHub](https://github.com/AzureADSamples) pour chacun d’entre eux. De plus, si votre application nécessite un élément ou segment spécifique d’un scénario de bout en bout, vous pouvez ajouter cette fonctionnalité séparément dans la plupart des cas. Par exemple, si vous avez une application native qui appelle une API web, vous pouvez facilement ajouter une application web qui appelle elle-aussi l’API web. Le diagramme suivant illustre ces scénarios et types d’application, ainsi que la manière dont vous pouvez ajouter les différents composants :
 
 ![Types d’application et scénarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -466,4 +466,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

@@ -114,7 +114,7 @@ La vue avec balises ASP.NET s’adapte à l’écran, ce que Bootstrap effectue 
 
 La prise en charge de Bootstrap intégrée est une nouveauté du modèle MVC 5. Vous avez déjà vu comment cette prise en charge améliore les différentes vues dans votre application. Par exemple, la barre de navigation dans la partie supérieure se réduit automatiquement lorsque la largeur du navigateur est inférieure. Sur le navigateur de bureau, essayez de redimensionner la fenêtre du navigateur et observez le comportement de la barre de navigation. Il s'agit de la conception de sites web réactive intégrée à Bootstrap.
 
-Pour voir à quoi ressemblerait l’application Web sans Bootstrap, ouvrez le fichier *App\_Start\\BundleConfig.cs* et placez les lignes qui contiennent *bootstrap.js* et *bootstrap.css* en commentaire. Le code ci-après indique les deux dernières instructions de la méthode `RegisterBundles` après la modification :
+Pour voir à quoi ressemblerait l’application Web sans Bootstrap, ouvrez le fichier *App_Start\BundleConfig.cs* et placez les lignes qui contiennent *bootstrap.js* et *bootstrap.css* en commentaire. Le code ci-après indique les deux dernières instructions de la méthode `RegisterBundles` après la modification :
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -140,11 +140,11 @@ La section suivante vous indique comment proposer des vues spécialement adapté
 
 ##<a name="bkmk_overrideviews"></a> Remplacement des vues, des dispositions et des vues partielles
 
-Vous pouvez remplacer toutes les vues (y compris les dispositions et les vues partielles) des navigateurs mobiles en général, mais aussi d’un navigateur mobile particulier ou encore d’un navigateur spécifique. Pour fournir un affichage mobile, vous pouvez copier un fichier de vue et ajouter *.Mobile* au nom du fichier. Par exemple, pour créer une vue mobile *Index*, vous pouvez copier *Views\\Home\\Index.cshtml* vers *Views\\Home\\Index.Mobile.cshtml*.
+Vous pouvez remplacer toutes les vues (y compris les dispositions et les vues partielles) des navigateurs mobiles en général, mais aussi d’un navigateur mobile particulier ou encore d’un navigateur spécifique. Pour fournir un affichage mobile, vous pouvez copier un fichier de vue et ajouter *.Mobile* au nom du fichier. Par exemple, pour créer une vue mobile *Index*, vous pouvez copier *Views\Home\Index.cshtml* vers *Views\Home\Index.Mobile.cshtml*.
 
 Dans cette section, vous allez créer un fichier de disposition mobile.
 
-Tout d'abord, copiez *Views\\Shared\_Layout.cshtml* vers *Views\\Shared\_Layout.Mobile.cshtml*. Ouvrez *\_Layout.Mobile.cshtml* et remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
+Tout d'abord, copiez *Views\Shared_Layout.cshtml* vers *Views\Shared_Layout.Mobile.cshtml*. Ouvrez *_Layout.Mobile.cshtml* et remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
 
 Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez « Parcourir par »de chaque lien *ActionLink*. Le code suivant affiche la balise `<ul class="nav navbar-nav">` terminée d’un fichier de disposition mobile.
 
@@ -155,7 +155,7 @@ Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez « P
         <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
     </ul>
 
-Copiez le fichier *Views\\Home\\AllTags.cshtml* vers *Views\\Home\\AllTags.Mobile.cshtml*. Ouvrez le nouveau fichier et, pour l'élément `<h2>`, remplacez « Tags » par « Tags (M) » :
+Copiez le fichier *Views\Home\AllTags.cshtml* vers *Views\Home\AllTags.Mobile.cshtml*. Ouvrez le nouveau fichier et, pour l'élément `<h2>`, remplacez « Tags » par « Tags (M) » :
 
     <h2>Tags (M)</h2>
 
@@ -191,9 +191,9 @@ Vous pouvez aussi ajouter manuellement la ligne suivante à la section `using` d
 
     using System.Web.WebPages;
 
-Enregistrez les modifications. Copiez le fichier *Views\\Shared\_Layout.Mobile.cshtml* vers *Views\\Shared\_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par `MVC5 Application (iPhone)`.
+Enregistrez les modifications. Copiez le fichier *Views\Shared_Layout.Mobile.cshtml* vers *Views\Shared_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par `MVC5 Application (iPhone)`.
 
-Copiez le fichier *Views\\Home\\AllTags.Mobile.cshtml* vers *Views\\Home\\AllTags.iPhone.cshtml*. Dans le nouveau fichier, pour l’élément `<h2>`, remplacez « Tags (M) » par « Tags (iPhone) ».
+Copiez le fichier *Views\Home\AllTags.Mobile.cshtml* vers *Views\Home\AllTags.iPhone.cshtml*. Dans le nouveau fichier, pour l’élément `<h2>`, remplacez « Tags (M) » par « Tags (iPhone) ».
 
 Exécutez l'application. Lancez un émulateur de navigateur mobile, vérifiez que son agent utilisateur est défini sur « iPhone » et parcourez la vue *AllTags*. Si vous utilisez l’émulateur dans les outils de développement F12 d’Internet Explorer 11,configurez l’émulation comme suit :
 
@@ -209,7 +209,7 @@ Dans le navigateur mobile, sélectionnez le lien **Intervenants**. En l’absenc
 
 ![][AllSpeakers_LayoutMobile]
 
-Vous pouvez globalement désactiver l’affichage d’une vue par défaut (non mobile) au sein d’une disposition mobile en définissant `RequireConsistentDisplayMode` sur `true` dans le fichier *Views\_ViewStart.cshtml*, comme indiqué ci-dessous :
+Vous pouvez globalement désactiver l’affichage d’une vue par défaut (non mobile) au sein d’une disposition mobile en définissant `RequireConsistentDisplayMode` sur `true` dans le fichier *Views_ViewStart.cshtml*, comme indiqué ci-dessous :
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -220,7 +220,7 @@ Lorsque `RequireConsistentDisplayMode` est défini sur `true`, la disposition mo
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
-Vous pouvez désactiver le mode d’affichage cohérent dans une vue spécifique en définissant `RequireConsistentDisplayMode` sur `false` dans le fichier de vue. Le balisage suivant du fichier *Views\\Home\\AllSpeakers.cshtml* définit `RequireConsistentDisplayMode` sur `false` :
+Vous pouvez désactiver le mode d’affichage cohérent dans une vue spécifique en définissant `RequireConsistentDisplayMode` sur `false` dans le fichier de vue. Le balisage suivant du fichier *Views\Home\AllSpeakers.cshtml* définit `RequireConsistentDisplayMode` sur `false` :
 
     @model IEnumerable<string>
 
@@ -235,7 +235,7 @@ Dans cette section, nous avons vu comment créer des dispositions mobiles et des
 
 Comme vous venez de le voir, la vue *Speakers* est lisible, mais les liens sont petits et il est difficile de les sélectionner sur un appareil mobile. Dans cette section, vous allez adapter la vue *AllSpeakers* aux appareils mobiles. Les liens seront plus grands, faciles à sélectionner et contiendront une zone de recherche pour trouver des intervenants rapidement.
 
-Vous pouvez utiliser le style [linked list group][] pour améliorer la vue *Speakers*. Dans *Views\\Home\\AllSpeakers.cshtml*, remplacez le contenu du fichier Razor par le code ci-dessous.
+Vous pouvez utiliser le style [linked list group][] pour améliorer la vue *Speakers*. Dans *Views\Home\AllSpeakers.cshtml*, remplacez le contenu du fichier Razor par le code ci-dessous.
 
      @model IEnumerable<string>
 
@@ -262,7 +262,7 @@ Avec le style [linked list group][] Bootstrap, toute la zone de chaque lien est 
 
 ![][AllSpeakersFixedDesktop]
 
-Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\\Home\\AllSpeakers.cshtml*, ajoutez une balise <form> juste après la balise <h2>, comme indiqué ci-dessous :
+Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\Home\AllSpeakers.cshtml*, ajoutez une balise <form> juste après la balise <h2>, comme indiqué ci-dessous :
 
     @model IEnumerable<string>
 
@@ -317,7 +317,7 @@ Dans le dossier *Scripts*, ajoutez un fichier JavaScript intitulé *filter.js*. 
         });
     });
 
-Vous devez également inclure le fichier filter.js à vos lots enregistrés. Ouvrez le fichier *App_Start\\BundleConfig.cs* et modifiez les premiers lots. Modifiez la première instruction `bundles.Add` (pour le lot **jquery**) de manière à inclure le fichier *Scripts\\filter.js*, comme décrit ci-dessous :
+Vous devez également inclure le fichier filter.js à vos lots enregistrés. Ouvrez le fichier *App_Start\BundleConfig.cs* et modifiez les premiers lots. Modifiez la première instruction `bundles.Add` (pour le lot **jquery**) de manière à inclure le fichier *Scripts\filter.js*, comme décrit ci-dessous :
 
      bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery-{version}.js",
@@ -331,7 +331,7 @@ Actualisez le navigateur mobile et accédez à l'affichage *AllSpeakers*. Dans l
 
 ##<a name="bkmk_improvetags"></a> Amélioration de la liste Balises
 
-À l’instar de la vue *Speakers*, la vue *Tags* est lisible, mais les liens sont petits et il est difficile de les sélectionner sur un appareil mobile. Vous pouvez optimiser la vue *Tags* de la même façon que vous l’avez fait avec la vue *Speakers*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode `Html.ActionLink` dans *Views\\Home\\AllTags.cshtml* :
+À l’instar de la vue *Speakers*, la vue *Tags* est lisible, mais les liens sont petits et il est difficile de les sélectionner sur un appareil mobile. Vous pouvez optimiser la vue *Tags* de la même façon que vous l’avez fait avec la vue *Speakers*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode `Html.ActionLink` dans *Views\Home\AllTags.cshtml* :
 
     @Html.ActionLink(tag, 
                      "SessionsByTag", 
@@ -350,7 +350,7 @@ Quant au navigateur mobile actualisé, il se présente ainsi :
 
 ##<a name="bkmk_improvedates"></a> Amélioration de la liste Dates
 
-Vous pouvez optimiser la vue *Dates* de la même façon que vous l’avez fait avec les vues *Speakers* et *Tags*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode suivante `Html.ActionLink` dans *Views\\Home\\AllDates.cshtml* :
+Vous pouvez optimiser la vue *Dates* de la même façon que vous l’avez fait avec les vues *Speakers* et *Tags*. Vous devez utiliser les modifications de code décrites plus haut mais en suivant la syntaxe de méthode suivante `Html.ActionLink` dans *Views\Home\AllDates.cshtml* :
 
     @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
                      "SessionsByDate", 
@@ -361,7 +361,7 @@ La vue du navigateur mobile actualisé se présente ainsi :
 
 ![][AllDatesFixed]
 
-Vous pouvez encore optimiser la vue *Dates* en classant les valeurs date-heure par date. Pour ce faire, vous pouvez utiliser le style [panels][] Bootstrap. Remplacez le contenu du fichier *Views\\Home\\AllDates.cshtm* par le code suivant :
+Vous pouvez encore optimiser la vue *Dates* en classant les valeurs date-heure par date. Pour ce faire, vous pouvez utiliser le style [panels][] Bootstrap. Remplacez le contenu du fichier *Views\Home\AllDates.cshtm* par le code suivant :
 
     @model IEnumerable<DateTime>
 
@@ -409,7 +409,7 @@ Appuyez sur le lien **ASP.NET**.
 
 ![][SessionsTableTagASP.NET]
 
-Comme vous pouvez le constater, l’affichage se fait sous forme de tableau, actuellement conçu pour être affiché sur le navigateur de bureau. Malheureusement, ce type d'affichage n'est pas adapté à un navigateur mobile. Pour remédier au problème, ouvrez le fichier *Views\\Home\\SessionsTable.cshtml* et remplacez son contenu par le code suivant :
+Comme vous pouvez le constater, l’affichage se fait sous forme de tableau, actuellement conçu pour être affiché sur le navigateur de bureau. Malheureusement, ce type d'affichage n'est pas adapté à un navigateur mobile. Pour remédier au problème, ouvrez le fichier *Views\Home\SessionsTable.cshtml* et remplacez son contenu par le code suivant :
 
     @model IEnumerable<Mvc5Mobile.Models.Session>
 
@@ -476,7 +476,7 @@ Cliquez sur le lien **Conception d’une application à page unique avec ASP.NET
 
 Si la vue bureau par défaut convient tout à fait, vous pouvez facilement améliorer son aspect à l'aide des composants d'interface graphique Bootstrap.
 
-Ouvrez le fichier *Views\\Home\\SessionByCode.cshtml* et remplacez le contenu par le balisage suivant :
+Ouvrez le fichier *Views\Home\SessionByCode.cshtml* et remplacez le contenu par le balisage suivant :
 
     @model Mvc5Mobile.Models.Session
 
@@ -544,8 +544,8 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 -   [Candidat à la recommandation du W3C concernant les requêtes de média][] (en anglais)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
@@ -614,5 +614,6 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionsTableFixedTagASP.NETDesktop]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsTable-Fixed-Tag-ASP.NET-Desktop.png
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

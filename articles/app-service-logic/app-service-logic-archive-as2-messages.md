@@ -39,5 +39,6 @@ Utilisez l'URL récupérée ci-dessus pour récupérer le message archivé dans 
 
 <!--Image references-->
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

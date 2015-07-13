@@ -110,5 +110,6 @@ La capacité des invités à n'accéder qu'à certaines informations limitées d
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

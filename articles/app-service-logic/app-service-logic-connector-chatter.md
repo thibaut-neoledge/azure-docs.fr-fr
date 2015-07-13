@@ -30,7 +30,7 @@ Pour utiliser le connecteur Chatter, vous devez d’abord créer une instance de
 2.	Accédez à « Web et mobilité > API Apps » et recherchez « Connecteur Chatter ».
 3.	Configurez le connecteur Chatter comme suit :
 
-	![][1] - **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Chatter
+	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Chatter
 
 4.	Cliquez sur Créer. Le connecteur Chatter est créé.
 5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Chatter.
@@ -50,18 +50,18 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Chatt
 
 	![][5] ![][6] ![][7]
 5.	Vous pouvez maintenant utiliser le connecteur Chatter dans le flux. Vous pouvez utiliser le nouveau message récupéré du déclencheur Chatter (« Nouveau message ») dans d’autres actions du flux. Configurez les propriétés d’entrée du déclencheur Chatter comme suit :
-	- **ID de groupe** : indiquez l’ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas spécifié, le nouveau message est récupéré du flux de l’utilisateur.
+	- **ID de groupe** : indiquez l'ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas spécifié, le nouveau message est récupéré du flux de l’utilisateur.
 
   ![][8] ![][9]
 
 6. De même, vous pouvez utiliser l’action Chatter dans le flux pour publier un message en sélectionnant l’action « Publier le message ». Configurez les propriétés d’entrée de l’action « Publier le message » comme suit :
 	- **Texte du message** : corps du message à publier.
-	- **ID de groupe** : indiquez l’ID de groupe à partir duquel publier le nouveau message. Si cet ID n’est pas renseigné, le message est publié dans le flux de l’utilisateur.
+	- **ID de groupe** : indiquez l'ID du groupe à partir duquel publier le nouveau message. Si cet ID n’est pas renseigné, le message est publié dans le flux de l’utilisateur.
 	- 	**Nom de fichier** : nom du fichier à joindre à ce message.
-	- 	**Données de contenu** : contenu de la pièce jointe.
+	- 	**Données de contenu** : données de contenu de la pièce jointe.
 	- 	**Type de contenu** : type de contenu de la pièce jointe.
-	- 	**Encodage de transfert de contenu** : encodage de transfert du contenu de la pièce jointe (« none »|« base64 »).
-	- 	**Mentions** : tableau des noms d’utilisateur à baliser dans ce message.
+	- 	**Encodage de transfert de contenu** : encodage de transfert de contenu de la pièce jointe (« none »|« base64 »).
+	- 	**Mentions** : tableau des noms d'utilisateur à baliser dans ce message.
 	- 	**Hashtags** : tableau des hashtags à publier avec le message.
 
 	![][10] ![][11]

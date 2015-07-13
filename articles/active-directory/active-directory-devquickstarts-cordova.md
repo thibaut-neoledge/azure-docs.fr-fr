@@ -250,8 +250,9 @@ Utilisez `cordova run --help` pour voir d’autres options de génération et d�
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) est fourni ici. Vous pouvez maintenant passer à des scénarios plus avancés et plus intéressants. Par exemple :
 
-[Sécurisation d’une API web Node.js avec Azure AD >](active-directory-devquickstarts-webapi-nodejs.md)
+[Sécurisation d’une API web Node.js avec Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >](https://github.com/AzureAdSamples) - [CloudIdentity.com >](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >](http://azure.microsoft.com/documentation/services/active-directory/)
+Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

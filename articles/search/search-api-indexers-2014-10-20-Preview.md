@@ -6,7 +6,7 @@
 
 > [AZURE.NOTE]Cet article décrit un prototype de nouvelles fonctionnalités qui ne sont pas dans la version publiée de l'API. Pour plus d'informations sur les versions et la capacité de prise en charge, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx) sur MSDN. Pour plus d'informations sur les autres fonctionnalités dans cette API en version préliminaire, consultez [API REST du service Azure Search : version 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Azure Search peut s'intégrer directement à des sources de données courantes, ce qui évite d'avoir à écrire du code pour indexer vos données. Pour cela, vous pouvez appeler l'API Azure Search pour créer et gérer des **indexeurs** et des **sources de données**.
 
@@ -53,7 +53,7 @@ Vous pouvez créer et gérer des sources de données dans le service Azure Searc
 
 ### Créer une source de données
 
-Vous pouvez créer une source de données dans un service Azure Search à l'aide d'une requête HTTP POST.
+Vous pouvez créer une source de données au sein d'un service Azure Search à l'aide d'une requête HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -67,9 +67,9 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Data Source** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom de source de données dans le corps de la requête avec la définition de source de données. Avec la méthode PUT, le nom fait partie de l'URL. Si la source de données n'existe pas, elle est créée. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
+Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Data Source** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom de source de données dans le corps de la requête avec la définition de source de données. Avec la méthode PUT, le nom fait partie de l'URL. Si la source de données n’existe pas, elle est créée. Si elle existe déjà, elle est mise à jour en fonction de la nouvelle définition.
 
-Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
+Le nom de source de données doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom de source de données peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
 `api-version` est obligatoire. Les valeurs valables incluent `2014-10-20-Preview` ou une version ultérieure.
 
@@ -77,8 +77,8 @@ Le nom de source de données doit être en minuscules, commencer par une lettre 
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
-- `Content-Type` : obligatoire. Définissez ceci sur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
+- `Content-Type` : obligatoire. À définir avec la valeur `application/json`
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
  
 Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
 
@@ -99,13 +99,13 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
     	"dataDeletionDetectionPolicy" : { Optional. See below for details }
 	}
 
-La requête peut contenir les propriétés suivantes : 
+La requête peut contenir les propriétés suivantes :
 
 - `name` : obligatoire. Nom de la source de données. Un nom de source de données doit uniquement contenir des lettres minuscules, des chiffres ou des tirets, ne peut pas commencer ni se terminer par des tirets et est limité à 128 caractères.
 - `description` : une description facultative. 
 - `type` : obligatoire. Utilisez `azuresql` pour une source de données SQL Azure, `docdb` pour une source de données DocumentDB.
 - `container` : 
-	- La propriété `name` obligatoire spécifie la table ou vue (pour la source de données SQL Azure) ou la collection (pour la source de données DocumentDB) qui est indexée. 
+	- La propriété `name` obligatoire spécifie la table ou vue (pour une source de données SQL Azure), ou la collection (pour une source de données DocumentDB) à indexer. 
 	- Les sources de données DocumentDB prennent également en charge une propriété `query` facultative permettant de spécifier une requête qui aplanit une disposition de document JSON arbitraire dans un schéma plat qu'Azure Search peut indexer.   
 - Les stratégies facultatives `dataChangeDetectionPolicy` et `dataDeletionDetectionPolicy` sont décrites ci-dessous.
 
@@ -122,7 +122,7 @@ Utilisez cette stratégie lorsque votre source de données contient une colonne 
 - La valeur de cette colonne augmente à chaque modification.
 - Les requêtes qui utilisent une clause de filtre similaire à la clause `WHERE [High Water Mark Column] > [Current High Water Mark Value]` suivante peuvent être exécutées efficacement.
 
-Par exemple, lors de l'utilisation de sources de données SQL Azure, une colonne `rowversion` indexée est parfaitement indiquée pour une utilisation avec la stratégie de limite supérieure.
+Par exemple, en cas d'utilisation de sources de données Azure SQL, une colonne `rowversion` indexée est parfaitement indiquée pour une utilisation avec la stratégie de limite supérieure.
 
 En cas d'utilisation de sources de données DocumentDB, vous devez utiliser la propriété `_ts` fournie par DocumentDB.
  
@@ -133,9 +133,9 @@ Cette stratégie peut être spécifiée comme suit :
 		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
 	} 
 
-***Stratégie intégrée SQL de détection des modifications***
+***Stratégie SQL de détection des modifications intégrée***
 
-Si votre base de données SQL prend en charge le [ suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), nous vous recommandons d'utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi le plus efficace des modifications et permet à Azure Search d'identifier les lignes supprimées sans que le schéma doive contenir une colonne explicite « suppression réversible ».
+Si votre base de données SQL prend en charge le [suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), nous vous recommandons d’utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d’identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
 
 Le suivi intégré des modifications SQL est pris en charge à partir des versions de base de données SQL suivantes : - SQL Server 2008 R2, si vous utilisez des machines virtuelles SQL IaaS ; - Base de données SQL Azure V12, si vous utilisez SQL Azure.
 
@@ -189,7 +189,7 @@ Pour une requête réussie : « 201 Créé ».
 
 ### Mise à jour de source de données
 
-Vous pouvez mettre à jour une source de données existante en utilisant une requête HTTP PUT. Vous spécifiez le nom de la source de données à mettre à jour sur l'URI de requête :
+Vous pouvez mettre à jour une source de données existante à l'aide d'une requête HTTP PUT. Vous spécifiez le nom de la source de données à mettre à jour sur l'URI de requête :
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     Content-Type: application/json
@@ -199,7 +199,7 @@ Vous pouvez mettre à jour une source de données existante en utilisant une req
 
 **Réponse** Pour une requête réussie : 201 Créé est renvoyé si une source de données a été créée, et 204 Pas de contenu si une source de données existante a été mise à jour.
 
-**REMARQUE :** certaines propriétés ne peuvent pas être mises à jour sur une source de données existante. Par exemple, vous ne pouvez pas modifier le type d'une source de données existante.
+**REMARQUE :** certaines propriétés ne peuvent pas être mises à jour dans une source de données existante. Par exemple, vous ne pouvez pas modifier le type d'une source de données existante.
 
 ### List Data Sources
 
@@ -210,7 +210,7 @@ L'opération **List Data Sources** retourne une liste des sources de données da
 
 **Réponse**
 
-Pour une requête réussie : « 200 Créé ».
+Pour une requête réussie : « 200 OK ».
 
 Voici un exemple de corps de réponse :
 
@@ -223,11 +223,11 @@ Voici un exemple de corps de réponse :
         }]
     }
 
-Notez que vous pouvez filtrer la réponse pour afficher uniquement les propriétés qui vous intéressent. Par exemple, si vous voulez uniquement une liste des noms de sources de données, utilisez l'option de requête OData `$select` :
+Notez que vous pouvez filtrer la réponse de manière à afficher uniquement les propriétés qui vous intéressent. Par exemple, si vous voulez uniquement une liste des noms de sources de données, utilisez l'option de requête OData `$select` :
 
     GET /datasources?api-version=2014-10-20-Preview&$select=name
 
-Dans ce cas, la réponse de l'exemple ci-dessus apparaît comme suit :
+Dans ce cas, la réponse de l'exemple ci-dessus est affichée comme suit :
 
     {
       "value" : [ { "name": "datasource1" }, ... ]
@@ -244,7 +244,7 @@ L'opération **Get Data Source** obtient la définition de source de données d'
 
 **Réponse**
 
-Code d'état : 200 OK est retourné pour une réponse correcte.
+Code d'état : 200 OK est renvoyé en cas de réponse correcte.
 
 La réponse est similaire aux exemples dans [Exemple de requêtes Create Data Source](#CreateDataSourceRequestExamples) :
 
@@ -267,7 +267,7 @@ La réponse est similaire aux exemples dans [Exemple de requêtes Create Data So
 
 ### Delete Data Source
 
-L'opération **Delete Data Source** supprime une source de données de votre service Azure Search.
+L'opération de suppression de sources de données (**Delete Data Source**) supprime une source de données de votre service Azure Search.
 
     DELETE https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
@@ -305,7 +305,7 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de source
 Le corps de la requête contient une définition de l'indexeur, qui spécifie la source de données et l'index cible pour l'indexation, ainsi qu'une planification d'indexation et des paramètres facultatifs.
 
 
-La syntaxe de structuration de la charge utile de la requête est la suivante. Un exemple de requête est fourni plus loin dans cette rubrique.
+Vous trouverez ci-dessous la syntaxe de structuration de la charge utile de la requête. Un exemple de requête est fourni plus loin dans cette rubrique.
 
     { 
 		"name" : "Required for POST, optional for PUT. The name of the indexer",
@@ -320,9 +320,9 @@ La syntaxe de structuration de la charge utile de la requête est la suivante. U
 
 Un indexeur peut éventuellement spécifier une planification. Si une planification est présente, l'indexeur sera exécuté périodiquement, conformément à la planification. La planification dispose des attributs suivants :
 
-- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle utilisé est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
+- `interval` : obligatoire. Valeur de durée qui spécifie un intervalle ou une période d'exécution pour l'indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` pour toutes les 15 minutes, `PT2H` pour toutes les 2 heures. 
 
-- `startTime` : obligatoire. Heure UTC (temps universel coordonné) à laquelle l'exécution de l'indexeur doit commencer.
+- `startTime` : obligatoire. Heure UTC (temps universel coordonné) à laquelle l'exécution de l'indexeur doit commencer.
 
 **Paramètres d'indexation**
 
@@ -332,11 +332,11 @@ Un indexeur peut éventuellement spécifier plusieurs paramètres qui affectent 
 
 - `maxFailedItemsPerBatch` : nombre d'éléments dont l'indexation peut échouer dans chaque lot avant que l'exécution de l'indexeur soit considérée comme un échec. La valeur par défaut est `0`.
 
-- `base64EncodeKeys` : spécifie si les clés de document doivent être codées en base 64. Azure Search impose des restrictions relatives aux caractères qui peuvent être présents dans une clé de document. Toutefois, les valeurs dans vos données sources peuvent contenir des caractères non valides. S'il est nécessaire d'indexer ces valeurs en tant que clés de document, cet indicateur peut être défini sur true. La valeur par défaut est `false`.
+- `base64EncodeKeys` : spécifie si les clés de document doivent être codées en base 64. Azure Search impose des restrictions relatives aux caractères qui peuvent être présents dans une clé de document. Toutefois, les valeurs dans vos données source peuvent contenir des caractères non valides. S'il est nécessaire d'indexer ces valeurs en tant que clés de document, cet indicateur peut être défini sur true. La valeur par défaut est `false`.
 
 <a name="CreateIndexerRequestExamples"></a> **Exemples de corps de requête**
 
-L'exemple suivant crée un indexeur qui copie les données de la table référencée par la source de données `ordersds` vers l'index `orders` selon une planification qui commence le 1er janvier 2015 UTC et qui est exécutée toutes les heures. Chaque appel de l'indexeur est réussi si l'indexation n'échoue pas pour plus de 5 éléments par lot, et pour plus de 10 éléments au total.
+L'exemple suivant crée un indexeur qui copie les données de la table référencée par la source de données `ordersds` vers l'index `orders` selon une planification qui commence le 1er janvier 2015 UTC et s'exécute toutes les heures. Chaque appel de l'indexeur est réussi si l'indexation n'échoue pas pour plus de 5 éléments par lot, et pour plus de 10 éléments au total.
 
 	{
         "name" : "myindexer",
@@ -353,7 +353,7 @@ Pour une requête réussie : « 201 Créé ».
 
 ### Mise à jour d'indexeur
 
-Vous pouvez mettre à jour un indexeur existant en utilisant une requête HTTP PUT. Vous spécifiez le nom de l'indexeur à mettre à jour sur l'URI de la requête :
+Vous pouvez mettre à jour un indexeur existant à l'aide d'une requête HTTP PUT. Vous spécifiez le nom de l'indexeur à mettre à jour sur l'URI de la requête :
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     Content-Type: application/json
@@ -376,7 +376,7 @@ L'opération **List Indexers** retourne la liste des indexeurs utilisés dans vo
 
 **Réponse**
 
-Pour une requête réussie : « 200 Créé ».
+Pour une requête réussie : « 200 OK ».
 
 Voici un exemple de corps de réponse :
 
@@ -391,11 +391,11 @@ Voici un exemple de corps de réponse :
 	  }]
     }
 
-Notez que vous pouvez filtrer la réponse pour afficher uniquement les propriétés qui vous intéressent. Par exemple, si vous voulez uniquement une liste des noms d'indexeurs, utilisez l'option de requête OData `$select` :
+Notez que vous pouvez filtrer la réponse de manière à afficher uniquement les propriétés qui vous intéressent. Par exemple, si vous voulez uniquement une liste de noms d'indexeurs, utilisez l'option de requête OData `$select` :
 
     GET /indexers?api-version=2014-10-20-Preview&$select=name
 
-Dans ce cas, la réponse de l'exemple ci-dessus apparaît comme suit :
+Dans ce cas, la réponse de l'exemple ci-dessus est affichée comme suit :
 
     {
       "value" : [ { "name": "myindexer" } ]
@@ -412,7 +412,7 @@ L'opération **Get Indexer** obtient la définition d'indexeur auprès d'Azure S
 
 **Réponse**
 
-Code d'état : 200 OK est retourné pour une réponse correcte.
+Code d'état : 200 OK est renvoyé en cas de réponse correcte.
 
 La réponse est similaire aux exemples dans l'[exemple de requêtes Create Indexer](#CreateIndexerRequestExamples) :
 
@@ -427,19 +427,19 @@ La réponse est similaire aux exemples dans l'[exemple de requêtes Create Index
 
 ### Delete Indexer
 
-L'opération **Delete Indexer** supprime de votre service Azure Search un indexeur.
+L'opération de suppression d'un indexeur (**Delete Indexer**) supprime un indexeur de votre service Azure Search.
 
     DELETE https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
     api-key: [admin key]
 
-Quand un indexeur est supprimé, les exécutions d'indexeur en cours à ce moment-là sont effectuées jusqu'à la fin, mais aucune autre exécution n'est planifiée. Les tentatives d'utilisation d'un indexeur inexistant génèrent le code d'état HTTP 404 Introuvable.
+Quand un indexeur est supprimé, les exécutions d'indexeur en cours sont exécutées complètement, mais aucune autre exécution n'est planifiée. Les tentatives d'utilisation d'un indexeur inexistant génèrent le code d'état HTTP 404 Introuvable.
  
 **Réponse**
 
-Code d'état : 204 Pas de contenu est retourné pour une réponse correcte.
+Code d'état : 204 Pas de contenu est renvoyé en cas de réponse correcte.
 
 <a name="RunIndexer"></a>
-### Run Indexer
+### Exécution d'un indexeur
 
 En plus de l'exécution périodique selon une planification, un indexeur peut aussi être appelé à la requête via l'opération **Run Indexer** :
 
@@ -448,10 +448,10 @@ En plus de l'exécution périodique selon une planification, un indexeur peut au
 
 **Réponse**
 
-Code d'état : 202 Accepté est retourné pour une réponse correcte.
+Code d'état : 202 Accepté est retourné en cas de réponse correcte.
 
 <a name="GetIndexerStatus"></a>
-### Get Indexer Status
+### Obtention de l'état de l'indexeur
 
 L'opération **Get Indexer Status** récupère l'état actuel et l'historique d'exécution d'un indexeur :
 
@@ -460,11 +460,11 @@ L'opération **Get Indexer Status** récupère l'état actuel et l'historique d'
 
 **Réponse**
 
-Code d'état : 200 OK pour une réponse correcte.
+Code d'état : 200 OK en cas de réponse correcte.
 
 Le corps de la réponse contient des informations sur l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur, ainsi que l'historique des appels récents de l'indexeur (le cas échéant).
 
-Un exemple de corps de réponse ressemble à ceci :
+Voici un exemple de corps de réponse :
 
 	{
 		"status":"running",
@@ -496,7 +496,7 @@ Un exemple de corps de réponse ressemble à ceci :
 
 Les valeurs possibles pour l'état de l'indexeur sont les suivantes :
 
-- `running` Indique que l'indexeur s'exécute normalement. Notez que, comme certaines exécutions de l'indexeur peuvent encore échouer, il est judicieux de vérifier également la propriété `lastResult`. 
+- `running` Indique que l'indexeur s'exécute normalement. Notez que, comme certaines exécutions de l'indexeur peuvent encore échouer, nous recommandons de vérifier également la propriété `lastResult`. 
 
 - `error` Indique que l'indexeur a rencontré une erreur qui ne peut pas être corrigée sans intervention humaine. Par exemple, il se peut que les informations d'identification de la source de données aient expiré, ou que le schéma de la source de données ou de l'index cible ait subitement changé.
 
@@ -514,21 +514,21 @@ Le résultat d'exécution de l'indexeur contient les propriétés suivantes :
 
 - `endTime` : heure UTC à laquelle cette exécution s'est achevée. Cette valeur n'est pas définie si l'exécution est encore en cours.
 
-- `errors` : liste d'éventuelles erreurs au niveau élément.
+- `errors` : liste d'éventuelles erreurs au niveau des éléments.
 
 - `itemsProcessed` : nombre d'éléments de source de données (par exemple, lignes de table) que l'indexeur a tenté d'indexer durant cette exécution.
 
 - `itemsFailed` : nombre d'éléments dont l'exécution a échoué au cours de cette opération.
  
-- `initialTrackingState` : toujours `null` pour la première exécution de l'indexeur, ou si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Si une telle stratégie est activée, lors des exécutions suivantes, cette valeur est la première valeur (la plus basse) de suivi des modifications traitée par cette exécution.
+- `initialTrackingState` : toujours `null` pour la première exécution de l'indexeur, ou si la stratégie de suivi des modifications des données n'est pas activée dans la source de données utilisée. Si une telle stratégie est activée, cette valeur est, lors des exécutions suivantes, la première valeur (la plus basse) de suivi des modifications traitée au cours cette exécution.
 
-- `finalTrackingState` : toujours `null` si la stratégie de suivi des modifications des données n'est pas activée sur la source de données utilisée. Sinon, indique la dernière valeur (la plus élevée) de suivi des modifications correctement traitée par cette exécution.
+- `finalTrackingState` : toujours `null` si la stratégie de suivi des modifications des données n'est pas activée dans la source de données utilisée. Sinon, indique la dernière valeur (la plus élevée) de suivi des modifications correctement traitée par cette exécution.
 
 <a name="IndexerExecutionStatus"></a> **État d'exécution de l'indexeur**
 
 L'état d'exécution de l'indexeur reflète l'état d'une seule exécution. Il peut avoir les valeurs suivantes :
 
-- `success` Indique que l'exécution de l'indexeur s'est terminée correctement.
+- `success` indique que l'exécution de l'indexeur s'est terminée correctement.
 
 - `inProgress` Indique que l'exécution de l'indexeur est en cours.
 
@@ -539,9 +539,9 @@ L'état d'exécution de l'indexeur reflète l'état d'une seule exécution. Il p
 - `reset` Indique que l'indexeur a été réinitialisé par un appel à l'API Reset Indexer (voir ci-dessous).
 
 <a name="ResetIndexer"></a>
-### Reset Indexer
+### Réinitialisation de l'indexeur
 
-L'opération **Reset Indexer** réinitialise l'état de suivi des modifications associé à l'indexeur. Cela vous permet de déclencher une réindexation complète (par exemple, si votre schéma de source de données a changé) ou de modifier la stratégie de détection des modifications de données pour une source de données associée à l'indexeur.
+L'opération de réinitialisation de l'indexeur (**Reset Indexer**) réinitialise l'état de suivi des modifications associé à l'indexeur. Cela vous permet de déclencher une réindexation complète (par exemple, si votre schéma de source de données a changé) ou de modifier la stratégie de détection des modifications de données pour une source de données associée à l'indexeur.
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
@@ -555,7 +555,7 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 <table style="font-size:12">
 <tr>
 <td>Type de données SQL</td>	
-<td>Types de champs d'index cibles autorisés</td>
+<td>Types de champs d'index cible autorisés</td>
 <td>Remarques</td>
 </tr>
 <tr>
@@ -582,7 +582,7 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 <td>smallmoney, money<br>décimal<br>numérique
 </td>
 <td>Edm.String</td>
-<td>Azure Search ne prend pas en charge la conversion de types décimaux en Edm.Double, car cela entraîne une perte de précision
+<td>Azure Search ne prend pas en charge la conversion de types décimaux en Edm.Double, car elle entraîne une perte de précision
 </td>
 </tr>
 <tr>
@@ -617,7 +617,7 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 <table style="font-size:12">
 <tr>
 <td>Type de données JSON</td>	
-<td>Types de champs d'index cibles autorisés</td>
+<td>Types de champs d'index cible autorisés</td>
 <td>Remarques</td>
 </tr>
 <tr>
@@ -656,4 +656,5 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 <td>Non pris en charge&#160;; Azure Search prend actuellement en charge uniquement les types primitifs et les collections de chaînes</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

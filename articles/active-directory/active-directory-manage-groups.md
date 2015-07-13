@@ -40,5 +40,6 @@ Si vous avez activé la gestion de groupes libre-service pour vos utilisateurs (
 - [Administration d’Azure AD](active-directory-administer.md)
 - [Création ou modification des utilisateurs dans Azure AD](active-directory-create-users.md)
 - [Gestion des mots de passe dans Azure AD](active-directory-manage-passwords.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

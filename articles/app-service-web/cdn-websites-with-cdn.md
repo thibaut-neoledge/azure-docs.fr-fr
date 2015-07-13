@@ -19,7 +19,7 @@
 
 #<a name="intro"></a>Utiliser Azure CDN dans Azure App Service
 
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) peut être intégré à [Azure CDN](/services/cdn/), afin de renforcer les capacités de mise à l’échelle globale inhérentes aux [applications web App Service](http://go.microsoft.com/fwlink/?LinkId=529714) en servant le contenu de votre application web de façon globale à partir des nœuds du serveur proches de vos clients (une liste mise à jour de tous les emplacements de nœuds actuels se trouve [ici](http://msdn.microsoft.com/library/azure/gg680302.aspx)). Dans les scénarios tels que la fourniture d'images statiques, cette intégration peut considérablement augmenter les performances de vos applications web Azure App Service et améliorer le confort de votre application web dans le monde entier.
+[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) peut être intégré à [Azure CDN](/services/cdn/), afin de renforcer les capacités de mise à l’échelle globale inhérentes aux [applications Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714) en servant le contenu de votre application web de façon globale à partir des nœuds du serveur proches de vos clients (une liste mise à jour de tous les emplacements de nœuds actuels se trouve [ici](http://msdn.microsoft.com/library/azure/gg680302.aspx)). Dans les scénarios tels que la fourniture d'images statiques, cette intégration peut considérablement augmenter les performances de vos applications web Azure App Service et améliorer le confort de votre application web dans le monde entier.
 
 L'intégration d'applications web à Azure CDN offre les avantages suivants :
 
@@ -67,13 +67,11 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 8. Si vous n'avez pas déjà créé d'application web dans Azure, Visual Studio peut vous aider à le faire. Dans la boîte de dialogue **Configurer le site web Microsoft Azure**, vérifiez que le nom de votre site est unique. Cliquez ensuite sur **OK**.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Une fois votre application ASP.NET créée, publiez-la sur Azure dans le volet Activité de publication sur le web en cliquant sur **Publier `<app name>` sur ce site dès maintenant**. Cliquez sur **Publier** pour terminer le processus.
 
-	<!--todo: need 2.5.1 screenshot-->
-	![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Une fois publiée, votre application web s'affiche dans le navigateur.
 
@@ -560,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

@@ -40,7 +40,7 @@ Ce didacticiel requiert les éléments suivants :
 
 La synchronisation hors connexion Mobile App permet aux utilisateurs d'interagir avec une base de données locale quand le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l’interface `IMobileServiceSyncTable`. Cette section décrit le code associé à la synchronisation hors connexion dans `QSTodoService.cs`.
 
-1. Dans Visual Studio, ouvrez le projet terminé dans le didacticiel [Prise en main de Mobile Apps]. Ouvrez le fichier `QSTodoService.cs`.
+1. Dans Visual Studio, ouvrez le projet que vous avez terminé dans le didacticiel [Prise en main de Mobile Apps]. Ouvrez le fichier `QSTodoService.cs`.
 
 2. Notez que le type du membre `todoTable` est `IMobileServiceSyncTable`. La synchronisation hors connexion utilise cette interface de table de synchronisation à la place de `IMobileServiceTable`. Lorsqu'une table de synchronisation est utilisée, toutes les opérations vont vers le magasin local et sont uniquement synchronisées avec le service distant à l'aide d'opérations push et pull explicites.
 
@@ -164,5 +164,6 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 
 [Xamarin Studio]: http://xamarin.com/download
 [Extension Xamarin]: http://xamarin.com/visual-studio
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
 # Suivre les demandes HTTP dans une application web Java
@@ -88,8 +88,11 @@ Recherchez et ouvrez le fichier ApplicationInsights.xml dans votre projet et fus
 S'il n'y a aucun élément < TelemetryInitializers> dans ce fichier, ajoutez-en un sous l'élément <ApplicationInsights>.
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
@@ -99,12 +102,12 @@ Exécutez votre application.
 
 Revenez à votre ressource Application Insights dans Microsoft Azure.
 
-Les données des demandes HTTP apparaissent dans le panneau Vue d'ensemble. (Si elles n'y sont pas, attendez quelques secondes et puis cliquez sur Actualiser).
+Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (Si elles n’y sont pas, attendez quelques secondes et cliquez sur Actualiser).
 
 ![](./media/app-insights-java-track-http-requests/5-results.png)
  
 
-Cliquez sur n'importe quel graphique pour afficher des mesures plus détaillées.
+Cliquez sur un des graphiques pour afficher des mesures plus détaillées.
 
 ![](./media/app-insights-java-track-http-requests/6-barchart.png)
 
@@ -113,7 +116,7 @@ Cliquez sur n'importe quel graphique pour afficher des mesures plus détaillées
 
  
 
-Et lorsque vous affichez les propriétés d'une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
+Lorsque vous affichez les propriétés d’une demande, vous voyez les événements de télémétrie associés, par exemple les demandes et les exceptions.
  
 ![](./media/app-insights-java-track-http-requests/7-instance.png)
 
@@ -134,5 +137,6 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 1. Dans votre projet d’application, ouvrez le fichier `AndroidManifest.xml`. Dans le code des deux prochaines étapes, remplacez _`**my_app_package**`_ par le nom du package de l'application de votre projet, qui est la valeur de l'attribut `package` de la balise `manifest`. 
 
-2. Ajoutez les nouvelles autorisations suivantes après l'élément  `uses-permission` existant :
+2. Ajoutez les nouvelles autorisations suivantes après l'élément `uses-permission` existant :
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -33,7 +33,7 @@
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Modifiez la définition de *MobileServiceClient* de **private** à **public static**, afin qu'elle ressemble à ceci :
+7. Modifiez la définition de *MobileServiceClient* de **private** pour **public static**, afin qu'elle ressemble à ceci :
 
 		public static MobileServiceClient mClient;
 
@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 
-<!--HONumber=54-->
+<!---HONumber=62-->

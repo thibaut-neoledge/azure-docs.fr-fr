@@ -31,7 +31,7 @@ Dans cet exemple, il existe 3 actions :
 
 2. Une action qui accède à une propriété de lien sur chaque article, qui renvoie l'emplacement réel de l'article.
 
-3. Action qui effectue une itération sur tous les résultats de la seconde action pour télécharger les articles réels.
+3. Une action qui effectue une itération sur tous les résultats de la seconde action pour télécharger les articles réels.
 
 ```
 {

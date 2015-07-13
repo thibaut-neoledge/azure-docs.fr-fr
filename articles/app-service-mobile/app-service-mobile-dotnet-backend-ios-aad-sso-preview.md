@@ -11,7 +11,7 @@ ms.workload="mobile"
 ms.tgt_pltfrm="mobile-ios" 
 ms.devlang="objective-c" 
 ms.topic="article" 
-ms.date="02/20/2015" 
+ms.date="05/19/2015" 
 ms.author="mahender" />
 
 # Ajout de l'authentification unique Azure Active Directory à votre application iOS
@@ -35,7 +35,7 @@ Ce didacticiel requiert les éléments suivants :
 
 ## <a name="require-authentication"></a>Configuration de l’application afin d’exiger une authentification
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>Ajout d’une référence à la bibliothèque d’authentification Active Directory
 
@@ -115,6 +115,7 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [bibliothèque d’authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-[Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

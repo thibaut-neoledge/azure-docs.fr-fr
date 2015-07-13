@@ -186,5 +186,6 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 ## Articles connexes
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

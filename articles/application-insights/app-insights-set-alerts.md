@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuration d’alertes dans Application Insights" 
+	pageTitle="Configuration d’alertes dans Application Insights" 
 	description="Obtenez des courriers électroniques sur les pannes, les exceptions et les modifications des métriques." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,7 +15,7 @@
 	ms.date="04/17/2015" 
 	ms.author="awills"/>
  
-# Configuration d’alertes dans Application Insights
+# Configuration d’alertes dans Application Insights
 
 [Visual Studio Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application.
 
@@ -30,7 +30,7 @@ Il existe une [page distincte sur les tests Web][availability], nous allons donc
 
 ## Alertes de métrique
 
-Si vous n’avez pas configuré Application Insights pour votre application, [commencez par le faire][start].
+Si vous n’avez pas configuré Application Insights pour votre application, [commencez par le faire][start].
 
 Pour obtenir un message électronique lorsqu’une métrique dépasse un seuil, démarrez dans Metrics Explorer ou à partir de la vignette des Règles d’alerte sur le panneau Vue d’ensemble.
 
@@ -40,7 +40,7 @@ Définissez la ressource avant les autres propriétés. Ne choisissez pas les re
 
 Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
 
-*Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
+*Je ne vois pas le bouton Ajouter une alerte.* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez Paramètres -> Utilisateurs. [En savoir plus sur le contrôle d’accès][roles].
 
 ## Consultez vos alertes
 
@@ -60,13 +60,13 @@ Vous pouvez définir des tests Web qui testent n’importe quel site web à part
 
 ## Quelles sont les alertes à définir ?
 
-Cela dépend de votre application. Pour commencer, il est préférable de ne pas définir trop de métriques. Prenez le temps d’examiner vos graphiques de métriques pendant l’exécution de votre application, pour mieux comprendre comment elle se comporte normalement. Cela vous aidera à trouver des moyens d’améliorer ses performances. Puis définissez des alertes pour vous avertir lorsque les métriques sortent de la zone normale.
+Cela dépend de votre application. Pour commencer, il est préférable de ne pas définir un trop grand nombre de métriques. Prenez le temps d’examiner vos graphiques de métriques pendant l’exécution de votre application, pour mieux comprendre comment elle se comporte normalement. Cela vous aidera à trouver des moyens d’améliorer ses performances. Définissez ensuite des alertes qui vous indiquent lorsque les métriques quittent la zone normale.
 
 Les alertes les plus appréciées sont les suivantes :
 
-* Les [tests Web][availability] sont importants si votre application est un site Web ou un service Web qui est visible sur l’internet public. Ils vous indiquent si votre site tombe en panne ou répond lentement, même si le problème est dû à l’opérateur et non à votre application. Ce sont des tests synthétiques, qui ne mesurent pas l’expérience réelle de vos utilisateurs.
+* Les [tests Web][availability] sont importants si votre application est un site Web ou un service Web qui est visible sur l’Internet public. Ils vous indiquent si votre site tombe en panne ou répond lentement : même si le problème est plutôt dû au transporteur qu’à votre application. Ce sont des tests synthétiques, qui ne mesurent pas l’expérience réelle de vos utilisateurs.
 * Les [mesures de navigateur][client], surtout les temps de chargement des pages de navigateur, sont efficaces pour les applications Web. Si votre page comporte un grand nombre de scripts, il peut être intéressant de rechercher des exceptions du navigateur. Pour obtenir ces métriques et alertes, vous devez configurer la [surveillance de page Web][client].
-* Temps de réponse de serveur et échec des demandes pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
+* Temps de réponse de serveur et échec des demandes pour le côté serveur des applications Web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
 
 
 
@@ -78,4 +78,6 @@ Les alertes les plus appréciées sont les suivantes :
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

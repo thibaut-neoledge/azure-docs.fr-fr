@@ -57,7 +57,7 @@ PowerShell DSC a introduit un nouveau concept appelé « configurations ». Le
 
 Dans le bloc de configuration, vous pouvez définir des blocs de configuration de nœuds qui spécifient la configuration souhaitée pour un ensemble de nœuds (machines) de votre environnement qui doivent être configurés exactement de la même manière. De cette façon, une configuration de nœuds représente un « rôle » qu'un ou plusieurs nœuds doivent adopter. Un bloc de configuration de nœuds commence par le mot clé « node ». Faites suivre ce mot clé du nom du rôle, qui peut être une variable. Après le nom de la machine, utiliser des accolades {} pour délimiter le bloc de configuration de nœuds.
 
-![texte de remplacement](./media/automation-dsc-overview/AADSC_2.png)
+![alt text](./media/automation-dsc-overview/AADSC_2.png)
  
 Dans le bloc de configuration de nœuds, vous pouvez définir des blocs de ressources pour configurer les ressources DSC spécifiques. Un bloc de ressources commence par le nom de la ressource, suivi de l'identificateur que vous souhaitez spécifier pour ce bloc, puis d'accolades {} pour délimiter le bloc.
 
@@ -179,7 +179,7 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 Dans Azure Automation DSC, une tâche de compilation est une instance de compilation d'une configuration destinée à créer une ou plusieurs configurations de nœuds. Elles sont semblables aux tâches de Runbook Azure Automation, sauf qu'elles n'effectuent en fait aucune tâche excepté créer des configurations de nœuds. Toutes les configurations de nœuds créées par une tâche de compilation sont automatiquement placées sur le serveur collecteur Azure Automation DSC, et remplacent les versions précédentes des configurations de nœuds, si elles existaient pour cette configuration. Le nom d'une configuration de nœud produite par une tâche de compilation se présente sous la forme « <Configuration-name>.<Node configuration-block-name> ». Par exemple, la compilation de la configuration ci-dessous produirait une configuration de nœud unique appelée « MyConfiguration.webserver »
 
 
-![texte de remplacement](./media/automation-dsc-overview/AADSC_5.png)
+![alt text](./media/automation-dsc-overview/AADSC_5.png)
 
 
 >[AZURE.NOTE]À l'instar des Runbooks, les configurations peuvent être publiées. Cela n'est pas lié au placement des éléments DSC sur le serveur collecteur Azure Automation DSC. Suite à une tâche de compilation, les éléments DSC sont placés sur le serveur collecteur Azure Automation DSC. Pour plus d'informations sur la « publication » dans Azure Automation, consultez [Publication d'un Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
@@ -220,4 +220,6 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Lorsqu'une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l'aide de `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension`, ou de l'extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, si l'inscription échoue avec le message **Le nom de l'ordinateur n'a pas été indiqué et le répertoire de configuration ne contient aucun fichier de configuration**, il s'agit d'une fausse alerte et l'inscription de la machine virtuelle a réussi. Il est possible de vérifier si l'inscription a réussi à l'aide de l'applet de commande `Get-AzureAutomationDscNode`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

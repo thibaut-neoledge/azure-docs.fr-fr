@@ -1,13 +1,12 @@
 <properties 
-	pageTitle="Processus de science des données Azure en action : utilisation de SQL Server | Azure" 
-	description="Processus de science des données Azure en action" 
-	metaKeywords="" 
+	pageTitle="Processus d’analyse avancé et technologie en action : Utilisation de SQL Server | Microsoft Azure" 
+	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -15,20 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="mohabib;fashah"/> 
+	ms.date="05/29/2015" 
+	ms.author="mohabib;fashah;bradsev"/>
 
                 
-# Processus de science des données Azure en action : utilisation de SQL Server
+# Processus d’analyse avancé et technologie en action : Utilisation de SQL Server
 
-Dans ce didacticiel, vous allez suivre la cartographie de bout en bout du processus de science des données Azure pour générer et déployer un modèle à l'aide d'un jeu de données publiquement accessible : le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) (courses en taxi new-yorkais). 
+Dans ce didacticiel, vous allez suivre le guide Azure Processus d’analyse avancé et technologie en action pour générer et déployer un modèle à l’aide d’un jeu de données publiquement accessible : le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) (courses en taxi new-yorkais).
 
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
 
-Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compressés d'une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), contenant plus de 173 millions de courses et le prix de chacune. Chaque enregistrement de course inclut le lieu et l'heure d'embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d'identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
+Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), contenant plus de 173 millions de courses et le prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
-1. Le fichier CSV 'trip_data' contient les détails de chaque course, comme le nombre de passagers, les points d'embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d'enregistrements :
+1. Le fichier CSV trip_data contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
 
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -37,7 +36,7 @@ Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compress
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. Le fichier CSV 'trip_fare' contient les détails du prix de chaque course, comme le type de paiement, le prix de la course, les suppléments et les taxes, les pourboires et les péages, ainsi que le montant total réglé. Voici quelques exemples d'enregistrements :
+2. Le fichier CSV trip_fare contient les détails du prix de chaque course, comme le type de paiement, le prix de la course, les suppléments et les taxes, les pourboires et les péages, ainsi que le montant total réglé. Voici quelques exemples d’enregistrements :
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -46,15 +45,15 @@ Les données NYC Taxi Trip se présentent sous la forme de fichiers CSV compress
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clé unique permettant de joindre trip_data et trip_fare se compose des champs suivants : medallion (médaillon), hack_licence (licence de taxi) et pickup_datetime (date et heure d'embarquement).
+La clé unique permettant de joindre trip_data et trip_fare se compose des champs suivants : medallion (médaillon), hack_licence (licence de taxi) et pickup_datetime (date et heure d’embarquement).
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 
-Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip_amount*(montant du pourboire), à savoir :
+Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip_amount* supérieure à 0 $ constitue un exemple positif, alors qu'une valeur *tip_amount* de 0 $ est un exemple négatif.
+1. Classification binaire : prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip_amount* de 0 $ est un exemple négatif.
 
-2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip_amount* en cinq compartiments ou classes :
+2. Classification multiclasse : prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip_amount* en cinq compartiments ou classes :
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -62,138 +61,135 @@ Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip_
 		Class 3 : tip_amount > $10 and tip_amount <= $20
 		Class 4 : tip_amount > $20
 
-3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
+3. Tâche de régression : prédire le montant du pourboire versé pour une course.
 
 
-## <a name="setup"></a>Configuration de l'environnement de science des données Azure
+## <a name="setup"></a>Configuration de l’environnement de science des données Azure pour l’analyse avancée
 
-Comme vous l'explique le guide [Planifier votre environnement](machine-learning-data-science-plan-your-environment.md), vous disposez de plusieurs options pour travailler sur le jeu de données NYC Taxi Trips dans Azure :
+Comme vous l’explique le guide [Planifier votre environnement](machine-learning-data-science-plan-your-environment.md), vous disposez de plusieurs options pour travailler sur le jeu de données NYC Taxi Trips dans Azure :
 
-- manipuler les données dans des objets blob Azure, puis les modéliser dans Azure Machine Learning ;
-- charger les données dans une base de données SQL Server, puis les modéliser dans Azure Machine Learning.
+- manipuler les données dans des objets blob Azure, puis les modéliser dans Azure Machine Learning ;
+- charger les données dans une base de données SQL Server, puis les modéliser dans Azure Machine Learning.
 
-Dans ce didacticiel, nous allons décrire les procédures d'importations de données en bloc en parallèle dans SQL Server, d'exploration des données, de conception de fonctionnalités et de sous-échantillonnage à l'aide de SQL Server Management Studio et de Notebook IPython. [Des exemples de scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) et de [notebooks IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) sont publiquement accessibles dans GitHub. Un exemple de notebook IPython permettant de travailler sur les données d'objets blob d'Azure est également disponible au même emplacement.
+Dans ce didacticiel, nous allons décrire les procédures d’importations de données en bloc en parallèle dans SQL Server, d’exploration des données, de conception de fonctionnalités et de sous-échantillonnage à l’aide de SQL Server Management Studio et de Notebook IPython. Des [exemples de scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) et de [notebooks IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) sont publiquement accessibles dans GitHub. Un exemple de notebook IPython permettant de travailler sur les données d’objets blob d’Azure est également disponible au même emplacement.
 
-Pour configurer votre environnement de science des données Azure :
+Pour configurer votre environnement de science des données Azure :
 
-1. [Créez un compte de stockage](../storage-create-storage-account.md).
+1. [Créez un compte de stockage](../storage-create-storage-account.md)
 
-2. [Créez un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
+2. [Créez un espace de travail Azure Machine Learning](machine-learning-create-workspace.md)
 
-3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
+3. [Approvisionnez une machine virtuelle de science des données](machine-learning-data-science-setup-sql-server-virtual-machine.md), qui fera office de serveur SQL Server et de serveur Notebook IPython.
 
-	> [AZURE.NOTE] Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l'issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle :  
-	> - Exemples de scripts : `C:\Users<user_name>\Documents\Data Science Scripts`  
-	> - Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-	> où `<user_name>` est le nom de connexion Windows de votre machine virtuelle. Nous désignerons les dossiers d'exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
+	> [AZURE.NOTE]Les exemples de scripts et de notebooks IPython seront téléchargés sur votre machine virtuelle de science des données lors du processus de configuration. À l’issue du script de post-installation de la machine virtuelle, les exemples figureront dans la bibliothèque Documents de votre machine virtuelle : `C:\Users<user_name>\Documents\Data Science Scripts` Exemples de notebooks IPython : `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, où `<user_name>` est le nom de connexion de votre machine virtuelle Windows. Nous désignerons les dossiers d’exemples sous la forme **Exemples de scripts** et **Exemples de notebooks IPython**.
 
 
-Selon la taille du jeu de données, l'emplacement source des données et l'environnement cible Azure sélectionné, ce scénario est semblable au [Scénario \n° 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+Selon la taille du jeu de données, l’emplacement source des données et l’environnement cible Azure sélectionné, ce scénario est semblable au [Scénario n° 5 : jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Récupérer les données de la source publique
 
-Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l'une des méthodes décrites dans l'article [Déplacer des données vers et depuis le stockage d'objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
+Pour récupérer le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) depuis son emplacement public, vous pouvez utiliser l’une des méthodes décrites dans l’article [Déplacer des données vers et depuis le stockage d’objets blob Azure](machine-learning-data-science-move-azure-blob.md) afin de copier les données dans votre nouvelle machine virtuelle.
 
-Pour copier les données à l'aide d'AzCopy :
+Pour copier les données à l’aide d’AzCopy :
 
 1. Connectez-vous à votre machine virtuelle.
 
-2. Créez un répertoire dans le disque de données de la machine virtuelle (remarque : n'utilisez pas le disque temporaire fourni avec la machine virtuelle en tant que disque de données).
+2. Créez un répertoire dans le disque de données de la machine virtuelle (remarque : n’utilisez pas le disque temporaire fourni avec la machine virtuelle en tant que disque de données).
 
-3. Dans une fenêtre d'invite de commandes, exécutez la ligne de commande Azcopy ci-après en remplaçant la chaîne <path_to_data_folder> par votre dossier de données créé à l'étape 2 :
+3. Dans une fenêtre d’invite de commandes, exécutez la ligne de commande Azcopy ci-après en remplaçant la chaîne <path_to_data_folder> par votre dossier de données créé à l’étape 2 :
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	Une fois AzCopy exécuté, le dossier de données doit contenir 24 fichiers CSV compressés (12 pour trip_data et 12 pour trip_fare).
+	Une fois AzCopy exécuté, le dossier de données doit contenir 24 fichiers CSV compressés (12 pour trip_data et 12 pour trip_fare).
 
-4. Décompressez les fichiers téléchargés. Notez le dossier dans lequel résident les fichiers décompressés. Ce dossier sera désigné par la chaîne <path_to_data_files>.
+4. Décompressez les fichiers téléchargés. Notez le dossier dans lequel résident les fichiers décompressés. Ce dossier sera désigné par la chaîne <chemin_d’accès_aux_fichiers_de_données>.
 
-## <a name="dbload"></a>Importer en bloc les données dans une base de données SQL Server
+## <a name="dbload"></a>Importer en bloc les données dans une base de données SQL Server
 
-Les performances de chargement/transfert de grandes quantités de données dans une base de données SQL et des requêtes ultérieures peuvent être optimisées à l'aide de tables et de vues partitionnées. Dans cette section, nous allons suivre les instructions de l'article [Importations de données en bloc en parallèle à l'aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) pour créer une base de données et charger les données dans des tables partitionnées en parallèle.
+Les performances de chargement et de transfert de grandes quantités de données dans une base de données SQL et des requêtes ultérieures peuvent être optimisées à l’aide de _tables et de vues partitionnées_. Dans cette section, nous allons suivre les instructions de l’article [Importations de données en bloc en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) pour créer une base de données et charger les données dans des tables partitionnées en parallèle.
 
 1. Pendant que vous êtes connecté à votre machine virtuelle, démarrez **SQL Server Management Studio**.
 
-2. Connectez-vous à l'aide de l'authentification Windows.
+2. Connectez-vous à l’aide de l’authentification Windows.
 
-	![SSMS Connect][12]
+	![Connecter SSMS][12]
 
-3. Si vous n'avez pas encore modifié le mode d'authentification de SQL Server et créé un utilisateur de connexion SQL, ouvrez le fichier de script appelé **change_auth.sql** dans le dossier **Exemples de scripts**. Changez le nom d'utilisateur et le mot de passe par défaut. Cliquez sur **!Exécuter** dans la barre d'outils pour exécuter le script.
+3. Si vous n’avez pas encore modifié le mode d’authentification de SQL Server et créé un utilisateur de connexion SQL, ouvrez le fichier de script appelé **change_auth.sql** dans le dossier **Exemples de scripts**. Changez le nom d’utilisateur et le mot de passe par défaut. Cliquez sur **!Exécuter** dans la barre d’outils pour exécuter le script.
 
-	![Execute Script][13]
+	![Exécuter le script][13]
 
-4. Vérifiez et/ou modifiez les dossiers de base de données et de journaux par défaut de SQL Server pour vous assurer que les bases de données nouvellement créées seront stockées dans un disque de données. L'image de machine virtuelle SQL Server optimisée pour les charges d'entreposage de données est préconfigurée avec des disques de données et de journaux. Si votre machine virtuelle ne comportait aucun disque de données et que vous avez ajouté des disques durs virtuels lors du processus de configuration de la machine virtuelle, modifiez les dossiers par défaut en procédant comme suit :
+4. Vérifiez et/ou modifiez les dossiers de base de données et de journaux par défaut de SQL Server pour vous assurer que les bases de données nouvellement créées seront stockées dans un disque de données. L’image de machine virtuelle SQL Server optimisée pour les charges d’entreposage de données est préconfigurée avec des disques de données et de journaux. Si votre machine virtuelle ne comportait aucun disque de données et que vous avez ajouté des disques durs virtuels lors du processus de configuration de la machine virtuelle, modifiez les dossiers par défaut en procédant comme suit :
 
-	- Cliquez avec le bouton droit sur le nom du serveur SQL Server dans le panneau gauche, puis cliquez sur **Propriétés**.
+	- Cliquez avec le bouton droit sur le nom du serveur SQL Server dans le panneau de gauche, puis cliquez sur **Propriétés**.
 
-		![SQL Server Properties][14]
+		![Propriétés SQL Server][14]
 
 	- Dans la liste **Sélectionner une page** figurant sur la gauche, sélectionnez **Paramètres de la base de données**.
 
-	- Vérifiez et/ou redéfinissez le champ **Emplacements de la base de données par défaut** sur les emplacements **Disque de données** de votre choix. Il s'agit des emplacements dans lesquels résident les nouvelles bases de données si elles ont été créées avec les paramètres d'emplacement par défaut.
+	- Vérifiez et/ou redéfinissez le champ **Emplacements de la base de données par défaut** sur les emplacements **Disque de données** de votre choix. Il s’agit des emplacements dans lesquels résident les nouvelles bases de données si elles ont été créées avec les paramètres d’emplacement par défaut.
 	
-		![SQL Database Defaults][15]  
+		![Valeurs par défaut de la base de données SQL][15]
 
-5. Pour créer une base de données et un ensemble de groupes de fichiers destinés à contenir les tables partitionnées, ouvrez l'exemple de script **create_db_default.sql**. Ce script créera une base de données nommée **TaxiNYC** et 12 groupes de fichiers à l'emplacement des données par défaut. Chaque groupe de fichiers contiendra un mois de données trip_data et trip_fare. Si vous le souhaitez, modifiez le nom de la base de données. Cliquez sur **!Exécuter** pour exécuter le script.
+5. Pour créer une base de données et un ensemble de groupes de fichiers destinés à contenir les tables partitionnées, ouvrez l’exemple de script **create_db_default.sql**. Ce script créera une base de données nommée **TaxiNYC** et 12 groupes de fichiers à l’emplacement des données par défaut. Chaque groupe de fichiers contiendra un mois de données trip_data et trip_fare. Si vous le souhaitez, modifiez le nom de la base de données. Cliquez sur **!Exécuter** pour exécuter le script.
 
-6. Puis créez deux tables de partition, l'une pour les données trip_data et l'autre pour les données trip_fare. Ouvrez l'exemple de script **create_partitioned_table.sql**, qui va :
+6. Créez ensuite deux tables de partition, l’une pour les données trip_data et l’autre pour les données trip_fare. Ouvrez l’exemple de script **create_partitioned_table.sql**, qui va :
 
-	- créer une fonction de partition pour fractionner les données par mois ;
-	- créer un schéma de partition pour mapper les données de chaque mois sur un groupe de fichiers distinct ;
-	- créer deux tables partitionnées mappées sur le schéma de partition : **nyctaxi_trip** contiendra les données trip_data et **nyctaxi_fare** contiendra les données trip_fare.
+	- Créer une fonction de partition pour fractionner les données par mois.
+	- Créer un schéma de partition pour mapper les données de chaque mois sur un groupe de fichiers distinct.
+	- Créer deux tables partitionnées mappées sur le schéma de partition : **nyctaxi_trip** contiendra les données de trip_data et **nyctaxi_fare** contiendra les données de trip_fare.
 
 	Cliquez sur **!Exécuter** pour exécuter le script et créer les tables partitionnées.
 
-7. Le dossier **Exemples de scripts** comporte deux exemples de scripts PowerShell présentant les procédures d'importations de données en bloc en parallèle dans des tables SQL Server.
+7. Le dossier **Exemples de scripts** comporte deux exemples de scripts PowerShell présentant les procédures d’importations de données en bloc en parallèle dans des tables SQL Server.
 
-	- **bcp_parallel_generic.ps1** est un script générique permettant d'effectuer des importations de données en bloc en parallèle dans une table. Modifiez ce script pour définir les variables d'entrée et les variables cibles, comme indiqué dans les lignes de commentaire du script.
-	- **bcp_parallel_nyctaxi.ps1** est une version préconfigurée du script générique que vous pouvez utiliser pour charger les deux tables relatives aux données NYC Taxi Trips. 
+	- **bcp_parallel_generic.ps1** est un script générique permettant d’effectuer des importations de données en bloc en parallèle dans une table. Modifiez ce script pour définir les variables d’entrée et les variables cibles, comme indiqué dans les lignes de commentaire du script.
+	- **bcp_parallel_nyctaxi.ps1** est une version préconfigurée du script générique que vous pouvez utiliser pour charger les deux tables relatives aux données NYC Taxi Trips.  
 
-8. Cliquez avec le bouton droit sur le nom de script **bcp_parallel_nyctaxi.ps1**, puis cliquez sur **Modifier** pour l'ouvrir dans PowerShell. Examinez les variables prédéfinies et modifiez-les en fonction des valeurs que vous avez sélectionnées pour le nom de base de données, le dossier de données d'entrée, le dossier de journaux cible et les chemins d'accès aux exemples de fichiers de format **nyctaxi_trip.xml** et **nyctaxi_fare.xml** (fournis dans le dossier **Exemples de scripts**). 
+8. Cliquez avec le bouton droit sur le nom de script **bcp_parallel_nyctaxi.ps1**, puis cliquez sur **Modifier** pour l’ouvrir dans PowerShell. Examinez les variables prédéfinies et modifiez-les en fonction des valeurs que vous avez sélectionnées pour le nom de base de données, le dossier de données d’entrée, le dossier de journaux cibles et les chemins d’accès aux exemples de fichiers de format **nyctaxi_trip.xml** et **nyctaxi_fare.xml** (fournis dans le dossier **Exemples de scripts**).
 
-	![Bulk Import Data][16]
+	![Importer les données][16]
 
-	Vous pouvez également sélectionner le mode d'authentification (le mode par défaut est l'authentification Windows). Cliquez sur la flèche de couleur verte située dans la barre d'outils pour exécuter le script. Le script lancera 24 opérations d'importation en bloc en parallèle, 12 par table partitionnée. Vous pouvez suivre la progression de l'importation des données en ouvrant le dossier de données par défaut de SQL Server tel que défini ci-dessus.
+	Vous pouvez également sélectionner le mode d’authentification (le mode par défaut est l’authentification Windows). Cliquez sur la flèche de couleur verte située dans la barre d’outils pour exécuter le script. Le script lancera 24 opérations d’importation en bloc en parallèle, 12 par table partitionnée. Vous pouvez suivre la progression de l’importation des données en ouvrant le dossier de données par défaut de SQL Server tel que défini ci-dessus.
 
-9. Le script PowerShell indique les heures de début et de fin. Une fois toutes les importations en bloc effectuées, l'heure de fin est spécifiée. Consultez le dossier de journaux cible pour vous assurer que les importations en bloc se sont déroulées sans erreur.
+9. Le script PowerShell indique les heures de début et de fin. Une fois toutes les importations en bloc effectuées, l’heure de fin est spécifiée. Consultez le dossier de journaux cibles pour vous assurer que les importations en bloc se sont déroulées sans erreur.
 
-10. Votre base de données est désormais prête pour vos opérations d'exploration, de conception de fonctionnalités, etc. Les tables étant partitionnées en fonction du champ **pickup_datetime**, les requêtes qui incluent des conditions **pickup_datetime** dans la clause **WHERE** tireront avantage du schéma de partition.
+10. Votre base de données est désormais prête pour vos opérations d’exploration, de conception de fonctionnalités, etc. Les tables étant partitionnées en fonction du champ **pickup_datetime**, les requêtes qui incluent des conditions **pickup_datetime** dans la clause **WHERE** tireront avantage du schéma de partition.
 
-11. Dans **SQL Server Management Studio**, explorez l'exemple de script **sample_queries.sql** fourni. Pour exécuter l'un des exemples de requêtes, mettez en surbrillance les lignes de requête concernées, puis cliquez sur **!Exécuter** dans la barre d'outils.
+11. Dans **SQL Server Management Studio**, explorez l’exemple de script **sample_queries.sql** fourni. Pour exécuter l’un des exemples de requêtes, mettez en surbrillance les lignes de la requête concernées, puis cliquez sur **!Exécuter** dans la barre d’outils.
 
-12. Les données NYC Taxi Trips sont chargées dans deux tables distinctes. Pour améliorer les opérations de jointure, il est vivement recommandé d'indexer les tables. L'exemple de script **create_partitioned_index.sql** crée des index partitionnés sur la clé de jointure composite **medallion, hack_license et pickup_datetime**.
+12. Les données NYC Taxi Trips sont chargées dans deux tables distinctes. Pour améliorer les opérations de jointure, il est vivement recommandé d’indexer les tables. L’exemple de script **create_partitioned_index.sql** crée des index partitionnés sur la clé de jointure composite **medallion, hack_license et pickup_datetime**.
 
-## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans SQL Server
+## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans SQL Server
 
-Dans cette section, nous allons effectuer des tâches d'exploration des données et de génération de fonctionnalités en exécutant des requêtes SQL directement dans **SQL Server Management Studio** à l'aide de la base de données SQL Server créée précédemment. Le dossier **Exemples de scripts** comporte un exemple de script nommé **sample_queries.sql**. Modifiez ce script de façon à changer le nom de la base de données s'il diffère du nom par défaut : **TaxiNYC**.
+Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes SQL directement dans **SQL Server Management Studio** à l’aide de la base de données SQL Server créée précédemment. Le dossier **Exemples de scripts** comporte un exemple de script nommé **sample_queries.sql**. Modifiez ce script de façon à changer le nom de la base de données s’il est différent du nom par défaut : **TaxiNYC**.
 
-Dans cet exercice, nous allons :
+Dans cet exercice, nous allons :
 
-- nous connecter à **SQL Server Management Studio** à l'aide de l'authentification Windows ou SQL et des nom et mot de passe de connexion SQL ;
-- explorer les distributions de données de quelques champs portant sur différentes périodes ;
-- examiner la qualité des données des champs de longitude et de latitude ;
-- générer des étiquettes de classification binaire et multiclasse reposant sur la valeur **tip_amount** ;
-- générer des fonctionnalités et calculer/comparer les distances des trajets ;
-- joindre les deux tables et extraire un échantillon aléatoire que nous utiliserons pour créer les modèles.
+- Nous connecter à **SQL Server Management Studio** à l’aide de l’authentification Windows ou SQL et des nom et mot de passe de connexion SQL.
+- Explorer les distributions de données de quelques champs portant sur différentes périodes.
+- Examiner la qualité des données des champs de longitude et de latitude.
+- Générer des étiquettes de classification binaire et multiclasse reposant sur la valeur **tip_amount**.
+- Générer des fonctionnalités et calculer/comparer les distances des trajets.
+- Joindre les deux tables et extraire un échantillon aléatoire que nous utiliserons pour créer les modèles.
 
-Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :  
+Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez au choix :
 
-1. enregistrer la requête SQL finale d'extraction et d'échantillonnage des données et copier-coller cette requête directement dans un module Lecteur d'Azure Machine Learning, ou 
-2. stocker les données échantillonnées et générées que vous prévoyez d'utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module Lecteur d'Azure Machine Learning.
+1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning, ou 
+2. stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Lecteur][reader] d’Azure Machine Learning.
 
-Dans cette section, nous allons enregistrer la requête finale d'extraction et d'échantillonnage des données. La seconde méthode est décrite à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb).
+Dans cette section, nous allons enregistrer la requête finale d’extraction et d’échantillonnage des données. La seconde méthode est décrite à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb).
 
-Pour vérifier rapidement le nombre de lignes et de colonnes des tables précédemment remplies à l'aide des importations en bloc en parallèle, procédez comme suit :
+Pour vérifier rapidement le nombre de lignes et de colonnes des tables précédemment remplies à l’aide des importations en bloc en parallèle, procédez comme suit :
 
-	-- affichez le nombre de lignes de la table nyctaxi_trip sans analyse de table :
+	-- Report number of rows in table nyctaxi_trip without table scan
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
-	-- affichez le nombre de colonnes de la table nyctaxi_trip :
+	-- Report number of columns in table nyctaxi_trip
 	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
 
-#### Exploration : distribution des courses par médaillon
+#### Exploration : distribution des courses par médaillon
 
-Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au cours d'une période donnée. Cette requête tire avantage de l'accès aux tables partitionnées, car elle est conditionnée par le schéma de partition de **pickup_datetime**. L'exécution d'une requête portant sur le jeu de données complet tire également profit de l'analyse d'index et/ou de table partitionnée.
+Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au cours d’une période donnée. Cette requête tire avantage de l’accès aux tables partitionnées, car elle est conditionnée par le schéma de partition de **pickup_datetime**. L’exécution d’une requête portant sur le jeu de données complet tire également profit de l’analyse d’index et/ou de table partitionnée.
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -201,7 +197,7 @@ Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-#### Exploration : distribution des courses par médaillon et par licence de taxi
+#### Exploration : distribution des courses par médaillon et par licence de taxi
 
 	SELECT medallion, hack_license, COUNT(*)
 	FROM nyctaxi_fare
@@ -209,9 +205,9 @@ Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
 
-#### Évaluation de la qualité des données : vérifier les enregistrements avec une longitude et/ou une latitude incorrectes
+#### Évaluation de la qualité des données : vérifier les enregistrements avec une longitude et/ou une latitude incorrectes
 
-Cet exemple vérifie si l'un des champs de longitude et/ou de latitude contient une valeur incorrecte (le nombre de degrés doit être compris entre -90 et 90) ou présente des coordonnées (0, 0).
+Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contient une valeur incorrecte (le nombre de degrés doit être compris entre -90 et 90) ou présente des coordonnées (0, 0).
 
 	SELECT COUNT(*) FROM nyctaxi_trip
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -224,7 +220,7 @@ Cet exemple vérifie si l'un des champs de longitude et/ou de latitude contient 
 
 #### Exploration : distribution des courses avec et sans pourboire
 
-Cet exemple recherche le nombre de courses avec et sans pourboire sur une période donnée (ou dans le jeu de données complet si la requête porte sur l'année entière). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
+Cet exemple recherche le nombre de courses avec et sans pourboire sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
 
 	SELECT tipped, COUNT(*) AS tip_freq FROM (
 	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
@@ -232,9 +228,9 @@ Cet exemple recherche le nombre de courses avec et sans pourboire sur une pério
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-#### Exploration : distribution des classes/fourchettes de pourboires
+#### Exploration : distribution des classes/fourchettes de pourboires
 
-Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l'année entière). Il s'agit de la distribution des classes d'étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
+Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
 		SELECT CASE 
@@ -248,9 +244,9 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
-#### Exploration : calculer et comparer les distances des trajets
+#### Exploration : calculer et comparer les distances des trajets
 
-Cet exemple convertit la longitude et la latitude des points d'embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d'évaluation de la qualité des données précédemment décrite.
+Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
 
 	SELECT 
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
@@ -265,11 +261,11 @@ Cet exemple convertit la longitude et la latitude des points d'embarquement et d
 
 #### Conception de fonctionnalités dans des requêtes SQL
 
-Vous pouvez également utiliser les requêtes de génération d'étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D'autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb). L'exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s'exécutent directement sur l'instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans Notebook IPython ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
+Vous pouvez également utiliser les requêtes de génération d’étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D’autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb). L’exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s’exécutent directement sur l’instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans Notebook IPython ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
 
 #### Préparation des données pour la création de modèles
 
-La requête ci-après joint les tables **nyctaxi_trip** et **nyctaxi_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip_class**, puis extrait un échantillon aléatoire de 1 % des données de l'intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module Lecteur d'[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l'instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi_trip** et **nyctaxi_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Lecteur][reader] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -289,27 +285,26 @@ La requête ci-après joint les tables **nyctaxi_trip** et **nyctaxi_fare**, gé
 
 ## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans Notebook IPython
 
-Dans cette section, nous allons effectuer des opérations d'exploration des données et de génération de fonctionnalités
-en exécutant des requêtes Python et SQL sur la base de données SQL Server créée précédemment. Le dossier **Exemples de notebooks IPython** comporte un exemple de notebook nommé **machine-Learning-data-science-process-sql-story.ipynb**. Ce notebook est également disponible sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
+Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans la base de données SQL Server créée précédemment. Le dossier **Exemples de notebooks IPython** comporte un exemple de notebook IPython nommé **machine-Learning-data-science-process-sql-story.ipynb**. Ce notebook est également disponible sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
-Lorsque vous travaillez sur des données volumineuses, il est recommandé de procéder comme suit :
+Lorsque vous travaillez sur des données volumineuses, il est recommandé de procéder comme suit :
 
 - Lisez un petit échantillon des données dans une trame de données en mémoire.
-- Procédez à certaines visualisations et explorations à l'aide des données échantillonnées.
+- Procédez à certaines visualisations et explorations à l’aide des données échantillonnées.
 - Expérimentez la conception de fonctionnalités en utilisant les données échantillonnées. 
-- Pour exécuter de plus vastes tâches d'exploration des données, de manipulation des données et de conception de fonctionnalités, utilisez Python pour émettre des requêtes SQL directement sur la base de données SQL Server dans la machine virtuelle Azure.
-- Déterminez la taille d'échantillon à utiliser pour la création de modèles Azure Machine Learning.
+- Pour exécuter de plus vastes tâches d’exploration des données, de manipulation des données et de conception de fonctionnalités, utilisez Python pour émettre des requêtes SQL directement sur la base de données SQL Server dans la machine virtuelle Azure.
+- Déterminez la taille d’échantillon à utiliser pour la création de modèles Azure Machine Learning.
 
-Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez effectuer l'une des deux opérations suivantes :  
+Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez effectuer l’une des deux opérations suivantes :
 
-1. Enregistrez la requête SQL finale d'extraction et d'échantillonnage des données et copiez-collez cette requête directement dans un module Lecteur d'Azure Machine Learning. Cette méthode est décrite à la section [Création de modèles dans Azure Machine Learning](#mlmodel).    
-2. Stockez les données échantillonnées et générées que vous prévoyez d'utiliser pour la création de modèles dans une nouvelle table de base de données et utilisez cette table dans le module Lecteur d'Azure Machine Learning.
+1. Enregistrez la requête SQL finale d’extraction et d’échantillonnage des données et copiez-collez cette requête directement dans un module [Lecteur][reader] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel).    
+2. Stockez les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utilisez cette table dans le module [Lecteur][reader] d’Azure Machine Learning.
 
-Vous trouverez ci-dessous quelques exemples d'exploration des données, de visualisation des données et de conception de fonctionnalités. Pour découvrir d'autres exemples, reportez-vous à l'exemple de notebook IPython SQL figurant dans le dossier **Exemples de notebooks IPython**.
+Vous trouverez ci-dessous quelques exemples d’exploration des données, de visualisation des données et de conception de fonctionnalités. Pour découvrir d’autres exemples, reportez-vous à l’exemple de notebook IPython SQL figurant dans le dossier **Exemples de notebooks IPython**.
 
-#### Initialiser les informations d'identification de la base de données
+#### Initialiser les informations d’identification de la base de données
 
-Initialisez vos paramètres de connexion à la base de données dans les variables suivantes :
+Initialisez vos paramètres de connexion à la base de données dans les variables suivantes :
 
     SERVER_NAME=<server name>
     DATABASE_NAME=<database name>
@@ -338,10 +333,10 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
     
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-- Nombre total de lignes = 173 179 759  
+- Nombre total de lignes = 173 179 759  
 - Nombre total de colonnes = 14
     
-#### Lire un petit échantillon de données depuis la base de données SQL Server
+#### Lire un petit échantillon de données depuis la base de données SQL Server
 
     t0 = time.time()
     
@@ -362,25 +357,23 @@ Initialisez vos paramètres de connexion à la base de données dans les variabl
     
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Temps de lecture de la table d'échantillon = 6,492000 secondes  
-Nombre de lignes et de colonnes récupérées = (84 952, 21)
+Temps de lecture de la table d’échantillon = 6,492000 secondes Nombre de lignes et de colonnes récupérées = (84 952, 21)
     
 #### Statistiques descriptives
 
-Nous sommes désormais prêts à explorer les données échantillonnées. Nous commençons par
-examiner les statistiques descriptives relatives au champ **trip_distance** (ou à tout autre champ) :
+Nous sommes désormais prêts à explorer les données échantillonnées. Nous sommes prêts à examiner les statistiques descriptives relatives au champ **trip_distance** (ou à tout autre champ) :
 
     df1['trip_distance'].describe()
 
-#### Visualisation : exemple de diagramme à surfaces
+#### Visualisation : exemple de diagramme à surfaces
 
 Nous examinons ensuite le diagramme à surfaces concernant la distance des trajets afin de visualiser les quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Plot #1][1]
+![Diagramme #1][1]
 
-#### Visualisation : exemple de diagramme de distribution
+#### Visualisation : exemple de diagramme de distribution
 
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
@@ -388,9 +381,9 @@ Nous examinons ensuite le diagramme à surfaces concernant la distance des traje
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Plot #2][2]
+![Diagramme #2][2]
 
-#### Visualisation : diagrammes en bâtons et linéaires
+#### Visualisation : diagrammes en bâtons et linéaires
 
 Dans cet exemple, nous compartimentons la distance des trajets en cinq zones et nous visualisons les résultats de cette opération.
 
@@ -403,36 +396,35 @@ Nous pouvons représenter la distribution des compartiments ci-dessus dans un di
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Plot #3][3]
+![Diagramme #3][3]
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Plot #4][4]
+![Diagramme #4][4]
 
-#### Visualisation : exemple de diagramme de dispersion
+#### Visualisation : exemple de diagramme de dispersion
 
-Nous représentons le diagramme de dispersion entre **trip_time_in_secs** et **trip_distance** pour déterminer s'il
-existe une corrélation.
+Nous représentons le diagramme de dispersion entre **trip_time_in_secs** **et trip_distance** pour déterminer s’il existe une corrélation.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Plot #6][6]
+![Diagramme #6][6]
 
 De la même façon, nous pouvons vérifier la relation entre **rate_code** et **trip_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Plot #8][8]
+![Diagramme #8][8]
 
 ### Sous-échantillonnage des données dans SQL
 
-Lorsque vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit **utiliser la requête SQL directement dans le module Lecteur**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module Lecteur à l'aide d'une simple requête **SELECT * FROM <nom_de_nouvelle_table>**.
+Lorsque vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Lecteur**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Lecteur][reader] à l’aide d’une simple requête **SELECT * FROM <nom_de_votre_table>**.
 
-Dans cette section, nous allons créer une table destinée à contenir les données échantillonnées et générées. Un exemple de requête SQL directe pour la création de modèles est fourni à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
+Dans cette section, nous allons créer une table destinée à contenir les données échantillonnées et générées. Un exemple de requête SQL directe pour la création de modèles est fourni à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
 
-#### Créer une table d'échantillon et la remplir avec 1 % des données des tables jointes en commençant par supprimer la table si elle existe
+#### Créer une table d’échantillon et la remplir avec 1 % des données des tables jointes en commençant par supprimer la table si elle existe
 
-Dans cette section, nous allons joindre les tables **nyctaxi_trip** et **nyctaxi_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi_one_percent** :
+Dans cette section, nous allons joindre les tables **nyctaxi_trip** et **nyctaxi_fare**, extraire un échantillon aléatoire de 1 % des données et stocker les données échantillonnées dans une nouvelle table nommée **nyctaxi_one_percent** :
 
     cursor = conn.cursor()
     
@@ -455,11 +447,11 @@ Dans cette section, nous allons joindre les tables **nyctaxi_trip** et **nyctaxi
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
     
-### Exploration des données à l'aide de requêtes SQL dans Notebook IPython
+### Exploration des données à l’aide de requêtes SQL dans Notebook IPython
 
-Dans cette section, nous allons explorer les distributions de données à l'aide de l'échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l'aide des tables d'origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l'échantillon d'exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup_datetime**, comme décrit à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
+Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup_datetime**, comme décrit à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
 
-#### Exploration : distribution quotidienne des courses
+#### Exploration : distribution quotidienne des courses
 
     query = '''
 		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
@@ -469,7 +461,7 @@ Dans cette section, nous allons explorer les distributions de données à l'aide
 
     pd.read_sql(query,conn)
 
-#### Exploration : distribution des courses par médaillon
+#### Exploration : distribution des courses par médaillon
 
     query = '''
 		SELECT medallion,count(*) AS c 
@@ -479,16 +471,16 @@ Dans cette section, nous allons explorer les distributions de données à l'aide
     
 	pd.read_sql(query,conn)
 
-### Génération de fonctionnalités à l'aide de requêtes SQL dans Notebook IPython
+### Génération de fonctionnalités à l’aide de requêtes SQL dans Notebook IPython
 
-Dans cette section, nous allons générer de nouvelles étiquettes et fonctionnalités directement par le biais de requêtes SQL, en utilisant la table d'échantillon de 1 % des données que nous avons créée à la section précédente.
+Dans cette section, nous allons générer de nouvelles étiquettes et fonctionnalités directement par le biais de requêtes SQL, en utilisant la table d’échantillon de 1 % des données que nous avons créée à la section précédente.
 
-#### Génération d'étiquettes : générer des étiquettes de classe
+#### Génération d’étiquettes : générer des étiquettes de classe
 
-Dans l'exemple suivant, nous générons deux jeux d'étiquettes à utiliser pour la modélisation :
+Dans l’exemple suivant, nous générons deux jeux d’étiquettes à utiliser pour la modélisation :
 
-1. étiquettes de classe binaires **tipped** (prédisant si un pourboire va être versé) ;
-2. étiquettes multiclasse **tip_class** (prédisant le compartiment ou la fourchette du pourboire).
+1. Étiquettes de classe binaires **tipped** (prédisant si un pourboire va être versé)
+2. Étiquettes multiclasses **tip_class** (prédisant le compartiment ou la fourchette du pourboire).
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -512,7 +504,7 @@ Dans l'exemple suivant, nous générons deux jeux d'étiquettes à utiliser pour
     	cursor.execute(nyctaxi_one_percent_update_col)
 		cursor.commit()
 
-#### Conception de fonctionnalités : fonctionnalités de décompte pour les colonnes catégorielles
+#### Conception de fonctionnalités : fonctionnalités de décompte pour les colonnes catégorielles
 
 Cet exemple transforme un champ catégoriel en champ numérique en remplaçant chaque catégorie par le nombre de ses occurrences dans les données.
 
@@ -543,9 +535,9 @@ Cet exemple transforme un champ catégoriel en champ numérique en remplaçant c
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### Conception de fonctionnalités : fonctionnalités de compartimentage pour les colonnes numériques
+#### Conception de fonctionnalités : fonctionnalités de compartimentage pour les colonnes numériques
 
-Cet exemple transforme un champ numérique continu en plages de catégories prédéfinies ; autrement dit, il transforme un champ numérique en champ catégoriel.
+Cet exemple transforme un champ numérique continu en plages de catégories prédéfinies ; autrement dit, il transforme un champ numérique en champ catégoriel.
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
@@ -572,9 +564,9 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### Conception de fonctionnalités : extraire des fonctionnalités d'emplacement des valeurs décimales de latitude/longitude
+#### Conception de fonctionnalités : extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
 
-Cet exemple décompose la représentation décimale d'un champ de latitude et/ou de longitude en plusieurs champs d'emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d'informations sur le mappage des emplacements associés à un géocode, voir l'article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx) (en anglais). 
+Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
 		ALTER TABLE nyctaxi_one_percent 
@@ -604,100 +596,98 @@ Cet exemple décompose la représentation décimale d'un champ de latitude et/ou
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
 
-Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes pour tous les problèmes de prédiction identifiés précédemment, à savoir :
+Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes pour tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. Classification binaire : prédire si un pourboire a ou non été versé pour une course.
+1. Classification binaire : prédire si un pourboire a ou non été versé pour une course.
 
-2. Classification multiclasse : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
+2. Classification multiclasse : prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 
-3. Tâche de régression : prédire le montant du pourboire versé pour une course.  
+3. Tâche de régression : prédire le montant du pourboire versé pour une course.
 
 
 ## <a name="mlmodel"></a>Création de modèles dans Azure Machine Learning
 
-Pour démarrer l'exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n'avez pas encore créé d'espace de travail d'apprentissage automatique, reportez-vous à l'article [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
+Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail Azure Machine Learning. Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](machine-learning-create-workspace.md).
 
-1. Pour plus d'informations sur la prise en main d'Azure Machine Learning, voir [Azure Machine Learning Studio - De quoi s'agit-il ?](machine-learning-what-is-ml-studio.md).
+1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 
 2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. La page d'accueil de Studio permet d'accéder à une multitude d'informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d'autres ressources. Pour plus d'informations sur Azure Machine Learning, voir le [Centre de documentation d'Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/).
+3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation d’Azure Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/).
 
-Une expérience d'apprentissage classique se déroule comme suit :
+Une expérience d’apprentissage classique se déroule comme suit :
 
-1. Création d'une expérience à l'aide du bouton **+NOUVEAU**.
-2. Récupération des données dans Azure ML.
+1. Création d’une expérience à l’aide du bouton **+NOUVEAU**.
+2. Récupération des données dans Azure Machine Learning.
 3. Prétraitement, transformation et manipulation des données en fonction des besoins.
 4. Génération des fonctionnalités requises.
-5. Fractionnement des données sous forme de jeux de données d'apprentissage/de validation/de test (ou utilisation de jeux de données distincts pour chacune de ces opérations).
-6. Sélection d'un ou de plusieurs algorithmes d'apprentissage automatique en fonction du problème d'apprentissage à résoudre. Exemples : classification binaire, classification multiclasse, régression.
-7. Formation d'un ou de plusieurs modèles à l'aide du jeu de données d'apprentissage.
-8. Notation du jeu de données de validation à l'aide des modèles formés.
-9. Évaluation des modèles afin de calculer les métriques pertinents pour le problème d'apprentissage.
+5. Fractionnement des données sous forme de jeux de données d’apprentissage/de validation/de test (ou utilisation de jeux de données distincts pour chacune de ces opérations).
+6. Sélection d’un ou de plusieurs algorithmes d’apprentissage automatique en fonction du problème d’apprentissage à résoudre. Exemples : classification binaire, classification multiclasse, régression.
+7. Formation d’un ou de plusieurs modèles à l’aide du jeu de données d’apprentissage.
+8. Notation du jeu de données de validation à l’aide des modèles formés.
+9. Évaluation des modèles afin de calculer les métriques pertinents pour le problème d’apprentissage.
 10. Ajustement des modèles et sélection du meilleur modèle à déployer.
 
-Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Server, et déterminé la taille de l'échantillon à recevoir dans Azure Machine Learning. Pour créer les modèles de prédiction souhaités :
+Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Server, et déterminé la taille de l’échantillon à recevoir dans Azure Machine Learning. Pour créer les modèles de prédiction souhaités :
 
-1. Récupérez les données dans Azure Machine Learning en utilisant le module **Lecteur**, disponible dans la section **Entrée et sortie des données**. Pour plus d'informations, voir la page de référence du module [Lecteur](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004).
+1. Récupérez les données dans Azure Machine Learning avec le module [Lecteur][reader], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Lecteur][reader].
 
-	![Azure ML Reader][17]
+	![Lecteur Azure Machine Learning][17]
 
 2. Dans le panneau **Propriétés**, sélectionnez **Base de données SQL Azure** dans le champ **Source de données**.
 
-3. Dans le champ **Nom du serveur de base de données**, entrez le nom DNS de la base de données. Format : `tcp:<nom_DNS_de_votre_machine_virtuelle>,1433`
+3. Dans le champ **Nom du serveur de base de données**, entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 
 4. Dans le champ **Nom de la base de données**, entrez le nom de la base de données.
 
-5. Entrez le **nom d'utilisateur SQL** dans le champ **Nom de compte d'utilisateur du serveur, et le mot de passe dans le champ **Mot de passe de compte d'utilisateur du serveur**.
+5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur, et le mot de passe dans le champ **Mot de passe de compte d’utilisateur du serveur**.
 
-6. Activez l'option **Accepter tout certificat de serveur**.
+6. Activez l’option **Accepter tout certificat de serveur**.
 
-7. Dans la zone de texte **Requête de base de données**, collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d'échantillon souhaitée.
+7. Dans la zone de texte **Requête de base de données**, collez la requête qui extrait les champs de base de données nécessaires (y compris les champs calculés tels que les étiquettes) et qui sous-échantillonne les données pour obtenir la taille d’échantillon souhaitée.
 
-La figure ci-après illustre un exemple d'expérience de classification binaire lisant les données directement dans la base de données SQL Server. Vous pouvez créer des expériences similaires pour les problèmes de classification multiclasse et de régression.
+La figure ci-après illustre un exemple d’expérience de classification binaire lisant les données directement dans la base de données SQL Server. Vous pouvez créer des expériences similaires pour les problèmes de classification multiclasse et de régression.
 
-![Azure ML Train][10]
+![Formation Azure Machine Learning][10]
 
-> [AZURE.IMPORTANT] Dans les exemples de requêtes d'extraction et d'échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l'étiquette **tipped** et excluez les champs **tip_class**, **tip_amount** et **total_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
+> [AZURE.IMPORTANT]Dans les exemples de requêtes d’extraction et d’échantillonnage de données de modélisation qui sont fournis aux sections précédentes, **toutes les étiquettes des trois exercices de modélisation sont incluses dans la requête**. Dans chacun des exercices de modélisation, une étape (obligatoire) importante consiste à **exclure** les étiquettes superflues pour les deux autres problèmes, ainsi que toute autre **fuite cible**. Par exemple, si vous avez recours à la classification binaire, utilisez l’étiquette **tipped** et excluez les champs **tip_class**, **tip_amount** et **total_amount**. Les derniers champs sont des fuites cibles, car ils impliquent le pourboire versé.
 >
-> Pour exclure les colonnes superflues et/ou les fuites cibles, vous pouvez utiliser le module **Colonnes de projet** ou l'**Éditeur de métadonnées**. Pour plus d'informations, voir les pages de référence des modules [Colonnes de projet](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223) et [Éditeur de métadonnées](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66).
+> Pour exclure les colonnes superflues et/ou les fuites cibles, vous pouvez utiliser le module [Colonnes de projet][project-columns] ou l’[Éditeur de métadonnées][metadata-editor]. Pour plus d’informations, voir les pages de référence des modules [Colonnes de projet][project-columns] et [Éditeur de métadonnées][metadata-editor].
 
 ## <a name="mldeploy"></a>Déploiement de modèles dans Azure Machine Learning
 
-Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d'un service web directement à partir de l'expérience. Pour plus d'informations sur la publication de services web Azure Machine Learning, voir [Publier un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
+Lorsque votre modèle est prêt, vous pouvez facilement le déployer sous la forme d’un service web directement à partir de l’expérience. Pour plus d’informations sur la publication de services web Azure Machine Learning, consultez [Publier un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
-Pour déployer un nouveau service web, vous devez :
+Pour déployer un nouveau service web, vous devez :
 
-1. créer une expérience de notation ;
+1. créer une expérience de notation ;
 2. publier le service web.
 
-Pour créer une expérience de notation à partir d'une expérience d'apprentissage **terminée**, cliquez sur **CRÉER UNE EXPÉRIENCE DE NOTATION** dans la barre d'action inférieure.
+Pour créer une expérience de notation à partir d’une expérience d’apprentissage **terminée**, cliquez sur **CRÉER UNE EXPÉRIENCE DE NOTATION** dans la barre d’action inférieure.
 
-![Azure Scoring][18]
+![Notation Azure][18]
 
-Azure Machine Learning va essayer de créer une expérience de notation reposant sur les composants de l'expérience d'apprentissage. Il va notamment :
+Azure Machine Learning va essayer de créer une expérience de notation reposant sur les composants de l’expérience d’apprentissage. Il va notamment :
 
-1. enregistrer le modèle formé et supprimer les modules de formation de modèle ;
-2. identifier un **port d'entrée** logique pour représenter le schéma de données d'entrée attendu ;
+1. enregistrer le modèle formé et supprimer les modules de formation de modèle ;
+2. identifier un **port d’entrée** logique pour représenter le schéma de données d’entrée attendu ;
 3. identifier un **port de sortie** logique pour représenter le schéma de sortie de service web attendu.
 
-Une fois l'expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d'entrée et/ou la requête par un autre jeu excluant les champs d'étiquette, car ces derniers ne seront pas disponibles lors de l'appel du service. Il est également recommandé de restreindre la taille du jeu de données d'entrée et/ou de la requête au nombre d'enregistrements suffisants pour indiquer le schéma d'entrée. Pour le port de sortie, il est courant d'exclure tous les champs d'entrée et de n'inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l'aide du module **Colonnes de projet**.
+Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Colonnes de projet][project-columns].
 
-La figure ci-après illustre un exemple d'expérience de notation. Lorsque vous êtes prêt à effectuer la publication, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d'action inférieure.
+La figure ci-après illustre un exemple d’expérience de notation. Lorsque vous êtes prêt à effectuer la publication, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
 
-![Azure ML Publish][11]
+![Publication Azure Machine Learning][11]
 
-Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un environnement de science des données Azure et comment manipuler un jeu de données public volumineux, depuis l'acquisition des données jusqu'à la publication d'un service web Azure Machine Learning en passant par la formation de modèles.
+Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un environnement de science des données Azure et comment manipuler un jeu de données public volumineux, depuis l’acquisition des données jusqu’à la publication d’un service web Azure Machine Learning en passant par la formation de modèles.
 
 ### Informations de licence
 
-Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui sont associés sont partagés par Microsoft sous licence MIT. Pour plus d'informations, voir le fichier LICENSE.txt figurant dans le répertoire de l'exemple de code sur GitHub.
+Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui sont associés sont partagés par Microsoft sous licence MIT. Pour plus d’informations, voir le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ### Références
 
-*	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-*	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-*	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New-York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -719,4 +709,11 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [17]: ./media/machine-learning-data-science-process-sql-walkthrough/amlreader.png
 [18]: ./media/machine-learning-data-science-process-sql-walkthrough/amlscoring.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=62-->

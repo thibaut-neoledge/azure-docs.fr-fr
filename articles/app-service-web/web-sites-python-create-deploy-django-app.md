@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Création d’applications web avec Django dans Azure" 
-	description="Didacticiel expliquant comment exécuter une application web Python dans Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+<properties
+	pageTitle="Création d’applications web avec Django dans Azure"
+	description="Didacticiel expliquant comment exécuter une application web Python dans Azure App Service Web Apps."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article" 
+	ms.date="04/15/2015"
 	ms.author="huguesv"/>
 
 
@@ -57,7 +57,7 @@ Vous devez avoir installé Python et Git, mais vérifiez que vous disposez de Py
 
 La première étape consiste à créer l’application web par le biais du [portail Azure](https://portal.azure.com).
 
-1. Connectez-vous au portail Azure et cliquez sur le bouton **NOUVEAU** dans le coin inférieur gauche. 
+1. Connectez-vous au portail Azure et cliquez sur le bouton **NOUVEAU** dans le coin inférieur gauche.
 2. Cliquez sur **Web et mobilité** > **Azure Marketplace** > **Web Apps**.
 3. Dans le champ de recherche, tapez « python ».
 4. Dans les résultats de recherche, sélectionnez **Django**, puis cliquez sur **Créer**.
@@ -111,7 +111,7 @@ Proxy IIS pour les environnements virtuels et prise en charge du débogage à di
     \requirements.txt
 
 Packages externes requis par cette application. Le script de déploiement installera à l’aide de pip les packages répertoriés dans ce fichier.
- 
+
     \web.2.7.config
     \web.3.4.config
 
@@ -229,7 +229,7 @@ Commencez par cloner le référentiel à l’aide de l’URL fournie sur le port
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Créer un environnement virtuel
 
@@ -318,7 +318,7 @@ Commencez par cloner le référentiel à l’aide de l’URL fournie sur le port
 
     git clone <repo-url>
     cd <repo-folder>
-    git remote add azure <repo-url> 
+    git remote add azure <repo-url>
 
 ### Créer un environnement virtuel
 
@@ -423,7 +423,7 @@ Les fichiers statiques sont automatiquement collectés dans le cadre du script d
 
 Si vous souhaitez ignorer les fichiers statiques pour votre application Django :
 
-    .skipDjango 
+    .skipDjango
 
 Vous devrez alors effectuer la collecte manuellement sur votre ordinateur local :
 
@@ -453,7 +453,7 @@ Cette valeur doit également être mise à jour pour activer des hôtes :
     ALLOWED_HOSTS = (
         '*',
     )
- 
+
 Dans la pratique, vous pouvez également opter pour une solution un peu plus complexe qui vous permet de basculer entre le mode débogage et le mode version finale, et d’obtenir le nom d’hôte.
 
 Vous pouvez définir des variables d’environnement dans la section **Paramètres de l’application** de la page **CONFIGURER** du portail Azure. Cette opération peut vous permettre de définir les valeurs que vous ne souhaitez pas voir apparaître dans les sources (chaînes de connexion, mots de passe, etc.) ou que vous souhaitez définir différemment entre Azure et votre ordinateur local. Dans `settings.py`, vous pouvez interroger les variables d’environnement à l’aide de `os.getenv`.
@@ -480,7 +480,7 @@ Une fois ce code activé, synchronisez la base de données, exécutez l’applic
 ## Étapes suivantes
 
 Pour plus d’informations sur Django et sur Python Tools pour Visual Studio, sélectionnez les liens suivants :
- 
+
 - [Documentation Django]
 - [Documentation relative à Python Tools for Visual Studio]
 
@@ -513,6 +513,6 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 [documentation de PTVS]: http://pytools.codeplex.com/documentation
 [Documentation relative à Python Tools for Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentation Django]: https://www.djangoproject.com/
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

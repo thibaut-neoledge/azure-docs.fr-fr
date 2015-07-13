@@ -1,21 +1,4 @@
-<properties 
-   pageTitle="Configuration et inscription de votre appareil"
-   description="Explique comment utiliser Windows PowerShell pour StorSimple pour configurer et enregistrer votre appareil."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
-
-### Configuration et enregistrement de l’appareil
+#### Configuration et inscription de l’appareil
 
 1. Accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Consultez la page [Utilisation de PuTTY pour se connecter à la console en série de l’appareil](#use-putty-to-connect-to-the-device-serial-console) pour obtenir des instructions. **Veillez à suivre la procédure pas à pas, sans quoi vous ne pourrez pas accéder à la console.**
 
@@ -31,9 +14,11 @@
   
      Suivez les étapes 5 à 12 pour configurer les paramètres réseau minimum requis pour votre appareil. **Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.** Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
 
-5. À l’invite de commandes, tapez votre mot de passe. Le mot de passe par défaut de l’appareil est *Password1*.
+5. À l’invite de commandes, tapez votre mot de passe. Le mot de passe par défaut de l’appareil est **Password1**.
 
-6. Tapez la commande suivante : **Invoke-HcsSetupWizard**
+6. Tapez la commande suivante :
+
+     `Invoke-HcsSetupWizard`
 
 7. Un Assistant Installation s’affiche pour vous aider à configurer les paramètres réseau de l’appareil. Fournissez les informations suivantes :
    - Adresse IP de l’interface réseau DATA 0
@@ -42,10 +27,13 @@
    - Adresse IP du serveur DNS principal
    - Adresse IP du serveur NTP principal
    
-    > [AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
+      >[AZURE.NOTE]Vous devrez peut-être attendre quelques minutes que les paramètres de masque de sous-réseau et de DNS soient appliqués. Si vous obtenez le message d’erreur « Le périphérique n’est pas prêt », vérifiez la connexion réseau physique sur l’interface réseau DATA 0 de votre contrôleur actif.
 
 8. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, **si vous en utilisez un, vous pouvez uniquement le configurer ici**. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
+
+      >[AZURE.NOTE]Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Tous les paramètres que vous avez appliqués avant l’émission de cette commande sont conservés.
+
 9. Pour des raisons de sécurité, le mot de passe administrateur de l’appareil expire après la première session, et vous devez le modifier pour les sessions ultérieures. Lorsque vous y êtes invité, fournissez un mot de passe administrateur de l’appareil. Un mot de passe administrateur d’appareil valide doit comprendre entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en minuscules, en majuscules, numériques et spéciaux.
 
 10. Le mot de passe du gestionnaire d’instantanés StorSimple est également défini ici. Vous utilisez ce mot de passe lorsque vous authentifiez un appareil avec votre hôte Windows en exécutant le gestionnaire d’instantanés StorSimple. Lorsque vous y êtes invité, indiquez un mot de passe comprenant de 14 à 15 caractères. Le mot de passe doit contenir une combinaison de trois des éléments suivants : caractères en minuscules, en majuscules, numériques et spéciaux.
@@ -54,9 +42,7 @@
 
     Vous pouvez réinitialiser le mot de passe du gestionnaire d’instantanés StorSimple à partir de l’interface de service StorSimple Manager.
 
-11. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’étape 2. Après avoir entré la clé d’enregistrement, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
-
-    > [AZURE.NOTE]Vous pouvez appuyer sur Ctrl + C à tout moment pour quitter l’Assistant Installation. Tous les paramètres que vous avez appliqués avant l’émission de cette commande sont conservés.
+11. La dernière étape de l’Assistant Installation inscrit votre appareil auprès du service StorSimple Manager. Pour cela, vous avez besoin de la clé d’inscription de service que vous avez obtenue à l’étape 2. Après avoir entré la clé d’inscription, vous devrez peut-être attendre 2 à 3 minutes avant que l’appareil ne soit inscrit.
 
 12. Une fois l’appareil inscrit, une clé de chiffrement de données de service s’affiche. Copiez-la et enregistrez-la en lieu sûr. **Cette clé et la clé d’enregistrement de service sont requises pour l’inscription d’appareils supplémentaires avec le service StorSimple Manager.** Reportez-vous à la section [Sécurité StorSimple](../articles/storsimple/storsimple-security.md) pour plus d’informations sur cette clé.
 
@@ -73,7 +59,6 @@
    
     ![Page Appareils StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-  >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
+      >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

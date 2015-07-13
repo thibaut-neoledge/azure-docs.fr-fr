@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Comment configurer l'authentification Azure Active Directory pour votre application App Services" 
 	description="Découvrez comment configurer l'authentification Azure Active Directory pour votre application App Services." 
-	authors="mattchenderson,wesmc7777" 
+	authors="mattchenderson" 
 	services="app-service\mobile" 
 	documentationCenter="" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/26/2015" 
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser la connexion Azure Active Directory
@@ -71,5 +71,6 @@ Authentification des utilisateurs de votre application Mobile App à l’aide de
 [version préliminaire du portail de gestion Azure]: https://portal.azure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,3 +1,5 @@
-For Azure Active Directory (AD), please see the following topic:
+Pour Azure Active Directory (AD), consultez la rubrique suivante :
 
- - [Azure Active Directory service limits and restrictions](http://msdn.microsoft.com/library/azure/dn764971.aspx)
+ - [Restrictions et limites du service Azure Active Directory](http://msdn.microsoft.com/library/azure/dn764971.aspx)
+
+<!---HONumber=62-->

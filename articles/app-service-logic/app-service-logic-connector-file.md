@@ -20,7 +20,7 @@
 
 Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
 
-Le connecteur File vous permet de télécharger et de supprimer des fichiers sur un ordinateur hôte. Il utilise le Gestionnaire des connexions hybrides pour la connectivité hybride vers l'ordinateur hôte.
+Le connecteur File vous permet de télécharger et de supprimer des fichiers sur un ordinateur hôte. Il utilise le Gestionnaire de connexion hybride pour la connectivité hybride vers l'ordinateur hôte.
 
 ## Création d’un connecteur File pour votre application logique ##
 Pour utiliser le connecteur File, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
@@ -31,10 +31,10 @@ Pour utiliser le connecteur File, vous devez d’abord créer une instance de l�
  
 	![][1]
  
-	- **Nom** : indiquez le nom de votre connecteur File.
+	- **Nom** : indiquez le nom du connecteur File.
 	- **Paramètres du package**
-		- **Dossier racine** : indiquez le chemin du dossier racine sur votre ordinateur hôte. Par exemple D:\FileConnectorTest
-		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l’espace de noms du Service Bus est de type Standard et NON Basique pour permettre l’utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire des connexions hybrides. 
+		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\FileConnectorTest
+		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride. 
 	- **Plan App Service** : sélectionnez ou créez un plan App Service.
 	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
 	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
@@ -43,8 +43,8 @@ Pour utiliser le connecteur File, vous devez d’abord créer une instance de l�
 
 4. Cliquez sur Créer. Un connecteur File est créé.
 
-## Configurer le Gestionnaire des connexions hybrides ##
-Une fois l’instance de l’application API créée, accédez à son tableau de bord. Pour ce faire, cliquez sur Parcourir > Applications API > sélectionnez l’application API de votre connecteur File. À ce stade, le Gestionnaire des connexions hybrides doit être configuré. Pour plus d'informations sur la configuration et le dépannage du Gestionnaire des connexions hybrides, consultez la rubrique [Utilisation du Gestionnaire des connexions hybrides].
+## Configurer le Gestionnaire de connexion hybride ##
+Une fois l'instance de l'application API créée, accédez à son tableau de bord. Pour ce faire, cliquez sur Parcourir > Applications API > sélectionnez l'application API du connecteur File. À ce stade, le Gestionnaire de connexion hybride doit être configuré. Pour plus d'informations sur la configuration et le dépannage du Gestionnaire de connexion hybride, consultez la rubrique [Utilisation du Gestionnaire de connexion hybride].
 
 ## Utilisation du connecteur File dans votre application logique ##
 Une fois votre application API créée, vous pouvez utiliser le connecteur File comme action pour votre application logique. Pour cela, vous devez procéder comme suit :
@@ -63,7 +63,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur File 
  
 	![][6]
 
-7. Pour être utilisables dans votre flux, le déclencheur et l’action doivent être configurés. De même, d’autres actions peuvent être configurées.
+7. Pour être utilisables dans votre flux, le déclencheur et l'action doivent être configurés. De même, d’autres actions peuvent être configurées.
 
 > [AZURE.NOTE]Le déclencheur de fichier supprimera le fichier lorsque celui-ci sera correctement lu à partir du dossier.
 
@@ -72,7 +72,7 @@ Pour utiliser le connecteur hors d’une application logique, vous devez faire a
 
 	![][7]
 
-Pour plus d’informations sur les API, consultez la rubrique [Définition des API du connecteur File].
+Vous trouverez les détails de l'API dans la rubrique [Définition des API du connecteur File].
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -83,6 +83,6 @@ Pour plus d’informations sur les API, consultez la rubrique [Définition des A
 <!-- Links -->
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API du connecteur File]: https://msdn.microsoft.com/fr-fr/library/dn936296.aspx
-[Utilisation du Gestionnaire des connexions hybrides]: app-service-logic-hybrid-connection-manager.md
+[Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
 <!---HONumber=62-->

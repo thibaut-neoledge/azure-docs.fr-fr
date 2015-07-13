@@ -1,3 +1,3 @@
 Enregistrements des arrivées et départs de vols aux États-Unis à compter d’octobre 2011.<p> </p><b>Utilisation :</b> prédire les retards des vols. <p> </p><b>Recherche associée :</b> ministère du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

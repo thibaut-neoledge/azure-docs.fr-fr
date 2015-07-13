@@ -24,4 +24,4 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
  
 4. Publiez à nouveau votre projet.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

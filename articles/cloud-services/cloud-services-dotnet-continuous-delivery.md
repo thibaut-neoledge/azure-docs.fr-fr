@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="05/29/2015" 
 	ms.author="kempb"/>
 
 # Remise continue pour Cloud Services dans Azure
@@ -24,15 +24,7 @@ Vous pouvez également utiliser Visual Studio Online, une version de TFS héber
 
 Avant de commencer, vous devez publier votre application à partir de Visual Studio. Ceci vous assure que toutes les ressources sont disponibles et initialisées lorsque vous tentez d'automatiser le processus de publication.
 
-Cette procédure comprend les étapes suivantes :
-
--   [Étape 1 : configuration du serveur de builds][]
--   [Étape 2 : génération d’un package à l’aide des commandes MSBuild][]
--   [Étape 3 : génération d’un package avec TFS Team Build (facultatif)][]
--   [Étape 4 : publication d’un package à l’aide d’un script PowerShell][]
--   [Étape 5 : publication d’un package à l’aide de TFS Team Build (facultatif)][]
-
-<h2> <a name="step1"> </a>Étape&#160;1&#160;: configuration du serveur de builds</h2>
+## Étape 1 : configuration du serveur de builds
 
 Avant de pouvoir créer un package Azure à l'aide de MSBuild, vous devez installer les logiciels et les outils nécessaires sur le serveur de builds.
 
@@ -41,16 +33,16 @@ Visual Studio ne doit pas obligatoirement être installé sur le serveur de bui
 1.  Sur le serveur de builds, installez [.NET Framework 4][], [.NET Framework 4.5][] ou [.NET Framework 4.5.2][], incluant MSBuild.
 2.  Installez les [outils de création Azure][] (recherchez WindowsAzureAuthoringTools-x86.msi ou WindowsAzureAuthoringTools-x64.msi en fonction du processeur de votre serveur de builds). Les versions plus anciennes des fichiers peuvent comporter WindowsAzure dans leur nom.
 3. Installez les [bibliothèques Azure][] (recherchez MicrosoftAzureLibsForNet-x86.msi ou MicrosoftAzureLibsForNet-x64.msi).
-4.  Copiez le fichier Microsoft.WebApplication.targets depuis une installation Visual Studio sur le serveur de builds. Si Visual Studio est installé sur l’ordinateur, le fichier se trouve dans le répertoire C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0 pour Visual Studio 2013). Vous devez le copier dans le même répertoire sur le serveur de builds.
+4.  Copiez le fichier Microsoft.WebApplication.targets depuis une installation Visual Studio sur le serveur de builds. Si Visual Studio est installé sur l’ordinateur, le fichier se trouve dans le répertoire C:\Program Files(x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications (v12.0 pour Visual Studio 2013). Vous devez le copier dans le même répertoire sur le serveur de builds.
 5.  Installez les outils [Azure Tools for Visual Studio][]. Recherchez MicrosoftAzureTools.VS110.exe pour créer des projets Visual Studio 2012 et MicrosoftAzureTools.VS120.exe pour créer des projets Visual Studio 2013, et MicrosoftAzureTools.VS140.exe pour créer des projets Visual Studio 2015 Preview.
 
-<h2><a name="step2"> </a>Étape&#160;2&#160;: génération d’un package à l’aide des commandes MSBuild</h2>
+## Étape 2 : génération d’un package à l’aide des commandes MSBuild
 
 Cette section décrit la création d'une commande MSBuild qui génère un package Azure. Exécutez cette étape sur le serveur de builds pour vérifier que tout est correctement configuré et que la commande MSBuild fait ce que vous attendez d’elle. Vous pouvez ajouter cette ligne de commande aux scripts existants sur le serveur de builds. Vous pouvez aussi utiliser la ligne de commande dans une définition de build TFS, comme décrit dans la section suivante. Pour plus d’informations sur les paramètres de ligne de commande et MSBuild, consultez la page [Référence de la ligne de commande MSBuild][].
 
 1.  Si Visual Studio est installé sur le serveur de builds, cliquez sur **Démarrer**, sur **Tous les programmes**, puis sélectionnez **Visual Studio Command Prompt** dans le dossier **Visual Studio Tools**.
 
-    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\\Microsoft.NET\\Framework*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
+    Si Visual Studio n'est pas installé sur le serveur de builds, ouvrez une invite de commandes et assurez-vous que MSBuild.exe est bien accessible sur le chemin d'accès. MSBuild est installé avec .NET Framework dans %WINDIR%\Microsoft.NET\Framework*Version*. Par exemple, pour ajouter MSBuild.exe à la variable d'environnement PATH quand .NET Framework 4 est installé, tapez la commande suivante à l'invite de commandes :
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -64,7 +56,7 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
     Vous pouvez aussi spécifier le nom du projet comme paramètre MSBuild. S'il n'est pas spécifié, le répertoire actif est utilisé. Pour plus d’informations sur les options de ligne de commande MSBuild, consultez la page [Référence de la ligne de commande MSBuild][1].
 
-4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *<ProjectDir>*\\bin*Configuration*\\app.publish. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
+4.  Recherchez la sortie. Par défaut, cette commande crée un répertoire en relation avec le dossier racine du projet, par exemple *<ProjectDir>*\bin*Configuration*\app.publish\. Lorsque vous générez un projet Azure, vous générez deux fichiers, le fichier de package et le fichier de configuration qui l'accompagne :
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -75,19 +67,19 @@ Cette section décrit la création d'une commande MSBuild qui génère un packag
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d’accès avec l’option /p:PublishDir=*Directory*\\, en incluant la barre oblique inverse de fin, comme dans l’exemple suivant :
+6.  Spécifiez l'emplacement de la sortie. Définissez le chemin d’accès avec l’option /p:PublishDir=*Directory*\, en incluant la barre oblique inverse de fin, comme dans l’exemple suivant :
 
-        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
 
     Une fois que vous avez conçu et testé une ligne de commande MSBuild appropriée pour générer vos projets et les combiner dans un package Azure, vous pouvez ajouter cette ligne de commande à vos scripts. Si votre serveur de builds utilise des scripts personnalisés, ce processus dépend des particularités de votre processus de génération personnalisé. Si vous utilisez TFS comme environnement de génération, vous pouvez suivre les instructions de l'étape qui suit pour ajouter la création du package Azure à votre processus.
 
-<h2> <a name="step3"> </a>Étape&#160;3&#160;: génération d’un package avec TFS Team Build (facultatif)</h2>
+## Étape 3 : génération d’un package avec TFS Team Build (facultatif)
 
 Si Team Foundation Server (TFS) est configuré comme contrôleur de build et que le serveur de builds est configuré comme ordinateur de builds TFS, vous pouvez configurer une compilation automatisée pour votre package Azure. Pour plus d’informations sur la configuration et l’utilisation de Team Foundation Server comme système de génération, consultez la page [Vue d’ensemble de Team Foundation Build][]. En particulier, la procédure suivante suppose que vous avez configuré votre serveur de builds comme décrit dans [Configurer un serveur de builds][] et que vous avez créé un projet d’équipe, ainsi qu’un projet de service cloud dans le projet d’équipe.
 
 Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
-1.  Dans Visual Studio sur votre ordinateur de développement, dans le menu Affichage, choisissez **Team Explorer**, ou choisissez Ctrl+\\, Ctrl+M. Dans la fenêtre Team Explorer, développez le nœud **Builds** ou choisissez la page **Builds**, puis choisissez **Nouvelle définition de build**.
+1.  Dans Visual Studio sur votre ordinateur de développement, dans le menu Affichage, choisissez **Team Explorer**, ou choisissez Ctrl+\, Ctrl+M. Dans la fenêtre Team Explorer, développez le nœud **Builds** ou choisissez la page **Builds**, puis choisissez **Nouvelle définition de build**.
 
     ![][0]
 
@@ -99,7 +91,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 5.  Cliquez sur l'onglet **Processus**. Sous l’onglet Processus, choisissez le modèle par défaut, sous **Build**, choisissez le projet s’il n’est pas déjà sélectionné et développez la section **Avancé** dans la section **Build** de la grille.
 
-6.  Choisissez **Arguments MSBuild** et définissez les arguments de ligne de commande MSBuild comme décrit à l'étape 2 plus haut. Par exemple, entrez **/t:Publish /p:PublishDir=\\\\myserver\\drops** pour générer un package et copier les fichiers associés dans \\\\myserver\\drops\\ :
+6.  Choisissez **Arguments MSBuild** et définissez les arguments de ligne de commande MSBuild comme décrit à l'étape 2 plus haut. Par exemple, entrez **/t:Publish /p:PublishDir=\\myserver\drops** pour générer un package et copier les fichiers associés dans \\myserver\drops\ :
 
     ![][2]
 
@@ -107,7 +99,7 @@ Pour configurer TFS pour générer des packages Azure, procédez comme suit :
 
 5.  Testez le fonctionnement de votre processus en intégrant une modification à votre projet ou en ajoutant une build dans la file d'attente. Pour ajouter une nouvelle build dans la file d'attente, dans Explorateur d'équipes, cliquez avec le bouton droit sur **Toutes les définitions de build**, puis choisissez **Mettre la nouvelle build en file d'attente**.
 
-<h2> <a name="step4"> </a>Étape&#160;4&#160;: publication d’un package à l’aide d’un script PowerShell</h2>
+## Étape 4 : publication d’un package à l’aide d’un script PowerShell
 
 Cette section décrit la création d'un script Windows PowerShell qui publie le résultat du package de l'application cloud dans Azure à l'aide de paramètres facultatifs. Ce script peut être appelé après l'étape de compilation dans votre automatisation de build personnalisée. Il peut également être appelé depuis les activités de workflow du modèle de processus dans Visual Studio TFS Team Build.
 
@@ -121,7 +113,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
 4.  Vérifiez que vous pouvez vous connecter à votre abonnement Azure en important vos informations d'abonnement à partir du fichier .publishsettings.
 
-    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     Entrez ensuite la commande
 
@@ -129,7 +121,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
     Ceci affiche les informations sur votre abonnement. Vérifiez que tout est correct.
 
-4.  Enregistrez le modèle de script fourni à la [fin de cet article][] dans votre dossier de scripts sous c:\\scripts\\WindowsAzure**PublishCloudService.ps1**.
+4.  Enregistrez le modèle de script fourni à la [fin de cet article][] dans votre dossier de scripts sous c:\scripts\WindowsAzure**PublishCloudService.ps1**.
 
 5.  Vérifiez la section des paramètres de ce script. Ajoutez des valeurs ou modifiez les valeurs par défaut. Ces valeurs peuvent de toute manière être ignorées en indiquant des paramètres explicites.
 
@@ -185,7 +177,7 @@ Cette section décrit la création d'un script Windows PowerShell qui publie le 
 
     **Avertissement :** le script supprime ou remplace toujours vos déploiements existants par défaut s’ils sont détectés. Ceci est nécessaire pour permettre la remise continue automatique là où il n'est pas possible de demander à l'utilisateur ou à l'opérateur d'intervenir.
 
-<h2><a name="step5"> </a>Étape&#160;5&#160;: publication d’un package à l’aide de TFS Team Build (facultatif)</h2>
+## Étape 5 : publication d’un package à l’aide de TFS Team Build (facultatif)
 
 Cette étape permet de lier TFS Team Build au script créé à l'étape 4, qui gère la publication du package généré dans Azure. Ceci implique de modifier le modèle de processus utilisé par votre définition de build afin qu'il exécute une activité Publish à la fin du workflow. Cette activité Publish exécute votre commande PowerShell en transmettant des paramètres à partir de la build. La sortie des cibles MSBuild et du script de publication sera intégré à la sortie de génération standard.
 
@@ -333,11 +325,11 @@ Cette étape permet de lier TFS Team Build au script créé à l'étape 4, qui 
 
 9.  Définissez les valeurs de la propriété du paramètre dans la section Misc comme suit :
 
-    1.  CloudConfigLocation =’c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg’ *Cette valeur est dérivée de : ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation =’c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg’ *Cette valeur est dérivée de : ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = ’c:\\drops\\app.publish\\ContactManager.Azure.cspkg’ *Cette valeur est dérivée de : ($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = ’c:\drops\app.publish\ContactManager.Azure.cspkg’ *Cette valeur est dérivée de : ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
 
     4.  ServiceName = ’mycloudservicename’ *Utilisez le nom du service cloud correspondant*
 
@@ -345,7 +337,7 @@ Cette étape permet de lier TFS Team Build au script créé à l'étape 4, qui 
 
     6.  StorageAccountName = ’mystorageaccountname’ *Utilisez le nom du compte de stockage correspondant*
 
-    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -355,7 +347,7 @@ Cette étape permet de lier TFS Team Build au script créé à l'étape 4, qui 
 
 11. Ajoutez une build à la file d'attente pour exécuter à la fois la génération et la publication du package. Si un déclencheur est défini sur Continuous Integration, vous exécuterez ce comportement à chaque intégration.
 
-### <a name="script"> </a>Modèle de script PublishCloudService.ps1
+### Modèle de script PublishCloudService.ps1
 
 <pre>
 Param(  $serviceName = "",
@@ -563,31 +555,28 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Pour activer le débogage distant lors de l'utilisation de la remise continue, consultez [les instructions suivantes](http://go.microsoft.com/fwlink/p/?LinkID=402354).
 
-[Remise continue pour Azure avec Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
-[Étape 1 : configuration du serveur de builds]: #step1
-[Étape 2 : génération d’un package à l’aide des commandes MSBuild]: #step2
-[Étape 3 : génération d’un package avec TFS Team Build (facultatif)]: #step3
-[Étape 4 : publication d’un package à l’aide d’un script PowerShell]: #step4
-[Étape 5 : publication d’un package à l’aide de TFS Team Build (facultatif)]: #step5
-[Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
-[.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-[.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
-[.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
-[outils de création Azure]: http://go.microsoft.com/fwlink/?LinkId=239600
-[bibliothèques Azure]: http://go.microsoft.com/fwlink/?LinkId=257862
-[Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-[Référence de la ligne de commande MSBuild]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
-[1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
-[Vue d’ensemble de Team Foundation Build]: http://go.microsoft.com/fwlink/?LinkId=238798
-[Configurer un serveur de builds]: http://go.microsoft.com/fwlink/?LinkId=238799
-[0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
-[2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
-[applets de commande Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-[fin de cet article]: #script
-[3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
-[4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
-[5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
-[6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+  [Remise continue pour Azure avec Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
+  [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
+  [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
+  [outils de création Azure]: http://go.microsoft.com/fwlink/?LinkId=239600
+  [bibliothèques Azure]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
+  [Référence de la ligne de commande MSBuild]: http://msdn.microsoft.com/library/ms164311(v=VS.90).aspx
+  [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
+  [Vue d’ensemble de Team Foundation Build]: http://go.microsoft.com/fwlink/?LinkId=238798
+  [Configurer un serveur de builds]: http://go.microsoft.com/fwlink/?LinkId=238799
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
+  [applets de commande Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
+  [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
+  [fin de cet article]: #script
+  
+  [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
+  [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
+  [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
+  [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

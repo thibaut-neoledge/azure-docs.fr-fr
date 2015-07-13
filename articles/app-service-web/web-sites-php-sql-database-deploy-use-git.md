@@ -20,7 +20,7 @@
 
 Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un serveur Web et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
 
-> [AZURE.NOTE]Vous pouvez installer et configurer PHP, SQL Server Express, les pilotes Microsoft SQL Server pour PHP, ainsi qu'Internet Information Services (IIS) via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]Vous pouvez installer et configurer PHP, SQL Server Express, les pilotes Microsoft SQL Server pour PHP, ainsi qu’Internet Information Services (IIS) via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -69,7 +69,7 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 	![où est votre code source](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	Si vous n'avez pas encore configuré de référentiel Git, vous devez fournir un nom d'utilisateur et un mot de passe. Pour cela, cliquez sur **Définir les informations d’identification de déploiement** dans le panneau de l’application web.
+	Si vous n’avez pas encore configuré de référentiel Git, vous devez fournir un nom d’utilisateur et un mot de passe. Pour cela, cliquez sur **Définir les informations d’identification de déploiement** dans le panneau de l’application web.
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
@@ -89,12 +89,12 @@ Pour établir la connexion à l’instance de base de données SQL liée à votr
 
 ##Génération et test de votre application localement
 
-L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L'application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
+L'application d'inscription est une simple application PHP qui vous permet de vous inscrire à un événement en entrant votre nom et votre adresse électronique. Les informations relatives aux précédents inscrits sont affichées dans un tableau. Les informations d'inscription sont stockées dans une instance de base de données SQL. L’application se compose de deux fichiers (dont le code est disponible ci-dessous pour un copier/coller) :
 
 * **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 * **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
 
-Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, SQL Server Express et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
+Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, SQL Server Express et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l’[extension PDO pour SQL Server][pdo-sqlsrv].
 
 1. Créez une base de données SQL Server nommée `registration`. Pour cela, utilisez l’invite de commandes `sqlcmd` avec ces commandes :
 
@@ -243,7 +243,7 @@ Une fois votre application testée en local, vous pouvez la publier dans App Se
 > [AZURE.NOTE]Dans <code>$host</code>, la valeur du serveur doit présenter le préfixe <code>tcp:</code>.
 
 
-Tout est prêt pour configurer la publication Git et publier l'application.
+Tout est prêt pour configurer la publication Git et publier l’application.
 
 > [AZURE.NOTE]Cette procédure est identique à celle indiquée à la fin de la section **Création d’une application web Azure et configuration de la publication Git** précédente.
 

@@ -426,4 +426,6 @@ Ajoutez l'attribut aux implémentations de service :
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

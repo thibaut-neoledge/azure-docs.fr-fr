@@ -56,4 +56,5 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -1,4 +1,4 @@
-﻿## Projet WebAPI
+## Projet WebAPI
 
 1. Dans Visual Studio, ouvrez le projet **AppBackend** que vous avez créé dans le didacticiel **Notification des utilisateurs**.
 2. Dans le fichier Notifications.cs, remplacez intégralement la classe **Notifications** par le code suivant. Veillez à remplacer les espaces réservés par la chaîne de connexion (avec accès complet) de votre concentrateur de notification et par le nom de celui-ci. Ces valeurs sont disponibles sur le [portail de gestion Azure](http://manage.windowsazure.com). Ce module représente maintenant les différentes notifications sécurisées qui seront envoyées. Dans les implémentations complètes, les notifications sont stockées dans une base de données. Par souci de simplification, nous les stockons ici en mémoire.
@@ -42,7 +42,7 @@
 	        }
 	    }
 
-20. Dans le fichier NotificationsController.cs, remplacez le code de la définition de classe **NotificationsController** par le code suivant. Ce composant permet à l'appareil de récupérer la notification en toute sécurité. Dans l'exemple de ce didacticiel, il vous permet également de déclencher une notification push sécurisée sur vos appareils. Notez que la notification envoyée ici au concentrateur de notification est brute puisqu'elle comporte uniquement son ID (sans message) :
+20. Dans le fichier NotificationsController.cs, remplacez le code de la définition de classe **NotificationsController** par le code suivant. Ce composant permet à l'appareil de récupérer la notification en toute sécurité. Dans l'exemple de ce didacticiel, il vous permet également de déclencher une notification push sécurisée sur vos appareils. Notez que la notification envoyée ici au concentrateur de notification est brute puisqu’elle comporte uniquement son ID (sans message) :
 
 		public NotificationsController()
         {
@@ -78,10 +78,10 @@
         }
 
 
-Notez que la méthode `Post` n'envoie pas de notification toast. Elle envoie une notification brute qui contient uniquement l'ID de la notification, sans aucun contenu sensible. Veillez également à commenter l'opération d'envoi pour les plateformes pour lesquelles aucune information d'identification n'est configurée sur votre concentrateur de notification, car celles-ci généreront des erreurs.
+Notez que la méthode `Post` n'envoie pas de notification toast. Elle envoie une notification brute qui contient uniquement l’ID de la notification, sans aucun contenu sensible. Veillez également à commenter l'opération d'envoi pour les plateformes pour lesquelles aucune information d'identification n'est configurée sur votre concentrateur de notification, car celles-ci généreront des erreurs.
 
-21. Nous allons maintenant redéployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
+21. Nous allons maintenant redéployer cette application sur un site web Azure afin de la rendre accessible à tous les appareils. Cliquez avec le bouton droit sur le projet **AppBackend** et sélectionnez **Publier**.
 
-24. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *backend endpoint*. Cliquez sur **Publier**.
+24. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
 
-<!--HONumber=49-->
+<!---HONumber=62-->

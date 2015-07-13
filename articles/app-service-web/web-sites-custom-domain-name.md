@@ -81,7 +81,7 @@ Connectez-vous à votre bureau d'enregistrement de domaine et utilisez son utili
 
 La page mentionnera les enregistrements A et les enregistrements CNAME séparément, ou fournira une liste déroulante vous permettant de sélectionner le type d’enregistrement. De plus, il est possible qu'elle utilise d'autres noms pour les types d'enregistrement, comme **enregistrements d’adresses IP** au lieu d’enregistrement A, ou **enregistrements d’alias** au lieu d’enregistrements CNAME. Le bureau d'enregistrement de domaines crée habituellement des enregistrements. Il se peut donc qu'il y ait des enregistrements pour le domaine racine ou les sous-domaines communs comme **www**.
 
-Lorsque vous créez ou éditez un enregistrement, les champs vous permettent de mapper votre nom de domaine vers une adresse IP (enregistrements A) ou un autre domaine (enregistrements CNAME). Pour un enregistrement CNAME, vous mapperez *de* votre domaine personnalisé *vers* votre sous-domaine azurewebsites.net.
+Lorsque vous créez ou éditez un enregistrement, les champs vous permettent de mapper votre nom de domaine vers une adresse IP (enregistrements A) ou un autre domane (enregistrements CNAME). Pour un enregistrement CNAME, vous mapperez *de* votre domaine personnalisé *vers* votre sous-domaine azurewebsites.net.
 
 Dans de nombreux utilitaires de bureaux d'enregistrement, il vous suffit de saisir la partie de sous-domaine de votre domaine, plutôt que la totalité du nom de domaine. De plus, de nombreux utilitaires utilisent « @ » pour désigner le domaine racine. Par exemple :
 
@@ -110,7 +110,7 @@ Dans le cas où le nom de domaine personnalisé est « contoso.com », cela cré
 
 >[AZURE.NOTE]Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
 
-<a name="awverify" />
+<a name="awverify" /></a>
 ## Création d’un enregistrement awverify (enregistrements A uniquement)
 
 Si vous créez un enregistrement A, l’application web requiert également un enregistrement CNAME spécial, utilisé pour vérifier que vous possédez le domaine que vous souhaitez utiliser. Cet enregistrement CNAME doit avoir la forme suivante.
@@ -129,7 +129,7 @@ Les visiteurs de votre application web ne verront pas le sous-domaine awverify. 
 
 ## Étapes suivantes
 
-Pour plus d'informations, consultez [Prise en main d’Azure DNS](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) et [Domaine délégué vers Azure DNS](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
+Pour plus d'informations, consultez [Prise en main d’Azure DNS](http://azure.microsoft.com/fr-fr/documentation/articles/dns-getstarted-create-dnszone) et [Domaine délégué vers Azure DNS](http://azure.microsoft.com/fr-fr/documentation/articles/dns-domain-delegation)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).

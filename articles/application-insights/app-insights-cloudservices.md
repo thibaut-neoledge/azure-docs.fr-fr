@@ -28,9 +28,9 @@ La disponibilité, les performances, les échecs et l’utilisation des [applica
 Tout d’abord, vous avez besoin d’un abonnement à [Microsoft Azure](http://azure.com). Connectez-vous avec un compte Microsoft, que vous pouvez avoir pour Windows, XBox Live ou d’autres services cloud de Microsoft.
 
 
-#### Exemple d'application instrumentée avec Application Insights
+#### Exemple d’application instrumentée avec Application Insights
 
-Examinons l’[exemple d'application](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) dans lequel Application Insights est ajouté à un service cloud avec deux rôles de travail hébergés dans Azure.
+Examinons l’[exemple d’application](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) dans lequel Application Insights est ajouté à un service cloud avec deux rôles de travail hébergés dans Azure.
 
 Les informations suivantes vous indiqueront comment adapter votre propre projet de service cloud de la même façon.
 
@@ -122,12 +122,12 @@ Voici un exemple de ce que vous voyez sur le portail Application Insights :
 
 Les compteurs suivants sont collectés par défaut :
 
-    * \Process(??APP_WIN32_PROC??)% Processor Time
+    * \Process(??APP_WIN32_PROC??)\% Processor Time
 	* \Memory\Available Bytes
 	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)% Processor Time
+	* \Processor(_Total)\% Processor Time
 
 De plus, les éléments suivants sont également collectés pour les rôles Web :
 
@@ -196,4 +196,4 @@ Pour obtenir une vue à 360 degrés de votre application, vous devez faire cert
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

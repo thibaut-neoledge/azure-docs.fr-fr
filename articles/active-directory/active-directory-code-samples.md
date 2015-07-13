@@ -87,7 +87,7 @@ Ces exemples de code montrent comment utiliser [OAuth 2.0 dans Azure AD](https:
 
 ## Application serveur ou démon vers API Web
 
-Ces exemples de code montrent comment créer une application démon ou serveur qui obtient des ressources provenant d’une API web en utilisant  [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) et [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+Ces exemples de code montrent comment créer une application démon ou serveur qui obtient des ressources provenant d’une API web en utilisant [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) et [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
 | Langue/plateforme | Exemple | Description
 | ----------------- | ------ | -----------
@@ -150,4 +150,9 @@ PHP | [Exemple d’application PHP pour l’API Azure AD Graph](http://code.msdn
 
 [Développement d’applications modernes à l’aide d’OAuth et des services ADFS (Active Directory Federation Services)](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=62-->

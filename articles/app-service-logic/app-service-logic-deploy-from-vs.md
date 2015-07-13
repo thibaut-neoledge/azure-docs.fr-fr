@@ -64,4 +64,5 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 À l'avenir, vous pourrez modifier votre application logique dans le contrôle de code source et utiliser Visual Studio pour déployer de nouvelles versions. Notez que si vous modifiez directement la définition dans le portail Azure, ces modifications seront remplacées lors de votre prochain déploiement à partir de Visual Studio.
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en ayant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez toujours utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [Powershell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

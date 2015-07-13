@@ -27,7 +27,7 @@ Nous allons partir du principe que vous disposez déjà de l’application que v
 
 ## Ajouter le kit de développement logiciel (SDK) Application Insights
 
-Pour analyser votre application, vous [ajoutez un kit de développement logiciel (SDK) Application Insights][start] à votre application. Il existe divers kits de développement de logiciel (SDK) et outils d’assistance selon les plateformes, IDE et langages. Vous pouvez surveiller des pages web, des serveurs web Java ou ASP.NET et des appareils mobiles de plusieurs types. Tous les kits de développement logiciels (SDK) envoient les données de télémétrie au [portail Application Insights][portal], où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse et exporter les données vers un emplacement de stockage.
+Pour analyser votre application, vous [ajoutez un kit de développement logiciel (SDK) Application Insights][start] à votre application. Il existe divers kits de développement de logiciel (SDK) et outils d’assistance selon les plateformes, IDE et langages. Vous pouvez surveiller des pages web, des serveurs web Java ou ASP.NET et des appareils mobiles de plusieurs types. Tous les Kits de développement logiciels (SDK) envoient les données de télémétrie au [portail Application Insights][portal], où vous pouvez utiliser nos puissants outils de diagnostic et d’analyse et exporter les données vers un emplacement de stockage.
 
 Pour commencer :
 
@@ -44,7 +44,7 @@ Pour commencer :
 
     Si votre type d’application n’est pas répertorié, consultez la page [Prise en main][start].
 
-4. Dans cet exemple, nous surveillons une application web.Par conséquent, nous pouvons utiliser les outils Azure dans Visual Studio pour installer le kit de développement (SDK). Nous lui indiquons le nom de notre ressource Application Insights :
+4. Dans cet exemple, nous surveillons une application web. Par conséquent, nous pouvons utiliser les outils Azure dans Visual Studio pour installer le Kit de développement (SDK). Nous lui indiquons le nom de notre ressource Application Insights :
 
     ![Dans Visual Studio, dans la boîte de dialogue Nouveau projet, cochez Ajouter Application Insights et sous Envoyer télémétrie vers, choisissez de créer une nouvelle application ou d’en utiliser une existante.](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
@@ -55,7 +55,7 @@ Pour commencer :
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
-2. Création d'un conteneur
+2. Créez un conteneur.
 
     ![Dans le nouvel emplacement de stockage, sélectionnez Conteneurs, puis Ajouter.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
@@ -88,7 +88,7 @@ Vos données seront également exportées vers votre emplacement de stockage, o�
 
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous voudrions écrire du code pour lire les données d’événement et filtrer les champs voulus. Nous pourrions faire toutes sortes de choses avec les données, mais notre objectif aujourd’hui est d’écrire du code pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
-## Créer une base de données SQL Azure
+## Création d’une base de données SQL Azure
 
 De nouveau, à partir de votre abonnement sur le [portail Azure][portal], créez la base de données (et un nouveau serveur, sauf si vous en avez déjà un) dans laquelle vous allez écrire les données.
 
@@ -108,7 +108,7 @@ Nous pouvons maintenant écrire du [code](https://sesitai.codeplex.com/) pour an
 
 #### Créer un projet de rôle de travail
 
-Dans Visual Studio, créez un nouveau projet pour le rôle de travail :
+Dans Visual Studio, créez un projet pour le rôle de travail :
 
 ![Nouveau projet, Visual C#, Cloud, Azure Cloud Service](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
@@ -124,7 +124,7 @@ Dans Azure, obtenez la chaîne de connexion à partir de votre compte de stockag
 Dans Visual Studio, configurez les paramètres du rôle de travail à l’aide de la chaîne de connexion de compte de stockage :
 
 
-![Dans l’Explorateur de solutions, sous le projet Service Cloud, développez Rôles et ouvrez votre rôle de travail. Ouvrez l’onglet des paramètres, choisissez Ajouter un paramètre et définissez name=StorageConnectionString, type=connection string, et cliquez pour définir la valeur. Définissez le paramètre manuellement et collez la chaîne de connexion.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)
+![Dans l’Explorateur de solutions, sous le projet Service cloud, développez Rôles et ouvrez votre rôle de travail. Ouvrez l’onglet des paramètres, choisissez Ajouter un paramètre et définissez name=StorageConnectionString, type=connection string, et cliquez pour définir la valeur. Définissez le paramètre manuellement et collez la chaîne de connexion.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)
 
 
 #### Packages
@@ -513,7 +513,7 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
 ## Articles connexes
 
-* [Exporter vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 

@@ -21,7 +21,7 @@ Une ressource de connexion Automation contient les informations requises pour se
 
 Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*. Le type de connexion est un modèle qui définit un ensemble de propriétés. La connexion définit des valeurs pour chaque propriété définie dans son type de connexion. Des types de connexion sont ajoutés à Azure Automation dans les modules d’intégration ou créés avec l’[API Azure Automation](http://msdn.microsoft.com/library/azure/mt163818.aspx). Les seuls types de connexion disponibles lorsque vous créez une connexion sont ceux installés dans votre compte Automation.
 
->[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
+>[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
 ## Applets de commande Windows PowerShell
 
@@ -60,14 +60,14 @@ Les activités du tableau suivant sont utilisées pour accéder aux connexions d
 1. À partir de votre compte Automation, cliquez sur la partie **Ressources** afin d’ouvrir le panneau **Ressources**.
 1. Cliquez sur la partie **Connexions** afin d’ouvrir le panneau **Connexions**.
 1. Cliquez sur **Ajouter une connexion** en haut du panneau.
-2. Dans la liste déroulante **Type**, sélectionnez le type de connexion que vous souhaitez créer. Le formulaire présente les propriétés spécifiques à ce type 
+2. Dans la liste déroulante **Type**, sélectionnez le type de connexion que vous souhaitez créer. Le formulaire présente les propriétés spécifiques à ce type
 1. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer la nouvelle connexion.
 
 
 
 ### Pour créer une connexion avec Windows PowerShell
 
-Créer une nouvelle connexion avec Windows PowerShell à l’aide de l’applet de commande [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). Cette applet de commande possède un paramètre nommé **ConnectionFieldValues** qui attend une [table de hachage](http://technet.microsoft.com/library/hh847780.aspx) définissant des valeurs pour chacune des propriétés définies par le type de connexion.
+Créer une nouvelle connexion avec Windows PowerShell à l’aide de l’applet de commande [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). Cette applet de commande possède un paramètre nommé **ConnectionFieldValues** qui attend une [table de hachage](http://technet.microsoft.com/fr-fr/library/hh847780.aspx) définissant des valeurs pour chacune des propriétés définies par le type de connexion.
 
 
 Les exemples de commandes suivants créent une nouvelle connexion pour [Twilio](http://www.twilio.com), qui est un service de téléphonie permettant d’envoyer et de recevoir des messages texte. Un exemple de module d’intégration qui inclut un type de connexion Twilio est disponible dans le [Centre de scripts](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8). Ce type de connexion définit des propriétés pour le SID de compte et le jeton d’autorisation, qui sont requis pour valider votre compte lors de la connexion à Twilio. Vous devez [télécharger ce module](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) et l’installer dans votre compte Automation pour que cet exemple de code fonctionne.
@@ -118,5 +118,6 @@ L’image ci-dessous montre le même exemple que plus haut, mais utilise le jeu 
 ## Articles connexes
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

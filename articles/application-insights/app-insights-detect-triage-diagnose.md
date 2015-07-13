@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Détecter, trier et diagnostiquer" 
-	description="Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications" 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="Détecter, trier et diagnostiquer"
+	description="Analyser les pannes et détecter et diagnostiquer les problèmes de performances dans vos applications"
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
 # Détection, tri et diagnostic avec Application Insights
@@ -45,12 +45,12 @@ Application Insights fonctionne pour les applications mobiles et les application
 
 
 
-## Détecter une faible disponibilité 
+## Détecter une faible disponibilité
 
 
 Marcela Markova est la spécialiste de test de l'équipe OBS et elle est responsable de la surveillance des performances en ligne. Elle crée plusieurs [tests web][availability] :
 
-* Un test d'URL unique pour la page d'accueil principale de l'application, http://fabrikambank.com/onlinebanking/. Elle définit des critères de code HTTP 200 et le texte « Bienvenue ! ». Si ce test échoue, il y a un sérieux problème de réseau ou un problème sur les serveurs, voire un problème de déploiement. (Ou bien quelqu'un a modifié sans l'informer le message de bienvenue sur la page d'accueil.) 
+* Un test d'URL unique pour la page d'accueil principale de l'application, http://fabrikambank.com/onlinebanking/. Elle définit des critères de code HTTP 200 et le texte « Bienvenue ! ». Si ce test échoue, il y a un sérieux problème de réseau ou un problème sur les serveurs, voire un problème de déploiement. (Ou bien quelqu'un a modifié sans l'informer le message de bienvenue sur la page d'accueil.)
 
 
 * Un test en plusieurs étapes plus en profondeur, qui se connecte et obtient la liste des comptes actuels, en vérifiant quelques détails importants sur chaque page. Ce test vérifie que le lien vers la base de données des comptes fonctionne. Elle utilise un ID de client fictif : elle en conserve quelques-uns pour ses tests.
@@ -67,7 +67,7 @@ Les échecs apparaissent sous forme de points rouges sur le graphique présentan
 Mais surtout, une alerte est envoyée à l'équipe de développement pour toute erreur. De cette façon, ils en sont informés presque avant tous les clients.
 
 
-## Analyser les mesures de performances 
+## Analyser les mesures de performances
 
 
 Sur la même page de présentation que le graphique de disponibilité se trouve un graphique qui affiche différentes [mesures clés][perf].
@@ -107,13 +107,13 @@ Les exceptions sont signalées à Application Insights via [TrackException()][ap
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ En fait, la stratégie de l'équipe est encore plus large : elle envoie la tél
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ Les exceptions et les événements apparaissent dans le panneau [Recherche de di
 
 ![Dans Recherche de diagnostic, utilisez les filtres pour afficher certains types de données.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Surveillance des événements positifs 
+## Surveillance des événements positifs
 
 
 L'équipe de développement Fabrikam souhaite voir les événements heureux aussi bien que les événements indésirables. En partie parce qu'il est intéressant de savoir si tout se passe bien, mais aussi parce que quand les événements positifs cessent de se produire, c'est qu'il y a un problème.
@@ -171,7 +171,7 @@ Marcela ne reste pas les bras croisés à attendre les alertes. Après chaque re
 Elle peut évaluer l'effet de chaque déploiement sur les performances, en comparant chaque semaine avec la précédente. Si l'état s'aggrave soudainement, elle le signale aux développeurs responsables du composant affecté.
 
 
-## Tri 
+## Tri
 
 
 Tri : évaluation de la gravité et de l'étendue d'un problème. Première étape après la détection. Est-il nécessaire d'appeler l'équipe à minuit ? Ou est-il possible de laisser le problème de côté en attendant que l'équipe ait un peu de temps pour s'y attaquer ? Le tri pose certaines questions importantes.
@@ -197,7 +197,7 @@ En cas de réponse lente, comparez la table des demandes présentant la réponse
 Quelle est l'importance du scénario bloqué ? S'agit-il d'un problème fonctionnel qui bloque un parcours utilisateur particulier et est-il important ? Si les clients ne peuvent pas payer leurs factures, c'est grave. S'ils ne peuvent simplement pas changer les préférences de couleur d'écran, peut-être que le problème peut attendre. Les détails de l'événement ou de l'exception, ou l'identité de la page qui présente un temps de chargement trop long, vous indiquent où les clients rencontrent des difficultés.
 
 
-## Diagnostic 
+## Diagnostic
 
 
 Le diagnostic n'est pas tout à fait la même chose que le débogage. Avant de commencer le suivi via le code, vous devez avoir une idée du pourquoi, du quand et du où le problème se produit.
@@ -223,7 +223,7 @@ Certains problèmes de dépendances lentes sont dus à des problèmes de géoloc
 Fabrikam avait un problème intermittent avec les transferts entre comptes, mais uniquement avec certains types de compte. Pour mieux comprendre ce qui se produisait, ils ont inséré des appels TrackTrace() à des points clés du code, en joignant le type de compte en tant que propriété à chaque appel. Cela a permis de filtrer plus facilement le suivi dans la recherche de diagnostic. Ils ont aussi joint les valeurs des paramètres en tant que propriétés, ainsi que des mesures pour les appels de trace.
 
 
-## Gestion du problème 
+## Gestion du problème
 
 
 Une fois que vous avez diagnostiqué le problème, vous pouvez mettre en place les mesures nécessaires pour le résoudre. Peut-être devrez-vous annuler une modification récente ou peut-être pouvez-vous simplement résoudre le problème. Une fois la correction appliquée, Application Insights vous indiquera si vous avez réussi.
@@ -231,7 +231,7 @@ Une fois que vous avez diagnostiqué le problème, vous pouvez mettre en place l
 
 L'équipe de développement de la banque Fabrikam adopte une approche plus structurée de la mesure des performances qu'avant l'utilisation d'Application Insights.
 
-* Elle définit des objectifs de performances sur des mesures spécifiques dans la page Vue d'ensemble Application Insights. 
+* Elle définit des objectifs de performances sur des mesures spécifiques dans la page Vue d'ensemble Application Insights.
 
 * Elle intègre dès le départ des mesures de performances dans l'application, par exemple des indicateurs qui mesurent la progression de l'utilisateur dans certains segments.
 
@@ -248,7 +248,7 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 
 ## Vidéo
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,6 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

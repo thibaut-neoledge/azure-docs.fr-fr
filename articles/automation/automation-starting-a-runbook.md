@@ -178,7 +178,7 @@ Il s'ensuit la sortie suivante.
 
 ### Tableaux
 
-Si le paramètre est un tableau tel qu'[array] ou [string[]], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1, Valeur2, Valeur3]*. Ces valeurs doivent avoir des types simples.
+Si le paramètre est un tableau comme [array] ou [string], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1,Valeur2,Valeur3]*. Ces valeurs doivent avoir des types simples.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé *user*.
 
@@ -220,7 +220,7 @@ Considérez le Runbook de test suivant qui accepte un paramètre nommé credenti
 	   $credential.UserName
 	}
 
-Le texte suivant peut être utilisé pour le paramètre user en supposant qu'il existe une ressource d'informations d'identification nommée  *My Credential*.
+Le texte suivant peut être utilisé pour le paramètre user en supposant qu'il existe une ressource d'informations d'identification nommée *My Credential*.
 
 	My Credential
 
@@ -230,6 +230,6 @@ En supposant que le nom d'utilisateur des informations d'identification soit *js
 
 ## Articles connexes
 
-- [Démarrage d'un Runbook à partir d'un autre Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- [Démarrage d'un Runbook à partir d'un autre Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

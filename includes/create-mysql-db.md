@@ -1,14 +1,8 @@
-#Création d'une base de données MySQL dans Azure
-
 Ce guide présente l'utilisation de [ClearDB] pour créer une base de données MySQL à partir du [Magasin Azure] et la création d'une base de données MySQL comme ressource liée lors de la création d'un [site Web Azure][waws]. [ClearDB] est un fournisseur de services database-as-a-service à tolérance de panne permettant d’exécuter et de gérer des bases de données MySQL dans les centres de données Azure et de s’y connecter à partir d’une application.
-
-##Sommaire
-* [Création d'une base de données MySQL à partir de l'Azure Store](#CreateFromStore)
-* [Création d'une base de données MySQL comme ressource liée pour un site web Azure](#CreateForWebSite)
 
 > [AZURE.NOTE]Lors de la création d'une base de données MySQL pendant le processus de création du site web, vous pouvez créer seulement une base de données gratuite. La création d'une base de données MySQL à partir du Magasin Azure vous permet de créer une base de données gratuite ou de choisir une des options payantes.
 
-<h2><a id="CreateFromStore"></a>Création d’une base de données MySQL à partir de l’Azure Store</h2>
+## Création d’une base de données MySQL à partit de l’Azure Store
 
 Pour créer une base de données MySQL à partir de l’[Azure Store], procédez comme suit :
 
@@ -38,7 +32,7 @@ Pour créer une base de données MySQL à partir de l’[Azure Store], procédez
 	![Informations de connexion MySql](./media/create-mysql-db/mysql-conn-info.png)
 
 
-<h2><a id="CreateForWebSite"></a>Création d'une base de données MySQL comme ressource liée pour un site web Azure</h2>
+## Création d’une base de données MySQL comme ressource liée pour un site web Azure
 
 Pour créer une base de données MySQL comme ressource liée lors de la création d’un [site Web Azure][waws], procédez comme suit :
 
@@ -80,4 +74,4 @@ Pour créer une base de données MySQL comme ressource liée lors de la créatio
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!--HONumber=52-->
+<!---HONumber=62-->

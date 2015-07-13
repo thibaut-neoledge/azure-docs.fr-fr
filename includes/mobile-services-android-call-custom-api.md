@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>Mise à jour de l'application pour appeler l'API personnalisée
 
-1. Nous allons ajouter un bouton intitulé « Complete All » en regard du bouton existant et déplacer ces deux boutons d'une ligne. Dans Android Studio, ouvrez le fichier *res\\layout\\activity_to_do.xml* dans votre projet de démarrage rapide et recherchez l'élément **LinearLayout** contenant l'élément **Button** appelé `buttonAddToDo`. Copiez l'élément **LinearLayout** et collez-le immédiatement après l'élément d'origine. Supprimez l'élément **Button** du premier élément **LinearLayout**.
+1. Nous allons ajouter un bouton intitulé « Complete All » en regard du bouton existant et déplacer ces deux boutons d'une ligne. Dans Android Studio, ouvrez le fichier *res\layout\activity_to_do.xml* dans votre projet de démarrage rapide et recherchez l'élément **LinearLayout** contenant l'élément **Button** appelé `buttonAddToDo`. Copiez l'élément **LinearLayout** et collez-le immédiatement après l'élément d'origine. Supprimez l'élément **Button** du premier élément **LinearLayout**.
 
 2. Dans le second élément **LinearLayout**, supprimez l'élément **EditText** et ajoutez le code suivant immédiatement après l'élément **Button** existant :
 
@@ -36,7 +36,7 @@
 	    </LinearLayout>
 	
 
-4. Ouvrez le fichier res\\values\\string.xml et ajoutez la ligne de code suivante :
+4. Ouvrez le fichier res\values\string.xml et ajoutez la ligne de code suivante :
 
     	<string name="complete_button_text">Complete All</string>
 
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Un message s'affiche pour indiquer le nombre d'éléments marqués comme terminés, puis la requête filtrée est de nouveau exécutée pour supprimer tous les éléments de la liste.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

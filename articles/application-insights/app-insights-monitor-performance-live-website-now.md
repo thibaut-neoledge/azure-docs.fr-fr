@@ -31,14 +31,14 @@ Vous avez le choix entre trois façons d’appliquer Application Insights à vos
  * Et de pouvoir utiliser l’[API Application Insights][api] si vous souhaitez écrire votre propre télémétrie pour effectuer un suivi de l’utilisation ou diagnostiquer les problèmes.
 * **En cours d’exécution :** utilisez Status Monitor pour l’associer à votre application web sur le serveur.
  * Surveillance des applications web déjà exécutées sans avoir à les générer ou les publier de nouveau.
- * Mise à disposition d’un ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
+ * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
  * Diagnostics de dépendance  : recherche des erreurs ou des faibles performances là où votre application utilise d’autres composants tels que des bases de données, des API REST ou d’autres services.
  * Résolution des problèmes à l’aide des données de télémétrie.
-* **En cours d’exécution et de création :** compilez le kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
+* **En cours d’exécution et de création :** compilez le Kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
  * Ensemble de diagnostics standard et données de télémétrie liées à l’utilisation.
  * Diagnostics de dépendance.
  * Élaboration d’une télémétrie personnalisée à l’aide de l’API.
- * Résolution des problèmes à l’aide du kit de développement logiciel (SDK) et de la télémétrie.
+ * Résolution des problèmes à l’aide du Kit de développement logiciel (SDK) et de la télémétrie.
 
 
 
@@ -109,7 +109,7 @@ Cliquez sur n’importe quel graphique du compteur de performance pour changer l
  
 #### Exceptions
 
-![Cliquez sur le graphique d’exceptions de serveur](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
+![Cliquez sur le graphique d’exceptions de serveur.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
 
 Vous pouvez accéder aux exceptions spécifiques (des sept derniers jours) et obtenir les arborescences des appels de procédure et des données de contexte.
 

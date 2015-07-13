@@ -107,7 +107,7 @@ Récupérez toutes les demandes dont le temps de réponse excède 5 secondes. 
 
 
 
-## <a name="search"></a>Rechercher dans les données
+## Recherche dans les données
 
 Vous pouvez rechercher des termes dans une des valeurs des propriétés. Ceci est particulièrement utile si vous avez écrit des [événements personnalisés][track] avec les valeurs de propriétés.
 
@@ -180,8 +180,6 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
 
 
-
-
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -192,5 +190,6 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

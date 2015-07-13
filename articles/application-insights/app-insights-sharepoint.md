@@ -31,7 +31,7 @@ Dans le [portail Azure](http://portal.azure.com), créez une ressource Applicati
 ![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-sharepoint/01-new.png)
 
 
-Dans le panneau qui s'ouvre, vous trouverez des données relatives à l'utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
     
 
 
@@ -106,4 +106,4 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 <!--Link references-->
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

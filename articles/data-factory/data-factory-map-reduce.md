@@ -17,23 +17,23 @@
 	ms.author="spelluru"/>
 
 # Appeler des programmes MapReduce à partir de Data Factory
-Cet article décrit comment appeler un **MapReduce** programme à partir d'un pipeline de fabrique de données Azure à l'aide de la **HDInsight activité** avec **transformation MapReduce**.
+Cet article explique comment appeler un programme **MapReduce ** à partir d’un pipeline Azure Data Factory à l’aide de l’**activité HDInsight** et de la **transformation MapReduce**.
 
 ## Introduction 
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l'utilisation de la transformation MapReduce de l'activité HDInsight.
  
-Voir [Utilisez Pig et Hive avec Data Factory][data-factory-pig-hive-activities] pour plus d'informations sur l'exécution de Pig/ruche de scripts sur un HDInsight cluster à partir d'un pipeline de fabrique de données Azure à l'aide de transformations Pig/ruche de l'activité de HDInsight.
+Consultez la page [Utilisation de Pig et Hive avec Data Factory][data-factory-pig-hive-activities] pour plus d’informations sur l’exécution de scripts Pig/Hive sur un cluster HDInsight à partir d’un pipeline de fabrique de données Azure à l’aide des transformations Pig/Hive de l’activité HDInsight.
 
-## JSON pour l'activité de HDInsight à l'aide de la transformation MapReduce 
+## JSON pour l’activité HDInsight à l’aide de la transformation MapReduce 
 
-Dans la définition de JSON pour l'activité de HDInsight :
+Dans la définition JSON de l’activité HDInsight :
  
-1. Définir le **type** de la **activité** à **HDInsightActivity**.
-2. Définir le **type** de la **transformation** à **MapReduce**.
-3. Spécifiez le nom de la classe pour **className** propriété.
-4. Spécifiez le chemin d'accès au fichier JAR, notamment le nom de fichier **jarFilePath** propriété.
-5. Spécifier le service lié qui fait référence au stockage Blob Azure qui contient le fichier JAR pour **jarLinkedService** propriété.   
-6. Spécifiez les arguments du programme MapReduce dans le **arguments** section. 
+1. Affectez au **type** de l’**activité** la valeur **HDInsightActivity**.
+2. Affectez au **type** de **transformation** la valeur **MapReduce**.
+3. Spécifiez le nom de la classe pour la propriété **className**.
+4. Spécifiez le chemin d’accès du fichier JAR, ainsi que le nom de fichier, pour la propriété **jarFilePath**.
+5. Spécifiez le service lié qui fait référence au stockage d’objets blob Azure contenant le fichier JAR pour la propriété **jarLinkedService**.   
+6. Spécifiez les arguments du programme MapReduce dans la section **arguments**. 
 
    
  
@@ -90,14 +90,14 @@ Dans la définition de JSON pour l'activité de HDInsight :
 Vous pouvez utiliser la transformation MapReduce pour exécuter un fichier jar MapReduce dans un cluster HDInsight. Dans l'exemple suivant de définition JSON d'un pipeline, l'activité HDInsight est configurée pour exécuter un fichier JAR Mahout.
 
 ## Exemple
-Vous pouvez télécharger un exemple d'utilisation de l'activité de HDInsight avec Transformation MapReduce à partir de : [données fabrique exemples sur GitHub][data-factory-samples].
+Vous pouvez télécharger un exemple d’utilisation de l’activité HDInsight avec une transformation MapReduce à l’emplacement suivant : [Exemples Data Factory sur GitHub][data-factory-samples].
 
 ## Voir aussi
 
 Article | Description
 ------ | ---------------
-[Didacticiel : Déplacer et traiter des fichiers journaux à l'aide de la fabrique de données][adf-tutorial] | Cet article fournit une procédure pas à pas bout en bout qui montre comment implémenter une véritable proche à l'aide de la fabrique de données Azure pour transformer les données des fichiers journaux en insights le cas. Dans ce didacticiel, vous allez utiliser les deux transformations Pig et Hive pour traiter les données. 
-[Référence du développeur fabrique données Azure][developer-reference] | La référence du développeur possède le contenu de référence complet pour les applets de commande, script JSON, fonctions, etc.... 
+[Didacticiel : déplacement et traitement de fichiers journaux à l’aide de Data Factory][adf-tutorial] | Cet article comporte une procédure pas à pas de bout en bout qui montre comment implémenter un scénario réel à l’aide d’Azure Data Factory pour transformer des données de fichiers journaux en informations pertinentes. Dans ce didacticiel, vous allez utiliser à la fois les transformations Pig et Hive pour traiter des données. 
+[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence pour les développeurs comportent des informations complètes sur les applets de commande, le script JSON, les fonctions, etc. 
 
 
 [data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
@@ -121,5 +121,6 @@ Article | Description
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

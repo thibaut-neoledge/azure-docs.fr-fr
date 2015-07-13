@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Analyse de l'utilisation avec Application Insights" 
-	description="Présentation de l'analyse de l'utilisation avec Application Insights" 
-	services="application-insights" 
+<properties
+	pageTitle="Analyse de l'utilisation avec Application Insights"
+	description="Présentation de l'analyse de l'utilisation avec Application Insights"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="kamrani"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/03/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/03/2015"
 	ms.author="awills"/>
- 
+
 # Analyse de l'utilisation avec Application Insights
 
 Le fait de savoir comment les personnes utilisent votre application vous permet de concentrer votre travail de développement sur les scénarios les plus importants et de vous familiariser avec les objectifs que les utilisateurs trouvent plus faciles ou plus difficiles à atteindre.
@@ -22,11 +22,11 @@ Le fait de savoir comment les personnes utilisent votre application vous permet 
 Application Insights peut offrir un aperçu clair de l'utilisation de votre application, vous aider à améliorer l'expérience des utilisateurs et atteindre vos objectifs.
 
 ## Analyse prête à l'emploi
- 
+
 Ajoutez [Application Insights][start] à votre projet et sans aucun effort supplémentaire, vous obtenez des graphiques vous indiquant le nombre d'utilisateurs et bien plus encore.
 
 ![Dans Azure, sélectionnez Parcourir > Application Insights > votre projet, puis faites défiler vers le bas.](./media/app-insights-overview-usage/01-overview.png)
- 
+
 Placez le pointeur dans la partie vide au-dessus d'un graphique pour afficher les nombres à un moment donné. Dans le cas contraire, les chiffres indiquent la valeur agrégée sur la période, par exemple une moyenne, un total ou le nombre d'utilisateurs distincts sur la période.
 
 Dans les applications web, les utilisateurs sont comptés avec les cookies. Une personne qui utilise plusieurs navigateurs, efface les cookies ou utilise la fonctionnalité de confidentialité est comptée plusieurs fois.
@@ -36,7 +36,7 @@ Une session web est comptée après 30 minutes d'inactivité. Une session sur u
 Cliquez sur n'importe quel graphique pour afficher plus de détails. Par exemple :
 
 ![Dans le panneau Vue d'ensemble, cliquez sur le graphique des sessions.](./media/app-insights-overview-usage/02-sessions.png)
- 
+
 (Cet exemple est issu d'un site web, mais les graphiques sont similaires pour les applications qui s'exécutent sur des appareils).
 
 Comparez avec la semaine précédente pour voir si les choses évoluent :
@@ -51,14 +51,14 @@ Regroupez (segmentez) les données par une propriété, comme le navigateur, le 
 
 ![Sélectionnez un graphique qui affiche une seule mesure, passez sur le regroupement et choisissez une propriété](./media/app-insights-overview-usage/03-browsers.png)
 
- 
+
 ## Utilisation des pages
 
 Cliquez sur le graphique des affichages de pages pour obtenir une version plus détaillée avec une répartition des pages les plus populaires :
 
 
 ![Dans le panneau Vue d'ensemble, cliquez sur le graphique des pages vues.](./media/app-insights-overview-usage/05-games.png)
- 
+
 L'exemple ci-dessus vient d'un site web de jeux. Nous constatons instantanément que :
 
 * L'utilisation ne s'est pas améliorée au cours de la semaine écoulée. Peut-être que nous devrions envisager une optimisation pour les moteurs de recherche ?
@@ -83,7 +83,7 @@ Vous pouvez utiliser la télémétrie de différentes manières pour comprendre 
 
 (C#)
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
+    var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("GameEnd");
 
 (VB)
@@ -112,29 +112,29 @@ Les événements personnalisés provenant de l'application sont répertoriés pa
 
 
 ![Dans le panneau Vue d'ensemble, cliquez sur un des types d'événements personnalisés.](./media/app-insights-overview-usage/07-clickEvent.png)
- 
+
 Cliquez sur l'événement qui vous intéresse, puis sélectionnez une occurrence spécifique récente :
 
 
 ![Dans la liste sous le graphique de synthèse, cliquez sur un événement.](./media/app-insights-overview-usage/08-searchEvents.png)
- 
+
 Voyons toute la télémétrie de la session dans laquelle cet événement NoGame particulier s'est produit.
 
 
 ![Cliquez sur toute la télémétrie de la session](./media/app-insights-overview-usage/09-relatedTelemetry.png)
- 
+
 Il n'y avait pas d'exceptions, l'utilisateur n'a pas été bloqué dans son jeu par un quelconque échec.
- 
+
 Nous pouvons filtrer tous les types de télémétrie, à l'exception des affichages de page pour cette session :
 
 
 ![](./media/app-insights-overview-usage/10-filter.png)
- 
+
 Et nous pouvons voir que cet utilisateur s'est connecté pour tout simplement voir les derniers résultats. Peut-être devrions envisager de développer un parcours utilisateur qui facilite cette opération. (Et nous devrons alors mettre en place un événement personnalisé pour signaler ce qui se produit quand ce parcours est activé.)
 
 ## Filtrage, recherche et segmentation des données grâce à des propriétés
 Vous pouvez joindre des balises arbitraires et des valeurs numériques aux événements.
- 
+
 
 JavaScript côté client
 
@@ -148,7 +148,7 @@ JavaScript côté client
 C# côté serveur
 
     // Set up some properties:
-    var properties = new Dictionary <string, string> 
+    var properties = new Dictionary <string, string>
         {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
     var measurements = new Dictionary <string, double>
         {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
@@ -174,15 +174,15 @@ Vous pouvez joindre des propriétés à des affichages de pages de la même mani
 
 JavaScript côté client
 
-    appInsights.trackPageView("Win", 
-        {Game: currentGame.Name}, 
+    appInsights.trackPageView("Win",
+        {Game: currentGame.Name},
         {Score: currentGame.Score});
 
 Dans la recherche de diagnostic, affichez les propriétés en cliquant sur via les occurrences d'un événement.
 
 
 ![Dans la liste des événements, ouvrez un événement, puis cliquez sur « ... » pour voir d'autres propriétés](./media/app-insights-overview-usage/11-details.png)
- 
+
 Utilisez le champ de recherche pour voir les occurrences de l'événement présentant une valeur de propriété particulière.
 
 
@@ -243,18 +243,20 @@ Dans l'initialiseur de l'application, par exemple Global.asax.cs :
 Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle de développement, et plus uniquement un élément auquel vous avez recours pour résoudre les problèmes. Voici quelques conseils :
 
 * Déterminez la mesure clé de votre application. Voulez-vous le plus d'utilisateurs possible ou préférez un petit groupe d'utilisateurs heureux ? Voulez-vous optimiser les visites ou les ventes ?
-* Prévoyez de mesurer chaque parcours. Lorsque vous concevez un nouveau parcours utilisateur ou une nouvelle fonctionnalité ou que vous appliquez une mise à jour, envisagez toujours comment vous allez mesurer la réussite de cet élément. Avant de commencer à créer votre code, posez-vous la question « Quel effet cela aura sur nos mesures, si ça fonctionne ? Est-ce que nous devons suivre tous les nouveaux événements ? » Et bien sûr, une fois la fonctionnalité active, veillez à examiner l'analyse et agir en fonction des résultats. 
+* Prévoyez de mesurer chaque parcours. Lorsque vous concevez un nouveau parcours utilisateur ou une nouvelle fonctionnalité ou que vous appliquez une mise à jour, envisagez toujours comment vous allez mesurer la réussite de cet élément. Avant de commencer à créer votre code, posez-vous la question « Quel effet cela aura sur nos mesures, si ça fonctionne ? Est-ce que nous devons suivre tous les nouveaux événements ? » Et bien sûr, une fois la fonctionnalité active, veillez à examiner l'analyse et agir en fonction des résultats.
 * Faites le lien entre la mesure clé et les autres mesures. Par exemple, si vous ajoutez une fonctionnalité de favoris, vous souhaitez connaître la fréquence à laquelle les utilisateurs ajoutent des favoris. Mais il est peut-être plus intéressant de savoir avec quelle fréquence ils reviennent à leurs favoris. Et, plus important encore, les clients qui utilisent les favoris achètent-ils plus votre produit ?
 * Test du canari. Configurez une fonctionnalité qui ne sera visible que pour certains utilisateurs. Utilisez Application Insights pour voir si cette nouvelle fonctionnalité est utilisée comme vous l'aviez envisagé. Apportez les ajustements nécessaires, puis publiez-la pour un public plus large.
 * Parlez à vos utilisateurs ! L'analyse en soi n'est pas suffisante, mais elle vient compléter une bonne relation client.
 
 
+## Vidéo
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
 
 [start]: app-insights-get-started.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -182,7 +182,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -324,4 +324,4 @@ Article | Description
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

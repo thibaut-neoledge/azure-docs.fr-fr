@@ -71,7 +71,7 @@ Vous pouvez maintenant utiliser le connecteur Yammer dans le flux.
 
 1.	 Vous pouvez utiliser le nouveau message récupéré du déclencheur Yammer (« Nouveau message ») dans d’autres actions du flux. Configurez les propriétés d’entrée du déclencheur Yammer comme suit :
 
-	- **ID de groupe** : ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas fourni, le message sera récupéré du flux suivant. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer. Exemple : l’ID de groupe dans l’URL ci-dessous est « 5453203 » https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- **ID de groupe** : ID du groupe à partir duquel le nouveau message doit être récupéré. Si l’ID de groupe n’est pas fourni, le message sera récupéré du flux suivant. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer. Exemple : l'ID de groupe dans l'URL ci-dessous est « 5453203 » https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 
 	![][8]
  
@@ -82,8 +82,8 @@ Vous pouvez maintenant utiliser le connecteur Yammer dans le flux.
 6.	Vous pouvez également utiliser le connecteur Yammer comme une action dans vos applications logiques. Tout d'abord, spécifiez un déclencheur pour votre application logique ou cochez la case « exécuter cette logique manuellement » (comme indiqué ci-dessous). Ajoutez le connecteur Yammer, définissez les autorisations et choisissez l'action « Message Post ». Configurez les propriétés d’entrée de l’action « Publier le message » comme suit :
 
 	- **Texte du message** : corps du message à publier.
-	- **ID de groupe** : indiquez l’ID de groupe à partir duquel publier le nouveau message. Si aucun ID de groupe n’est fourni, le message sera publié dans tous les flux de l’entreprise. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer. Exemple : l’ID de groupe dans l’URL ci-dessous est « 5453203 » https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
-	- 	**Baliser les utilisateurs** : tableau des noms d’utilisateur du réseau qui doivent être balisés dans le message. 
+	- **ID de groupe** : indiquez l'ID du groupe vers lequel publier le nouveau message. Si aucun ID de groupe n’est fourni, le message sera publié dans tous les flux de l’entreprise. L’ID de groupe peut être récupéré à partir de l’URL du groupe dans Yammer. Exemple : l'ID de groupe dans l'URL ci-dessous est « 5453203 » https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
+	- 	**Baliser les utilisateurs** : tableau des noms d'utilisateur du réseau qui doivent être balisés dans le message. 
 
 	![][10]
  

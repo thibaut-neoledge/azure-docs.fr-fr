@@ -18,9 +18,9 @@
 
 # Déployer une application Web liée à un référentiel GitHub
 
-Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web liée à un projet dans un référentiel GitHub. Vous allez apprendre comment définir les ressources qui sont déployées et comment définir les paramètres qui sont spécifiés lors de l'exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements ou le personnaliser pour répondre à vos besoins.
+Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web liée à un projet dans un référentiel GitHub. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour plus d'informations sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
 Pour le modèle complet, consultez [Application Web liée au modèle GitHub](https://github.com/tfitzmac/AppServiceTemplates/blob/master/WebAppLinkedToGithub.json).
 
@@ -36,7 +36,7 @@ Avec ce modèle, vous allez déployer une application Web qui contient le code d
 
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Application Web
+### Application web
 
 Crée l'application Web qui est liée au projet dans GitHub.
 
@@ -71,7 +71,7 @@ L'application Web a également une ressource enfant qui est définie dans la sec
        ]
      }
 
-## Commandes pour exécuter le déploiement
+## Commandes pour l’exécution du déploiement
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 

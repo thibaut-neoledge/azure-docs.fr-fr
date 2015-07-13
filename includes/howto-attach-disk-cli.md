@@ -1,18 +1,18 @@
 
-For more information about disks, see [About Virtual Machine Disks in Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+Pour plus d’informations sur les disques, consultez la page [À propos des disques de machine virtuelle dans Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>How to: Attach an empty disk
-Attaching an empty disk is the simpler way to add a data disk. Run the following command to attach a new empty disk:
+##<a id="cliattachempty"></a>Association d’un disque vide
+Pour ajouter un disque de données, le plus simple consiste à attacher un disque vide. Exécutez la commande suivante pour attacher un nouveau disque vide :
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]
 
-Replace `vm-name` with the name of your virtual machine, and `size-in-gb` with the size of your new disk. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.  
+Remplacez `vm-name` par le nom de votre machine virtuelle, et `size-in-gb` par la taille de votre nouveau disque. Vous pouvez éventuellement utiliser une URL d'objet blob comme dernier argument pour spécifier explicitement l'objet blob cible à créer. Si vous ne spécifiez pas d'URL d'objet blob, un objet blob est généré automatiquement.
 
-Run the following command to verify that your disk has been created:
+Exécutez la commande suivante pour vérifier que votre disque a bien été créé :
 
     vm disk list <vm-name>
 
-Here is a sample walkthrough of the above commands including terminal output:
+Voici un exemple de procédure de la commande mentionné ci-dessus, incluant la sortie de terminal :
 
     ~$ azure vm disk attach-new pinkylinux 20 http://pinkylinux.blob.core.windows.net/vhds/pinkydisk1.vhd
     info:   Executing command vm disk attach-new
@@ -30,3 +30,5 @@ Here is a sample walkthrough of the above commands including terminal output:
     data:    0    5         pinkydisk1.vhd
     data:    1    20        pinkylinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
+
+<!---HONumber=62-->

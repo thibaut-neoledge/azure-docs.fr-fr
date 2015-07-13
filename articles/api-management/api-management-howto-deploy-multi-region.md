@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
 # Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
@@ -75,5 +75,4 @@ Une fois que les régions de votre choix supprimées, cliquez sur **Enregistrer*
 [unité]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

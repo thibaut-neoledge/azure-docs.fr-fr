@@ -178,5 +178,6 @@ Voici quelques ressources supplémentaires pour vous aider à utiliser Azure AD
 
 + [Exemples de code Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Scénarios d’authentification pour Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

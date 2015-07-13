@@ -30,4 +30,13 @@ De quel type d’application disposez-vous ?
 * [Application web sur IIS dans Azure VM](../insights-perf-analytics.md)
 * [Application hors d’Azure](app-insights-get-started.md)
 
-<!---HONumber=58--> 
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=62-->

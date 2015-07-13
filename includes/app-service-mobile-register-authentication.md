@@ -1,10 +1,10 @@
 
 
-Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application avec un fournisseur d'identité. Vous devez ensuite inscrire la clé secrète cliente générée par le fournisseur auprès de votre service d’application.
+Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application avec un fournisseur d'identité. Vous devez ensuite inscrire la clé secrète cliente générée par le fournisseur auprès de votre service d'application.
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Parcourir**, **Groupe de ressources**, puis sélectionnez le groupe de ressources de votre application mobile.
+1. Connectez-vous au [portail Azure en version préliminaire], cliquez sur **Parcourir**, **Groupe de ressources**, puis sélectionnez le groupe de ressources de votre application mobile.
 
-2. Sélectionnez votre passerelle, puis notez la valeur de l’**URL** sous **Propriétés**. Il se peut que le fournisseur d'identité vous demande cette valeur lorsque vous inscrivez votre application.
+2. Sélectionnez votre passerelle, puis notez la valeur de l'**URL** sous **Propriétés**. Il se peut que le fournisseur d'identité vous demande cette valeur lorsque vous inscrivez votre application.
 
    	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
 
@@ -21,6 +21,6 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 4. (Facultatif) Répétez l’étape précédente pour configurer tout autre fournisseur d’identité que votre application doit prendre en charge. 
 
 <!-- URLs. -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

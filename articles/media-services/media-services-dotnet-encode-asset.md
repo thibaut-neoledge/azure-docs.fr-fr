@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Encodage d'une ressource à l'aide d'Azure Media Encoder" 
+	pageTitle="Encodage d’une ressource à l’aide d’Azure Media Encoder" 
 	description="Apprenez à utiliser Azure Media Encoder pour encoder un contenu multimédia sur Media Services. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-# Encodage d'une ressource à l'aide d'Azure Media Encoder
+#Encodage d’une ressource à l’aide d’Azure Media Encoder
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md). 
+Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
-## Vue d'ensemble
+##Vue d'ensemble
 
-Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L'encodage est le processus de compression audio et vidéo permettant à vos clients d'afficher votre contenu multimédia.
+Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia.
 
-Les tâches d'encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d'encodage pour convertir des fichiers multimédias d'un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l'encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d'encodage à l'aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez Présélections de tâches pour Azure Media Services. Si vous avez utilisé un encodeur tiers, [validez vos fichiers](https://msdn.microsoft.com/library/azure/dn750842.aspx).
+Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez aussi utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles sur Azure Marketplace. Vous pouvez spécifier les détails des tâches d’encodage à l’aide de chaînes de présélection définies pour votre encodeur ou en utilisant des fichiers de configuration prédéfinis. Pour voir les types de présélections disponibles, consultez [Présélections de tâches pour Azure Media Services](https://msdn.microsoft.com/library/azure/dn619392.aspx). Si vous avez utilisé un encodeur tiers, [validez vos fichiers](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Il est recommandé de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l'[empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx).
+Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l'[empaquetage dynamique](https://msdn.microsoft.com/library/azure/jj889436.aspx). Pour tirer parti de l'empaquetage dynamique, vous devez d'abord obtenir au moins une unité de diffusion en continu à la demande pour le point de terminaison de diffusion en continu à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, voir [Mise à l’échelle de Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
-Si votre ressource de sortie utilise le chiffrement de stockage, vous devez configurer la stratégie de remise de ressources. Pour plus d'informations, consultez la page [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
+Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## Création d'un travail avec une seule tâche d'encodage 
+##Création d’un travail avec une seule tâche d’encodage 
 
-Quand vous encodez à l'aide de l'Encodeur multimédia Azure, vous pouvez utiliser les présélections de configuration de tâche spécifiés [ici](https://msdn.microsoft.com/library/azure/dn619389.aspx).
+Quand vous encodez à l'aide de l'Encodeur multimédia Azure, vous pouvez utiliser les présélections de configuration de tâche spécifiées [ici](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 
-### Utilisation du Kit de développement logiciel (SDK) Media Services pour .NET  
+###Utilisation du Kit de développement logiciel (SDK) Media Services pour .NET  
 
-La méthode **EncodeToAdaptiveBitrateMP4Set** suivante crée une tâche de codage et y ajoute une seule tâche de codage. La tâche utilise " l'encodeur Azure Media " pour encoder vers " Jeu de MP4 H264 à débit adaptatif 720p ". 
+La méthode **EncodeToAdaptiveBitrateMP4Set** suivante crée une tâche de codage et y ajoute une seule tâche de codage. La tâche utilise « l’encodeur Azure Media » pour encoder vers « Jeu de MP4 H264 à débit adaptatif 720p ».
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
     {
@@ -106,7 +106,7 @@ La méthode **EncodeToAdaptiveBitrateMP4Set** suivante crée une tâche de codag
         return processor;
     }
 
-### Utilisation du Kit de développement logiciel (SDK) Media Services pour les extensions .NET
+###Utilisation du Kit de développement logiciel (SDK) Media Services pour les extensions .NET
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
     {
@@ -138,11 +138,11 @@ La méthode **EncodeToAdaptiveBitrateMP4Set** suivante crée une tâche de codag
         return outputAsset;
     } 
 
-## Création d'un travail avec des tâches chaînées 
+##Création d’un travail avec des tâches chaînées 
 
-Dans de nombreux scénarios d'application, les développeurs souhaitent créer une série de tâches de traitement. Dans Media Services, vous pouvez créer une série de tâches chaînées. Chaque tâche effectue différentes étapes de traitement et peut utiliser différents processeurs multimédias. Les tâches chaînées peuvent transférer une ressource d'une tâche à une autre, en effectuant une séquence linéaire de tâches sur la ressource. Toutefois, les tâches effectuées dans un travail ne le sont pas obligatoirement dans une séquence. Lorsque vous créez une tâche chaînée, les objets chaînés **ITask** sont créés dans un seul objet **IJob**.
+Dans de nombreux scénarios d’application, les développeurs souhaitent créer une série de tâches de traitement. Dans Media Services, vous pouvez créer une série de tâches chaînées. Chaque tâche effectue différentes étapes de traitement et peut utiliser différents processeurs multimédias. Les tâches chaînées peuvent transférer une ressource d’une tâche à une autre, en effectuant une séquence linéaire de tâches sur la ressource. Toutefois, les tâches effectuées dans un travail ne le sont pas obligatoirement dans une séquence. Quand vous créez une tâche chaînée, les objets chaînés **ITask** sont créés dans un seul objet **IJob**.
 
->[AZURE.NOTE] Il existe actuellement une limite de 30 tâches par travail. Si vous devez chaîner plus de 30 tâches, créez plusieurs travaux pour contenir les tâches.
+>[AZURE.NOTE]Il existe actuellement une limite de 30 tâches par travail. Si vous devez chaîner plus de 30 tâches, créez plusieurs travaux pour contenir les tâches.
 
 La méthode **CreateChainedTaskEncodingJob** suivante crée un travail qui contient deux tâches chaînées. Par conséquent, la méthode retourne un travail qui contient deux éléments multimédias de sortie.
 
@@ -207,15 +207,15 @@ La méthode **CreateChainedTaskEncodingJob** suivante crée un travail qui conti
     }
 
 
-## Étapes suivantes
+##Étapes suivantes
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Présélection d'encodeur]: http://msdn.microsoft.com/library/dn619392.aspx
-[Procédure : obtention d'une instance de processeur multimédia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Procédure : téléchargement d'une ressource chiffrée]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Procédure : remise d'une ressource par téléchargement]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Vérification de la progression des tâches]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Présélection de tâches pour Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
+[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
+[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
+[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
+[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
+[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

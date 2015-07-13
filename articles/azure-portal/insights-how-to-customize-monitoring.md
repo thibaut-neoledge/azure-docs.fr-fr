@@ -1,72 +1,76 @@
 <properties 
-	pageTitle="Personnalisation de la surveillance" 
+	pageTitle="Surveillance des mesures de service" 
 	description="Découvrez comment personnaliser les graphiques d'analyse dans Azure." 
-	authors="alancameronwills" 
-	manager="kamrani" 
+	authors="stepsic-microsoft-com" 
+	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal"
+documentationCenter=""/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
-	ms.author="awills"/>
+	ms.date="04/28/2015" 
+	ms.author="stepsic"/>
 
-# Personnalisation de la surveillance
+# Surveillance des mesures de service
 
-Votre application Azure possède plusieurs mesures que vous pouvez surveiller et représenter sur une période que vous choisissez.
+Tous les services Azure assurent le suivi des mesures clés qui vous permettent de surveiller l’intégrité, les performances, la disponibilité et l'utilisation de vos services. Vous pouvez afficher ces mesures dans le portail Azure, et utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des mesures par programmation.
 
-1. Dans la [version préliminaire du portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur une ressource que vous souhaitez surveiller.
-2. Le filtre **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Par exemple, les sites web proposent des options pour les demandes, les erreurs, les [tests web](http://go.microsoft.com/fwlink/?LinkID=394528&clcid=0x409) et les [analyses](http://go.microsoft.com/fwlink/?LinkID=394529&clcid=0x409). Cliquez sur **Demandes et erreurs aujourd'hui** pour afficher le volet **Métrique**.  
-    ![Monitoring lens](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
-3. Le volet **Métrique** affiche les détails des mesures que vous sélectionnez. En haut du volet se trouve un graphe et en dessous un tableau qui affiche l'agrégation de ces mesures, comme la moyenne, le minimum et le maximum. En dessous apparaît la liste des alertes que vous avez définies, filtrées en fonction des mesures affichées dans le volet. Cela permet, si vous avez un grand nombre d'alertes, de n'afficher ici que celles dont vous avez besoin. Vous pouvez revenir à la vue générale des alertes pour votre site web en cliquant sur la zone **Règles d'alerte** dans le volet **Site web**.  
-    ![Metric blade](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
-4. Pour personnaliser les mesures affichées, cliquez avec le bouton droit sur le graphique et sélectionnez **Modifier la requête** :  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_MetricMenu.png)
-5. À partir du volet Modifier la requête, vous pouvez accomplir deux actions : modifier l'intervalle de temps et choisir d'autres mesures.  
-    ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-6. Pour modifier l'intervalle de temps, il suffit de sélectionner une autre plage (par exemple **Dernière heure**) et de cliquer sur **Enregistrer** en bas du volet. Nouveauté de la version préliminaire du portail, vous pouvez désormais choisir l'option **Personnalisée** :  
-    ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
-7. L'option Personnalisée permet de choisir une période sur les deux dernières semaines. Vous pouvez, par exemple, afficher l'ensemble des deux dernières semaines ou simplement une heure la veille. Pour entrer une autre heure, tapez-la dans la zone de texte.
-8. Sous l'intervalle de temps, vous pouvez choisir le nombre de mesures à afficher sur le graphique. De nouvelles mesures sont disponibles : **Kit de traitement de la mémoire** et **Kit de traitement de la mémoire moyenne**.
+Pour certains services, vous devrez peut-être activer les diagnostics pour afficher les mesures. Pour d'autres, tels que des machines virtuelles, un ensemble de mesures de base vous sera proposé, mais vous devrez activer l’ensemble des mesures à fréquence élevée. Consultez la rubrique [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour en savoir plus.
 
-9. Une fois que vous avez cliqué sur Enregistrer, vos modifications sont conservées jusqu'à la fermeture du panneau du site web. La mesure et l'intervalle de temps d'origine s'affichent de nouveau lorsque vous rouvrez le panneau.
+## Utilisation des graphiques de surveillance 
 
-## Surveillance de nouvelles ressources
+Vous pouvez représenter l’une des mesures sur une période que vous choisissez.
 
-La version préliminaire du portail Azure offre désormais la possibilité de surveiller les mesures de performance de différentes nouvelles ressources, y compris :
-- Les plans d'hébergement web
-- Le cache Redis
-- Le compte DocumentDB
+1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur une ressource que vous voulez surveiller.
 
-Les plans d'hébergement web sont un peu plus compliqués que les autres ressources, car ils représentent les performances des instances sur lesquelles s'exécutent vos **sites web**. Pour accéder aux mesures du plan d'hébergement web, cliquez sur l'icône Plan d'hébergement web du filtre Synthèse de votre site web.
+2. La rubrique **Surveillance** contient les mesures les plus importantes pour chaque ressource Azure. Une application Web dispose, par exemple, de l’option **Demandes et erreurs**, alors qu’une machine virtuelle posséderait **Pourcentage UC** et **Lecture et écriture sur le disque** : ![Filtre Monitoring](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
-![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
+3. Cliquez sur n'importe quel graphique pour afficher le panneau des **mesures**. Sur le panneau se trouve, en plus du graphique, un tableau qui affiche l'agrégation de ces mesures (comme la moyenne, le minimum et le maximum, la période que vous avez choisie). Retrouvez ci-dessous les règles d'alerte de la ressource. ![Volet Metric](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
-Le graphique du filtre **Surveillance** présenté ci-dessus fonctionne comme celui du panneau du site web, mais comporte les nouvelles mesures suivantes :
+4. Pour personnaliser les lignes qui s'affichent, cliquez sur le bouton **Modifier** du graphique, ou la commande **Modifier le graphique** du panneau des mesures.
 
-- Pourcentage UC
-- Pourcentage de mémoire
-- Profondeur de file d'attente HTTP
-- Profondeur de file d'attente de disque
+5. À partir du panneau Modifier la requête, vous pouvez accomplir trois actions :
+    - Indiquer la période
+    - Basculer entre le diagramme à bâtons et le diagramme linéaire
+    - Choisir d’autres mesures ![Edit Query](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
+
+6. Pour modifier l'intervalle de temps, il suffit de sélectionner une autre plage (par exemple **Past Hour**) et de cliquer sur **Save** en bas du volet. Vous pouvez également sélectionner l’option **Personnalisée**, qui vous permet de choisir une période sur les deux dernières semaines. Vous pouvez, par exemple, afficher l'ensemble des deux dernières semaines ou simplement une heure la veille. Pour entrer une autre heure, tapez-la dans la zone de texte. ![Intervalle de temps personnalisé](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+
+7. Sous l'intervalle de temps, vous pouvez choisir le nombre de mesures à afficher sur le graphique.
+
+8. Dès lors que vous cliquerez sur Enregistrer, vos modifications seront enregistrées pour cette ressource. Si vous possédez, par exemple, deux machines virtuelles et que vous modifiez un graphique sur l’une d’entre elles, cette opération n’aura aucune incidence sur l'autre.
 
 ## Création de graphiques côte à côte
 
-Le niveau élevé de personnalisation par l'utilisateur de la version préliminaire du portail Azure vous permet de créer des graphiques côte à côte.
+Grâce au niveau élevé de personnalisation du portail, vous pouvez ajouter autant de graphiques que vous le souhaitez.
 
-1. Tout d'abord, cliquez avec le bouton droit sur le graphique de départ et sélectionnez **Personnaliser.**  
-    ![Customize chart](./media/insights-how-to-customize-monitoring/Insights_Customize.png)
-2. Cliquez ensuite sur **Cloner** dans le menu **...** pour copier la section.  
-    ![Clone part](./media/insights-how-to-customize-monitoring/Insights_ClonePart.png)
-3. Pour terminer, cliquez sur **Terminé** sur la barre d'outils en haut de l'écran. Vous pouvez désormais traiter cette partie comme une partie de mesures classique. Si vous cliquez avec le bouton droit et que vous modifiez la mesure affichée, vous pouvez voir deux mesures différentes affichées en même temps côte à côte :  
-    ![Two metrics Side by Side](./media/insights-how-to-customize-monitoring/Insights_SideBySide.png)
+1. Dans le menu **...**, situé en haut du panneau, cliquez sur **Ajouter des vignettes** : ![Ajouter un menu](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
+2. Vous pouvez ensuite sélectionner un graphique à partir de la **Galerie**, située sur le côté droit de l'écran : ![Galerie](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+3. Si vous ne voyez pas les mesures souhaitées, vous pouvez toujours ajouter une des mesures prédéfinies et **Modifier** le graphique pour afficher les mesures dont vous avez besoin. 
 
-Notez que l'intervalle de temps et les mesures choisies pour le graphique sont réinitialisées lorsque vous quittez le portail.
+## Surveillance des quotas d'utilisation
 
+La plupart des mesures vous indiquent les tendances au fil du temps, mais certaines données, telles que les quotas d'utilisation, sont des informations limitées dans le temps et disposant d’un seuil.
 
-<!--HONumber=46--> 
+Vous pouvez également découvrir les quotas d'utilisation sur le panneau des ressources qui disposent de quotas :
+
+![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+
+Comme avec les mesures, vous pouvez utiliser l’[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) ou le [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) pour accéder à l'ensemble des quotas d'utilisation par programmation.
+
+## Étapes suivantes
+
+* [Réception de notifications d'alerte](insights-receive-alert-notifications.md) lorsqu'une mesure dépasse un seuil.
+* [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
+* [Mise à l’échelle automatique du nombre d’instances](insights-how-to-scale.md) pour vous assurer que votre service est disponible et réactif.
+* [Surveillance des performances d'une application](insights-perf-analytics.md) si vous voulez comprendre exactement comment votre code s'exécute dans le cloud.
+* Utilisez [Application Insights pour les pages Web et les applications JavaScript](../app-insights-web-track-usage.md) pour obtenir une analyse client des navigateurs qui consultent une page Web.
+* [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
+
+<!---HONumber=62-->

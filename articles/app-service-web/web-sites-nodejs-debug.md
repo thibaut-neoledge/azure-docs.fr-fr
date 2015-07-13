@@ -63,7 +63,7 @@ Il existe trois manières d'accéder aux journaux de diagnostic : à l'aide du 
 
 	npm install azure-cli -g
 
-Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d'abord être configurés pour utiliser votre abonnement Azure. Pour plus d'informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l'article [Utilisation des outils en ligne de commande Azure].
+Une fois installés, ils sont accessibles à l'aide de la commande « azure ». Les outils en ligne de commande doivent d’abord être configurés pour utiliser votre abonnement Azure. Pour plus d’informations sur la réalisation de cette tâche, consultez la section **Téléchargement et importation des paramètres de publication** de l’article [Utilisation des outils en ligne de commande Azure].
 
 ###FTP
 

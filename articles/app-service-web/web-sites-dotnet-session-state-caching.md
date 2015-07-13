@@ -45,13 +45,13 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
 
 
   <pre class="prettyprint">  
-    &lt;system.web&gt;
-    &lt;customErrors mode="Off" /&gt;
-    &lt;authentication mode="None" /&gt;
-    &lt;compilation debug="true" targetFramework="4.5" /&gt;
-    &lt;httpRuntime targetFramework="4.5" /&gt;
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
-      &lt;providers&gt;  
+    &lt;system.web>
+    &lt;customErrors mode="Off" />
+    &lt;authentication mode="None" />
+    &lt;compilation debug="true" targetFramework="4.5" />
+    &lt;httpRuntime targetFramework="4.5" />
+  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider">
+      &lt;providers>  
           &lt;!--&lt;add name="RedisSessionProvider" 
             host = "127.0.0.1" [String]
             port = "" [number]
@@ -61,20 +61,20 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
             retryTimeoutInMilliseconds = "0" [number]
             databaseId = "0" [number]
             applicationName = "" [String]
-          /&gt;--&gt;
+          />-->
          &lt;add name="RedisSessionProvider" 
               type="Microsoft.Web.Redis.RedisSessionStateProvider" 
               <mark>port="6380"
               host="movie2.redis.cache.windows.net" 
               accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> /&gt;
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
-      &lt;/providers&gt;
-    &lt;/sessionState&gt;
-  &lt;/system.web&gt;</pre>
+              ssl="true"</mark> />
+      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />-->
+      &lt;/providers>
+    &lt;/sessionState>
+  &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Utiliser l'objet Session dans le code</h2>
+<h2><a id="usesessionobject"></a>Utiliser l’objet Session dans le code</h2>
 La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Pour ajouter des objets à l'état de session, utilisez la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
 
     string strValue = "yourvalue";
@@ -91,21 +91,22 @@ Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets d
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   *Par [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
-[Vue d'ensemble de l'état de session ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
+  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
+  [Vue d'ensemble de l'état de session ASP.NET]: http://msdn.microsoft.com/library/ms178581.aspx
 
-[NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
-[NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
-[CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
-[NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
-[OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
-[CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
-[EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+  [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
+  [NewCacheDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png
+  [CacheIcon]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png
+  [NuGetDialog]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png
+  [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
+  [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
+  [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
+  [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

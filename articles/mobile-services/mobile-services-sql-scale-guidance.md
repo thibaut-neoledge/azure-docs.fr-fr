@@ -185,9 +185,9 @@ Voici quelques instructions liées aux requêtes effectuées dans la base de don
     - N'effectuez pas de jointures dans le code de votre service mobile. Lorsque vous utilisez le backend JavaScript, n'oubliez pas que l'[objet table](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) ne prend pas en charge les jointures. Pensez à utiliser directement l'[objet mssql](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) pour que la jointure s'effectue dans la base de données. Pour plus d'informations, consultez la page [Joindre des tables relationnelles](mobile-services-how-to-use-server-scripts.md#joins). Si vous utilisez le backend .NET et que vous effectuez des requêtes via LINQ, les jointures sont automatiquement gérées au niveau de la base de données par Entity Framework.
 - **Implémentez la pagination.** Effectuer des recherches dans la base de données peut aboutir au renvoi d'un grand nombre d'enregistrements au client. Pour minimiser le volume et la latence des opérations, pensez à implémenter la pagination.
     - Par défaut, votre service mobile limite la taille de la page à 50 enregistrements pour les requêtes entrantes, mais vous pouvez demander manuellement jusqu'à 1 000 enregistrements. Pour plus d'informations, consultez la section « Renvoi de données dans les pages » pour [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging) et [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - Il n'existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l'exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le backend JavaScript, utilisez l'opérateur **take** sur l'[objet query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le backend .NET, pensez à utiliser la [méthode Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) avec votre requête LINQ.  
+    - Il n'existe pas de taille de page par défaut pour les requêtes faites à partir du code de votre service mobile. Si votre application ne prend pas en charge la pagination ou si elle ne l'exécute pas par précaution, pensez à appliquer les limites par défaut à vos requêtes. Dans le backend JavaScript, utilisez l’opérateur **take** sur l’[objet query](http://msdn.microsoft.com/library/azure/jj613353.aspx). Si vous utilisez le serveur principal .NET, pensez à utiliser la [méthode Take](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) pour votre requête LINQ.  
 
-Pour plus d'informations sur l'optimisation de la conception des requêtes, y compris sur l'analyse des plans de requête, consultez la section [Conception avancée des requêtes](#AdvancedQuery) à la fin de ce document.
+Pour plus d’informations sur l’optimisation de la conception des requêtes, y compris sur l’analyse des plans de requête, consultez la section [Conception avancée des requêtes](#AdvancedQuery) à la fin de ce document.
 
 <a name="Architecture"></a>
 ## Architecture du service
@@ -474,5 +474,6 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 
 <!-- BLOG LINKS -->
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -23,7 +23,7 @@
 - [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel vous indique comment créer une application API ASP.NET 5 via [Visual Studio Code](http://code.visualstudio.com//Docs/whyvscode). ASP.NET 5 est une nouvelle conception importante de la fonctionnalité ASP.NET. ASP.NET 5 est une nouvelle infrastructure open source et interplateforme qui vous permet de créer des applications web modernes basées sur le Cloud, à l’aide de .NET. Pour en savoir plus, voir [Présentation de l’infrastructure ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md)
 
@@ -335,9 +335,9 @@ Pour fournir un fichier de définition d’API Swagger 2.0 statique, vous deve
 
 	Si vous n’avez pas désélectionné l’option **Épingler au tableau d’accueil** lors de la création de l’application, vous pouvez facilement localiser cette dernière en cliquant sur **Accueil** ou **Parcourir**. Si vous avez désélectionné cette option, cliquez sur l’option **Notifications** figurant sur la gauche pour afficher l’état de la création de l’application API, puis cliquez sur la notification pour accéder au panneau de la nouvelle application API.
 
-7. Cliquez sur **Paramètres > Paramètres de l’application**.
+7. Cliquez sur **Paramètres > Paramètres de l'application**.
 
-8. Définissez le niveau d’accès à **Public (anonyme)**.
+8. Définissez le niveau d'accès à **Public (anonyme)**.
 
 9. Cliquez sur **Enregistrer**.
 
@@ -345,15 +345,15 @@ Pour fournir un fichier de définition d’API Swagger 2.0 statique, vous deve
 
 ## Activer la publication Git à partir de la nouvelle application API
 
-Git est un système de contrôle de version distribué vous permettant de déployer votre site web Azure. Vous allez stocker le code que vous écrivez pour votre application API dans un référentiel Git local, et vous allez déployer votre code dans Azure par transmission de type push vers un référentiel distant. Cette méthode de déploiement est une fonctionnalité des applications web App Service que vous pouvez utiliser dans une application API, car les applications API sont basées sur des applications web : une application API dans Azure App Service est une application web avec des fonctionnalités supplémentaires pour l’hébergement de services web.
+Git est un système de contrôle de version distribué vous permettant de déployer votre site web Azure. Vous allez stocker le code que vous écrivez pour votre application API dans un référentiel Git local, et vous allez déployer votre code dans Azure par transmission de type push vers un référentiel distant. Cette méthode de déploiement est une fonctionnalité des applications web App Service que vous pouvez utiliser dans une application API, car les applications API sont basées sur des applications web : une application API dans Azure App Service est une application web avec des fonctionnalités supplémentaires pour l'hébergement de services web.
 
-Dans le portail, vous gérez les fonctionnalités spécifiques aux applications API dans le panneau **Application API**, et vous gérez les fonctionnalités qui sont partagées avec des applications web dans le panneau **Hôte d’application API**. Dans cette section, vous accédez au panneau **Hôte d’application API** pour configurer la fonctionnalité de déploiement Git.
+Dans le portail, vous gérez les fonctionnalités spécifiques aux applications API dans le panneau **Application API**, et vous gérez les fonctionnalités qui sont partagées avec des applications web dans le panneau **Hôte d'application API**. Dans cette section, vous accédez au panneau **Hôte d'application API** pour configurer la fonctionnalité de déploiement Git.
 
-1. Dans le volet Application API, cliquez sur **Hôte d’application API**.
+1. Dans le volet Application API, cliquez sur **Hôte d'application API**.
 
 	![Hôte de l’application API dans Microsoft Azure](./media/app-service-create-aspnet-api-app-using-vscode/13-azure-apiapphost.png)
 
-2. Recherchez la section **Déploiement** du panneau **Application API** et cliquez sur **Configurer le déploiement continu**. Il peut être nécessaire de faire défiler l’écran vers le bas pour visualiser cette partie du panneau.
+2. Recherchez la section **Déploiement** du panneau **Application API** et cliquez sur **Configurer le déploiement continu**. Il peut être nécessaire de faire défiler l'écran vers le bas pour visualiser cette partie du panneau.
 
 	![Hôte de l’application API dans Microsoft Azure](./media/app-service-create-aspnet-api-app-using-vscode/14-azure-deployment.png)
 
@@ -363,17 +363,17 @@ Dans le portail, vous gérez les fonctionnalités spécifiques aux applications 
 
 	![Référentiel Git local dans Microsoft Azure](./media/app-service-create-aspnet-api-app-using-vscode/15-azure-localrepository.png)
 
-6. Si vous n’avez pas précédemment configuré les informations d’identification de déploiement pour la publication d’une application API ou d’une autre application App Service, configurez-les maintenant :
+6. Si vous n'avez pas précédemment configuré les informations d'identification de déploiement pour la publication d'une application API ou d'une autre application App Service, configurez-les maintenant :
 
-	* Cliquez sur **Définir les informations d’identification de déploiement**.
+	* Cliquez sur **Définir les informations d'identification de déploiement**.
 
-	* Créez un nom d’utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
+	* Créez un nom d'utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
 
 	* Cliquez sur **Save**.
 
 	![Informations d’identification sur le déploiement dans Microsoft Azure](./media/app-service-create-aspnet-api-app-using-vscode/16-azure-credentials.png)
 
-7. Dans le panneau **Hôte d’application API**, cliquez sur **Paramètres > Propriétés**. L’URL du référentiel Git distant vers lequel vous allez déployer se trouve sous « URL GIT ».
+7. Dans le panneau **Hôte d'application API**, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous « URL GIT ».
 
 8. Copiez l’**URL GIT**, que vous utiliserez ultérieurement dans le didacticiel.
 
@@ -389,7 +389,7 @@ Dans le portail, vous gérez les fonctionnalités spécifiques aux applications 
 
 ## Publier une application API dans Microsoft Azure App Service
 
-Dans cette section, vous créez un référentiel Git local et vous effectuez une transmission de type push depuis ce référentiel vers Azure pour déployer votre exemple d’application dans l’application API qui s’exécute dans Azure App Service.
+Dans cette section, vous créez un référentiel Git local et vous effectuez une transmission de type push depuis ce référentiel vers Azure pour déployer votre exemple d'application dans l'application API qui s'exécute dans Azure App Service.
 
 1. Dans VS Code, sélectionnez l’option Git dans la barre de navigation de gauche.
 2. Si la fonction Git n’est pas encore installée, procédez à son installation en choisissant l’un des liens fournis ([Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads)). Si vous n’êtes pas familiarisé avec Git, choisissez **git-scm.com** et sélectionnez l’option vous permettant d’utiliser cette fonction avec GitBash, à partir de l’invite de commandes Windows. 
@@ -432,8 +432,8 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 
 > [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez la republier en cochant la case **Valider tout** dans VS Code, puis en saisissant la commande **git push azure master** dans **GitBash**.
 
-## Afficher la définition d’API dans le portail Azure en version préliminaire
-Maintenant que vous avez déployé une API dans votre application API, vous pouvez voir la définition de l’API dans le portail Azure en version préliminaire. Vous commencez par redémarrer la passerelle, ce qui permet à Microsoft Azure de reconnaître que la définition d’API d’une application API a été modifiée. La passerelle est une application web qui gère l’administration et les autorisations des API pour les applications API d’un groupe de ressources.
+## Afficher la définition d'API dans le portail Azure en version préliminaire
+Maintenant que vous avez déployé une API dans votre application API, vous pouvez voir la définition de l'API dans le portail Azure en version préliminaire. Vous commencez par redémarrer la passerelle, ce qui permet à Microsoft Azure de reconnaître que la définition d’API d’une application API a été modifiée. La passerelle est une application web qui gère l'administration et les autorisations des API pour les applications API d'un groupe de ressources.
 
 1. Dans le portail Microsoft Azure en version préliminaire, accédez au panneau **APPLICATION API** de l’application API que vous avez créée précédemment, puis cliquez sur le lien **Passerelle**.
 2. Dans le panneau **PASSERELLE**, cliquez sur **Redémarrer**. Vous pouvez maintenant fermer ce panneau.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -111,7 +111,7 @@ Utilisez la méthode **IServiceLocator.GetInstance** pour instancier la classe A
 
 ## <a id="DefineServiceModel"> </a>Définition d’un modèle de service
 
-En règle générale, les modèles de service (description de l'environnement Windows Azure avec notamment des informations sur les abonnements, les services hébergés, les rôles et les comptes de stockage) sont stockés dans un fichier XML. Vous pouvez trouver une copie du schéma de ce fichier XML dans le fichier **AutoscalingServiceModel.xsd** de votre projet. Dans Visual Studio, ce schéma propose Intellisense et assure la validation lors de la modification d'un fichier XML de modèle de service.
+En règle générale, les modèles de service (description de l'environnement Azure avec notamment des informations sur les abonnements, les services hébergés, les rôles et les comptes de stockage) sont stockés dans un fichier XML. Vous pouvez trouver une copie du schéma de ce fichier XML dans le fichier **AutoscalingServiceModel.xsd** de votre projet. Dans Visual Studio, ce schéma propose Intellisense et assure la validation lors de la modification d'un fichier XML de modèle de service.
 
 Créez dans votre projet un fichier XML nommé **services.xml**.
 
@@ -150,7 +150,7 @@ Connectez-vous au portail de gestion.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix] :** préfixe DNS du service hébergé dans lequel vous souhaitez utiliser la mise à l’échelle automatique.
+	-   **[hostedservicednsprefix] :** préfixe DNS du service hébergé dans lequel vous souhaitez utiliser la mise à l'échelle automatique.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
@@ -158,7 +158,7 @@ Connectez-vous au portail de gestion.
 
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename] :** nom du rôle correspondant à la cible de vos règles de mise à l’échelle automatique.
+	-   **[targetrolename]** : nom du rôle correspondant à la cible de vos règles de mise à l'échelle automatique.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Cloud Services**.
 
@@ -178,7 +178,7 @@ Connectez-vous au portail de gestion.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint] :** **empreinte** du certificat de gestion que le bloc utilisera pour sécuriser les demandes de mise à l’échelle à destination de l’application cible.
+	-   **[managementcertificatethumbprint] :** **empreinte** du certificat de gestion que le bloc utilisera pour sécuriser les demandes de mise à l'échelle à destination de l'application cible.
 
     1.  Dans le portail de gestion Azure, cliquez sur **Settings**.
 
@@ -236,7 +236,7 @@ L'exemple de code suivant montre un exemple de règle définie dans un fichier *
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -353,30 +353,31 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
 -   [Réduction des coûts d’hébergement Azure avec Sage via la mise à l’échelle automatique][]
 -   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure][]
 
-[Microsoft Enterprise Library 5.0 Integration Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-[Étapes suivantes]: #NextSteps
-[Présentation du bloc applicatif de mise à l’échelle automatique]: #WhatIs
-[Concepts]: #Concepts
-[Collecte de données de compteurs de performances à partir de votre application Azure cible]: #PerfCounter
-[Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique]: #CreateHost
-[Instanciation et exécution de la classe Autoscaler]: #Instantiate
-[Définition d’un modèle de service]: #DefineServiceModel
-[Définition de règles de mise à l’échelle automatique]: #DefineAutoscalingRules
-[Configuration du bloc applicatif de mise à l’échelle automatique]: #Configure
-[Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
-[NuGet]: http://nuget.org/
-[portail de gestion Azure]: http://manage.windowsazure.com
-[Stockage de vos données d’informations de service]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
-[Hébergement du bloc applicatif de mise à l’échelle automatique dans un rôle de travail]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
-[Implémentation d’un comportement de limitation]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
-[Présentation des classements et de la conciliation des règles]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
-[Développement et modification du bloc applicatif de mise à l’échelle automatique]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
-[Utilisation du stabilisateur d’optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
-[Utilisation des notifications et de la mise à l’échelle manuelle]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
-[Définition de groupes d’échelle]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
-[Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
-[Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
-[Réduction des coûts d’hébergement Azure avec Sage via la mise à l’échelle automatique]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
-[Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+  [Microsoft Enterprise Library 5.0 Integration Pack for Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [Étapes suivantes]: #NextSteps
+  [Présentation du bloc applicatif de mise à l’échelle automatique]: #WhatIs
+  [Concepts]: #Concepts
+  [Collecte de données de compteurs de performances à partir de votre application Azure cible]: #PerfCounter
+  [Configuration d’une application hôte pour le bloc applicatif de mise à l’échelle automatique]: #CreateHost
+  [Instanciation et exécution de la classe Autoscaler]: #Instantiate
+  [Définition d’un modèle de service]: #DefineServiceModel
+  [Définition de règles de mise à l’échelle automatique]: #DefineAutoscalingRules
+  [Configuration du bloc applicatif de mise à l’échelle automatique]: #Configure
+  [Utilisation de compteurs de performances dans Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [NuGet]: http://nuget.org/
+  [portail de gestion Azure]: http://manage.windowsazure.com
+  [Stockage de vos données d’informations de service]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
+  [Hébergement du bloc applicatif de mise à l’échelle automatique dans un rôle de travail]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implémentation d’un comportement de limitation]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Présentation des classements et de la conciliation des règles]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Développement et modification du bloc applicatif de mise à l’échelle automatique]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Utilisation du stabilisateur d’optimisation pour empêcher une oscillation des hautes fréquences et optimiser les coûts]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Utilisation des notifications et de la mise à l’échelle manuelle]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Définition de groupes d’échelle]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Utilisation de WASABiCmdlets pour manipuler le bloc via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Guide du développeur Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [Réduction des coûts d’hébergement Azure avec Sage via la mise à l’échelle automatique]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

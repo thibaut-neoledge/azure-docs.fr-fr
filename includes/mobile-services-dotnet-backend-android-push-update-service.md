@@ -31,4 +31,5 @@
     Ce code envoie une notification Push (avec le texte de l'élément inséré) après l'insertion d'un élément ToDo. En cas d'erreur, le code ajoute une entrée dans le journal des erreurs consultable à partir de l'onglet **Journaux** du service mobile sur le portail de gestion.
 
 3. Publiez à nouveau votre projet de service mobile dans Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

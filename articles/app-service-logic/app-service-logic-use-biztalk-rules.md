@@ -109,7 +109,7 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
   1.	Nom : seuls des caractères alphanumériques sont attendus, sans caractères spéciaux. Ce nom doit également être unique dans votre liste de définitions de vocabulaire existante.
   2.	Description : ce champ est facultatif.
   3.	Type : deux types sont pris en charge. Pour cet exemple, choisissez Littéral.
-  4.	Type d'entrée : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données peuvent être sélectionnés : i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") ii. Booléen : peut être vrai ou faux iii. Nombre : peut être n’importe quel nombre décimal iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\\PM v. Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. L'utilisateur peut entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé « to ». Pa exemple, l'utilisateur peut entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
+  4.	Type d'entrée : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données peuvent être sélectionnés : i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") ii. Booléen : peut être vrai ou faux iii. Nombre : peut être n’importe quel nombre décimal iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\PM v. Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. L'utilisateur peut entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé « to ». Pa exemple, l'utilisateur peut entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
 
 ![Alt text][5]
 ##Définition XML
@@ -200,5 +200,6 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,16 +1,18 @@
 
-The Hybrid Connection Manager enables your on-premises machine to connect to Azure and relay TCP traffic. You must  install the manager to an on-premises computer that can connect to the your SQL Server instance.
+Le Gestionnaire de connexions hybrides permet à votre ordinateur local de se connecter à Azure et de relayer le trafic TCP. Vous devez installer le gestionnaire sur un ordinateur local qui peut se connecter à votre instance SQL Server.
 
-1. The connection you just created should have a **Status** of **On-premesis setup incomplete**. Click this connection and click **On-premises Setup**.
+1. La connexion que vous venez de créer doit avoir l’**état** **Le programme d’installation local n’a pas terminé**. Cliquez sur cette connexion, puis sur **Programme d’installation local**.
 
 	![On-Premises Setup](./media/hybrid-connections-install-connection-manager/5-1.png)
 
-2. Click **Install and Configure**.
+2. Cliquez sur **Installer et configurer**.
 
-	This installs a customized instance of the Connection Manager, which is already pre-configured to work with the hybrid connection you just created.
+	Cette option installe une instance personnalisée du Gestionnaire de connexions, qui est déjà préconfiguré pour utiliser la connexion hybride que vous venez de créer.
 
-3. Complete the rest of the setup steps for the Connection Manager.
+3. Effectuez les étapes restantes de l'installation du Gestionnaire de connexions.
 
-	After the installation is complete, the hybrid connection status will change to **1 Instance Connected**. You may need to refresh the browser and wait a few minutes. 
+	Au terme de l’installation, le statut de la connexion hybride passe à **1 instance connectée**. Il vous faudra peut-être actualiser le navigateur et patienter quelques minutes.
 
-The hybrid connection setup is now complete.
+Le programme d’installation de la connexion hybride est maintenant terminé.
+
+<!---HONumber=62-->

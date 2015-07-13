@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Création et publication d'un produit dans Gestion des API Azure
 
 Dans Gestion des API Azure, un produit contient une ou plusieurs API, ainsi qu’un quota et des conditions d’utilisation. Une fois le produit publié, les développeurs peuvent s'y abonner et commencer à utiliser ses API. Cette rubrique constitue un guide pour créer un produit, ajouter une API et le publier pour les développeurs.
-
-Pour plus d’informations sur l’utilisation des produits, consultez la vidéo suivante.
-
-> [AZURE.VIDEO using-products]
 
 ## <a name="create-product"> </a>Création d’un produit
 
@@ -112,6 +108,9 @@ L’onglet **Abonnés** présente la liste des développeurs qui se sont abonné
 
 Une fois les API souhaitées ajoutées et le produit publié, les développeurs peuvent s'abonner au produit et commencer à appeler les API. Pour suivre le didacticiel présentant comment configurer ces éléments, ainsi que certains paramètres de produit avancés, consultez la page [Création et configuration de paramètres de produit avancés dans Gestion des API Azure][].
 
+Pour plus d’informations sur l’utilisation des produits, consultez la vidéo suivante.
+
+> [AZURE.VIDEO using-products]
 
 [Create a product]: #create-product
 [Add APIs to a product]: #add-apis

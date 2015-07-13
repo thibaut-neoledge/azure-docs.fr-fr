@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Mettre en service une application Web avec une base de données SQL
 
-Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web et une base de données SQL. Vous allez apprendre comment définir les ressources qui sont déployées et comment définir les paramètres qui sont spécifiés lors de l'exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements ou le personnaliser pour répondre à vos besoins.
+Dans cette rubrique, vous allez apprendre à créer un modèle Azure Resource Manager qui déploie une application Web et une base de données SQL. Vous allez apprendre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins.
 
-Pour plus d'informations sur la création de modèles, consultez la rubrique [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
-Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-deploy-complex-application-predictably.md).
+
+Pour le modèle complet, consultez [Modèle d'application Web avec une base de données SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
 
 ## Ce que vous allez déployer
 
@@ -163,7 +165,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### Application Web
+### Application web
 
     {
       "apiVersion": "2014-06-01",
@@ -176,7 +178,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }
@@ -418,7 +420,7 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
         }
     }
 
-## Commandes pour exécuter le déploiement
+## Commandes pour l’exécution du déploiement
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 

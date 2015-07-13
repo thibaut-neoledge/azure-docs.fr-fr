@@ -45,7 +45,7 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 1.  Dans Visual Studio, sélectionnez **Fichier** puis **Nouveau projet**.
 
-1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Projet web de sondage Django** et cliquez sur OK pour créer le projet.
+1.  Les modèles de projet issus de PTVS Samples VSIX sont disponibles sous **Python**, **Exemples**. Sélectionnez **Polls Django Web Project** et cliquez sur OK pour créer le projet.
 
   	![Boîte de dialogue Nouveau projet](./media/web-sites-python-ptvs-django-mysql/PollsDjangoNewProject.png)
 
@@ -69,7 +69,7 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 1.  Vérifiez que l’application fonctionne en appuyant sur <kbd>F5</kbd>.
 
-1.  Cliquez sur **Connexion** dans la barre de navigation en haut.
+1.  Cliquez sur **Log in** dans la barre de navigation en haut.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalMenu.png)
 
@@ -77,11 +77,11 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserLocalLogin.png)
 
-1.  Cliquez sur **Créer un exemple de sondage**.
+1.  Cliquez sur **Create Sample Polls**.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-mysql/PollsDjangoCommonBrowserNoPolls.png)
 
-1.  Cliquez sur un sondage et vote.
+1.  Cliquez sur un sondage et votez.
 
   	![Navigateur web](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
@@ -95,20 +95,20 @@ Pour créer une base de données avec un plan gratuit, procédez comme suit :
 
 1.  Connectez-vous au [portail Azure].
 
-1.  En bas du volet de navigation, cliquez sur **NEW**. Ensuite, cliquez sur **Données + stockage** > **Azure Marketplace**.
+1.  En bas du volet de navigation, cliquez sur **NOUVEAU**. Ensuite, cliquez sur **Données + stockage** > **Azure Marketplace**.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Entrez « ** mysql ** » dans la zone de recherche, cliquez sur **Base de données MySQL** puis sur **Créer**.
+1.  Entrez « ** mysql ** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
-1.  Configurer la nouvelle base de données MySQL en créant un nouveau groupe de ressources, puis sélectionnez l'emplacement approprié pour celui-ci.
+1.  Configurez la nouvelle base de données MySQL en créant un nouveau groupe de ressources, puis sélectionnez l’emplacement approprié pour celui-ci.
 
   	<!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon2.png) -->
 
 1.  Une fois la base de données MySQL créée, cliquez sur **Propriétés** dans le panneau de la base de données.
-2.  Vous pouvez utiliser le bouton de copie pour placer la valeur de **CONNECTIONSTRING** dans le Presse-papiers.
+2.  Utilisez le bouton de copie pour placer la valeur de **CONNECTIONSTRING** dans le Presse-papiers.
 
 ## Configurer le projet
 
@@ -144,11 +144,11 @@ Dans cette section, nous allons configurer notre application web pour utiliser l
 
   	![Fenêtre Console de gestion Django](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans la base de données MySQL.
+1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Create Sample Polls** et les données soumises par vote sont sérialisés dans la base de données MySQL.
 
 ## Publication de l’application web dans Azure App Service
 
-Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service.
+Le Kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service.
 
 1.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
 
