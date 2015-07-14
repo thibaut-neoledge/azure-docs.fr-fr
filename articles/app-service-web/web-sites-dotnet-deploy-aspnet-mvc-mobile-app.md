@@ -262,7 +262,7 @@ Avec le style [linked list group][] Bootstrap, toute la zone de chaque lien est 
 
 ![][AllSpeakersFixedDesktop]
 
-Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\Home\AllSpeakers.cshtml*, ajoutez une balise <form> juste après la balise <h2>, comme indiqué ci-dessous :
+Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\Home\AllSpeakers.cshtml*, ajoutez une balise \<form\> juste après la balise \<h2\>, comme indiqué ci-dessous :
 
     @model IEnumerable<string>
 
