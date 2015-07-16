@@ -58,7 +58,7 @@ Pour démarrer la sauvegarde de vos machines virtuelles Azure, vous devez d’ab
 2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer au coffre de sauvegarde. Dans chaque abonnement Azure, vous pouvez avoir plusieurs coffres de sauvegarde pour organiser les données protégées.
 3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Cette opération doit être unique pour chaque abonnement.
 4. Dans **Region**, sélectionnez la région géographique du coffre. Notez que l’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans différentes régions, créez un archivage dans chacune d’elles. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : le coffre de sauvegarde et le service Azure Backup s'en chargent automatiquement.
-    > [AZURE.NOTE][régions prises en charge](http://azure.microsoft.com/regions/#services)
+    > [AZURE.NOTE] La sauvegarde de machines virtuelles à l'aide du service Azure Backup est uniquement prise en charge dans les [régions sélectionnées](http://azure.microsoft.com/regions/#services). Vérifiez la liste des régions prises en charge. Si la région que vous recherchez n'est pas prise en charge pour le moment, elle n'apparaîtra pas dans la liste déroulante pendant la création de l'archivage.
 
 5. Dans **Abonnement**, entrez l'abonnement Azure à utiliser avec le coffre de sauvegarde.
 6. Cliquez sur **Créer un archivage**. ![Créer un coffre de sauvegarde](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
@@ -101,7 +101,7 @@ Vous allez télécharger le fichier d'installation de l'Agent et l’exécuter s
 9. Dans la page **Paramètre de chiffrement**, indiquez les détails du code secret ou générez-en un automatiquement.
 10. Cliquez sur Générer un code secret suivi par Copier dans le Presse-papiers. Vous recevrez un message indiquant que votre code secret a été copié dans le Presse-papiers. Il est maintenant recommandé d'ouvrir le bloc-notes et de coller le code secret à partir du Presse-papiers, d'enregistrer le fichier, puis de l'imprimer avant de mettre la copie en lieu sûr. Cliquez sur S'inscrire pour inscrire votre serveur DPM auprès de votre coffre de sauvegarde.
 
-    > [AZURE.TIP]
+    > [AZURE.TIP] Au moment de définir le paramètre de chiffrement, n'oubliez pas de copier la phrase secrète dans le presse-papiers.
 11. Cliquez sur **S'inscrire**.
 
     Une fois l'inscription terminée, la console DPM affiche la disponibilité d'Azure Backup.

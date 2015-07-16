@@ -48,10 +48,13 @@ Avant de poursuivre, vérifiez que les éléments suivants sont installés :
 Si vous connaissez déjà l'Azure Store, cette section vous permettra de démarrer rapidement. Dans le cas contraire, consultez la section [Configuration de la base de données][provision] ci-dessous.
 
 1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Marketplace**.  
-<!-- ![Store][button-store] -->
-2. Cliquez sur le module **MongoLab**. ![MongoLab][entry-mongolab]
-3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo]  
-4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers. ![ÉcranInformationsDeConnexion][screen-connectioninfo]
+<!--- ![Store][button-store] -->
+2. Cliquez sur le module **MongoLab**.  
+![MongoLab][entry-mongolab]
+3. Cliquez sur le module **MongoLab** dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
+![ConnectionInfoButton][button-connectioninfo]  
+4. Copiez le fichier **MONGOLAB_URI** dans votre Presse-papiers.  
+![ÉcranInformationsDeConnexion][screen-connectioninfo]
 
 	>[AZURE.NOTE]Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.
 
@@ -447,11 +450,11 @@ Il est très facile de créer une application web dans Azure App Service. S'il s
 
 1. Dans le portail Azure, cliquez sur **Nouveau**. ![Nouveau][button-new]
 2. Sélectionnez **Calculer > Application web > Création rapide**.
-<!-- ![Create Web App][screen-mongolab-newwebsite] -->
+<!--- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Saisissez un préfixe d’URL. Sélectionnez le nom de votre choix, tout en gardant à l'esprit qu'il doit être unique (« monappmongo » risque fort de ne pas être disponible).
 4. Cliquez sur **Créer une application web**.
 5. Quand la création de l’application web est terminée, cliquez sur son nom dans la liste des applications web. Le tableau de bord de l’application web s’affiche.
-<!-- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. Cliquez sur **Configurer le déploiement à partir du contrôle de code source** sous **aperçu rapide**, sélectionnez GitHub, puis entrez votre nom d’utilisateur et votre mot de passe git. Vous utiliserez ce mot de passe pour le transfert vers votre application web (étape 9).  
 7. Si vous avez créé votre application web en suivant les étapes ci-dessus, la commande suivante clôt le processus. Toutefois, si vous disposez déjà de plusieurs applications web, vous pouvez ignorer les étapes ci-dessus et créer une application web à l'aide de cette même commande. Dans votre répertoire de projet **tasklist** :
 
@@ -570,4 +573,4 @@ Félicitations ! Vous venez de lancer une application Node.js utilisant une bas
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

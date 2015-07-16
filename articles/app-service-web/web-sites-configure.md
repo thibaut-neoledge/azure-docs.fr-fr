@@ -36,7 +36,8 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 **Versions d'infrastructure**. Définissez ces options si votre application utilise l'une de ces infrastructures :
 
 - **.NET Framework** : définissez la version du .NET Framework. 
-- **PHP** : définissez la version du langage PHP, ou choisissez **INACTIF** pour désactiver PHP. - **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
+- **PHP** : définissez la version du langage PHP, ou choisissez **INACTIF** pour désactiver PHP.
+- **Java** : sélectionnez la version du langage Java, ou choisissez **INACTIF** pour désactiver Java. Utilisez l’option **Conteneur Web** pour choisir entre les versions Tomcat et Jetty.
 - **Python** : sélectionnez la version du langage Python, ou choisissez **INACTIF** pour désactiver Python.
 
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
@@ -174,4 +175,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

@@ -40,5 +40,6 @@ Ce livre est une vue d'ensemble de la technologie, ainsi que des fonctionnalité
 **Téléchargements :**
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">« Présentation d'Azure Search » (au format PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">« Présentation d'Azure Search » (au format Microsoft Word)</a> <!--HONumber=52-->
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">« Présentation d'Azure Search » (au format Microsoft Word)</a> 
+<!---HONumber=52-->
  

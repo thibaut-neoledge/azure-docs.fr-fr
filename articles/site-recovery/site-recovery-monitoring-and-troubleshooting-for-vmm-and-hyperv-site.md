@@ -135,8 +135,8 @@ Pour déclencher un ticket de support pour ASR, accédez au support Azure en uti
 
 ## Articles de la Base de connaissances
 
--   [Comment conserver la lettre de lecteur pour les machines virtuelles protégées
-    > http://support.microsoft.com/kb/3031135
+-   [Comment conserver la lettre de lecteur pour les machines
+    > virtuelles protégées](http://support.microsoft.com/kb/3031135)
 
 -   [Comment résoudre les problèmes Azure Recovery
     > Services](http://support.microsoft.com/kb/3005185)
@@ -147,7 +147,7 @@ Pour déclencher un ticket de support pour ASR, accédez au support Azure en uti
 -   [ASR : erreur « La ressource de cluster n’a pas pu être trouvée » lorsque vous essayez
     > d’activer la protection d’une machine virtuelle](http://support.microsoft.com/kb/3010979)
     
--   [Guide de présentation et de résolution des problèmes relatifs à la réplication Hyper-V
-    > ](http://www.microsoft.com/fr-fr/download/details.aspx?id=29016)
+-   [Guide de présentation et de résolution des problèmes relatifs à la 
+    > réplication Hyper-V](http://www.microsoft.com/fr-fr/download/details.aspx?id=29016)
 
 <!---HONumber=62-->

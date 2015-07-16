@@ -63,9 +63,9 @@ La migration anticipée est disponible pour les clients disposant d’un contrat
 	
 	Modifiez les lignes suivantes dans votre fichier de configuration réseau, en remplaçant les valeurs avec les vôtres :
 
-	**Ancienne valeur :** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Ancienne valeur :** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nouvelle valeur :** <VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nouvelle valeur :** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Enregistrez vos modifications et [importez](../virtual-networks-using-network-configuration-file/) la configuration réseau dans Azure.
 
