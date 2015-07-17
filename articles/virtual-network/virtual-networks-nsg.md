@@ -118,7 +118,7 @@ Association d’un groupe de sécurité réseau à un sous-réseau : lorsqu'un 
 
 Association d'un groupe de sécurité réseau à un sous-réseau et à une machine virtuelle : vous pouvez associer un groupe de sécurité réseau à une machine virtuelle et un autre groupe de sécurité réseau au sous-réseau sur lequel réside la machine virtuelle. Cette association est prise en charge et dans ce cas la machine virtuelle reçoit deux couches de protection. Pour le trafic entrant, le paquet est acheminé via les règles d'accès spécifiées dans le sous-réseau suivi par les règles dans la machine virtuelle. Dans le cas du trafic sortant, il est acheminé via les règles spécifiées d’abord dans la machine virtuelle avant de passer par les règles spécifiées dans le sous-réseau, comme illustré dans le diagramme ci-dessous.
 
-![ACL de groupe de sécurité réseau](./media/virtual-networks-nsg/IC757774.png)
+![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
 
 Lorsqu'un groupe de sécurité réseau est associé à une machine virtuelle ou à un sous-réseau, les règles de contrôle d'accès réseau deviennent très explicites. La plate-forme n'insère pas de règle implicite pour autoriser le trafic vers un port particulier. Dans ce cas, si vous créez un point de terminaison dans la machine virtuelle, vous devez également créer une règle pour autoriser le trafic provenant d'Internet. Si vous ne faites pas cela, l'adresse IP virtuelle : <Port> ne sera pas accessible depuis l'extérieur.
 
