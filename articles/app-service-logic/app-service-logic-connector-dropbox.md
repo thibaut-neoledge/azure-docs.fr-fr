@@ -47,10 +47,13 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Dropb
 	![][4]
 4.	Vous pouvez déposer l’application API du connecteur Dropbox dans l’éditeur en cliquant sur « Connecteur Dropbox ». Cliquez sur le bouton Autoriser. Indiquez vos informations d’identification Dropbox. Cliquez sur « Autoriser ».
  
-	![][5] ![][6] ![][7]
+	![][5]
+	![][6]
+	![][7]
 6.	Vous pouvez maintenant utiliser le connecteur Dropbox dans le flux. Vous pouvez utiliser l’action Dropbox « Upload File » pour télécharger un fichier dans votre compte Dropbox.
  
-	![][8] ![][9]
+	![][8]
+	![][9]
 
 Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
 
@@ -72,4 +75,4 @@ Configurez les propriétés d’entrée de l’action « Charger le fichier »
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

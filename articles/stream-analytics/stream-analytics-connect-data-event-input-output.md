@@ -126,7 +126,8 @@ Choisissez « Stockage de tables » comme sortie.
 Dans la page suivante, entrez les informations de la table Azure. L’alias de sortie est le nom que vous pouvez utiliser dans votre requête pour diriger la sortie de cette requête vers cette base de données.
 
 
-![graphic14][graphic14] ![graphic15][graphic15]
+![graphic14][graphic14]
+![graphic15][graphic15]
 
 La taille du lot est le nombre d’enregistrements pour une opération par lot, laissez la valeur par défaut si vous n’êtes pas familier avec cela, ou consultez la page [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) pour plus de détails
 
