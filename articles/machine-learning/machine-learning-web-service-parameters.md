@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des paramètres de service Web Azure Machine Learning | Azure" 
+	pageTitle="Utilisation des paramètres de service web Azure Machine Learning | Microsoft Azure" 
 	description="Comment utiliser les paramètres de service Web Azure Machine Learning pour modifier le comportement de votre modèle au moment d’accéder au service Web." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="raymondl;garye"/>
 
 #Utilisation des paramètres de service Web Azure Machine Learning
@@ -22,7 +22,7 @@ Un service Web Azure Machine Learning est créé en publiant une expérience qu
 
 Un exemple courant consiste à configurer le module [Reader][reader], afin que l’utilisateur du service Web publié puisse spécifier une autre source de données lors de l’accès au service Web. Il est également possible de configurer le module [Writer][writer] de façon à spécifier une destination différente. Vous pouvez aussi, par exemple, modifier le nombre de bits pour le module [Feature Hashing][feature-hashing] ou le nombre de fonctionnalités souhaitées pour le module de [Sélection de fonctionnalités basée sur le filtre][filter-based-feature-selection].
 
-Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres lors de l’accès au service ; les actions de module seront modifiées en conséquence.
+Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres lors de l’accès au service ; les actions de module seront modifiées au moment de l’exécution.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,8 @@ Par exemple, supposons que nous avons une expérience avec un module [Writer][wr
 
     - Sous le message **Veuillez spécifier la destination des données**, sélectionnez « Stockage d'objets blob Azure ».
     - Sous le message **Veuillez spécifier le type d'authentification**, sélectionnez « Compte ».
-    - Entrez les informations de compte correspondant au stockage d'objets blob Azure. <p />
+    - Entrez les informations de compte correspondant au stockage d’objets blob Azure. 
+    <p />
 
 3.	Cliquez sur l'icône à droite du **Chemin d'accès d’objet blob commençant par le paramètre du conteneur**. Voici à quoi cela ressemble :
 
@@ -88,5 +89,6 @@ Pour plus d'informations sur l'accès à un service Web Machine Learning, cons
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

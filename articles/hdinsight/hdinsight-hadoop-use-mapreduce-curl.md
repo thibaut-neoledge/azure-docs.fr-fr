@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Exécution à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl
@@ -32,9 +32,9 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 * Un cluster Hadoop sur HDInsight (Linux ou Windows)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
 ##<a id="curl"></a>Exécution de tâches MapReduce à l'aide de Curl
 
@@ -42,7 +42,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 >
 > Pour les commandes de cette section, remplacez **USERNAME** par l’utilisateur à authentifier sur le cluster et **PASSWORD** par le mot de passe du compte d’utilisateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
 >
-> L'API REST est sécurisée à l'aide de l'<a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">authentification de base</a>. Vous devez toujours effectuer les requêtes à l’aide de HTTPS pour vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur.
+> L’API REST est sécurisée à l’aide de l’[authentification d’accès de base](http://en.wikipedia.org/wiki/Basic_access_authentication). Vous devez toujours effectuer les requêtes à l’aide de HTTPS pour vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur.
 
 1. À partir d’une ligne de commande, exécutez la commande suivante pour vérifier que vous pouvez vous connecter à votre cluster HDInsight :
 
@@ -114,4 +114,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

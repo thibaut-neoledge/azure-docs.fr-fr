@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # Qu'est-il arrivé à mon projet ?
@@ -38,5 +38,11 @@ Le package NuGet Azure Mobile Services a été ajouté à votre projet. Suite à
 
 Dans votre fichier App.xaml.cs, un objet **MobileServiceClient** a été créé avec l'URL et la clé d'application du service mobile sélectionné.
 
+####Projet Mobile Services ajouté
+
+Si un service mobile .NET est créé dans le fournisseur de services connectés, un projet de services mobiles est créé et ajouté à la solution.
+
+
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

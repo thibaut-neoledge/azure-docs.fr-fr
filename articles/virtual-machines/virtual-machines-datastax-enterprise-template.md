@@ -80,7 +80,7 @@ Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Étape 1-b : télécharger les fichiers de modèle à l'aide de l'interface de ligne de commande Azure
+### Étape 1-b : télécharger les fichiers de modèle à l’aide de l’interface de ligne de commande Azure
 
 Clonez le référentiel de modèles entier à l'aide d'un client git de votre choix, par exemple :
 
@@ -186,7 +186,7 @@ Chaque paramètre contient des détails, tels que le type de données et les val
 
 ### Étape 3-a : déployer un cluster DataStax Enterprise avec un modèle à l'aide de PowerShell
 
-Préparez un fichier de paramètres pour votre déploiement en créant un fichier JSON contenant des valeurs d'exécution pour tous les paramètres. Ce fichier est ensuite transmis en tant qu'entité unique à la commande de déploiement. Si vous n'incluez pas de fichier de paramètres, PowerShell utilisera les valeurs par défaut spécifiées dans le modèle et vous invitera à renseigner les valeurs restantes.
+Préparez un fichier de paramètres pour votre déploiement en créant un fichier JSON contenant des valeurs d'exécution pour tous les paramètres. Ce fichier est ensuite transmis en tant qu’entité unique à la commande de déploiement. Si vous n'incluez pas de fichier de paramètres, PowerShell utilisera les valeurs par défaut spécifiées dans le modèle et vous invitera à renseigner les valeurs restantes.
 
 Voici un exemple de jeu de paramètres issu du fichier **azuredeploy-parameters.json** :
 
@@ -242,7 +242,7 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacem
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l'exécution du modèle correspondant. Le fait de définir et d'utiliser plusieurs fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
+Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l'exécution du modèle correspondant. Le fait de définir et d’utiliser plusieurs fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
 
 Lors du déploiement, n'oubliez pas qu'un nouveau compte Azure Storage doit être créé. Le nom fourni en tant que paramètre de compte de stockage doit donc être unique et respecter la configuration requise pour un compte Azure Storage (lettres en minuscules et chiffres uniquement).
 
@@ -496,8 +496,9 @@ Pour résumer, cette approche suggère de :
 -	créer un fichier de modèle spécifique déployant toutes les ressources partagées entre toutes les autres tâches du déploiement (par exemple, les comptes de stockage, la configuration de réseau virtuel, etc.). Cette méthode peut être régulièrement réutilisée entre les déploiements ayant des exigences similaires en termes d'infrastructure commune ;
 -	inclure des modèles de ressource facultatifs pour répondre aux besoins directs d'une ressource donnée ;
 -	créer des modèles spécifiques pour les mêmes membres d'un groupe de ressources (nœuds dans un cluster, etc.) afin d'exploiter l'itération de ressource pour déployer plusieurs instances ayant des propriétés uniques ;
--	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de déploiement (par exemple, l'installation du produit, les configurations, etc.).
+-	exploiter les extensions de déploiement de script et créer des scripts propres à chaque technologie pour toutes les tâches de post-déploiement (par exemple, l'installation du produit, les configurations, etc.).
 
 Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

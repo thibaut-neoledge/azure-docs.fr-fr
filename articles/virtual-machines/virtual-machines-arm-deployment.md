@@ -387,4 +387,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

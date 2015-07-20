@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="04/17/2015"
+   ms.date="07/08/2015"
    ms.author="brjohnst"/>
 
 # Comment utiliser Azure Search à partir d'une application .NET #
@@ -27,11 +27,11 @@ Ce kit de développement se compose d'une bibliothèque cliente, `Microsoft.Azur
 La bibliothèque cliente définit des classes comme `Index`, `Field` et `Document`, ainsi que des opérations telles que `Indexes.Create` et `Documents.Search` sur les classes `SearchServiceClient` et `SearchIndexClient`. Ces classes sont organisées dans les espaces de noms suivants :
 
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
-- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
+- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx).
 
-La version actuelle du SDK .NET Azure Search est `0.10.0-preview`. Il s'agit d'une version préliminaire du kit de développement. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la première version stable, consultez notre [page de commentaires](http://feedback.azure.com/forums/263029-azure-search).
+La version actuelle du SDK .NET Azure Search est une version préliminaire. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la première version stable, consultez notre [page de commentaires](http://feedback.azure.com/forums/263029-azure-search).
 
-Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge des processeurs de langage naturel de Microsoft ou le paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](../search-api-2015-02-28-preview/) et ne sont donc pas disponibles dans le SDK. Consultez les pages [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Dernières mises à jour d’Azure Search](../search-latest-updates/) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
+Le SDK .NET prend en charge la version `2015-02-28` de l'API REST d’Azure Search, documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Les nouvelles fonctionnalités qui ne font *pas* partie de cette version, comme la prise en charge des processeurs de langage naturel de Microsoft ou le paramètre de recherche `moreLikeThis`, ne sont [pas finalisées](search-api-2015-02-28-preview.md) et ne sont donc pas disponibles dans le SDK. Consultez les pages [Contrôle de version du service Azure Search](https://msdn.microsoft.com/library/azure/dn864560.aspx) ou [Dernières mises à jour d’Azure Search](search-latest-updates.md) pour connaître les mises à jour disponibles sur chaque fonctionnalité.
 
 Les autres fonctionnalités non prises en charge dans ce SDK sont les suivantes :
 
@@ -41,7 +41,7 @@ Les autres fonctionnalités non prises en charge dans ce SDK sont les suivantes�
 
 1. Visual Studio 2013 ou version ultérieure.
 
-2. Votre propre service Azure Search. Pour utiliser le SDK, vous devez connaître le nom de votre service et une ou plusieurs clés API. [Créer un service dans le portail](../search-create-service-portal/) vous guidera à travers ces étapes.
+2. Votre propre service Azure Search. Pour utiliser le SDK, vous devez connaître le nom de votre service et une ou plusieurs clés API. [Créer un service dans le portail](search-create-service-portal.md) vous guidera à travers ces étapes.
 
 3. Téléchargez le [package NuGet](http://www.nuget.org/packages/Microsoft.Azure.Search) du SDK .NET Azure Search en utilisant « Gérer les packages NuGet » dans Visual Studio. Recherchez le package nommé `Microsoft.Azure.Search` sur NuGet.org. Veillez à sélectionner « Inclure la version préliminaire » pour vous assurer que la version préliminaire du SDK apparaîtra dans les résultats de recherche.
 
@@ -623,5 +623,6 @@ Hotel.cs :
             }
         }
     }
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -98,17 +98,15 @@ Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser
 3. Entrez un **Nom**, une **Description** et un **Site Web**. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
 	<table border="1">
-	<tr><th>Champ</th><th>Valeur</th></tr>
-	<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
+<tr><th>Champ</th><th>Valeur</th></tr>
+<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
 
 4. Activez la case à cocher **Yes, I agree**, puis cliquez sur **Create your Twitter application**.
 5. Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel. 
-6. Cliquez sur l'onglet **Clés et jetons d'accès**.
+6. Cliquez sur l’onglet **Keys and Access Tokens**.
 7. Cliquez sur **Create my access token**.
 8. Cliquez sur **Test OAuth** dans le coin supérieur droit de la page.
 9. Renseignez les valeurs **Clé de consommateur**, **Question secrète du client**, **Jeton d'accès** et **Question secrète du jeton d'accès**. Vous en aurez besoin plus loin dans le didacticiel.
@@ -222,7 +220,7 @@ Vous devez créer une application console pour recevoir des tweets, calculer le 
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -414,9 +412,9 @@ Vous devez créer une application console pour recevoir des tweets, calculer le 
 
 	Ce code fournit les fonctionnalités suivantes :
 
-	- **Connexion à Hbase [ HBaseWriter() ]** : utilisez le Kit de développement logiciel (SDK) HBase pour créer un objet *ClusterCredentials* avec l'URL du cluster et les informations d'identification d’utilisateur Hadoop, puis créez un objet *HBaseClient* à l'aide de l'objet ClusterCredentials.
-	- **Création d’une table HBase [ HBaseWriter() ]** : l'appel de méthode est *HBaseClient.CreateTable()*.
-	- **Écriture dans une table HBase [ WriterThreadFunction() ]** : l'appel de méthode est *HBaseClient.StoreCells()*.
+	- **Connexion à Hbase [ HBaseWriter() ]** : utilisez le Kit de développement logiciel (SDK) HBase pour créer un objet *ClusterCredentials* avec l’URL du cluster et les informations d’identification d’utilisateur Hadoop, puis créez un objet *HBaseClient* à l’aide de l’objet ClusterCredentials.
+	- **Création d’une table HBase [ HBaseWriter() ]** : l’appel de méthode est *HBaseClient.CreateTable()*.
+	- **Écriture dans une table HBase [ WriterThreadFunction() ]** : l’appel de méthode est *HBaseClient.StoreCells()*.
 
 **Pour terminer le Program.cs**
 
@@ -1177,8 +1175,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 **Pour modifier layout.cshtml**
 
-1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Partagé**, puis double-cliquez sur _**Layout.cshtml**.
-2. Remplacez le contenu par ce qui suit :
+1. Dans l'**Explorateur de solutions**, développez **TweetSentimentWeb**, **Affichages**, **Partagé**, puis double-cliquez sur _**Layout.cshtml**. 2. Remplacez le contenu par ce qui suit :
 
 		<!DOCTYPE html>
 		<html>
@@ -1356,5 +1353,6 @@ Dans ce didacticiel, vous avez appris à recevoir des tweets, analyser les senti
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

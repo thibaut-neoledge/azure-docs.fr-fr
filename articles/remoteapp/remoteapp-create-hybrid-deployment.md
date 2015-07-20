@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d'une collection hybride pour RemoteApp" 
+	pageTitle="Création d'une collection hybride pour Azure RemoteApp" 
 	description="Découvrez comment créer un déploiement de RemoteApp qui se connecte à votre réseau interne." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# Création d'une collection hybride pour RemoteApp
+# Création d'une collection hybride pour Azure RemoteApp
 
 Il existe deux types de collection RemoteApp :
 
 - Cloud : réside complètement dans Azure et est créé à l'aide de l'option **Création rapide** du portail de gestion Azure.  
 - Hybride : comprend un réseau virtuel pour un accès local et est créé à l'aide de l'option **Créer avec VNET** du portail de gestion.
 
-Ce didacticiel vous familiarise avec la procédure de création d'une collection hybride. Il se compose de sept étapes :
+Ce didacticiel vous familiarise avec la procédure de création d'une collection hybride. Elle comprend huit étapes :
 
-1.	Création d'une [image personnalisée pour RemoteApp](remoteapp-imageoptions.md) ou sélection d'une des images incluses dans votre abonnement.
+1.	Choix de l’[image](remoteapp-imageoptions.md) à utiliser pour votre collection. Vous pouvez créer une image personnalisée ou utiliser l’une des images Microsoft incluses dans votre abonnement.
 2. Configuration de votre réseau virtuel.
 2.	Création d'une collection RemoteApp.
 2.	Liaison de votre collection à votre réseau virtuel.
@@ -42,8 +42,8 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine.
 - Collecter des informations sur votre réseau local  : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../install-configure-powershell.md).
-- Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Il peut s'agir d'informations sur le compte Microsoft ou sur le compte professionnel Active Directory.
-- Création de votre image de modèle Une image de modèle RemoteApp contient les applications et les programmes que vous souhaitez publier pour les utilisateurs. Consultez [Création d'une image RemoteApp](remoteapp-imageoptions.md) pour plus d'informations. 
+- Collecter des informations sur les utilisateurs auxquels vous souhaitez accorder l'accès. Vous aurez besoin du nom d'utilisateur principal Azure Active Directory (par exemple, name@contoso.com) pour chaque utilisateur.
+- Choisir votre image de modèle. Une image de modèle RemoteApp contient les applications et les programmes que vous souhaitez publier pour les utilisateurs. Consultez les [options d’images RemoteApp](remoteapp-imageoptions.md) pour plus d'informations. 
 - [Configuration d'Active Directory pour RemoteApp](remoteapp-ad.md).
 
 
@@ -134,5 +134,6 @@ Maintenant que vous avez créé votre collection RemoteApp, vous devez ajouter l
 Félicitations ! Vous avez créé et déployé correctement votre collection hybride RemoteApp. L'étape suivante consistera à faire en sorte que vos utilisateurs téléchargent et installent le client Bureau à distance. L'URL du client est disponible sur la page Démarrage rapide de RemoteApp. Les utilisateurs peuvent à présent se connecter au client et accéder aux applications que vous avez publiées.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

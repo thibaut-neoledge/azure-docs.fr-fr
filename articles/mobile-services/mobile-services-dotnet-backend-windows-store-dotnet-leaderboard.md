@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création d'une application de classement avec le backend .NET Azure Mobile Services" 
-	description="Découvrez comment créer une application Windows Store à l'aide d'Azure Mobile Services avec un backend .NET." 
+	pageTitle="Création d’une application de classement du Windows Store avec le serveur principal .NET | Azure Mobile Services" 
+	description="Découvrez comment créer une application de classement du Windows Store à l’aide d’Azure Mobile Services avec un service principal .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
 
@@ -111,9 +111,9 @@ Ajoutez une autre classe nommée `PlayerRank`.
 
 Notez que les deux classes héritent de la classe **EntityData**. La dérivation depuis **EntityData** facilite la consommation des données par l'application, grâce à l'utilisation de la bibliothèque cliente interplateforme pour Azure Mobile Services. **EntityData** facilite également la [gestion des conflits d'écriture de base de données](mobile-services-windows-store-dotnet-handle-database-conflicts.md) pour une application.
 
-La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/data/jj713564.aspx) pointant vers l'entité `Player` associée. L'attribut **[ForeignKey]** indique à EF que la propriété `Player` représente une clé étrangère.
+La classe `PlayerRank` possède une [propriété de navigation](http://msdn.microsoft.com/data/jj713564.aspx) pointant vers l'entité `Player` associée. L’attribut **ForeignKey** indique à EF que la propriété `Player` représente une clé étrangère.
 
-# Ajout de contrôleurs d'API web
+## Ajout de contrôleurs d'API web
 
 Ensuite, vous allez ajouter des contrôleurs d'API web pour `Player` et `PlayerRank`. Au lieu de contrôleurs d'API web simples, vous allez ajouter un type spécial de contrôleur nommé *table controller (contrôleur de table)*, spécifiquement conçu pour Azure Mobile Services.
 
@@ -314,13 +314,13 @@ La méthode `PostPlayerScore` prend une instance `PlayerScore` en entrée (le cl
 2.	Elle met à jour le score du joueur.
 3.	Elle exécute une requête SQL qui met à jour tous les rangs des joueurs par lots.
 
-L'attribut **[Route]** définit un itinéraire personnalisé pour cette méthode :
+L’attribut **Route** définit un itinéraire personnalisé pour cette méthode :
 
 	[Route("api/score")]
 
-Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour plus d'informations sur l'attribut **[Route]**, consultez la page [Routage d'attribut dans l'API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+Vous pouvez également placer la méthode dans un contrôleur séparé. Aucun des deux cas n'est préférable, tout dépend comment vous voulez organiser votre code. Pour en savoir plus sur l’attribut **[Route]**, consultez la page [Routage d’attribut dans l’API web](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
 
-## Création de l'application Windows Store
+## Création de l'application du Windows Store
 
 Cette section fournit une description de l'application Windows Store qui consomme le service mobile. Cependant, nous ne nous concentrerons pas sur le XAML ou l'interface utilisateur. Au lieu de cela, nous nous pencherons sur la logique d'application. Vous pouvez télécharger le projet complet [ici](http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af).
 
@@ -760,5 +760,6 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 [Ajout de notifications Push]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,4 +1,5 @@
 
+
 #### Pour créer un conteneur de volumes
 
 1. Sur la page **Démarrage rapide** de l’appareil, cliquez sur **Ajouter un conteneur de volume**. La boîte de dialogue **Créer un conteneur de volume** s’affiche.
@@ -15,4 +16,4 @@
 
   Le nouveau conteneur de volumes apparaît sur la page **Conteneurs de volume**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -70,4 +70,6 @@ L'article d'assistance ci-dessus fournit une aide pour les problèmes de connect
 
 - Vous pouvez accéder aux mesures des événements de connectivité de la base de données en interrogeant la vue [**sys.database_connection_stats (base de données de SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Forum Aux Questions ExpressRoute"
    description="Le Forum aux questions ExpressRoute contient des informations sur les services Azure pris en charge, le coût, les données et connexions, le contrat de niveau de service, les fournisseurs et les emplacements, la bande passante et les détails techniques."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn"/> <tags 
+   editor="tysonn"/>
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.workload="infrastructure-services"
+   ms.date="06/26/2015"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -101,7 +102,7 @@ Oui. Vous pouvez avoir plusieurs circuits ExpressRoute dans votre abonnement. La
 ### Puis-je avoir des circuits ExpressRoute de différents fournisseurs de services ?
 Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de services. Chaque circuit ExpressRoute est associé à un fournisseur de services uniquement.
 
-### Comment connecter mes réseaux virtuels à un circuit ExpressRoute
+### Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 Les étapes de base sont décrites ci-dessous.
 
 - Vous devez établir un circuit ExpressRoute, que le fournisseur de services activera.
@@ -110,8 +111,8 @@ Les étapes de base sont décrites ci-dessous.
 
 Les didacticiels suivants vous aideront dans ce sens :
 
-- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-exps.md)
-- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-nsps.md)
+- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
+- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
 - [Configuration d’un réseau virtuel et d’une passerelle pour ExpressRoute](expressroute-configuring-vnet-gateway.md)
 
 ### Existe-t-il des limites de connectivité pour le circuit ExpressRoute ?
@@ -120,7 +121,7 @@ Oui. La page [Partenaires et emplacements ExpressRoute](expressroute-locations.m
 ### Puis-je lier plusieurs réseaux virtuels à un circuit ExpressRoute ?
 Oui. Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute.
 
-### Puis-je connecter des réseaux virtuels de plusieurs abonnements à un circuit ExpressRoute ?
+### Je possède plusieurs abonnements Azure qui contiennent des réseaux virtuels. Puis-je connecter des réseaux virtuels qui figurent dans des abonnements distincts à un circuit ExpressRoute ?
 Oui. Vous pouvez autoriser jusqu’à 10 autres abonnements Azure à utiliser un même circuit ExpressRoute. Cette limite peut être augmentée en activant la fonctionnalité Premium d’ExpressRoute.
 
 Pour plus d’informations, consultez la page [Partage d’un circuit ExpressRoute entre plusieurs abonnements](https://msdn.microsoft.com/library/azure/dn835110.aspx).
@@ -140,8 +141,8 @@ Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer l
 ### Les réseaux virtuels liés à un même circuit ExpressRoute peuvent-ils communiquer entre eux ?
 Oui. Les machines virtuelles qui sont déployées dans des réseaux virtuels connectés à un même circuit ExpressRoute peuvent communiquer entre elles.
 
-### Puis-je utiliser une connectivité de site à site et de point à site pour les réseaux virtuels conjointement avec ExpressRoute ?
-Oui. ExpressRoute peut coexister avec un VPN de site à site et de point à site. Vous devez d’abord créer la passerelle ExpressRoute, puis une passerelle de routage dynamique sur le même réseau virtuel pour que cela fonctionne.
+### Puis-je utiliser une connectivité de site à site pour les réseaux virtuels conjointement avec ExpressRoute ?
+Oui. ExpressRoute peut coexister avec des réseaux VPN de site à site.
 
 ### Puis-je déplacer un réseau virtuel à partir de la configuration de site à site/point à site pour utiliser ExpressRoute ?
 Oui. Vous devez créer une passerelle ExpressRoute dans votre réseau virtuel. Le processus entraîne un léger temps d’arrêt.
@@ -160,29 +161,29 @@ Nous filtrons les préfixes privés (RFC1918) dans la session BGP d’homologati
 ### Que se passe-t-il si je dépasse les limites du protocole BGP ?
 Les sessions BGP sont supprimées. Elles sont ensuite réinitialisées lorsque le nombre de préfixes tombe en dessous de la limite.
 
-### Une fois que je publie l’itinéraire par défaut (0.0.0.0/0) sur mes réseaux virtuels, je ne peux pas activer Windows qui est en cours d’exécution sur mes machines virtuelles Azure. Que puis-je faire ?
+### Une fois que je publie l’itinéraire par défaut (0.0.0.0/0) sur mes réseaux virtuels, je ne peux pas activer Windows qui est en cours d’exécution sur mes machines virtuelles Azure. Comment faire pour résoudre ce problème ?
 Les étapes suivantes aideront Azure à reconnaître la demande d’activation :
 
 1. Établissez l’homologation publique pour votre circuit ExpressRoute.
 2. Effectuez une recherche DNS et recherchez l’adresse IP de **kms.core.windows.net**
 3. Effectuez ensuite l’une des deux actions suivantes afin que le service de gestion de clés reconnaisse que la demande d’activation provient d’Azure et respecte la demande.
 	- Sur votre réseau local, réacheminez le trafic destiné à l’adresse IP (obtenue à l’étape 2) vers Azure via l’homologation publique.
-	- Faites en sorte que votre fournisseur de services réseau renvoie le trafic vers Azure via l’homologation publique. 
+	- Faites en sorte que votre fournisseur de services réseau renvoie le trafic vers Azure via l’homologation publique.
 
 ### Puis-je modifier la bande passante d’un circuit ExpressRoute ?
 Oui. Vous pouvez augmenter la bande passante d’un circuit ExpressRoute sans avoir à le détruire. Vous devez effectuer un suivi avec votre fournisseur de connectivité pour vous assurer qu’il met à jour les limitations dans ses réseaux pour prendre en charge l’augmentation de la bande passante. Vous n’êtes toutefois pas en mesure de réduire la bande passante d’un circuit ExpressRoute. La réduction de la bande passante signifie la destruction et la recréation d’un circuit ExpressRoute.
 
-### Comment puis-je modifier la bande passante d’un circuit ExpressRoute ? 
+### Comment modifier la bande passante d’un circuit ExpressRoute ?
 Vous pouvez mettre à jour la bande passante du circuit ExpressRoute à l’aide de l’API du circuit dédié mise à jour et de l’applet de commande PowerShell.
 
 ## ExpressRoute Premium
 
 ### En quoi consiste ExpressRoute Premium ?
 ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-dessous.
- 
+
  - Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation publique et l’homologation privée.
  - Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau ci-dessous.
- - Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région. **Exemple :** vous pouvez lier un réseau virtuel créé en Europe de l’Ouest à un circuit ExpressRoute créé dans la Silicon Valley. 
+ - Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région. **Exemple :** vous pouvez lier un réseau virtuel créé en Europe de l’Ouest à un circuit ExpressRoute créé dans la Silicon Valley.
 
 ### Combien de réseaux virtuels est-il possible de lier à un circuit ExpressRoute en cas d’abonnement à ExpressRoute Premium ?
 Le tableau ci-dessous fournit les limites augmentées du nombre de réseaux virtuels que vous pouvez lier à un circuit ExpressRoute. La limite par défaut est 10.
@@ -195,7 +196,7 @@ Le tableau ci-dessous fournit les limites augmentées du nombre de réseaux virt
 | 50 Mbits/s | 10 | 20 |
 | 100 Mbits/s | 10 | 25 |
 | 500 Mbits/s | 10 | 40 |
-| 1 Gbit/s | 10 | 50                                                                                     
+| 1 Gbit/s | 10 | 50
 |
 
 
@@ -236,7 +237,7 @@ Oui. ExpressRoute Premium est pris en charge pour les circuits ExpressRoute conn
 1. Consultez la [page des conditions préalables d’ExpressRoute](expressroute-prerequisites.md) pour vérifier que vous avez respecté les conditions.
 2. Passez en revue la liste des fournisseurs de services et les emplacements dans la rubrique [Partenaires et emplacements ExpressRoute](expressroute-locations.md) pour vous assurer que vos besoins de connectivité sont remplis.
 3. Planifiez vos besoins en capacité en consultant la page [Planification réseau et optimisation des performances pour Office 365](http://aka.ms/tune/)
-4. Suivez les étapes répertoriées dans les flux de travail ci-dessous pour configurer la connectivité. 
+4. Suivez les étapes répertoriées dans les flux de travail ci-dessous pour configurer la connectivité.
 
 	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
@@ -249,7 +250,7 @@ Les didacticiels suivants vous aideront dans ce sens :
 - [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 - [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
 
-### Quels services Office 365 sont accessibles via une connexion ExpressRoute ? 
+### Quels services Office 365 sont accessibles via une connexion ExpressRoute ?
 
 **Services Office 365 pris en charge**
 
@@ -258,7 +259,6 @@ Les didacticiels suivants vous aideront dans ce sens :
 - Skype Entreprise Online
 - Office Online
 - Azure AD et Azure AD Sync
-- CRM Online
 - Office 365 Video
 - Power BI
 - Delve
@@ -268,7 +268,7 @@ Les didacticiels suivants vous aideront dans ce sens :
 
 - Yammer
 - Téléchargements du client Office 365 ProPlus
-- Connexion du fournisseur d’identité local 
+- Connexion du fournisseur d’identité local
 - Office 365 (opéré par 21 Vianet) en Chine
 
 Vous pouvez vous connecter à ces services via Internet.
@@ -284,4 +284,6 @@ Nous prenons en charge la connectivité aux services Office 365 via les fournis
 
 ### Puis-je accéder à Office 365 via Internet même si ExpressRoute a été configuré pour mon organisation ?
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

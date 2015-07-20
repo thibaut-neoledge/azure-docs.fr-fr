@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -45,5 +46,6 @@ Le tableau suivant décrit les erreurs que vous pouvez rencontrer lorsque vous e
 | 4 | Invoke-HcsSetupWizard : la valeur ne figure pas dans la plage attendue. | Cette erreur est générée par un masque de sous-réseau incorrect. Les causes possibles sont : <ul><li> Le masque de sous-réseau est manquant ou vide.</li><li>Le format de préfixe Ipv6 est incorrect.</li><li>L'interface est activée pour le cloud, mais la passerelle est manquante ou incorrecte.</li></ul>Notez que l’interface réseau DATA 0 est automatiquement activée pour le cloud si elle est configurée via l'Assistant Installation. | Pour déterminer le problème, utilisez le sous-réseau 0.0.0.0 ou 256.256.256.256, puis examinez la sortie. Entrez les valeurs correctes pour le masque de sous-réseau, la passerelle et le préfixe Ipv6, le cas échéant. |
  
 ## Étapes suivantes
-Si vous ne pouvez pas résoudre le problème, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour obtenir une assistance. <!--HONumber=52-->
- 
+Si vous ne pouvez pas résoudre le problème, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour obtenir une assistance.
+
+<!---HONumber=July15_HO2-->

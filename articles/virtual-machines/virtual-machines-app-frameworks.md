@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="06/03/2015"
+   ms.date="07/02/2015"
    ms.author="rasquill"/>
 
 # Infrastructure d’application à l’aide de modèles
@@ -22,6 +22,7 @@ Ceci permet des créations efficaces, rapidement.
 
 | Nom du modèle | Description | Afficher le modèle | Le déployer dès maintenant |
 |:---|:---|:---:|:---:|
+| Déployer rapidement N machines virtuelles | Il s’agit d’un modèle créé par Microsoft qui déploie jusqu’à N nouvelles machines virtuelles (ainsi qu’un nouveau compte de réseau virtuel et de stockage). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Forêt et domaine Active Directory | Ce modèle déploie 2 nouvelles machines virtuelles (ainsi qu’un nouveau réseau virtuel, un compte de stockage et un équilibrage de charge) et crée une forêt et un domaine Active Directory. Chaque machine virtuelle est créée en tant que contrôleur de domaine pour le nouveau domaine et placée dans un groupe à haute disponibilité. Elle a également un point de terminaison RDP avec une adresse IP d’équilibrage de charge publique. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Serveur web Apache | Ce modèle utilise l’extension Azure Linux CustomScript pour déployer un serveur web Apache. Le modèle crée une machine virtuelle Ubuntu, installe Apache2 et crée un fichier HTML simple.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Cluster Couchbase | Ce modèle déploie un cluster Couchbase sur des machines virtuelles Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -49,4 +50,4 @@ Découvrez tous les modèles à votre disposition sur [GitHub](https://github.co
 Pour en savoir plus sur Azure Resource Management, cliquez [ici](../resource-group-template-deploy.md).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

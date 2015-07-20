@@ -1,3 +1,19 @@
+<properties
+   pageTitle="Installation de correctifs logiciels périodiques"
+   description="Explique comment installer les correctifs logiciels périodiques via Windows PowerShell pour StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="NA" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="06/02/2015"
+   ms.author="alkohli" />
 
 #### Pour installer des correctifs logiciels périodiques via Windows PowerShell pour StorSimple
 
@@ -15,4 +31,4 @@
 
 5. Vous êtes invité à confirmer l’opération. Saisissez **O** pour poursuivre l’installation du correctif logiciel.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

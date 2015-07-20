@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Mettez à l’échelle les clusters Hadoop, HBase ou Apache Storm afin de modifier leur nombre de nœuds de données dans HDInsight 
@@ -145,4 +145,4 @@ Voici un exemple de code qui montre comment utiliser la version synchrone de cet
 Pour plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

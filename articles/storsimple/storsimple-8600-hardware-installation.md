@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Installation de votre appareil StorSimple 8600
@@ -41,10 +41,10 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 1. Vérifiez que les cartons et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le support technique Microsoft pour savoir si l’appareil est en état de marche.
 
 2. Ouvrez les deux cartons et déballez le boîtier principal et le boîtier EBOD. L’illustration suivante représente tous les éléments composant l’emballage de votre appareil de stockage.
- 
-    **Figure 1 : vue de votre appareil de stockage déballé**
 
     ![Déballage de votre appareil de stockage](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+ 
+    **Figure 1 : vue de votre appareil de stockage déballé**
 
      Étiquette | Description 
      ----- | -------------
@@ -112,9 +112,9 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 2. En général, ces rails sont installés en usine. S’ils ne le sont pas, installez les glissières du rail gauche et celles du rail droit sur les côtés du châssis du boîtier. Six vis métriques permettent de les fixer de chaque côté. Pour faciliter l’orientation, les mentions **LH – Front** (avant gauche) et **RH – Front** (avant droit) sont indiquées sur les glissières et l’extrémité qui est apposée à l’arrière du boîtier est effilée.
 
-    **Figure 2 : fixation des glissières du rail sur les côtés du boîtier**
-
     ![Fixation des glissières de rail sur le châssis du boîtier](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **Figure 2 : fixation des glissières de rail sur les côtés du boîtier**
 
     Étiquette | Description
     ----- | -----------
@@ -129,9 +129,9 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 6. Répétez ces étapes pour l’autre rail.
 
-    **Figure 3 : fixation du rail au rack**
-
      ![Fixation des glissières de rail sur l’armoire à rack](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figure 3 : fixation des rails au rack**
 
      Étiquette | Description
      ----- | -----------
@@ -151,17 +151,17 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 2. Insérez le boîtier avec précaution dans les rails, puis poussez-le complètement dans l’armoire à rack.
 
-    **Figure 4 : montage du boîtier dans le rack**
-
     ![Insertion de l’appareil dans le rack](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figure 4 : montage du boîtier dans le rack**
 
 3. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
 
 4. Placez les capuchons sur les embases et appuyez dessus pour les mettre en place.
 
-    **Figure 5 : installation des capuchons d’embase**
-
      ![Installation des capuchons d’embase](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+
+    **Figure 5 : installation des capuchons d’embase**
  
      Étiquette | Description
      ----- | -----------
@@ -208,9 +208,9 @@ Pour ce faire, vous devez dans un premier temps identifier le boîtier principal
 
 1. Identifiez le boîtier principal et le boîtier EBOD en examinant les fonds de panier respectifs. Reportez-vous à la figure suivante.
 
-    **Figure 6 : dos du boîtier principal et du boîtier EBOD**
-
     ![Boîtier principal et boîtier EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
+
+    **Figure 6 : dos du boîtier principal et du boîtier EBOD**
 
      Étiquette | Description
      ----- | -----------
@@ -220,9 +220,9 @@ Pour ce faire, vous devez dans un premier temps identifier le boîtier principal
 
 2. Recherchez les numéros de série sur les deux boîtiers. L’étiquette du numéro de série est apposée sur la languette arrière de chaque boîtier. Les numéros de série doivent être identiques sur les deux boîtiers. Contactez immédiatement le support technique Microsoft si les numéros de série ne correspondent pas. Reportez-vous à la figure suivante pour vous aider à trouver les numéros de série.
 
-    **Figure 7 : vue arrière du boîtier avec emplacement du numéro de série**
-
     ![Emplacement du numéro de série](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+
+    **Figure 7 : vue arrière du boîtier avec emplacement du numéro de série**
 
      Étiquette | Description
      ----- | -----------
@@ -235,9 +235,9 @@ Ensuite, utilisez les câbles SAS fournis pour connecter le boîtier EBOD au bo�
 
 1. Identifiez les quatre ports SAS (Serial Attached SCSI) sur le boîtier principal et le boîtier EBOD. Les ports SAS sont indiqués par la mention EBOD sur le boîtier principal et par la mention CTRL sur le boîtier EBOD, comme illustré sur la figure 8.
 
-    **Figure 8 : emplacement des ports SAS sur les boîtiers principal et EBOD**
-
     ![Emplacement des ports SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
+
+    **Figure 8 : emplacement des ports SAS sur le boîtier principal et le boîtier EBOD**
 
      Étiquette | Description
      ----- | -----------
@@ -284,9 +284,9 @@ Procédez comme suit pour brancher les câbles d’alimentation de votre apparei
 
 > [AZURE.IMPORTANT]Pour garantir une haute disponibilité de votre système, il est conseillé de se conformer strictement au schéma de branchement des câbles d’alimentation représenté ci-dessous.
 
-   **Figure 9 : branchement des câbles d’alimentation de votre appareil**
-
    ![Schéma de branchement des câbles d’alimentation](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
+
+   **Figure 9 : branchement des câbles d’alimentation de votre appareil**
 
      Label | Description
      ----- | -----------
@@ -311,9 +311,9 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
 1. Votre appareil possède six interfaces réseau sur chaque contrôleur : quatre ports Ethernet de 1 Gbit/s et deux de 10 Gbit/s. Reportez-vous au schéma suivant pour identifier les ports de données sur le fond de panier de votre appareil.
 
-    **Figure 10 : dos de votre appareil avec ports de données**
-
      ![Fond de panier de l’appareil 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figure 10 : dos de votre appareil avec ports de données**
  
      Étiquette | Description
      ------- | -----------
@@ -332,9 +332,9 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
 Configurez au moins une interface réseau pour l’accès au cloud et une pour iSCSI. Pour une haute disponibilité et des performances, configurez deux paires d’interfaces réseau sur chaque contrôleur. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
-**Figure 11 : branchement des câbles réseau de votre appareil**
-
 ![Câble réseau de votre appareil 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+
+**Figure 11 : branchement des câbles réseau de votre appareil**
 
 Étiquette | Description
 ----- | -----------
@@ -382,4 +382,4 @@ Vous avez terminé le branchement des câbles d’alimentation, d’accès rése
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

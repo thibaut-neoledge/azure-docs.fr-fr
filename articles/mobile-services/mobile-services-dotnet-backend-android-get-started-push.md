@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="ricksal"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -30,7 +30,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de l
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-##<a id="configure"></a>Configuration de votre service mobile pour l'envoi de demandes Push
+##<a id="configure"></a>Configurer votre service mobile pour l'envoi de demandes push
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
@@ -47,7 +47,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de l
 
 L'étape suivante consiste à installer les services Google Play. Google Cloud Messaging a des spécifications requises d'API minimales pour le développement et les tests, auxquelles la propriété **minSdkVersion** du manifeste doit se conformer.
 
-Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur.
+Si vous envisagez de procéder à un test avec un appareil ancien, consultez la rubrique [Configuration du Kit de développement logiciel (SDK) des services Google Play] pour déterminer comment définir cette valeur et définissez-la correctement.
 
 ###Ajout de services Google Play au projet
 
@@ -121,5 +121,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Envoi de notifications diffusées aux abonnés]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envoi de notifications basées sur un modèle aux abonnés]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

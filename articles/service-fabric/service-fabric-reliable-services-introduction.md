@@ -119,4 +119,4 @@ Si l'un des éléments suivants correspond aux besoins de votre service d'applic
 + [Lire le modèle de programmation Acteurs fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

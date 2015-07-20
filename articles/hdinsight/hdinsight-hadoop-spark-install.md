@@ -83,7 +83,7 @@ Procédez comme suit pour exécuter des requêtes Spark à partir d'un interpré
 
 1. Dans le portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Spark installé, puis connectez-vous à distance au cluster. Pour la marche à suivre, consultez la section <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
 
-2. Dans la session RDP, ouvrez la ligne de commande Hadoop (à partir d’un raccourci sur le Bureau), puis naviguez jusqu’à l’emplacement d’installation de Spark (par exemple, **C:\apps\dist\spark-1.2.0**.
+2. Dans la session RDP, ouvrez la ligne de commande Hadoop (à partir d’un raccourci sur le Bureau), puis naviguez jusqu’à l’emplacement d’installation de Spark (par exemple, **C:\\apps\\dist\\spark-1.2.0**.
 
 
 3. Exécutez la commande suivante pour démarrer l’interpréteur de commandes Spark :
@@ -117,7 +117,7 @@ Spark SQL vous permet d’utiliser Spark pour exécuter des requêtes relationne
 
 1. Dans le portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Spark installé, puis connectez-vous à distance au cluster. Pour la marche à suivre, consultez la section <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
 
-2. Dans la session RDP, ouvrez la ligne de commande Hadoop (à partir d’un raccourci sur le Bureau), puis naviguez jusqu’à l’emplacement d’installation de Spark (par exemple, **C:\apps\dist\spark-1.2.0**.
+2. Dans la session RDP, ouvrez la ligne de commande Hadoop (à partir d’un raccourci sur le Bureau), puis naviguez jusqu’à l’emplacement d’installation de Spark (par exemple, **C:\\apps\\dist\\spark-1.2.0**.
 
 
 3. Exécutez la commande suivante pour démarrer l’interpréteur de commandes Spark :
@@ -199,20 +199,20 @@ Dans cette section, vous utilisez <a href="http://www.scala-sbt.org/0.13/docs/in
 	>[AZURE.NOTE]Veillez à conserver les lignes vides dans le fichier.
 
 	
-3. Dans le dossier **SimpleScalaApp**, créez une structure de répertoires **\src\main\scala**, puis collez le programme Scala (**SimpleApp.scala**) créé précédemment dans le dossier \src\main\scala.
+3. Dans le dossier **SimpleScalaApp**, créez une structure de répertoires **\\src\\main\\scala**, puis collez le programme Scala (**SimpleApp.scala**) créé précédemment dans le dossier \\src\\main\\scala.
 4. Ouvrez une invite de commandes, accédez au répertoire SimpleScalaApp, puis entrez la commande suivante :
 
 
 		sbt package
 
 
-	Une fois l’application compilée, le fichier **simpleapp_2.10-1.0.jar** est créé dans le répertoire **\target\scala-2.10** dans le dossier racine SimpleScalaApp.
+	Une fois l’application compilée, le fichier **simpleapp_2.10-1.0.jar** est créé dans le répertoire **\\target\\scala-2.10** dans le dossier racine SimpleScalaApp.
 
 
 #### Exécuter la tâche sur le cluster
 Dans cette section, vous allez vous connecter à distance au cluster sur lequel Spark est installé, puis copier le dossier cible du projet SimpleScalaApp. Vous allez ensuite utiliser la commande **spark-submit** pour envoyer la tâche au cluster.
 
-1. Accédez à distance au cluster sur lequel Spark est installé. Sur l’ordinateur où vous avez écrit et créé le programme SimpleApp.scala, copiez le dossier **SimpleScalaApp\target** et collez-le à l’emplacement de votre choix sur le cluster.
+1. Accédez à distance au cluster sur lequel Spark est installé. Sur l’ordinateur où vous avez écrit et créé le programme SimpleApp.scala, copiez le dossier **SimpleScalaApp\\target** et collez-le à l’emplacement de votre choix sur le cluster.
 2. Dans la session RDP, sur le Bureau, ouvrez la ligne de commande Hadoop, puis naviguez jusqu’à l’emplacement dans lequel vous avez collé le dossier **target**.
 3. Entrez la commande suivante pour exécuter le programme SimpleApp.scala :
 
@@ -405,7 +405,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 **Pour exécuter l’application**
 
-Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
+Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateSparkCluster <cluster-name>
 
@@ -427,4 +427,4 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

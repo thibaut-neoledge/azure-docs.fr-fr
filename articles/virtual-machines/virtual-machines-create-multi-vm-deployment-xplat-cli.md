@@ -65,5 +65,6 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option –help
 
 * [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource.md)
 * [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

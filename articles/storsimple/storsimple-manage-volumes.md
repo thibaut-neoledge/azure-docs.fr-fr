@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -178,6 +179,6 @@ Suivez la procédure ci-dessous pour activer ou désactiver l’analyse d’un v
 Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

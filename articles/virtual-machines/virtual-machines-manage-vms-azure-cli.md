@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows"
+   pageTitle="Gestion de vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows | Microsoft Azure"
    description="Décrit comment créer, gérer et supprimer vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows
 
@@ -38,7 +38,7 @@ Pour obtenir des informations sur la machine virtuelle, exécutez cette commande
 Pour stocker le résultat dans une variable $vm comme un document JSON, exécutez :
 
     vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
+
 Vous pouvez également diriger le stdout vers un fichier.
 
 ## Connexion à une machine virtuelle Linux
@@ -62,7 +62,7 @@ Vous devez également décider d’associer un nouveau disque ou un disque exist
 
 Pour associer un nouveau disque, exécutez cette commande :
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 Pour associer un disque existant, exécutez cette commande :
 
@@ -73,20 +73,12 @@ Pour associer un disque existant, exécutez cette commande :
 Pour créer une nouvelle machine virtuelle Linux, vous aurez besoin de plusieurs valeurs, notamment un nom de groupe de ressources, un emplacement, un nom d’image, un nom de machine virtuelle et un compte de stockage pour stocker l’image .vhd de sauvegarde. Une fois que vous disposez des informations que vous souhaitez utiliser, l’interface de ligne de commande Azure peut créer une session interactive vous invitant à entrer ces valeurs en tapant :
 
     azure vm create
-    
+
 Bien sûr, si vous disposez déjà de ces valeurs, vous pouvez trouver des moyens de contournement pour les ignorer en tapant `azure help vm create`.
 
 ## Étapes suivantes
 
 Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
-
-
-
-
-
-
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

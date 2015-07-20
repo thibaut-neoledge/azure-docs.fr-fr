@@ -32,14 +32,11 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###2.1.0 (24/04/2015)
+###2.2.0 (21/05/2015)
 
--   Ajouter la compatibilité Swift.
--   Lorsque vous cliquez sur une notification, l'URL d’action s’exécute maintenant juste après l'ouverture de l'application.
--   Ajout du fichier d'en-tête manquant dans le package du Kit de développement logiciel (SDK).
--   Correction d’un problème lorsque le générateur de rapport d’incident d’Engagement Mobile a été désactivé.
+-   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
 
-Pour les versions antérieures, veuillez consulter les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
+Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-ios-release-notes.md)
 
 ##Procédures de mise à niveau
 
@@ -51,5 +48,6 @@ Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abo
 
 ###Migration de 2.0.0 vers 2.1.0
 Aucun.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

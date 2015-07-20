@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation du stockage de tables à partir de Python | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de Table à partir de Python pour créer, supprimer, insérer et interroger une table." 
+	pageTitle="Utilisation du stockage de tables à partir de Python | Microsoft Azure" 
+	description="Découvrez comment utiliser le service de Table de Python pour créer, supprimer, insérer et interroger une table." 
 	services="storage" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -23,22 +23,22 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de tables Azure. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent la **création et la suppression d'une table, ainsi que l'insertion et l'interrogation d'entités dans une table**.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage de tables Azure. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion et l'interrogation d'entités dans une table**.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.NOTE] Si vous devez installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python] (python-how-to-install.md).
+[AZURE.NOTE]Si vous devez installer Python ou le [package Azure Python][], consultez le [Guide d’installation de Python](../python-how-to-install.md).
 
 
 ## Création d'une table
 
-L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TableService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
+L'objet **TableService** permet d'utiliser les services de Table. Le code suivant permet de créer un objet **TargetService**. Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
 	from azure.storage import TableService, Entity
 
-Le code suivant permet de créer un objet **TableService** en utilisant le nom et la clé du compte de stockage.  Remplacez 'myaccount' et 'mykey' par le compte et la clé réels.
+Le code suivant permet de créer un objet **TableService** en utilisant le nom et la clé du compte de stockage. Remplacez « myaccount » et « mykey » par le compte et la clé réels.
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -46,16 +46,14 @@ Le code suivant permet de créer un objet **TableService** en utilisant le nom e
 
 ## Ajout d'une entité à une table
 
-Pour ajouter une entité, commencez par créer un dictionnaire définissant les noms et valeurs des propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Il s'agit d'identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées bien plus rapidement que d'autres propriétés. Le système utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage.
-Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. La
-clé **RowKey** est l'identifiant unique de l'entité dans sa partition.
+Pour ajouter une entité, commencez par créer un dictionnaire définissant les noms et valeurs des propriétés de votre entité. Notez que pour chaque entité, vous devez spécifier les clés **PartitionKey** et **RowKey**. Il s’agit d’identificateurs uniques de vos entités, dont les valeurs peuvent être interrogées bien plus rapidement que d’autres propriétés. Le système utilise **PartitionKey** pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé **PartitionKey** sont stockées sur le même nœud. **RowKey** est l'identifiant unique de l'entité dans sa partition.
 
-Pour ajouter une entité à votre table, passez l'objet dictionnaire à la méthode **insert_entity**.
+Pour ajouter une entité à votre table, transmettez l'objet dictionnaire à la méthode **insert_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-Vous pouvez également passer une instance de la classe **Entity** à la méthode **insert_entity**.
+Vous pouvez également transmettre une instance de la classe **Entity** à la méthode **insert_entity**.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -71,8 +69,7 @@ Ce code montre comment remplacer l'ancienne version d'une entité existante par 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Si l'entité à remplacer n'existe pas, l'opération de mise à jour échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insert_or_replace_entity**. 
-Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxième appel insère une nouvelle entité, car il n'existe aucune entité ayant les clés **PartitionKey** et **RowKey** spécifiées dans la table.
+Si l'entité à remplacer n'existe pas, l'opération de mise à jour échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez **insert_or_replace_entity**. Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxième appel insère une nouvelle entité, car il n'existe aucune entité ayant les clés **PartitionKey** et **RowKey** spécifiées.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
 	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task)
@@ -80,20 +77,20 @@ Dans l'exemple suivant, le premier appel remplace l'entité existante. Le deuxi�
 	task = {'description' : 'Buy detergent', 'priority' : 300}
 	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '3', task)
 
-## Modification d'un groupe d'entités
+## Modification d’un groupe d’entités
 
 Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez utiliser la méthode **begin_batch** sur **TableService**, puis appeler les habituelles séries d'opérations. Lorsque vous devez soumettre le lot, appelez **commit_batch**. Notez que toutes les entités doivent se trouver dans la même partition pour pouvoir être modifiées par lot. L'exemple ci-dessous permet d'ajouter deux entités dans un lot.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
-	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey' : '11', 'description' : 'Clean the bathroom', 'priority' : 100}
+	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
 	table_service.begin_batch()
 	table_service.insert_entity('tasktable', task10)
 	table_service.insert_entity('tasktable', task11)
 	table_service.commit_batch()
 
-## Interrogation d'une entité
+## Interrogation d’une entité
 
-Pour interroger une entité dans une table, utilisez la méthode **get_entity** en passant les clés **PartitionKey** et **RowKey**.
+Pour interroger une entité dans une table, utilisez la méthode **get_entity** en transmettant les clés **PartitionKey** et **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)
@@ -108,15 +105,13 @@ Cet exemple recherche toutes les tâches dans Seattle avec la clé **PartitionKe
 		print(task.description)
 		print(task.priority)
 
-## Interrogation d'un sous-ensemble de propriétés d'entité
+## Interrogation d’un sous-ensemble de propriétés d’entité
 
-Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité.
-Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez le paramètre **select** et transmettez les noms des propriétés à soumettre au client.
+Vous pouvez utiliser une requête de table pour extraire uniquement quelques propriétés d'une entité. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Utilisez le paramètre **select** et transmettez les noms des propriétés à soumettre au client.
 
 La requête contenue dans le code suivant renvoie uniquement les descriptions des entités de la table.
 
-*Notez que l'extrait suivant fonctionne uniquement dans le service cloud de stockage et qu'il n'est pas pris en charge par l'émulateur
-de stockage.*
+*Notez que l’extrait suivant fonctionne uniquement dans le service cloud de stockage et qu’il n’est pas pris en charge par l’émulateur de stockage.*
 
 	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
 	for task in tasks:
@@ -138,11 +133,12 @@ Le code suivant permet de supprimer une table d'un compte de stockage.
 
 Maintenant que vous connaissez les bases du stockage de tables, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
--   Consultez la référence MSDN suivante : [Stockage des données et accès aux données dans Azure][]
--   [Visiter le Blog de l'équipe Azure Storage][]
+-   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
+-   [Visiter le Blog de l’équipe Azure Storage][]
 
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Visiter le Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
-[Package Azure Python]: https://pypi.python.org/pypi/azure  
+[Visiter le Blog de l’équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[package Azure Python]: https://pypi.python.org/pypi/azure
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utilisation du stockage d'objets blob à partir de Ruby | Microsoft Azure" 
-	description="Découvrez comment utiliser le service BLOB Azure pour charger, répertorier, télécharger et supprimer du contenu d'objets blob. Exemples écrits en Ruby." 
+	pageTitle="Utilisation du stockage d’objets blob à partir de Ruby | Microsoft Azure" 
+	description="Découvrez comment utiliser le service BLOB Azure pour charger, répertorier, télécharger et supprimer du contenu d'objets blob. Les exemples sont écrits en Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -23,9 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du
-service BLOB Azure. Les exemples sont écrits à l'aide de l'API Ruby.
-Les scénarios traités incluent le **chargement, l'énumération, le téléchargement** et la **suppression** d'objets blob.
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service BLOB Azure. Les exemples sont écrits à l'aide de l'API Ruby. Les scénarios traités incluent le **chargement, le téléchargement, l'énumération** et la **suppression** d'objets blob.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -33,8 +31,7 @@ Les scénarios traités incluent le **chargement, l'énumération, le téléchar
 
 ## Création d'une application Ruby
 
-Créez une application Ruby. Pour obtenir des instructions, 
-consultez la rubrique [Création d'une application Ruby sur Azure]./develop/ruby/tutorials/web-app-with-linux-vm/).
+Créez une application Ruby. Pour obtenir des instructions, consultez le guide [Création d'une application Ruby sur Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configuration de votre application pour accéder au stockage
 
@@ -42,35 +39,36 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ### Utilisation de RubyGems pour obtenir le package
 
-1. Utiliser une interface de ligne de commande comme **PowerShell** (Windows), **Terminal** (Mac), ou **Bash** (Unix).
+1. Ouvrez une interface de ligne de commande, telle que **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 
-2. Tapez " gem install azure " dans la fenêtre de commande pour installer gem et les dépendances.
+2. Tapez « gem install azure » dans la fenêtre de commande pour installer gem et les dépendances.
 
 ### Importation du package
 
-À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
+À l'aide de votre éditeur de texte, ajoutez la commande suivante au début du fichier Ruby où vous comptez utiliser le stockage :
 
 	require "azure"
 
 ## Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY** 
-pour obtenir les informations obligatoires pour se connecter à votre compte de stockage Azure. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::BlobService** avec le code suivant :
+Le module Azure lit les variables d'environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::BlobService** avec le code suivant :
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
 
-Pour obtenir ces valeurs :
+Pour obtenir ces valeurs :
 
-1. Connectez-vous au [Portail de gestion Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/).
 2. Accédez au compte de stockage que vous voulez utiliser.
-3. Cliquez sur **MANAGE KEYS** au bas du volet de navigation.
+3. Cliquez sur **GÉRER LES CLÉS** au bas du volet de navigation.
 4. Dans la boîte de dialogue contextuelle, vous voyez le nom du compte de stockage et la clé d'accès primaire ou secondaire. Vous pouvez utiliser soit la clé d'accès primaire, soit la clé d'accès secondaire.
 
-## Procédure : Création d'un conteneur
+## Procédure : création d’un conteneur
 
-L'objet **Azure::BlobService** vous permet d'utiliser des conteneurs et des objets blob. Pour créer un conteneur, utilisez la méthode **create_container()**.
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+L'objet **Azure::BlobService** permet d'utiliser des conteneurs et des objets blob. Pour créer un conteneur, utilisez la méthode **create_container()**.
 
 L'exemple suivant crée un conteneur ou imprime l'erreur le cas échéant.
 
@@ -81,41 +79,40 @@ L'exemple suivant crée un conteneur ou imprime l'erreur le cas échéant.
 	  puts $!
 	end
 
-Si vous souhaitez que les fichiers du conteneur soient publics, vous pouvez définir le niveau d'accès du conteneur. 
+Si vous souhaitez que les fichiers du conteneur soient publics, vous pouvez définir le niveau d'accès du conteneur.
 
-Vous pouvez simplement modifier l'appel à <strong>create_container()</strong> pour passer l'option **:public_access_level** :
+Vous pouvez simplement modifier l’appel à <strong>create_container()</strong> pour passer l’option **:public_access_level** :
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-Les valeurs valides pour l'option **:public_access_level** sont les suivantes :
+Les valeurs valides pour l'option **:public_access_level** sont les suivantes :
 
-* **objet blob :** spécifie un accès en lecture public complet pour les données de conteneur et d'objets blob. Les clients peuvent énumérer les objets blob du conteneur via une demande anonyme, mais ils ne peuvent pas énumérer les conteneurs dans le compte de stockage.
+* **blob** : spécifie un accès public total en lecture pour le conteneur et les données d’objets blob. Les clients peuvent énumérer les objets blob à l’intérieur du conteneur via une demande anonyme, mais ne peuvent pas énumérer les conteneurs dans le compte de stockage.
 
-* **conteneur :** spécifie un accès en lecture public pour les objets blob. Les données blob de ce conteneur peuvent être lues via une demande anonyme, mais les données de conteneur ne seront pas disponibles. Les clients ne peuvent pas énumérer les objets blob du conteneur via une demande anonyme.
+* **container** : spécifie un accès public en lecture pour les objets blob. les données d’objets blob à l’intérieur de ce conteneur peuvent être lues via une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients ne peuvent pas énumérer les objets blob à l'intérieur du conteneur via une demande anonyme.
 
-Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set_container_acl()** pour spécifier le niveau d'accès public.
+Vous pouvez également modifier le niveau d'accès public d'un conteneur en utilisant la méthode **set_container_acl()** afin de spécifier le niveau d'accès public.
  
-Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié :
+Dans l'exemple suivant, le niveau d'accès public du **conteneur** est modifié :
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## Procédure : Chargement d'un objet blob dans un conteneur
+## Procédure : chargement d’un objet blob dans un conteneur
 
-Pour charger du contenu dans un objet blob, utilisez la méthode **create_block_blob()** pour créer l'objet blob, et utiliser un fichier ou une chaîne en tant que contenu de celui-ci. 
+Pour télécharger du contenu dans un objet blob, utilisez la méthode **create_block_blob()** pour créer l'objet blob, utiliser un fichier ou une chaîne en tant que contenu de l'objet blob.
 
-Le code suivant télécharge le fichier **test.png** en tant que nouvel objet blob nommé " image-blob " dans le conteneur.
+Le code suivant télécharge le fichier **test.png** en tant que nouvel objet blob nommé « image-blob » dans le conteneur.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## Procédure : Création d'une liste d'objets blob dans un conteneur
+## Procédure : création d’une liste d’objets blob dans un conteneur
 
-Pour énumérer les conteneurs, utilisez la méthode **list_containers()**. 
-Pour énumérer les objets blob à l'intérieur d'un conteneur, utilisez la méthode **list_blobs()**. 
+Pour énumérer les conteneurs, utilisez la méthode **list_containers()**. Pour énumérer les objets blob à l'intérieur d'un conteneur, utilisez la méthode **list_blobs()**.
 
 Cette action génère les URL de tous les objets blob de tous les conteneurs pour le compte.
 
@@ -127,17 +124,17 @@ Cette action génère les URL de tous les objets blob de tous les conteneurs pou
 	  end
 	end
 
-## Procédure : Téléchargement d'objets blob
+## Procédure : téléchargement d’objets blob
 
-Pour télécharger des objets blob, utilisez la méthode **get_blob()** pour récupérer le contenu. 
+Pour télécharger des objets blob, utilisez la méthode **get_blob()** afin d'extraire le contenu.
 
-L'exemple suivant illustre l'utilisation de **get_blob()** pour télécharger le contenu d'" image-blob " et l'écrire dans un fichier local.
+L'exemple suivant illustre l'utilisation de **get_blob()** pour télécharger le contenu d'« image-blob » et l'écrire dans un fichier local.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Procédure : Suppression d'un objet blob
-Enfin, pour supprimer un objet blob, utilisez la méthode **delete_blob()**. L'exemple suivant illustre la suppression d'un objet blob.
+## Procédure : suppression d’un objet blob
+Pour supprimer un objet blob, utilisez la méthode **delete_blob()**. L'exemple suivant illustre la suppression d'un objet blob.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
@@ -145,8 +142,9 @@ Enfin, pour supprimer un objet blob, utilisez la méthode **delete_blob()**. L'e
 
 Maintenant que vous connaissez les bases du stockage des objets blob, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-- Consultez la référence MSDN suivante : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Visiter le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
-- Consulter le référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
+- Consultez la référence MSDN suivante : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+- Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

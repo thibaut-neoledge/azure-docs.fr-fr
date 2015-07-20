@@ -1,91 +1,92 @@
 <properties
    pageTitle="Gérer des profils Traffic Manager"
-   description="Cet article vous aidera à créer, désactiver, activer, supprimer et afficher l'historique d'un profil Traffic Manager."
+   description="Cet article vous aide à créer, désactiver, activer, supprimer et afficher l’historique d’un profil Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma" />
 
 # Gérer un profil Traffic Manager
 
-Un profil Traffic Manager vous permet de spécifier les services cloud ou les points de terminaison de sites web qui seront surveillés par Traffic Manager et la méthode d'équilibrage de charge à utiliser pour distribuer les connexions à ces points de terminaison. 
+Un profil Traffic Manager vous permet de spécifier les services cloud ou les points de terminaison de sites web qui seront surveillés par Traffic Manager et la méthode d’équilibrage de charge à utiliser pour distribuer les connexions à ces points de terminaison.
 
-## Créer un profil Traffic Manager avec l'option Création rapide
+## Créer un profil Traffic Manager avec l’option Création rapide
 
-Vous pouvez créer un profil Traffic Manager rapidement à l'aide de l'option **Création rapide** du Portail de gestion. Cette option vous permet de créer des profils dotés de paramètres de configuration de base. Toutefois, vous ne pouvez pas l'utiliser pour définir des paramètres tels que l'ensemble de points de terminaison (services cloud et sites web), l'ordre de basculement pour la méthode d'équilibrage de charge de basculement ou la surveillance. Après avoir créé votre profil, vous pouvez configurer ces paramètres dans le Portail de gestion. Consultez la page [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) pour obtenir une liste des procédures de configuration.
+Vous pouvez créer un profil Traffic Manager rapidement à l’aide de l’option **Création rapide** du portail de gestion. Cette option vous permet de créer des profils dotés de paramètres de configuration de base. Toutefois, vous ne pouvez pas l’utiliser pour définir des paramètres tels que l’ensemble de points de terminaison (services cloud et sites web), l’ordre de basculement pour la méthode d’équilibrage de charge de basculement ou la surveillance. Après avoir créé votre profil, vous pouvez configurer ces paramètres dans le Portail de gestion. Traffic Manager prend en charge jusqu’à 200 points de terminaison par profil. Toutefois, la plupart des scénarios d’utilisation requièrent uniquement un petit nombre de points de terminaison. Consultez la page [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) pour obtenir la liste des procédures de configuration.
 
-### Création d'un profil Traffic Manager
+### Création d’un profil Traffic Manager
 
-1. **Déployez vos services cloud et sites web au sein de votre environnement de production.** Pour plus d'informations sur les services cloud, consultez la rubrique [Services cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Pour connaître les meilleures pratiques, consultez la rubrique [Meilleures pratiques recommandées](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Pour plus d'informations sur les sites web, consultez la page [Sites web](http://go.microsoft.com/fwlink/p/?LinkId=393327) (en anglais).
+1. **Déployez vos services cloud et sites web vers votre environnement de production.** Pour plus d’informations sur les services cloud, consultez la page [Services cloud](http://go.microsoft.com/fwlink/p/?LinkId=314074). Pour obtenir des informations sur les services cloud, consultez la page [Meilleures pratiques](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Pour plus d’informations sur les sites web, consultez la page [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327) (en anglais).
 
-2. **Connectez-vous au Portail de gestion.** Pour créer un profil Traffic Manager, cliquez sur **Nouveau** dans l'angle inférieur gauche du portail, puis cliquez sur **Services réseau**, **Traffic Manager**, puis **Création rapide** pour commencer à configurer votre profil.
-3. **Configurez le préfixe DNS.** Donnez un nom de préfixe DNS unique à votre profil Traffic Manager. Vous pouvez uniquement spécifier le préfixe pour un nom de domaine Traffic Manager.
-4. **Sélectionnez l'abonnement.** Sélectionnez l'abonnement Azure approprié. Chaque profil est associé à un abonnement unique. Si vous disposez d'un seul abonnement, cette option n'apparaît pas.
-5. **Sélectionnez la méthode d'équilibrage de charge.** Sélectionnez la méthode d'équilibrage de charge sous **Stratégie d'équilibrage de charge**. Pour plus d'informations sur les méthodes d'équilibrage de charge, consultez la rubrique [À propos des méthodes d'équilibrage de charge dans Traffic Manager](traffic-manager-load-balancing-methods.md).
-6. **Cliquez sur " Créer " pour créer votre profil**. Lorsque la configuration du profil est terminée, recherchez votre profil dans le volet Traffic Manager du Portail de gestion.
-7. **Configurez les points de terminaison, la surveillance et des paramètres supplémentaires dans le Portail de gestion.** Dans la mesure où vous pouvez configurer uniquement des paramètres de base à l'aide de l'option Création rapide, il est nécessaire de configurer des paramètres supplémentaires, notamment la liste des points de terminaison et l'ordre de basculement des points de terminaison afin de réaliser la configuration souhaitée. Consultez la page [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) pour obtenir une liste de procédures qui vous aidera à réaliser votre configuration.
+2. **Connectez-vous au portail de gestion.** Pour créer un profil Traffic Manager, cliquez sur **Nouveau** dans l’angle inférieur gauche du portail, puis cliquez sur **Services réseau**, **Traffic Manager**, puis **Création rapide** pour commencer à configurer votre profil.
+3. **Configurez le préfixe DNS.** Donnez un nom de préfixe DNS unique à votre profil Traffic Manager. Vous pouvez spécifier uniquement le préfixe d’un nom de domaine Traffic Manager.
+4. **Sélectionnez l’abonnement.** Sélectionnez l’abonnement Azure approprié. Chaque profil est associé à un seul abonnement. Si vous ne disposez que d’un abonnement, cette option n’apparaît pas.
+5. **Sélectionnez la méthode d’équilibrage de charge.** Sélectionnez la méthode d’équilibrage de charge dans **Stratégie d’équilibrage de charge**. Pour plus d’informations sur les méthodes d’équilibrage de charge, consultez [À propos des méthodes d’équilibrage de charge de Traffic Manager](traffic-manager-load-balancing-methods.md).
+6. **Cliquez sur Créer pour créer votre profil**. Lorsque la configuration du profil est terminée, recherchez votre profil dans le volet Traffic Manager du Portail de gestion.
+7. **Configurez des points de terminaison, la surveillance et des paramètres supplémentaires dans le portail de gestion.** Comme vous ne pouvez configurer que des paramètres de base à l’aide de l’option Création rapide, il est nécessaire de configurer d’autres paramètres, par exemple la liste des points de terminaison et l’ordre de basculement des points de terminaison afin de terminer la configuration de votre choix. Consultez la page [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) (en anglais) pour obtenir la liste des procédures afin de vous aider à effectuer la configuration.
 
 ## Désactiver, activer ou supprimer un profil
 
-Vous pouvez désactiver un profil Traffic Manager existant afin qu'il ne renvoie pas les demandes utilisateur vers ses points de terminaison configurés. Lorsque vous désactivez un profil Traffic Manager, le profil et les informations qu'il contient demeurent intacts et peuvent être modifiés via l'interface de Traffic Manager. Vous pouvez réactiver le profil facilement via le Portail de gestion. Dans ce cas, les références seront rétablies. Lorsque vous créez un profil Traffic Manager dans le Portail de gestion, il est automatiquement activé. Si un profil ne vous semble plus nécessaire, vous pouvez le supprimer. 
+Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvoie pas les demandes utilisateur vers ses points de terminaison configurés. Lorsque vous désactivez un profil Traffic Manager, le profil et les informations qu’il contient demeurent intacts et peuvent être modifiés via l’interface de Traffic Manager. Vous pouvez réactiver le profil facilement via le Portail de gestion. Dans ce cas, les références seront rétablies. Lorsque vous créez un profil Traffic Manager dans le Portail de gestion, il est automatiquement activé. Si un profil ne vous semble plus nécessaire, vous pouvez le supprimer.
 
-### Désactivation d'un profil
+### Désactivation d’un profil
 
-1. Modifiez l'enregistrement de ressource DNS sur votre serveur DNS Internet afin d'utiliser le type d'enregistrement approprié et un pointeur adéquat vers un autre nom ou vers l'adresse IP d'un emplacement spécifique sur Internet. En d'autres termes, modifiez l'enregistrement de ressource DNS sur votre serveur DNS Internet afin qu'il n'utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
+1. Modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement approprié et un pointeur adéquat vers un autre nom ou vers l’adresse IP d’un emplacement spécifique sur Internet. En d’autres termes, modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin qu’il n’utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
 2. Le trafic ne sera plus dirigé vers les points de terminaison via les paramètres du profil Traffic Manager.
 3. Sélectionnez le profil que vous souhaitez désactiver. Sélectionnez le profil dans la page Traffic Manager en cliquant sur la colonne en regard du nom de profil. Ne cliquez pas sur le nom du profil ou sur la flèche en regard du nom. Sinon, vous serez dirigé vers la page de paramètres du profil.
 4. Après avoir sélectionné le profil, cliquez sur **Désactiver** en bas de la page.
 
-### Activation d'un profil
+### Activation d’un profil
 
 1. Sélectionnez le profil que vous souhaitez activer. Sélectionnez le profil dans la page Traffic Manager en cliquant sur la colonne en regard du nom de profil. Ne cliquez pas sur le nom du profil ou sur la flèche en regard du nom. Sinon, vous serez dirigé vers la page de paramètres du profil.
 2. Après avoir sélectionné le profil, cliquez sur **Activer** en bas de la page.
-3. Modifiez l'enregistrement de ressource DNS sur votre serveur DNS Internet afin d'utiliser le type d'enregistrement CNAME, qui mappe votre nom de domaine d'entreprise au nom de domaine de votre profil Traffic Manager. Pour plus d'informations, consultez la rubrique [Rediriger un domaine Internet d'entreprise vers un domaine Traffic Manager](../trafic-manager-point-internet-domain.md).
+3. Modifiez l’enregistrement de ressource DNS sur votre serveur DNS Internet afin d’utiliser le type d’enregistrement CNAME, qui mappe votre nom de domaine d’entreprise au nom de domaine de votre profil Traffic Manager. Pour plus d’informations, consultez [Redirection d’un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md).
 4. Le trafic est de nouveau dirigé vers les points de terminaison.
 
-### Suppression d'un profil
+### Suppression d’un profil
 
-1. Assurez-vous que l'enregistrement de ressource DNS sur votre serveur DNS Internet n'utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
+1. Assurez-vous que l’enregistrement de ressource DNS sur votre serveur DNS Internet n’utilise plus un enregistrement de ressource CNAME pointant vers le nom de domaine de votre profil Traffic Manager.
 2. Sélectionnez le profil que vous souhaitez supprimer. Sélectionnez le profil dans la page Traffic Manager en cliquant sur la colonne en regard du profil. Ne cliquez pas sur le nom du profil ou sur la flèche en regard du nom. Sinon, vous serez dirigé vers la page de paramètres du profil.
 4. Après avoir sélectionné le profil, cliquez sur **Supprimer** en bas de la page.
 
-## Afficher l'historique des modifications d'un profil Traffic Manager
+## Afficher l’historique des modifications d’un profil Traffic Manager
 
-Vous pouvez afficher l'historique des modifications de votre profil Traffic Manager dans le portail de gestion, dans les services de gestion.
+Vous pouvez afficher l’historique des modifications de votre profil Traffic Manager dans le portail de gestion, dans les services de gestion.
 
 ### Pour afficher votre historique des modifications Traffic Manager
 
-1. Dans le volet gauche du Portail de gestion, cliquez sur **Services de gestion**.
+1. Dans le volet gauche du portail de gestion, cliquez sur **Services de gestion**.
 2. Dans la page Services de gestion, cliquez sur **Journaux des opérations**.
-3. Dans la page Journaux des opérations, vous pouvez filtrer pour afficher l'historique des modifications de votre profil Traffic Manager. Après avoir sélectionné les options de filtrage, cliquez sur la coche pour afficher les résultats.
-   - Pour afficher les modifications de tous vos profils, sélectionnez votre abonnement et l'intervalle de temps, puis sélectionnez **Traffic Manager** dans la liste déroulante **Type**.
+3. Dans la page Journaux des opérations, vous pouvez filtrer pour afficher l’historique des modifications de votre profil Traffic Manager. Après avoir sélectionné les options de filtrage, cliquez sur la coche pour afficher les résultats.
+   - Pour afficher les modifications de tous vos profils, sélectionnez votre abonnement et l’intervalle de temps, puis **Traffic Manager** dans la liste déroulante **Type**.
    - Pour filtrer par nom de profil, tapez le nom du profil dans le champ **Nom du service** ou sélectionnez-le dans la liste déroulante.
-   - Pour afficher les détails de chaque modification, sélectionnez la ligne contenant la modification à afficher, puis cliquez sur **Détails** en bas de la page. Dans la fenêtre **Détails de l'opération**, vous pouvez afficher la représentation XML de l'objet API qui a été créé ou mis à jour dans le cadre de l'opération et copier le code XML dans le Presse-papiers.
+   - Pour afficher les détails de chaque modification, sélectionnez la ligne contenant la modification à afficher, puis cliquez sur **Détails** en bas de la page. Dans la fenêtre **Détails de l’opération**, vous pouvez afficher la représentation XML de l’objet API qui a été créé ou mis à jour dans le cadre de l’opération et copier le code XML dans le Presse-papiers.
 
 
 ## Voir aussi
 
-[Vue d'ensemble de Traffic Manager](traffic-manager-overview.md)
+[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 
 [Gérer des points de terminaison dans Traffic Manager](traffic-manager-endpoints.md)
 
 [À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
 
-[Tâches de Configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
-[Opérations pour Traffic Manager (informations de référence sur l'API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+[Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Services cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Sites web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

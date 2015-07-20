@@ -23,7 +23,7 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>Cette rubrique vous présente l'authentification des utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.</p>
+<p>Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir de votre application. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par Mobile Services. Après avoir été authentifiée et autorisée par Mobile Services, la valeur de l'ID utilisateur s'affiche.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">10:50</span></div>
 </div>
@@ -31,7 +31,7 @@
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer l'authentification dans votre application :
 
 1. [Inscrire votre application pour l'authentification et configurer Mobile Services]
-2. [Restreindre les autorisations de table pour les utilisateurs authentifiés]
+2. [Restreindre les autorisations de table aux utilisateurs authentifiés]
 3. [Ajouter l'authentification à l'application]
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez d'abord suivre le didacticiel [Ajouter Mobile Services à une application existante].
@@ -41,13 +41,13 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 
 ##<a name="permissions"></a>Restreindre les autorisations aux utilisateurs authentifiés
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 <ol start="3">
@@ -63,7 +63,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
 ##<a name="tokens"></a>Stocker les jetons d'authentification sur le client
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -71,7 +71,7 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 <!-- Anchors. -->
 [Inscrire votre application pour l'authentification et configurer Mobile Services]: #register
-[Restreindre les autorisations de table pour les utilisateurs authentifiés]: #permissions
+[Restreindre les autorisations de table aux utilisateurs authentifiés]: #permissions
 [Ajouter l'authentification à l'application]: #add-authentication
 [Next Steps]: #next-steps
 
@@ -88,5 +88,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Authentification unique pour les applications Windows Phone à l'aide de Live Connect]: mobile-services-windows-phone-single-sign-on.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -53,7 +53,8 @@ Pour créer une machine virtuelle lorsque vous créez un site web, suivez les é
 
 <br/> 13. (Facultatif) Vous pouvez vous connecter à la nouvelle machine virtuelle. Dans l’**Explorateur de serveurs**, développez le nœud **Machines virtuelles**. Choisissez le nœud de la machine virtuelle que vous avez créée, puis dans le menu contextuel, sélectionnez **Se connecter avec le Bureau à distance**.
 
-	![][5]
+ ![][5]
+
 
 ## Étapes suivantes
 
@@ -64,7 +65,6 @@ Si vous voulez personnaliser les scripts de publication créés, consultez des i
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
- 
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

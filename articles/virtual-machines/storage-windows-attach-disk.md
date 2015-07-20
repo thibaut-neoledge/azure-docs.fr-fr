@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Association d'un disque à une machine virtuelle | Azure" 
-	description="Apprenez à associer un disque à une machine virtuelle Azure et initialisez-le afin qu'il soit prêt à l'utilisation." 
+	pageTitle="Association d'un disque à une machine virtuelle | Azure" 
+	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel." 
 	services="virtual-machines, storage" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,62 +13,37 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="04/24/2015" 
 	ms.author="kathydav"/>
 
-#Association d'un disque de données à une machine virtuelle Windows
+# Attachement d'un disque de données à une machine virtuelle Windows
 
-Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. De plus, après avoir attaché le disque, vous devrez l'initialiser pour qu'il soit prêt à être utilisé. 
+Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
-> [AZURE.NOTE] Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'un ordinateur virtuel. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d'exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N'utilisez pas le lecteur D pour conserver des données.** Comme son nom l'indique, il n'offre qu'un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
-
-- [Procédure : Association d'un disque vide](#attachempty)
-- [Procédure : Association d'un disque existant](#attachexisting)
-- [Procédure : Initialisation d'un nouveau disque de données dans Windows Server](#initializeinWS)
-
+> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Lorsque vous créez une machine virtuelle Azure, elle comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **Ne stockez pas de données dans le lecteur D.** Comme son nom l’indique, il ne permet qu’un stockage temporaire. Il n'offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans le stockage Azure.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinWS"></a>Procédure : Initialisation d'un nouveau disque de données dans Windows Server
+## <a id="initializeinWS"></a>Initialisation d’un nouveau disque de données dans Windows Server
 
-1. Connexion à la machine virtuelle. Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
+1. Connexion à la machine virtuelle. Pour connaître les instructions à suivre, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
 
-2. Une fois connecté, ouvrez **Server Manager**. Dans le volet gauche, développez l'entrée **Storage**, puis cliquez sur **Disk Management**.
+2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
+	![Ouvrir le gestionnaire de serveur](./media/storage-windows-attach-disk/fileandstorageservices.png)
 
+3. Développez le menu et sélectionnez **Disques**.
 
-	![Open Server Manager](./media/storage-windows-attach-disk/ServerManager.png)
+4. La section **Disques** répertorie les disques 0, 1 et 2. Le disque 0 est le disque du système d’exploitation, le disque 1 est le disque temporaire (qui ne doit pas être utilisé pour le stockage des données), et le disque 2 est le disque de données que vous avez attaché à la machine virtuelle. Le disque de données a une capacité de 5 Go, conformément à ce que vous avez spécifié lorsque vous avez attaché le disque. Cliquez avec le bouton droit sur le disque 2, puis sélectionnez **Initialiser**.
 
+5.	Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l’avertissement et initialiser le disque. Cliquez de nouveau avec le bouton droit sur le disque 2, puis sélectionnez **Nouveau volume**.
 
+6.	Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l’Assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
 
-3. Cliquez avec le bouton droit sur **Disque 2**, puis cliquez sur **Initialiser le disque** et sur **OK**.
+	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus d’informations, consultez [Tailles des services cloud et des machines virtuelles](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+[logon]: virtual-machines-log-on-windows-server.md
 
-	![Initialize the disk](./media/storage-windows-attach-disk/InitializeDisk.png)
-
-
-4. Cliquez avec le bouton droit sur la zone d'allocation d'espace pour le disque 2, cliquez sur **New Simple Volume**, puis terminez l'Assistant en utilisant les valeurs par défaut.
- 
-
-	![Initialize the volume](./media/storage-windows-attach-disk/InitializeDiskVolume.png)
-
-
-[logon]: ../virtual-machines-log-on-windows-server/
-
-
-
-	Le disque est à présent accessible en ligne et prêt à être utilisé avec une nouvelle lettre de lecteur.
-
-
-
-	![Volume successfully initialized](./media/storage-windows-attach-disk/InitializeSuccess.png)
-
-> [AZURE.NOTE] Le nombre de disques que vous pouvez attacher à une machine virtuelle dépend de la taille de celle-ci. Par exemple, vous pouvez uniquement attacher 4 disques à l'A2 Standard, mais vous pouvez joindre 32 disques à la D14 Standard et 64 disques au G5 Standard. Vous pouvez trouver plus d'informations sur le nombre de disques pouvant être attachés, selon la taille de la machine virtuelle [ici](https://msdn.microsoft.com/fr-FR/library/azure/dn197896.aspx).
-
-
-
-
-
-<!--HONumber=42-->
- 
+<!---HONumber=July15_HO2-->

@@ -18,7 +18,7 @@
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##Vue d'ensemble
 Cette rubrique montre comment authentifier les utilisateurs dans Azure Mobile Services à partir d'une application Windows Store. Dans ce didacticiel, vous allez ajouter le processus d'authentification au projet de démarrage rapide à l'aide de Live Connect. Après avoir été authentifié par Live Connect, l'utilisateur connecté est accueilli par son nom et son ID est affiché.
@@ -41,7 +41,7 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 Vous devez ensuite restreindre l'accès à une ressource, en l'occurrence la table *TodoItems* pour vous assurer qu'elle ne soit accessible que par un utilisateur inscrit.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
@@ -143,5 +143,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: ../mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

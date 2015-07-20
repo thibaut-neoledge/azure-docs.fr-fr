@@ -3,7 +3,7 @@
    description="Présentation de l'interface utilisateur d'Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a> 
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a> 
-<a href="../mobile-engagement-user-interface-home/" title="Accueil">Accueil</a> 
-<a href="../mobile-engagement-user-interface-my-account" title="Mon compte">Mon compte</a> 
-<a href="../mobile-engagement-user-interface-analytics" title="Analyse">Analyse</a> 
-<a href="../mobile-engagement-user-interface-monitor" title="Contrôle">Contrôle</a> 
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a> 
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campagne">Reach - Campagne</a> 
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Critère">Reach - Critère</a> 
-<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Contenu">Reach - Contenu</a> 
-<a href="../mobile-engagement-how-tos" title="Reach - Procédure">Reach - Procédure</a> 
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a> 
-<a href="../mobile-engagement-user-interface-dashboard" title="Tableau de bord">Tableau de bord</a> 
-<a href="../mobile-engagement-user-interface-settings" title="Paramètres">Paramètres</a>
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # Procédure de mise en route pour l’utilisation et la gestion des push en vue d’atteindre vos utilisateurs finaux
+
 Une fois que le Kit de développement logiciel (SDK) est totalement intégré à votre application, vous pouvez commencer à utiliser la section Reach de l'interface utilisateur pour envoyer des notifications Push aux utilisateurs de votre application.
 
 ## Lancer votre première campagne de notification push
@@ -128,7 +112,7 @@ La personnalisation consiste à remplacer un marqueur d'une balise d'information
 Le mode de remise « Hors de l'application uniquement » envoie une notification push quand l'application est fermée. Il s'agit de la notification push standard. Quand vous sélectionnez « Hors de l'application uniquement », vous devez déjà avoir fourni les certificats de la plateforme sur laquelle est créée votre application (service APN ou GCM).
 
 ### Voir aussi
--  [Service de notification Push d’Apple – Certificats](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificat(http://developer.android.com/google/gcm/index.html) 
+-  [Service de notification Push d’Apple – Certificats](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificat](http://developer.android.com/google/gcm/index.html) 
 
 ### Mode de remise « Dans l'application uniquement »
 ![Différentiation 3][17]
@@ -307,5 +291,6 @@ Une vue web est une fenêtre contextuelle avec du contenu web. Cette fenêtre co
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

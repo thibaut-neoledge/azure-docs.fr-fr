@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Prise en main d'Azure Mobile Engagement pour les applications Windows Phone Silverlight" 
+<properties
+	pageTitle="Prise en main d'Azure Mobile Engagement pour les applications Windows Phone Silverlight"
 	description="Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Windows Phone Silverlight."
-	services="mobile-engagement" 
-	documentationCenter="windows" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="windows"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Prise en main d'Azure Mobile Engagement pour les applications Windows Phone Silverlight
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 Cette rubrique vous explique comment utiliser Azure Mobile Engagement pour comprendre l'utilisation de votre application et envoyer des notifications Push à des utilisateurs segmentés d'une application Windows Phone Silverlight. Ce didacticiel montre un scénario de diffusion simple à l'aide de Mobile Engagement. Il vous apprend à créer une application Windows Phone Silverlight vide qui collecte des données de base et reçoit des notifications Push au moyen du service de notifications Push Microsoft (MPNS). Quand vous aurez terminé, vous serez non seulement en mesure de diffuser des notifications Push vers tous les appareils, mais aussi de cibler des utilisateurs spécifiques en fonction des propriétés de leurs appareils (grâce à MPNS). Veillez à bien suivre le didacticiel qui suit pour savoir comment utiliser Mobile Engagement dans le but de cibler des utilisateurs et des groupes d'appareils spécifiques.
 
@@ -45,11 +46,11 @@ Ce didacticiel requiert les éléments suivants :
    	![][7]
 
 3. Dans la fenêtre indépendante qui s'affiche, entrez les informations suivantes :
- 
+
    	![][8]
 
 	- **Nom de l'application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible (**Windows Phone Silverlight**) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes). 
+	- **Plateforme** : sélectionnez la plateforme cible (**Windows Phone Silverlight**) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
 	- **Nom de la ressource d'application** : nom utilisé dans les API et les URL pour faire référence à l'application. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
 	- **Emplacement** : sélectionnez le centre de données qui hébergera l'application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
@@ -58,7 +59,7 @@ Ce didacticiel requiert les éléments suivants :
 4. Sélectionnez l'application que vous venez de créer sous l'onglet **Applications**.
 
 5. Ensuite, cliquez sur **Informations de connexion** pour afficher les paramètres de connexion que vous voulez ajouter à l'intégration de votre Kit de développement logiciel (SDK) dans votre application mobile.
- 
+
    	![][10]
 
 6. Copiez la **chaîne de connexion** : cela vous sert à identifier cette application dans votre code d'application et à vous connecter avec Engagement Mobile à partir de votre application mobile.
@@ -83,12 +84,12 @@ Nous allons créer une application basique à l'aide de Visual Studio pour la d
 
 Vous avez maintenant créé une nouvelle application Windows Phone Silverlight dans laquelle nous allons intégrer le Kit de développement logiciel Azure Mobile Engagement.
 
-###Connexion de votre application au serveur principal Mobile Engagement 
+###Connexion de votre application au serveur principal Mobile Engagement
 
 1. Installez le package nuget du[Kit de développement logiciel Mobile Engagement Windows Phone] dans votre projet.
 
 2. Ouvrez `WMAppManifest.xml` (dans le dossier Propriétés) et assurez-vous que les éléments suivants sont déclarés (ajoutez-les dans le cas contraire) dans la balise `<Capabilities />`  :
-		
+
 		<Capability Name="ID_CAP_NETWORKING" />
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
@@ -105,7 +106,7 @@ Vous avez maintenant créé une nouvelle application Windows Phone Silverlight 
 			using Microsoft.Azure.Engagement;
 
 	b. Initialisez le Kit de développement logiciel (SDK) dans la méthode `Application_Launching` :
-			
+
 			private void Application_Launching(object sender, LaunchingEventArgs e)
 			{
 			  EngagementAgent.Instance.Init();
@@ -133,7 +134,7 @@ Pour commencer à envoyer des données et s'assurer que les utilisateurs sont ac
 3. Dans le fichier `MainPage.xml` : a. Ajoutez une déclaration d'espace de noms :
 
 			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-	
+
 	b. Remplacez `phone:PhoneApplicationPage`, dans le nom de la balise xml, par `engagement:EngagementPage`
 
 ###Vérification de la connexion de l'application à la surveillance en temps réel
@@ -142,7 +143,7 @@ Cette section montre comment vérifier que votre application est connectée au s
 
 1. Accédez au portail Mobile Engagement.
 
-	Dans votre portail Azure, vérifiez que vous êtes bien dans l'application que nous utilisons pour ce projet, puis cliquez sur le bouton **Engagement** en bas de l'écran.
+	Dans votre portail Azure, vérifiez que vous êtes bien dans l'application que nous utilisons pour ce projet, puis cliquez sur le bouton **Engagement** en bas de l'écran :
 
 	![][26]
 
@@ -164,8 +165,8 @@ Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'
 
 Ajoutez de nouvelles capacités à votre fichier `WMAppManifest.xml` :
 
-		ID_CAP_PUSH_NOTIFICATION 
-		ID_CAP_WEBBROWSERCOMPONENT 
+		ID_CAP_PUSH_NOTIFICATION
+		ID_CAP_WEBBROWSERCOMPONENT
 
 ![][34]
 
@@ -235,5 +236,6 @@ Nous allons à présent créer une campagne simple qui enverra une notification 
 [37]: ./media/mobile-engagement-windows-phone-get-started/campaign-content.png
 [39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

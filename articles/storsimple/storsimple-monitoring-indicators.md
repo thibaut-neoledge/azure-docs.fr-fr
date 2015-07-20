@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Résolution des problèmes à l’aide des indicateurs d’analyse"
+    pageTitle="Indicateurs de surveillance de StorSimple"
     description="Décrit les voyants LED et les alarmes utilisés pour analyser l’état de l’appareil StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# Résolution des problèmes à l’aide des indicateurs d’analyse   
+# Indicateurs de surveillance de StorSimple   
 
 ## Vue d'ensemble
 
@@ -30,9 +31,11 @@ Le reste de cet article décrit les différents voyants LED d’analyse, leur em
 
 ## Voyants LED du panneau avant
 
-Le panneau avant, également appelé *panneau de commande*, ** indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l’appareil StorSimple et le boîtier EBOD, comme illustré ci-dessous.
+Le panneau avant, également appelé *panneau de commande*, indique l’état d’ensemble de tous les modules du système. Le panneau avant est identique sur l’appareil StorSimple et le boîtier EBOD, comme illustré ci-dessous.
 
    ![][1]
+
+**Figure 1 : Panneau avant de l’appareil**
  
 Le panneau avant comprend les indicateurs suivants :
 
@@ -46,7 +49,7 @@ La principale différence entre les LED du panneau avant de l’appareil et cell
 
 ## État des LED du panneau avant  
 
-Utilisez le tableau suivant pour identifier l’état indiqué par les LED du panneau avant de  l’appareil ou du boîtier EBOD.
+Utilisez le tableau suivant pour identifier l’état indiqué par les LED du panneau avant de l’appareil ou du boîtier EBOD.
 
 |Alimentation du système | Panne de module | Erreur logique | Alarme | État|
 |-------------|---------------|-----------------|-------|-------|
@@ -66,11 +69,14 @@ Vous trouverez les voyants LED du module d’alimentation et de refroidissement 
 - LED de PCM du boîtier EBOD
 
 ## LED de PCM du boîtier principal  
+
 L’appareil StorSimple est équipé d’un module PCM de 764 W, avec une batterie supplémentaire. L’illustration suivante représente le panneau de LED de l’appareil.
 
    ![][2]
+
+**Figure 2 : LED de PCM du boîtier principal**
  
-**Légende des LED**
+Légende des LED :
 
 1. Panne d’alimentation secteur
 2. Panne de ventilateur
@@ -106,9 +112,11 @@ L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de
 
 ## LED de PCM du boîtier EBOD  
 
-Le boîtier EBOD est équipé d’un module PCM de 580 W,  sans batterie supplémentaire. Le panneau PCM du boîtier EBOD comprend des voyants LED uniquement pour les alimentations et le ventilateur. L’illustration suivante représente ces LED.
+Le boîtier EBOD est équipé d’un module PCM de 580 W, sans batterie supplémentaire. Le panneau PCM du boîtier EBOD comprend des voyants LED uniquement pour les alimentations et le ventilateur. L’illustration suivante représente ces LED.
 
    ![][3]
+
+**Figure 3 : LED de PCM du boîtier EBOD**
  
 Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.
 
@@ -132,6 +140,8 @@ L’illustration suivante vous aide à identifier les LED du contrôleur princip
 
    ![][4]
  
+**Figure 4 : LED de surveillance - Contrôleur principal**
+
 Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctionne correctement.
 
 ### Voyants LED du contrôleur  
@@ -148,15 +158,17 @@ Utilisez le tableau suivant pour déterminer si le module de contrôleur fonctio
 >[AZURE.IMPORTANT]Si la LED de panne est allumée, le module de contrôleur présente un problème que vous pouvez peut-être résoudre en redémarrant le contrôleur. Contactez le support technique Microsoft si le redémarrage du contrôleur ne résout pas ce problème.
 
 
-###Analyse des LED de l’EBOD (boîtier EBOD)  
+### Analyse des LED de l’EBOD (boîtier EBOD)  
 
 Chaque contrôleur EBOD SAS de 6 Gbits/s possède des LED qui indiquent son état, comme illustré ci-dessous.
 
   ![][5]
+
+**Figure 5 : LED de surveillance - Boîtier EBOD**
  
 Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fonctionne correctement.
 
-###Voyants LED du module de contrôleur EBOD  
+### Voyants LED du module de contrôleur EBOD  
 
 |État | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -169,6 +181,8 @@ L’appareil StorSimple possède des lecteurs de disque à la fois dans le boît
 Pour les lecteurs de disque, l’état du lecteur est indiqué par une LED verte et une LED rouge-orange situées à l’avant de chaque module de support de disque. L’illustration suivante représente ces LED.
 
   ![][6]
+
+**Figure 6 : LED des lecteurs de disque**
  
 Utilisez le tableau suivant pour déterminer l’état de chaque lecteur de disque, qui affecte à son tour l’état d’ensemble des LED du panneau avant.
 
@@ -207,7 +221,7 @@ Le tableau suivant décrit les différents états d’alarme.
 | S3 | Mode muet : silencieux | Aucun |
 | S4 | Mode erreur/panne critique : signal sonore continu | Non disponible : le mode muet est désactivé |
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 
 >  - Dans l’état d’alarme S1, si vous n’appuyez pas sur le bouton muet dans les 2 minutes, l’état passe automatiquement sur S2 ou S3.  
 >  - Les états d’alarmes S1 à S4 reviennent à S0 une fois la condition de panne supprimée.  
@@ -238,8 +252,9 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 | Module d’interface SBB retiré | Avertissement | Aucun | Panne de module |
 | Erreur de contrôle d’alimentation du lecteur | Avertissement : aucune perte d’alimentation du disque | S1 | Panne de module |
 | Erreur de contrôle d’alimentation du lecteur | Erreur : critique ; perte d’alimentation du lecteur | S1 | Panne de module |
-| Lecture retiré | Avertissement | Aucune | Panne de module |
+| Lecture retiré | Avertissement | Aucun | Panne de module |
 | Alimentation insuffisante | Avertissement | (aucun) | Panne de module |
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -247,6 +262,6 @@ Le tableau suivant décrit les différentes conditions d’alarme.
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

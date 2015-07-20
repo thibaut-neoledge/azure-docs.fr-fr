@@ -62,7 +62,7 @@ Dans le code ci-dessus, remplacez `AppUrl` et `AppKey` par l'URL et la clé d'ap
 
 ##<a name="instantiating"></a>Procédure : création d'une référence de table
 
-L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle les fonctions sur l'objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) sur une instance du `MobileServiceClient`.
+L'ensemble du code qui permet d'accéder aux données de la table Mobile Services ou de les modifier appelle des fonctions sur l'objet `MobileServiceTable`. Pour obtenir une référence à la table, appelez la fonction [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) sur une instance du `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
@@ -83,7 +83,7 @@ Cette section explique comment émettre des requêtes à destination du service 
 
 ### <a name="filtering"></a>Procédure : filtrage des données renvoyées
 
-Le code suivant montre comment filtrer les données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction `Where` applique un prédicat de filtrage de ligne à la requête au niveau de la table.
+Le code suivant montre comment filtrer des données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction `Where` applique un prédicat de filtrage de ligne à la requête au niveau de la table.
 
 	// This query filters out completed TodoItems and
 	// items without a timestamp.
@@ -115,7 +115,7 @@ Serait approximativement convertie (pour la même requête indiquée plus haut) 
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
-L'instruction `where` ci-dessus recherche les éléments dont l'état `Complete` a la valeur false et `Text` la valeur non null.
+L'instruction `where` ci-dessus recherche les éléments dont l'état `Complete` a la valeur false et la colonne `Text` la valeur non null.
 
 Cela aurait pu également être écrit sur plusieurs lignes :
 
@@ -262,17 +262,17 @@ Si vous tentez de mettre à jour un élément sans fournir de valeur « Id »,
 
 ##<a name="deleting"></a>Procédure : suppression de données dans un service mobile
 
-Le code suivant montre comment supprimer une instance existante. L'instance est identifiée par le champ « Id » défini sur le `todoItem`.
+Le code suivant montre comment supprimer une instance existante. L'instance est identifiée par le champ « Id » défini au niveau de `todoItem`.
 
 	await todoTable.DeleteAsync(todoItem);
 
-Pour supprimer des données non typées, vous pouvez tirer parti de Json.NET de cette façon. Notez que pour effectuer une demande de suppression, il est nécessaire de spécifier un ID, car c'est ainsi que le service mobile identifie l'instance à supprimer. Une demande de suppression n'a besoin que de l'ID ; les autres propriétés ne sont pas transmises au service, et si c'est le cas, celui-ci n'en tient pas compte. De même, le résultat d'un appel de `DeleteAsync` a généralement la valeur `null`. L'ID à transmettre peut être obtenu à partir du résultat de l'appel de `InsertAsync`.
+Pour supprimer des données non typées, vous pouvez tirer parti de Json.NET de cette façon. Notez que pour effectuer une demande de suppression, il est nécessaire de spécifier un ID, car c'est ainsi que le service mobile identifie l'instance à supprimer. Une demande de suppression n'a besoin que de l'ID ; les autres propriétés ne sont pas transmises au service, et si c'est le cas, celui-ci n'en tient pas compte. De même, le résultat d'un appel `DeleteAsync` a généralement la valeur `null`. L'ID à transmettre peut être obtenu à partir du résultat de l'appel `InsertAsync`.
 
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Si vous essayez de supprimer un élément sans que le champ « Id » ne soit déjà défini, le service n'a aucun moyen de déterminer l'instance à supprimer. Dans ce cas, une exception `MobileServiceInvalidOperationException` est renvoyée par le service. De la même manière, si vous essayez de supprimer un élément non typé sans que le champ « Id » ne soit déjà défini, le service renvoie à nouveau une exception `MobileServiceInvalidOperationException`.
+Si vous essayez de supprimer un élément sans que le champ « Id » ne soit déjà défini, le service n'a aucun moyen de déterminer quelle instance supprimer. Dans ce cas, une exception `MobileServiceInvalidOperationException` vous est renvoyée par le service. De la même manière, si vous essayez de supprimer un élément non typé sans que le champ « Id » ne soit déjà défini, le service renvoie à nouveau une exception `MobileServiceInvalidOperationException`.
 
 ##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
 
@@ -697,5 +697,6 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [API personnalisée dans les kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Appel d'une API personnalisée à partir du client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

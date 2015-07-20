@@ -1,5 +1,6 @@
 
 
+
 #### Création d’un service
 
 1. À l’aide de votre compte Microsoft, connectez-vous au portail de gestion à cette URL : [http://azure.microsoft.com/](http://azure.microsoft.com/)
@@ -19,4 +20,4 @@
  
        ![création du service](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

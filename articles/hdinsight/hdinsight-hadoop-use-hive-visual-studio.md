@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Exécution de requêtes Hive à l’aide des outils HDInsight pour Visual Studio
@@ -22,7 +22,7 @@
 
 Dans cet article, vous allez apprendre à utiliser les outils HDInsight pour Visual Studio afin d’envoyer des requêtes Hive vers un cluster HDInsight.
 
-> [AZURE.NOTE]Ce document ne fournit pas une description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez <a href="hdinsight-use-hive.md" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
+> [AZURE.NOTE]Ce document ne fournit pas une description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la rubrique [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -30,7 +30,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight, Linux ou Windows)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://go.microsoft.com/fwlink/?LinkId=390465" target="_blank">Update 3</a> ou <a href="http://www.microsoft.com/download/details.aspx?id=40769" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [Update 3](http://go.microsoft.com/fwlink/?LinkId=390465) ou [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
 
 ##<a id="run"></a>Exécution de requêtes Hive à l’aide des outils HDInsight pour Visual Studio
 
@@ -120,19 +120,17 @@ Pour plus d’informations sur les outils de HDInsight pour Visual Studio :
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

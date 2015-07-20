@@ -12,13 +12,9 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="03/17/2015"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
-
-
-
-
 
 # Application multiniveau .NET avec les files d'attente Service Bus
 
@@ -126,26 +122,6 @@ Notez que vous pouvez également gérer les espaces de noms et les entités de m
     ![][35]
 
 10.  Notez ces informations d'identification ou copiez-les dans le Presse-papiers.
-
-## Gestion des espaces de noms et des entités de messagerie avec l'explorateur de serveurs Visual Studio
-
-Pour gérer un espace de noms et obtenir des informations de connexion en utilisant Visual Studio plutôt que le portail de gestion Azure, suivez la procédure décrite [ici](http://msdn.microsoft.com/library/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l'arborescence **Microsoft Azure** dans l'Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
-
-Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
-
-![][34]
-
-**Remarque** Vous pouvez également utiliser l'**Explorateur de serveurs** pour gérer un espace de noms Service Bus dans un autre abonnement à l'aide de la procédure suivante :
-
-1. Dans la barre de menus de Visual Studio, sélectionnez **Affichage**, puis cliquez sur **Explorateur de serveurs**. Un nœud **Service Bus** s'affiche sous **Azure** dans la hiérarchie de l'Explorateur de serveurs, comme dans la figure suivante.
-
-	![][21]
-
-2. Dans l'Explorateur de serveurs, développez **Microsoft Azure**, cliquez avec le bouton droit sur **Service Bus**, puis cliquez sur **Ajouter une nouvelle connexion**.
-
-3. Dans la boîte de dialogue **Ajouter une connexion**, tapez le nom de l'espace de noms de service, le nom de l'émetteur et la clé de l'émetteur, ou collez la chaîne de connexion pour l'espace de noms. Les autorisations associées à la clé de l’émetteur déterminent les opérations que vous pouvez effectuer dans cet espace de noms. Cliquez ensuite sur **OK** pour vous connecter.
-
-	![][22]
 
 ## Création d'un rôle web
 
@@ -258,19 +234,19 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
             }
         }
 
-4.  Dans le menu **Build**, cliquez sur **Build Solution**.
+4.  Dans le menu **Générer**, cliquez sur **Générer la solution** pour vérifier si votre travail est correct.
 
 5.  Maintenant, vous allez créer l'affichage de la méthode **Submit()** que vous avez créée plus haut. Cliquez avec le bouton droit sur la méthode Submit() et choisissez **Add View**
 
     ![][14]
 
-6.  La boîte de dialogue qui s'affiche permet de créer l'affichage. Sélectionnez la classe **OnlineOrder** dans la liste déroulante **Model class** et **Create** dans la liste déroulante **Template**.
+6.  La boîte de dialogue qui s'affiche permet de créer l'affichage. Dans la liste déroulante **Modèle**, choisissez **Créer**. Dans la liste déroulante **Classe de modèle**, cliquez sur la classe **OnlineOrder**.
 
     ![][15]
 
 7.  Cliquez sur **Ajouter**.
 
-8.  À présent, modifiez le nom affiché de votre application. Dans **Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\_Layout.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio.
+8.  À présent, modifiez le nom affiché de votre application. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **Views\\Shared\\\\_Layout.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio.
 
 9.  Remplacez toutes les occurrences d'**Application ASP.NET** par **LITWARE'S Products**.
 
@@ -280,7 +256,7 @@ Dans cette section, vous allez créer les différentes pages affichées par votr
 
 11. Enfin, modifiez la page d'envoi pour inclure des informations sur la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur le fichier **Views\\Home\\Submit.cshtml** pour l'ouvrir dans l'éditeur de Visual Studio. Ajoutez la ligne suivante après **&lt;h2>Submit&lt;/h2>**. Pour le moment, **ViewBag.MessageCount** est vide. Vous le remplirez plus tard.
 
-        <p>Current Number of Orders in Queue Waiting to be Processed: @ViewBag.MessageCount</p>
+        <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
 
 12. Vous avez maintenant implémenté votre interface utilisateur. Vous pouvez appuyer sur **F5** pour exécuter votre application et vérifier qu'elle apparaît bien comme vous le souhaitez.
@@ -355,15 +331,15 @@ Maintenant, vous allez ajouter le code pour envoyer des éléments dans une file
             }
         }
 
-    **Remarque** Plus tard dans ce didacticiel, vous verrez comment stocker le **nom de votre espace de noms** et la valeur de votre clé SAP dans un fichier de configuration.
+    Remarque : plus tard dans ce didacticiel, vous verrez comment stocker le **nom de votre espace de noms** et la valeur de votre clé SAP dans un fichier de configuration.
 
-4.  Maintenant, vous allez vous assurer que votre méthode **Initialize** est bien appelée. Dans **Explorateur de solutions**, double-cliquez sur **Global.asax\\Global.asax.cs**.
+4.  Maintenant, assurez-vous que votre méthode **Initialize** est bien appelée. Dans **Explorateur de solutions**, double-cliquez sur **Global.asax\\Global.asax.cs**.
 
 5.  Ajoutez la ligne suivante en bas de la méthode **Application_Start** :
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Enfin, vous allez mettre à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**, que vous avez créé précédemment.
+6.  Enfin, mettez à jour le code web que vous avez créé précédemment, pour envoyer des éléments dans la file d'attente. Dans **Explorateur de solutions**, double-cliquez sur **Controllers\\HomeController.cs**.
 
 7.  Mettez à jour la méthode **Submit()** comme suit pour obtenir le nombre de messages de la file d'attente :
 
@@ -518,52 +494,49 @@ Pour mettre en œuvre l'application que vous créez dans ce didacticiel en tant 
 Pour plus d'informations sur le déploiement du composant frontal sur un site Web Azure, consultez la page [Déploiement d'une application Web ASP.NET sur un site Web Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Pour plus d'informations sur le déploiement du composant principal dans Azure Cloud Services, consultez la page [Application ASP.NET multiniveau avec tables, files d'attente et objets blob de stockage][mutitierstorage].
 
 
-[0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
-[1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
-[sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
-[2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Obtenir les outils et le Kit de développement logiciel (SDK)]: http://go.microsoft.com/fwlink/?LinkId=271920
-[3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
+  [sbqueuecomparison]: http://msdn.microsoft.com/library/hh767287.aspx
+  [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
+  [Obtenir les outils et le Kit de développement logiciel (SDK)]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [3]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
 
-[Azure Management Portal]: http://manage.windowsazure.com
-[portail de gestion Azure]: http://manage.windowsazure.com
-[6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-[7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
-[8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
-[9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
-[10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
-[11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
-[12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
-[13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
-[14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
-[15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
-[16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
-[17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
-[18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [portail de gestion Azure]: http://manage.windowsazure.com
+  [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
+  [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
+  [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
+  [9]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
+  [10]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
+  [11]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
+  [12]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-12.png
+  [13]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-13.png
+  [14]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-33.png
+  [15]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-34.png
+  [16]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-35.png
+  [17]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-36.png
+  [18]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-37.png
 
-[19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
-[20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
-[21]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorer.png
-[22]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerAddConnect.png
-[23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
-[24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
-[25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
-[26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
-[27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
-[28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-[30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
-[31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
-[32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-[33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
-[34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
-[35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-[sbmsdn]: http://msdn.microsoft.com/library/ee732537.aspx
-[sbwacom]: /documentation/services/service-bus/
-[sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
-[mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
-[executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
-
-<!--HONumber=52-->
+  [19]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-38.png
+  [20]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-39.png
+  [23]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRole1.png
+  [24]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBExplorerProperties.png
+  [25]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
+  [26]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
+  [27]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-27.png
+  [28]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
+  [30]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
+  [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
+  [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
+  [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [35]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
+  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
+  [sbwacom]: /documentation/services/service-bus/
+  [sbwacomqhowto]: /develop/net/how-to-guides/service-bus-queues/
+  [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
+  [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
+
+<!---HONumber=July15_HO2-->

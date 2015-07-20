@@ -1281,7 +1281,9 @@ Exécutez cette commande :
 
 ## <a id="start-a-virtual-machine"></a>TÂCHE : Démarrer une machine virtuelle
 
-Exécutez cette commande : Azure Resource Manager Overview azure vm start <group name> <virtual machine name>
+Exécutez cette commande :
+
+    azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>TÂCHE : Associer un disque de données
 
@@ -1313,4 +1315,4 @@ Pour connaître les modèles supplémentaires utilisables, consultez les pages [
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

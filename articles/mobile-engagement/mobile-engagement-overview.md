@@ -48,5 +48,6 @@ Depuis longtemps, Microsoft fait preuve d’un engagement réel vis-à-vis de la
 [Prise en main (mercaticiens)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Prise en main (développeurs)](/documentation/services/mobile-engagement/)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

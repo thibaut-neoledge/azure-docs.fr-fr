@@ -134,7 +134,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine S
 1.	Sur l’écran d’accueil, cliquez avec le bouton droit sur **Ce PC**, puis cliquez sur **Propriétés**.
 2.	Dans la fenêtre **Système**, cliquez sur **Paramètres d’utilisation à distance**.
 3.	Dans **Bureau à distance** cliquez sur **Sélectionner les utilisateurs**, puis sur **Ajouter**.
-4.	Dans **Entrez les noms des objets à sélectionner**, entrez [domain]**\\sp_farm_db**, puis cliquez sur **OK** trois fois.
+4.	Dans **Entrez les noms des objets à sélectionner**, entrez domain**\\sp_farm_db**, puis cliquez sur **OK** trois fois.
 
 SQL Server nécessite un port permettant d’accéder au serveur de base de données. Il requiert également des ports pour la connexion à SQL Server Management Studio et la gestion du groupe à haute disponibilité. Exécutez ensuite la commande ci-après à partir d’une invite de commandes Windows PowerShell au niveau administrateur à deux reprises (une fois pour chaque machine SQL Server) afin d’ajouter une règle de pare-feu autorisant le trafic entrant vers la machine SQL Server.
 
@@ -201,7 +201,7 @@ Suivez cette procédure pour activer les groupes de disponibilité AlwaysOn sur 
 3.	Dans le volet gauche, cliquez sur **Services SQL Server**.
 4.	Dans le volet de contenu, double-cliquez sur **SQL Server (MSSQLSERVER)**.
 5.	Dans **Propriétés de SQL Server (MSSQLSERVER)**, cliquez sur l’onglet **Haute disponibilité AlwaysOn**, sélectionnez **Activer les groupes de disponibilité AlwaysOn**, cliquez sur **Appliquer**, puis cliquez sur **OK** lorsque vous y êtes invité. Ne fermez pas encore la fenêtre Propriétés. 
-6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis entrez [Domain]**\\sqlservice** dans **Nom du compte**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
+6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis entrez Domain**\\sqlservice** dans **Nom du compte**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
 7.	Dans la fenêtre du message, cliquez sur **Oui** pour redémarrer le service SQL Server.
 8.	Connectez-vous à la machine SQL Server secondaire et répétez la procédure. 
 
@@ -219,9 +219,11 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
+[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

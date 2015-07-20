@@ -25,4 +25,4 @@ Vous avez créé un service mobile pouvant être utilisé par vos applications m
 <!-- URLs. -->
 [portail de gestion]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

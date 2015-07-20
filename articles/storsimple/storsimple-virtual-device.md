@@ -1,14 +1,15 @@
-<properties 
+<properties
    pageTitle="Appareil virtuel StorSimple"
    description="Décrit comment créer, configurer, déployer et gérer l’appareil virtuel StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> <tags 
+   editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/06/2015"
@@ -16,7 +17,9 @@
 
 # Appareil virtuel StorSimple
 
-##Vue d'ensemble
+[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
+
+##Vue d’ensemble
 L’appareil virtuel StorSimple est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. L’appareil virtuel StorSimple s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes. Les rubriques suivantes vous aideront à découvrir, à configurer et à utiliser l’appareil virtuel StorSimple.
 
 
@@ -68,13 +71,13 @@ Les sections suivantes vous aideront à vous préparer à utiliser l’appareil 
 
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
-- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- Vous pouvez utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. 
-- Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
+- Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+- Vous pouvez utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS.
+- Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés.
 
 >[AZURE.IMPORTANT]**Assurez-vous que le réseau virtuel est situé dans la même région que les comptes de stockage cloud que vous allez utiliser avec l’appareil virtuel.**
 
-- Créez des [machines virtuelles Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (serveurs hôtes) dans le réseau virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Créez des [machines virtuelles Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (serveurs hôtes) dans le réseau virtuel. Ces serveurs doivent répondre aux exigences suivantes :
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier
@@ -124,14 +127,14 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple :
 
 - Dans la **boîte de dialogue Créer un appareil virtuel**, spécifiez les éléments suivants :
 
-	a. **Nom** – Nom unique de votre appareil virtuel.
+	a. **Nom** : nom unique de votre appareil virtuel.
 
 	b. **Réseau virtuel** – Nom du réseau virtuel que vous souhaitez utiliser avec cet appareil virtuel.
 
 	c. **Sous-réseau** – Sous-réseau du réseau virtuel pour une utilisation avec l’appareil virtuel.
 
 	d. **Compte de stockage pour la création de l’appareil virtuel** – Compte de stockage qui contiendra l’image de l’appareil virtuel lors de l’approvisionnement. Ce compte de stockage doit être situé dans la même région que l’appareil virtuel et le réseau virtuel. Il ne doit pas être utilisé pour le stockage des données par l’appareil physique ou virtuel. Par défaut, un compte de stockage est créé à cet effet. Toutefois, si vous avez déjà un compte de stockage qui convient pour cette utilisation, vous pouvez le sélectionner dans la liste.
-	
+
 - Cliquez sur la coche pour indiquer que vous savez que les données stockées sur l’appareil virtuel sont hébergées dans un centre de données Microsoft. Lorsque vous utilisez uniquement un appareil physique, votre clé de chiffrement est conservée avec celui-ci ; par conséquent, Microsoft ne peut pas le déchiffrer. Lorsque vous utilisez un appareil virtuel, la clé de chiffrement et la clé de déchiffrement sont stockées dans Microsoft Azure. Pour plus d’informations, consultez la page [Considérations de sécurité relatives à l’utilisation d’un appareil virtuel](https://msdn.microsoft.com/library/dn772561.aspx).
 
 ### Configuration et inscription de l’appareil virtuel
@@ -188,16 +191,16 @@ Lorsque vous utilisez l’interface Windows PowerShell pour accéder à l’appa
 Procédez comme suit pour configurer le mot de passe Administrateur pour votre appareil virtuel StorSimple.
 
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
- 
+
 1. Accédez à la section **Mot de passe Administrateur d’appareil**. Indiquez un mot de passe Administrateur contenant entre 8 et 15 caractères. Le mot de passe doit contenir une combinaison de caractères en majuscules, en minuscules, numériques et spéciaux.
 
 1. Confirmez le mot de passe.
- 
+
 1. Cliquez sur **Enregistrer** au bas de la page.
 
 Le mot de passe Administrateur d’appareil doit maintenant être à jour. Il vous permet d’accéder à l’interface Windows PowerShell sur votre appareil virtuel.
 
-#### Configuration de la gestion à distance 
+#### Configuration de la gestion à distance
 
 L’accès à distance à votre appareil virtuel via l’interface Windows PowerShell n’est pas activé par défaut. Vous devez tout d’abord activer la gestion à distance sur l’appareil virtuel, puis sur le client qui sera utilisé pour accéder à votre appareil virtuel.
 
@@ -307,7 +310,7 @@ Lorsqu’un appareil virtuel est en cours d’exécution et que vous souhaitez l
 Vous pouvez également utiliser les applets de commande Windows PowerShell suivantes pour démarrer, arrêter et redémarrer l’appareil virtuel. Un exemple suit chaque applet de commande.
 
 `Start-AzureVMC:\PS>Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
+
 
 `Stop-AzureVMC:\PS>Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
@@ -364,5 +367,7 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 - Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 
-- Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de machine virtuelle. <!--HONumber=52-->
+- Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de la machine virtuelle.
  
+
+<!---HONumber=July15_HO2-->

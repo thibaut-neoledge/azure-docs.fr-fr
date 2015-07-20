@@ -157,4 +157,4 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 <!-- URLs. -->
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

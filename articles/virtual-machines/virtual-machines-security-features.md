@@ -40,4 +40,7 @@ Les listes de contrôle d'accès réseau vous permettent d'accepter ou de refuse
 ##Ressources supplémentaires
 [Ressources](http://azure.microsoft.com/support/trust-center/resources/) du Centre de gestion de la confidentialité Microsoft Azure
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Mener à bien l'installation minimale de l’appareil"
+   description="Explique comment effectuer la configuration minimale d’un appareil StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/29/2015"
+   ms.author="v-sharos" />
+
 #### Pour mener à bien la configuration minimale d’un appareil StorSimple
 
 1. Sélectionnez l’appareil et cliquez sur **Création rapide**. Cliquez sur **Terminer la configuration de l’appareil** pour démarrer l'Assistant Configurer l’appareil.
@@ -22,4 +39,4 @@
 
  >[AZURE.NOTE]Vous pouvez modifier tous les autres paramètres de l’appareil à tout moment en accédant à la page **Configurer**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

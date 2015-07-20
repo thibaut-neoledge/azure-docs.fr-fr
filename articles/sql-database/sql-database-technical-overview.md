@@ -25,5 +25,6 @@ La base de données SQL vous permet d’assurer la [montée en puissance](sql-d
 Il existe différents [niveaux de service](sql-database-service-tiers.md) pour la base de données SQL : le niveau de base, le niveau Standard et le niveau Premium. Ces niveaux prennent en charge des charges de travail de base de données légères ou lourdes, selon le cas. Vous pouvez ainsi passer d’un niveau à l’autre ou les associer les uns aux autres, afin de bénéficier d’une conception d’applications innovante. Grâce à la puissance et à la portée de Microsoft Azure, vous pouvez mélanger les différents services Microsoft Azure avec la base de données SQL, afin de pouvoir répondre aux besoins professionnels uniques de vos nouvelles applications, réduire les coûts, optimiser l’efficacité et mettre en lumière de nouvelles opportunités professionnelles.
 
 Obtenez une version d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/) pour prendre en main cette nouvelle technologie, et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md)!
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

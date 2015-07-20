@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET)
@@ -246,7 +246,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 <ul>
 <li>Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente&#160;:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li>
   </ul>
@@ -263,7 +263,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 </ul>
 
   [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
@@ -275,4 +275,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

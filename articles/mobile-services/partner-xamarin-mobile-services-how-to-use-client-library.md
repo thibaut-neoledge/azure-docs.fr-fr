@@ -43,7 +43,7 @@ Le type .NET côté client typé correspondant est le suivant :
 	
 Lorsqu'un schéma dynamique est activé, Azure Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet des requêtes d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-## <a name="create-client"></a>Procédure : créer le client Mobile Services
+## <a name="create-client"></a>Procédure : création du client Mobile Services
 
 Le code suivant permet de créer l'objet `MobileServiceClient` utilisé pour accéder à votre service mobile.
 			
@@ -117,7 +117,7 @@ La clause `where` prend en charge les opérations traduites dans le sous-ensembl
 
 ### <a name="sorting"></a>Procédure : tri des données renvoyées
 
-Le code suivant montre comment trier des données en incluant une fonction `OrderBy` ou `OrderByDescending` dans la requête. Il renvoie des éléments de `todoTable`, triés dans l'ordre croissant par le champ `Text`. Par défaut, le serveur renvoie uniquement les 50 premiers éléments.
+Le code suivant montre comment trier les données en incluant une fonction `OrderBy` ou `OrderByDescending` dans la requête. Il renvoie des éléments de `todoTable`, triés dans l'ordre croissant par le champ `Text`. Par défaut, le serveur renvoie uniquement les 50 premiers éléments.
 
 > [AZURE.NOTE]Une taille de page pilotée par un serveur est utilisée par défaut pour empêcher le renvoi de tous les éléments. Cela permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service.
 
@@ -150,7 +150,7 @@ La requête révisée ci-dessous ignore les trois premiers résultats et renvoie
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-Vous pouvez également utiliser la méthode [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) pour faire en sorte que la requête obtienne le nombre total de <i>tous</i> les enregistrements qui auraient été renvoyés, en ignorant toute clause de pagination/limite spécifiée :
+Vous pouvez également utiliser la méthode [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) pour que la requête obtienne le nombre total de <i>tous</i> les enregistrements qui auront été renvoyés, en ignorant toute clause de pagination/limite spécifiée :
 
 	query = query.IncludeTotalCount();
 
@@ -470,5 +470,6 @@ Maintenant que vous avez consulté ce guide de fonctionnement, découvrez en dé
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

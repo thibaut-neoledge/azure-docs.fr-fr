@@ -217,12 +217,7 @@ Une fois le fournisseur installé, poursuivez l'installation afin d'enregistrer 
 
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur.
 	- Les URL suivantes doivent être accessibles à partir du serveur VMM.
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net 
-		- *..backup.windowsazure.com 
-		- *..blob.core.windows.net 
-		- *.store.core.windows.net
-	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser et de l'ouest des États-Unis. 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser et de l'ouest des États-Unis. 
 	
 	- Si vous choisissez d’utiliser un proxy personnalisé, un compte d’identification VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement.
 	- Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
@@ -317,9 +312,7 @@ Suivez la progression de l'action d'activation de la protection, y compris la r�
 Pour vous assurer que les machines virtuelles et les données basculent comme prévu, testez votre déploiement. Pour ce faire, créez un plan de récupération en sélectionnant des groupes de réplication. Ensuite, exécutez un test de basculement sur le plan.
 
 1. Dans l'onglet **Plans de récupération**, cliquez sur **Créer un plan de récupération**.
-2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN.
-3.
-	![Créer un plan de récupération](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
+2. Spécifiez un nom pour le plan de récupération et les serveurs VMM source et cible. Le basculement et la récupération doivent être activés sur les machines virtuelles du serveur source. Sélectionnez **SAN** pour n’afficher que les clouds configurés pour la réplication SAN. 3. ![Créer un plan de récupération](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
 4. Dans **Sélectionner la machine virtuelle**, sélectionnez les groupes de réplication. Toutes les machines virtuelles associées au groupe de réplication sont sélectionnées et ajoutées au plan de récupération. Ces machines virtuelles sont ajoutées au groupe par défaut du plan de récupération, à savoir le groupe 1. Vous pouvez ajouter d'autres groupes si nécessaire. Notez qu'après la réplication, les machines virtuelles démarrent dans l'ordre des groupes du plan de récupération.
 
@@ -363,4 +356,4 @@ Pour plus d'informations sur les interactions avec les tâches et le tableau de 
 	
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

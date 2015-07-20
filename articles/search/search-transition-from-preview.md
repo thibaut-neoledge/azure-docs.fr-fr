@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Transition de la version préliminaire api-version=2014* vers api-version=2015*#
@@ -22,12 +22,12 @@ Les instructions suivantes sont destinées aux clients ayant créé des applicat
 
 En tant que client de la version préliminaire, vous avez peut-être utilisé l’une de ces anciennes versions préliminaires :
 
-- [2014-07-31-Preview](../search-api-2014-07-31-preview.md) ;
+- [2014-07-31-Preview](search-api-2014-07-31-preview.md) ;
 - [2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
-À présent qu’Azure Search est mis à la disposition générale, nous encourageons la transition vers des versions plus récentes : 2015-02-28 constitue la version d’API officielle de la version mise à la disposition générale d’Azure Search. Cette version est documentée sur [MSDN](https://msdn.microsoft.com/fr-fr/library/azure/dn798933.aspx).
+À présent qu’Azure Search est mis à la disposition générale, nous encourageons la transition vers des versions plus récentes : 2015-02-28 constitue la version d’API officielle de la version mise à la disposition générale d’Azure Search. Cette version est documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-Nous déployons également la prochaine version préliminaire, [2015-02-28-Preview](../search-api-2015-02-28-preview.md), qui comportera des fonctionnalités toujours en cours de développement. Nous vous demandons de faire part de vos commentaires sur les [forums Azure Search](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch) ou sur notre [page de commentaires](http://feedback.azure.com/forums/263029-azure-search).
+Nous déployons également la prochaine version préliminaire, [2015-02-28-Preview](search-api-2015-02-28-preview.md), qui comportera des fonctionnalités toujours en cours de développement. Vous pouvez fournir des commentaires sur la version préliminaire de l’API via les [forums Azure Search](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) ou notre [page de commentaires](http://feedback.azure.com/forums/263029-azure-search).
 
 ###Liste de contrôle pour la migration###
 
@@ -41,7 +41,7 @@ Nous déployons également la prochaine version préliminaire, [2015-02-28-Previ
 
 La version initiale d’API incluait une fonctionnalité de suggestions prédictives ou de saisie semi-automatique. Bien qu’utile, elle se limitait à la mise en correspondance des préfixes et traitait les premiers caractères du terme de recherche uniquement. L’implémentation était une propriété booléenne appelée `suggestions` que vous deviez définir sur `true` pour permettre la correspondance des préfixes sur un champ spécifique.
 
-Cette implémentation initiale est désormais remplacée par une nouvelle construction `Suggesters` définie dans la fonctionnalité d’[index](https://msdn.microsoft.com/fr-fr/library/azure/dn798941.aspx) qui offre une correspondance des infixes et une correspondance approximative. Comme leur nom l’indique, la correspondance des infixes et la correspondance approximative offrent une capacité beaucoup plus vaste de correspondance. La correspondance des infixes englobe la correspondance des préfixes : elle permet de faire correspondre les caractères de début et étend cette correspondance au reste de la chaîne.
+Cette implémentation initiale est désormais remplacée par une nouvelle construction `Suggesters` définie dans la fonctionnalité d’[index](https://msdn.microsoft.com/library/azure/dn798941.aspx) qui offre une correspondance des infixes et une correspondance approximative. Comme leur nom l’indique, la correspondance des infixes et la correspondance approximative offrent une capacité beaucoup plus vaste de correspondance. La correspondance des infixes englobe la correspondance des préfixes : elle permet de faire correspondre les caractères de début et étend cette correspondance au reste de la chaîne.
 
 Nous avons choisi d’interrompre l’implémentation précédente (propriété booléenne), qui sera donc totalement indisponible dans les versions 2015 sans compatibilité descendante, afin d’éviter que les clients ne l’adoptent par inadvertance lors de la conception de nouvelles solutions. Si vous utilisez `2015-02-28` ou `2015-02-28-Preview`, vous devrez recourir à la nouvelle construction `Suggesters` pour les saisies semi-automatiques.
 
@@ -135,12 +135,13 @@ Une définition de schéma migré omet la propriété `Suggestions` et ajoute un
 Une fois que vous avez transféré votre solution et vérifié son bon fonctionnement, vous pouvez utiliser ces liens pour en savoir plus sur les nouvelles fonctionnalités.
 
 - [Azure Search est mis à la disposition générale (billet de blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
-- [Nouveautés de la dernière mise à jour d’Azure Search](../search-latest-updates/)
-- [Vue d’ensemble d’Azure Search](https://msdn.microsoft.com/fr-fr/library/azure/dn798933.aspx)
+- [Nouveautés de la dernière mise à jour d’Azure Search](search-latest-updates.md)
+- [Présentation d’Azure Storage](search-what-is-azure-search.md)
 
 ##Obtenir de l'aide##
 
-La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de support et les liens de [cette page](http://azure.microsoft.com/support/options/) pour émettre un ticket de support.
+La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de support et les liens de [cette page](../support/options/) pour émettre un ticket de support.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

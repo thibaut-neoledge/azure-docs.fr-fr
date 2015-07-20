@@ -25,7 +25,7 @@ La conception de votre application pour la continuité des activités nécessite
 
 ##Utilisation de la géo-restauration
 
-La base de données SQL fournit une protection intégrée de base de chaque base de données par défaut. Cette protection s'effectue par le stockage des sauvegardes de bases de données dans le stockage Azure redondant  au niveau géographique (GRS). Si vous choisissez cette méthode, aucune configuration particulière ni allocation de ressources supplémentaire n'est nécessaire. Grâce à ces sauvegardes, vous pouvez récupérer votre base de données dans n'importe quelle région à l'aide de la commande de géo-restauration. Utilisez la section [Récupération après une panne](sql-database-disaster-recovery.md) pour obtenir des détails sur l'utilisation de la géo-restauration pour restaurer votre application.
+La base de données SQL fournit une protection intégrée de base de chaque base de données par défaut. Cette protection s'effectue par le stockage des sauvegardes de bases de données dans le stockage Azure redondant au niveau géographique (GRS). Si vous choisissez cette méthode, aucune configuration particulière ni allocation de ressources supplémentaire n'est nécessaire. Grâce à ces sauvegardes, vous pouvez récupérer votre base de données dans n'importe quelle région à l'aide de la commande de géo-restauration. Utilisez la section [Récupération après une panne](sql-database-disaster-recovery.md) pour obtenir des détails sur l'utilisation de la géo-restauration pour restaurer votre application.
 
 Nous vous recommandons d'utiliser la protection intégrée si votre application répond aux critères suivants :
 
@@ -96,4 +96,7 @@ Cette API est asynchrone. Après son retour, utilisez l'API [Obtenir la copie de
 
 Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions cloud pour la récupération d'urgence à l'aide de la géo-réplication active](https://msdn.microsoft.com/library/azure/dn741328.aspx) pour obtenir des instructions.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

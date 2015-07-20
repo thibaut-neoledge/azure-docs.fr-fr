@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Installation de votre appareil StorSimple 8100
@@ -45,9 +45,9 @@ Ensuite, procédez comme suit pour déballer votre appareil.
 
 2. Déballez le carton. L’image suivante représente votre appareil Azure StorSimple déballé.
 
-    **Figure 1 : vue de votre appareil de stockage déballé**
-
      ![Déballage de votre appareil de stockage](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+
+    **Figure 1 : vue de votre appareil de stockage déballé**
 
      Étiquette | Description 
      ----- | -------------
@@ -113,14 +113,14 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 2. En général, les rails sont installés en usine. S’ils ne le sont pas, installez les glissières du rail gauche et celles du rail droit sur les côtés du châssis du boîtier. Six vis métriques permettent de les fixer de chaque côté. Pour faciliter l’orientation, les mentions **LH – Front** (avant gauche) et **RH – Front** (avant droit) sont indiquées sur les glissières et l’extrémité qui est apposée à l’arrière du boîtier est effilée.<br/>
 
-    **Figure 2 : fixation des glissières du rail sur les côtés du boîtier**
-
     ![Fixation des glissières de rail sur le châssis du boîtier](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    Étiquette | Description
+   **Figure 2 : fixation des glissières de rail sur les côtés du boîtier**
+
+    Label | Description
     ----- | -----------
-    1 | M 3 x 4 vis à tête ronde
-    2 | Glissières du châssis
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
 
 3. Fixez le rail gauche et le rail droit sur les éléments verticaux de l’armoire à rack. Les crochets sont marqués **LH** (gauche), **RH** (droite) et **This side up** (Ce côté vers le haut) afin de vous aider à orienter correctement les éléments.
 
@@ -130,9 +130,9 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 6. Répétez ces étapes pour l’autre rail.<br/>
 
-    **Figure 3 : fixation du rail au rack**
-
      ![Fixation des glissières de rail sur l’armoire à rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figure 3 : fixation des rails au rack**
 
      Étiquette | Description
      ----- | -----------
@@ -152,18 +152,18 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
 2. Insérez l’appareil avec précaution dans les rails, puis poussez-le complètement dans l’armoire à rack.<br/>
 
-    **Figure 4 : montage de l’appareil dans le rack**
-
     ![Insertion de l’appareil dans le rack](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figure 4 : montage de l’appareil dans le rack**
 
 3. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
 
 4. Placez les capuchons sur les embases et appuyez dessus pour les mettre en place.<br/>
 
-    **Figure 5 : installation des capuchons d’embase**
-
      ![Installation des capuchons d’embase](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
+    **Figure 5 : installation des capuchons d’embase**
+
      Étiquette | Description
      ----- | -----------
      1 | Vis de fixation du boîtier
@@ -213,10 +213,9 @@ Procédez comme suit pour brancher les câbles d’alimentation de votre apparei
 
     >[AZURE.NOTE]Pour garantir une haute disponibilité de votre système, vous devez vous conformer strictement au schéma de branchement des câbles d’alimentation représenté ci-dessous.
 
+    ![Câble d’alimentation de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
     **Figure 6 : branchement des câbles d’alimentation de votre appareil**
-
-     ![Câble d’alimentation de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
      Étiquette | Description
      ----- | -----------
@@ -236,9 +235,9 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
 1. Votre appareil possède six interfaces réseau sur chaque contrôleur : quatre ports Ethernet de 1 Gbit/s et deux de 10 Gbit/s. Identifiez les différents ports de données sur le fond de panier de votre appareil.
 
-    **Figure 7 : dos de l’appareil avec les ports de données**
-
     ![Fond de panier de l’appareil 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figure 7 : dos de l’appareil avec ports de données**
  
      Étiquette | Description
      ------- | -----------
@@ -255,21 +254,21 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
     2. Interfaces de chaque contrôleur avec au moins deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur.
     3. Port de données DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
 
-   Configurez au moins une interface réseau pour l’accès au cloud et une pour iSCSI. Pour une haute disponibilité et des performances, configurez deux paires d’interfaces réseau sur chaque contrôleur. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
+    Configurez au moins une interface réseau pour l’accès au cloud et une pour iSCSI. Pour une haute disponibilité et des performances, configurez deux paires d’interfaces réseau sur chaque contrôleur. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
-   **Figure 8 : branchement des câbles réseau de votre appareil**
+    ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-   ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    **Figure 8 : branchement des câbles réseau de votre appareil**
 
-    Label | Description
+    Étiquette | Description
     ----- | -----------
-     A    | LAN with Internet access
-     B    | Controller 0
-     C    | PCM 0
-     D    | Controller 1
-     E    | PCM 1
-     F,G  | Hosts
-     0-5  | Network interfaces
+     Une | LAN avec accès à Internet
+     B | Contrôleur 0
+     C | PCM 0
+     D | Contrôleur 1
+     E | PCM 1
+     F, G | Hôtes
+     0-5 | Interfaces réseau
    
 ### Branchement des câbles de port série
 
@@ -298,4 +297,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Exécution de requêtes Hive avec PowerShell
@@ -22,7 +22,7 @@
 
 Ce document fournit un exemple d'utilisation d’Azure PowerShell pour exécuter des requêtes Hive sur un cluster Hadoop sur HDInsight.
 
-> [AZURE.NOTE]Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez <a href="hdinsight-use-hive.md" target="_blank">Utilisation de Hive avec Hadoop sur HDInsight</a>.
+> [AZURE.NOTE]Ce document ne fournit pas de description détaillée de ce que font les instructions HiveQL utilisées dans les exemples. Pour plus d’informations sur le langage HiveQL utilisé dans cet exemple, consultez la page [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md).
 
 
 ##<a id="prereq"></a>Configuration requise
@@ -34,7 +34,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ##<a id="powershell"></a>Exécution de requêtes Hive avec Azure PowerShell
 
-Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, cela est accompli en effectuant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
+Azure PowerShell fournit des *cmdlets* qui vous permettent d'exécuter à distance des requêtes Hive sur HDInsight. En interne, cela est accompli en effectuant des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les applets de commande suivants sont utilisés lors de l'exécution de requêtes Hive sur un cluster à distance HDInsight :
 
@@ -142,6 +142,5 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

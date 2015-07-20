@@ -18,7 +18,7 @@
 
 # Ajout de services mobiles à une application existante
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)] 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 Cette rubrique montre comment utiliser Azure Mobile Services pour tirer parti des données dans une application Xamarin.Android. Dans ce didacticiel, vous allez télécharger une application qui stocke les données en mémoire, créer un service mobile, intégrer le service mobile à l'application, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
@@ -34,7 +34,7 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 
 > [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-Ce didacticiel requiert le [composant Azure Mobile Services], [Xamarin.Android] et le Kit de développement logiciel (SDK) Android 4.2 ou version ultérieure.
+Ce didacticiel requiert le [composant Azure Mobile Services], [Xamarin.Android] et le Kit de développement logiciel (SDK) Android 4.2 ou ultérieur.
 
 > [AZURE.NOTE]Le projet GetStartedWithData téléchargé requiert Android 4.2 ou une version ultérieure. Toutefois, le Kit de développement logiciel (SDK) Mobile Services requiert uniquement Android 2.2 ou une version ultérieure.
 
@@ -281,5 +281,6 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

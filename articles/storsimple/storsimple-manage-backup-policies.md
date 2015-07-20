@@ -84,4 +84,4 @@ Pour créer une stratégie de sauvegarde personnalisée présentant plusieurs vo
 
 Découvrez comment gérer les sauvegardes StorSimple avec le [Gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

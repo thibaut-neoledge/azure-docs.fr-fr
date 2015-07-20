@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (Projets de service cloud)
@@ -418,7 +418,7 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 <ul>
 <li>Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table&#160;:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li>
   </ul>
@@ -444,7 +444,7 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [billet de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,4 +456,4 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

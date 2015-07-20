@@ -214,4 +214,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion des itérations d'expériences dans Azure Machine Learning Studio | Azure" 
+	pageTitle="Gestion des itérations d’expériences dans Azure Machine Learning Studio | Microsoft Azure" 
 	description="Gestion des itérations d'expériences dans Azure Machine Learning Studio" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -83,5 +83,6 @@ Vous pouvez maintenant continuer à modifier et exécuter cette version de votre
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

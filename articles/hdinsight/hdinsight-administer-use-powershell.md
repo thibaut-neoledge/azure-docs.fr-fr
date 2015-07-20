@@ -27,7 +27,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Un poste de travail sur lequel est installé Azure PowerShell.** Voir [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Voir [Installation et utilisation d'Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
 ##Approvisionnement de clusters HDInsight
@@ -279,4 +279,4 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

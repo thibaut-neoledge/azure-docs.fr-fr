@@ -65,4 +65,4 @@ Les instructions ci-dessous s’appliquent à la mise à jour d’une applicatio
 
 4. Enregistrez vos modifications, puis configurez le service de manière à vérifier l'absence d'erreurs de syntaxe.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

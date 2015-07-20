@@ -3,7 +3,7 @@
 	description="Décrit ce qui s'est produit lors de la création d'un stockage Azure dans un projet d'ASP.NET Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# Qu'est-il arrivé à mon projet ?
 
 > [AZURE.SELECTOR]
-> - [Prise en main](vs-storage-aspnet-getting-started-blobs.md)
-> - [Ce qu'il s'est passé](vs-storage-aspnet-what-happened.md)
+> - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">Qu'est-il arrivé à mon projet ?</span>
+###<span id="whathappened">Qu’est-il arrivé à mon projet ?</span>
 
 ##### Références ajoutées
 
-Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio.  
-Ce package ajoute les références .NET suivantes :
+Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -40,5 +41,5 @@ Ce package ajoute les références .NET suivantes :
 Dans le fichier web.config de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
 Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
-<!--HONumber=47-->
- 
+
+<!---HONumber=July15_HO2-->

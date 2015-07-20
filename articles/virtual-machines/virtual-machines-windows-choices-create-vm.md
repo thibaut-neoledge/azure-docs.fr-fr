@@ -34,7 +34,7 @@ L’interface utilisateur graphique du portail Microsoft Azure constitue un moy
 
 Si vous préférez travailler dans une interface de commande, choisissez l’interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell, qui comporte des applets de commande Windows PowerShell pour Microsoft Azure et une console personnalisée.
 
-Pour l’interface de ligne de commande Microsoft Azure, consultez [Commandes équivalentes de Resource Manager et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows][]. Pour utiliser un modèle, consultez [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
+Pour l’interface de ligne de commande Microsoft Azure, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows][]. Pour utiliser un modèle, consultez [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
 
 Pour Azure PowerShell, consultez [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows][]. Pour utiliser un modèle, consultez [Déployer et gérer des machines virtuelles à l’aide des modèles Azure Resource Manager et de PowerShell][].
 
@@ -77,7 +77,7 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 
 [Créer une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
 
-[Commandes équivalentes de Resource Manager et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
+[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
 [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Déployer et gérer des machines virtuelles à l’aide des modèles Azure Resource Manager et de PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows]: virtual-machines-ps-create-preconfigure-windows-vms.md
@@ -102,4 +102,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

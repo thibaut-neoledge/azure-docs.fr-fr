@@ -19,7 +19,6 @@
 
 # Sérialisation des données dans Hadoop avec Microsoft Avro Library
 
-##Vue d'ensemble
 Cette rubrique explique comment utiliser la bibliothèque <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> pour sérialiser des objets et d’autres structures de données en flux afin de les rendre persistants dans une mémoire, une base de données ou un fichier, ainsi que pour les désérialiser afin de récupérer les objets d’origine.
 
 
@@ -1397,9 +1396,14 @@ Dans les deux cas, toutes les modifications doivent être effectuées dans la se
 Pour nettoyer le cluster, exécutez la commande suivante :
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

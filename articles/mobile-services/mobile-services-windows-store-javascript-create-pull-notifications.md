@@ -80,7 +80,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Avant de c
 		    }
 		};
 
-	Ce code renvoie les trois premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
+	Ce code renvoie les 3 premiers éléments non terminés de la table TodoItem, puis les charge dans un objet JSON transmis à la fonction **wns**.**createTileSquareText01**. Cette fonction renvoie le code XML de modèle de vignette suivant :
 
 		<tile>
 			<visual>
@@ -157,5 +157,6 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Notifications périodiques]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

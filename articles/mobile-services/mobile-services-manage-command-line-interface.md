@@ -190,5 +190,6 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [RÃ
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Installation des outils en ligne de commande Azure pour Mac et Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

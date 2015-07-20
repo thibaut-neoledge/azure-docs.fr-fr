@@ -32,11 +32,11 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###3.0.1 (29/04/2015)
+###3.1.0 (21/05/2015)
 
--   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
+-   L’ID d’appareil Mobile Engagement est désormais basé sur un GUID généré au moment de l’installation.
 
-Pour les versions antérieures, veuillez consulter les [notes de publication complètes](mobile-engagement-windows-store-release-notes.md)
+Pour les versions antérieures, consultez les [notes de publication complètes](mobile-engagement-windows-store-release-notes.md)
 
 ##Procédures de mise à niveau
 
@@ -52,4 +52,5 @@ Cette étape concerne uniquement les ressources personnalisées. Si vous avez pe
 ### Mise à niveau à partir de versions antérieures
 
 Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

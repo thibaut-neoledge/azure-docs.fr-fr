@@ -359,4 +359,4 @@ Dans cette section, vous ajoutez un nouveau contrôleur qui permet aux appareils
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

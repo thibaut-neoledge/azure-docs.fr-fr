@@ -60,4 +60,9 @@ Pour la géo-réplication active, toutes les bases de données secondaires sont 
 
 La géo-réplication utilise la copie continue. Par conséquent, utilisez la vue de gestion dynamique (DMV) [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) pour obtenir la dernière réplication et d'autres informations.
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

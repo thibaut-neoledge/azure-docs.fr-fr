@@ -3,16 +3,17 @@
     description="Décrit les caractéristiques techniques et les informations de conformité aux normes réglementaires relatives à l’appareil StorSimple."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/01/2015"
-    ms.author="v-sharos" />
+    ms.date="06/15/2015"
+    ms.author="alkohli" />
 
 # Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -27,7 +28,7 @@ Les composants matériels de l’appareil Microsoft Azure StorSimple sont confor
 L’appareil StorSimple intègre deux modules d’alimentation et de refroidissement (PCM) conformes SBB à double ventilateur de 100-240 V. Cette configuration fournit une alimentation redondante. Si un PCM échoue, l’appareil continue à fonctionner normalement sur l’autre PCM jusqu’au remplacement du module défaillant.
 
 Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764 W. Les tableaux suivants répertorient les caractéristiques techniques des PCM.
- 
+
 | Caractéristique | PCM 580 W (EBOD) | PCM 764 W (principal) |
 |------------------------ | --------------------------------------------------- | -------------------------------------------------- |
 | Puissance de sortie maximale | 580 W | 764 W |
@@ -46,16 +47,16 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
  
 ## Statistiques sur la consommation énergétique  
 
-Le tableau suivant répertorie les données de consommation énergétique des différents modèles d’appareil StorSimple.
+Le tableau suivant répertorie les données de consommation énergétique standard (les valeurs réelles peuvent différer des valeurs publiées) des différents modèles d’appareil StorSimple.
  
-| Conditions | 240 V CA | 110 V CA |
-| ---------- | -------- | -------- |
-| Ventilateurs lents, lecteurs inactifs | 1,45 A 0,31 kW | 3,19 A 0,34 kW |
-| Ventilateurs lents, lecteurs en cours d’accès | 1,54 A 0,33 kW | 3,27 A 0,36 kW |
-| Ventilateurs rapides, lecteurs inactifs, deux blocs d’alimentation sous tension | 2,14 A 0,49 kW | 4,99 A 0,54 kW |
-| Ventilateurs rapides, lecteurs inactifs, un bloc d’alimentation sous tension, un inactif | 2,05 A 0,48 kW | 4,58 A 0,5 kW |
-| Ventilateurs rapides, lecteurs en cours d’accès, deux blocs d’alimentation sous tension | 2,26 A 0,51 kW | 4,95 A 0,54 kW |
-| Ventilateurs rapides, lecteurs en cours d’accès, un bloc d’alimentation sous tension, un inactif | 2,14 A 0,49 kW | 4,81 A 0,53 kW |
+ Conditions | 240 V CA | 240 V CA | 240 V CA | 110 V CA | 110 V CA | 110 V CA 
+ ---------- | -------- | -------- | -------- | -------- | -------- | -------- 
+ Ventilateurs lents, lecteurs inactifs | 1,45 A |0,31 kW | 1 057,76 BTU/heure | 3,19 A | 0,34 kW | 1 160,13 BTU/heure 
+ Ventilateurs lents, lecteurs en cours d’accès | 1,54 A | 0,33 kW | 1 126,01 BTU/heure | 3,27 A | 0,36 kW | 1 228,37 BTU/heure 
+ Ventilateurs rapides, lecteurs inactifs, deux blocs d’alimentation sous tension | 2,14 A | 0,49 kW | 1 671,95 BTU/heure | 4,99 A | 0,54 kW | 1 842,56 BTU/heure 
+ Ventilateurs rapides, lecteurs inactifs, un bloc d’alimentation sous tension, un inactif | 2,05 A | 0,48 kW | 1 637,83 BTU/heure | 4,58 A | 0,50 kW | 1 706,07 BTU/heure 
+ Ventilateurs rapides, lecteurs en cours d’accès, deux blocs d’alimentation sous tension | 2,26 A | 0,51 kW | 1 740,19 BTU/heure | 4,95 A | 0,54 kW | 1 842,56 BTU/heure 
+ Ventilateurs rapides, lecteurs en cours d’accès, un bloc d’alimentation sous tension, un inactif | 2,14 A |0,49 kW | 1 671,95 BTU/heure | 4,81 A | 0,53 kW | 1 808,44 BTU/heure 
 
 ## Caractéristiques des lecteurs de disque  
 
@@ -104,7 +105,7 @@ Cette section répertorie les caractéristiques liées à l’environnement du b
 | Ventilation | La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. La contre-pression créée par les portes de rack et les obstacles ne doit pas dépasser 5 pascals (0,5 mm de colonne d’eau). |
 | Altitude, en fonctionnement | -30 mètres à 3 045 mètres (-100 pieds à 10 000 pieds) avec la température de service maximale réduite de 5 °C à plus de 7 000 mètres. |
 | Altitude, hors fonctionnement | -305 mètres à 12 192 mètres (-1 000 pieds à 40 000 pieds) |
-| Chocs, en fonctionnement | 5 g 10 ms ½ sinus | 
+| Chocs, en fonctionnement | 5 g 10 ms ½ sinus |
 | Chocs, hors fonctionnement | 30 g 10 ms ½ sinus |
 | Vibrations, en fonctionnement | Moyenne quadratique 0,21 g, 5-500 Hz aléatoire |
 | Vibrations, hors fonctionnement | Moyenne quadratique 1,04 g, 2-200 Hz aléatoire |
@@ -148,14 +149,14 @@ L’appareil est conforme à la norme EN55024.
 
 ## Conformité du cordon d’alimentation secteur
   
-L’ensemble fiche-cordon d’alimentation doit être conforme aux  normes applicables dans le pays où l’appareil est utilisé et bénéficier de certifications de sécurité acceptables dans ce pays. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
+L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applicables dans le pays où l’appareil est utilisé et bénéficier de certifications de sécurité acceptables dans ce pays. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
 
 ### Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
 
 | Composant | Caractéristique |
 | --------------- | ----------------------------------------------------------------- | 
 | Type de cordon | SV ou SVT, 18 AWG minimum, 3 conducteurs, longueur maximale 2 mètres |
-| Fiche | Fiche avec mise à la terre NEMA 5-15P, avec une tension nominale de  120 V, 10 A ; ou CEI 320 C14, 250 V, 10 A |
+| Fiche | Fiche avec mise à la terre NEMA 5-15P, avec une tension nominale de 120 V, 10 A ; ou CEI 320 C14, 250 V, 10 A |
 | Prise | CEI 320 C-13, 250 V, 10 A |
 
 ### Cordons d’alimentation secteur - Europe
@@ -167,8 +168,8 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux  normes appli
 
 ## Câbles réseau pris en charge  
 
-Pour les interfaces de réseau 10 GbE, DATA 2 et DATA 3, vous trouverez la liste des câbles réseau et modules pris en charge à la page suivante : [http://www.mellanox.com/page/cables?mtag=cable_overview](http://www.mellanox.com/page/cables?mtag=cable_overview)
+Pour les interfaces réseau de 10 GbE, et les DONNÉES 2 et 3, reportez-vous à la [Liste des modules et des câbles réseau pris en charge](https://msdn.microsoft.com/library/dn891474.aspx).
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

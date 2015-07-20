@@ -4,4 +4,4 @@ Vous pouvez utiliser NuGet pour obtenir l’assembly `Microsoft.WindowsAzure.Sto
 
 `Microsoft.WindowsAzure.Storage.dll` est également inclus dans le Kit de développement logiciel (SDK) Azure pour .NET, téléchargeable à partir du <a href="http://azure.microsoft.com/develop/net/#">centre de développement .NET</a>. L’assembly est installé dans le répertoire `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

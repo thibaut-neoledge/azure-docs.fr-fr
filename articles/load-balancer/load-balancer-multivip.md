@@ -156,4 +156,4 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

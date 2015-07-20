@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel (SDK) d’Engagement Windows Phone Silverlight
@@ -201,7 +201,7 @@ Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode 
 
 > [AZURE.IMPORTANT]Assurez-vous de terminer votre session correctement.
 >
-> Le Kit de développement logiciel (SDK) appelle automatiquement la méthode `EndActivity` à la fermeture de l'application. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode `EndActivity`, étant donné que l'appel de cette méthode entraîne l'arrêt de la session en cours.
+> Le Kit de développement logiciel (SDK) appelle automatiquement la méthode `EndActivity` à la fermeture de l'application. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode `EndActivity`. Cette méthode envoie un message au serveur Engagement indiquant que l'utilisateur actuel a quitté l'application et cela affecte tous les journaux d'application.
 
 ##Génération de rapports avancés
 
@@ -242,7 +242,9 @@ Pour cela, appelez la méthode :
 
 L'argument est une valeur en **millisecondes**. Si vous souhaitez réactiver la génération de journaux en temps réel, vous pouvez appeler à tout moment la méthode sans aucun paramètre ou avec la valeur 0.
 
-Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s).
+Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s). Vous devez savoir que les journaux enregistrés sont limités à 300 entrées. Si l'envoi est trop long, vous risquez de perdre certains journaux.
 
 > [AZURE.WARNING]Il n'est pas possible de configurer un seuil de rafale inférieur à une seconde. Si vous essayez de le faire, le SDK affichera une erreur et réinitialisera automatiquement la valeur par défaut, c'est-à-dire zéro seconde. Le SDK génère alors les journaux en temps réel.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="heidist"/>
 
-#Implémentation de la navigation à facettes dans Azure Search#
+#Implémentation de la navigation à facettes dans Azure Search
 
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Bien que les termes "navigation à facettes" ne vous soient pas familiers, il est presque certain que vous avez déjà utilisé cette fonctionnalité. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
 
-## Apparence ##
+## Apparence
 
  ![][1]
   
@@ -46,10 +46,10 @@ Cet article contient les sections suivantes :
 - [Navigation à facettes basée sur des points géographiques](#geofacets)
 - [Faites un essai](#tryitout)
 
-##Pourquoi l'utiliser ?##
+##Pourquoi l'utiliser ?
 Les applications de recherche les plus efficaces ont plusieurs modèles d'interaction en plus d'une zone de recherche. La navigation à facettes constitue un point d'entrée alternatif à la recherche. Elle offre une alternative pratique à la saisie manuelle des expressions de recherche complexes.
 
-##Les notions de base##
+##Les notions de base
 
 Si vous êtes novice en développement de la recherche, considérez que la navigation à facettes affiche les possibilités de recherche autonome. Il s'agit d'un type d'expérience de recherche détaillée, en fonction de filtres prédéfinis, utilisés pour limiter rapidement les résultats de la recherche à l'aide d'actions de type pointer et cliquer.
 
@@ -96,7 +96,7 @@ Bien que les deux requêtes soient valides, la seconde est supérieure si vous c
 Dans les applications qui incluent la navigation à facettes, vous devrez veiller à ce que chaque action de l'utilisateur sur une structure de navigation à facettes soit accompagnée d'une réduction du champ des résultats de recherche, obtenue par le biais d'une expression de filtre.
 
 <a name="howtobuildit"></a>
-# Procédure de création #
+##Procédure de création
 
 La navigation à facettes dans Azure Search est implémentée dans le code d'application qui crée la requête, mais elle s'appuie sur des éléments prédéfinis dans votre schéma.
 
@@ -113,7 +113,7 @@ La couche de présentation dans votre code fournit l'expérience utilisateur. El
 Dans les sections suivantes, nous allons étudier comment générer chaque partie, en commençant par la couche de présentation.
 
 <a name="presentationlayer"></a>
-# Création de la couche de présentation #
+##Création de la couche de présentation
 
 Le fait de travailler à partir de la couche de présentation peut vous aider à découvrir des exigences que vous auriez pu manquer dans le cas contraire et de comprendre les capacités essentielles à l'expérience de recherche.
 
@@ -131,7 +131,7 @@ Notez que chaque facette a une étiquette (Couleurs, Catégories, Prix), une lia
 > [AZURE.TIP]Lorsque vous concevez la page de résultats, pensez à ajouter un mécanisme de suppression des facettes. Si vous utilisez des cases à cocher, les utilisateurs peuvent facilement deviner comment effacer les filtres. Pour les autres dispositions, vous devrez peut-être utiliser un modèle de navigation ou une autre approche créative. Par exemple, dans l'exemple d'application Catalogue AdventureWorks, vous pouvez cliquer sur le titre, Catalogue AdventureWorks, pour rétablir la page de recherche.
 
 <a name="buildindex"></a>
-# Création de l'index #
+##Création de l'index
 
 Les facettes sont activées sur une base de champ par champ dans l'index, au moyen de cet attribut d'index : `"Facetable": true`. Tous les types de champs pouvant être utilisés dans la navigation à facettes sont `Facetable` par défaut. Ces types de champs incluent `Edm.String`, `Edm.DateTimeOffset` et tous les types de champs numériques (globalement, tous les types de champs peuvent être utilisés comme facettes, sauf `Edm.GeographyPoint` qui ne peut pas être utilisé dans la navigation à facettes).
 
@@ -146,7 +146,7 @@ Notez que l'option `Facetable` est désactivée pour les champs de chaîne qui n
 > [AZURE.TIP]Nous vous recommandons d'inclure l'ensemble des attributs d'index pour chaque champ. Bien que l'option `Facetable` soit activée par défaut pour presque tous les champs, le fait de configurer volontairement chaque attribut peut vous aider à réfléchir aux implications de chaque décision au sein du schéma.
 
 <a name="checkdata"></a>
-# Vérification de la qualité des données 
+##Vérification de la qualité des données 
 
 Lorsque vous développez une application orientée données, la préparation des données est souvent l'une des tâches les plus importantes du travail. Il en va de même pour les applications de recherche. La qualité de vos données a une incidence directe quant à la façon dont la structure de navigation à facettes se matérialise comme prévu ou pas, ainsi que son efficacité pour vous aider à créer des filtres qui réduisent le jeu de résultats.
 
@@ -162,7 +162,7 @@ Vous trouverez ci-dessous quelques rappels des points à appliquer :
 Comme vous pouvez l'imaginer, la rigueur en termes de préparation des données est un aspect essentiel d'une navigation à facettes efficace.
 
 <a name="buildquery"></a>
-# Création de la requête #
+##Création de la requête
 
 Le code que vous écrivez pour la création de requêtes doit spécifier toutes les parties d'une requête valide, y compris les expressions de recherche, les facettes, les filtres, les profils de score ; tout ce qui sert à formuler une requête. Dans cette section, nous allons explorer l'emplacement où les facettes s'intègrent dans une requête, ainsi que la façon dont les filtres sont utilisés avec des facettes pour fournir un jeu de résultats réduit.
 
@@ -178,7 +178,7 @@ En plus des facettes, la requête formulée par votre application doit égalemen
 
 Lorsqu'un utilisateur clique sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s'afficher, la requête suivante que l'application envoie inclut `$filter=Color eq ‘Red’`.
 
-## Meilleures pratiques pour la navigation à facettes ##
+## Meilleures pratiques pour la navigation à facettes
 
 La liste suivante récapitule certaines meilleures pratiques.
 
@@ -192,7 +192,7 @@ La liste suivante récapitule certaines meilleures pratiques.
 
 
 <a name="tips"></a>
-# Conseils sur la façon de contrôler la navigation à facettes #
+##Conseils sur la façon de contrôler la navigation à facettes
 
 Vous trouverez ci-dessous des conseils pour vous guider en cas de problèmes spécifiques.
 
@@ -257,7 +257,7 @@ Les décomptes de facettes peuvent être erronés en raison de l'architecture de
 Ce comportement peut changer à tout moment mais si vous rencontrez ce problème aujourd'hui, vous pouvez le contourner en gonflant artificiellement le décompte :<number> sur un nombre très élevé pour appliquer la déclaration complète depuis chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont réellement élevés, les performances baissent, alors utilisez cette option judicieusement.
 
 <a name="rangefacets"></a>
-# Navigation à facettes basée sur une plage de valeurs #
+##Navigation à facettes basée sur une plage de valeurs
 
 L'utilisation de facettes sur des plages est une condition d'application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche dans [Rechercher des documents (API Azure Search)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -285,7 +285,7 @@ Dans l'exemple d'application, l'expression de filtre utilise les paramètres **p
   ![][6]
 
 <a name="geofacets"></a>
-# Navigation à facettes basée sur des points géographiques #
+##Navigation à facettes basée sur des points géographiques
 
 Il est courant de voir des filtres qui vous aident à choisir un magasin, un restaurant ou une destination en fonction de sa proximité à votre emplacement actuel. Ce type de filtre peut ressembler à la navigation à facettes, mais c'est tout simplement un filtre. Nous le mentionnons ici pour ceux d'entre vous qui recherchent spécifiquement des conseils d'implémentation pour ce problème de conception particulier.
 
@@ -298,7 +298,7 @@ Il existe deux fonctions géospatiales dans Azure Search, **geo.distance** et **
 Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx). Pour en savoir plus sur la recherche géospatiale, consultez [Création d'une application de recherche géospatiale dans Azure Search](search-create-geospatial.md).
 
 <a name="tryitout"></a>
-# Faites un essai #
+##Faites un essai
 
 La démonstration Adventure Works pour Azure Search sur Codeplex contient les exemples référencés dans cet article. Lorsque vous utilisez les résultats de la recherche, observez les modifications de construction de la requête dans l'URL. Cette application ajoute des facettes à l'URI lors de la sélection de chaque.
 
@@ -327,7 +327,7 @@ La démonstration Adventure Works pour Azure Search sur Codeplex contient les ex
 	![][10]
  
 <a name="nextstep"></a>
-# Étape suivante #
+##Étape suivante
 
 Pour tester vos connaissances, vous pouvez ajouter un champ de facette pour *modelName*. L'index est déjà configuré pour cette facette, donc aucune modification de l'index n'est requise. Mais vous devrez modifier le code HTML pour inclure une nouvelle facette pour Modèles et ajouter le champ de facette dans le constructeur de la requête.
 
@@ -370,5 +370,6 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

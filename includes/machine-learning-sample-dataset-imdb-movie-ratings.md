@@ -1,3 +1,3 @@
 Le jeu de données contient environ 228 000 évaluations de films, extraites de tweets structurés publiés sur Twitter. Chaque instance représente un tweet et est un tuple : ID d’utilisateur, ID IMDB de film, évaluation et horodatage. Il provient du document « S. Dooms, T. De Pessemier et L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013. »
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

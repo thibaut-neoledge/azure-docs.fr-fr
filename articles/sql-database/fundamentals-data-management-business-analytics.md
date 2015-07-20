@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Gestion des données et analyse marketing - Azure" 
-	description="Présentation de la gestion et de l'analyse des données dans Azure. Une série d'options permettent d'exploiter les données relationnelles et non relationnelles." 
+	description="Présentation de la gestion et de l'analyse des données dans Azure. A range of options are provided for working with relational and non-relational data." 
 	services="sql-database, storage" 
 	documentationCenter=".net" 
 	authors="jenniehubbard" 
 	manager="jhubbard" 
 	editor=""/>
+
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
@@ -20,7 +21,8 @@
 
 
 
-[WACOM.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
 
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [stockage sur le cloud](../../includes/cloud-storage.md)]
  
+
+<!---HONumber=July15_HO2-->

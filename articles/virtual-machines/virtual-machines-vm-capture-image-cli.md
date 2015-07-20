@@ -162,4 +162,4 @@ Pour obtenir plus d’informations et découvrir des commandes supplémentaires,
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

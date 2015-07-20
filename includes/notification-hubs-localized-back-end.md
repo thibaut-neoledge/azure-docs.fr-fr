@@ -52,4 +52,4 @@ Dans votre planificateur Mobile Service, remplacez votre script par :
 	
 Remarquez comment, dans ce cas, il n’est pas obligatoire d’envoyer plusieurs notifications pour différents paramètres régionaux et différentes plateformes.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

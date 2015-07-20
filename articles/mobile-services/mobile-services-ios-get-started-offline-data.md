@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
@@ -30,9 +30,9 @@ La synchronisation hors connexion présente plusieurs avantages :
 * Elle synchronise les données sur plusieurs appareils.
 * Elle détecte les conflits quand un même enregistrement est modifié par deux appareils.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir des [services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation](http://azure.microsoft.com/pricing/details/mobile-services/). Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
 
-Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
+Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier. Examinons d'abord le code lié à la synchronisation hors connexion présent dans le Démarrage rapide.
 
 ## <a name="review-sync"></a>Examen du code de synchronisation de Mobile Services
 
@@ -226,7 +226,7 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 * [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]
 
-* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] \(Remarque : les démonstrations s'appuient sur Windows, mais la présentation de cette fonctionnalité s'applique à toutes les plateformes)
+* [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services] (Remarque : les démonstrations s'appuient sur Windows, mais la présentation de cette fonctionnalité s'applique à toutes les plateformes)
 
 <!-- URLs. -->
 
@@ -270,6 +270,6 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-[didacticiel Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
+[Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

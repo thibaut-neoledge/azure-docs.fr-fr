@@ -30,7 +30,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | Création d’une base de données | Capture d’écran |
 | :--- | :--- |
-| 1. Connectez-vous sur le site [http://portal.azure.com/](http://portal.azure.com/). | ![Nouveau portail Azure][1] |
+| 1. Connectez-vous au site [http://portal.azure.com/](http://portal.azure.com/). | ![Nouveau portail Azure][1] |
 | 2. En bas à gauche de la page, cliquez sur **Nouveau**. | ![Initier un nouveau service][2]|
 | 3. Cliquez sur **Base de données SQL**.| ![Différents services à sélectionner][3] |
 | 4. Un volet **Base de données SQL** s'ouvre. Dans le champ **Nom**, spécifiez un nom de base de données. | ![Nommer la base de données][4] |
@@ -64,4 +64,6 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 [11]: ./media/sql-database-create/resourcegroup.png
 [12]: ./media/sql-database-create/create.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

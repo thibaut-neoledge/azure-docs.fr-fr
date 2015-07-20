@@ -1,4 +1,3 @@
-
 ### Pour effectuer une sauvegarde
 
 1. Dans la page **Démarrage rapide**, cliquez sur **Ajouter une stratégie de sauvegarde**. Cette opération permet de démarrer l’Assistant Ajouter une stratégie de sauvegarde. 
@@ -24,4 +23,4 @@
 
 Vous avez terminé la configuration de l’appareil.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

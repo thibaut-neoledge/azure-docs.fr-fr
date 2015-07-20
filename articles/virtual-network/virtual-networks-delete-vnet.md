@@ -32,4 +32,4 @@ Si vous voulez supprimer un réseau virtuel, vous ne pouvez pas simplement cliqu
 1. **Facultatif** : vous pouvez également choisir de supprimer les paramètres de réseau local, les serveurs DNS et le groupe d’affinités après la suppression de votre réseau virtuel.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

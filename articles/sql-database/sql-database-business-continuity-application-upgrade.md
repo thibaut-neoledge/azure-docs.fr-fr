@@ -29,5 +29,6 @@ Lors de la conception du processus de mise à niveau de l'application, l'objecti
 
 Si l'application peut fonctionner temporairement en lecture seule, le workflow de mise à niveau peut être conçu de façon à éliminer entièrement les interruptions de service. Pour comprendre comment mettre en œuvre le workflow de mise à niveau pour la topologie de votre application spécifique, consultez [Meilleures pratiques pour une interruption minimale de la base de données SQL Azure au cours des mises à niveau de l'application](https://msdn.microsoft.com/library/azure/dn790385.aspx).
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

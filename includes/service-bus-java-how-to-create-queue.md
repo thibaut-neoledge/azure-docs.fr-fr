@@ -56,4 +56,4 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

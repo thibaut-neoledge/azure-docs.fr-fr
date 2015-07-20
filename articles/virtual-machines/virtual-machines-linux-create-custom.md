@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d&#39;une machine virtuelle personnalisée exécutant Linux dans Azure" 
+	pageTitle="Création d'une machine virtuelle personnalisée exécutant Linux dans Azure" 
 	description="Découvrez comment créer une machine virtuelle personnalisée exécutant Linux dans Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -31,6 +31,6 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

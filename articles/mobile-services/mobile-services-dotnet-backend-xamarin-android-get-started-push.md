@@ -20,20 +20,20 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
-Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Xamarin.Android. Dans ce didacticiel, vous allez ajouter des notifications Push au projet [Prise en main de Mobile Services] à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
+Cette rubrique montre comment utiliser Azure Mobile Services pour envoyer des notifications Push à une application Xamarin.Android. Dans ce didacticiel, vous allez ajouter des notifications push au projet [Prise en main de Mobile Services] à l'aide du service Google Cloud Messaging (GCM). Une fois la procédure terminée, votre service mobile envoie une notification Push chaque fois qu'un enregistrement est inséré.
 
 Ce didacticiel vous familiarise avec les étapes de base permettant d'activer les notifications Push :
 
-1. [Activation de Google Cloud Messaging](#register)
-2. [Configuration de Mobile Services](#configure)
-3. [Configuration du projet pour les notifications Push](#configure-app)
-4. [Ajout de code de notifications Push à votre application](#add-push)
-5. [Insertion de données pour recevoir des notifications](#test)
+1. [Activer Google Cloud Messaging](#register)
+2. [Configurer Mobile Services](#configure)
+3. [Configurer le projet pour les notifications push](#configure-app)
+4. [Ajouter le code des notifications push à votre application](#add-push)
+5. [Insérer des données pour recevoir des notifications](#test)
 
 Ce didacticiel requiert les éléments suivants :
 
 + Un compte Google actif.
-+ Le [composant Client Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
++ Le composant client [Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
 
 Les composants [Xamarin.Android] et [Azure Mobile Services][Azure Mobile Services Component] doivent déjà être installés dans votre projet dès la fin du didacticiel [Prise en main de Mobile Services].
 
@@ -53,7 +53,7 @@ Les composants [Xamarin.Android] et [Azure Mobile Services][Azure Mobile Service
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-##<a id="add-push"></a>Ajout de code de notifications Push à votre application
+##<a id="add-push"></a>Ajouter le code des notifications push à votre application
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
 
@@ -71,7 +71,8 @@ Vous pouvez tester l'application en connectant directement un téléphone Androi
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
 
 
-[composant Client Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
+[Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

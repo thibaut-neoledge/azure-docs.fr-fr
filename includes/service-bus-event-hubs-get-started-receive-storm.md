@@ -6,7 +6,7 @@ Pour plus d'informations sur les modèles de réception Event Hubs, consultez la
 
 Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
 
-1. Suivez la procédure [Prise en main de Storm avec HDInsight](../articles/hdinsight-storm-getting-started.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
+1. Suivez la procédure [Prise en main de Storm avec HDInsight](../hdinsight/hdinsight-storm-overview.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 
 2. Copiez le fichier `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dans votre environnement de développement local. Il contient la commande events-storm-spout.
 
@@ -220,9 +220,9 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 	Cette classe crée une commande « spout » Event Hubs en utilisant les propriétés du fichier de configuration pour l'instancier. Il est important de noter que cet exemple crée autant de tâches « spout » que le nombre de partitions dans le hub d'événements, afin d'utiliser le parallélisme maximal autorisé par ce hub d'événements.
 
 <!-- Links -->
-[Vue d'ensemble d'Event Hubs]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Analyse des données de capteur dans HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Vue d'ensemble d'Event Hubs]: event-hubs-overview.md
+[HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[Analyse des données de capteur dans HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 
 <!-- Images -->
 
@@ -230,4 +230,4 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

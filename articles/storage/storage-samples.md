@@ -79,6 +79,6 @@ Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stoc
 ### Ressources relatives à C++
 
 - [Code source de la bibliothèque cliente de stockage C++](https://github.com/Azure/azure-storage-cpp)
-- [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/)
+- [Référence de la bibliothèque cliente C++](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

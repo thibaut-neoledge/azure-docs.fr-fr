@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Intégration du Kit de développement logiciel du module Engagement des applications universelles Windows" 
-	description="Intégration du module Azure Mobile Engagement avec des applications universelles Windows" 
+	description="Intégration du module Azure Mobile Engagement avec des applications universelles Windows" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel du module Engagement des applications universelles Windows
@@ -220,7 +220,7 @@ Nous vous recommandons d'appeler `StartActivity` à l'intérieur de la méthode 
 
 > [AZURE.IMPORTANT]Assurez-vous de terminer votre session correctement.
 > 
-> Le Kit de développement logiciel Windows Universal appelle automatiquement la méthode `EndActivity` quand l'application est fermée. Par conséquent, il est *FORTEMENT* recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne *JAMAIS* appeler la méthode `EndActivity`, étant donné que l'appel de cette méthode entraînerait l'arrêt forcé de l'application en cours.
+> Le Kit de développement logiciel Windows Universal appelle automatiquement la méthode `EndActivity` quand l'application est fermée. Par conséquent, il est **FORTEMENT** recommandé d'appeler la méthode `StartActivity` chaque fois que l'activité de l'utilisateur change et de ne **JAMAIS** appeler la méthode `EndActivity`. Cette dernière envoie au serveur Engagement une notification indiquant que l’utilisateur actuel doit quitter l’application, ce qui aura un impact sur tous les journaux d’application.
 
 ##Génération de rapports avancés
 
@@ -240,7 +240,7 @@ Pour désactiver le signalement automatique des incidents, il vous suffit de per
 
 #### Dans le fichier `EngagementConfiguration.xml`
 
-Affectez `false` au signalement des incidents la valeur entre les balises `<reportCrash>` et `</reportCrash>`.
+Affectez au signalement des incidents la valeur `false` entre les balises `<reportCrash>` et `</reportCrash>`.
 
 #### Dans l'objet `EngagementConfiguration` au moment l'exécution
 
@@ -263,11 +263,12 @@ Pour cela, appelez la méthode :
 
 L'argument est une valeur en **millisecondes**. Si vous souhaitez réactiver la génération de journaux en temps réel, vous pouvez appeler à tout moment la méthode sans aucun paramètre ou avec la valeur 0.
 
-Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s).
+Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte aussi Engagement Monitor. En effet, la durée des sessions et des tâches est arrondie au seuil de rafale (les sessions et les tâches plus courtes que le seuil de rafale ne sont donc pas visibles). Il est recommandé d'utiliser un seuil de rafale inférieur à 30 000 (30 s). Vous devez savoir que les journaux enregistrés sont limités à 300 entrées. Si l'envoi est trop long, vous risquez de perdre certains journaux.
 
 > [AZURE.WARNING]Vous ne pouvez pas configurer un seuil de rafale inférieur à 1 s. Sinon, le SDK affiche une trace avec l'erreur et rétablit automatiquement la valeur par défaut, c'est-à-dire 0 s. Le SDK génère alors les journaux en temps réel.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

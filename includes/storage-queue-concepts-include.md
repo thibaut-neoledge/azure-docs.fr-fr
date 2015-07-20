@@ -24,4 +24,4 @@ L'URL suivante désigne l'une des files d'attente du schéma : http://myaccount
 
 - **Message :** message de tout format, d’une taille maximale de 64 Ko.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

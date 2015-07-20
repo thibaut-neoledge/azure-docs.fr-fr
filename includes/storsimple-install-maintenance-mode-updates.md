@@ -1,4 +1,3 @@
-
 #### Pour installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple
 
 1. Si vous ne l’avez pas déjà fait, accédez à la console série de l’appareil et sélectionnez l’option 1, **Ouvrir une session avec un accès total**. 
@@ -25,4 +24,4 @@
 
 8. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Pour obtenir des instructions, consultez [Quitter le mode Maintenance](#exit-maintenance-mode).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

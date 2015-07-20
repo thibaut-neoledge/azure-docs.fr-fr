@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Mise à l’échelle des points de terminaison des API" 
+	pageTitle="Mise à l’échelle des points de terminaison des API | Microsoft Azure" 
 	description="Mise à l’échelle de points de terminaison de service Web dans Microsoft Azure Machine Learning." 
-	services="machine-learning" 
+	services="machine-learning"
+	documentationCenter="" 
 	authors="hiteshmadan" 
 	manager="padou" 
 	editor=""/>
@@ -12,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/19/2015"
+	ms.date="06/29/2015"
 	ms.author="himad"/>
 
 
@@ -29,7 +30,7 @@ Si vous envisagez d’appeler l’API avec une charge supérieure à ce que le n
 
 N’oubliez pas que l’utilisation d’un nombre très élevé d’accès concurrentiel peut être préjudiciable si vous n’utilisez pas l’API avec un taux tout aussi élevé. Vous pouvez constater des délais d’attente et/ou des pics de latence sporadiques si vous placez une charge relativement faible sur une API configurée pour une charge élevée.
 
-Notez que l’ajustement des paramètres de limitation n’a d’impact que sur le comportement de l’API synchrone. Vous devez ajuster ces paramètres si vous obtenez fréquemment des réponses 503 - Service non disponible sur l’API synchrone.
+Notez que l’ajustement des paramètres de limitation n’a d’impact que sur le comportement de l’API synchrone (RRS). Vous devez ajuster ces paramètres si vous obtenez fréquemment des réponses 503 - Service non disponible sur l’API synchrone.
 
 L’interface utilisateur de gestion permet de basculer le niveau de limitation. Pour avoir un nombre d’accès concurrentiel personnalisé à associer au niveau de limitation élevé, utilisez l’API Patch Endpoint.
 
@@ -44,5 +45,6 @@ L’interface utilisateur de gestion permet de basculer le niveau de limitation.
 - Passez le niveau de limitation à élevé et cliquez sur Enregistrer.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

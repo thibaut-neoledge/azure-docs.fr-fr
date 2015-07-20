@@ -71,7 +71,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	Téléchargez le fichier tiny_graph.txt dans le stockage principal pour votre cluster HDInsight. Pour plus d’informations sur le téléchargement de données, consultez la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md).
 
-	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
+	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge\\_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
 
 	Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données ci-dessus peuvent ressembler à cela :
 
@@ -329,7 +329,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 **Pour exécuter l’application**
 
-Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
+Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Entrez un nom de cluster, puis appuyez sur ENTRÉE pour approvisionner un cluste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

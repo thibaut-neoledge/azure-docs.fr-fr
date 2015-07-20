@@ -338,4 +338,4 @@ Voici le jeu de commandes Azure PowerShell correspondant pour créer cette machi
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

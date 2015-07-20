@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Prise en main d'Azure Storage" 
-	description="" 
+	description="Décrit ce qui s’est produit lors de la création d’un stockage Azure dans un projet ASP.NET 5 Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,19 +13,25 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# Qu'est-il arrivé à mon projet ?
 
 > [AZURE.SELECTOR]
-> - [Mise en route](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Que s'est-il passé](vs-storage-aspnet5-what-happened.md)
+> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
-### <span id="whathappened">Qu'est-il arrivé à mon projet ?</span>
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
+
+###<span id="whathappened">Qu’est-il arrivé à mon projet ?</span>
 
 ##### Références ajoutées
 
-Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio.  
-Ce package ajoute les références .NET suivantes :
+Le package NuGet Azure Storage a été ajouté à votre projet Visual Studio. Ce package ajoute les références .NET suivantes :
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -36,13 +42,12 @@ Ce package ajoute les références .NET suivantes :
 - `System.Data`
 - `System.Spatial`
 
-De plus, le package NuGet nommé **Microsoft.Framework.ConfigurationModel.Json** a été ajouté.
+De plus, le package NuGet nommé **Microsoft.Framework.Configuration.Json** a été ajouté.
 
-##### Chaîne de connexion pour Azure Storage ajoutée 
+#####Chaîne de connexion pour Azure Storage ajoutée 
 Dans le fichier config.json de votre projet, un élément a été créé avec la clé et la chaîne de connexion du compte de stockage sélectionné.
 
-Pour plus d'informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
-
-
-<!--HONumber=42-->
+Pour plus d’informations, consultez la page [ASP.NET 5](http://www.asp.net/vnext).
  
+
+<!---HONumber=July15_HO2-->

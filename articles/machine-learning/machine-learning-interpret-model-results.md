@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Interprétation des résultats de modèle dans Azure Machine Learning | Azure" 
+	pageTitle="Interprétation des résultats de modèle dans Machine Learning | Microsoft Azure" 
 	description="Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation." 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **Compréhension et visualisation de la sortie « Noter le modèle »** Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c'est-à-dire « noté le modèle »), vous avez besoin de comprendre et d'interpréter les résultats de prédiction que vous avez obtenus.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Il existe quatre principaux types de modèles d'apprentissage automatique dans Azure Machine Learning :
 
@@ -307,5 +307,6 @@ Figure 26 : Résultat du service web d'un problème de recommandation de resta
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

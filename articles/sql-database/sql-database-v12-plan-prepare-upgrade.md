@@ -14,17 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/07/2015"
 	ms.author="genemi"/>
 
 
 # Planification et préparation de l’installation de la mise à niveau V12 de la base de données SQL
-
-
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
 
 
 Cette rubrique décrit la planification et la préparation nécessaires pour mettre à niveau vos bases de données SQL Microsoft Azure de la version 11 vers la version 12 ([disponible en version préliminaire dans certaines régions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
@@ -54,9 +48,9 @@ Les sous-sections suivantes décrivent les connaissances nécessaires et les dé
 Ce document concerne la mise à niveau de la base de données SQL Microsoft Azure de la V11 à la V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(ou légèrement supérieure, version 12)*
-
+- 11.0.9228.18 *(V11)*
+ - Parfois, la V11 était également appelée SAWA v2.
 
 ### Planification du niveau de service
 
@@ -156,9 +150,12 @@ Vous pouvez également utiliser SQL Server Management Studio (SSMS) 2014 avec [C
 ### Limitations à prendre en compte *durant* la mise à niveau vers la version 12
 
 
+La base de données V11 est toujours disponible pour l’accès aux données pendant la mise à niveau vers la version 12. Il existe toutefois quelques limitations à prendre en compte.
+
+
 | Limitation | Description |
 | :--- | :--- |
-| Durée de la mise à niveau | La durée de la mise à niveau dépend de la taille, de l’édition et du nombre de bases de données sur le serveur. La mise à niveau peut prendre plusieurs heures ou plusieurs jours, notamment pour les serveurs dont les bases de données présentent les caractéristiques suivantes :<br/><br/>* Taille supérieure à 50  Go, ou <br/>* Un niveau de service autre que Premium<br/><br/>La création de bases de données sur le serveur pendant la mise à niveau peut également augmenter la durée de cette opération. |
+| Durée de la mise à niveau | La durée de la mise à niveau dépend de la taille, de l’édition et du nombre de bases de données sur le serveur. La mise à niveau peut prendre plusieurs heures ou plusieurs jours, notamment pour les serveurs dont les bases de données présentent les caractéristiques suivantes :<br/><br/>* Taille supérieure à 50 Go, ou <br/>* Un niveau de service autre que Premium<br/><br/>La création de bases de données sur le serveur pendant la mise à niveau peut également augmenter la durée de cette opération. |
 | Aucune géo-réplication | La géo-réplication n’est pas prise en charge sur un serveur V12 impliqué dans une mise à niveau à partir de V11. |
 
 
@@ -214,10 +211,10 @@ Le scénario suivant explique qu’une base de données SQL Azure V11 supprimée
 ### Applets de commande PowerShell
 
 
-Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers la version 12 de la base de données SQL Microsoft Azure, à partir d’une version 11 ou antérieure.
+Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers la version 12 de la base de données SQL Microsoft Azure, à partir d’une version 11 ou antérieure.
 
 
-Pour en savoir plus sur ces applets, voir :
+Pour obtenir une documentation de référence sur ces applets de commande Powershell, consultez :
 
 
 - [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
@@ -225,7 +222,7 @@ Pour en savoir plus sur ces applets, voir :
 - [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
 
 
-L’applet de commande Stop- signifie « annuler », et non « interrompre ». Il est impossible de reprendre une mise à niveau autrement qu’en la recommençant depuis le début. L’applet de commande Stop- nettoie et libère toutes les ressources appropriées.
+L’applet de commande Stop- signifie « annuler », et non « interrompre ». Il est impossible de reprendre une mise à niveau en cours. Il faut la recommencer au début. L’applet de commande Stop- nettoie et libère toutes les ressources appropriées.
 
 
 ## Résolution des problèmes
@@ -245,5 +242,6 @@ Si la mise à jour échoue pour une raison quelconque, votre base de données V1
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

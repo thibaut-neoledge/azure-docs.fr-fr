@@ -34,6 +34,7 @@
 | 4. Sélectionnez le serveur à copier sur un nouveau serveur sur lequel la mise à jour de la base de données SQL est activée. | ![Affiche la liste des serveurs SQL][4] |
 | 5. Cliquez sur **Paramètres** ou **Version du serveur** pour effectuer la mise à niveau de votre serveur vers la version 12. | ![Dernière fonctionnalité préliminaire][5] |
 | 6. Cliquez sur **METTRE À NIVEAU LE SERVEUR**. | ![Met à niveau le serveur SQL vers la version préliminaire][6] |
+| 7. Lorsque vous cliquez sur **METTRE À NIVEAU LE SERVEUR**, la mise à niveau commence. Sous **Version du serveur**, la notification **V2** est remplacée par **Mise à niveau planifiée..**. Si vous cliquez sur la notification **Mise à niveau planifiée..**, le bouton **Annuler la mise à niveau** apparaît dans la partie supérieure du volet qui s’ouvre. Cliquez sur **Annuler la mise à niveau** si vous décidez de ne plus effectuer la mise à niveau pour une raison quelconque. Veuillez **noter** que l’opération d’annulation ne fonctionne plus à l’approche de la fin de la mise à niveau et que dans ce cas la mise à niveau est donc terminée.|![Annuler la mise à niveau][9] 
 
 
 > [AZURE.NOTE]Lorsque l’option de mise à niveau est sélectionnée, votre serveur et les bases de données qu’il contient intègrent les fonctionnalités de la version 12 de la base de données SQL. Cette opération est irréversible. Pour mettre à niveau des serveurs vers la version 12 de la base de données SQL, vous avez besoin du niveau de service De base, Standard ou Premium. Pour en savoir plus sur les niveaux de service, consultez [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md).
@@ -90,6 +91,7 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+[9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

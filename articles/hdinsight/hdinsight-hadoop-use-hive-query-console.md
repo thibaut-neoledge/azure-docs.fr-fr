@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Exécution de requêtes Hive à l'aide de la console de requêtes
@@ -34,7 +34,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ##<a id="run"></a> Exécution de requêtes Hive à l'aide de la console de requêtes
 
-1. Ouvrez le <a href="https://manage.windowsazure.com" target="_blank">portail Azure</a> et sélectionnez votre cluster HDInsight. En bas de la page, sélectionnez **Console de requêtes**. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
+1. Ouvrez le [portail Azure](https://manage.windowsazure.com) et sélectionnez votre cluster HDInsight. En bas de la page, sélectionnez **Console de requêtes**. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
 
     > [AZURE.NOTE]Vous pouvez également contacter la Console de requêtes en entrant **https://CLUSTERNAME.azurehdinsight.net** dans votre navigateur.
 
@@ -61,7 +61,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
     * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte.
-    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
 2. Cliquez sur **Envoyer**. La **session de la tâche** située au bas de la page devrait afficher les détails de la tâche.
 
@@ -106,18 +106,18 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

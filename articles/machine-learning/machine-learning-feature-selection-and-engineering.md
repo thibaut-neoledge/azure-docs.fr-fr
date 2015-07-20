@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="L'ingénierie et la sélection de caractéristiques dans Azure Machine Learning | Azure" 
-	description="Cette rubrique explique les finalités de l'ingénierie de caractéristiques et de la sélection de caractéristiques et fournit des exemples de leur rôle dans le processus d'amélioration des données de l'apprentissage automatique." 
+<properties
+	pageTitle="Ingénierie et sélection de caractéristiques dans Azure Machine Learning | Microsoft Azure" 
+	description="Cette rubrique explique les finalités de l'ingénierie de caractéristiques et de la sélection de caractéristiques et fournit des exemples de leur rôle dans le processus d'amélioration des données de l'apprentissage automatique."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/21/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -29,16 +29,16 @@ L'ingénierie et la sélection de caractéristiques augmentent l'efficacité du 
 
 L'ingénierie et la sélection des caractéristiques constituent une partie d'un processus plus vaste, qui se compose généralement de quatre étapes :
 
-* la collection de données 
-* l'amélioration des données 
-* la construction de modèles 
-* le post-traitement 
+* la collection de données
+* l'amélioration des données
+* la construction de modèles
+* le post-traitement
 
 L'ingénierie et la sélection constituent l'étape d'**amélioration des données** de l'apprentissage automatique. Trois aspects de ce processus peuvent être distingués relativement à nos objectifs :
 
 * Le **prétraitement des données** : ce processus tente de s'assurer que les données collectées sont normales et cohérentes. Ce processus inclut des tâches telles que l'intégration de jeux de données multiples, la gestion des données manquantes, la gestion des données inconsistantes et la conversion des types de données.
 * La **conception de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d'augmenter la performance de prédiction de l'algorithme d'apprentissage.
-* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage. 
+* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
 
 Cette rubrique traite uniquement des aspects de l'ingénierie et de la sélection de caractéristiques du processus d'amélioration des données. Pour plus d'informations sur l'étape de prétraitement des données, consultez la vidéo [Prétraitement des données dans Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
@@ -51,7 +51,7 @@ Quelles sont les caractéristiques qui doivent être créées pour améliorer le
 
 En débutant avec Azure Machine Learning, il est plus facile de comprendre correctement le processus avec des exemples fournis dans le Studio. Deux exemples sont présentés ici :
 
-* un exemple de régression [Prédiction du nombre de locations de vélo](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) dans une expérience supervisée, où les valeurs cibles sont connues 
+* un exemple de régression [Prédiction du nombre de locations de vélo](../machine-learning-sample-prediction-of-number-of-bike-rentals.md) dans une expérience supervisée, où les valeurs cibles sont connues
 * un exemple de classification d'exploration de texte utilisant le [hachage de caractéristiques][feature-hashing]
 
 ### Exemple 1 : ajout de caractéristiques temporelles pour le modèle de régression ###
@@ -59,7 +59,7 @@ En débutant avec Azure Machine Learning, il est plus facile de comprendre corre
 Nous allons utiliser l'exemple de « prévision de la demande de vélos » dans Azure Machine Learning Studio afin de démontrer comment concevoir des caractéristiques pour une tâche de régression. L'objectif de cette expérience est de prédire la demande de vélos, autrement dit le nombre de locations de vélo pour un mois/un jour/une heure spécifique. Le « jeu de données de location de vélo UCI »est utilisé en tant que données brutes d'entrée. Le jeu de données se base sur des données réelles de la société Capital Bikeshare qui gère un réseau de location de vélos à Washington DC aux États-Unis. Ce jeu de données représente le nombre de locations de vélo pour une heure spécifique d'un jour en 2011 et en 2012 et contient 17 379 lignes et 17 colonnes. L'ensemble des caractéristiques brutes contient des conditions météorologiques (température/humidité/vitesse du vent) et le type de jour (vacances/jour de semaine). Le champ à prédire est « cnt », un nombre qui représente les locations de vélo pour une heure spécifique et qui est compris entre 1 et 977.
 
 Afin de construire des caractéristiques efficaces dans les données d'apprentissage, quatre modèles de régression sont générés à l'aide du même algorithme, mais avec quatre jeux de données d'apprentissage différents. Les quatre jeux de données représentent les mêmes données d'entrée brutes, mais avec un nombre croissant de jeux de caractéristiques. Ces caractéristiques sont regroupées en quatre catégories :
- 
+
 1. A = caractéristiques météo + vacances + jour de semaine + week-end pour le jour prévu
 2. B = nombre de vélos loués au cours de chacune des 12 dernières heures
 3. C = nombre de vélos loués au cours de chacun des 12 derniers jours à la même heure
@@ -83,8 +83,8 @@ Pour effectuer cette tâche, une technique appelée **hachage de caractéristiqu
 
 Dans Azure Machine Learning, il existe un module de [hachage de caractéristiques][feature-hashing] qui crée en toute facilité ces caractéristiques de mot ou expression. La figure suivante montre un exemple d'utilisation de ce module. Le jeu de données d'entrée contient deux colonnes : l'évaluation du livre allant de 1 à 5 et le contenu même de la critique. L'objectif de ce module de [hachage de caractéristiques][feature-hashing] est de récupérer un ensemble de nouvelles caractéristiques qui montrent la fréquence d'occurrence des mots ou expressions correspondants dans cette critique de livre en particulier. Pour utiliser ce module, il est nécessaire d'effectuer les étapes suivantes :
 
-* Tout d'abord, sélectionnez la colonne qui contient le texte d'entrée (« Col2 » pour cet exemple). 
-* Ensuite, définissez le « nombre de bits de hachage » sur 8, ce qui signifie que 2 ^ 8 = 256 caractéristiques seront créées. Le mot ou l'expression sera haché en 256 index dans tout le texte. Le paramètre « hachage du nombre de bits » est compris entre 1 et 31. Les mots ou les phrases sont moins susceptibles d'être hachés dans le même index s'ils sont définis sur un nombre plus grand. 
+* Tout d'abord, sélectionnez la colonne qui contient le texte d'entrée (« Col2 » pour cet exemple).
+* Ensuite, définissez le « nombre de bits de hachage » sur 8, ce qui signifie que 2 ^ 8 = 256 caractéristiques seront créées. Le mot ou l'expression sera haché en 256 index dans tout le texte. Le paramètre « hachage du nombre de bits » est compris entre 1 et 31. Les mots ou les phrases sont moins susceptibles d'être hachés dans le même index s'ils sont définis sur un nombre plus grand.
 * Enfin, définissez le paramètre « N-grammes » sur 2. Celui-ci permet d'obtenir la fréquence d'occurrence d'unigrammes (une caractéristique pour chaque mot) et de bigrammes (une caractéristique pour chaque paire de mots juxtaposés) à partir du texte d'entrée. Le paramètre « N-grammes » est compris entre 0 et 10, ce qui indique le nombre maximum de mots séquentiels à inclure dans une caractéristique.  
 
 ![Module « hachage de caractéristiques »](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
@@ -97,15 +97,15 @@ La figure suivante montre à quoi ressemblent ces nouvelles caractéristiques.
 
 La sélection de caractéristiques est un processus qui s'applique en général à la construction de jeux de données d'apprentissage pour les tâches de modélisation prédictives telles que les tâches de classification ou de régression. L'objectif est de sélectionner un sous-ensemble des caractéristiques du jeu de données d'origine qui réduit ses dimensions à l'aide d'un ensemble minimal de caractéristiques pour représenter l'écart de quantité maximum dans les données. Les caractéristiques de ce sous-ensemble sont les seules caractéristiques à inclure à l'apprentissage du modèle. La sélection de caractéristiques a deux principaux objectifs.
 
-* Tout d'abord, la sélection des caractéristiques augmente souvent la précision de classification en éliminant les caractéristiques non pertinentes, redondantes ou fortement liées. 
-* De plus, il réduit le nombre de caractéristiques qui rendent le processus d'apprentissage du modèle plus efficace. Cela est particulièrement important pour les apprenants dont l'apprentissage est coûteux tels que les machines à vecteurs de support. 
+* Tout d'abord, la sélection des caractéristiques augmente souvent la précision de classification en éliminant les caractéristiques non pertinentes, redondantes ou fortement liées.
+* De plus, il réduit le nombre de caractéristiques qui rendent le processus d'apprentissage du modèle plus efficace. Cela est particulièrement important pour les apprenants dont l'apprentissage est coûteux tels que les machines à vecteurs de support.
 
 Bien que la sélection des caractéristiques ait pour objet de réduire le nombre de caractéristiques dans le jeu de données utilisé pour l'apprentissage du modèle, celle-ci ne correspond généralement pas au terme de « réduction de la dimensionnalité ». Les méthodes de sélection de caractéristiques extraient un sous-ensemble des caractéristiques d'origine dans les données sans les modifier. Les méthodes de réduction de la dimensionnalité utilisent l'ingénierie des caractéristiques qui peuvent transformer les caractéristiques d'origine et donc les modifier. Parmi les exemples de méthodes de réduction de la dimensionnalité, on peut noter l'analyse du composant principal, l'analyse canonique des corrélations et la décomposition en valeurs uniques.
 
 Notamment, l'une des méthodes de sélection de caractéristiques de catégorie largement appliquée dans un contexte supervisé est appelée « sélection de caractéristiques basée sur les filtres ». En évaluant la corrélation entre chaque caractéristique et l'attribut cible, ces méthodes appliquent une mesure statistique pour attribuer un score à chaque caractéristique. Les caractéristiques sont ensuite classées suivant le score qui peut être utilisé pour aider à définir le seuil de conservation ou d'élimination d'une caractéristique spécifique. Parmi les exemples de mesures statistiques utilisées dans ces méthodes, on peut noter la corrélation de Pearson, des informations mutuelles et le test de la loi du Khi-deux.
 
 Dans Azure Machine Learning Studio, des modules sont fournis pour la sélection des caractéristiques. Comme indiqué dans la figure suivante, ces modules comprennent une [sélection de caractéristiques basée sur les filtres][filter-based-feature-selection] et une [analyse discriminante linéaire de Fisher][fisher-linear-discriminant-analysis].
- 
+
 ![Exemple de sélection de caractéristiques](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 
@@ -133,5 +133,6 @@ Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caracté
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

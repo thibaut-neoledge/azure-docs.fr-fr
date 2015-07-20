@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Informations de configuration de la batterie de serveurs SharePoint" 
+	pageTitle="" 
 	description="Décrit la configuration par défaut des batteries de serveurs SharePoint" 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 
-# Informations de configuration de la batterie de serveurs SharePoint
+# 
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Microsoft Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Deux configurations de batterie sont disponibles :
 
@@ -41,7 +41,7 @@ Voici les informations de configuration :
 -	Compte de stockage : défini lors de la configuration initiale.
 -	Réseau virtuel 	
 	-   Type : cloud uniquement	
-    -	Espace d’adressage : 192.168.16.0/26    
+    -	Espace d’adressage : 10.0.0.0/26    
 
 - Machines virtuelles
 	-	*HostNamePrefix*-DC (contrôleur de domaine AD DS)
@@ -56,20 +56,20 @@ Voici les informations de configuration :
 	-	Nom de compte administrateur de domaine : défini lors de la configuration initiale.
 	-	Mot de passe de compte administrateur de domaine : défini lors de la configuration initiale.
 
-- SQL Server
+- 
 	-	Image de machine virtuelle : SQL Server 2014 RTM Enterprise sur Windows Server 2012 R2.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
 	-	Taille : A5 (par défaut).
 	-	Nom de compte d’accès à la base de données : défini lors de la configuration initiale.
 	-	Mot de passe de compte d’accès à la base de données : défini lors de la configuration initiale.
-	-	Nom de compte de service SQL Server : défini lors de la configuration initiale.
+	-	Nom du compte du service SQL Server : sqlservice (par défaut)
 	-	Mot de passe de compte de service SQL Server : défini lors de la configuration initiale.
 
 - Serveur SharePoint
 	-	Image de machine virtuelle : version d’évaluation de SharePoint Server 2013.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
 	-	Taille : A2 (par défaut).
-	-	Nom de compte de batterie de serveurs SharePoint : défini lors de la configuration initiale.
+	-	Nom du compte de la batterie de serveurs SharePoint : sp_farm (par défaut)
 	-	Mot de passe de compte de batterie de serveurs SharePoint : défini lors de la configuration initiale.
 	-	Phrase secrète de batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
@@ -87,7 +87,7 @@ Voici les informations de configuration :
 -	Compte de stockage : défini lors de la configuration initiale.
 -	Réseau virtuel	
 	-	Type : cloud uniquement
-	-	Espace d’adressage : 192.168.16.0/26	
+	-	Espace d’adressage : 10.0.0.0/26	
 
 -	Machines virtuelles
 	-	*HostNamePrefix*-DC1 (contrôleur de domaine AD DS)
@@ -111,29 +111,33 @@ Voici les informations de configuration :
 -	Serveurs SQL
 	-	Image de machine virtuelle : SQL Server 2014 RTM Enterprise sur Windows Server 2012 R2.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
-	-	Taille : A5 (par défaut).
+	-	Taille : A5 (par défaut) pour les serveurs SQL, A0 (par défaut) pour le témoin de partage de fichiers
 	-	Nom de compte d’accès à la base de données : défini lors de la configuration initiale.
 	-	Mot de passe de compte d’accès à la base de données : défini lors de la configuration initiale.
-	-	Nom de compte de service SQL Server : défini lors de la configuration initiale.
+	-	Nom du compte du service SQL Server : sqlservice (par défaut)
 	-	Mot de passe de compte de service SQL Server : défini lors de la configuration initiale.
 
 -	Serveurs SharePoint
 	-	Image de machine virtuelle : version d’évaluation de SharePoint Server 2013.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
 	-	Taille : A2 (par défaut).
-	-	Nom de compte de batterie de serveurs SharePoint : défini lors de la configuration initiale.
-	-	Mot de passe de compte de batterie de serveurs SharePoint : défini lors de la configuration initiale.		
+	-	Nom du compte de la batterie de serveurs SharePoint : sp_farm (par défaut)
+	-	Mot de passe de compte de batterie de serveurs SharePoint : défini lors de la configuration initiale.	
 	-	Phrase secrète de batterie de serveurs SharePoint : défini lors de la configuration initiale.
 
 > [AZURE.NOTE]Les serveurs SharePoint sont créés à partir de l’image de la version d’évaluation de SharePoint Server 2013. Pour continuer à utiliser la machine virtuelle après l’arrivée à expiration de la version d’évaluation, vous devez convertir l’installation afin qu’elle utilise une clé de produit commercialisé ou une clé de produit de licence en volume pour les éditions Standard ou Enterprise de SharePoint Server 2013.
 
+## Azure Resource Manager
+
+La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version préliminaire crée des machines virtuelles dans la gestion des services. Pour créer des batteries de serveurs SharePoint Server 2013 dans Resource Manager, consultez la page [Déployer des batteries de serveurs SharePoint avec des modèles Azure Resource Manager](virtual-machines-workload-template-sharepoint.md).
+
 ## Ressources supplémentaires
 
-[Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
+
 
 [SharePoint Server sur les services d’infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

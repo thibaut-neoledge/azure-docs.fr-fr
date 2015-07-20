@@ -13,32 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##Vue d'ensemble
 
 Ce didacticiel vous guide tout au long des étapes de création d'un **canal** qui reçoit un flux continu à vitesse de transmission unique et qui l'encode en flux à vitesses de transmission multiples.
 
->[AZURE.NOTE]Pour plus d'informations sur les concepts relatifs aux canaux prenant en charge l'encodage en temps réel, consultez [Utilisation de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Pour plus d’informations sur les concepts relatifs aux canaux prenant en charge l’encodage en temps réel, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
 
-##Scénario courant de vidéo en flux continu
+>[AZURE.NOTE]Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
+
+##Scénario courant de diffusion dynamique en continu
 
 Les étapes suivantes décrivent les tâches impliquées dans la création d'applications courantes de vidéo en flux continu.
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur en temps réel local capable de générer un flux à vitesse de transmission unique dans l'un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d'informations, consultez [Prise en charge de RTMP et encodeurs en temps réel dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Cette étape peut également être effectuée après la création du canal.
 
 1. Créez et démarrez un canal.
 
-1. Récupérez l'URL de réception du canal.
+1. Récupérez l’URL de réception du canal.
 
-	L'URL de réception est utilisée par l'encodeur dynamique pour envoyer le flux au canal.
-1. Récupérez l'URL d'aperçu du canal. 
+	L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
+1. Récupérez l’URL d’aperçu du canal. 
 
 	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
@@ -52,9 +59,9 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d'app
 1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.  
 
 	Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l'archivage.
-2. Un signal peut éventuellement être envoyé à l'encodeur en temps réel pour qu'il démarre une publicité. La publicité est insérée dans le flux de sortie.
-1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l'événement.
+1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 1. Supprimez le programme (et éventuellement l'élément multimédia).   
 
 ##Dans cette rubrique
@@ -75,7 +82,7 @@ La rubrique montre comment effectuer les opérations suivantes :
 ##Configuration requise
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-- Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
+- Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
 - Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
 - Visual Studio 2010 SP1 ou version ultérieure.
 - Une webcam et un encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
@@ -491,5 +498,7 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 	
 ##Rubriques connexes
 
-[Utilisation de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md) <!--HONumber=52-->
+[Utilisation de canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

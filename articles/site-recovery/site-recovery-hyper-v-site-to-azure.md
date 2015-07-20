@@ -61,11 +61,7 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Vous devez exécuter la dernière version de ce fournisseur et de cet agent.
 - Tous les serveurs Hyper-V d’un coffre doivent présenter la même version.
 - Le fournisseur devra se connecter à Microsoft Azure Site Recovery via Internet. Vous pouvez décider d’effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur VMM, ou via les paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Pour utiliser un serveur proxy existant, vérifiez que les URL de connexion à Microsoft Azure sont autorisées à traverser le pare-feu :
-	- *.hypervrecoverymanager.windowsazure.com 
-	- *.accesscontrol.windows.net
-	- *..backup.windowsazure.com 
-	- *.blob.core.windows.net
-	- *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
 - Pour utiliser un proxy personnalisé, configurez le serveur proxy avant l’installation du fournisseur. Lors de la configuration du fournisseur, vous devez indiquer l’adresse et le port du serveur proxy et saisir les informations d’identification utilisées pour l’accès.
 
 L'illustration ci-dessous montre les différents canaux et ports de communication utilisés par Azure Site Recovery pour l'orchestration et la réplication.
@@ -143,11 +139,7 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 	- Si le proxy par défaut se trouvant sur le serveur Hyper-V nécessite une authentification, vous devez opter pour l’utilisation d’un serveur proxy personnalisé. Saisissez les informations de proxy par défaut et spécifiez les informations d’identification.
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur. 
 	- Les URL suivantes doivent être accessibles à partir de l'hôte Hyper-V.
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net
 	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 9. Sur la page **Paramètres du coffre**, cliquez sur **Parcourir** pour sélectionner le fichier de clé. Spécifiez l’abonnement Azure Site Recovery, le nom du coffre et le site Hyper-V auquel appartient le serveur Hyper-V.
@@ -165,15 +157,15 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 
 Remarque : si vous souhaitez installer le fournisseur sur Server Core pour Windows Server 2012 R2 ou la version autonome du logiciel Hyper-V Server 2012 R2, procédez comme décrit ci-après.
 
-1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée.
+1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée vers un dossier, par exemple C:\\ASR.
 2. Extrayez le programme d’installation du fournisseur en saisissant la chaîne suivante :
 
-	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
-	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\ASR
+	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. Installez le fournisseur en tapant la chaîne suivante :
 
-	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+	    C:\ASR> setupdr.exe /i
 
 4. Enregistrez le serveur en tapant la chaîne suivante :
 
@@ -187,12 +179,14 @@ Remarque : si vous souhaitez installer le fournisseur sur Server Core pour Win
 		- /proxyUsername <username> : informations d’identification fournies si le proxy requiert une authentification.
 		- proxyPassword <password>
 
+>[AZURE.NOTE]Vous pouvez configurer chacun des hôtes Hyper-V individuellement afin d’utiliser des paramètres de bande passante réseau différents pour répliquer les machines virtuelles vers Azure. En savoir plus sur la [Gestion de l’utilisation de la bande passante réseau de protection d’un serveur local vers Azure](https://support.microsoft.com/fr-fr/kb/3056159)
+
+
 ## Étape 4 : Créer des ressources Microsoft Azure
 
 1. Dans la zone **Préparer des ressources**, sélectionnez l’option **Créer un compte de stockage** pour créer un compte Microsoft Azure Storage, si nécessaire. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le coffre Microsoft Azure Site Recovery et être associé au même abonnement.
 
 	![Créez un compte de stockage](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
-
 
 ## Étape 5 : Créer et configurer des groupes de protection
 
@@ -212,6 +206,7 @@ Les groupes de protection sont des regroupements logiques incluant les machines 
 
 
 ## Étape 6 : Activer la protection des machines virtuelles
+
 
 Ajoutez des machines virtuelles à un groupe de protection pour activer leur protection.
 
@@ -250,7 +245,7 @@ Ajoutez des machines virtuelles à un groupe de protection pour activer leur pro
 		- **Adresse IP cible** : si la carte réseau de la machine virtuelle source est configurée pour utiliser une adresse IP statique, vous pouvez indiquer l’adresse IP de la machine virtuelle cible, afin de vérifier que la machine présente la même adresse IP après le basculement. Si vous n’en indiquez aucune, n’importe quelle adresse disponible sera affectée lors du basculement. Si vous spécifiez une adresse en cours d’utilisation, le basculement échoue.
 		 
 		![Configurer les propriétés des machines virtuelles](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
-	
+
 ## Étape 7 : créer un plan de récupération
 
 Pour tester le déploiement, vous pouvez exécuter un basculement de test pour une seule machine virtuelle ou un plan de récupération qui contient une ou plusieurs machines virtuelles. Pour créer un plan de récupération, [suivez ces instructions](site-recovery-create-recovery-plans.md)
@@ -301,4 +296,4 @@ Pour exécuter le test de basculement, procédez comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

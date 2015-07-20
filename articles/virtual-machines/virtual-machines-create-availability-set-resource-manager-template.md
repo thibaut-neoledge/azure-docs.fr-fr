@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Création d’un groupe à haute disponibilité à l’aide de modèles d’Azure Resource Manager" 
-	description="Explique comment utiliser le modèle du groupe à haute disponibilité et présente la syntaxe du modèle" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Création d’un groupe à haute disponibilité à l’aide de modèles d’Azure Resource Manager"
+	description="Explique comment utiliser le modèle du groupe à haute disponibilité et présente la syntaxe du modèle"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/04/2015"
 	ms.author="kathydav"/>
 
 # Création d’un groupe à haute disponibilité à l’aide de modèles d’Azure Resource Manager
 
 Vous pouvez facilement créer un groupe à haute disponibilité pour une machine virtuelle à l’aide de Microsoft Azure PowerShell ou de l’interface de ligne de commande Microsoft Azure et d’un modèle Microsoft Azure Manager. Ce modèle crée un groupe à haute disponibilité.
- 
-Avant d’aller plus loin, veuillez vérifier que Microsoft Azure PowerShell et l’interface de ligne de commande Microsoft Azure sont configurés et opérationnels.
+
+Avant de commencer, vérifiez qu’Azure PowerShell et Azure CLI sont configurés et prêts à l’emploi.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -33,7 +33,7 @@ Procédez comme suit pour créer un groupe à haute disponibilité pour une mach
 
 ### Étape 1 : téléchargement du fichier JSON
 
-Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\Azure\\Templates\\availability).
+Définissez un dossier local comme emplacement pour les fichiers du modèle JSON puis créez-le (par exemple, C:\\Azure\\Templates\\availability).
 
 Remplacez le nom du dossier, puis copiez et exécutez ces commandes.
 
@@ -41,14 +41,14 @@ Remplacez le nom du dossier, puis copiez et exécutez ces commandes.
 	$webclient = New-Object System.Net.WebClient
 	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath) 
+	$webclient.DownloadFile($url,$filePath)
 
 ### Étape 2 : Collecter les détails des paramètres requis
 
-Lorsque vous utilisez un modèle, vous devez communiquer des détails comme l’emplacement, le nom de définition, etc. Pour connaître les paramètres requis pour un modèle, effectuez l’une des opérations suivantes :
+Lorsque vous utilisez un modèle, vous devez renseigner des détails tels que l’emplacement et le nom du groupe. Pour connaître les paramètres requis pour un modèle, effectuez l’une des opérations suivantes :
 
 - Examinez [ici](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/) la liste des paramètres.
-- Ouvrez le fichier JSON dans un outil ou un éditeur de texte de votre choix. Recherchez la section "parameters" située en haut du fichier, qui répertorie l’ensemble des paramètres requis par le modèle pour configurer la machine virtuelle. 
+- Ouvrez le fichier JSON dans un outil ou un éditeur de texte de votre choix. Recherchez la section "parameters" située en haut du fichier, qui répertorie l’ensemble des paramètres requis par le modèle pour configurer la machine virtuelle.
 
 Collectez les informations à saisir. Lorsque vous exécutez la commande de déploiement du modèle, vous serez invité à saisir les informations.
 
@@ -63,7 +63,7 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacem
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -103,10 +103,4 @@ Procédez comme suit pour créer le groupe à haute disponibilité en utilisant 
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

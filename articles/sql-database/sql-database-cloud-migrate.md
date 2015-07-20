@@ -78,4 +78,7 @@ Vous devez utiliser la dernière version des outils de base de données SQL Serv
 | Outil pris en charge par Microsoft. | Outil communautaire pris en charge téléchargé à partir de CodePlex. | Outils pris en charge par Microsoft avec utilisation facultative de l'outil communautaire pris en charge téléchargé à partir de CodePlex. |
 | Processus simple en une ou deux étapes configuré facilement. | La transformation de schéma, la génération et le déploiement dans le cloud sont orchestrés à partir d'un assistant unique facile à utiliser. | Processus en plusieurs étapes plus complexe (plus simple en cas de déploiement du schéma uniquement). |
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,24 +1,17 @@
-<properties 
-   pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde"
-   description="Explique comment utiliser le catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
+<properties pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde
 
 ## Vue d'ensemble
 
-La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page afin de répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes ou utiliser une sauvegarde pour restaurer ou cloner un volume.
+La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
  ![Page Catalogue de sauvegarde](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
@@ -79,5 +72,6 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer l’appa
 
 ## Étapes suivantes
 
-Découvrez comment [gérer des volumes StorSimple](storsimple-manage-volumes.md).<!--HONumber=52-->
- 
+En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
+
+<!---HONumber=July15_HO2-->

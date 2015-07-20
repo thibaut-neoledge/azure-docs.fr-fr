@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Nouveautés de la dernière mise à jour d’Azure Search#
@@ -86,9 +86,9 @@ Lisez le billet de blog [Azure Search est désormais mis à la disposition gén
 
 Cette version était la version préliminaire publique d’Azure Search et fournissait les fonctionnalités principales suivantes :
 
-- API REST pour les opérations d’indexation et de documentation. La majeure partie de cette version d’API est toujours intacte dans 2015-02-28. La documentation de la version `2014-07-31-Preview` se trouve dans [API REST du service Azure Search : version 2014-07-31](../search-api-2014-07-31-preview.md).
+- API REST pour les opérations d’indexation et de documentation. La majeure partie de cette version d’API est toujours intacte dans 2015-02-28. La documentation de la version `2014-07-31-Preview` se trouve dans [API REST du service Azure Search : version 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Profils de score pour l’optimisation des résultats de recherche. Un profil de score intègre les critères utilisés pour traiter les résultats de la recherche. La documentation relative à cette fonctionnalité se trouve dans [API REST de profils de score du service Azure Search : version 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md).
+- Profils de score pour l’optimisation des résultats de recherche. Un profil de score intègre les critères utilisés pour traiter les résultats de la recherche. La documentation relative à cette fonctionnalité se trouve dans [API REST de profils de score du service Azure Search : version 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - La prise en charge géospatiale a toujours été disponible par le biais du type de données `Edm.GeographyPoint` faisant partie d’Azure Search depuis le début.
 
@@ -102,8 +102,9 @@ L’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx
 ##Version d’API de gestion 2014-07-31-Preview
 **Publié : octobre 2014**
 
-L’ajout de la version préliminaire de l’[API REST de gestion](../search-management-api-2014-07-31-preview.md) permet de prendre en charge l’administration du service par programme. Cette version est contrôlée indépendamment de l’API REST du service.
+L’ajout de la version préliminaire de l’[API REST de gestion](search-management-api-2014-07-31-preview.md) permet de prendre en charge l’administration du service par programme. Cette version est contrôlée indépendamment de l’API REST du service.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

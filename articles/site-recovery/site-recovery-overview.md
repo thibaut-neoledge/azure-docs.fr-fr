@@ -181,4 +181,4 @@ Ce tableau récapitule les principales fonctionnalités du logiciel Site Recove
 Une fois que vous avez fini de consulter cette présentation, [lisez les meilleures pratiques](site-recovery-best-practices.md) pour vous aider à prendre en main la planification du déploiement.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,5 @@
+
+
 Les machines virtuelles doivent toujours se trouver dans un service cloud, qui fait office de conteneur et fournit un nom DNS public unique, une adresse IP publique et un ensemble de points de terminaison pour accéder à la machine virtuelle via Internet. Le service cloud peut éventuellement se trouver dans un réseau virtuel.
 
 Si un service cloud n’est pas dans un réseau virtuel, il est nommé « service cloud *autonome* ». Les machines virtuelles de ce service cloud peuvent seulement communiquer avec d’autres machines virtuelles à l’aide des noms DNS publics de ces dernières, et ce trafic circule sur Internet. Si un service cloud se trouve dans un réseau virtuel, les machines virtuelles de ce service cloud peuvent communiquer avec toutes les autres machines virtuelles du réseau virtuel sans envoyer aucun trafic sur Internet.
@@ -48,4 +50,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 [Attachement d'un disque de données à une machine virtuelle Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

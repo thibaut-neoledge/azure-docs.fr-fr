@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # Configuration d’un environnement de cloud hybride pour le test
@@ -325,4 +326,4 @@ Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez le
 Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et attendez que le réseau virtuel TestVNET affiche un état connecté.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  Configuration d’une connexion ExpressRoute via un fournisseur de services réseau
@@ -89,7 +89,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **Demandez une clé de service et communiquez-la au fournisseur Exchange.**
+3. **Demandez une clé de service et communiquez-la au fournisseur de services réseau.**
 
 	Vous utiliserez une cmdlet PowerShell pour effectuer cette demande. Pour cet exemple, nous utiliserons AT&T Netbond comme fournisseur de services et spécifierons un circuit ExpressRoute de 50 Mbit/s dans la Silicon Valley. Si vous utilisez un autre fournisseur et différents paramètres, remplacez ces informations lors de la création de votre requête.
 
@@ -150,4 +150,4 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

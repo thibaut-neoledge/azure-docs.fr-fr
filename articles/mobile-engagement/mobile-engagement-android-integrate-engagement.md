@@ -32,7 +32,7 @@ Les étapes suivantes suffisent à activer la création de journaux nécessaires
 
 ##Intégrer le SDK et le service Engagement à un projet Android
 
-Récupérez `mobile-engagement-VERSION.jar` et placez-les dans le dossier `libs` de votre projet Android (créez le dossier de la bibliothèque si celui-ci n'existe pas).
+Téléchargez le SDK Android à partir d’[ici](http://go.microsoft.com/?linkid=9863935&clcid=0x409) Récupérez `mobile-engagement-VERSION.jar` et placez-les dans le dossier `libs` de votre projet Android (créez le dossier de la bibliothèque si celui-ci n'existe pas).
 
 > [AZURE.IMPORTANT]Si vous générez votre package d'application avec ProGuard, vous devez conserver certaines classes. Vous pouvez utiliser l'extrait de configuration suivant :
 >
@@ -165,7 +165,7 @@ Cet exemple est très similaire à la classe `EngagementActivity` et à ses vari
 
 ##Test
 
-Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégration d'Engagement sur Android ».
+Maintenant, vérifiez votre intégration en exécutant votre application mobile dans un émulateur ou sur un appareil et en vérifiant qu'elle inscrit une session sur l'onglet Surveiller.
 
 Les sections suivantes sont facultatives.
 
@@ -309,5 +309,6 @@ Vous pouvez ensuite ajouter un `CheckBoxPreference` dans votre disposition préf
 
 <!-- URLs. -->
 [API de l'appareil]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

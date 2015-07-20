@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Comment utiliser l'API Engagement sur Windows Universal
@@ -34,7 +34,7 @@ Les sections qui suivent affinent les [concepts Mobile Engagement](../mobile-en
 
 ### `Session` et `Activity`
 
-Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel (SDK) Engagement est intégré à l'aide de la classe `EngagementPage`.
+Une *activité* est généralement associée à une page de l'application, c'est-à-dire que l'*activité* démarre lorsque la page est affichée et s'arrête lorsque la page est fermée : c'est le cas lorsque le Kit de développement logiciel Engagement est intégré à l'aide de la classe `EngagementPage`.
 
 Mais les *activités* peuvent également être contrôlées manuellement à l'aide de l'API Engagement. Cela permet de diviser une page donnée en plusieurs sous-parties, afin d'obtenir davantage de détails sur l'utilisation de cette page (par exemple pour connaître la fréquence et la durée pendant laquelle les boîtes de dialogue sont utilisées à l'intérieur de cette page).
 
@@ -48,7 +48,7 @@ Mais les *activités* peuvent également être contrôlées manuellement à l'ai
 
 Vous devez appeler `StartActivity()` chaque fois que l'activité utilisateur change. Le premier appel à cette fonction démarre une nouvelle session utilisateur.
 
-> [AZURE.IMPORTANT]Le Kit de développement logiciel (SDK) appelle automatiquement la méthode EndActivity quand l'application est fermée. Par conséquent, il est FORTEMENT recommandé d'appeler la méthode StartActivity chaque fois que l'activité de l'utilisateur change et de ne JAMAIS appeler la méthode EndActivity, celle-ci forçant la fin de la session active.
+> [AZURE.IMPORTANT]Le Kit de développement logiciel appelle automatiquement la méthode EndActivity lorsque l'application est fermée. Par conséquent, il est FORTEMENT recommandé d'appeler la méthode StartActivity chaque fois que l'activité de l'utilisateur change et de ne JAMAIS appeler la méthode EndActivity, celle-ci forçant la fin de la session active.
 
 #### Exemple
 
@@ -353,10 +353,11 @@ Cela signifie que les clés doivent commencer par au moins une lettre, suivie de
 
 #### Taille
 
-Les informations sur l'application sont limitées à **1 024** caractères par appel.
+Les informations de l'application sont limitées à **1 024** caractères par appel.
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
 			{"birthdate":"1983-12-07","gender":"female"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

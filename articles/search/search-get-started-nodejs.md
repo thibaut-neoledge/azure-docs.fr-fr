@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prise en main d'Azure Search dans NodeJS" 
-	description="Guide de création d'une application Azure Search personnalisée, avec NodeJS comme langage de programmation." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Prise en main d'Azure Search dans NodeJS"
+	description="Guide de création d'une application Azure Search personnalisée, avec NodeJS comme langage de programmation."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Prise en main d'Azure Search dans NodeJS#
@@ -32,31 +32,31 @@ Cet exemple d'application utilise des données de l’[USGS (United States Geolo
 
 Dans cette application, le programme **DataIndexer** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré à partir d'une base de données SQL Azure publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
-> [AZURE.NOTE]Nous avons filtré ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE]Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Créer le service##
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
- 
+
      ![][1]
 
-3. Configurez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
+3. Définissez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
 
      ![][2]
 
-	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Pour plus d'informations sur les conventions de dénomination, consultez la section [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) . 
-	
+	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour plus d'informations sur les conventions d'affectation des noms.
+
 	- Le **niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
-	
-		- La **version gratuite** s'exécute sur les clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
-		- La version **standard** s’exécute sur des ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
-	
+
+		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
+		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
+
 	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
-	
+
 	- L’**abonnement** vous permet de choisir votre abonnement, si vous en avez plusieurs.
-	
+
 	- L’**emplacement** correspond à la zone géographique du centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition de ressources entre plusieurs centres de données n'est pas prise en charge.
 
 4. Cliquez sur **Créer** pour approvisionner le service.
@@ -68,9 +68,9 @@ Surveillez les notifications dans la barre de lancement. Une notification s'affi
 
 Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL et la `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
-1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service. 
+1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service.
 
-2. Le tableau de bord du service affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés d’administration.
+2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
 
   	![][3]
 
@@ -112,7 +112,7 @@ Exécutez les commandes suivantes dans une fenêtre PowerShell :
 
 ##Générer l’index et exécuter l'application
 
-1. Saisissez `npm run indexDocuments`. 
+1. Saisissez `npm run indexDocuments`.
 2. Saisissez `npm run build`.
 3. Saisissez `npm run start_server`.
 4. Dans votre navigateur, accédez à `http://localhost:8080/index.html`.
@@ -146,4 +146,6 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

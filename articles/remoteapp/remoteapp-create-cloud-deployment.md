@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
-# Création d'une collection cloud de RemoteApp
+# Création d'une collection cloud d’Azure RemoteApp
 
-Il existe deux types de collection RemoteApp :
+Il existe deux types de collection Azure RemoteApp :
 
 - Cloud : réside complètement dans Azure et est créé à l'aide de l'option **Création rapide** du portail de gestion Azure.  
-- Hybride : comprend un réseau virtuel pour un accès local et est créé à l'aide de l'option **Créer avec VPN** du portail de gestion.
+- Hybride : comprend un réseau virtuel pour un accès local et est créé à l'aide de l'option **Créer avec VNET** du portail de gestion.
 
 Ce didacticiel vous guide dans la procédure de création d'une collection cloud. Il se compose de quatre étapes :
 
@@ -91,5 +91,6 @@ Maintenant que vous avez créé votre collection RemoteApp, vous devez ajouter l
 
 Félicitations ! Vous avez créé et déployé correctement votre collection cloud RemoteApp. L'étape suivante consistera à faire en sorte que vos utilisateurs téléchargent et installent le client Bureau à distance. L'URL du client est disponible sur la page Démarrage rapide de RemoteApp. Les utilisateurs peuvent à présent se connecter au client et accéder aux applications que vous avez publiées.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

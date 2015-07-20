@@ -116,7 +116,7 @@ Un modèle d'ordinateur virtuel définit les paramètres qui seront utilisés pa
  
 13. Dans **Image Family or Id** (Famille d'images ou ID), vous devez spécifier l'image système qui sera installée sur votre ordinateur virtuel. Vous pouvez faire votre choix dans une liste de familles d'images ou spécifier une image personnalisée.
 
-	Si vous souhaitez faire votre choix dans une liste de familles d'images, entrez le premier caractère (respectez la casse) du nom de famille de l'image. Par exemple, le fait de taper **U** affichera une liste des familles de serveurs Ubuntu. Une fois que vous avez fait votre choix dans la liste, Jenkins utilisera la version la plus récente de cette image système de cette famille lors de la mise en service de votre ordinateur virtuel.
+	Si vous souhaitez faire votre choix dans une liste de familles d'images, entrez le premier caractère (respectez la casse) du nom de famille de l'image. Par exemple, le fait de taper **U** affichera une liste des familles de serveurs Ubuntu. Une fois que vous avez fait votre choix dans la liste, Hudson utilisera la version la plus récente de cette image système de cette famille lors de la mise en service de l'ordinateur virtuel.
 
 	![exemple de liste d'images de système d'exploitation](./media/azure-slave-plugin-for-jenkins/jenkins-os-family-list-sample.png)
 	
@@ -213,4 +213,4 @@ Jenkins crée ensuite un nœud subordonné à l'aide du modèle créé dans la s
 
   
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

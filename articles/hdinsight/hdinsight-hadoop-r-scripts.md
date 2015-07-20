@@ -281,5 +281,6 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

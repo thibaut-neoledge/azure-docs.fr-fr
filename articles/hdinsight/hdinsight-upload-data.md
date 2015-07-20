@@ -279,4 +279,4 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

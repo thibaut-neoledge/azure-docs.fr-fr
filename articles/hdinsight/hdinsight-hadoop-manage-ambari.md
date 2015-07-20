@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/01/2015"
    ms.author="larryfr"/>
 
 #Gestion des clusters HDInsight à l'aide d’Ambari (version préliminaire)
@@ -30,9 +30,9 @@ Ambari est fourni par défaut avec les clusters HDInsight Linux. Les clusters H
 
 ##Proxy SSH
 
-> [AZURE.NOTE]Bien qu'Ambari pour votre cluster soit accessible directement sur Internet, certaines fonctionnalités dépendent de l'accès aux nœuds via le nom de domaine interne utilisé par le cluster. Dans la mesure où il s'agit d'un nom de domaine interne, et non public, des erreurs vous indiquant que le serveur est introuvable apparaîtront lorsque vous essayerez d’accéder à certaines fonctionnalités sur Internet.
+> [AZURE.NOTE]Bien qu’Ambari pour votre cluster soit accessible directement via Internet, certains liens de l’interface utilisateur web d’Ambari (telle que le JobTracker) ne sont pas exposés sur Internet. Par conséquent, un message d’erreur tel que « Serveur introuvable » s’affiche quand vous tentez d’accéder à ces fonctionnalités, sauf si vous utilisez un tunnel Secure Shell (SSH) pour le trafic web proxy vers le nœud principal du cluster.
 
-Pour contourner ce problème, utilisez un tunnel SSH pour le trafic proxy web vers le nœud principal du cluster, qui peut résoudre avec succès les noms de domaine internes. Utilisez les articles suivants pour créer un tunnel SSH d'un port de votre ordinateur local vers le cluster :
+Utilisez les articles suivants pour créer un tunnel SSH d'un port de votre ordinateur local vers le cluster :
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X</a> : procédure pour créer un tunnel SSH à l'aide de la commande `ssh`.
 
@@ -74,9 +74,9 @@ Lorsque la page s'ouvre, vérifiez la barre située en haut de l'écran. Elle co
 
 * **Bouton Administrateur** : gestion d'Ambari, paramètres utilisateur et déconnexion.
 
-###Analyse
+##Analyse
 
-####Alertes
+###Alertes
 
 Ambari offre de nombreuses alertes, qui auront comme attribut, l'un des états suivants :
 
@@ -102,7 +102,7 @@ Vous pouvez également créer des notifications d’alerte depuis le menu **Acti
 
 ![créer une alerte, boîte de dialogue](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-####Cluster
+###Cluster
 
 L'onglet **Mesures** du tableau de bord contient une série de widgets qui permettent de surveiller facilement l'état de votre cluster d'un seul coup d'œil. Plusieurs widgets, tels que **Utilisation du processeur**, fournissent des informations supplémentaires lorsque vous cliquez dessus.
 
@@ -116,7 +116,7 @@ Pour obtenir des informations détaillées sur les nœuds au sein du cluster, s�
 
 ![détails de l'hôte](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-####Services
+###Services
 
 La barre latérale du tableau de bord, intitulée **Services**, fournit un aperçu rapide de l'état des services exécutés sur le cluster. Différentes icônes sont utilisées pour indiquer l'état ou les actions qui devraient être effectuées, telles qu'un symbole jaune de recyclage qui vous indique si un service doit être recyclé.
 
@@ -126,7 +126,7 @@ La sélection d'un service fait apparaître des informations détaillées sur le
 
 ![informations de résumé du service](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-#####Liens rapides
+####Liens rapides
 
 Certains services affichent un lien **Liens rapides** en haut de la page. Ils peuvent être utilisés pour accéder à des interfaces utilisateur web spécifiques des services, tels que :
 
@@ -140,21 +140,21 @@ Certains services affichent un lien **Liens rapides** en haut de la page. Ils pe
 
 La sélection de l'un de ces liens ouvrira un nouvel onglet dans votre navigateur, qui affichera la page sélectionnée.
 
-> [AZURE.NOTE]La sélection d'un lien **Liens rapides** pour un service quelconque entraîne l'apparition d'une erreur vous indiquant que le serveur est introuvable, à moins que vous n’utilisiez un tunnel SSL pour le trafic proxy web vers le cluster. Cela est dû au fait qu'Ambari utilise le nom de domaine interne pour ces liens.
-> 
+> [AZURE.NOTE]La sélection d'un lien **Liens rapides** pour un service quelconque entraîne l'apparition d'une erreur vous indiquant que le serveur est introuvable, à moins que vous n’utilisiez un tunnel SSL pour le trafic proxy web vers le cluster. Cela est lié au fait que les applications Web utilisées pour afficher ces informations ne sont pas exposées sur Internet.
+>
 > Pour en savoir plus sur l'utilisation d'un tunnel SSL avec HDInsight, consultez l'une des rubriques suivantes :
-> 
+>
 > * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X</a> : procédure pour créer un tunnel SSH à l'aide de la commande `ssh`.
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Windows</a> : procédure pour utiliser Putty pour créer un tunnel SSH.
 
-###gestion
+##gestion
 
-####Utilisateurs d'Ambari, groupes et autorisations
+###Utilisateurs d'Ambari, groupes et autorisations
 
 La gestion des utilisateurs, des groupes et des autorisations n'est pas disponible dans la version préliminaire de HDInsight Linux.
 
-####Hôtes
+###Hôtes
 
 La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôtes, procédez comme suit :
 
@@ -190,7 +190,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
 
 		> [AZURE.NOTE]N'utilisez pas cette action sur les clusters HDInsight.
 
-####<a id="service"></a>Services
+###<a id="service"></a>Services
 
 Depuis la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions** situé en bas de la liste des services pour ajouter de nouveaux services, ou arrêter et redémarrer tous les services.
 
@@ -198,7 +198,7 @@ Depuis la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions
 
 Pour ajouter un service, procédez comme suit :
 
-1. Depuis la page  **Tableau de bord** ou **Services**, utilisez le bouton **Actions** et sélectionnez **Ajouter un service**.
+1. Depuis la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions** et sélectionnez **Ajouter un service**.
 
 2. Depuis l'**Assistant Ajout d'un service**, sélectionnez le service que vous souhaitez ajouter, puis cliquez sur **Suivant**.
 
@@ -224,7 +224,7 @@ Bien que le bouton **Actions** permette de redémarrer tous les services, vous s
 
 	> [AZURE.NOTE]Le redémarrage de certains services lorsque le cluster fonctionne peut générer des alertes. Pour éviter cela, vous pouvez utiliser le bouton **Actions de service** afin d'activer le **Mode Maintenance** avant de lancer le redémarrage.
 
-3. Lorsqu'une action est sélectionnée, l'entrée **# op** située en haut de la page s’incrémente pour indiquer qu'une opération s'exécute en arrière-plan.  Si leur affichage est configuré, une liste des opérations exécutées en arrière-plan apparaît.
+3. Lorsqu'une action est sélectionnée, l'entrée **# op** située en haut de la page s’incrémente pour indiquer qu'une opération s'exécute en arrière-plan. Si leur affichage est configuré, une liste des opérations exécutées en arrière-plan apparaît.
 
 	> [AZURE.NOTE]Si vous avez activé **Mode Maintenance** pour le service, n'oubliez pas de le désactiver à l'aide du bouton **Actions de service** une fois l'opération terminée.
 
@@ -252,5 +252,4 @@ Ambari Web utilise une API REST sous-jacente, que vous pouvez exploiter pour cr
 
 Pour obtenir une référence complète de l'API REST, consultez la page [Référence V1 de l'API d'Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

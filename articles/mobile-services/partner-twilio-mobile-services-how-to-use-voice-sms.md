@@ -105,7 +105,7 @@ Pour utiliser la bibliothèque Twilio node.js dans votre service mobile, vous de
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]La dépendance de Twilio doit être ajoutée en tant que `"twilio": "~1.7.0"`, avec un (\~).  Les références avec accent circonflexe (^) ne sont pas prises en charge.
+	>[AZURE.NOTE]La dépendance de Twilio doit être ajoutée en tant que `"twilio": "~1.7.0"`, avec un (~). Les références avec accent circonflexe (^) ne sont pas prises en charge.
 
 4. Validez cette mise à jour du fichier, puis remettez à jour le service mobile.
 
@@ -228,5 +228,6 @@ Une fois que vous avez défini une façon de fournir des réponses TwiML, vous p
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

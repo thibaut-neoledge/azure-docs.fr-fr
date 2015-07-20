@@ -35,10 +35,10 @@ Une fois que les bases de données ont été sauvegardées et restaurées, elles
 
 Pour activer la sauvegarde et restauration, les fichiers de sauvegarde (.bak) doivent être accessibles à partir de la machine virtuelle SQL Server secondaire. Procédez comme suit :
 
-1.	Connectez-vous à l’hôte principal SQL Server en tant que [domain]**\\sp_farm_db**. 
-2.	Accédez au disque F:. 
+1.	Connectez-vous à l’hôte principal SQL Server en tant que domain**\\sp_farm_db**. 
+2.	Accédez au disque F:\. 
 3.	Cliquez avec le bouton droit sur le dossier **Backup**, puis cliquez sur **Partager avec**et sur **Des personnes spécifiques**.
-4.	Dans la boîte de dialogue **Partage de fichiers**, entrez **[domain]\\sqlservice**, puis cliquez sur **Ajouter**.
+4.	Dans la boîte de dialogue **Partage de fichiers**, entrez **domain\\sqlservice**, puis cliquez sur **Ajouter**.
 5.	Cliquez sur la colonne **Niveau d’autorisation** correspondant au compte **sqlservice**, puis cliquez sur **Lecture/Écriture**. 
 6.	Cliquez sur **Partager**, puis sur **Terminé**.
 
@@ -55,20 +55,20 @@ Procédez comme suit pour sauvegarder une base de données.
 3.	Dans le volet gauche, développez le nœud **Bases de données**.
 4.	Cliquez avec le bouton droit sur une base de données à sauvegarder, pointez la souris sur **Tâches**, puis cliquez sur **Sauvegarder**.
 5.	Dans la section **Destination**, cliquez sur **Supprimer** afin de supprimer le chemin d’accès de fichier par défaut correspondant au fichier de sauvegarde.
-6.	Cliquez sur **Ajouter**. Sous **Nom de fichier**, entrez **[machineName]\\backup[databaseName].bak**, où machineName désigne le nom de la machine SQL Server principale et databaseName désigne le nom de la base de données. Cliquez sur **OK**, puis cliquez une nouvelle fois sur **OK** dès que le message confirmant la réussite de la sauvegarde apparaît.
+6.	Cliquez sur **Add**. Sous **Nom de fichier**, entrez **\\machineName\\backup[databaseName].bak**, où machineName désigne le nom de la machine SQL Server principale et databaseName désigne le nom de la base de données. Cliquez sur **OK**, puis cliquez une nouvelle fois sur **OK** dès que le message confirmant la réussite de la sauvegarde apparaît.
 7.	Dans le volet gauche, cliquez sur **[databaseName]**, pointez la souris sur **Tâches**, puis cliquez sur **Sauvegarder**.
 8.	Dans **Type de sauvegarde**, sélectionnez **Journal des transactions**, puis cliquez sur **OK** deux fois.
 9.	Gardez cette session Bureau à distance ouverte.
 
 Procédez comme suit pour restaurer une base de données.
 
-1.	Connectez-vous à la machine SQL Server secondaire par le biais de [domainName]\\sp_farm_db.
+1.	Connectez-vous à la machine SQL Server secondaire par le biais de domainName\\sp_farm_db.
 2.	Sur l’écran d’accueil, entrez **SQL Studio**, puis cliquez sur **SQL Server 2014 Management Studio**.
 3.	Cliquez sur **Connecter**.
 4.	Dans le volet gauche, cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Restaurer la base de données**.
 5.	Dans la section **Source**, sélectionnez **Unité**, puis cliquez sur le bouton Parcourir (…).
 6.	Dans **Sélectionner les unités de sauvegarde**, cliquez sur **Ajouter**.
-7.	Dans **Emplacement du fichier de sauvegarde**, entrez **[machineName]\\backup**, appuyez sur **Entrée**, sélectionnez **[databaseName].bak**, puis cliquez sur **OK** deux fois. La sauvegarde complète et la sauvegarde des journaux doivent désormais apparaître dans la section **Jeux de sauvegarde à restaurer**.
+7.	Dans **Emplacement du fichier de sauvegarde**, entrez **\\machineName\\backup**, appuyez sur **Entrée**, sélectionnez **[databaseName].bak**, puis cliquez sur **OK** deux fois. La sauvegarde complète et la sauvegarde des journaux doivent désormais apparaître dans la section **Jeux de sauvegarde à restaurer**.
 8.	Sous **Sélectionner une page**, cliquez sur **Options**. Sous **Options de restauration**, dans **État de récupération**, sélectionnez **RESTORE WITH NORECOVERY**, puis cliquez sur **OK**. 
 9.	À l’invite, cliquez sur **OK**.
 
@@ -121,4 +121,7 @@ Pour plus d’informations sur SharePoint avec les groupes de disponibilité SQL
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

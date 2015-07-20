@@ -197,4 +197,4 @@ Quand vous êtes prêt à arrêter la topologie, revenez au projet **Correlation
 Pour plus d’exemples Storm, consultez la page [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

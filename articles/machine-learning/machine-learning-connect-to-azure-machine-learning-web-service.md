@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Se connecter à un service web Microsoft Azure Machine Learning | Azure" 
-	description="Via C# ou Python, vous pouvez vous connecter à un service web Microsoft Azure Machine Learning, au moyen d'une clé d'autorisation." 
+	pageTitle="Connexion à un service web Microsoft Azure Machine Learning | Microsoft Azure" 
+	description="Via C# ou Python, vous pouvez vous connecter à un service web Microsoft Azure Machine Learning, au moyen d’une clé d’autorisation." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,68 +13,68 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
-# Se connecter à un service web Microsoft Azure Machine Learning | Azure 
-L'expérience de développeur de Microsoft Azure Machine Learning correspond à une API de service web destinée à effectuer des prévisions à partir des données d'entrée, en temps réel ou en mode de lot. Vous allez utiliser Microsoft Azure Machine Learning Studio (ML Studio) pour créer des prédictions et publier un service web Microsoft Azure ML. 
+# Se connecter à un service web Microsoft Azure Machine Learning | Azure 
+L’expérience de développeur de Microsoft Azure Machine Learning correspond à une API de service web destinée à effectuer des prévisions à partir des données d’entrée, en temps réel ou en mode de lot. Vous utilisez Microsoft Azure Machine Learning Studio pour créer des prédictions et publier un service web Microsoft Azure Machine Learning.
 
-Pour savoir comment créer et publier un service web Microsoft Azure Machine Learning à l'aide de Studio ML, consultez les documents suivants :
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-- [Vue d'ensemble du processus Microsoft Azure ML](../machine-learning-overview-of-azure-ml-process.md)
-- [Prise en main de Machine Learning Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
-- [Vue d'ensemble de Microsoft Azure Machine Learning](https://studio.azureml.net/)
+Pour savoir comment créer et publier un service web Microsoft Azure Machine Learning à l’aide de Studio, consultez les pages suivantes :
+
+- [Publication d’un service web Microsoft Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
+- [Prise en main de Microsoft Azure Machine Learning Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Vue d’ensemble de Microsoft Azure Machine Learning](https://studio.azureml.net/)
 - [Centre de documentation Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/)
 
-## Service web Microsoft Azure Machine Learning ##
+## Service web Microsoft Azure Machine Learning ##
 
-Grâce au service web Microsoft Azure Machine Learning, une application externe peut communiquer avec le modèle de notation de workflow ML et ce, en temps réel. Un appel du service web ML renvoie les résultats d'une prédiction à une application externe. Pour créer cet appel, vous transmettez une clé d'API créée lorsque vous publiez une prédiction. Le service web ML est basé sur l'architecture REST, souvent choisie pour les projets de programmation web.
+Grâce au service web Microsoft Azure Machine Learning, une application externe peut communiquer avec le modèle de notation de workflow ML et ce, en temps réel. Un appel du service web ML renvoie les résultats d’une prédiction à une application externe. Pour créer cet appel, vous transmettez une clé d’API créée lorsque vous publiez une prédiction. Le service web ML est basé sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
-Microsoft Azure Machine Learning propose deux types de service :
+Microsoft Azure Machine Learning propose deux types de service :
 
-- Service de requête-réponse (Request-Response Service, RSS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et publiés à partir de ML Studio.
-- Service d'exécution de lot (Batch Execution Service, BES) : service asynchrone qui effectue la notation d'un lot pour les enregistrements de données.
+- Service de requête-réponse (Request-Response Service, RSS) : service hautement évolutif, à faible latence, qui constitue une interface pour les modèles sans état créés et publiés à partir de ML Studio.
+- Service d’exécution de lot (Batch Execution Service, BES) : service asynchrone qui effectue la notation d’un lot pour les enregistrements de données.
 
-Pour en savoir plus sur les services web Microsoft Azure Machine Learning, consultez la section [Vue d'ensemble du processus Microsoft Azure ML](../machine-learning-overview-of-azure-ml-process.md).
+Pour plus d’informations sur la publication de services web Microsoft Azure Machine Learning, consultez la page [Publication d’un service web Microsoft Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
-## Obtenir une clé d'autorisation Microsoft Azure Machine Learning ##
-Vous pouvez obtenir une clé d'API de service web auprès d'un service web ML. Vous pouvez la demander à Microsoft Azure Machine Learning Studio ou au portail de gestion Microsoft Azure.
-### Microsoft Azure Machine Learning Studio ###
-1. Dans ML Studio, cliquez sur l'option **SERVICES WEB** figurant sur la gauche.
-2. Cliquez sur un service web. La " clé API " figure sur l'onglet **TABLEAU DE BORD**.
+## Obtenir une clé d’autorisation Microsoft Azure Machine Learning ##
+Vous pouvez obtenir une clé d’API de service web auprès d’un service web ML. Vous pouvez la demander à Microsoft Azure Machine Learning Studio ou au portail de gestion Microsoft Azure.
+### Microsoft Azure Machine Learning Studio ###
+1. Dans Microsoft Azure Machine Learning Studio, cliquez sur l’option **SERVICES WEB** figurant sur la gauche.
+2. Cliquez sur un service web. La « clé API » figure sur l’onglet **TABLEAU DE BORD**.
 
-### Portail de gestion Microsoft Azure ###
+### Portail de gestion Azure ###
 
-1. Cliquez sur l'option **MACHINE LEARNING** figurant sur la gauche.
+1. Cliquez sur l’option **MACHINE LEARNING** figurant sur la gauche.
 2. Cliquez sur un espace de travail.
-3. Cliquez sur **SERVICES WEB**.
-4. Cliquez sur un service web.
-5. Cliquez sur un point de terminaison. La " CLÉ API " se trouve sur la partie inférieure droite de la fenêtre.
+3. Cliquez sur **SERVICES WEB**.
+4. Cliquez sur un service web.
+5. Cliquez sur un point de terminaison. La « CLÉ API » se trouve sur la partie inférieure droite de la fenêtre.
 
-## <a id="connect"></a>Se connecter à un service web Microsoft Azure Machine Learning
+## <a id="connect"></a>Se connecter à un service web Microsoft Azure Machine Learning
 
-Vous pouvez vous connecter à un service web Microsoft Azure Machine Learning à l'aide de n'importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l'une des pages d'aide relatives aux services web Microsoft Azure ML.
+Vous pouvez vous connecter à un service web Microsoft Azure Machine Learning à l’aide de n’importe quel langage de programmation qui prend en charge les requêtes et réponses HTTP. Vous pouvez consulter des exemples en C#, Python et R sur l’une des pages d’aide relatives aux services web Microsoft Azure ML.
 
-### Pour afficher une page d'aide sur une API de service web Microsoft Azure ML ###
-Vous créez ce type de page lorsque vous publiez un service web. Consultez la section [Étape 5 : publication du service web Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
-
-
-**Pour afficher une page d'aide Microsoft sur une API Microsoft Azure ML API**
-Dans Microsoft Azure Machine Learning Studio :
-
-1. Sélectionnez **SERVICES WEB**.
-2. Choisissez un service web.
-3. Sélectionnez **Page d'aide sur l'API** - **REQUÊTE-RÉPONSE** ou **EXÉCUTION DE LOT**.
+### Pour afficher une page d’aide sur une API de service web Microsoft Azure ML ###
+Vous créez ce type de page lorsque vous publiez un service web. Consultez la page [Étape 5 : publication du service web Microsoft Azure Machine Learning](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Page d'aide sur l'API Microsoft Azure ML**
-La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service web de prédiction, notamment :
+**Pour afficher une page d’aide sur l’API Microsoft Azure ML** dans Microsoft Azure Machine Learning Studio :
+
+1. Sélectionnez **SERVICES WEB**.
+2. Choisissez un service web.
+3. Sélectionnez **Page d’aide sur l’API** - **REQUÊTE-RÉPONSE** ou **EXÉCUTION DE LOT**.
+
+
+**Page d’aide sur l’API Microsoft Azure ML** La page d’aide sur l’API Microsoft Azure ML contient des détails sur un service web de prédiction, notamment :
 
 
 <table>
 	<tr>
-		<td>&nbsp;</td>
+		<td>&#160;</td>
 		<td>Exemple </td>
 	</tr>
 	<tr>
@@ -84,18 +84,18 @@ La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service
 		</td>
 	</tr>
 	<tr>
-		<td>Exemple de requête </td>
+		<td>Exemple de demande </td>
 		<td>{ <br/> 
-			&nbsp;&nbsp; "Id": "score00001",   <br/>
-			&nbsp;&nbsp; "Instance": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector": { <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3": "0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters": {}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
+			&#160;&#160; "Id": "score00001",   <br/>
+			&#160;&#160; "Instance": <br/>
+			&#160;&#160;&#160;&#160; {  <br/>  
+ 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
+			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
+			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
+			&#160;&#160;&#160;&#160; } <br/>
 		}</td>
 	</tr>
 	<tr>
@@ -104,13 +104,13 @@ La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service
 		<table style="width: 100%">
 
 			<tr>
-				<td><B>Nom</B></td>
+				<td><B>Name</B></td>
 				<td><B>Type de données</B></td>
 			</tr>
 	
 			<tr>
 				<td>Fonctionnalité</td>
-				<td>String</td>
+				<td>Chaîne</td>
 			</tr>
 			<tr>
 				<td>Nombre</td>
@@ -129,7 +129,7 @@ La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service
 	</tr>
 	<tr>
 		<td>Exemple de réponse </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,...] </td>
+		<td>["Col1","1","1",…] </td>
 	</tr>
 	<tr>
 		<td>Exemple de code </td>
@@ -137,25 +137,25 @@ La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service
 	</tr>
 </table>
 
-**REMARQUE** Les exemples de code proviennent de l'exemple 1 : " Téléchargement d'un jeu de données depuis l'UCI : jeu de données de classe Adult 2 " dans la collection d'exemples Microsoft Azure ML.
+**REMARQUE** Les exemples de code proviennent de « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Microsoft Azure ML.
 
-### Exemple de code C# ###
+### Exemple de code C# ###
 
-Pour vous connecter à un service web Microsoft Azure ML, utilisez un élément **HttpClient** de transmission de ScoreData. ScoreData contient un élément FeatureVector, vecteur à n dimensions  correspondant à des fonctions numériques qui représente l'élément ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d'une clé API.
+Pour vous connecter à un service web Microsoft Azure ML, utilisez un élément **HttpClient** qui transmet ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
 
-Pour que vous puissiez vous connecter à un service web ML, le package NuGet **Microsoft.AspNet.WebApi.Client** doit être installé.
+Pour que vous puissiez vous connecter à un service web Microsoft Azure ML, le package NuGet **Microsoft.AspNet.WebApi.Client** doit être installé.
 
-**Installer le package NuGet Microsoft.AspNet.WebApi.Client dans Microsoft Visual Studio**
+**Installer le package NuGet Microsoft.AspNet.WebApi.Client dans Microsoft Visual Studio**
 
-1. Publiez le service web " Téléchargement d'un jeu de données depuis l'UCI : jeu de données de classe Adult 2 ".
-2. Click **Tools** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
-2. Choisissez l'élément **Install-Package Microsoft.AspNet.WebApi.Client**.
+1. Publiez le service web « Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 ».
+2. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package.**.
+2. Choisissez l’élément **Install-Package Microsoft.AspNet.WebApi.Client**.
 
-**Pour exécuter l'exemple de code**
+**Pour exécuter l’exemple de code**
 
-1. Publiez l'expérience " Téléchargement d'un jeu de données depuis l'UCI : jeu de données de classe Adult 2 ", qui fait partie de la collection d'exemple de Microsoft Azure ML.
-2. Attribuez l'élément apiKey avec la clé à partir d'un service web. Consultez la section Obtention d'une clé d'autorisation Microsoft Azure ML.
-3. Affectez l'élément serviceUri avec l'URI de requête. Consultez la section Obtention d'un URI de requête.
+1. Publiez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Microsoft Azure ML.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
+3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
 		using System;
 		using System.Collections.Generic;
@@ -254,16 +254,16 @@ Pour que vous puissiez vous connecter à un service web ML, le package NuGet **M
 		}
 
 
-### Exemple de code Python ###
+### Exemple de code Python ###
 
-Pour vous connecter à un service web Microsoft Azure ML, utilisez la bibliothèque **urllib2** de transmission de l'élément ScoreData. ScoreData contient un élément FeatureVector, vecteur à n dimensions  correspondant à des fonctions numériques qui représente l'élément ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d'une clé API.
+Pour vous connecter à un service web Microsoft Azure ML, utilisez la bibliothèque **urllib2** qui transmet l’élément ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
 
 
-**Pour exécuter l'exemple de code**
+**Pour exécuter l’exemple de code**
 
-1. Publishez l'expérience " Téléchargement d'un jeu de données depuis l'UCI : jeu de données de classe Adult 2 ", qui fait partie de la collection d'exemple de Microsoft Azure ML.
-2. Attribuez l'élément apiKey avec la clé à partir d'un service web. Consultez la section Obtention d'une clé d'autorisation Microsoft Azure ML.
-3. Affectez l'élément serviceUri avec l'URI de requête. Consultez la section Obtention d'un URI de requête.
+1. Publiez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Microsoft Azure ML.
+2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
+3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
 		import urllib2
 		# If you are using Python 3+, import urllib instead of urllib2
@@ -312,5 +312,6 @@ Pour vous connecter à un service web Microsoft Azure ML, utilisez la bibliothè
 	
 		result = response.read()
 		print(result) 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

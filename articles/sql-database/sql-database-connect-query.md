@@ -137,4 +137,4 @@ Dans le panneau des chaînes de connexion de la base de données, vous pouvez tr
 2. Le programme imprime les résultats de la requête dans la fenêtre de la console.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

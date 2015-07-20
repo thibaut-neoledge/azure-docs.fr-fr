@@ -23,4 +23,4 @@ Maintenant que l'application a été mise à jour pour utiliser Mobile Services 
 
 Cela conclut le didacticiel **Prise en main des données** pour Android.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

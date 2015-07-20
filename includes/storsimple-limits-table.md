@@ -5,7 +5,7 @@
 | Nombre maximal de volumes | 255 | |
 | Nombre maximal de modèles de bande passante | 25 | |
 | Nombre maximal de planifications par modèle de bande passante | 168 | Une planification par heure, tous les jours de la semaine (24*7). |
-| Taille maximale d'un volume | 64 To | La taille recommandée pour un volume NTFS est de 64 To. |
+| Taille maximale d'un volume | 64 To | |
 | Nombre maximal de connexions iSCSI | 512 | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs | 512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil | 64 | |
@@ -23,4 +23,4 @@
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

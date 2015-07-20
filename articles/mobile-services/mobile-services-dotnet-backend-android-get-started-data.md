@@ -71,7 +71,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, vous pouvez la tester avec Mobile Services à l'aide de l'émulateur Android ou d'un téléphone Android.
 
-1. Dans le menu **Exécuter**, cliquez sur **Exécuter l'application** pour démarrer le projet.
+1. Dans le menu **Exécuter**, cliquez sur **Exécuter** pour démarrer le projet.
 
 	Cela permet d'exécuter votre application, créée avec le Kit de développement logiciel (SDK) Android, qui utilise la bibliothèque cliente pour envoyer une requête renvoyant des éléments à partir de votre service mobile.
 
@@ -131,4 +131,6 @@ Ensuite, essayez l'un de ces autres didacticiels :
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-<!--HONumber=54--> 
+   
+
+<!---HONumber=July15_HO2-->

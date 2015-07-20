@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utilisation du stockage de tables à partir de PHP | Microsoft Azure" 
-	description="Découvrez comment utiliser le service de Table à partir de PHP pour créer, supprimer, insérer et interroger une table." 
+	pageTitle="Utilisation du stockage de tables à partir de PHP | Microsoft Azure" 
+	description="Découvrez comment utiliser le service de Table de PHP pour créer, supprimer, insérer et interroger une table." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de Table Azure. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][téléchargement]. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion, la suppression et l'interrogation d'entités dans une table**. Pour plus d'informations sur le service de Table Azure, consultez la section [Étapes suivantes](#NextSteps) .
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de Table Azure. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP][download]. Les scénarios traités incluent la **création et la suppression d'une table, l'insertion, la suppression et l'interrogation d'entités dans une table**. Pour plus d'informations sur le service de Table Azure, consultez la section [Étapes suivantes](#NextSteps).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -33,7 +33,7 @@ Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utili
 
 La référence de classes dans le Kit de développement logiciel (SDK) Azure pour PHP constitue la seule exigence pour créer une application PHP qui accède au service de Table Azure. Vous pouvez utiliser tous les outils de développement pour créer votre application, y compris Bloc-notes.
 
-Dans ce guide, vous allez utiliser les fonctionnalités du service de Table qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
+Dans ce guide, vous allez utiliser les fonctionnalités du service de Table qui peuvent être appelées dans une application PHP en local, ou dans le code s'exécutant dans un rôle web, un rôle de travail ou un site web Azure.
 
 ## Obtention des bibliothèques clientes Azure
 
@@ -41,40 +41,40 @@ Dans ce guide, vous allez utiliser les fonctionnalités du service de Table qui 
 
 ## Configuration de votre application pour accéder au service de Table
 
-Pour utiliser les API du service de Table Azure, vous devez procéder comme suit :
+Pour utiliser les API du service de Table Azure, vous devez procéder comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require_once][require_once] ; et
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require_once][require_once] ; et
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
 
-> [AZURE.NOTE] Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique <code>WindowsAzure.php</code>.
+> [AZURE.NOTE]Cet exemple et d'autres exemples de cet article partent du principe que vous avez installé les bibliothèques clientes PHP pour Azure via Composer. Si vous avez installé les bibliothèques manuellement ou en tant que package PEAR, vous devez référencer le fichier de chargeur automatique <code>WindowsAzure.php</code>.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-Dans les exemples ci-dessous, l'instruction `require_once` s'affichera toujours, mais seules les classes nécessaires aux besoins de l'exemple à exécuter sont référencées.
+Dans les exemples ci-dessous, l’instruction `require_once` s’affichera toujours, mais seules les classes nécessaires aux besoins de l’exemple à exécuter sont référencées.
 
 ## Configuration d'une connexion de stockage Azure
 
-Pour instancier un client de service de Table Azure, vous devez disposer au préalable d'une chaîne de connexion valide. Le format de la chaîne de connexion du service de Table est le suivant :
+Pour instancier un client de service de Table Azure, vous devez disposer au préalable d'une chaîne de connexion valide. Le format de la chaîne de connexion du service de Table est le suivant :
 
-Pour accéder à un service en ligne :
+Pour accéder à un service en ligne :
 
 	DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 
-Pour accéder au stockage de l'émulateur :
+Pour accéder au stockage de l'émulateur :
 
 	UseDevelopmentStorage=true
 
 
-Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
+Pour créer un client de service Azure, vous devez utiliser la classe **ServicesBuilder**. Vous pouvez :
 
-* lui passer directement la chaîne de connexion ; ou
-* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
-	* par défaut une source externe est prise en charge : variables d'environnement ;
-	* vous pouvez ajouter de nouvelles sources via une extension de la classe **ConnectionStringSource**
+* lui passer directement la chaîne de connexion ; ou
+* utiliser **CloudConfigurationManager (CCM)** pour vérifier plusieurs sources externes pour la chaîne de connexion :
+	* par défaut une source externe est prise en charge : variables d'environnement ;
+	* de nouvelles sources peuvent être ajoutées via une extension de la classe **ConnectionStringSource**.
 
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 
@@ -85,9 +85,9 @@ Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-## Procédure : Création d'une table
+## Procédure : Création d'une table
 
-Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **createTable**. Au moment de créer une table, vous pouvez définir le délai d'expiration du service de Table. (Pour plus d'informations sur le délai d'expiration du service de Table, consultez la page [Définition de délais d'expiration pour les opérations du service de Table][table-service-timeouts].)
+Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **createTable**. Au moment de créer une table, vous pouvez définir le délai d'expiration du service de Table. (pour plus d'informations sur le délai d'expiration du service de Table, consultez la page [Définition de délais d'expiration pour les opérations du service de Table][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -111,9 +111,9 @@ Vous pouvez créer une table avec un objet **TableRestProxy** via la méthode **
 
 Pour plus d'informations sur les restrictions au niveau des noms de table, consultez la page [Présentation du modèle de données du service de Table][table-data-model].
 
-## Procédure : Ajout d'une entité à une table
+## Ajout d'une entité à une table
 
-Pour ajouter une entité à une table, créez un objet **Entity** et passez-le à **TableRestProxy->insertEntity**. Notez que lorsque vous créez une entité, vous devez spécifier une clé `PartitionKey` et `RowKey`. Il s'agit des identificateurs uniques d'une entité, dont les valeurs peuvent être interrogées bien plus rapidement que les autres propriétés d'entité. Le système utilise `PartitionKey` pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé `PartitionKey` sont stockées sur le même nœud. (les opérations réalisées sur plusieurs entités offrent de meilleures performances lorsque ces entités sont stockées sur un même nœud plutôt que sur différents nœuds). La clé `RowKey` est l'ID unique d'une entité au sein d'une partition.
+Pour ajouter une entité à une table, créez un objet **Entity** et transmettez-le à **TableRestProxy->insertEntity**. Notez que lorsque vous créez une entité, vous devez spécifier une clé `PartitionKey` et `RowKey`. Il s’agit des identificateurs uniques d’une entité, dont les valeurs peuvent être interrogées bien plus rapidement que les autres propriétés d’entité. Le système utilise `PartitionKey` pour distribuer automatiquement les entités de la table sur plusieurs nœuds de stockage. Les entités partageant la même clé `PartitionKey` sont stockées sur le même nœud. (les opérations réalisées sur plusieurs entités offrent de meilleures performances lorsque ces entités sont stockées sur un même nœud plutôt que sur différents nœuds). La clé `RowKey` est l’ID unique d’une entité au sein d’une partition.
 
 	require_once 'vendor\autoload.php';
 
@@ -145,9 +145,9 @@ Pour ajouter une entité à une table, créez un objet **Entity** et passez-le �
 		$error_message = $e->getMessage();
 	}
 
-Pour plus d'informations sur les propriétés et types de table, consultez la page [Présentation du modèle de données du service de Table][table-data-model].
+Pour plus d'informations sur les propriétés et les types de table, consultez la page [Présentation du modèle de données du service de Table][table-data-model].
 
-La classe **TableRestProxy** offre deux autres méthodes pour insérer des entités : **insertOrMergeEntity** et **insertOrReplaceEntity**. Pour utiliser ces méthodes, créez un objet **Entity** et transmettez-le en tant que paramètre à l'une ou l'autre des méthodes. Chaque méthode insère l'entité si elle n'existe pas. Si l'entité existe déjà, **insertOrMergeEntity** met à jour la valeur des propriétés si celles-ci existent déjà et en ajoute de nouvelles dans le cas contraire, alors qu'**insertOrReplaceEntity** remplace entièrement une entité existante. L'exemple suivant montre comment utiliser **insertOrMergeEntity**. Si l'entité associée à la clé `PartitionKey` " tasksSeattle " et à la clé `RowKey` " 1 " n'existe pas déjà, elle est insérée. En revanche, si elle a été ajoutée précédemment (comme indiqué dans l'exemple précédent), la propriété `DueDate` est mise à jour et la propriété `Status` est ajoutée. Les propriétés `Description` et `Location` sont également mises à jour, mais avec des valeurs qui de fait les laissent inchangées. Si ces deux dernières propriétés n'ont pas été ajoutées comme indiqué dans l'exemple, mais qu'elles existaient sur l'entité cible, leurs valeurs existantes restent inchangées.
+La classe **TableRestProxy** offre deux autres méthodes pour insérer des entités : **insertOrMergeEntity** et **insertOrReplaceEntity**. Pour utiliser ces méthodes, créez un objet **Entity** et transmettez-le en tant que paramètre à l'une ou l'autre des méthodes. Chaque méthode insère l'entité si elle n'existe pas. Si l'entité existe déjà, **insertOrMergeEntity** met à jour la valeur des propriétés si celles-ci existent déjà et en ajoute de nouvelles dans le cas contraire, alors que **insertOrReplaceEntity** remplace entièrement une entité existante. L'exemple suivant montre comment utiliser **insertOrMergeEntity**. Si l’entité associée à la clé `PartitionKey` « tasksSeattle » et à la clé `RowKey` « 1 » n’existe pas déjà, elle est insérée. En revanche, si elle a été ajoutée précédemment (comme indiqué dans l’exemple précédent), la propriété `DueDate` est mise à jour et la propriété `Status` est ajoutée. Les propriétés `Description` et `Location` sont également mises à jour, mais avec des valeurs qui de fait les laissent inchangées. Si ces deux dernières propriétés n'ont pas été ajoutées comme indiqué dans l'exemple, mais qu'elles existaient sur l'entité cible, leurs valeurs existantes restent inchangées.
 
 	require_once 'vendor\autoload.php';
 
@@ -188,9 +188,9 @@ La classe **TableRestProxy** offre deux autres méthodes pour insérer des entit
 	}
 	   
 
-## Procédure : Extraction d'une seule entité
+## Extraction d'une seule entité
 
-La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule entité via une requête portant sur ses clés `PartitionKey` et `RowKey`. Dans l'exemple ci-dessous, la clé de partition `tasksSeattle` et clé de ligne " 1 " sont passées à la méthode **getEntity**.
+La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule entité via une requête portant sur ses clés `PartitionKey` et `RowKey`. Dans l’exemple ci-dessous, la clé de partition `tasksSeattle` et la clé de ligne `1` sont transmises à la méthode **getEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -216,9 +216,9 @@ La méthode **TableRestProxy->getEntity** vous permet de récupérer une seule e
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-## Procédure : Extraction de toutes les entités d'une partition
+## Extraction de toutes les entités dans une partition
 
-Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filtres]). Pour récupérer toutes les entités d'une partition, utilisez le filtre " PartitionKey eq *partition_name* ". L'exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
+Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filters]). Pour extraire toutes les entités d'une partition, utilisez le filtre « PartitionKey eq *nom_partition* ». L’exemple suivant montre comment récupérer toutes les entités de la partition `tasksSeattle` en passant un filtre à la méthode **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -248,9 +248,9 @@ Les requêtes d'entité sont construites à l'aide de filtres (pour plus d'infor
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procédure : Extraction d'un sous-ensemble d'entités dans une partition
+## Extraction d'un sous-ensemble d'entités dans une partition
 
-Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'utiliser le modèle de l'exemple précédent. Le sous-ensemble d'entités récupéré varie en fonction du filtre utilisé (pour plus d'informations, consultez la page [Interrogation de tables et d'entités][filtres]). L'exemple suivant montre comment utiliser un filtre pour récupérer toutes les entités avec une valeur `Location` spécifique et une valeur `DueDate` antérieure à une date spécifiée.
+Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'utiliser le modèle de l'exemple précédent. Le sous-ensemble d’entités extrait varie en fonction du filtre utilisé (pour plus d’informations, consultez la page [Interrogation de tables et d’entités][filters]). L’exemple suivant montre comment utiliser un filtre pour extraire toutes les entités avec une valeur d’emplacement `Location` spécifique et une date d’échéance `DueDate` antérieure à une date spécifiée.
 
 	require_once 'vendor\autoload.php';
 
@@ -280,9 +280,9 @@ Pour extraire un sous-ensemble d'entités dans une partition, il est possible d'
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procédure : Extraction d'un sous-ensemble de propriétés d'entité
+## Extraction d'un sous-ensemble de propriétés d'entité
 
-Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Pour spécifier une propriété à extraire, transmettez son nom à la méthode **Query->addSelectField**. Vous pouvez appeler cette méthode plusieurs fois pour ajouter des propriétés supplémentaires. Après l'exécution de **TableRestProxy->queryEntities**, les entités renvoyées contiennent uniquement les propriétés sélectionnées. (Si vous voulez renvoyer un sous-ensemble d'entités de table, utilisez un filtre comme indiqué dans les requêtes précédentes.)
+Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette technique, nommée *projection*, réduit la consommation de bande passante et peut améliorer les performances des requêtes, notamment pour les entités volumineuses. Pour spécifier une propriété à extraire, transmettez son nom à la méthode **Query->addSelectField**. Vous pouvez appeler cette méthode plusieurs fois pour ajouter des propriétés supplémentaires. Après avoir exécuté **TableRestProxy->queryEntities**, les entités renvoyées contiennent uniquement les propriétés sélectionnées (Si vous voulez renvoyer un sous-ensemble d'entités de table, utilisez un filtre comme indiqué dans les requêtes précédentes.)
 
 	require_once 'vendor\autoload.php';
 
@@ -318,9 +318,9 @@ Une requête peut extraire un sous-ensemble de propriétés d'entité. Cette tec
 		echo $description."<br />";
 	}
 
-## Procédure : Mise à jour d'une entité
+## Mise à jour d'une entité
 
-Vous pouvez mettre à jour une entité existante en lui appliquant les méthodes **Entity->setProperty** et **Entity->addProperty**, puis en appelant **TableRestProxy->updateEntity**. Dans l'exemple suivant, une entité est extraite, une propriété modifiée, une autre propriété supprimée et une nouvelle propriété ajoutée. À noter que pour supprimer une propriété, il suffit de lui attribuer la valeur **null**. 
+Une entité existante peut être mise à jour en lui appliquant les méthodes **Entity->setProperty** et **Entity->addProperty**, puis en appelant **TableRestProxy->updateEntity**. Dans l'exemple suivant, une entité est extraite, une propriété modifiée, une autre propriété supprimée et une nouvelle propriété ajoutée. À noter que pour supprimer une propriété, il suffit de lui attribuer la valeur **null**.
 
 	require_once 'vendor\autoload.php';
 	
@@ -354,7 +354,7 @@ Vous pouvez mettre à jour une entité existante en lui appliquant les méthodes
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procédure : Suppression d'une entité
+## Suppression d'une entité
 
 Pour supprimer une entité, passez le nom de la table ainsi que les clés `PartitionKey` et `RowKey` à la méthode **TableRestProxy->deleteEntity**.
 
@@ -381,18 +381,18 @@ Pour supprimer une entité, passez le nom de la table ainsi que les clés `Parti
 
 Notez que pour les contrôles d'accès concurrentiel, vous pouvez définir la suppression de la propriété Etag d'une entité en employant la méthode **DeleteEntityOptions->setEtag** et en transmettant l'objet **DeleteEntityOptions** à **deleteEntity** en tant que quatrième paramètre.
 
-## Procédure : Traitement par lot d'opérations de table
+## Traitement par lots d'opérations de table
 
-La méthode **TableRestProxy->batch** permet d'exécuter plusieurs opérations dans une même demande. Ce modèle implique d'ajouter des opérations à l'objet **BatchRequest** et de transmettre l'objet **BatchRequest** à la méthode **TableRestProxy->batch**. Pour ajouter une opération à un objet **BatchRequest**, vous pouvez appeler l'une des méthodes suivantes à plusieurs reprises :
+La méthode **TableRestProxy->batch** permet d'exécuter plusieurs opérations dans une même demande. Ce modèle implique d'ajouter des opérations à l'objet **BatchRequest** et de transmettre ce dernier à la méthode **TableRestProxy->batch**. Pour ajouter une opération à un objet **BatchRequest**, vous pouvez appeler l'une des méthodes suivantes à plusieurs reprises :
 
-* **addInsertEntity** (adds an insertEntity operation)
-* **addUpdateEntity** (adds an updateEntity operation)
-* **addMergeEntity** (adds a mergeEntity operation)
-* **addInsertOrReplaceEntity** (adds an insertOrReplaceEntity operation)
-* **addInsertOrMergeEntity** (adds an insertOrMergeEntity operation)
-* **addDeleteEntity** (adds a deleteEntity operation)
+* **addInsertEntity** (permet d'ajouter une opération insertEntity)
+* **addUpdateEntity** (permet d'ajouter une opération updateEntity)
+* **addMergeEntity** (permet d'ajouter une opération mergeEntity)
+* **addInsertOrReplaceEntity** (permet d'ajouter une opération insertOrReplaceEntity)
+* **addInsertOrMergeEntity** (permet d'ajouter une opération insertOrMergeEntity)
+* **addDeleteEntity** (permet d'ajouter une opération deleteEntity)
 
-L'exemple suivant montre comment exécuter des opérations **insertEntity** et **deleteEntity** dans une même demande :
+L'exemple suivant montre comment exécuter des opérations **insertEntity** et **deleteEntity** dans une même demande :
 
 	require_once 'vendor\autoload.php';
 	
@@ -435,11 +435,11 @@ L'exemple suivant montre comment exécuter des opérations **insertEntity** et *
 		echo $code.": ".$error_message."<br />";
 	}
 
-Pour plus d'informations sur le traitement par lot d'opérations de table, consultez la page [Exécution de transactions de groupe d'entités][entity-group-transactions].
+Pour plus d'informations sur le traitement par lots d'opérations de table, consultez la page [Exécution de transactions de groupe d'entités][entity-group-transactions].
 
-## Procédure : Suppression d'une table
+## Suppression d'une table
 
-Enfin, pour supprimer une table, passez son nom à la méthode **TableRestProxy->deleteTable**.
+Enfin, pour supprimer une table, transmettez son nom à la méthode **TableRestProxy->deleteTable**.
 
 	require_once 'vendor\autoload.php';
 
@@ -466,16 +466,17 @@ Enfin, pour supprimer une table, passez son nom à la méthode **TableRestProxy-
 
 Maintenant que vous avez appris les principes de base du service de Table Azure, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-- Consultez la référence MSDN suivante : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Visiter le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+- Consultez la référence MSDN suivante : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 
-[télécharger]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Stockage des données et accès aux données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
-[filtres]: http://msdn.microsoft.com/library/azure/dd894031.aspx
+[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -13,22 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-Prise en main d’Azure RemoteApp avec Powershell
+# Prise en main d’Azure RemoteApp avec Powershell
 =====================================
 
 
-Récupération des applets de commande ------------- Pour commencer, téléchargez les applets de commande Azure Powershell [ici](http://go.microsoft.com/?linkid=9811175), qui incluent des applets de commande RemoteApp.
+## Récupération des applets de commande 
+-------------
+Pour commencer, téléchargez les applets de commande Azure Powershell [ici](http://go.microsoft.com/?linkid=9811175), qui incluent des applets de commande RemoteApp.
 
-Configuration des applets de commande Azure pour utiliser votre abonnement
+## Configuration des applets de commande Azure pour utiliser votre abonnement
 ------------------
 Suivez [ce guide](../powershell-install-configure.md) pour apprendre à utiliser les applets de commande sur votre abonnement Azure.
 
-Création d'une collection cloud
+## Création d'une collection cloud
 --------------------
 Exécutez simplement la commande suivante :
 
@@ -47,6 +49,7 @@ Une fois la collection terminée, vous pouvez ajouter des utilisateurs à la col
 
 Vous avez terminé ! Cet utilisateur doit pouvoir se connecter à l’application à l’aide du client Azure RemoteApp disponible [ici](https://www.remoteapp.windowsazure.com/).
 
+## Applets de commande disponibles
 Nous proposons de nombreuses autres commandes. Leur documentation sera disponible prochainement :
 
 Applets de commande de base de la collection RemoteApp :
@@ -94,6 +97,6 @@ Autres applets de commande RemoteApp :
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/02/2015" 
 	ms.author="patshea123"/>
 
 # Qu'est-il arrivé à mon projet ?
@@ -24,12 +24,26 @@
 
 ###<span id="whathappened">Qu’est-il arrivé à mon projet ?</id>
 
-#####Références ajoutées
+#####Package NuGet ajouté
 
-La bibliothèque Azure Mobile Services a été ajoutée à votre projet sous la forme d’un fichier **MobileServices.js**.
+Le package NuGet **WindowsAzure.MobileServices.WinJS** a été installé, y compris la bibliothèque Azure Mobile Service dans le fichier `js\MobileServices.js`.
   
 #####Valeurs de la chaîne de connexion pour Mobile Services 
 
 Dans le dossier `services\mobileServices\settings`, un nouveau fichier JavaScript (.js) avec un objet **MobileServiceClient** a été généré. Il contient l’URL et la clé d’application du service mobile sélectionné.
 
-<!--HONumber=54--> 
+
+#####Ajout de références à default.html
+
+Des références à `MobileServices.js` et le fichier de paramètres ont été ajoutées à `default.html`.
+
+
+#####Ajout de fichiers de services connectés
+
+Dans le dossier des services, les fichiers de configuration des services connectés ont été ajoutés.
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

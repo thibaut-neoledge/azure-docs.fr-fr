@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Batterie de serveurs SharePoint" 
-	description="Décrit la nouvelle fonctionnalité Batterie de serveurs SharePoint de la version préliminaire du portail Azure" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Batterie de serveurs SharePoint"
+	description="Vous pouvez créer une batterie de serveurs SharePoint Server 2013 en un clin d’œil à l’aide de la fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version préliminaire."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Batterie de serveurs SharePoint
@@ -31,14 +32,14 @@ La batterie de serveurs SharePoint à haute disponibilité se compose de neuf ma
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png)
 
 Vous pouvez utiliser cette configuration de batterie pour tester des charges de clients plus élevées, la haute disponibilité du site SharePoint externe et SQL Server AlwaysOn pour une batterie SharePoint. Vous pouvez également l'utiliser pour le développement d'applications SharePoint dans un environnement à haute disponibilité.
- 
-Pour obtenir des informations de configuration détaillées sur ces deux types de batteries de serveurs, consultez la rubrique [Détails de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
+
+Pour obtenir des informations de configuration détaillées concernant ces deux types de batteries de serveurs, consultez la page [Informations de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Parcours de la configuration
- 
+
 Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs SharePoint, procédez comme suit :
 
-1. Dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** > **Calcul** > **Batterie de serveurs SharePoint**. Si **Batterie de serveurs SharePoint** n’apparaît pas, cliquez sur **Nouveau** > **Calcul** > **Azure Marketplace**, tapez **SharePoint** dans **Tout rechercher**, puis cliquez sur **Batterie de serveurs SharePoint**. 
+1. Dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** > **Calcul** > **Batterie de serveurs SharePoint**. Si **Batterie de serveurs SharePoint** n’apparaît pas, cliquez sur **Nouveau** > **Calcul** > **Marketplace**, tapez **SharePoint** dans **Rechercher calcul**, puis cliquez sur **Batterie de serveurs SharePoint**. Dans le volet **Batterie de serveurs SharePoint**, cliquez sur **Créer**.
 2. Dans le volet **Créer une batterie de serveurs SharePoint**, tapez le nom d'un groupe de ressources.
 3. Tapez un nom d'utilisateur et un mot de passe pour le compte administrateur local sur chaque machine virtuelle de votre batterie. Choisissez un nom et un mot de passe difficiles à deviner, enregistrez-les et stockez-les dans un emplacement sécurisé.
 4. Si vous souhaitez une batterie à haute disponibilité, cliquez sur **Activer la haute disponibilité**.
@@ -55,35 +56,34 @@ Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs Share
 
 Les batteries SharePoint disposent d’un point de terminaison préconfiguré afin d’autoriser le trafic web non authentifié (port TCP 80) vers le serveur web SharePoint pour un ordinateur client connecté à Internet. Ce point de terminaison pointe vers un site d'équipe préconfiguré. Pour accéder à ce site d’équipe :
 
-1.	Dans la version préliminaire du portail Azure, cliquez sur **Parcourir**, puis sur **Groupes de ressources**. 
+1.	Dans la version préliminaire du portail Azure, cliquez sur **Parcourir**, puis sur **Groupes de ressources**.
 2.	Dans la liste des groupes de ressources, cliquez sur le nom du groupe de ressources de votre batterie de serveurs SharePoint.
-3.	Dans le volet du groupe de ressources de votre batterie de serveurs SharePoint, cliquez sur **Historique du déploiement**. 
+3.	Dans le volet du groupe de ressources de votre batterie de serveurs SharePoint, cliquez sur **Historique du déploiement**.
 4.	Dans le volet **Historique du déploiement**, cliquez sur **Microsoft.SharePointFarm**.
-5.	Dans le volet **Microsoft.SharePointFarm**, sélectionnez l'URL dans le champ SHAREPOINTSITEURL et copiez-la. 
+5.	Dans le volet **Microsoft.SharePointFarm**, sélectionnez l’URL dans le champ **SHAREPOINTSITEURL** et copiez-la.
 6.	Collez cette URL dans le champ d'adresse de votre navigateur Internet.
 7.	Lorsque vous y êtes invité, entrez les informations d'identification du compte d'utilisateur que vous avez indiquées lors de la création de la batterie de serveurs.
 
 Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes sites, des applications SharePoint, ainsi que d'autres fonctionnalités. Pour plus d'informations, consultez la page [Configurer SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx). Pour accéder au site d’administration centrale de SharePoint :
 
-1.	Dans la version préliminaire du portail Azure, cliquez sur **Parcourir**, puis sur **Groupes de ressources**. 
+1.	Dans la version préliminaire du portail Azure, cliquez sur **Parcourir**, puis sur **Groupes de ressources**.
 2.	Dans la liste des groupes de ressources, cliquez sur le nom du groupe de ressources de votre batterie de serveurs SharePoint.
-3.	Dans le volet du groupe de ressources de votre batterie de serveurs SharePoint, cliquez sur **Historique du déploiement**. 
+3.	Dans le volet du groupe de ressources de votre batterie de serveurs SharePoint, cliquez sur **Historique du déploiement**.
 4.	Dans le volet **Historique du déploiement**, cliquez sur **Microsoft.SharePointFarm**.
-5.	Dans le volet **Microsoft.SharePointFarm**, sélectionnez l'URL dans le champ SHAREPOINTCENTRALADMINURL et copiez-la. 
+5.	Dans le volet **Microsoft.SharePointFarm**, sélectionnez l’URL dans le champ **SHAREPOINTCENTRALADMINURL** et copiez-la.
 6.	Collez cette URL dans le champ d'adresse de votre navigateur Internet.
 7.	Lorsque vous y êtes invité, entrez les informations d'identification du compte d'utilisateur que vous avez indiquées lors de la création de la batterie de serveurs.
 
 
 Remarques :
 
-- La version préliminaire du portail Azure crée ces machines virtuelles dans votre abonnement.
-- La version préliminaire du portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation. 
+- Le Portail Azure en version préliminaire crée ces machines virtuelles dans l’abonnement spécifié.
+- La version préliminaire du portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
 - Vous pouvez administrer ces serveurs par le biais de connexions Bureau à distance. Pour plus d’informations, voir l’article [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md).
-
 
 ## Azure Resource Manager
 
-La batterie de serveurs SharePoint utilise des scripts et le module Azure Resource Manager pour créer automatiquement l'infrastructure et les configurations serveur relatives à ces batteries de serveurs SharePoint. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../powershell-azure-resource-manager.md).
+La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version préliminaire crée des machines virtuelles dans la gestion des services. Pour créer des batteries de serveurs SharePoint Server 2013 dans Resource Manager, consultez la page [Déployer des batteries de serveurs SharePoint avec des modèles Azure Resource Manager](virtual-machines-workload-template-sharepoint.md).
 
 ## Ressources supplémentaires
 
@@ -95,4 +95,4 @@ La batterie de serveurs SharePoint utilise des scripts et le module Azure Resour
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

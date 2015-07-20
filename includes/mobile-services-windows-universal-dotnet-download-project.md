@@ -1,5 +1,5 @@
 
-Ce didacticiel est basé sur l'application [GetStartedWithMobileServices app](http://go.microsoft.com/fwlink/p/?LinkID=510826), qui est un projet d'application Windows universelle dans Visual Studio 2013. L’interface utilisateur de cette application est identique à l’application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
+Ce didacticiel est basé sur l'application [GetStartedWithMobileServices app](http://go.microsoft.com/fwlink/p/?LinkID=510826), qui est un projet d'application Windows universelle dans Visual Studio 2013. L'interface utilisateur de cette application est identique à l'application générée par le démarrage rapide de Mobile Services, sauf que les éléments ajoutés sont stockés en local dans la mémoire.
 
 1. Téléchargez la version C# de l'exemple d'application GetStartedWithMobileServices sur le [site d'exemples de code développeur]. 
 
@@ -21,4 +21,4 @@ Ce didacticiel est basé sur l'application [GetStartedWithMobileServices app](ht
 
 6. Répétez les étapes 3 et 4 pour vérifier que l'exemple se comporte de la même manière.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

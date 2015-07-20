@@ -111,5 +111,6 @@ Vous pouvez maintenant sélectionner l'option À tout moment lors de la créatio
 [bibliothèque cliente ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [intégré ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

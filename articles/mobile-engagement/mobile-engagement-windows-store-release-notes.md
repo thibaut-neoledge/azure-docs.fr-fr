@@ -18,6 +18,10 @@
 
 #Notes de publication du Kit de développement logiciel (SDK) des applications Windows Universal
 
+##3.1.0 (21/05/2015)
+
+-   L’ID d’appareil Mobile Engagement est désormais basé sur un GUID généré au moment de l’installation.
+
 ##3.0.1 (29/04/2015)
 
 -   Correction d'un bogue affectant l'initialisation du Kit de développement logiciel (SDK) sur certaines applications Windows Phone WinRT.
@@ -35,5 +39,6 @@
 -   La configuration d'appId/sdkKey est remplacée par une configuration de chaîne de connexion.
 -   Améliorations de sécurité.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

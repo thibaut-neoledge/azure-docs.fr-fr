@@ -203,4 +203,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

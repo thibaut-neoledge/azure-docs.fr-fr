@@ -1,3 +1,5 @@
+
+
 #Équilibrage de charge pour les services d’infrastructure Azure#
 
 Deux niveaux d’équilibrage de charge sont disponibles pour les services d’infrastructure Azure :
@@ -60,4 +62,4 @@ Pour plus d’informations, consultez la page [Équilibrage de charge interne](h
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

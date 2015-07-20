@@ -13,29 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
-#Diffusion en continu live avec Azure Media Services
+#Diffusion vidéo en flux continu avec Azure Media Services
 
-##Présentation
+##Vue d'ensemble
 
-Microsoft Azure Media Services propose des API qui envoient des requêtes à Media Services pour démarrer des opérations (par exemple : créer, démarrer, arrêter ou supprimer un canal). Ces opérations sont des opérations de longue durée.
+Microsoft Azure Media Services propose des API qui envoient des requêtes à Media Services pour démarrer des opérations (par exemple : créer, démarrer, arrêter ou supprimer un canal). Ces opérations sont des opérations de longue durée.
 
-Le kit de développement logiciel (SDK) .NET de Media Services fournit des API qui envoient la requête et attendent que l'opération se termine (en interne, les API interrogent la progression des opérations à intervalles donnés). Par exemple, lorsque vous appelez channel.Start(), la méthode est renvoyée une fois le canal démarré. Vous pouvez également utiliser la version asynchrone : await channel.StartAsync() (pour plus d'informations sur le modèle asynchrone basé sur des tâches, consultez [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx)). Les API qui envoient une demande d'opération, puis interrogent l'état de l'opération jusqu'à ce que celle-ci soit terminée sont appelées " méthodes d'interrogation "  Ces méthodes (en particulier la version asynchrone) sont recommandées pour les applications clientes riches et/ou les services avec état.
+Le kit de développement logiciel (SDK) .NET de Media Services fournit des API qui envoient la requête et attendent que l'opération se termine (en interne, les API interrogent la progression des opérations à intervalles donnés). Par exemple, lorsque vous appelez channel.Start(), la méthode est renvoyée une fois le canal démarré. Vous pouvez également utiliser la version asynchrone : await channel.StartAsync() (pour plus d’informations sur le modèle asynchrone basé sur des tâches, consultez [TAP](https://msdn.microsoft.com/library/hh873175(v=vs.110).aspx)). Les API qui envoient une demande d'opération, puis interrogent l'état de l'opération jusqu'à ce que celle-ci soit terminée sont appelées « méthodes d'interrogation » Ces méthodes (en particulier la version asynchrone) sont recommandées pour les applications clientes riches et/ou les services avec état.
 
-Dans certains scénarios, une application ne peut pas attendre une requête HTTP de longue durée et cherche à interroger manuellement la progression de l'opération. Par exemple, un navigateur qui interagit avec un service Web sans état : lorsque le navigateur demande à créer un canal, le service web lance une opération de longue durée et renvoie l'ID d'opération dans le navigateur. Le navigateur peut alors demander au service Web l'état de l'opération, en fonction de l'ID. Le kit de développement logiciel (SDK) .NET de Media Services fournit des API qui sont utiles dans ce genre de scénario. Ces API sont appelées " méthodes sans interrogation ".
-Les " méthodes sans interrogation " suivent le modèle de dénomination suivant : Send*Nom d'opération*Operation (par exemple, SendCreateOperation). Les méthodes Send*Nom d'opération*Operation renvoient l'objet **IOperation**. L'objet renvoyé contient des informations qui peuvent être utilisées pour suivre l'opération. Les méthodes Send*Nom d'opération*OperationAsync renvoient **Task<IOperation>**.
+Dans certains scénarios, une application ne peut pas attendre une requête HTTP de longue durée et cherche à interroger manuellement la progression de l'opération. Par exemple, un navigateur qui interagit avec un service Web sans état : lorsque le navigateur demande à créer un canal, le service web lance une opération de longue durée et renvoie l'ID d'opération dans le navigateur. Le navigateur peut alors demander au service Web l'état de l'opération, en fonction de l'ID. Le kit de développement logiciel (SDK) .NET de Media Services fournit des API qui sont utiles dans ce genre de scénario. Ces API sont appelées « méthodes sans interrogation ». Les « méthodes sans interrogation » suivent le modèle de dénomination suivant : Send*OperationName*Operation (par exemple, SendCreateOperation). Send*OperationName*Operation renvoie l’objet **IOperation**. L’objet renvoyé contient des informations qui peuvent être utilisées pour suivre l’opération. Les méthodes Send*OperationName*OperationAsync retournent la **tâche<IOperation>**.
 
-À l'heure actuelle, les classes suivantes prennent en charge les méthodes sans interrogation :  **Channel**, **StreamingEndpoint** et **Program**.
+À l’heure actuelle, les classes suivantes prennent en charge les méthodes sans interrogation : **Channel**, **StreamingEndpoint** et **Program**.
 
-Pour interroger l'état de l'opération, utilisez la méthode **GetOperation** sur la classe **OperationBaseCollection**. Utilisez les intervalles suivants pour vérifier l'état de l'opération : 30 secondes pour les opérations **Channel** et **StreamingEndpoint** ; 10 secondes pour les opérations **Program**.
+Pour interroger l’état de l’opération, utilisez la méthode **GetOperation** sur la classe **OperationBaseCollection**. Utilisez les intervalles suivants pour vérifier l’état de l’opération : 30 secondes pour les opérations **Channel** et **StreamingEndpoint** ; 10 secondes pour les opérations **Program**.
 
 
 ##Exemple
 
-L'exemple suivant définit une classe appelée **ChannelOperations**. Cette définition de classe peut constituer un point de départ pour la définition de classe de votre service Web. Par souci de simplicité, les exemples suivants utilisent les versions synchrones des méthodes.
+L’exemple suivant définit une classe appelée **ChannelOperations**. Cette définition de classe peut constituer un point de départ pour la définition de classe de votre service Web. Par souci de simplicité, les exemples suivants utilisent les versions synchrones des méthodes.
 
 L'exemple montre également comment le client peut utiliser cette classe.
 
@@ -43,7 +42,7 @@ L'exemple montre également comment le client peut utiliser cette classe.
 
 	/// <summary> 
 	/// The ChannelOperations class only implements 
-	/// the Channel's creation operation. 
+	/// the Channel’s creation operation. 
 	/// </summary> 
 	public class ChannelOperations
 	{
@@ -185,6 +184,6 @@ L'exemple montre également comment le client peut utiliser cette classe.
 	
 	// If we got here, we should have the newly created channel id.
 	Console.WriteLine(channelId);
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

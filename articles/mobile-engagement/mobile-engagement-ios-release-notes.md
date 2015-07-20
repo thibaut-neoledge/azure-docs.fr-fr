@@ -18,6 +18,10 @@
 
 #Notes de publication
 
+##2.2.0 (21/05/2015)
+
+-   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
+
 ##2.1.0 (24/04/2015)
 
 -   Ajouter la compatibilité Swift.
@@ -34,5 +38,6 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

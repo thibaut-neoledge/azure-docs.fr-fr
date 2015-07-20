@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Accédez aux jeux de données de Python grâce à la bibliothèque cliente Python d'Azure Machine Learning | Azure" 
+	pageTitle="Accès à des jeux de données grâce à la bibliothèque cliente Python Machine Learning | Microsoft Azure" 
 	description="Installez et utilisez la bibliothèque cliente Python pour accéder et gérer les données d'apprentissage automatique d'Azure en toute sécurité à partir d'un environnement Python local." 
 	services="machine-learning" 
 	documentationCenter="python" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/07/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -80,7 +80,10 @@ Si votre rôle n'est pas défini en tant que **Propriétaire**, vous pouvez dema
 
 Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opérations suivantes :
 
-1. Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D'AUTORISATION** pour voir les jetons principaux et secondaires. ![](http://i.imgur.com/h33GoZX.jpg) Bien que les jetons d'autorisation principaux ou secondaires peuvent être utilisés dans l'extrait de code, il est recommandé que les propriétaires ne partagent que les jetons d'autorisation secondaires.
+1. Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D'AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
 Une fois que les développeurs ont obtenu l'ID de l'espace de travail et les jetons d'autorisation, ils pourront accéder à l'espace de travail à l'aide de l'extrait de code, quel que soit leur rôle.
@@ -362,5 +365,6 @@ Si vos données sont déjà sérialisées, utilisez `update_from_raw_data` au l
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

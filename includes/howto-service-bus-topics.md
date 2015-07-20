@@ -32,7 +32,6 @@ Pour créer un espace de noms de service :
 
 	![][6]
 
-
 ## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
 
 Afin d’effectuer des opérations de gestion, comme la création d’une rubrique ou d’un abonnement, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Vous pouvez obtenir ces informations d’identification à partir du portail de gestion Azure ou à partir de l’Explorateur de serveurs Visual Studio.
@@ -49,7 +48,7 @@ Afin d’effectuer des opérations de gestion, comme la création d’une rubriq
 
 ### Pour obtenir les informations de gestion de l’Explorateur de serveurs
 
-Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
+Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://msdn.microsoft.com/library/azure/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
 
 Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
@@ -65,4 +64,4 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

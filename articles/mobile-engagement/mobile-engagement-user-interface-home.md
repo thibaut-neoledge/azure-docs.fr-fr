@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Interface utilisateur d'Azure Engagement Mobile - Accueil" 
-   description="Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement"
+   description="Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -149,4 +149,8 @@ Vous pouvez utiliser des projets pour grouper vos applications et accorder des a
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

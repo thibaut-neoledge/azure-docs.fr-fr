@@ -25,4 +25,4 @@
 
    	Notez que le texte enregistré est stocké dans une collection en mémoire et affiché dans la liste ci-dessous.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

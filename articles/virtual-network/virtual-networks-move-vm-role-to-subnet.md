@@ -51,4 +51,4 @@ Pour déplacer une instance de rôle, modifiez le fichier CSCFG. Dans l’exempl
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

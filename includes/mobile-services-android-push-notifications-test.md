@@ -24,4 +24,4 @@ Lorsque vous exécutez cette application dans l'émulateur, veillez à utiliser 
 
 	![Afficher la notification dans le Centre de notifications](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

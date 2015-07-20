@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="06/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main de Mobile Services (Projets Cordova)
@@ -34,7 +34,7 @@ La première étape à effectuer pour suivre le code figurant dans ces exemples 
 
 Le code ci-dessous permet d'obtenir une référence pointant vers une table qui contient des données destinées à un objet TodoItem. Cette référence peut ensuite être utilisée pour lire et mettre à jour la table de données. La table TodoItem est automatiquement créée lorsque vous créez un service mobile.
 
-var todoTable = mobileServiceClient.getTable('TodoItem');
+    var todoTable = mobileServiceClient.getTable('TodoItem');
 
 Pour que ces exemples fonctionnent, les autorisations de la table doivent être définies sur **Toute personne avec la clé d'application**. Vous pourrez ensuite configurer l'authentification. Consultez la page [Prise en main de l'authentification](mobile-services-html-get-started-users.md).
 
@@ -42,19 +42,35 @@ Pour que ces exemples fonctionnent, les autorisations de la table doivent être 
 
 Insérez un nouvel élément dans une table de données. Un ID (GUID de type String) est automatiquement créé comme clé primaire de la nouvelle ligne. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
 
-function TodoItem(text) { this.text = text; this.complete = false; }
-
-var items = new Array(); todoTable.insert(todoItem).done(function (item) { items.push(item) }); };
+    function TodoItem(text) {
+        this.text = text;
+        this.complete = false;
+    }
+    
+    var items = new Array();
+    var insertTodoItem = function (todoItem) {
+        todoTable.insert(todoItem).done(function (item) {
+            items.push(item)
+        });
+    };
 
 #####Lire une table ou exécuter des requêtes sur une table
 
 Le code ci-dessous permet de lancer une requête sur tous les éléments d'une table, dans l'ordre des champs de texte. Vous pouvez ajouter un code pour traiter les résultats de la requête dans le gestionnaire success. Dans ce cas, un tableau local des éléments est mis à jour.
 
-todoTable.orderBy('text') .read().done(function (results) { items = results.slice(); }); });
+    todoTable.orderBy('text')
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Vous pouvez utiliser la méthode where pour modifier la requête. Voici un exemple qui permet de filtrer les éléments terminés :
 
-todoTable.where(function () { return (this.complete === false); }) .read().done(function (results) { items = results.slice(); });
+    todoTable.where(function () {
+            return (this.complete === false);
+        })
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
@@ -62,14 +78,19 @@ Pour consulter plus d'exemples de requêtes, reportez-vous à l'objet [query](ht
 
 Mettez une ligne à jour dans une table de données. Avec ce code, l'élément est retiré de la liste lorsque le service mobile répond. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
 
-todoTable.update(todoItem).done(function (item) { // Mettre à jour une collection locale d'éléments. items.splice(items.indexOf(todoItem), 1, item); });
+    todoTable.update(todoItem).done(function (item) {
+        // Update a local collection of items.
+        items.splice(items.indexOf(todoItem), 1, item);
+    });
 
 #####Supprimer un élément de table
 
 Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Appelez la méthode `done()` sur l’objet [Promise](https://msdn.microsoft.com/library/dn802826.aspx) renvoyé pour obtenir une copie de l’objet inséré et gérer les éventuelles erreurs.
 
-todoTable.del(todoItem).done(function (item) { items.splice(items.indexOf(todoItem), 1); });
+    todoTable.del(todoItem).done(function (item) {
+        items.splice(items.indexOf(todoItem), 1);
+    });
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

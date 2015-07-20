@@ -36,7 +36,7 @@ Le bloc de commandes PowerShell suivant permet de créer les machines virtuelle
 
 Souvenez-vous que vous avez défini la Table M au cours de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md), et les Tables V, S, A et C au cours de la [Phase 1 : Configuration d’Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant à l’invite de commandes Azure PowerShell.
+Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant à l'invite de commandes Azure PowerShell.
 
 	# Create the first SharePoint application server
 	$vmName="<Table M – Item 6 - Virtual machine name column>"
@@ -95,7 +95,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Consultez [Connexion à une machine virtuelle avec la connexion Bureau à distance](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatre fois, une fois pour chaque serveur SharePoint, afin de vous connecter à l’aide des informations d’identification [Domain]\\sp_farm_db, créées au cours de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Consultez [Connexion à une machine virtuelle avec la connexion Bureau à distance](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) quatre fois, une fois pour chaque serveur SharePoint, afin de vous connecter à l’aide des informations d’identification Domain\\sp_farm_db, créées au cours de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Suivez la procédure décrite dans [Test de la connectivité](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) quatre fois, soit une fois pour chaque serveur SharePoint, afin de tester la connectivité à différents emplacements du réseau de votre organisation.
 
@@ -109,7 +109,7 @@ Suivez ces étapes pour configurer le premier serveur SharePoint dans la batter
 4.	Sur la page Se connecter à une batterie de serveurs, sélectionnez sur **Créer une batterie de serveurs**, puis cliquez sur **Suivant**.
 5.	Sur la page Spécifier les paramètres de la base de données de configuration :
 - Dans **Serveur de base de données**, entrez le nom de la machine SQL Server principale. 
-- Dans **Nom d’utilisateur**, entrez [Domain]**\\sp_farm_db** (créé lors de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md)). N’oubliez pas que le compte sp_farm_db dispose de privilèges sysadmin sur la machine SQL Server. 
+- Dans **Nom d’utilisateur**, entrez Domain**\\sp_farm_db** (créé lors de la [Phase 2 : Configuration de contrôleurs de domaine](virtual-machines-workload-intranet-sharepoint-phase2.md)). N’oubliez pas que le compte sp_farm_db dispose de privilèges sysadmin sur la machine SQL Server. 
 - Dans **Mot de passe**, saisissez le mot de passe associé au compte sp_farm_db.
 6.	Cliquez sur **Next**.
 7.	Sur la page Spécifier les paramètres de sécurité de la batterie de serveurs, entrez votre phrase secrète deux fois. Consignez cette phrase secrète et conservez-la dans un emplacement sécurisé pour vous y reporter ultérieurement. Cliquez sur **Next**.
@@ -184,8 +184,11 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
+[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

@@ -61,4 +61,4 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

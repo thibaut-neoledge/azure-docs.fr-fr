@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
@@ -28,15 +28,15 @@ Vous n'avez rien à ajouter. Les références et les ressources de `EngagementRe
 
 ##Activer le service de notification Windows
 
-Pour utiliser le **service de notification Windows** (WNS) dans votre fichier `Package.appxmanifest` sur `Application UI`, cliquez sur `All Image Assets` dans la zone de gauche. À droite de la zone dans `Notifications`, modifiez `toast capable` en remplaçant `(not set)` par `Yes`.
+Pour utiliser le **service de notification Windows** (WNS) dans votre fichier `Package.appxmanifest` sur `Application UI`, cliquez sur `All Image Assets` dans la zone de gauche. À droite de la zone dans `Notifications`, modifiez `toast capable` en remplaçant `(not set)` par `(Yes)`.
 
-Vous devez, par ailleurs, synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push`, puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`.
+Vous devez, par ailleurs, synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Pour ce faire, vous devez créer un compte ou vous connecter au [Centre de développement Windows](https://dev.windows.com). Ensuite, créez une application et recherchez le SID et la clé secrète. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push`, puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`. Vous devez simplement sélectionner l'application créée avant de la synchroniser.
 
 ##Initialiser le SDK du module Couverture d'Engagement
 
 Modifiez le `App.xaml.cs` :
 
--   Ajoutez les instructions `using` :
+-   Ajoutez à vos instructions `using` :
 
 		using Microsoft.Azure.Engagement;
 
@@ -48,7 +48,7 @@ Modifiez le `App.xaml.cs` :
 		  EngagementReach.Instance.Init(args);
 		}
 
--   Si vous voulez lancer le module Couverture d'Engagement quand votre application est activée, remplacez la méthode `OnActivated` :
+-   Si vous souhaitez activer Engagement Reach lorsque votre application est activée par une commande, une autre application ou un schéma personnalisé, remplacez la méthode `OnActivated` :
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
@@ -64,17 +64,17 @@ Modifiez le `App.xaml.cs` :
 
 Engagement permet d’implémenter les notifications et les annonces de Couverture de deux manières : l’intégration de superposition et l’intégration de vue web.
 
-windows-sdk-engagement-overlay-integration ne nécessite pas l'écriture d'une grande quantité de code. Il vous suffit d'ajouter le mot-clé EngagementPageOverlay à vos pages et à vos fichiers .xaml et .cs. De plus, si vous personnalisez la vue par défaut d'Engagement, votre personnalisation sera partagée par toutes les pages avec mots-clés, et ne sera définie qu'une seule fois. Si vos pages doivent hériter d'un objet autre qu'EngagementPageOverlay, vous n'aurez d'autre choix que d'utiliser l'intégration de vue web.
+L’intégration de superposition ne nécessite pas l'écriture d'une grande quantité de code. Il vous suffit d'ajouter le mot-clé EngagementPageOverlay à vos pages et à vos fichiers .xaml et .cs. De plus, si vous personnalisez la vue par défaut d'Engagement, votre personnalisation sera partagée par toutes les pages avec mots-clés, et ne sera définie qu'une seule fois. Si vos pages doivent hériter d'un objet autre qu'EngagementPageOverlay, vous n'aurez d'autre choix que d'utiliser l'intégration de vue web.
 
-windows-sdk-engagement-webview-integration est plus compliqué à implémenter. Toutefois, si vos pages d’applications doivent hériter d’un objet autre que « Page », vous devrez intégrer la vue web et son comportement.
+L’intégration de vue web est plus compliquée à implémenter. Toutefois, si vos pages d’applications doivent hériter d’un objet autre que « Page », vous devrez intégrer la vue web et son comportement.
 
-> [AZURE.TIP]Vous pouvez envisager d’ajouter un élément `<Grid></Grid>` de premier niveau pour encadrer l’ensemble du contenu des pages. Pour l'intégration de vue web, il vous suffit d'ajouter Webview en tant qu'enfant de cette grille. Si vous devez définir un composant Engagement à un autre endroit, vous devrez gérer la taille de l'affichage vous-même.
+> [AZURE.TIP]Vous pouvez envisager d’ajouter un élément `<Grid></Grid>` au niveau racine pour encadrer l’ensemble du contenu des pages. Pour l'intégration de vue web, il vous suffit d'ajouter Webview en tant qu'enfant de cette grille. Si vous devez définir un composant Engagement à un autre endroit, vous devrez gérer la taille de l'affichage vous-même.
 
 ### Intégration de superposition
 
 Engagement fournit une fonctionnalité de superposition pour l'affichage des notifications et des annonces.
 
-Si vous voulez l’utiliser, n’utilisez pas windows-sdk-engagement-webview-integration.
+Si vous voulez l’utiliser, n’utilisez pas l’intégration de vue web.
 
 Dans le fichier .xaml, remplacez la référence EngagementPage par EngagementPageOverlay
 
@@ -157,14 +157,14 @@ Vous pouvez personnaliser la superposition des notifications et des annonces dir
 
 ### Intégration de la vue web
 
-Si vous voulez l’utiliser, n’utilisez pas windows-sdk-engagement-overlay-integration.
+Si vous voulez l’utiliser, n’utilisez pas l’intégration de superposition.
 
 Pour afficher le contenu Engagement, vous devez intégrer les deux vues web XAML à chaque page et afficher une notification et une annonce. Ajoutez le code suivant au fichier XAML :
 
 			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
- **Pour l'intégration Windows 8.1 :**
+> **Pour l'intégration Windows 8.1 :**
 
 			<engagement:EngagementPage
 			    xmlns:engagement="using:Microsoft.Azure.Engagement">
@@ -408,5 +408,6 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
 			    }
 			  }
 			  #endregion
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

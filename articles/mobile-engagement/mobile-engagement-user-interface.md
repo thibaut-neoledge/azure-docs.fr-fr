@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="05/12/2015"
    ms.author="piyushjo"/>
 
 # Utilisation de l’interface utilisateur (IU) d’Azure Mobile Engagement
@@ -27,7 +27,7 @@ Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5
 - [Accueil][Link 13]
 - [Mon compte][Link 14]
 - [Analyse][Link 15]
-- [Surveillance][Link 16]
+- [Surveiller][Link 16]
 - [Reach][Link 17]
 	- [Reach - Campagne][Link 27]
 	- [Reach - Critère][Link 28]
@@ -131,5 +131,6 @@ Une fois que vous avez intégré le Kit de développement logiciel[(SDK)][Link 5
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

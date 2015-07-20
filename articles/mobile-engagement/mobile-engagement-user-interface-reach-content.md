@@ -31,7 +31,7 @@ Vous pouvez utiliser la section Contenu d'une nouvelle campagne Reach pour modif
 
 ### Choisissez le type de votre annonce :
 -    Notification uniquement : il s’agit d’une simple notification standard. Cela signifie que si un utilisateur clique dessus, aucun affichage supplémentaire n'apparaîtra. Seule l'action qui y est associée s'affichera.
--    Annonce texte : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage texte.
+-    Annonce texte : il s’agit d’une notification qui invite l’utilisateur à regarder une vue de texte.
 -    Annonce Web : il s’agit d’une notification qui invite l’utilisateur à regarder l’affichage Web.
 
 ### Voir aussi
@@ -50,7 +50,7 @@ Toute URL qui peut être interprétée par le système d'exploitation d'un appar
 
 - **Actions Android et iOS**
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
@@ -74,7 +74,7 @@ Toute URL qui peut être interprétée par le système d'exploitation d'un appar
     - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Actions Windows
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
@@ -228,5 +228,6 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

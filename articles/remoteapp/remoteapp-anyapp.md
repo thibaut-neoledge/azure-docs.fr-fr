@@ -10,10 +10,10 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
+   ms.date="05/28/2015"
    ms.author="elizapo"/>
 
 # Exécutez n’importe quelle application sur n’importe quel appareil avec RemoteApp
@@ -35,7 +35,7 @@ Commencez par créer une collection. La collection sert à répertorier vos appl
 2. Cliquez sur **Créer une collection RemoteApp**.
 3. Cliquez sur **Création rapide** et entrez un nom pour votre collection.
 4. Sélectionnez la région que vous souhaitez utiliser pour créer votre collection. Pour une expérience optimale, sélectionnez la région la plus proche du lieu où vos utilisateurs accéderont à l’application. Par exemple, dans ce didacticiel, les utilisateurs se trouveront à Redmond, Washington. La région Azure la plus proche est la zone **Ouest des États-Unis**.
-5. Sélectionnez le profil de facturation que vous souhaitez utiliser. Le profil de facturation de base place 16 utilisateurs sur une machine virtuelle Azure de grande taille, contre 10 utilisateurs si vous optez pour le profil de facturation standard. En règle générale, le profil de base fonctionne bien pour les workflows de type « saisie de données ». Pour les applications très performantes comme Office, nous vous recommandons d’utiliser le profil standard. 
+5. Sélectionnez le profil de facturation que vous souhaitez utiliser. Le profil de facturation de base place 16 utilisateurs sur une machine virtuelle Azure de grande taille, contre 10 utilisateurs si vous optez pour le profil de facturation standard. En règle générale, le profil de base fonctionne bien pour les workflows de type « saisie de données ». Pour les applications très performantes comme Office, nous vous recommandons d’utiliser le profil standard.
 6. Enfin, sélectionnez l’image d’Office 2013 Professionnel. Cette image contient les applications d’Office 2013.  
 7. Cliquez à présent sur **Créer une collection RemoteApp**.
 
@@ -71,15 +71,15 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
 2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Vous devez à présent créer un [compte de stockage](../storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous (il peut n’y avoir qu’un seul « accessstorage »). ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. ![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire.
-6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
-   
+4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part.
+
+![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png) 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire. 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
+
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
-	Voici les applets de commande que nous avons exécutées dans notre cas :
-    
+	So for our share, these are the cmdlets we run:
+
 	    $ctx=New-AzureStorageContext accessstorage <key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
 
@@ -87,7 +87,11 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 C’est maintenant au tour des utilisateurs de poursuivre les opérations. Tout d’abord, demandez à vos utilisateurs d’installer un [client RemoteApp](remoteapp-clients.md). Les utilisateurs doivent ensuite mapper un lecteur depuis leur compte vers le partage de fichiers Azure que vous avez créé et ajouté à leurs fichiers Access. Voici comment ces derniers doivent procéder :
 
 1. Dans le client RemoteApp, accédez aux applications publiées. Démarrez le programme cmd.exe.
-2. Pour mapper un lecteur depuis votre ordinateur vers le partage de fichiers, exécutez la commande suivante : net use z: <accountname>.file.core.windows.net<nom du partage> /u:<user name> <account key>
+2. Pour mapper un lecteur depuis votre ordinateur vers le partage de fichiers, exécutez la commande suivante :
+
+		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
+
+	Si vous définissez le paramètre **/ persistent** sur Oui, le lecteur mappé persistera entre les sessions.
 1. À présent, lancez l’application Explorateur de fichiers depuis RemoteApp. Copiez les fichiers Access que vous souhaitez utiliser dans l’application partagée dans le partage de fichiers. ![Ajout de fichiers Access dans un partage Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 1. Enfin, ouvrez Access, puis la base de données que vous venez de partager. Vous devriez voir vos données d’Access s’exécuter directement sur le cloud. ![Une véritable base de données Access exécutée sur le cloud](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
@@ -100,5 +104,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

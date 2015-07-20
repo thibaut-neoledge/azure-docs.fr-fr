@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Test de vos paramètres Traffic Manager"
-   description="Cet article est destiné à vous aider à tester vos paramètres Traffic Manager."
+   pageTitle="Test de vos paramètres de Traffic Manager"
+   description="Cet article vous aide à tester les paramètres de Traffic Manager."
    services="traffic-manager"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,66 +12,49 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
-# Test des paramètres Traffic Manager
+# Test des paramètres de Traffic Manager
 
-La meilleure façon de tester vos paramètres Traffic Manager consiste à configurer plusieurs clients, puis à arrêter simultanément les points de terminaison de votre profil, qui se composent de services cloud et de sites Web. Voici quelques conseils qui vous aideront à tester votre profil Traffic Manager.
+La meilleure façon de tester les paramètres de Traffic Manager consiste à configurer des clients, puis à mettre hors fonction un à un les services cloud et sites web de votre profil. Voici quelques conseils relatifs au test de votre profil Traffic Manager :
 
-## Procédure de test de base
+## Étapes de test de base
 
--**Définissez une durée de vie DNS très courte** de sorte que les modifications se répercutent rapidement, en 30 secondes, par exemple.
+-**Définissez une durée de vie DNS très courte** pour que les modifications se répercutent rapidement, en 30 secondes, par exemple.
 
--**Veillez à connaître l'adresse IP de tous vos services cloud et sites Web Azure** contenus dans le profil de que vous testez.
+-**Veillez à connaître l’adresse IP de tous vos services cloud et sites web Azure** contenus dans le profil que vous testez.
 
--**Utilisez des outils permettant de résoudre un nom DNS en adresse IP** et affichez cette adresse. Vous devez vérifier que le nom de domaine de votre entreprise est résolu en adresses IP des points de terminaison contenus dans votre profil. Ils doivent être résolus de manière cohérente avec la méthode d'équilibrage de charge de votre profil Traffic Manager. Si l'ordinateur que vous utilisez exécute Windows, vous pouvez utiliser l'outil Nslookup.exe à partir d'une commande ou d'une invite de commandes Windows PowerShell. D'autres outils publics permettant d'obtenir les adresses IP sont également disponibles sur Internet.
+-**Utilisez des outils permettant de résoudre un nom DNS en adresse IP** et d’afficher cette adresse. Vous devez vérifier que votre nom de domaine d’entreprise est résolu en adresses IP des points de terminaison de votre profil. Ils doivent être résolus de manière cohérente avec la méthode d’équilibrage de charge utilisée pour votre profil Traffic Manager. Si vous possédez un ordinateur exécutant Windows, vous pouvez utiliser l’outil Nslookup.exe à partir d’une commande ou d’une invite de commandes Windows PowerShell. D’autres outils publics permettant d’obtenir les adresses IP sont également disponibles sur Internet.
 
-### Pour vérifier un profil Traffic Manager à l'aide de nslookup
+### Contrôle d’un profil Traffic Manager à l’aide de nslookup
 
 1-Ouvrez une commande ou une invite de commandes Windows PowerShell en tant qu'administrateur.
 
-2-Tapez `ipconfig /flushdns` pour vider le cache de résolution DNS.
+2-Tapez `ipconfig /flushdns` pour vider le cache de résolution DNS.
 
-3-Tapez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante permet de vérifier le nom de domaine doté du préfixe *myapp.contoso*
-    nslookup myapp.contoso.trafficmanager.net
-On obtient alors le résultat suivant :
-- Le nom DNS et l'adresse IP du serveur DNS utilisé pour résoudre ce nom de domaine Traffic Manager.
-- Le nom de domaine Traffic Manager que vous avez tapé dans la ligne de commande après " nslookup " et l'adresse IP à laquelle correspond le domaine Traffic Manager. La deuxième adresse IP est celle à vérifier. Elle doit correspondre à une adresse IP virtuelle (VIP) publique pour un des services cloud ou sites Web dans le profil Traffic Manager que vous testez.
+3-Tapez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine avec le préfixe *myapp.contoso* nslookup myapp.contoso.trafficmanager.net Le résultat standard affiché est le suivant : - Nom DNS et adresse IP du serveur DNS accessible pour résoudre ce nom de domaine Traffic Manager. - Nom de domaine Traffic Manager que vous avez tapé dans la ligne de commande après « nslookup » et adresse IP de résolution du domaine Traffic Manager. La deuxième adresse IP est celle à vérifier. Elle doit correspondre à l’adresse IP virtuelle (VIP) publique de l’un des services cloud ou sites web du profil Traffic Manager testé.
 
-## Test des méthodes d'équilibrage de charge
+## Test des méthodes d’équilibrage de charge
 
 
-### Pour tester une méthode d'équilibrage de charge de basculement
+### Test d’une méthode d’équilibrage de charge de basculement
 
-1-Maintenez tous les points de terminaison à l'état actif.
-2-Utilisez un seul client.
-3-Demandez la résolution DNS du nom de domaine de votre entreprise à l'aide de l'outil Nslookup.exe ou d'un utilitaire similaire.
-4-Assurez-vous que l'adresse IP résolue que vous obtenez est destinée à votre point de terminaison principal.
-5-Mettez votre point de terminaison principal hors fonction ou supprimez le fichier de surveillance de sorte que Traffic Manager pense qu'il l'est.
-6-Attendez jusqu'au terme de la durée de vie DNS du profil Traffic Manager plus 2 minutes supplémentaires. Par exemple, si la durée de vie DNS est de 300 secondes (5 minutes), attendez 7 minutes.
-7-Videz votre cache client DNS et demandez une résolution DNS. Dans Windows, vous pouvez vider votre cache DNS avec la commande ipconfig /flushdns émise au niveau d'une commande ou d'une invite de commandes Windows PowerShell.
-8-Assurez-vous que l'adresse IP obtenue est destinée à votre point de terminaison secondaire.
-9-Répétez le processus en mettant le point de terminaison secondaire hors fonction, puis le troisième, et ainsi de suite. À chaque fois, assurez-vous que la résolution DNS retourne l'adresse IP du prochain point de terminaison de la liste. Une fois que tous les points de terminaison sont hors fonction, vous devez obtenir à nouveau l'adresse IP du point de service principal.
+1-Maintenez tous les points de terminaison à l'état actif. 2–Utilisez un seul client. 3-Demandez la résolution DNS du nom de domaine de votre entreprise à l'aide de l'outil Nslookup.exe ou d'un utilitaire similaire. 4-Vérifiez que l’adresse IP de résolution obtenue correspond à votre point de terminaison principal 5-Mettez votre point de terminaison principal hors fonction ou supprimez le fichier de surveillance afin que Traffic Manager pense qu’il l’est. 6-Attendez jusqu'au terme de la durée de vie DNS du profil Traffic Manager plus 2 minutes supplémentaires. Par exemple, si la TTL de votre DNS est de 300 secondes (5 minutes), vous devez attendre 7 minutes. 7-Videz votre cache client DNS et demandez une résolution DNS. Dans Windows, vous pouvez vider votre cache DNS en exécutant la commande ipconfig /flushdns à partir d’une commande ou d’une invite de commandes Windows PowerShell. 8–Assurez-vous que l'adresse IP obtenue est destinée à votre point de terminaison secondaire. 9–Répétez le processus en mettant le point de terminaison secondaire hors fonction, puis le troisième, et ainsi de suite. Assurez-vous chaque fois que la résolution DNS renvoie l’adresse IP du point de terminaison suivant dans la liste. Une fois tous les points de terminaison hors fonction, vous devez obtenir à nouveau l’adresse IP du point de terminaison principal.
 
-### Pour tester une méthode d'équilibrage de charge par tourniquet (round robin)
+### Test d’une méthode d’équilibrage de charge tourniquet (round robin)
 
-1-Maintenez tous les points de terminaison à l'état actif.
-2-Utilisez un seul client.
-3-Demandez la résolution DNS du domaine de votre entreprise à l'aide de l'outil Nslookup.exe ou d'un utilitaire similaire.
-4-Vérifiez que l'adresse IP obtenue figure bien dans votre liste.
-5-Videz votre cache client DNS et répétez les étapes 3 et 4 autant de fois que nécessaire. Différentes adresses IP doivent alors être retournées pour chaque point de terminaison. Ensuite, le processus se répète.
+1-Maintenez tous les points de terminaison à l'état actif. 2–Utilisez un seul client. 3-Demandez la résolution DNS du domaine de votre entreprise à l'aide de l'outil Nslookup.exe ou d'un utilitaire similaire. 4-Vérifiez que l'adresse IP obtenue figure bien dans votre liste. 5-Videz votre cache client DNS et répétez les étapes 3 et 4 autant de fois que nécessaire. Vous devriez alors obtenir différentes adresses IP pour chacun de vos points de terminaison. Ensuite, le processus se répète.
 
-### Pour tester une méthode d'équilibrage de charge de performance
+### Test d’une méthode d’équilibrage de charge des performances
 
-Pour tester efficacement une méthode d'équilibrage de charge de performance, vous devez avoir des clients situés dans différentes parties du monde. Vous pouvez créer des clients dans Azure qui tenteront d'appeler vos services via le nom de domaine de votre entreprise. Sinon, si votre entreprise est d'envergure mondiale, vous pouvez vous connecter à distance à des clients situés dans d'autres parties du monde et effectuer les tests à partir de ces clients.
+Pour tester efficacement une méthode d’équilibrage de charge des performances, vous devez disposer de plusieurs clients répartis en différents emplacements dans le monde. Vous pouvez en créer dans Azure, afin qu’ils tentent d’appeler vos services via votre nom de domaine d’entreprise. Si votre entreprise est implantée à l’international, vous pouvez également vous connecter à distance à des clients dans d’autres régions du monde et procéder au test depuis ces clients.
 
-Vous trouverez différents services d'exploration (dig) et de recherche DNS gratuits sur Internet. Certains d'entre eux permettent de contrôler la résolution de noms DNS à partir de différents emplacements. Effectuez une recherche sur " Recherche DNS " pour obtenir des exemples. Vous pouvez aussi utiliser une solution tierce, telle que Gomez ou Keynote, pour vérifier que vos profils répartissent le trafic comme prévu.
+Vous trouverez différents services de recherche et d’obtention de DNS gratuits sur Internet. Certains d’entre eux permettent de contrôler la résolution de noms DNS à partir de différents emplacements. Faites une recherche sur « Recherche DNS » pour obtenir des exemples. Vous pouvez également utiliser une solution tierce, telle que Gomez ou Keynote, pour vérifier que vos profils répartissent le trafic comme prévu.
 
 ## Voir aussi
 
-[À propos des méthodes d'équilibrage de charge de Traffic Manager](../about-traffic-manager-balancing-methods.md)
-[Tâches de Configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-[Traffic Manager](../traffic-manager.md)
+[À propos des méthodes d’équilibrage de charge de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Traffic Manager](../traffic-manager.md)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

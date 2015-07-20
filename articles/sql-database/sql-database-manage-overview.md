@@ -42,5 +42,6 @@ Pour en savoir plus sur la gestion de vos bases de données SQL Microsoft Azure
 Vous pouvez utiliser des outils en ligne de commande tels que PowerShell pour gérer des bases de données SQL Microsoft Azure et automatiser les déploiements de ressources Microsoft Azure. Microsoft recommande cet outil pour la gestion d’un grand nombre de bases de données SQL Microsoft Azure et le déploiement des modifications apportées aux ressources dans un environnement de production.
 
 Pour en savoir plus sur la gestion de vos bases de données SQL Azure avec les outils en ligne de commande, [cliquez ici](sql-database-command-line-tools.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

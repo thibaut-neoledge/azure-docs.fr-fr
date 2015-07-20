@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple - Octobre 2014"
+    pageTitle="Notes de publication de StorSimple série 8000 Update 0.1 – Octobre 2014"
     description="Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement pour la version d’octobre 2014 de StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notes de publication de StorSimple - Octobre 2014  
+# Notes de publication de StorSimple série 8000 Update 0.1 – Octobre 2014  
 
 ## Vue d'ensemble
 
-Les notes suivantes identifient les problèmes critiques non résolus de la version d’octobre 2014 de Microsoft Azure StorSimple. Elles contiennent également une liste des mises à jour du logiciel et du microprogramme StorSimple incluses dans cette version. Il s’agit de la première version après la version mise à la disposition générale de Microsoft Azure StorSimple. Son numéro est 6.3.9600.17312.
+Les notes de publication suivantes identifient les problèmes critiques non résolus relatifs à la version StorSimple série 8000 Update 0.1, publiée en octobre 2014. Elles contiennent également une liste des mises à jour du logiciel et du microprogramme StorSimple incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014. Elle correspond à la version logicielle 6.3.9600.17312.
 
 Nous vous recommandons de rechercher les mises à jour éventuelles et de les appliquer immédiatement après avoir installé l’appareil. Vous pouvez également activer les mises à jour automatiques pour télécharger et installer les mises à jour de haute priorité à partir de Microsoft dès qu’elles sont mises à disposition. Pour plus d’informations, consultez la page sur l’installation des [mises à jour](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).
 
@@ -71,7 +72,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | N° | Fonctionnalité | Problème | Commentaires/solution de contournement | S’applique à un appareil physique | S’applique à un appareil virtuel |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Réinitialisation aux paramètres d’usine | Dans certains cas, lorsque vous effectuez une réinitialisation aux paramètres d’usine, l’appareil StorSimple peut se bloquer et afficher le message suivant : **La réinitialisation aux paramètres d’usine est en cours (phase 8)**. Cela se produit si vous appuyez sur Ctrl+C alors que l’applet de commande est en cours. | N’appuyez pas sur Ctrl+C après avoir lancé une réinitialisation aux paramètres d’usine. Si vous avez déjà effectué cette opération, contactez le support technique Microsoft. | Oui | Non |
-| 2 | Réinitialisation aux paramètres d’usine | Ne réinitialisez pas aux paramètres d’usine un appareil StorSimple qui a été mis à jour vers la version d’octobre 2014 à partir de la version mise  la disposition générale. | Cette opération fonctionne uniquement si un correctif est installé. Contactez le support technique Microsoft pour obtenir ce correctif. | Oui | |	
+| 2 | Réinitialisation aux paramètres d’usine | Ne réinitialisez pas aux paramètres d’usine un appareil StorSimple qui a été mis à jour vers la version d’octobre 2014 à partir de la version mise la disposition générale. | Cette opération fonctionne uniquement si un correctif est installé. Contactez le support technique Microsoft pour obtenir ce correctif. | Oui | |	
 | 3 | Disque quorum | Dans de rares cas, si la majorité des disques du boîtier EBOD d’un appareil 8600 sont déconnectés, ce qui signifie qu’il n’y a pas de disque quorum, le pool de stockage est hors connexion. Il reste hors connexion même si les disques sont reconnectés. | Vous devez redémarrer l’appareil. Si le problème persiste, contactez le support technique Microsoft. | Oui | Non |
 | 4 | Échec des instantanés cloud | Dans de rares cas, un instantané cloud peut échouer et renvoyer l’erreur **Limite de sauvegarde maximale atteinte**. Cela se produit si vous avez plus de 255 clones en ligne sur un même appareil, provenant du volume d’origine qui a été supprimé. | | Oui | Oui |
 | 5 | ID de contrôleur incorrect | Lorsqu’un contrôleur est remplacé, le contrôleur 0 peut apparaître comme contrôleur 1. Pendant le remplacement du contrôleur, lorsque l’image est chargée à partir du nœud homologue, l’ID du contrôleur peut s’afficher initialement comme l’ID du contrôleur homologue. Dans de rares cas, ce comportement peut également se produire après un redémarrage du système. Aucune action utilisateur n’est requise. Cette situation se résout automatiquement une fois le contrôleur remplacé. | Oui | Non |
@@ -96,6 +97,6 @@ Cette version applique également une mise à jour de microprogramme cumulative,
 ## Mises à jour de l’appareil virtuel dans la version d’octobre
 
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

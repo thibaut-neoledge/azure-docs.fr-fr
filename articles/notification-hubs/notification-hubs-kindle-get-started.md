@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prise en main d’Azure Notification Hubs" 
-	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prise en main d’Azure Notification Hubs"
+	description="Découvrez comment utiliser Azure Notification Hubs pour envoyer des notifications Push."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
-	ms.devlang="Java" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-kindle"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
@@ -89,7 +89,7 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Ajoutez les autorisations comme le premier élément sous l'élément du manifeste. Remplacez **[LE NOM DE VOTRE PACKAGE]** par le nom du package utilisé pour créer votre application. 
+2. Ajoutez les autorisations comme le premier élément sous l'élément du manifeste. Remplacez **[VOTRE NOM DE PACKAGE]** par le package utilisé pour créer votre application.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -98,15 +98,15 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		<uses-permission android:name="android.permission.INTERNET"/>
 
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
+
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Insérez l'élément suivant comme le premier enfant de l'élément de l'application. N’oubliez pas de remplacer **[LE NOM DE VOTRE SERVICE]** par le nom de votre gestionnaire de messages ADM que vous allez créer dans la section suivante (y compris le package), puis de remplacer **[LE NOM DE VOTRE PACKAGE]** par le nom du package avec lequel vous avez créé votre application.
+3. Insérez l'élément suivant comme le premier enfant de l'élément de l'application. N'oubliez pas de remplacer **[VOTRE NOM DE SERVICE]** par le nom de votre gestionnaire de messages ADM que vous créez dans la section suivante (y compris le package), puis remplacez **[VOTRE NOM DE PACKAGE]** par le nom de package avec lequel vous avez créé votre application.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -114,18 +114,18 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
-		 
+
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
+
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
+
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
+
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
 		    </intent-filter>
@@ -147,17 +147,24 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		import com.amazon.device.messaging.ADMMessageReceiver;
 		import com.microsoft.windowsazure.messaging.NotificationHub
 
-3. Ajoutez le code suivant dans la classe que vous avez créée. N'oubliez pas de remplacer le nom du concentrateur et la chaîne de connexion (écoute) :
+3. Ajoutez le code suivant dans la classe que vous avez créée. N’oubliez pas de remplacer le nom du concentrateur et la chaîne de connexion (écoute) :
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
 		NotificationCompat.Builder builder;
-    private static NotificationHub hub; public static NotificationHub getNotificationHub(Context context) { Log.v("com.wa.hellokindlefire", "getNotificationHub"); if (hub == null) { hub = new NotificationHub("[hub name]", "[listen connection string]", context); } return hub; }
+      	private static NotificationHub hub;
+		public static NotificationHub getNotificationHub(Context context) {
+			Log.v("com.wa.hellokindlefire", "getNotificationHub");
+			if (hub == null) {
+				hub = new NotificationHub("[hub name]", "[listen connection string]", context);
+			}
+			return hub;
+		}
 
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
 			}
-	
+
 			public static class Receiver extends ADMMessageReceiver
     		{
         		public Receiver()
@@ -165,11 +172,12 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
             		super(MyADMMessageHandler.class);
         		}
     		}
-	
+
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
-		
-	   mNotificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+	   		 mNotificationManager = (NotificationManager)
+	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
 	    	PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
 	          	new Intent(ctx, MainActivity.class), 0);
@@ -187,10 +195,10 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 		}
 
 4. Ajoutez le code suivant à la méthode `OnMessage()` :
-	
+
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
- 
+
 5. Ajoutez le code suivant à la méthode `OnRegistered` :
 
 			try {
@@ -209,7 +217,7 @@ Modifiez le manifeste de l'application afin qu'il prenne en charge ADM :
 
 7. Dans la méthode `MainActivity`, ajoutez ensuite l’instruction d’importation suivante :
 
-		import com.amazon.device.messaging.ADM;				
+		import com.amazon.device.messaging.ADM;
 
 8. Maintenant, ajoutez le code suivant à la fin de la méthode `OnCreate` :
 
@@ -271,6 +279,6 @@ Pour envoyer un message à l'aide de .NET :
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

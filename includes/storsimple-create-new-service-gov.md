@@ -1,4 +1,5 @@
 
+
 #### Création d’un service
 
 1. Utilisez les informations d’identification de votre compte Microsoft pour vous connecter au [Portail Microsoft Azure Government](https://manage.windowsazure.us/).
@@ -18,4 +19,4 @@
  
        ![création du service](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

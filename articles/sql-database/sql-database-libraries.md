@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
+	ms.date="06/24/2015"
 	ms.author="pehteh"/>
 
 
@@ -37,14 +37,27 @@ Cette rubrique est divisée en deux sections :
 Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonne **Bibliothèques** fournit des liens vous permettant de télécharger chaque bibliothèque. La colonne **Version** répertorie la version minimale recommandée pour interagir avec la base de données SQL Microsoft Azure et Microsoft SQL Server.
 
 
-| Plateforme | Sys Oper | Bibliothèques | Version | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Fournisseur SQL Server pour .NET Framework |
-| PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/fr-fr/download/details.aspx?id=20098) | 2.0 + | Pilote PHP pour SQL Server |
-| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/fr-fr/download/details.aspx?id=11774) | 2.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard |
-| ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/fr-fr/download/details.aspx?id=36434) | 11.0 + | Pilote ODBC Microsoft pour SQL Server |
-| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/fr-fr/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server |
-| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/fr-fr/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server |
+| Plateforme | Syst. d’exploitation | Bibliothèques<br/> à télécharger | Version<br/> du pilote | Description <br/>du pilote | Plus<br/> d’informations |
+| :--- | :--- | :--- | :--- | :--- | :-- |
+| .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Fournisseur SQL Server pour .NET Framework | . |
+| PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 + | Pilote PHP pour SQL Server | [Lien](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard | [Lien](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+
+
+### OLE DB pour DB2 et SQL Server, pour la conception DRDA
+
+
+Le fournisseur Microsoft OLE DB pour DB2 version 5.0 (fournisseur de données) vous permet de créer des applications distribuées qui ciblent les bases de données IBM DB2. Le fournisseur de données tire parti de l’architecture d’accès aux données Microsoft SQL Server combinée au client réseau Microsoft pour DB2 qui fonctionne comme un demandeur d’application DRDA (Distributed Relational Database Architecture). Le fournisseur de données convertit les commandes ole db Component Object Model (com) de Microsoft et les types de données en formats de données et points de code de protocole DRDA.
+
+
+Pour plus d’informations, consultez :
+
+
+- [Fournisseur Microsoft OLE DB pour DB2 version 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
+- [Fournisseur Microsoft OLE DB pour DB2 v4.0 pour Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
 
 ## Bibliothèques tierces
@@ -69,4 +82,4 @@ Le tableau suivant affiche les bibliothèques publiées par des tiers, tels que 
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

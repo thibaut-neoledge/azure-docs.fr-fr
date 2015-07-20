@@ -283,4 +283,4 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 		}
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

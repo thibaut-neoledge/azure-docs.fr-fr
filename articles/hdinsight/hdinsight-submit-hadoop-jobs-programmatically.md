@@ -111,7 +111,7 @@ L'un des exemples suivants permet de compter les fréquences des mots dans les f
 
 	Le dossier *example/data/WordCountOutput* est le dossier de sortie spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour la sortie de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers que le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actuel est le dossier racine C:. Le fichier est téléchargé dans :
 
-*C:\example\\data\\WordCountOutput* 
+*C:\\example\\data\\WordCountOutput* 
 
 5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
@@ -729,4 +729,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

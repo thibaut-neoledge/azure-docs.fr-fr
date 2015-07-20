@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Utiliser le portail de gestion pour créer des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux" 
-	description="Ce didacticiel vous guide dans les étapes d’implémentation d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Utiliser le portail de gestion pour créer des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux"
+	description="Ce didacticiel vous guide dans les étapes d’implémentation d’une application de diffusion en continu dynamique Media Services de base où un canal reçoit un flux dynamique à débit binaire multiple provenant d’un encodeur dynamique local."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="get-started-article" 
+	ms.date="04/16/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, le portail de gestion Azure est utilisé pour effectuer les
 1.  Configurer un encodeur dynamique et recevoir un flux dynamique dans le canal (Wirecast est utilisé à cette étape)
 1.  Créer un programme (et une ressource)
 1.  Publier la ressource et obtenir les URL de diffusion en continu  
-1.  Lecture de votre contenu 
+1.  Lecture de votre contenu
 2.  Nettoyage
 
 ##Configuration requise
@@ -41,7 +41,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
 - Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire multiple.
 
-	 
+
 ##Configurer un point de terminaison de diffusion en continu à l’aide du portail
 
 Lorsque vous utilisez Azure Media Services, l’un des scénarios les plus courants est la diffusion de contenu en continu à débit binaire adaptatif à vos clients. Avec la diffusion à débit binaire adaptatif, le client peut basculer vers un flux à débit binaire supérieur ou inférieur, car la vidéo est affichée en fonction de la bande passante réseau actuelle, de l’utilisation de l’UC et d’autres facteurs. Media Services prend en charge les technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
@@ -64,7 +64,7 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 	L’allocation de nouvelles unités prend environ 20 minutes.
 
-	 
+
 	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 	>
 	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -91,7 +91,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 Pour plus d’informations sur les URL de réception, voir [Utilisation d’encodeurs locaux pour envoyer un flux dynamique à débit binaire multiple vers un canal](../media-services-channels-overview.md).
 
-##Configurer un encodeur dynamique et recevoir un flux dynamique 
+##Configurer un encodeur dynamique et recevoir un flux dynamique
 
 >[AZURE.NOTE]Cette étape nécessite l’URL de réception du canal qui a été indiquée à l’étape précédente.
 
@@ -124,18 +124,18 @@ Si vous souhaitez conserver le contenu archivé sans qu’il soit disponible pou
 
 ###Créer/Démarrer/Arrêter des programmes
 
-Une fois que le flux transite dans le canal, vous pouvez commencer l’événement de diffusion en continu en créant une ressource, un programme et un localisateur de diffusion en continu. Cela archive le flux et le met à la disposition des observateurs via le point de terminaison de diffusion en continu.
+Une fois que le flux transite dans le canal, vous pouvez commencer l’événement de diffusion en continu en créant une ressource, un programme et un localisateur de diffusion en continu. Le flux est alors archivé et mis à la disposition des observateurs via le point de terminaison de diffusion en continu.
 
 Il existe deux façons de démarrer un événement :
 
 1. Dans la page **CANAL**, appuyez sur **AJOUTER** pour ajouter un programme.
 
 	Spécifiez le nom du programme, le nom de la ressource, la fenêtre d’archivage et l’option de chiffrement.
-	
+
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
-	
+
 	Si vous avez laissé la case **Publier ce programme maintenant** cochée, le programme de publication des URL est créé.
-	
+
 	Vous pouvez appuyer sur **DÉMARRER** chaque fois que vous êtes prêt à diffuser le programme en continu.
 
 	Une fois que vous avez démarré le programme, vous pouvez appuyer sur LIRE pour commencer à lire le contenu.
@@ -143,7 +143,7 @@ Il existe deux façons de démarrer un événement :
 
 	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
-2. Vous pouvez également utiliser un raccourci et appuyer sur le bouton **DÉMARRER LA DIFFUSION EN CONTINU** dans la page **CANAL**. Cela crée une ressource, un programme et un localisateur de diffusion en continu.
+2. Vous pouvez également utiliser un raccourci et appuyer sur le bouton **DÉMARRER LA DIFFUSION EN CONTINU** dans la page **CANAL**. Une ressource, un programme et un localisateur de diffusion en continu sont alors créés.
 
 	Le programme est nommé DefaultProgram, et la fenêtre d’archivage est définie sur 1 heure.
 
@@ -210,5 +210,4 @@ En savoir plus sur la création d’applications de diffusion en continu dynamiq
 
 <!-- Images -->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

@@ -51,4 +51,4 @@ Scheduler vous permet de créer, de mettre à jour, de supprimer, d'afficher et 
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -42,5 +42,6 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 
 * Consultez le [Didacticiel de prise en main](../automation-create-runbook-from-samples.md) d'Azure Automation
 * Consultez l'article relatif à la [Gestion de Service Bus avec PowerShell](service-bus-powershell-how-to-provision.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

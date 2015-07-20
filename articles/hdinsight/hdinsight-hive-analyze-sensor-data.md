@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Analyse des données de capteur au moyen de Hive et de Hadoop | Microsoft Azure" 
-	description="Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel avec Power View." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Analyse des données de capteur au moyen de Hive et de Hadoop | Microsoft Azure"
+	description="Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Hadoop), puis visualiser les données dans Microsoft Excel avec Power View."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight
@@ -53,4 +53,4 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

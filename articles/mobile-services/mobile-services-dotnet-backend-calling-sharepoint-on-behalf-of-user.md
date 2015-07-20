@@ -141,7 +141,7 @@ Pour accéder à SharePoint, vous avez besoin d'un jeton d'accès spécial avec 
             return true;
         }
 
-## <a name="create-document"></a>Création et téléchargement d'un document Word
+## <a name="create-document"></a>Création et téléchargement d’un document Word
 
 Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Installez ce package en ouvrant le gestionnaire du package NuGet et en recherchant DocumentFormat.OpenXml.
 
@@ -186,9 +186,9 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-## <a name="test-application"></a>Test de l'application
+## <a name="test-application"></a>Testez l’application
 
-1. Publiez les modifications sur le backend, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
+1. Publiez les modifications sur le serveur principal, puis exécutez votre application cliente. Connectez-vous lorsque vous y êtes invité et insérez un nouveau TodoItem.
 
 2. Accédez à votre site SharePoint et connectez-vous avec le même nom d'utilisateur.
 
@@ -217,5 +217,6 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/sharepoint/
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

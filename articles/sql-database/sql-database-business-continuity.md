@@ -84,4 +84,8 @@ La géo-réplication standard est disponible pour les bases de données standard
 
 La géo-réplication active est disponible pour les bases de données Premium. Elle est conçue pour les applications gourmandes en écriture avec les exigences de récupération les plus agressives. À l'aide de la géo-réplication active, vous pouvez créer jusqu'à quatre répliques secondaires sur des serveurs dans différentes régions. Vous pouvez lancer le basculement vers l'une des répliques secondaires de la même façon qu'avec la géo-réplication standard. En outre, la géo-réplication active peut être utilisée pour prendre en charge les scénarios de mise à niveau ou de déplacement d'application, ainsi que l'équilibrage de charge pour les charges de travail en lecture seule. Consultez [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour plus d'informations sur la configuration de la géo-réplication et [Récupération après une panne](sql-database-disaster-recovery.md) pour plus d'informations sur le basculement vers la base de données secondaire. Consultez [Mise à niveau de l'application sans interruption de service](sql-database-business-continuity-application-upgrade.md) pour plus d'informations sur la mise en œuvre de la mise à niveau de l'application sans interruption.
 
-<!---HONumber=58--> 
+
+
+ 
+
+<!---HONumber=July15_HO2-->

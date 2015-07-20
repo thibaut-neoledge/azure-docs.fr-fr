@@ -7,4 +7,4 @@ Voici les captures d’écran générées à partir de l’application terminée
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels Mobile Services pour les applications Windows Store et Windows Phone Store.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

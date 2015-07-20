@@ -118,4 +118,4 @@ L’utilisation des identités est importante dans pratiquement chaque applicati
 
 David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) à San Francisco, en Californie.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

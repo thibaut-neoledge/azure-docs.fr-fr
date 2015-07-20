@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Exécution de tâches Pig depuis une connexion Bureau à distance
@@ -30,11 +30,11 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 * un cluster HDInsight basé sur Windows (Hadoop sur HDInsight)
 
-* un ordinateur client avec Windows 10, Windows 8 ou Windows 7
+* Un ordinateur client avec Windows 10, Windows 8 ou Windows 7
 
 ##<a id="connect"></a>Connexion avec le Bureau à distance
 
-Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
+Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 ##<a id="pig"></a>Utilisation de la commande Pig
 
@@ -135,4 +135,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

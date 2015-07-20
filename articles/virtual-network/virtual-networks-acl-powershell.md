@@ -97,4 +97,4 @@ Dans certains scénarios, vous voudrez peut-être supprimer un objet de liste de
 
 [Configuration de la communication avec une machine virtuelle](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

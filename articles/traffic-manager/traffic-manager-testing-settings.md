@@ -75,4 +75,6 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 
 [Opérations pour Traffic Manager (informations de référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

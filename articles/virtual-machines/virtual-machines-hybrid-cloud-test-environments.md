@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Environnements de test de cloud hybride Azure
@@ -53,6 +53,9 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!--HONumber=52-->
+
  
+
+<!---HONumber=July15_HO2-->

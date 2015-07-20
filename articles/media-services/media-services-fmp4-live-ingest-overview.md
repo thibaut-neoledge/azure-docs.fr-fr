@@ -38,22 +38,22 @@ Le diagramme ci-dessous illustre l'architecture de haut niveau du service de dif
 
 ##Format de flux binaire – MP4 fragmenté ISO 14496-12
 
-Le format câble utilisé pour l'ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
+Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
 
 Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquent à l'ingestion en direct dans Microsoft Azure Media Services :
 
-1. Les zones « ftyp », LiveServerManifestBox et « moov » DOIVENT être envoyées avec chaque requête (HTTP POST). Elles DOIVENT être envoyées au début du flux et chaque fois que l'encodeur doit se reconnecter pour reprendre l'ingestion du flux. Reportez-vous à la section 6 dans [1] pour plus d'informations.
-2. La section 3.3.2 dans [1] définit une zone facultative appelée StreamManifestBox pour l'ingestion en direct. En raison de la logique de routage du programme d'équilibrage de la charge de Microsoft Azure, l'utilisation de cette zone est déconseillée et NE DOIT PAS être présente lors de l'ingestion dans Microsoft Azure Media Services. Si cette zone est présente, Azure Media Services l'ignore en mode silencieux.
+1. Les zones « ftyp », LiveServerManifestBox et « moov » DOIVENT être envoyées avec chaque requête (HTTP POST). Elles DOIVENT être envoyées au début du flux et chaque fois que l'encodeur doit se reconnecter pour reprendre l'ingestion du flux. Reportez-vous à la section 6 dans [1] pour plus d’informations.
+2. La section 3.3.2 dans [1] définit une zone facultative appelée StreamManifestBox pour l’ingestion en direct. En raison de la logique de routage du programme d'équilibrage de la charge de Microsoft Azure, l'utilisation de cette zone est déconseillée et NE DOIT PAS être présente lors de l'ingestion dans Microsoft Azure Media Services. Si cette zone est présente, Azure Media Services l'ignore en mode silencieux.
 3. La zone TrackFragmentExtendedHeaderBox définie à la section 3.2.3.2 dans [1] doit être présente pour chaque fragment.
 4. La version 2 de la zone TrackFragmentExtendedHeaderBox DOIT être utilisée pour générer des segments de médias avec des URL identiques dans plusieurs centres de données. Le champ d'index de fragment est OBLIGATOIRE pour le basculement entre centres de données des formats de diffusion en continu basée sur les index comme Apple HTTP Live Streaming (HLS) et MPEG-DASH basée sur les index. Pour permettre un basculement entre centres de données, l'index de fragment DOIT être synchronisé entre plusieurs encodeurs et augmenté de 1 pour chaque fragment multimédia successif, même entre les redémarrages ou échecs de l'encodeur.
-5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox ('mfra') qui PEUT être envoyée à la fin de l'ingestion en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
+5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de l’ingestion en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
 6. La durée du fragment MP4 DOIT être une constante, afin de réduire la taille des manifestes du client et d'améliorer les heuristiques de téléchargement client via l'utilisation de balises de répétition. La durée PEUT varier pour compenser les fréquences d'images non entières.
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
 8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time et fragment_index) DOIVENT normalement arriver dans l'ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
 
 ##Format de protocole – HTTP
 
-L'ingestion en direct basée sur le format MP4 fragmenté ISO pour Microsoft Azure Media Services utilise une longue requête HTTP POST standard pour transmettre des données multimédias encodées empaquetées au format MP4 fragmenté au service. Chaque requête HTTP POST envoie un flux binaire (« Stream ») MP4 fragmenté en commençant par les zones d'en-tête (zone « ftyp », « Live Server Manifest Box » et « moov ») et en continuant avec une séquence de fragments (zones « moof » et « mdat »). Reportez-vous à la section 9.2 dans [1] pour connaître la syntaxe d'URL de la requête HTTP POST. Voici un exemple d'URL POST :
+L'ingestion en direct basée sur le format MP4 fragmenté ISO pour Microsoft Azure Media Services utilise une longue requête HTTP POST standard pour transmettre des données multimédias encodées empaquetées au format MP4 fragmenté au service. Chaque requête HTTP POST envoie un flux binaire (« Stream ») MP4 fragmenté en commençant par les zones d'en-tête (zone « ftyp », « Live Server Manifest Box » et « moov ») et en continuant avec une séquence de fragments (zones « moof » et « mdat »). Reportez-vous à la section 9.2 dans [1] pour connaître la syntaxe d’URL de la requête HTTP POST. Voici un exemple d'URL POST :
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
@@ -64,7 +64,7 @@ Voici les spécifications détaillées :
 3. L'encodeur DOIT démarrer une nouvelle requête HTTP POST avec le flux MP4 fragmenté. La charge utile DOIT commencer par les zones d'en-tête suivies des fragments. Notez que la zone « ftyp », « Live Server Manifest Box » et « moov » (dans cet ordre) DOIT être envoyée avec chaque requête, même si l'encodeur doit se reconnecter, car la requête précédente a été interrompue avant la fin du flux. 
 4. L'encodeur DOIT utiliser l'encodage de transfert en bloc pour le téléchargement, puisqu'il est impossible de prédire la longueur totale du contenu de l'événement en direct.
 5. Quand l'événement est terminé, après l'envoi du dernier fragment, l'encodeur DOIT gracieusement mettre fin à la séquence de message de l'encodage de transfert en bloc (la plupart des piles de client HTTP gère cela automatiquement). L'encodeur DOIT attendre que le service retourne le code de réponse finale, puis mettre fin à la connexion. 
-6. L'encodeur NE DOIT PAS utiliser le nom Events() comme décrit à la section 9.2 dans [1] pour l'ingestion en direct dans Microsoft Azure Media Services.
+6. L’encodeur NE DOIT PAS utiliser le nom Events() comme décrit à la section 9.2 dans [1] pour l’ingestion en direct dans Microsoft Azure Media Services.
 7. Si la requête HTTP POST se termine ou arrive à expiration avant la fin du flux avec une erreur TCP, l'encodeur DOIT émettre une nouvelle requête POST à l'aide d'une nouvelle connexion et suivre les spécifications ci-dessus en plus de respecter l'exigence supplémentaire stipulant que l'encodeur DOIT renvoyer les deux fragments MP4 précédents pour chaque piste dans le flux, puis reprendre sans introduire de discontinuités dans la chronologie du média. Le renvoi des deux derniers fragments MP4 pour chaque piste garantit l'absence de perte de données. En d'autres termes, si un flux contient à la fois une piste audio et vidéo, et si la requête POST en cours échoue, l'encodeur doit se reconnecter et renvoyer les deux derniers fragments de la piste audio, lesquels ont déjà été envoyés correctement, ainsi que les deux derniers fragments de la piste vidéo, lesquels ont déjà été envoyés correctement, pour garantir l'absence de perte de données. L'encodeur DOIT conserver un tampon « de transfert » des fragments multimédias, qu'il renvoie lors de la reconnexion.
 
 ##Échelle de temps 
@@ -168,7 +168,7 @@ Pendant une présentation de diffusion en continu en direct avec une expérience
 Voici une implémentation recommandée pour l'ingestion d'une piste partiellement allouée :
 
 1. Créez un flux binaire MP4 fragmenté distinct qui contient juste des pistes partiellement allouées sans pistes audio/vidéo.
-2. Dans la zone « Live Server Manifest Box » définie à la section 6 dans [1], utilisez le paramètre « parentTrackName » pour spécifier le nom de la piste parent. Reportez-vous à la section 4.2.1.2.1.2 dans [1] pour plus d'informations.
+2. Dans la zone « Live Server Manifest Box » définie à la section 6 dans [1], utilisez le paramètre « parentTrackName » pour spécifier le nom de la piste parent. Reportez-vous à la section 4.2.1.2.1.2 dans [1] pour plus d’informations.
 3. Dans la zone « Live Server Manifest Box », manifestOutput DOIT avoir la valeur « true ».
 4. Étant donné la nature partiellement allouée de l'événement de signalisation, voici ce que nous recommandons :
 	1. Au début de l'événement en direct, l'encodeur envoie les zones d'en-tête initiales au service, ce qui permet au service d'enregistrer la piste partiellement allouée dans le manifeste du client.
@@ -187,7 +187,7 @@ Dans un scénario de diffusion en continu adaptative HTTP classique (par exemple
 Pour résoudre ce problème, Microsoft Azure Media Services prend en charge l'ingestion en direct des pistes audio redondantes. L'idée est que la même piste audio peut être envoyée plusieurs fois dans différents flux. Alors que le service enregistre une seule fois la piste audio dans le manifeste du client, il est en mesure d'utiliser des pistes audio redondantes en tant que sauvegardes pour la récupération de fragments audio si la piste audio principale rencontre des problèmes. Pour ingérer des pistes audio redondantes, l'encodeur doit :
 
 1. créer la même piste audio dans plusieurs flux binaires MP4 fragmentés. Les pistes audio redondantes DOIVENT être sémantiquement équivalentes aux mêmes horodatages de fragments et interchangeables au niveau de l'en-tête et du fragment.
-2. Vérifiez que l'entrée « audio » dans la zone Live Server Manifest (section 6 dans [1]) est la même pour toutes les pistes audio redondantes.
+2. Vérifiez que l’entrée « audio » dans la zone Live Server Manifest (section 6 dans [1]) est la même pour toutes les pistes audio redondantes.
 
 Voici une implémentation recommandée pour les pistes audio redondantes :
 
@@ -204,4 +204,6 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -136,4 +136,4 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 Maintenant que vous avez une meilleure compréhension du mappage réseau, lisez les [meilleures pratiques](site-recovery-best-practices.md) relatives à la préparation du déploiement.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

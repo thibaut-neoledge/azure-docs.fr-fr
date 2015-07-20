@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Traitement d’événements en temps réel avec Stream Analytics | Azure" 
+	pageTitle="Traitement d’événements en temps réel avec Stream Analytics | Microsoft Azure" 
 	description="Découvrez comment un ensemble de services Azure peut interagir pour l’analyse et le traitement des événements en temps réel." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 
-# Architecture de référence : traitement d’événements en temps réel avec Microsoft Azure Stream Analytics
+# Architecture de référence : Traitement d’événements en temps réel avec Microsoft Azure Stream Analytics
 
 L’architecture de référence associée au traitement des événements en temps réel avec Azure Stream Analytics fournit un modèle générique de déploiement d’une solution de traitement des flux PaaS (Platform as a Service) en temps réel avec Microsoft Azure.
 
@@ -54,11 +54,12 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
 ## Étapes suivantes
 
-- [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
-- [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-- [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
+- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+- [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

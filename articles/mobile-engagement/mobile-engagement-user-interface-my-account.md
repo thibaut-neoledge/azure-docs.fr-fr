@@ -28,7 +28,7 @@ La section Mon compte de l'interface utilisateur vous permet d'afficher et de mo
 Vous pouvez voir ou modifier n’importe lequel des paramètres de votre compte : mot de passe, prénom, nom, organisation, numéro de téléphone, fuseau horaire ou accepter ou refuser le courrier électronique des mises à jour par courrier électronique. Vous pouvez également autoriser un autre utilisateur à utiliser votre application grâce à son adresse de messagerie depuis la section « Accueil ».
 
 ### Voir aussi
--  [Documentation de l'interface utilisateur - Accueil][Link 13]
+-  [Documentation de l'interface utilisateur (IU) - Accueil][Link 13]
 
 ![Mon compte 2][8]
 
@@ -44,6 +44,7 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
 3. À partir d'une annonce Reach, si l'URL de l'action associée à l'annonce contient le modèle {deviceid}, il sera automatiquement remplacé par l'identificateur du périphérique à l’origine de l’action. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata sera remplacé par : http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. À partir d'une annonce Web Reach, si le code HTML de l'annonce contient le modèle {deviceid}, celui-ci sera automatiquement remplacé par l'identificateur de l'appareil qui affiche l'annonce Web. Voici mon identificateur de périphérique : {deviceid} sera remplacé par : Voici mon identificateur de périphérique : XXXXXXXXXXXXXXXX
 5.  Ouvrez votre application sur votre appareil et créez un Événement dans votre application identifiée. À partir de « IU - votre application - Surveillance - Événements - Détails », cherchez l'événement que vous avez créé dans la liste. Cliquez sur cet événement dans le Moniteur. Vous devriez trouver l'ID de votre appareil dans la liste des appareils qui ont créé cet événement. Vous pouvez ensuite copier cet ID de l'appareil et l'enregistrer dans « IU - Mon compte - Appareils - Nouvel appareil - Sélectionnez la plateforme de votre appareil ».
+>
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -140,4 +141,8 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

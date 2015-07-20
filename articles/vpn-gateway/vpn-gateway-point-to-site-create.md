@@ -159,4 +159,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus 
 Si vous souhaitez configurer une connexion de réseau virtuel à l’aide de RRAS, consultez l’article [Configurer un VPN de site à site à l’aide du service de routage et d’accès à distance (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

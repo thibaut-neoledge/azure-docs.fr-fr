@@ -1,21 +1,21 @@
 
 <properties 
-  pageTitle="Configuration et récupération des propriétés et des métadonnées des objets blob de stockage | Microsoft Azure" 
-  description="Découvrez comment configurer et récupérer des propriétés et des métadonnées à partir des conteneurs et objets blob Azure Storage." 
-services="storage" 
-documentationCenter="" 
-authors="tamram" 
-manager="adinah" 
-editor=""/>
+  pageTitle="Configurer et récupérer les propriétés et les métadonnées pour le stockage d’objets Blob| Microsoft Azure" 
+  description="Découvrez comment configurer et récupérer les propriétés et les métadonnées pour les conteneurs et les objets blob Azure Storage." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
 <tags 
-ms.service="storage" 
-ms.workload="storage" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="04/21/2015" 
-ms.author="tamram"/>
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="04/21/2015" 
+  ms.author="tamram"/>
 
 
 # Configuration et récupération des propriétés et des métadonnées #
@@ -159,6 +159,6 @@ L’exemple de code suivant crée un conteneur et configure ses métadonnées, p
 
 - [Référence de la bibliothèque cliente de stockage Azure](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Prise en main du stockage d’objets blob pour .NET](storage-dotnet-how-to-use-blobs.md)  
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

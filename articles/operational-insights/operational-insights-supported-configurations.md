@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Configurations prises en charge pour Operational Insights"
    description="En savoir plus sur les configurations requises pour Operational Insights"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Configurations prises en charge pour Operational Insights
@@ -38,14 +39,8 @@ L’utilisation d’Operational Insights comme service associé nécessite de r�
 
 Consultez [Affichage des alertes Operational Insights](http://go.microsoft.com/fwlink/?LinkID=293793) pour obtenir des instructions d’installation et de configuration.
 
-Si vous souhaitez afficher les alertes Operational Insights sur SharePoint Server 2010, Lync Server 2013, Lync Server 2010 ou System Center 2012 SP1 - Virtual Machine Manager, vous devez configurer un compte d’identification pour ces charges de travail. Consultez les informations suivantes :
+Si vous souhaitez afficher les alertes Operational Insights sur SharePoint Server 2010, Lync Server 2013, Lync Server 2010 ou System Center 2012 SP1 - Virtual Machine Manager, vous devez configurer un compte d’identification pour ces charges de travail. Pour en savoir plus sur la définition d’un compte d’identification, consultez [Considérations relatives à Operations Manager avec Operational Insights](operational-insights-operations-manager.md).
 
-
-- [Définition du compte d’identification pour SharePoint](../operational-insights-run-as.md)
-
-- [Définition du compte d’identification pour Lync Server](../operational-insights-run-as.md)
-
-- [Définition du compte d’identification pour Virtual Machine Manager (VMM)](../operational-insights-run-as.md)
 
 ### Systèmes d’exploitation Operations Manager
 
@@ -105,5 +100,4 @@ Pour SQL Server, les éditions 32 bits et 64 bits suivantes sont prises en ch
 
 En outre, l’édition 32 bits de SQL Server est prise en charge lors de l’exécution dans l’implémentation WOW64.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

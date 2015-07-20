@@ -1,3 +1,4 @@
+
 #Détachement d’un disque de données d’une machine virtuelle avec l’interface de ligne de commande
 
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage. Si vous souhaitez réutiliser les données du disque, vous pouvez l'attacher à la même machine virtuelle ou à une autre.
@@ -47,4 +48,4 @@ Exemple de procédure, incluant la sortie de terminal :
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

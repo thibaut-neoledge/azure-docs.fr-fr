@@ -1,44 +1,45 @@
-<properties 
-	pageTitle="Création d'une image de modèle personnalisée pour RemoteApp" 
-	description="Découvrez comment créer une image de modèle personnalisée pour RemoteApp. You can use this template with either a hybrid or cloud deployment." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="Création d’une image de modèle personnalisée pour Azure RemoteApp"
+	description="Découvrez comment créer une image de modèle personnalisée pour RemoteApp. You can use this template with either a hybrid or cloud deployment."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/27/2015" 
+<tags
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# Création d'une image de modèle personnalisée pour RemoteApp
+# Création d’une image de modèle personnalisée pour Azure RemoteApp
 Azure RemoteApp utilise une image de modèle Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image de modèle RemoteApp personnalisée, vous pouvez commencer par une image existante ou en créer une. Vous trouverez, ci-dessous, les exigences relatives à l'image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
 
 
 - La taille de l'image doit être un multiple de Mo. Si vous tentez de télécharger une image dont la taille n'est pas un multiple exact de Mo, le téléchargement échouera.
-- La taille de l'image doit être de 127 Go ou moins. 
+- La taille de l'image doit être de 127 Go ou moins.
 - Elle doit se trouver dans un fichier VHD (pour l'instant, les fichiers VHDX ne sont pas pris en charge).
 - Le disque dur virtuel ne doit pas être une machine virtuelle de deuxième génération.
 - Le disque dur virtuel (VHD) peut être de taille fixe ou dynamique. L'utilisation d'un fichier VHD de taille dynamique est recommandée, car le téléchargement sur Azure prend moins de temps qu'un fichier VHD de taille fixe.
-- Le disque doit être initialisé à l'aide du type de partitionnement MBR (Enregistrement de démarrage principal). Le style de partition GPT (GUID Partition Table) n'est pas pris en charge. 
-- Le disque dur virtuel doit contenir une seule installation de Windows Server 2012 R2. Il peut contenir plusieurs volumes, mais un seul contenant une installation de Windows. 
+- Le disque doit être initialisé à l'aide du type de partitionnement MBR (Enregistrement de démarrage principal). Le style de partition GPT (GUID Partition Table) n'est pas pris en charge.
+- Le disque dur virtuel doit contenir une seule installation de Windows Server 2012 R2. Il peut contenir plusieurs volumes, mais un seul contenant une installation de Windows.
 - Le rôle RDSH (Hôte de session Bureau à distance) et la fonctionnalité Expérience utilisateur doivent être installés.
 - Le rôle de service Broker pour les connexions Bureau à distance ne doit *pas* être installé.
 - Le système de fichiers EFS (Encrypting File System) doit être désactivé.
 - L'image doit être préparée avec SYSPREP en utilisant les paramètres **/oobe /generalize /shutdown** (n'utilisez PAS le paramètre **/mode:vm**).
 - Le téléchargement de votre disque dur virtuel à partir d’une chaîne d’instantanés n’est pas pris en charge.
 
+> [AZURE.TIP]Saviez-vous que vous pouvez désormais créer une image à partir d'une machine virtuelle Azure ? En plus, cela réduit le temps nécessaire à l’importation de l'image. Découvrez les étapes [ici](remoteapp-image-on-azurevm.md).
 
 **Avant de commencer**
 
 Avant de créer le service, vous devez effectuer les étapes suivantes :
 
-- [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à RemoteApp. 
+- [S'inscrire](http://azure.microsoft.com/services/remoteapp/) à RemoteApp.
 - Créer un compte d'utilisateur dans Active Directory à utiliser comme compte de service RemoteApp. Limiter les autorisations pour ce compte, de telle sorte qu'il puisse uniquement joindre des ordinateurs au domaine. Consultez [Configuration d'Azure Active Directory pour RemoteApp](remoteapp-ad.md) pour plus d'informations.
 - Collecter des informations sur votre réseau local  : adresse IP et périphérique VPN.
 - Installer le module [Azure PowerShell](../install-configure-powershell.md).
@@ -63,9 +64,9 @@ Pour créer une image de modèle à partir de zéro, procédez comme suit :
 
 La procédure détaillée de création d'une image se présente comme suit :
 
-1.	Recherchez une image ISO ou DVD de mise à jour de Windows Server 2012 R2. 
-2.	Créez un fichier VHD à l'aide de la fonction Gestion des disques. 
-	1.	Lancez la fonction Gestion des disques (diskmgmt.msc). 
+1.	Recherchez une image ISO ou DVD de mise à jour de Windows Server 2012 R2.
+2.	Créez un fichier VHD à l'aide de la fonction Gestion des disques.
+	1.	Lancez la fonction Gestion des disques (diskmgmt.msc).
 	2.	Créez un disque dur virtuel de taille dynamique d'une taille minimale de 40 Go. (Estimez la quantité d'espace requise pour Windows, vos applications et vos personnalisations. L'espace requis pour Windows Server avec le rôle RDSH et la fonctionnalité Expérience utilisateur est d'environ 10 Go.)
 		1.	Cliquez sur **Action > Créer un disque dur virtuel**.
 		2.	Indiquez l'emplacement, la taille et le format du disque dur virtuel. Sélectionnez **Taille dynamique**, puis cliquez sur **OK**.
@@ -76,12 +77,12 @@ La procédure détaillée de création d'une image se présente comme suit :
 		- Créez un volume : cliquez avec le bouton droit sur l'espace non alloué, puis sur **Nouveau volume simple**. Vous pouvez accepter les paramètres par défaut de l'Assistant, mais veillez à attribuer une lettre de lecteur afin d'éviter les éventuels problèmes lors du téléchargement de l'image de modèle.
 		- Cliquez avec le bouton droit sur le disque, puis cliquez sur **Détacher un disque dur virtuel**.
 
-			
+
 
 
 
 1. Installation de Windows Server 2012 R2 :
-	1. Créez une machine virtuelle. Utilisez l'Assistant Nouvel ordinateur virtuel de Hyper-V Manager ou Client Hyper-V. 
+	1. Créez une machine virtuelle. Utilisez l'Assistant Nouvel ordinateur virtuel de Hyper-V Manager ou Client Hyper-V.
 		1. Dans la page Spécifier la génération, sélectionnez **Génération 1**.
 		2. Sur la page Connecter un disque dur virtuel, sélectionnez **Utiliser un disque dur virtuel existant**, puis accédez au disque dur virtuel créé au cours de l'étape précédente.
 		2. Sur la page Options d'installation, sélectionnez **Installer un système d'exploitation à partir d'un CD/DVD-ROM de démarrage**, puis l'emplacement de votre support d'installation Windows Server 2012 R2.
@@ -121,10 +122,10 @@ La procédure détaillée de création d'une image se présente comme suit :
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	Si vous créez une image dans une machine virtuelle Azure, renommez le fichier **\%windir%\\Panther\\Unattend.xml**, car cela bloquera le script de téléchargement utilisé plus tard pour travailler. Remplacez le nom de ce fichier par Unattend.old de façon à conserver le fichier et pouvoir inverser votre déploiement, si nécessaire.
 10.	Accédez à Windows Update et installez toutes les mises à jour importantes. Vous devrez peut-être exécuter plusieurs fois Windows Update pour obtenir toutes les mises à jour. (Parfois, vous installez une mise à jour et celle-ci requiert elle-même une mise à jour.)
-10.	Préparez l'image avec SYSPREP. Exécutez la commande suivante dans une invite de commandes avec élévation de privilèges : 
+10.	Préparez l'image avec SYSPREP. Exécutez la commande suivante dans une invite de commandes avec élévation de privilèges :
 
 	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
-	
+
 	**Remarque :** n'utilisez pas le commutateur **/mode:vm** de la commande SYSPREP, bien qu'il s'agisse d'une machine virtuelle.
 
 
@@ -132,8 +133,8 @@ La procédure détaillée de création d'une image se présente comme suit :
 Maintenant que vous avez votre image de modèle personnalisée, vous devez la télécharger dans votre collection RemoteApp. Utilisez les informations des articles suivants pour créer votre collection :
 
 
-- [Création d'une collection hybride de RemoteApp](remoteapp-create-hybrid-deployment.md) 
+- [Création d'une collection hybride de RemoteApp](remoteapp-create-hybrid-deployment.md)
 - [Création d'une collection cloud de RemoteApp](remoteapp-create-cloud-deployment.md)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

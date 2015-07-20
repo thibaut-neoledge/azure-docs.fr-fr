@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Exécution à distance de requêtes Hadoop sur HDInsight à l’aide de PowerShell
@@ -28,11 +28,11 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 - **Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux**
 
-- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md)
 
 ##<a id="powershell"></a>Exécution d’une tâche MapReduce avec Azure PowerShell
 
-Azure PowerShell propose des *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, cela est accompli en effectuant des appels REST à <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
+Azure PowerShell propose des *applets de commande* qui vous permettent d'exécuter à distance des tâches MapReduce sur HDInsight. En interne, cela est accompli en effectuant des appels REST à [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anciennement nommé Templeton) exécuté sur le cluster HDInsight.
 
 Les applets de commande suivantes sont utilisées lors de l’exécution des tâches MapReduce sur un cluster HDInsight à distance.
 
@@ -99,7 +99,7 @@ Les étapes suivantes montrent comment utiliser ces applets de commande pour ex�
 		JobId           : job_1415949758166_0071
 
 	Cela indique que la tâche a été effectuée avec succès.
-	
+
 	> [AZURE.NOTE]Si **ExitCode** correspond à une valeur différente de 0, consultez [Dépannage](#troubleshooting).
 
 ##<a id="results"></a>Affichage de la sortie du travail
@@ -172,6 +172,5 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 * [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

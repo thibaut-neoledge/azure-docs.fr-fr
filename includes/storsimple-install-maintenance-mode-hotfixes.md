@@ -1,4 +1,3 @@
-
 #### Pour installer les correctifs logiciels en mode Maintenance via Windows PowerShell pour StorSimple
 
 > [AZURE.IMPORTANT]En mode Maintenance, vous devez appliquer le correctif logiciel d’abord à un contrôleur, puis à l’autre.
@@ -17,4 +16,4 @@
 
 6. Une fois les correctifs logiciels appliqués, quittez le mode Maintenance. Pour obtenir des instructions, consultez [Quitter le mode Maintenance](#exit-maintenance-mode).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

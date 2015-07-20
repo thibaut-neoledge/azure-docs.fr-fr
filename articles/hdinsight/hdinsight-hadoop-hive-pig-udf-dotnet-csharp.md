@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 
-#Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight 
+#Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
 
 Les langages Hive et Pig sont parfaits pour traiter des données dans Azure HDInsight, mais vous avez parfois besoin d’un langage plus généraliste. Hive et Pig vous permettent d’appeler le code externe via des fonctions définies par l’utilisateur ou la diffusion en continu.
 
@@ -29,15 +29,15 @@ Dans ce document, découvrez comment utiliser C# avec Hive et Pig.
 
 * Visual Studio avec les versions suivantes :
 
-	* Visual Studio 2012 Professional/Premium/Ultimate avec <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">mise à jour 4</a>
+	* Visual Studio 2012 Professional/Premium/Ultimate avec [mise à jour 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate avec <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">mise à jour 4</a>
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate avec [mise à jour 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visual Studio 2015 Preview
 
 * Hadoop sur un cluster HDInsight - Consultez la page [Approvisionnement d’un cluster HDInsight](hdinsight-provision-clusters.md) pour connaître les étapes de création d’un cluster
 
-* Outils Hadoop pour Visual Studio. Consultez la page <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Prise en main des outils HDInsight Hadoop pour Visual Studio</a> pour connaître les étapes d’installation et de configuration des outils.
+* Outils Hadoop pour Visual Studio. Consultez la page [Prise en main des outils HDInsight Hadoop pour Visual Studio￼](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
 
 ##.NET sur HDInsight
 
@@ -122,7 +122,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 6. Double-cliquez sur **Conteneur par défaut** pour le cluster. Cette opération permet d’ouvrir une nouvelle fenêtre qui affiche le contenu du conteneur par défaut.
 
-7. Cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** du projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
+7. Cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\\debug** du projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
 	![icône télécharger](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -152,7 +152,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 6. Cliquez sur **Actualiser** pour actualiser le résumé jusqu’à ce que **État du travail** soit défini sur **Terminé**. Pour afficher le résultat de la tâche, cliquez sur **Sortie de la tâche**.
 
-###Pig et C&#35;
+##Pig et C&#35;
 
 ###Création du projet C#
 
@@ -193,7 +193,7 @@ La diffusion en continu exige que Hive et Pig transmettent des données à une a
 
 ###Téléchargement de l’application
 
-1. La diffusion en continu Pig s’attend à ce que l’application soit locale sur le système de fichiers de cluster. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight avec RDP</a>.
+1. La diffusion en continu Pig s’attend à ce que l’application soit locale sur le système de fichiers de cluster. Activez le Bureau à distance pour le cluster HDInsight, puis connectez-vous à lui en suivant les instructions fournies dans [Connexion à des clusters HDInsight avec RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. Une fois connecté, copiez **PigUDF.exe** du répertoire **bin/debug** vers le projet PigUDF sur votre ordinateur local, puis collez-le dans le répertoire **PIG_HOME %** sur le cluster.
 
@@ -239,6 +239,5 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

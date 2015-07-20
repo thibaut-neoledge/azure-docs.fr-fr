@@ -95,4 +95,7 @@ Pour effectuer cette configuration avec une applet de commande Azure PowerShell,
 
 [À propos des groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

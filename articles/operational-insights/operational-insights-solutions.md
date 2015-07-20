@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Solutions dans Operational Insights
@@ -128,6 +128,5 @@ Les résultats de recherche de serveur comprennent les informations suivantes :
 - Méthode d’activation de la mise à jour automatique
 - Jours écoulés depuis la dernière mise à jour
 - Version de l’agent Windows Update
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

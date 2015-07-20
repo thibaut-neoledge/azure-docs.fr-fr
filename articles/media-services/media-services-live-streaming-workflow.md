@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diffusion vidéo en flux continu avec Azure Media Services" 
-	description="Cette rubrique décrit les étapes d'un workflow en diffusion en continu Media Services standard." 
+	description="Cette rubrique présente une vue d’ensemble des principaux composants impliqués dans la vidéo en flux continu." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,105 +13,76 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
-# Diffusion vidéo en flux continu avec Azure Media Services
+#Diffusion d’événements en direct en continu avec Azure Media Services
 
-## Vue d'ensemble
+##Vue d'ensemble
 
-Cette rubrique décrit les étapes d'un workflow en diffusion en continu Azure Media Services (AMS) standard. Chaque étape dirige vers des rubriques pertinentes. Pour les tâches pouvant être effectuées en utilisant différentes technologies, des boutons vous envoient à la technologie de votre choix (par exemple, .NET ou REST).   
+Lorsque vous utilisez la vidéo en flux continu, les composants suivants sont généralement impliqués :
 
-Notez que vous pouvez intégrer Media Services à vos outils et processus existants. Par exemple, encodez un contenu local, puis téléchargez-le dans Media Services pour un transcodage en différents formats et une diffusion via le réseau de distribution de contenu (CDN) Azure ou via un CDN tiers. 
+- Une caméra utilisée pour diffuser un événement.
+- Un encodeur vidéo dynamique qui convertit les signaux de la caméra en flux de données qui sont envoyés vers un service de vidéo en flux continu. 
+  
+	Éventuellement, plusieurs encodeurs dynamiques. Pour certains événements en direct critiques qui exigent une disponibilité et une qualité d’expérience très élevées, il est recommandé d’utiliser des encodeurs redondants en mode actif-actif pour obtenir un basculement transparent sans perte de données.
+- Service de vidéo en flux continu qui vous permet d’effectuer les opérations suivantes : 
+	- Recevoir du contenu en direct à l’aide de différents protocoles de diffusion de vidéo en flux continu (par exemple RTMP ou Smooth Streaming), 
+	- Encoder votre flux en flux à débit adaptatif
+	- Afficher un aperçu de votre flux en direct
+	- Stocker le contenu reçu pour le diffuser ultérieurement (vidéo à la demande)
+	- Fournir le contenu via des protocoles de diffusion communs (par exemple, MPEG DASH, Smooth, TLS, HDS) directement à vos clients ou à un réseau de distribution de contenu (CDN) pour une distribution supplémentaire 
+	
+		
+**Microsoft Azure Media Services** (AMS) offre la possibilité de recevoir, d’encoder, d’afficher, de stocker et de fournir votre contenu de diffusion en continu en direct.
 
-Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans le workflow de vidéo en flux continu.
+Quand vous distribuez votre contenu aux clients, votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour prendre en charge les conditions de qualité et de réseau, utilisez des encodeurs dynamiques pour encoder votre flux dans un flux vidéo à débit binaire multiple (débit binaire adaptatif). Pour prendre en charge la diffusion en continu sur différents appareils, utilisez l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md) pour empaqueter de nouveau votre flux dans différents protocoles dynamiquement. Media Services prend en charge la distribution des technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-![Live workflow][live-overview]
+Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités de diffusion en continu en direct, notamment l’ingestion, le formatage, le DVR cloud, la sécurité, l’extensibilité et la redondance.
 
-Cette rubrique décrit les concepts liés à la vidéo en flux continu et offre des liens vers des rubriques expliquant comment effectuer les tâches de diffusion vidéo en flux continu.
-
-## Concepts
-
-Pour les concepts liés à la vidéo en flux continu, consultez la page [Concepts Media Services](media-services-concepts.md).
-
-## Création d'un compte Media Services
-
-Utilisez le **portail de gestion Azure** pour [créer un compte Azure Media Services](media-services-create-account.md).
-
-## Configuration de points de terminaison de diffusion en continu
-
-Pour plus d'informations sur les points de terminaison de diffusion en continu et leur gestion, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md)
-
-## Configuration d'un environnement de développement  
-
-Choisissez **.NET** ou **API REST** comme environnement de développement.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-## Connexion par programme  
-
-Choisissez **.NET** ou **API REST** pour vous connecter par programme à Azure Media Services.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+Un **canal** représente un pipeline de traitement du contenu de diffusion dynamique. Actuellement, un canal peut recevoir des flux d’entrée dynamiques de l’une des manières suivantes :
 
 
-## Utilisation d'encodeurs dynamiques locaux pour envoyer un flux à débit binaire multiple vers un canal
+- Un encodeur dynamique envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTP (MPEG-TS), RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
-## Utilisation de transcodeurs dynamiques tiers
-
-Pour plus d'informations, consultez [Utilisation d'encodeurs tiers en temps réel avec Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
-
-## Gestion des canaux, des programmes, des ressources
-
-**Vue d'ensemble** : [Vue d'ensemble de la gestion des canaux et des programmes](media-services-manage-channels-overview.md).
-
-Choisissez **Portail**, **.NET**, **API REST** pour voir des exemples.
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-## Configuration de la stratégie de remise de ressources
-
-Configurez la stratégie de remise de ressources à l'aide de **.NET** ou de l'**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-## Création d'une clé de contenu
-
-Créez une clé de contenu avec laquelle chiffrer votre ressource à l'aide de **.NET** ou de l'**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-## Configuration de la stratégie d'autorisation de clé de contenu 
-
-Configurez la stratégie de protection de contenu et d'autorisation de clé à l'aide de **.NET** ou de l'**API REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+	L’encodage d’un flux dynamique avec Media Services est en **version préliminaire**.
+- Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Votre encodeur dynamique peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le codage en direct, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 
-## Publication et distribution d'éléments multimédias
-
-**Vue d'ensemble** : [Vue d'ensemble de la distribution de contenu](media-services-deliver-content-overview.md)
-
-Publiez des ressources (en créant des localisateurs) à l'aide du **portail de gestion Azure** ou de **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+##Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
 
 
-## Activation du CDN Azure
+Le schéma suivant illustre les principales parties de la plateforme AMS impliquées dans le flux de travail de vidéo en flux continu où un canal est activé pour effectuer un encodage live avec Media Services.
 
-Media Services prend en charge l'intégration au CDN Azure. Pour plus d'informations sur l'activation du CDN Azure, consultez la rubrique [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-manage-origins.md#enable_cdn).
+![Flux de travail en direct][live-overview1]
 
-## Mise à l'échelle d'un compte Media Services
+Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Vous pouvez mettre à l'échelle **Media Services** en spécifiant le nombre d'**Unités réservées de diffusion en continu** avec lesquelles vous voulez que votre compte soit approvisionné. 
 
-Pour plus d'informations sur la mise à l'échelle des unités de diffusion en continu, consultez : [Mise à l'échelle des unités de diffusion en continu](media-services-manage-origins.md#scale_streaming_endpoints.md).
+##Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
+
+
+Le diagramme suivant présente les principaux composants de la plateforme AMS impliqués dans ce flux de travail de vidéo en flux continu.
+
+![Flux de travail en direct][live-overview2]
+
+Pour plus d’informations, consultez [Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
+
+
+##Rubriques connexes
+
+[Concepts Azure Media Services](media-services-concepts.md)
+
+[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 
 
 
-[live-overview]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
 
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 
-<!--HONumber=52--> 
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+ 
+
+<!---HONumber=July15_HO2-->

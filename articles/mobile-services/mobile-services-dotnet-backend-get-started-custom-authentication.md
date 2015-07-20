@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

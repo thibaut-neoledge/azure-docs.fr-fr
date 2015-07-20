@@ -99,5 +99,6 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 4.	Suivez l'état de la récupération à l'aide de l'opération [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
 Une fois la base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

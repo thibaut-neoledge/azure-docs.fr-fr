@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Connexion d’Azure SQL Database à Azure Search à l’aide d’indexeurs#
@@ -36,7 +36,7 @@ Un **indexeur** est une ressource qui connecte des sources de données à des in
 - Synchroniser un index avec les modifications apportées à la source de données selon une planification donnée.
 - S’exécuter à la demande afin de mettre à jour un index en fonction des besoins. 
 
-## Quand utiliser l’indexeur Azure SQL  ##
+## Quand utiliser l’indexeur Azure SQL ##
 
 Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur Azure SQL peut être ou ne pas être appropriée. Si vos données répondent aux conditions suivantes, vous pouvez utiliser l'indexeur Azure SQL :
 
@@ -143,7 +143,7 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit se présenter sous la forme d’une valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
+Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
 Le paramètre **startTime** facultatif indique quand les exécutions planifiées doivent commencer ; s'il est omis, l'heure UTC actuelle est utilisée. Cette heure peut être passée, auquel cas la première exécution est planifiée comme si l'indexeur s’exécutait en continu depuis l'heure de début.
 
@@ -233,9 +233,9 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 
 Notez que **softDeleteMarkerValue** doit être une chaîne. Utilisez la représentation au format chaîne de votre valeur. Par exemple, si vous avez une colonne d'entiers dans laquelle les lignes supprimées sont marquées avec la valeur 1, utilisez `"1"`. Si vous avez une colonne au format bit dans laquelle les lignes supprimées sont marquées avec la valeur booléenne true, utilisez `"True"`.
 
-## Personnaliser l’indexeur Azure SQL  ##
+## Personnaliser l’indexeur Azure SQL ##
  
-Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus d'informations, consultez la  [documentation des API d'indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus d'informations, consultez la [documentation des API d'indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528173).
 
 ## Forum Aux Questions (FAQ) ##
 
@@ -261,5 +261,6 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

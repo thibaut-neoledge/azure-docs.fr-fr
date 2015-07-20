@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Accès aux informations Azure Active Directory Graph
@@ -142,7 +142,7 @@ Si vous n'avez encore jamais utilisé d'API personnalisées avec Mobile Services
 ##Mise à jour de l'application pour utiliser l'API personnalisée GetUserInfo
 
 
-Dans cette section, vous allez mettre à jour la méthode `AuthenticateAsync` implémentée dans le didacticiel [Prise en main de l'authentification] pour appeler l'API personnalisée et renvoyer des informations supplémentaires sur l'utilisateur à partir d'AAD.
+Dans cette section, vous allez mettre à jour la méthode `AuthenticateAsync` que vous avez mise en place dans le didacticiel [Prise en main de l’authentification] pour appeler l’API personnalisée et renvoyer des informations utilisateur supplémentaires depuis AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
 
@@ -179,4 +179,5 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [blog de l'équipe Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Activation de la journalisation pour les services Web de Machine Learning | Azure" 
-	description="Découvrez comment activer la journalisation pour les services Web de Machine Learning." 
+	pageTitle="Journalisation pour les services web Machine Learning | Microsoft Azure" 
+	description="Découvrez comment activer la journalisation pour les services Web de Machine Learning. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/12/2015"
-	ms.author="garye"/>
-
+	ms.date="06/30/2015"
+	ms.author="raymondl;garye"/>
 
 #Activation de la journalisation pour les services Web de Machine Learning  
 
@@ -37,5 +36,6 @@ Ce document fournit des informations sur la fonctionnalité de journalisation de
 	-	Le nom de chaque objet blob a un préfixe qui prend la forme suivante : {ID d’espace de travail}-{ID de service Web}-{ID de point de terminaison}/{type de journal}  
 -	Le type de journal prend l'une des valeurs suivantes : batch score/requests score/init  
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

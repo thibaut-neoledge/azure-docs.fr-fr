@@ -134,5 +134,6 @@ Maintenant que vous avez vu à quel point il est facile d'utiliser le service de
 [service de messagerie dans le cloud]: https://sendgrid.com/email-solutions
 [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

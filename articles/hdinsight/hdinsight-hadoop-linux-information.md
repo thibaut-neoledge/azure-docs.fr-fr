@@ -152,4 +152,4 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

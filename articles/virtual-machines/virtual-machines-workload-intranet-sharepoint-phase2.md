@@ -46,8 +46,8 @@ Utilisez le bloc de commandes PowerShell suivant pour créer les machines virtu
 
 - Table M pour les machines virtuelles ;
 - Table V pour les paramètres du réseau virtuel ;
-- Table S pour votre sous-réseau ;
-- Table A pour vos groupes à haute disponibilité ;
+- Table S pour le sous-réseau ;
+- Table A pour les groupes à haute disponibilité ;
 - Table C pour vos services cloud.
 
 Souvenez-vous que vous avez défini les tables, V, S, A et C au cours de la [Phase 1 : configuration d'Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
@@ -111,9 +111,9 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 4.	Le portail de gestion vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
 5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer des ComputerName.rdp depuis manage.windowsazure.com. » Cliquez sur **Ouvrir**.
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
-7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**. 
+7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
 8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : 
-- *ComputerName**LocalAdministratorAccountName*
+- *ComputerName*\\*LocalAdministratorAccountName*
 9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
 10.	Cliquez sur **OK**.
 11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.
@@ -242,4 +242,7 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

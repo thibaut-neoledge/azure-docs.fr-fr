@@ -13,56 +13,84 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="06/24/2015"
    ms.author="kasing"/>
 
 # Gérer vos machines virtuelles à l'aide d'Azure PowerShell
 
-Avant de commencer, vous devez vérifier qu'Azure PowerShell est installé. Pour ce faire, visitez la page [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md)
+Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles en utilisant les applets de commande Azure PowerShell. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
 
-## Obtenir une image
+>[AZURE.NOTE]Si vous n’avez pas encore installé ni configuré Azure PowerShell, cliquez [ici](../install-configure-powershell.md) pour obtenir les instructions.
 
-Avant de créer une machine virtuelle, vous devez décider **quelle image utiliser**. Vous pouvez obtenir la liste des images à l'aide de l'applet de commande suivante :
-
-      Get-AzureVMImage
-
-Cette applet de commande retourne la liste de toutes les images disponibles dans Azure. Cette liste étant très longue, il peut être difficile de trouver l'image exacte à utiliser. Dans l'exemple ci-dessous, j'utilise d'autres applets de commande PowerShell pour limiter la liste des images retournées à celles contenant **Windows Server 2012 R2 Datacenter**. En outre, je choisis d'obtenir uniquement la dernière image en spécifiant [-1] pour le tableau d'images retourné.
-
-    $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
-
-## Créer une machine virtuelle
-
-Pour créer une machine virtuelle, vous devez d'abord utiliser l'applet de commande **New-AzureVMConfig**. Vous y spécifiez le **nom** de la machine virtuelle, sa **taille** et l'**image** à utiliser pour celle-ci. Cette applet de commande crée un objet de machine virtuelle local **$myVM**, qui sera modifié ultérieurement à l'aide d'autres applets de commande Azure PowerShell dans ce guide.
-
-      $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
-
-Ensuite, vous devrez choisir le **nom d'utilisateur** et le **mot de passe** pour votre machine virtuelle. Pour ce faire, vous pouvez utiliser l'applet de commande **Add-AzureProvisioningConfig**. C'est dans celle-ci que vous indiquez à Azure le système d'exploitation de la machine virtuelle. Notez que c'est toujours l'objet **$myVM** local auquel vous apportez des modifications.
-
-    $user = "azureuser"
-    $pass = "&Azure1^Pass@"
-    $myVM = Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
-
-Enfin, vous êtes prêt à faire tourner votre machine virtuelle sur Azure. Pour cela, vous devez utiliser l'applet de commande **New-AzureVM**.
-
-> [AZURE.NOTE] Vous devrez configurer le service cloud avant de créer votre machine virtuelle. Il existe deux façons d'effectuer cette opération.
-* Créer le service cloud à l'aide de l'applet de commande New-AzureService. Si vous choisissez cette méthode, vous devez vous assurer que l'emplacement spécifié dans l'applet de commande New-AzureVM ci-dessous correspond à l'emplacement de votre service cloud, sinon l'exécution de l'applet de commande New-AzureVM échoue.
-* Laisser l'applet de commande New-AzureVM faire l'opération à votre place. Vous devez vous assurer que le nom du service est unique. Dans le cas contraire, l'exécution de l'applet de commande New-AzureVM échoue.
-
-    New-AzureVM -ServiceName "mytestserv" -VMs $myVM -Location "West US"
-
-**FACULTATIF**
-
-Vous pouvez utiliser d'autres applets de commande telles qu'**Add-AzureDataDisk** ou **Add-AzureEndpoint** pour configurer des options supplémentaires pour votre machine virtuelle.
+## Utilisation des exemples de commandes
+Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < and > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
 
 ## Obtenir une machine virtuelle
-La machine virtuelle étant créée sur Azure, vous voudrez certainement la voir fonctionner. Pour ce faire, vous pouvez utiliser l'applet de commande **Get-AzureVM**, comme indiqué ci-dessous.
+Il s’agit d’une tâche de base que vous utiliserez souvent. Utilisez-la pour obtenir des informations sur une machine virtuelle, effectuer des tâches sur cette dernière ou pour obtenir un résultat à stocker dans une variable.
 
-    Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < and > :
 
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Étapes suivantes
-[Connexion à une machine virtuelle Azure avec RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)<br>
-[FAQ sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn683781.aspx)
+Pour stocker le résultat dans une variable $vm, exécutez :
 
-<!--HONumber=47-->
- 
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Connectez-vous à une machine virtuelle Windows
+
+Exécutez ces commandes :
+
+>[AZURE.NOTE]Vous pouvez obtenir le nom du service cloud et de la machine virtuelle à partir de l’affichage de la commande **Get-AzureVM**.
+>
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+## Arrêter une machine virtuelle
+
+Exécutez cette commande :
+
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+>[AZURE.IMPORTANT]Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br> Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
+
+## Démarrer une machine virtuelle
+
+Exécutez cette commande :
+
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Associer un disque de données
+Cette tâche nécessite de réaliser quelques étapes. Commencez par utiliser l’applet de commande ****Add-AzureDataDisk**** pour ajouter le disque à l’objet $vm, puis utilisez Update-AzureVM pour mettre à jour la configuration de la machine virtuelle.
+
+Vous devez également décider d’associer un nouveau disque ou un disque existant, qui contient des données. Dans le cas d’un nouveau disque, cette même commande entraîne la création du fichier .vhd et son association.
+
+Pour associer un nouveau disque, exécutez cette commande :
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
+              | Update-AzureVM
+
+Pour associer un disque existant, exécutez cette commande :
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
+              | Update-AzureVM
+
+Pour attacher des disques de données à partir d’un fichier .vhd existant dans le stockage d’objets blob, exécutez la commande suivante :
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
+              -DiskLabel "<main>" -LUN <0> `
+              | Update-AzureVM
+
+## Créer une machine virtuelle Windows
+
+Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Cette rubrique vous guide lors de la création d’un jeu de commandes PowerShell permettant de créer une machine virtuelle Windows qui peut être préconfigurée avec :
+
+- une appartenance au domaine Active Directory ;
+- des disques supplémentaires ;
+- une appartenance à un jeu d’équilibrage de la charge ;
+- une adresse IP statique.
+
+<!---HONumber=July15_HO2-->

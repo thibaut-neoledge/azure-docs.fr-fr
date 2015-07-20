@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -42,9 +42,9 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	>[AZURE.NOTE]L'option de création rapide permettant d'approvisionner un cluster HDInsight, comme celui que nous utilisons dans ce didacticiel, ne demande pas d'emplacement pendant l'approvisionnement du cluster. Au lieu de cela, elle installe, par défaut, le cluster dans le même centre de données que le compte de stockage. Par conséquent, assurez-vous de créer votre compte de stockage dans les emplacements pris en charge par le cluster, qui sont : **Asie de l’est**, **Asie du Sud-est**, **Europe du Nord**, **Europe de l’Ouest**, **est des États-Unis**, **ouest des États-Unis**, **centre des États-Unis**, **Amérique du Sud**.
 
-4. Attendez que l’**ÉTAT** du nouveau compte de stockage passe à **En ligne**.
+4. Attendez que l’**ÉTAT** du nouveau compte de stockage indique **En ligne**.
 
-Pour plus d’informations sur la création des comptes de stockage, consultez la rubrique <a href="../storage-create-storage-account/" target="_blank">Création d’un compte de stockage</a>.
+Pour plus d’informations sur la création des comptes de stockage, consultez la rubrique [Création d’un compte de stockage](../storage/storage-create-storage-account.md).
 
 ##Approvisionnement d'un cluster Storm dans le portail Azure
 
@@ -92,7 +92,7 @@ Le formulaire**Envoi de la topologie** peut servir à télécharger et exécuter
 
 ###<a id="run"></a>Exécution de l’exemple de statistiques du projet de départ Storm dans GitHub
 
-Les exemples fournis avec le cluster incluent plusieurs variantes d’une topologie de statistique. Ces exemples incluent un **spout** qui émet des phrases aléatoirement, et des **bolts** qui fragmentent chaque phrase en mots, puis comptent le nombre d’occurrences de chaque mot. Ces exemples sont tirés des <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">exemples Storm Starter</a>, qui font partie d’Apache Storm.
+Les exemples fournis avec le cluster incluent plusieurs variantes d’une topologie de statistique. Ces exemples incluent un **spout** qui émet des phrases aléatoirement, et des **bolts** qui fragmentent chaque phrase en mots, puis comptent le nombre d’occurrences de chaque mot. Ces exemples sont tirés des [exemples Storm Starter](https://github.com/apache/storm/tree/master/examples/storm-starter), qui font partie d’Apache Storm.
 
 Procédez comme suit pour exécuter un exemple Storm Starter :
 
@@ -143,7 +143,7 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 
 	* **Désactiver** : suspend une topologie en cours d’exécution.
 
-	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Présentation du parallélisme d’une topologie Storm</a>.
+	* **Rééquilibrer** : ajuste le parallélisme de la topologie. Il convient de rééquilibrer les topologies en cours d’exécution après avoir modifié le nombre de nœuds dans le cluster. Cela permet à la topologie d’ajuster le parallélisme pour compenser l’augmentation/la réduction du nombre de nœuds du cluster. Pour plus d’informations, consultez la rubrique [Présentation du parallélisme d’une topologie Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Supprimer** : met fin à une topologie Storm après expiration du délai spécifié.
 
@@ -190,9 +190,9 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 * **HDInsight Tools pour Visual Studio** : HDInsight Tools vous permet d’utiliser Visual Studio pour envoyer, surveiller et gérer des topologies Storm semblables à celles du tableau de bord Storm mentionnées plus haut. HDInsight Tools offre la possibilité de créer des topologies Storm C# et inclut des exemples de topologies que vous pouvez déployer et exécuter sur votre cluster.
 
-	Pour plus d’informations, consultez la rubrique <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Prise en main de HDInsight Tools pour pour Visual Studio</a>.
+	Pour plus d’informations, consultez la rubrique [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM_HOME%\contrib**. Chaque exemple doit contenir les éléments suivants :
+* **Exemples de fichiers** : le cluster Storm HDInsight contient plusieurs exemples dans le répertoire **%STORM_HOME%\\contrib**. Chaque exemple doit contenir les éléments suivants :
 
 	* Le code source : par exemple, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 
 	> [AZURE.NOTE]Les documents Java sont composés de pages Web. Lorsque vous les avez extraits, utilisez un navigateur pour afficher le fichier **index.html**.
 
-	Pour accéder à ces exemples, vous devez activer le bureau à distance pour le cluster Storm sur HDInsight, puis copier les fichiers à partir de **%STORM_HOME%\contrib**.
+	Pour accéder à ces exemples, vous devez activer le bureau à distance pour le cluster Storm sur HDInsight, puis copier les fichiers à partir de **%STORM_HOME%\\contrib**.
 
 * Le document suivant contient une liste d’autres exemples pouvant être utilisés avec Storm sur HDInsight :
 
@@ -216,6 +216,5 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

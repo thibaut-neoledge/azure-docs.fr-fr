@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # Ajout de l'authentification à votre application Mobile Services
@@ -34,12 +34,12 @@ Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une v
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Restreindre les autorisations aux utilisateurs authentifiés
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. Dans Eclipse, ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Services]. 
@@ -50,13 +50,13 @@ Xamarin.Android et le Kit de développement logiciel (SDK) Android 4.2 ou une v
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir du service mobile.
 
-##<a name="add-authentication"></a>Ajouter l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
-1. Ajoutez la propriété suivante à la classe **TodoActivity** :
+1. Ajoutez la propriété suivante à la classe **ToDoActivity** :
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. Ajoutez la méthode suivante à la classe **TodoActivity** :
+2. Ajoutez la méthode suivante à la classe **ToDoActivity** :
 
         private async Task Authenticate()
         {
@@ -71,7 +71,7 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
             }
         }
 
-    Cela crée une méthode pour gérer le processus d'authentification. L'utilisateur est authentifié à l'aide d'une connexion Microsoft Account. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
+    Cela crée une méthode pour gérer le processus d’authentification. L'utilisateur est authentifié à l'aide d'une connexion Microsoft Account. Une boîte de dialogue affiche l'identifiant de l'utilisateur authentifié. Vous ne pouvez pas poursuivre sans authentification positive.
 
     > [AZURE.NOTE]Si vous utilisez un autre fournisseur d'identité que Microsoft, remplacez la valeur passée à la méthode **login** ci-dessus par l'une des valeurs suivantes : _Facebook_, _Google_, _Twitter_ ou _WindowsAzureActiveDirectory_.
 
@@ -85,14 +85,17 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -133,5 +136,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

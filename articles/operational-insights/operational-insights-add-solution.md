@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Solutions Operational Insights
@@ -42,11 +42,15 @@ Pour le moment, les serveurs qui sont connectés directement à Microsoft Azure
 
 - [Évaluation de SQL et d'Active Directory](operational-insights-assessment.md)
 
-Les solutions suivantes ne sont toutefois *pas* prises en charge par Microsoft Monitoring Agent :
+Les solutions suivantes ne sont toutefois *pas* prises en charge par Microsoft Monitoring Agent et requièrent System Center Operations Manager (SCOM).
 
 - [Gestion de la capacité](operational-insights-capacity.md)
 
-- [Évaluation de la configuration](../operational-insights-configuration-assessment.md)
+- [Gestion des alertes](operational-insights-alerts.md)
+
+- [Évaluation de la configuration](operational-insights-solutions.md#configuration-assessment)
+
+Reportez-vous à [Considérations relatives à Operations Manager avec Operational Insights](operational-insights-operations-manager.md) pour obtenir des conseils sur l'utilisation de ces solutions avec Operations Manager.
 
 La collecte de journaux IIS est prise en charge sur les ordinateurs équipés de :
 
@@ -85,6 +89,5 @@ La collecte de journaux IIS est prise en charge sur les ordinateurs équipés de
 
 
 3. Dans la page de confirmation, cliquez sur **Oui** pour supprimer la solution.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -124,4 +124,4 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

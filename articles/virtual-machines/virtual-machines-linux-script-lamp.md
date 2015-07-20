@@ -107,4 +107,4 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="MapReduce avec Hadoop sur HDInsight"
-   description="Découvrez comment utiliser MapReduce avec Hadoop sur HDInsight"
+   pageTitle="MapReduce avec Hadoop sur HDInsight | Microsoft Azure"
+   description="Apprenez à exécuter des tâches MapReduce sur Hadoop dans des clusters HDInsight. Vous exécuterez une opération de comptage de mots de base implémentée en tant que tâche MapReduce en Java."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Utilisation de MapReduce sur Hadoop sur HDInsight
@@ -192,4 +192,4 @@ Même si MapReduce est doté de puissantes capacités de diagnostic, il peut êt
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

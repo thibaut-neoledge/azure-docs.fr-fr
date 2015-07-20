@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Créer une machine virtuelle avec plusieurs cartes d’interface réseau"
-   description="Création de machines virtuelles avec plusieurs cartes d’interface réseau"
+   description="Découvrir comment créer et configurer des machines virtuelles avec plusieurs cartes réseau"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="telmos" />
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
@@ -43,11 +43,11 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |Taille de machine virtuelle (références SKU Standard)|NIC (nombre maximal autorisé par machine virtuelle)|
 |---|---|
 |Toutes les tailles de base|1|
-|A0\très petite|1|
-|A1\petite|1|
-|A2\moyenne|1|
-|A3\grande|2|
-|A4\très grande|4|
+|A0\\très petite|1|
+|A1\\petite|1|
+|A2\\moyenne|1|
+|A3\\grande|2|
+|A4\\très grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -119,9 +119,11 @@ La configuration requise pour l’exécution des commandes PowerShell de cet exe
 - Un réseau virtuel configuré. Pour plus d’informations sur les réseaux virtuels, voir l’article [Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
 - La dernière version d’Azure PowerShell téléchargée et installée. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell).
 
-1. Sélectionnez une image de machine virtuelle dans la galerie d’images de machine virtuelle Azure. Notez que les images changent fréquemment et sont disponibles par région. L’image indiquée dans l’exemple ci-dessous étant susceptible de changer ou de ne pas être disponible dans votre région, veillez à spécifier l’image dont vous avez besoin. 
+Pour créer une machine virtuelle avec plusieurs cartes réseau, suivez la procédure ci-dessous :
 
-	    $image = Get-AzureVMImage `
+1. Sélectionnez une image de machine virtuelle dans la galerie d’images de machine virtuelle Azure. Notez que les images changent fréquemment et sont disponibles par région. L’image indiquée dans l’exemple ci-dessous étant susceptible de changer ou de ne pas être disponible dans votre région, veillez à spécifier l’image dont vous avez besoin. 
+	    
+		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Créez une configuration de machine virtuelle.
@@ -143,21 +145,111 @@ La configuration requise pour l’exécution des commandes PowerShell de cet exe
 
 1. Spécifiez le sous-réseau et l’adresse IP de la NIC par défaut.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-			-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Créez la machine virtuelle dans votre réseau virtuel.
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]Le réseau virtuel que vous spécifiez ici doit déjà exister (comme indiqué dans la configuration requise). L’exemple ci-dessous spécifie un réseau virtuel nommé « MultiNIC-VNet ».
+>[AZURE.NOTE]Le réseau virtuel que vous spécifiez ici doit déjà exister (comme indiqué dans la configuration requise). L’exemple ci-dessous définit un réseau virtuel nommé **MultiNIC-VNet**.
 
-## Voir aussi
+## Accès secondaire de cartes réseau à d’autres sous-réseaux
 
-[Présentation du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156007.aspx).
+Dans le modèle actuel d’Azure, l’ensemble des cartes réseau d’une machine virtuelle sont configurées avec une passerelle par défaut. Ainsi, les cartes réseau peuvent communiquer avec des adresses IP en dehors de leur sous-réseau. Dans les systèmes d’exploitation qui utilisent le modèle de routage d’hôte faible comme Linux, la connectivité Internet sera interrompue si les trafic entrants et sortants utilisent différentes cartes réseau.
 
-[Tâches de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+Pour pallier cette problématique, Azure procèdera à une mise à jour de la plateforme au cours des premières semaines du mois de juillet 2015, ce qui supprimera la passerelle par défaut des cartes réseau secondaires. Les machines virtuelles existantes seront affectées uniquement lors de leur redémarrage. Au redémarrage, les nouveaux paramètres prennent effet. Dès lors, le flux de trafic sur les cartes réseau secondaires sera limité au sein du même sous-réseau. Si les utilisateurs souhaitent activer les cartes réseau secondaires afin de communiquer en dehors de leur propre sous-réseau, il leur faudra ajouter une entrée dans la table de routage afin de configurer la passerelle, tel que décrit ci-dessous.
 
-[Billet de blog : Plusieurs NIC de machine virtuelle et appliances de réseau virtuel dans Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure) (en anglais)
+### Configurer les machines virtuelles Windows
 
-<!---HONumber=58--> 
+Supposons que vous disposiez d’une machine virtuelle Windows avec deux cartes réseau, comme suit :
+
+- Adresse IP de la carte réseau principale : 192.168.1.4
+- Adresse IP de la carte réseau secondaire : 192.168.2.5
+
+La table de routage IPv4 associée à cette machine virtuelle ressemblera à ceci :
+
+	IPv4 Route Table
+	===========================================================================
+	Active Routes:
+	Network Destination        Netmask          Gateway       Interface  Metric
+	          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+	        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+	        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+	  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	    168.63.129.16  255.255.255.255      192.168.1.1      192.168.1.4      6
+	      192.168.1.0    255.255.255.0         On-link       192.168.1.4    261
+	      192.168.1.4  255.255.255.255         On-link       192.168.1.4    261
+	    192.168.1.255  255.255.255.255         On-link       192.168.1.4    261
+	      192.168.2.0    255.255.255.0         On-link       192.168.2.5    261
+	      192.168.2.5  255.255.255.255         On-link       192.168.2.5    261
+	    192.168.2.255  255.255.255.255         On-link       192.168.2.5    261
+	        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+	        224.0.0.0        240.0.0.0         On-link       192.168.1.4    261
+	        224.0.0.0        240.0.0.0         On-link       192.168.2.5    261
+	  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	  255.255.255.255  255.255.255.255         On-link       192.168.1.4    261
+	  255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
+	===========================================================================
+
+Notez que l’itinéraire par défaut (0.0.0.0) est disponible uniquement sur la carte réseau principale. Vous ne serez pas en mesure d’accéder aux ressources à l’extérieur du sous-réseau avec la carte réseau secondaire, comme représenté ci-dessous :
+
+	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+	 
+	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+
+Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez la procédure ci-dessous :
+
+1. À partir d’une invite de commande, exécutez la commande ci-dessous afin d’identifier le numéro d’index associé à la carte réseau secondaire :
+
+		C:\Users\Administrator>route print
+		===========================================================================
+		Interface List
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		  1...........................Software Loopback Interface 1
+		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		===========================================================================
+
+2. Vous remarquerez la seconde entrée de la table, avec un index de 27 (dans cet exemple).
+3. À partir de l’invite de commande, exécutez la commande **route add**, comme représenté ci-dessous. Dans cet exemple, vous définissez 192.168.2.1 en tant que passerelle par défaut pour la carte réseau secondaire :
+
+		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
+
+4. Pour tester la connectivité, revenez à l’invite de commande et tentez d’exécuter une commande ping sur un sous-réseau différent à partir de la carte réseau secondaire, comme représenté dans l’exemple ci-dessous :
+
+		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+		 
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+
+5. Vous pouvez également examiner votre table de routage afin d’étudier l’itinéraire nouvellement ajouté, comme représenté ci-dessous :
+
+		C:\Users\Administrator>route print
+
+		...
+
+		IPv4 Route Table
+		===========================================================================
+		Active Routes:
+		Network Destination        Netmask          Gateway       Interface  Metric
+		          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+		          0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.5   5005
+		        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+
+### Configurer des machines virtuelles Linux
+
+Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
+
+## Étapes suivantes
+
+- Élargissez vos connaissances sur l’utilisation de [multiples cartes réseau de machines virtuelles et appliances de réseau virtuel dans Microsoft Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+
+<!---HONumber=July15_HO2-->

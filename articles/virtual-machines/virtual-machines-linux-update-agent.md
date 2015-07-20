@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/16/2015"
 	ms.author="mingzhan"/>
 
 
@@ -32,9 +32,13 @@ Pour Ubuntu, il suffit de taper :
      
     #sudo apt-get install waagent
 
-Sur CentOS et Oracle Linux, tapez :
+et sur CentOS, tapez :
 
     #sudo yum install waagent
+
+Pour Oracle Linux, assurez-vous que le référentiel complémentaire est activé dans le fichier `/etc/yum.repo.d/public-yum-ol6.repo` ou `/etc/yum.repo.d/public-yum-ol7.repo`, puis tapez :
+
+    #sudo yum install WALinuxAgent
 
 Généralement, c’est tout ce qu’il vous est demandé de faire. Toutefois, si pour une raison quelconque vous devez l’installer directement à partir de https://github.com, procédez comme suit.
 
@@ -94,6 +98,6 @@ Pour plus d’informations sur Azure Linux Agent, consultez le fichier [Lisezm
 
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

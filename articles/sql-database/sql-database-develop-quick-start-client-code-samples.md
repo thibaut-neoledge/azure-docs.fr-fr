@@ -85,4 +85,4 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

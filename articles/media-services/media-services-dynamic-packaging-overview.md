@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Vue d'ensemble de l'empaquetage dynamique" 
+	pageTitle="Vue d’ensemble de l’empaquetage dynamique" 
 	description="Cette rubrique donne une vue d'ensemble de l'empaquetage dynamique." 
 	authors="Juliako" 
 	manager="dwrede" 
@@ -85,7 +85,7 @@ Configurer la stratégie de remise d'éléments multimédias à l'aide de **.NET
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publier des éléments multimédias (en créant des localisateurs) à l'aide du **portail de gestion Azure** ou de **.NET**.
+Publiez des ressources (en créant des localisateurs) à l’aide du **portail de gestion Azure** ou de **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -95,6 +95,6 @@ Publier des éléments multimédias (en créant des localisateurs) à l'aide du 
 Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaquetage dynamique.
 
 - Fichiers MP4 Dolby Digital Plus
-- Fichiers Smooth Streaming Dolby Digital Plus
+- Fichiers Smooth Streaming Dolby Digital Plus. 
 
-<!---HONumber=52-->
+<!---HONumber=July15_HO2-->

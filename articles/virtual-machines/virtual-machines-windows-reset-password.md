@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows" 
+	pageTitle="" 
 	description="Réinitialisez rapidement un mot de passe d’administrateur local ou le service Bureau à distance pour les machines virtuelles Windows à l’aide du portail Azure en version préliminaire ou des commandes PowerShell." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
-# Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows
+# 
 
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison d’un oubli de mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
+
+> [AZURE.NOTE]Cet article ne s’applique pas aux machines virtuelles Azure Resource Manager.
 
 ## Version préliminaire du portail Azure
 
@@ -88,7 +90,7 @@ Les extensions VMAccess exécutent ces deux commandes sur la machine virtuelle 
 
 	Cette commande active le groupe de pare-feu Windows intégré qui autorise le trafic entrant du Bureau à distance, qui utilise le port TCP 3389.
 
-- **Set-ItemProperty -Path ’HKLM:\System\CurrentControlSet\Control\Terminal Server’ -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path ’HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server’ -name "fDenyTSConnections" -Value 0**
 
 	Cette commande définit la valeur de registre fDenyTSConnections sur 0, pour activer les connexions Bureau à distance.
 
@@ -108,4 +110,6 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Se connecter à une machine virtuelle Azure avec RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

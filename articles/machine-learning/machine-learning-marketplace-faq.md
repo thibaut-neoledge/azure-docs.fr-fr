@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Forum aux questions pour la publication et l'utilisation d'applications Machine Learning sur Azure Marketplace | Azure" 
+	pageTitle="Forum aux questions : publication et utilisation d’applications Machine Learning sur Azure Marketplace | Microsoft Azure" 
 	description="Forum Aux Questions (FAQ)" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,51 +13,68 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="luisca"/> 
+	ms.date="05/05/2015" 
+	ms.author="luisca"/>
 
-#Forum aux questions pour la publication et l'utilisation d'applications Machine Learning sur Azure Marketplace
+#Publication et utilisation d’applications Machine Learning sur Azure Marketplace : forum aux questions
 
-##Pour une consommation à partir de Marketplace
-
-
-###Question 1 : Je vois l'erreur suivante après avoir saisi l'entrée pour le service web. Pourquoi ai-je cette erreur ?
-La demande a provoqué une erreur de temporisation ou une erreur sur le serveur principal. Notre équipe étudie en ce moment ce problème. Nous sommes désolés pour ce désagrément. (500)
-Réponse : Vos paramètres d'entrée peuvent ne pas être conformes au format requis pour le service web spécifique. Consultez le lien correspondant dans la documentation afin de rechercher le format correct pour les paramètres d'entrée et les limitations de ce service web.
-
-###Question 2 : Si je copie le lien de l'API du service web que je vois dans " Explorer ce jeu de données " et que je le colle dans une autre fenêtre (ou onglet) du navigateur, quelles sont les informations d'identification que je dois utiliser pour accéder aux résultats et comment puis-je les afficher ?
-Réponse : Vous devez utiliser votre compte Marketplace en tant que nom d'utilisateur et la clé de compte principal comme mot de passe. La clé de compte principal se trouve sur la page " Explorer ce jeu de données " sous la description du service web (cliquez sur le bouton " Afficher "). Le résultat peut s'afficher dans le navigateur ou être disponible en téléchargement en fonction du navigateur que vous utilisez.
-
-###Question 3 : Je vois l'erreur suivante après avoir saisi l'entrée pour le service web dans " Explorer ce jeu de données ". Pourquoi ai-je cette erreur ?
-Une erreur inattendue s'est produite pendant le traitement de votre demande. Réessayez.
-Réponse : Un ou plusieurs paramètres d'entrée de votre service web peuvent avoir dépassé la limite de longueur lors de la consommation du service web sur la page " Explorer ce jeu de données " de Marketplace. Les services peuvent être appelés avec une longueur d'entrée supérieure à l'aide de méthodes HTTP POST ; l'exemple de code est publié dans les exemples de services décrits ici : http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-web-service-examples/.
-
-###
-
-##Pour une publication à partir d'Azure ML sur Marketplace
-
-###Question 1 : Pourquoi mes logos/images/nombres de transactions ne s'actualisent-ils pas pour mon service web ? 
-Réponse : Sur le portail de publication, les logos/images sont mis en cache et cela peut prendre jusqu'à 10 jours pour que le nouveau logo ou la nouvelle image soit mis(e) à jour sur le portail.
-
-###Question 2 : Pourquoi l'" onglet Détail " de mon service web sur Marketplace affiche-t-il une erreur ?
-Réponse : Un problème connu se produit sur Marketplace lorsque l'utilisateur se connecte à Azure ML pour obtenir des détails sur un service. Notre équipe travaille en ce moment à la résolution de ce problème.
-
-###Question 3 : Pourquoi l'exemple de code R dans les services web d'Azure ML ne permet-il pas de consommer les services web dans Marketplace ?
-Réponse : Les systèmes d'authentification sont différents lorsque vous vous connectez aux services web Azure ML directement par rapport à la connexion à ces services web via le Marketplace. Les services du Marketplace sont des services OData et ils peuvent être appelés avec les méthodes GET ou POST. 
-
-###Question 4 : Pourquoi les liens de support de mes offres de service web ne sont-ils pas correctement mis à jour pour certaines de mes offres ?
-Réponse : Les liens de support sont globaux par éditeur, et non par offre. 
-
-###Question 5 : Comment puis-je publier un service web avec le mode de saisie de lot sur Marketplace ?
-Réponse : Le mode de saisie de lot n'est actuellement pas pris en charge dans les services web Marketplace.
-
-###Question 6 : Qui dois-je contacter pour obtenir de l'aide si j'ai des questions sur la tâche d'éditeur de données ou si je rencontre des problèmes lors de la publication ?
-Réponse : Veuillez contacter l'équipe Marketplace à l'adresse datamarketbd@microsoft.com pour plus d'informations.
+##Questions relatives à la consommation à partir de Marketplace
 
 
+**1. Le message d’erreur suivant apparaît une fois que j’ai saisi l’entrée pour le service web. Pourquoi ai-je cette erreur ?**
+
+**La demande a provoqué une erreur de temporisation ou une erreur sur le serveur principal. Notre équipe étudie en ce moment ce problème. Nous sommes désolés pour ce désagrément. (500)**
+
+Vos paramètres d'entrée peuvent ne pas être conformes au format requis pour le service web spécifique. Consultez le lien correspondant dans la documentation afin de rechercher le format correct pour les paramètres d'entrée et les limitations de ce service web.
+
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+**2. Si je copie le lien de l’API du service web que je vois sur la page « Explorer ce jeu de données » et que je le colle dans une autre fenêtre du navigateur, quelles informations d’identification dois-je utiliser pour accéder aux résultats et comment puis-je les afficher ?**
+
+Vous devez utiliser votre compte Marketplace en tant que nom d'utilisateur et la clé de compte principal comme mot de passe. La clé de compte principal se trouve sur la page **Explorer ce jeu de données** sous la description du service web (cliquez sur le bouton **Afficher**). Le résultat peut s’afficher dans le navigateur ou être disponible en téléchargement, en fonction du navigateur que vous utilisez.
+
+**3. Le message d’erreur suivant apparaît une fois que j’ai saisi l’entrée pour le service web sur la page « Explorer ce jeu de données ». Pourquoi ai-je cette erreur ?**
+
+**Une erreur inattendue s’est produite pendant le traitement de votre demande. Réessayez.**
+
+Un ou plusieurs paramètres d’entrée de votre service web peuvent avoir dépassé la limite de longueur lors de la consommation du service web sur la page **Explorer ce jeu de données** de Marketplace. Les services peuvent être appelés avec une longueur d’entrée supérieure à l’aide de méthodes HTTP POST. Pour obtenir des exemples, consultez la page [Exemples de solutions utilisant R sur Machine Learning et publiées sur Marketplace](machine-learning-r-csharp-web-service-examples.md).
+
+**4. Pourquoi l’onglet « Explorateur d’API » du magasin du portail de gestion Azure est-il vide ?**
+
+Il s’agit d’un problème connu avec le portail de gestion Azure Marketplace. Notre équipe travaille en ce moment à la résolution de ce problème.
+
+
+##Questions relatives à la publication à partir d’Azure Machine Learning sur Marketplace
+
+**1. Pourquoi mes transactions de logos ou d’images ne s’actualisent-elles pas pour mon service web ?**
+
+Les logos et images sont mis en cache sur le portail de publication et cela peut prendre jusqu’à 10 jours avant que le nouveau logo ou la nouvelle image ne soit mis(e) à jour sur le portail.
+
+**2. Pourquoi l’onglet « Détail » de mon service web sur Marketplace affiche-t-il un message d’erreur ?**
+
+Un problème connu se produit sur Marketplace lorsque l’utilisateur se connecte à Azure Machine Learning pour obtenir des détails sur un service. Notre équipe travaille en ce moment à la résolution de ce problème.
+
+**3. Pourquoi l’exemple de code R dans les services web d’Azure Machine Learning ne permet-il pas de consommer les services web dans Marketplace ?**
+
+Les systèmes d’authentification sont différents lorsque vous vous connectez aux services web Azure Machine Learning directement ou lorsque vous vous y connectez via le Marketplace. Les services du Marketplace sont des services OData qui peuvent être appelés avec les méthodes GET ou POST.
+
+**4. Pourquoi les liens de support de mes offres de service web ne sont-ils pas correctement mis à jour pour certaines de mes offres ?**
+
+Les liens de support sont globaux par éditeur, non par offre.
+
+**5. Comment puis-je publier un service web avec le mode de saisie de lot sur Marketplace ?**
+
+Le mode de saisie de lot n'est actuellement pas pris en charge dans les services web Marketplace.
+
+**6. Qui dois-je contacter pour obtenir de l’aide si j’ai des questions sur la tâche d’éditeur de données ou si je rencontre des problèmes lors de la publication ?**
+
+Veuillez contacter l’équipe Azure Marketplace à l’adresse <datamarketbd@microsoft.com> pour plus d’informations.
 
 
 
 
-<!--HONumber=46--> 
+
  
+
+<!---HONumber=July15_HO2-->

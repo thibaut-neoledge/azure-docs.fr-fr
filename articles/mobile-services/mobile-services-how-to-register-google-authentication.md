@@ -62,4 +62,4 @@ Vous êtes désormais prêt à configurer votre service mobile pour utiliser l'a
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d'un service à l'aide d'une base de données SQL existante et du backend .NET de Mobile Services - Azure Mobile Services" 
+	pageTitle="Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal .NET de Mobile Services - Azure Mobile Services" 
 	description="Découvrez comment utiliser une base de données locale ou de cloud existante avec votre service mobile .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # Création d'un service à l'aide d'une base de données SQL existante avec le serveur principal Mobile Services .NET
 
 Le backend .NET Mobile Services permet de tirer facilement parti des actifs existants pour la création d'un service mobile. L'un des scénarios les plus intéressants consiste à utiliser une base de données SQL existante (localement ou sur le cloud), qui peut déjà être utilisée par d'autres applications, pour rendre les données existantes disponibles pour les clients mobiles. Dans ce cas, il est nécessaire que le modèle de base de données (ou *schéma*) reste inchangé, afin que les solutions existantes continuent de fonctionner.
-
-Ce didacticiel se compose des sections suivantes :
-
-1. [Exploration du modèle de base de données existant](#ExistingModel)
-2. [Création d'objets de transfert de données pour votre service mobile](#DTOs)
-3. [Établissement d'un mappage entre des objets de transfert de données et un modèle](#Mapping)
-4. [Implémentation d'une logique spécifique du domaine](#DomainManager)
-5. [Implémentation d'une classe TableController à l'aide d'objets de transfert de données](#Controller)
 
 <a name="ExistingModel"></a>
 ## Exploration du modèle de base de données existant
@@ -158,7 +150,7 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    Puis, ajoutez ces propriétés supplémentaires à chacune des classes :
+4. Ensuite, ajoutez ces propriétés supplémentaires à chacune des classes :
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -181,13 +173,13 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
         [Timestamp]
         public byte[] Version { get; set; }
 
-4. Les propriétés système ajoutées possèdent des comportements intégrés (par exemple, mise à jour automatique des paramètres créé/mis à jour le) qui se produisent de manière transparente avec les opérations de base de données. Pour activer ces comportements, nous devons apporter une modification au fichier **ExistingContext.cs**. À son début, ajoutez ce qui suit :
+4. Les propriétés système ajoutées possèdent des comportements intégrés (par exemple, mise à jour automatique des paramètres Créé/mis à jour le) qui se produisent de manière transparente avec les opérations de base de données. Pour activer ces comportements, nous devons apporter une modification au fichier **ExistingContext.cs**. À son début, ajoutez ce qui suit :
     
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Puis, dans le corps du fichier **ExistingContext**, remplacez [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx) :
+5. Dans le corps du fichier **ExistingContext**, remplacez [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx) :
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
     }
 
-Vous pouvez ensuite créer l'application cliente pour accéder au service.
-<!--HONumber=54--> 
+Vous pouvez ensuite créer l'application cliente pour accéder au service. Pour plus d’informations, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+
+<!---HONumber=July15_HO2-->

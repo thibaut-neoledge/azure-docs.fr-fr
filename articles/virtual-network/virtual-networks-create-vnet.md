@@ -66,4 +66,4 @@ Après avoir créé votre réseau virtuel, vous pouvez lui ajouter de nouvelles 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

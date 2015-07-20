@@ -67,4 +67,6 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!--HONumber=54--> 
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 ## Réception de messages avec EventProcessorHost
 
-[EventProcessorHost] est une classe .NET qui simplifie la réception d'événements provenant d'Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs. [EventProcessorHost] permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe [EventProcessorHost] pour un récepteur unique. L’[exemple de traitement d'événement mis à l'échelle] illustre l’utilisation d’[EventProcessorHost] pour plusieurs récepteurs.
+[EventProcessorHost] est une classe .NET qui simplifie la réception d'événements provenant d'Event Hubs grâce à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs. [EventProcessorHost] permet de répartir des événements sur plusieurs récepteurs, même quand ils sont hébergés dans des nœuds différents. Cet exemple illustre l'utilisation de la classe [EventProcessorHost] pour un récepteur unique. L’exemple de [traitement d’événement mis à l’échelle] illustre l’utilisation d’[EventProcessorHost] pour plusieurs récepteurs.
 
 Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Storage] :
 
@@ -8,17 +8,17 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 2. Cliquez sur **Services de données**, sur **Stockage**, puis sur **Création rapide**, et tapez un nom pour votre compte de stockage. Sélectionnez la région de votre choix, puis cliquez sur **Créer un compte de stockage**.
 
-  ![][11]
+    ![][11]
 
 3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Gérer les clés d'accès** :
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    Copiez la clé d’accès pour pouvoir l’utiliser ultérieurement au cours de ce didacticiel.
 
 4. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet d'**application de console**. Nommez le projet **Récepteur**.
 
-  ![][14]
+    ![][14]
 
 5. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet**.
 
@@ -26,9 +26,9 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 6. Recherchez `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, cliquez sur **Installer** et acceptez les conditions d'utilisation.
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	Cette opération lance le téléchargement, l'installation et ajoute une référence au <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Package NuGet Azure Service Bus Event Hub - EventProcessorHost</a>, avec toutes les dépendances associées.
 
 7. Cliquez avec le bouton droit sur le projet **Récepteur**, cliquez sur **Ajouter**, puis cliquez sur **Classe**. Nommez la nouvelle classe **SimpleEventProcessor**, puis cliquez sur **OK** pour créer la classe.
 
@@ -114,6 +114,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 <!-- Links -->
 [Vue d'ensemble d'Event Hubs]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [compte Azure Storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [portail de gestion Azure]: http://manage.windowsazure.com
@@ -129,4 +130,4 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

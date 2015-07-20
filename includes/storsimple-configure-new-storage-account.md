@@ -1,4 +1,5 @@
 
+
 #### Pour ajouter un nouveau compte de stockage dans StorSimple version GA
 
 1. Sur la page d’accueil du service StorSimple Manager, sélectionnez votre service et double-cliquez dessus. La page **Démarrage rapide** s’affiche. Sélectionnez la page **Configurer**.
@@ -17,4 +18,4 @@
 
 4. Le compte de stockage qui vient d’être créé est affiché dans la page **Configurer**, sous **Comptes de stockage**. Cliquez sur **Enregistrer** pour enregistrer le nouveau compte de stockage. Cliquez sur **OK** lorsque vous êtes invité à confirmer l’opération.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

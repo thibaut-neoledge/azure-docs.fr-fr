@@ -237,5 +237,6 @@ Nous allons utiliser Ubuntu 14.04 LTS comme exemple pour cet article.
     Pour que MySQL démarre au démarrage du système, exécutez la commande suivante :
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

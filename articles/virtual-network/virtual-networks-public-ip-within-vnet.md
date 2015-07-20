@@ -51,4 +51,4 @@ Certaines plages d'adresses IP ne sont pas autorisées :
 
 [Suppression d'un réseau virtuelle](../virtual-networks-delete-vnet)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

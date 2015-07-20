@@ -3,16 +3,17 @@
    description="Décrit les différents types de clone et les moments auxquels les utiliser et explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
-   ms.author="v-sharos" />
+   ms.date="05/27/2015"
+   ms.author="alkohli" />
 
 # Clonage d’un volume StorSimple
 
@@ -21,6 +22,8 @@
 La page **Catalogue de sauvegarde** affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
   ![catalogue-sauvegarde](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+
+**Figure 1 : catalogue de sauvegarde**
 
 Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel. Il explique également la différence entre les clones *temporaires* et *permanents*.
 
@@ -40,9 +43,9 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
 
 4. Dans l’Assistant Cloner le volume, sous **Spécifier le nom et l’emplacement** :
 
-  1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre.
+  1. Identifiez un appareil cible. Il s’agit de l’emplacement où sera créé le clone. Vous pouvez choisir le même appareil ou en spécifier un autre. Si vous choisissez un volume associé à d’autres fournisseurs de service cloud (autres qu’Azure), la liste déroulante pour l’appareil cible affiche uniquement des appareils physiques. Vous ne pouvez pas cloner un volume associé à d’autres fournisseurs de services cloud sur un appareil virtuel.
 
-        >  [AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur l'appareil cible.
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
   3. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png)pour passer à la page suivante.
 
@@ -86,6 +89,6 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

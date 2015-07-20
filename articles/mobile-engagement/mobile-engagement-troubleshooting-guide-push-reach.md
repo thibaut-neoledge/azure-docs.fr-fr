@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Guide de dépannage pour les problèmes liés à Push et Reach
 
@@ -31,7 +30,7 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Testez simplement un push dans l'application et un push hors de l'application pour déterminer si le problème se situe dans l'application ou hors de l'application.
 - Dans le cadre du dépannage, effectuez des tests à partir de l'interface utilisateur et à partir de l'API pour voir les informations d'erreur supplémentaires disponibles aux deux emplacements.
 - Les push en dehors de l'application ne fonctionneront pas si Azure Mobile Engagement et Reach sont intégrés dans le Kit de développement logiciel (SDK).
-- Les transmissions de type push en dehors de l’application ne fonctionneront pas si les certificats ne sont pas valides, ou s’ils utilisent PROD  au lieu de DEV (iOS uniquement). (** Remarque : ** les notifications Push « en dehors de l’application » ne sont pas remises à iOS, si les versions de développement (DEV) et de production (PROD) de votre application sont installées sur le même périphérique, dans la mesure où le jeton de sécurité associé à votre certificat peut être invalidé par Apple. Pour résoudre ce problème, désinstallez les versions PROD et DEV de votre application et ré-installez uniquement une version sur votre périphérique.)
+- Les transmissions de type push ne fonctionneront pas si les certificats ne sont pas valides, ou s’ils utilisent PROD au lieu de DEV (iOS uniquement). (** Remarque : ** les notifications Push « en dehors de l’application » ne sont pas remises à iOS, si les versions de développement (DEV) et de production (PROD) de votre application sont installées sur le même périphérique, dans la mesure où le jeton de sécurité associé à votre certificat peut être invalidé par Apple. Pour résoudre ce problème, désinstallez les versions PROD et DEV de votre application et ré-installez uniquement une version sur votre périphérique.)
 - Les décomptes de push en dehors de l'application sont gérés différemment sur des plates-formes différentes (iOS affiche moins d'informations qu'Android si les push natifs sont désactivés sur un périphérique, l'API peut fournir davantage d'informations que l'interface utilisateur dans les statistiques de push).
 - Les push en dehors de l'application peuvent être bloqués par les clients au niveau du système d'exploitation (iOS et Android).
 - Les push en dehors de l'application apparaissent comme désactivés dans l'interface utilisateur d'Azure Mobile Engagement s'ils ne sont pas correctement intégrés, mais peuvent échouer en mode silencieux à partir de l'API.
@@ -45,10 +44,6 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Pour les problèmes avec l'API Push, confirmez que vous souhaitez vraiment utiliser l'API Push au lieu de l'API Reach (l'API Reach étant utilisée plus souvent) et que vous ne confondez pas les paramètres « charge utile » et « notificateur ».
 - Testez votre campagne push avec à la fois un périphérique connecté via le Wi-Fi et 3G pour éliminer la connexion réseau comme source potentielle de problèmes.
 
-### Voir aussi
-
-- [Guide de dépannage - Kit de développement logiciel (SDK)][Link 25], [Guide de dépannage - Notifications Push][Link 23], [Documentation du Kit de développement logiciel (SDK) - iOS - Préparation de votre application Apple pour les notifications Push][Link 5]
- 
 ## Test push
 
 ### Problème
@@ -59,10 +54,7 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Appareils de test sont configurés différemment pour chaque plate-forme, mais à l'origine d'un événement dans votre application sur un périphérique de test et recherchez votre ID de périphérique dans le portail doivent fonctionner pour trouver votre ID de périphérique pour toutes les plateformes.
 - Les périphériques de test fonctionnent différemment avec IDFA et IDFV (iOS uniquement).
 
-### Voir aussi
 
-- [Documentation de l’interface utilisateur - Reach][Link 17]
- 
 ## Personnalisation push
 
 ### Problème
@@ -85,12 +77,6 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Les différences de gestion des notifications en dehors de l’application entre Android et iOS compliquent la comparaison directe des statistiques de transmission entre la version Android et iOS de votre application. Android fournit plus d’informations de notification au niveau du système d’exploitation qu’iOS. Android signale dans le centre de notification lorsqu’une notification native est reçue, supprimée ou qu’un utilisateur clique dessus, mais iOS ne signale pas ces informations, à moins que l’utilisateur clique sur la notification. 
 - La principale raison pour laquelle les statistiques de « push » sont différentes de celles de « livraison » pour campagnes Reach est que les notifications « dans l’application » et « en dehors de l’application » sont comptées différemment. Les notifications « dans l’application » sont gérées par Mobile Engagement, tandis que les notifications « en dehors de l’application » sont gérées par le centre de notification du système d’exploitation de votre périphérique.
 
-### Voir aussi
-
-- [Procédures - Première notification Push][Link 27], [Guide de dépannage - Push][Link 23], [Informations sur le protocole HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
-- [Développeur Apple - Informations de l’interface utilisateur « Refuser »](http://support.apple.com/kb/HT3576), [Développeur Apple - Informations de développement « Refuser »](https://developer.apple.com/notifications/), [Développeur Apple - Dépannage « Refuser »](https://developer.apple.com/library/ios/technotes/tn2265/), [Développeur Apple - schéma d’URL](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
-- [Développeur Android - Informations de l’interface utilisateur « Refuser »](http://developer.android.com/about/versions/jelly-bean.html), [Développeur Android - Modèles « Refuser »](http://developer.android.com/design/patterns/notifications.html), [Développeur Android - Notificateur « Refuser »](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Développeur Android - Aperçu « Refuser »](https://developer.android.com/preview/notifications.html), [Développeur Android - Référence « Refuser »](http://developer.android.com/reference/android/app/Notification.html), [Développeur Android - Schéma du filtre d’intention](http://developer.android.com/guide/components/intents-filters.html#DataTest), [Développeur Android - Guide de référence du filtre d’intention](http://developer.android.com/reference/android/content/Intent.html#toUri)
-
 ## Ciblage push
 
 ### Problème
@@ -106,10 +92,7 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - La définition d'une « langue » est différente du ciblage en fonction du pays ou des paramètres régionaux, qui lui-même est différent du ciblage en fonction de l'emplacement géographique basé sur l'emplacement téléphonique ou du GPS.
 - Le message dans la « langue par défaut » est envoyé à tous les clients dont le périphérique n'est pas défini sur l'une des langues alternatives que vous spécifiez.
 
-### Voir aussi
 
-- [Documentation de l’interface utilisateur - Reach][Link 17], [Documentation de l’interface utilisateur - Paramètres][Link 20], [Documentation de l’API - Reach][Link 4], [Documentation de l’API - Push][Link 4], [Documentation de l’API - Périphérique][Link 4]
- 
 ## Planification push
 
 ### Problème
@@ -125,39 +108,6 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 - Si vous utilisez l'option « Ignorer l'audience, la notification Push sera envoyée aux utilisateurs via l'API Reach » dans la section « Campagne » de la campagne Reach, cette campagne ne sera pas automatiquement envoyée. Vous devrez l'envoyer manuellement via l'API Reach.
 - Si vous utilisez une catégorie personnalisée dans Reach pour afficher les notifications dans l'application, vous devez suivre le cycle de vie correct d'une notification, sans quoi la notification pourrait ne pas être effacée lorsque l'utilisateur la fait disparaître.
 
-### Voir aussi
-
-- [Procédures Reach - Planification de campagne][Link 3], [Documentation de l’interface utilisateur - Nouvelle campagne Push Reach][Link 27]
  
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

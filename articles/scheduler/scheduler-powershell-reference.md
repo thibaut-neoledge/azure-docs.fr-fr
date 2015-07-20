@@ -1,0 +1,58 @@
+<properties 
+ pageTitle="Informations de référence sur les applets de commande PowerShell de Scheduler" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="05/12/2015" 
+ ms.author="krisragh"/>
+ 
+# Informations de référence sur les applets de commande PowerShell de Scheduler
+
+Le tableau suivant décrit chacune des principales applets de commande disponibles dans Azure Scheduler et établit un lien vers la page de référence correspondante.
+
+|Applet de commande|Description de l'applet de commande|
+|---|---|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722516.aspx)**|Obtient une liste de tâches de planificateur ou une tâche de planificateur spécifique.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn722471.aspx)**|Obtient des collections de tâches de planificateur.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/fr-fr/library/azure/dn722514.aspx)**|Obtient l'historique d'une tâche de planificateur.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/fr-fr/library/azure/dn722505.aspx)**|Obtient les emplacements de planificateur disponibles.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722492.aspx)**|Crée une tâche de planificateur qui a une action HTTP.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn759640.aspx)**|Crée une collection de tâches de planificateur.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722518.aspx)**|Crée une tâche de planificateur qui a une action de stockage.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722477.aspx)**|Supprime une tâche de planificateur.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn722530.aspx)**|Supprime une collection de tâches de planificateur.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722474.aspx)**|Met à jour une tâche de planificateur qui a une action HTTP.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn759626.aspx)**|Met à jour une collection de tâches de planificateur.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722476.aspx)**|Met à jour une tâche de planificateur qui a une action de stockage.|
+
+
+## Voir aussi
+ 
+ [Présentation d'Azure Scheduler](scheduler-intro.md)
+ 
+ [Concepts, terminologie et hiérarchie d'entités de Scheduler](scheduler-concepts-terms.md)
+ 
+ [Prise en main de Scheduler dans le portail de gestion](scheduler-get-started-portal.md)
+ 
+ [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
+ 
+ [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler](scheduler-advanced-complexity.md)
+ 
+ [Informations de référence sur l'API REST de Scheduler](https://msdn.microsoft.com/library/dn528946)
+ 
+ [Haute disponibilité et fiabilité de Scheduler](scheduler-high-availability-reliability.md)
+ 
+ [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
+
+  
+
+<!---HONumber=July15_HO2-->

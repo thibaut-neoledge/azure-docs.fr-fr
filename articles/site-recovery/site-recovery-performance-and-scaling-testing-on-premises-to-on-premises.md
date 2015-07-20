@@ -214,4 +214,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

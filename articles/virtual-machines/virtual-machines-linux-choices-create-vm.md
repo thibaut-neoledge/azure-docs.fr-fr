@@ -20,7 +20,7 @@ ms.service="virtual-machines"
 
 Microsoft Azure propose différents moyens de créer des machines virtuelles, adaptées à tous les utilisateurs et toutes les applications. En conséquence, vous devez effectuer certains choix relatifs à la machine virtuelle et à sa création. Cet article vous propose un résumé de ces options et des liens pour obtenir des instructions.
 
-Les modèles Microsoft Azure Manager ont été récemment introduits comme un moyen de créer et de gérer une machine virtuelle et ses différentes ressources en tant qu’unité logique unique de déploiement. Des instructions relatives à cette approche sont fournies ci-dessous, le cas échéant. Pour plus d’informations sur Microsoft Azure Resource Manager et sur la gestion des ressources en tant qu’unité unique, consultez la [vue d’ensemble][].
+Les modèles Microsoft Azure Resource Manager ont été récemment introduits comme un moyen de créer et de gérer une machine virtuelle et ses différentes ressources en tant qu’unité logique unique de déploiement. Des instructions relatives à cette approche sont fournies ci-dessous, le cas échéant. Pour plus d’informations sur Microsoft Azure Resource Manager et sur la gestion des ressources en tant qu’unité unique, consultez la [vue d’ensemble][].
 
 ## Choix des outils
 
@@ -97,4 +97,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Environnement de test de la configuration de base]: virtual-machines-base-configuration-test-environment.md
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

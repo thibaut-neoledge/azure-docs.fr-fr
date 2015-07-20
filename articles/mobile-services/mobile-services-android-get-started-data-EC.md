@@ -43,7 +43,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 <!-- -->
 
-> [AZURE.NOTE]Ce didacticiel utilise la dernière version du Kit de développement logiciel (SDK) Mobile Services. Vous pouvez trouver une version antérieure <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126">ici</a> à des fins de compatibilité descendante, mais le code contenu dans ces didacticiels ne fonctionne pas avec cette version.
+> [AZURE.NOTE]Ce didacticiel utilise la dernière version du Kit de développement logiciel (SDK) Mobile Services. Vous pouvez obtenir une version antérieure <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> ici</a> pour des raisons de compatibilité descendante, mais le code contenu dans ces didacticiels ne fonctionne pas avec cette version.
 
 ##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
 
@@ -60,7 +60,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
 
-##<a name="create-service"></a>Création d'un service mobile dans le portail de gestion
+##<a name="create-service"></a>Création d'un service mobile dans portail de gestion
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -100,11 +100,9 @@ Ce didacticiel a présenté les bases de l'activation d'une application Android 
 
 Ensuite, essayez ces autres didacticiels Android :
 
-* [Prise en main de l'authentification] 
-	<br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Prise en main des notifications Push] 
-  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
+* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application avec Mobile Services.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@ Ensuite, essayez ces autres didacticiels Android :
 [Kit de développement logiciel (SDK) Mobile Services pour Android]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

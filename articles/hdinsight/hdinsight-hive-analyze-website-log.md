@@ -56,5 +56,6 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

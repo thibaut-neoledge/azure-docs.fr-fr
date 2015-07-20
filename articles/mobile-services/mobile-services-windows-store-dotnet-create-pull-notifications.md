@@ -119,7 +119,7 @@ Vous allez ensuite modifier l'application de démarrage rapide pour démarrer de
 
 	Ce code active les notifications périodiques pour demander les données du modèle de vignette à la nouvelle API personnalisée **tiles**. Sélectionnez la valeur [PeriodicUpdateRecurrance] qui correspond le mieux à la fréquence de mise à jour de vos données.
 
-## <a name="test-app"></a>Tester l'application
+## <a name="test-app"></a>Test de l’application
 
 1. Dans Visual Studio, appuyez sur la touche F5 pour réexécuter l'application.
 
@@ -165,5 +165,6 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 
 [Guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

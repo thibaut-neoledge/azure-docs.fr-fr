@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  Configurer un réseau virtuel pour ExpressRoute
@@ -39,6 +39,8 @@
 	- **Nom** : nom que vous souhaitez donner à votre site de réseau local.
 	- **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses (CIDR). Vous pouvez spécifier n’importe quelle plage d’adresses à condition qu’elle ne chevauche pas la plage d’adresses de votre réseau virtuel.
 	- **Ajouter un espace d’adressage** : ce paramètre ne s’applique pas à ExpressRoute.
+	- 
+**Remarque :** Vous êtes tenu de créer un site de réseau local pour ExpressRoute. Les préfixes d’adresse spécifiés pour le site de réseau local seront ignorés. Les préfixes d’adresse proposés à Microsoft via le circuit ExpressRoute seront utilisés pour le routage.
 
 6. Sur la page **Virtual Network Address Spaces**, entrez les informations ci-dessous, puis cliquez sur la coche située dans le coin inférieur droit pour configurer votre réseau. L’espace d’adressage de réseau virtuel est régi par de nombreuses règles. Pour plus d’informations, consultez la rubrique section [Page Espace d’adresses du réseau virtuel](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS).
 
@@ -72,4 +74,4 @@ Si vous souhaitez en savoir plus sur les réseaux virtuels, consultez la [FAQ su
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

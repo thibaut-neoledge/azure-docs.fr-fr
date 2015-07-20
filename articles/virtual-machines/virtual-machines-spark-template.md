@@ -57,7 +57,7 @@ Procédez comme suit pour créer un cluster Spark en utilisant un modèle Resour
 
 ### Étape 1-a : télécharger les fichiers de modèle à l’aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et les autres fichiers associés (par exemple C:\Azure\Templates\Spark).
+Créez un dossier local pour le modèle JSON et les autres fichiers associés (par exemple C:\\Azure\\Templates\\Spark).
 
 Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 
@@ -91,7 +91,7 @@ Clonez le référentiel de modèles entier à l’aide d’un client git de votr
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quand vous avez terminé, recherchez le dossier **spark-on-ubuntu** dans le répertoire C:\Azure\Templates.
+Quand vous avez terminé, recherchez le dossier **spark-on-ubuntu** dans le répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -416,7 +416,7 @@ Ce schéma décrit les relations entre tous les fichiers téléchargés à parti
 
 Cette section vous guide dans la structure du fichier **azuredeploy.json** pour le cluster Spark.
 
-Si vous n’avez pas déjà téléchargé une copie du fichier de modèle, spécifiez un dossier local comme emplacement pour le fichier et créez-le (par exemple C:\Azure\Templates\Spark). Indiquez le nom du dossier, puis exécutez les commandes suivantes.
+Si vous n’avez pas déjà téléchargé une copie du fichier de modèle, spécifiez un dossier local comme emplacement pour le fichier et créez-le (par exemple C:\\Azure\\Templates\\Spark). Indiquez le nom du dossier, puis exécutez les commandes suivantes.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -844,4 +844,4 @@ Découvrez plus d’informations sur les [infrastructures d’application](virtu
 [Résolution des problèmes des déploiements de modèle](resource-group-deploy-debug.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

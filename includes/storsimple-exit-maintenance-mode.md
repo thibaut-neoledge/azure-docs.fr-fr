@@ -1,4 +1,5 @@
 
+
 #### Pour quitter le mode Maintenance
 
 1. À l’invite de commandes, tapez :
@@ -9,4 +10,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message indique que le périphérique est en mode normal.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

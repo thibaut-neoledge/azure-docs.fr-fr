@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # FAQ Azure RemoteApp
@@ -27,11 +27,12 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
 ## Configurations prises en charge ##
 
-
+- **Quelles sont les limites du service ?** Nous avons ajouté une nouvelle rubrique couvrant tous les [limites et valeurs par défaut du service](remoteapp-servicelimits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
+- **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. Découvrez ici les autres [limites et valeurs par défaut du nombre d’utilisateurs](remoteapp-servicelimits.md).
 - **Les applications métier personnalisées sont-elles prises en charge ?** Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
 - **Mon application métier personnalisée fonctionnera-t-elle dans Azure RemoteApp ?** La meilleure façon de le savoir consiste à la tester. Examinez les [conditions de compatibilité des applications](http://www.microsoft.com/download/details.aspx?id=18704) et consultez le [Centre de compatibilité du Bureau à distance](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **Quelle méthode de déploiement (cloud ou hybride) convient le mieux à mon organisation ?** Les collections hybride offrent une expérience plus riche si vous voulez une intégration complète avec authentification unique (SSO) et connectivité au réseau local sécurisée. Le collections cloud offrent un moyen souple et simple d'isoler votre déploiement à l'aide de plusieurs méthodes d'authentification. En savoir plus sur les [options de déploiement](remoteapp-whatis.md).
-- **La collection hybride requiert un réseau virtuel. Est-il possible d'utiliser notre réseau existant ?** Pas pour l'instant, mais nous sommes conscients que vous aimeriez l'utiliser. En attendant, vous pouvez connecter votre réseau virtuel existant au réseau virtuel Azure RemoteApp en suivant [ces instructions](http://blogs.msdn.com/b/rds/archive/2014/07/21/how-to-link-azure-remoteapp-to-an-existing-vnet.aspx).
+- **La collection hybride requiert un réseau virtuel. Est-il possible d'utiliser notre réseau virtuel existant ?** Oui, si le réseau virtuel existant est un réseau virtuel Azure. Consultez la section « Étape 1 : Configuration de votre réseau virtuel » dans les [instructions sur les collections hybrides](remoteapp-create-hybrid-deployment.md) pour plus d'informations.
 - **Puis-je utiliser un cloud ou une machine virtuelle existante comme modèle pour ma collection RemoteApp ?** Oui. Vous pouvez créer une image basée sur une machine virtuelle Azure, utiliser une des images incluses dans votre abonnement ou créer une image personnalisée. Découvrez les [options d'images RemoteApp](remoteapp-imageoptions.md).
 - **Nous disposons d'une base de données SQL ou autre localement ou dans Azure. Quel type de déploiement devons-nous utiliser ?** Cela dépend de l'emplacement de votre base de données SQL ou principale. Si la base de données se trouve dans un réseau privé, utilisez la collection hybride. Si la base de données est disponible sur Internet et autorise des connexions client, vous pouvez utiliser la collection cloud.
 - **Qu'en est-il du mappage du lecteurs, des ports USB et série, du partage du Presse-papiers et de la redirection d'imprimante ?** Toutes ces fonctionnalités sont prises en charge dans Azure RemoteApp. Le partage du Presse-papiers et la redirection d'imprimante sont activés par défaut. Plus d'informations sur la redirection [ici](remoteapp-redirection.md). 
@@ -79,5 +80,6 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
 	Vidéos Nous vous proposons également un certain nombre de vidéos sur RemoteApp. Certaines présentent le service ([Présentation d'Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) et d'autres vous guident dans le déploiement ([Déploiement cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) et [Déploiement hybride](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Consultez-les !
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

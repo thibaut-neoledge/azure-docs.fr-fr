@@ -22,9 +22,9 @@
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos clusters et automatiser les tâches courantes dans Azure HDInsight.
 
 ## Qu'est-ce qu'Azure Automation ?
-[Azure Automation](http://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Il automatise les tâches manuelles, répétitives, fastidieuses et sources d'erreurs pour accroître la fiabilité, l'efficacité et le retour sur investissement de votre organisation.
+[Azure Automation](http://azure.microsoft.com/services/automation/) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus. Il automatise les tâches manuelles, répétitives, fastidieuses et sources d’erreurs pour accroître la fiabilité, l’efficacité et le retour sur investissement de votre organisation.
 
-Azure Automation fournit un moteur d'exécution de workflow à haute fiabilité et à haute disponibilité, qui s'adapte à vos besoins. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
+Azure Automation fournit un moteur d’exécution de workflow à haute fiabilité et à haute disponibilité, qui s’adapte à vos besoins. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
 
 Réduisez les coûts opérationnels et libérez du temps pour que votre équipe d'informaticiens et de développeurs puisse se concentrer sur des tâches qui génèrent une valeur ajoutée pour l'entreprise, en planifiant l'exécution automatique de vos tâches de gestion de cloud sur Azure Automation.
 
@@ -41,6 +41,6 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 
 * Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

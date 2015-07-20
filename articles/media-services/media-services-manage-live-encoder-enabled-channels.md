@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services (version préliminaire)
@@ -40,6 +40,16 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 Le diagramme suivant représente un flux de travail de diffusion en continu dynamique où un canal reçoit un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Il encode ensuite le flux dans un flux à débit binaire multiple.
 
 ![Flux de travail en direct][live-overview]
+
+>[AZURE.NOTE]Tous les centres de données ne prennent pas en charge l’encodage live avec Azure Media Services.
+>
+>Si vous utilisez le portail de gestion Azure pour créer des canaux, deux options de type d’encodage sont disponibles : **Aucun** et **Standard**. Si seule l’option **Aucun** s’affiche, votre centre de données ne prend pas en charge l'encodage live avec AMS.
+>
+>Si vous utilisez le Kit de développement logiciel (SDK) .NET ou l'API REST, effectuez la vérification suivante :
+>
+>1. Essayez de créer un canal avec le type d’encodage défini sur Standard. 
+>2. Si le code d'erreur HTTP 412 (Échec de la précondition) est renvoyé avec le message suivant : *« L’encodage live n'est pas pris en charge dans cette région ; EncodingType doit avoir la valeur « None ». »*, votre centre de données ne prend pas en charge l'encodage live.
+
 
 ##Dans cette rubrique
 
@@ -69,7 +79,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 	Lors de l’utilisation du portail de gestion Azure, la création d’un programme crée également une ressource.
 
-	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme.
+	Lors de l’utilisation du Kit de développement logiciel (SDK) .NET ou de REST, vous devez créer une ressource et préciser son utilisation lors de la création d’un programme. 
 1. Publiez la ressource associée au programme.   
 
 	Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
@@ -107,29 +117,29 @@ Considérations :
 - Voici les codecs pris en charge :
 	- Vidéo MPEG-2/H.262 
 		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+		- Profil Main (4:2:0)
+		- Profil High (4:2:0, 4:2:2)
+		- Profil 422 (4:2:0, 4:2:2)
 
-	- Vidéo MPEG-4 AVC/H.264  
+	- Vidéo MPEG-4 AVC/H.264
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Profil Baseline, Main, High (8 bits 4:2:0)
+		- Profil High 10 (10 bits 4:2:0)
+		- Profil High 422 (10 bits 4:2:2)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- Audio MPEG-2 AAC-LC
 	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- Mono, stéréo, Surround (5.1, 7.1)
+		- Format ADTS style MPEG-2
 
-	- Dolby Digital (AC-3) Audio 
+	- Dolby Digital (AC-3) Audio
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+		- Mono, stéréo, Surround (5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- Audio MPEG (couches II et III)
 			
-		- Mono, Stereo
+		- Mono, stéréo
 
 - Les encodeurs de diffusion recommandés sont les suivants :
 	- Ateme AM2102
@@ -158,15 +168,15 @@ Considérations :
 
 	- Vidéo MPEG-4 AVC/H.264  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Profil Baseline, Main, High (8 bits 4:2:0)
+		- Profil High 10 (10 bits 4:2:0)
+		- Profil High 422 (10 bits 4:2:2)
 
 	- Audio MPEG-2 AAC-LC
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- Mono, stéréo, Surround (5.1, 7.1)
+		- Fréquence d'échantillonnage 44,1 kHz
+		- Format ADTS style MPEG-2
 	
 - Les encodeurs recommandés sont les suivants :
 
@@ -304,9 +314,10 @@ ID unique de la pause publicitaire à utiliser par une application en aval pour 
 
 ###Afficher l’ardoise
 
-facultatif. Signale à l’encodeur dynamique de basculer vers l’image de l’ardoise par défaut pendant une pause publicitaire et de masquer le flux vidéo entrant. Le son est également désactivé pendant l’affichage de l’ardoise. La valeur par défaut est **false**.
+facultatif. Signale à l’encodeur en direct de basculer vers l’image de l’[ardoise par défaut](media-services-manage-live-encoder-enabled-channels.md#default_slate) pendant une pause publicitaire et de masquer le flux vidéo entrant. Le son est également désactivé pendant l’affichage de l’ardoise. La valeur par défaut est **false**.
  
 L’image utilisée sera celle qui est spécifiée par la propriété ID de ressource d’ardoise par défaut au moment de la création du canal. L’ardoise est étirée pour s’ajuster à la taille de l’image de l’écran.
+
 
 ##Insérer des images d’ardoise
 
@@ -322,14 +333,17 @@ Durée (en secondes) de l’affichage de l’ardoise. Pour que l’affichage de 
 
 S’il est défini sur true, ce paramètre configure l’encodeur dynamique pour insérer une image d’ardoise pendant une pause publicitaire. La valeur par défaut est true.
 
-###ID de ressource d’ardoise par défaut
+###<a id="default_slate"></a>ID de ressource d’ardoise par défaut
 
 facultatif. Spécifie l’ID de la ressource Media Services qui contient l’image d’ardoise. La valeur par défaut est Null.
 
-**Remarque** : avant de créer le canal, l’image d’ardoise d’une résolution maximale de 1 920x1 080, au format JPEG et à une taille maximale de 3 Mo, doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource). Le nom de fichier doit disposer d’une extension *.jpg et ce fichier doit être marqué comme fichier principal pour cette ressource. Cette ressource ne peut pas être de type stockage chiffré.
+**Remarque** : avant de créer le canal, l’image d’ardoise avec les contraintes suivantes doit être chargée en tant que ressource dédiée (aucun autre fichier ne doit exister dans cette ressource).
+
+- Résolution maximale de 1920 x 1080
+- Taille maximale de 3 Mo.
+- Le nom de fichier doit avoir une *extension .jpg. - L'image doit être téléchargée dans une ressource en tant que seul AssetFile de cette ressource et cet AssetFile doit être marqué comme fichier principal. La ressource ne peut pas être de type stockage chiffré.
 
 Si l’**ID de ressource d’ardoise par défaut** n’est pas spécifié, et que le paramètre **Insérer une ardoise dans le marqueur de publicité** est défini sur **true**, une image d’Azure Media Services par défaut est utilisée pour masquer le flux vidéo d’entrée. Le son est également désactivé pendant l’affichage de l’ardoise.
-
 
 
 ##Programmes du canal
@@ -378,8 +392,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 </table>
 
 
->[AZURE.NOTE]Actuellement en mode Aperçu, le démarrage du canal peut prendre jusqu’à 30 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
-
+>[AZURE.NOTE]Actuellement en version préliminaire, le démarrage du canal peut prendre jusqu’à plus de 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
 
 
 ##<a id="Considerations"></a>Considérations
@@ -390,6 +403,12 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 - Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Il s’agit d’un quota conditionnel sur tous les nouveaux comptes. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
+
+##Problèmes connus
+
+- Le démarrage du canal peut prendre plus de 20 minutes.
+- La prise en charge RTP est adaptée aux diffuseurs professionnels. Veuillez consulter les notes relative à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
+- Les images d’ardoise doivent être conformes aux restrictions décrites [ici](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si vous essayez de créer un canal à partir d’une ardoise par défaut d’une résolution supérieure à 1920 x 1080, la requête se termine par une erreur.
 
 
 ##<a id="tasks"></a>Tâches liées à la diffusion en continu dynamique
@@ -420,10 +439,14 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###Protection des ressources
+
+**Vue d’ensemble** :
+
+[Vue d’ensemble de la protection du contenu](media-services-content-protection-overview.md)
 
 Si vous souhaitez chiffrer une ressource associée à un programme avec la norme AES (Advanced Encryption Standard) (à l’aide de clés de chiffrement 128 bits) ou avec PlayReady DRM, vous devez créer une clé de contenu.
 
@@ -435,14 +458,19 @@ Une fois que vous avez créé la clé de contenu, vous pouvez configurer la stra
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
+####Intégration avec des partenaires
+
+[Utilisation de castLabs pour fournir des licences DRM à Azure Media Services](media-services-castlabs-integration.md)
+
+
 ###Publication et distribution de ressources
 
 **Vue d’ensemble** :
 
-- [Vue d'ensemble de l’empaquetage dynamique](../media-services-dynamic-overview.md)
-- [Vue d’ensemble de la distribution de contenu](media-services-deliver-content-overview.md)
+- [Vue d’ensemble de l’empaquetage dynamique](../media-services-dynamic-overview.md)
 
-Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l’**API REST**.
+
+Configurez la stratégie de remise de ressources à l’aide de **.NET** ou de l’**API REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
@@ -450,6 +478,11 @@ Publiez des ressources (en créant des localisateurs) à l’aide du **portail d
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+Distribution de contenu
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Activation du CDN Azure
 
@@ -467,8 +500,9 @@ Pour plus d’informations sur la mise à l’échelle des unités de diffusion 
 
 [Concepts Azure Media Services](media-services-concepts.md)
 
+[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

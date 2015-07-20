@@ -96,5 +96,6 @@ Les fonctions d’audit et de suivi des événements de la base de données peuv
 ## Conformité
 
 Non seulement la base de données SQL Microsoft Azure propose les fonctions décrites ci-dessus ainsi que des fonctionnalités permettant à votre application à répondre à différentes exigences en matière de conformité de la sécurité, mais elle participe également à des audits réguliers. Elle est certifiée conforme avec de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](http://azure.microsoft.com/support/trust-center/services/).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> <tags 
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -165,6 +166,6 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
 12. Pour afficher les appareils présentés dans les sessions, sélectionnez l’onglet **Périphériques**. Pour configurer la stratégie MPIO pour un appareil sélectionné, cliquez sur **MPIO**. La boîte de dialogue **Détails du périphérique** s’affiche. Sous l’onglet **MPIO**, vous pouvez sélectionner les paramètres **Stratégie d’équilibrage de charge** appropriés. Vous pouvez également afficher le type de chemin d’accès **Actif** ou **Veille**.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

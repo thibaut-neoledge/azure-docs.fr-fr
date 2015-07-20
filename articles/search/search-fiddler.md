@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search" 
-	description="Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d'Azure Search et tester les API REST." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search"
+	description="Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d'Azure Search et tester les API REST."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Fiddler pour évaluer et tester les API REST Azure Search
 
-Cette procédure utilise Fiddler, disponible en tant que [téléchargement gratuit de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP vers et afficher les réponses à l'aide de l'API REST Azure Search, sans avoir à écrire de code. Les API REST de service Azure Search sont documentées dans [MSDN](https://msdn.microsoft.com/fr-fr/library/azure/dn798935.aspx).
+Cet article explique comment utiliser Fiddler, disponible en tant que [téléchargement gratuit de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP vers et afficher les réponses à l'aide de l'API REST Azure Search, sans avoir à écrire de code. Les API REST de service Azure Search sont documentées dans [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 Dans la procédure ci-dessous, vous allez créer un index, télécharger des documents, interroger l'index, puis interroger le système pour obtenir des informations de service.
 
@@ -26,7 +26,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
 
 ## Création d'un index
 
-1. Démarrez Fiddler. Dans le menu Fichier, désactivez **Capturer le trafic** pour masquer les activités HTTP externes qui ne sont pas en rapport avec la tâche actuelle. 
+1. Démarrez Fiddler. Dans le menu Fichier, désactivez **Capturer le trafic** pour masquer les activités HTTP externes qui ne sont pas en rapport avec la tâche actuelle.
 
 3. Sous l'onglet Éditeur, formulez une demande similaire à la suivante :
 
@@ -66,7 +66,7 @@ Pour effectuer cette procédure, vous avez besoin d'un service Azure Search et `
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	Cliquez sur **Exécuter**.
@@ -183,7 +183,7 @@ Maintenant qu'un index et des documents sont chargés, vous pouvez émettre des 
         api-key: 1111222233334444
 
 Le code de réponse doit correspondre à 200 et la sortie de réponse doit se présenter comme suit.
- 
+
    ![][4]
 
 L'exemple de requête suivant provient de la page [Opération d'index de recherche (API Azure Search)](http://msdn.microsoft.com/library/dn798927.aspx) sur MSDN. Plusieurs des exemples de requêtes dans cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d'essayer la requête dans Fiddler :
@@ -206,7 +206,7 @@ Vous pouvez également interroger le système pour connaître le nombre de docum
 
 2.	Entrez une URL qui inclut votre URL de service, suivie de « /indexes/hotels/stats?api-version=2015-02-28 » :
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	Spécifiez l'en-tête de demande, en remplaçant l'hôte et la clé API par des valeurs qui sont valides pour votre service.
 
@@ -234,6 +234,6 @@ Les liens suivants fournissent des informations supplémentaires pour une approc
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

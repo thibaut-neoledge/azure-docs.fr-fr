@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prolongez votre expérience avec R | Azure"
+	pageTitle="Prolongez votre expérience avec R | Microsoft Azure"
 	description="Comment étendre les fonctionnalités d'Azure Machine Learning Studio en utilisant le langage R et le module Exécuter le script R."
 	services="machine-learning"
 	documentationCenter=""
@@ -501,5 +501,6 @@ Pour obtenir la liste complète des packages actuellement disponibles, consultez
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -43,4 +43,4 @@
 
    	Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

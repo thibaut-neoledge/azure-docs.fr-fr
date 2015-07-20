@@ -56,4 +56,4 @@ Voici une liste d'exemples créés et gérés par Microsoft à utiliser avec Apa
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Ce projet contient des modèles de spouts, bolts et topologies permettant d'interagir avec divers services Azure tels que Event Hubs, DocumentDB et SQL Database."
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

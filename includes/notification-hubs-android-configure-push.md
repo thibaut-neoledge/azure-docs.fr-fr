@@ -20,4 +20,4 @@
 
 Votre concentrateur de notification est à présent configuré pour GCM, et vous disposez des chaînes de connexion vous permettant d’inscrire votre application pour la réception de notifications et l’envoi de notifications Push.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

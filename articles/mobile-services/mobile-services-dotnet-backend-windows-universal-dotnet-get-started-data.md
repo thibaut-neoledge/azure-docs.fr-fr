@@ -121,4 +121,6 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

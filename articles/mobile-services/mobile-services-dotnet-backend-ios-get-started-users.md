@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Ajout de l'authentification à une application Azure Mobile Services existante
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Mobile Services], que vous devez effectuer en premier.
+Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Mobile Services], que vous devez effectuer en premier.
 
 ##<a name="register"></a>Inscription de l'application pour l'authentification et configuration de Mobile Services
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarra
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-Dans Xcode, ouvrez le projet. Appuyez sur le bouton **Exécuter** pour démarrer l'application. Vérifiez qu'une exception avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application. Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
+Dans Xcode, ouvrez le projet. Appuyez sur le bouton **Exécuter** pour démarrer l’application. Vérifiez qu'une exception avec le code d'état 401 (Non autorisé) est générée après le démarrage de l'application. Cela se produit, car l'application essaye d'accéder à Mobile Services en tant qu'utilisateur non authentifié, mais la table _TodoItem_ requiert désormais l'authentification.
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
@@ -55,7 +55,7 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 
 <!-- URLs. -->
 [Autorisation côté service des utilisateurs Mobile Services]: mobile-services-dotnet-backend-service-side-authorization.md
-[didacticiel Démarrage rapide de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Démarrage rapide de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -65,4 +65,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

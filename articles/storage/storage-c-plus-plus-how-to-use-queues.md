@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # Utilisation du stockage de files d'attente à partir de C++  
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-## Vue d'ensemble
-Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**.
+## Vue d’ensemble
+Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). Les scénarios traités incluent l'**insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d'attente, ainsi que la **création et suppression des files d'attente**.
 
->[AZURE.NOTE]Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 0.5.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 0.5.0, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
+>[AZURE.NOTE]Ce guide cible la bibliothèque cliente Azure Storage pour C++ version 1.0.0 et les versions ultérieures. La version recommandée est la bibliothèque cliente de stockage version 1.0.0, disponible via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/).
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez proc
 -	**Linux :** suivez les instructions disponibles sur la page [Bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 -	**Windows :** dans Visual Studio, cliquez sur **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. Entrez la commande suivante dans la [console du gestionnaire du package NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) et appuyez sur **ENTRÉE**.  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage 
  
 ## Configuration de votre application pour accéder au stockage de files d'attente
 Ajoutez les instructions import suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux files d'attente :
@@ -83,7 +83,7 @@ Utilisez l'objet **cloud_queue_client** pour obtenir une référence pointant ve
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
- queue.create_if_not_exists();
+ 	queue.create_if_not_exists();  
 
 ## Insertion d'un message dans une file d'attente
 Pour insérer un message dans une file d'attente existante, commencez par créer un **cloud_queue_message**. Appelez ensuite la méthode **add_message**. Un **cloud_queue_message** peut être créé à partir d'une chaîne ou d'un tableau d'**octets**. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World » :
@@ -119,7 +119,7 @@ Vous pouvez lire furtivement le message au début de la file d'attente sans le s
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## Modification du contenu d'un message en file d'attente
@@ -142,6 +142,8 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## Suppression du message suivant dans la file d'attente
@@ -161,8 +163,7 @@ Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## Utilisation d'options supplémentaires pour l'enlèvement des messages
 Il existe deux façons de personnaliser l'extraction des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L'exemple de code suivant utilise la méthode **get_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for**. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l'appel de **get_messages**, tous les messages n'ayant pas été supprimés redeviennent visibles.
@@ -184,12 +185,10 @@ Il existe deux façons de personnaliser l'extraction des messages à partir d'un
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## Obtention de la longueur de la file d'attente
@@ -237,6 +236,6 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 -	[Référence MSDN d’Azure Storage](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -6,11 +6,11 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-2. Appliquez l'attribut _AuthorizeLevel_ suivant à la classe **TodoItemController** : Cela permet de s'assurer que toutes les opérations effectuées sur la table _TodoItem_ requièrent un utilisateur authentifié.
+2. Appliquez l'attribut _AuthorizeLevel_ suivant à la classe **TodoItemController** :
 
 		[AuthorizeLevel(AuthorizationLevel.User)]
 
-	>[AZURE.NOTE]Appliquez l’attribut AuthorizeLevel aux méthodes individuelles pour définir des niveaux d’autorisation spécifiques sur les méthodes exposées par le contrôleur.
+	Cela permet de s’assurer que toutes les opérations effectuées sur la table _TodoItem_ requièrent un utilisateur authentifié. Vous pouvez également appliquer l’attribut *AuthorizeLevel* au niveau de la méthode.
 
 3. (Facultatif) Si vous souhaitez déboguer l'authentification localement, développez le dossier `App_Start`, ouvrez **WebApiConfig.cs**, puis ajoutez le code suivant à la méthode **Register**.
 
@@ -18,10 +18,10 @@ Par défaut, toutes les requêtes adressées aux ressources du service mobile so
 
 	Ce code indique au projet de service mobile local de s'exécuter comme s'il était hébergé sous Azure, en honorant les paramètres *AuthorizeLevel*. Sans ce paramètre, toutes les requêtes HTTP adressées à localhost sont autorisées sans authentification malgré la présence du paramètre *AuthorizeLevel*l. Lorsque vous activez le mode auto-hébergé, vous devez également définir une valeur pour la clé d'application locale.
 
-4. (Facultatif) Dans le fichier de projet web.config, définissez une valeur de chaîne pour le paramètre d'application `MS_ApplicationKey`. Mot de passe que vous utilisez (sans nom d'utilisateur) pour tester les pages d'aide API lorsque vous exécutez le service localement.
+4. (Facultatif) Dans le fichier de projet web.config, définissez une valeur de chaîne pour le paramètre d'application `MS_ApplicationKey`.
 
-	>[AZURE.NOTE]Cette valeur de chaîne n'est pas utilisée par le site actif dans Azure, et vous n'avez pas besoin d'utiliser la clé d'application actuelle ; toute valeur de chaîne valide fonctionnera.
+	Mot de passe que vous utilisez (sans nom d'utilisateur) pour tester les pages d'aide API lorsque vous exécutez le service localement. Cette valeur de chaîne n'est pas utilisée par le site actif dans Azure, et vous n'avez pas besoin d'utiliser la clé d'application actuelle ; toute valeur de chaîne valide fonctionnera.
  
 4. Publiez à nouveau votre projet.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2014"
+	ms.date="07/06/2014"
 	ms.author="larryfr"/>
 
 #Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)
@@ -28,7 +28,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 
 * [Maven](http://maven.apache.org/)
 
-* [Un cluster Azure HDInsight avec HBase](../hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [Un cluster Azure HDInsight avec HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
 ##Création du projet
 
@@ -103,7 +103,7 @@ Apprenez à créer et à générer une application [Apache HBase](http://hbase.a
 		  </plugins>
 		</build>
 
-	Cela configure une ressource (__conf\hbase-site.xml__,) qui contient des informations de configuration pour HBase.
+	Cela configure une ressource __conf\\hbase-site.xml__,) qui contient des informations de configuration pour HBase.
 
 	> [AZURE.NOTE]Vous pouvez également définir les valeurs de configuration par code. Consultez les commentaires de l'exemple __CreateTable__ ci-dessous pour la marche à suivre.
 
@@ -591,4 +591,4 @@ Remplacez __hdinsightclustername__ par le nom de votre cluster HDInsight.
 
 Utilisez le paramètre `-showErr` pour afficher l’erreur standard (STDERR) produite lors de l'exécution de la tâche.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

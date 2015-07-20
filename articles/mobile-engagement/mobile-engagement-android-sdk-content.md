@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-#Contenu du SDK
+#Contenu du Kit de développement logiciel (SDK)
 
 Ce document répertorie et décrit le contenu de l'archive du SDK.
 
@@ -39,6 +39,6 @@ Dossier `src`
 > Un raccourci vers le site de la documentation de la version téléchargée du SDK.
 
 Les autres fichiers sont une copie des licences logicielles.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

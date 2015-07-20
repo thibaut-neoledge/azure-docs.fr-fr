@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/05/2015"
+    ms.date="06/29/2015"
     ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 1  
@@ -27,6 +27,7 @@ Lisez les informations contenues dans les notes de publication avant de déploye
 
 >[AZURE.IMPORTANT]
 > 
+- Un correctif critique, Update 1.1, a été publié le 23 juin. Ce correctif résout un problème lié au moteur de sauvegarde. Si vous avez appliqué Update 1 avant le 23 juin et que vous utilisez actuellement la version logicielle **6.3.9600.17491**, veillez à appliquer cette mise à jour critique pour éviter tout problème lié aux sauvegardes. Après avoir installé la mise à jour, la version logicielle devient **6.3.9600.17521**.
 - Pour installer Update 1, utilisez le service StorSimple Manager, et non Windows PowerShell pour StorSimple.
 - Cette version comporte également des mises à jour de microprogramme du disque, qui peuvent être appliquées uniquement lorsque l’appareil est en mode Maintenance. Il s’agit des mises à jour entraînant des temps d’arrêt de votre appareil. Vous pouvez appliquer ces mises à jour durant les activités de maintenance planifiée.
 - L’installation de cette mise à jour prend entre 5 et 10 heures (en comptant les mises à jour Windows). 
@@ -55,7 +56,6 @@ Cette mise à jour contient les nouvelles fonctionnalités et améliorations sui
 
 ## Problèmes résolus dans Update 1
 
-
 Le tableau suivant récapitule les problèmes qui ont été résolus dans cette mise à jour.
 
 | N° | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
@@ -68,6 +68,7 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans cette 
 | 6 | Récupération d'urgence | Un bogue de récupération d’urgence a été corrigé. Auparavant, la récupération était mise en échec durant la découverte des sauvegardes sur l’appareil cible. | Oui | Oui |
 | 7 | LED de contrôle | Dans certains cas, les LED de contrôle situées à l’arrière de l’appliance n’indiquaient pas le statut approprié. La LED bleue était désactivée. Les LED de DATA 0 et DATA 1 clignotaient, même lorsque ces interfaces n’étaient pas configurées. Ce problème a été corrigé ; les LED de contrôle indiquent désormais le statut correct. | Oui | Non |
 | 8 | Interfaces réseau | Dans les versions précédentes, un appareil StorSimple configuré avec une passerelle non routable pouvait se déconnecter. Dans cette version, le métrique de routage de l’interface Data 0 a été définie sur la valeur la plus faible. En conséquence, même si d’autres interfaces réseau sont déployées sur le cloud, l’ensemble du trafic cloud de l’appareil sera routé via Data 0. | Oui | Oui | 
+| 9 | Sauvegardes | Un bogue dans Update 1 (version logicielle 6.3.9600.17491) qui provoquait l’échec des sauvegardes après 24 jours a été résolu dans la version du correctif Update 1.1 (version logicielle 6.3.9600.17521). | Oui | Oui |
 
 ## Problèmes connus dans Update 1
 
@@ -83,7 +84,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
 | 7 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 8 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
-| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Oui | Oui |
+| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Oui | Oui |
 | 10| Migration | Lorsque plusieurs conteneurs de volumes sont transmis pour migration, l’heure prévue de la dernière sauvegarde est exacte uniquement pour le premier conteneur de volumes. Par ailleurs, la migration parallèle démarre après la migration des quatre premières sauvegardes du premier conteneur de volumes. | Nous vous recommandons de migrer un seul conteneur de volumes à la fois. | Oui | Non |
 | 11| Migration | Après la restauration, les volumes ne sont pas ajoutés à la stratégie de sauvegarde ni au groupe de disques virtuels. | Pour créer les sauvegardes, il vous faudra ajouter ces volumes à une stratégie de sauvegarde. | Oui | Oui |
 | 12| Migration | Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. | Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. | Oui | Non |
@@ -92,7 +93,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 
 ## Mises à jour des appareils physiques dans Update 1
 
-Lorsque ces mises à jour sont appliquées à un appareil physique, la version logicielle 6.3.9600.17491 est activée.
+Lorsque ces mises à jour sont appliquées à un appareil physique, la version logicielle 6.3.9600.17521 est activée.
 
 ## Mises à jour du microprogramme et du contrôleur Serial-Attached SCSI (SAS) dans Update 1
 
@@ -113,4 +114,4 @@ Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’ins
 - [Installer Update 1 sur votre appareil](storsimple-install-update-1.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

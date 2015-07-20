@@ -167,5 +167,6 @@ Exemples d'éléments Capptain couramment utilisés :
 
 Notez que ce changement affecte également les méthodes substituées.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="04/23/2015" 
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
 #Utilisation de Python avec Hive et Pig dans HDInsight
@@ -329,6 +329,5 @@ Pour connaître d’autres façons d’utiliser Pig et Hive et en savoir plus su
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

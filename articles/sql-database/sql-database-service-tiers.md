@@ -87,5 +87,6 @@ Le niveau Premium est conçu pour les applications stratégiques. Il offre le m
 Pour en savoir plus sur la tarification de ces niveaux, voir [Base de données SQL - Tarification](http://azure.microsoft.com/pricing/details/sql-database/).
 
 Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre version [d’essai gratuit](http://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md) !
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

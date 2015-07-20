@@ -38,9 +38,9 @@ Les types suivants sont utilisés lors de la création de filtres :
 
 >[AZURE.NOTE]Lorsque vous utilisez l’API REST de Media Services, les considérations suivantes s’appliquent :
 >
->Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Configuration du développement de l'API REST Media Services](media-services-rest-how-to-use.md).
+>Lors de l’accès aux entités dans Media Services, vous devez définir les valeurs et les champs d’en-tête spécifiques dans vos requêtes HTTP. Pour plus d'informations, consultez [Installation pour le développement REST API de Media Services](media-services-rest-how-to-use.md).
 
->Une fois correctement connecté à https://media.windows.net, vous recevez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
+>Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez effectuer les appels suivants au nouvel URI comme décrit dans [Connexion à Media Services à l'aide de l'API REST](media-services-rest-connect_programmatically.md).
 
 
 
@@ -361,4 +361,6 @@ Les exemples suivants montrent comment ajouter des filtres à vos URL de diffusi
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

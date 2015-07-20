@@ -5,13 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -56,7 +57,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE] **Seuls les conteneurs de volumes associés à des instantanés cloud et à des volumes hors connexion sont affichés.**
+		>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
 	1. Sous **Choisir un appareil cible** pour les volumes dans les conteneurs sélectionnés, sélectionnez un appareil cible dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité disponible sont affichés dans la liste déroulante.
 
@@ -110,11 +111,13 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 
 1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement**, procédez comme suit :
 													
-	1. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
+	a. dans la liste des conteneurs de volume, sélectionnez les conteneurs de volume que vous souhaitez basculer.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	>[AZURE.NOTE]**Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
 
-1. Sous **Choisir un périphérique cible pour les volumes dans les conteneurs sélectionnés**, sélectionnez un appareil virtuel StorSimple dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
+	b. Sous **Choisir un périphérique cible pour les volumes dans les conteneurs sélectionnés**, sélectionnez un appareil virtuel StorSimple dans la liste déroulante des appareils disponibles. Seuls les appareils possédant la capacité suffisante sont affichés dans la liste déroulante.
+	
+	>[AZURE.NOTE]**Si votre appareil physique exécute Update 1, vous pouvez uniquement basculer vers un appareil virtuel exécutant Update 1. Si l’appareil virtuel cible exécute une version antérieure du logiciel, vous obtiendrez une erreur indiquant que le logiciel de votre appareil cible doit être mis à jour.**
 
 1. Enfin, passez en revue tous les paramètres de basculement sous Confirmer le basculement. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -135,6 +138,6 @@ Pour plus d’informations sur la gestion de votre appareil à l’aide du servi
 
 - [Guide de l’administrateur](https://msdn.microsoft.com/library/dn772401.aspx)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

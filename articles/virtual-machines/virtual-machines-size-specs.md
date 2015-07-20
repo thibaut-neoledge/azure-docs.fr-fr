@@ -1,18 +1,18 @@
-<properties 
- pageTitle="Tailles de machines virtuelles" 
- description="Répertorie les différentes tailles de machines virtuelles et leurs capacités." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="KBDAzure" 
- manager="timlt" 
+<properties
+ pageTitle="Tailles de machines virtuelles"
+ description="Répertorie les différentes tailles de machines virtuelles et leurs capacités."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="KBDAzure"
+ manager="timlt"
  editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
+<tags
+ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="05/28/2015" 
+ ms.date="07/02/2015"
  ms.author="kathydav"/>
 
 # Tailles de machines virtuelles
@@ -47,7 +47,20 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 *   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, voir la rubrique [Erreur : « Échec de la configuration de la machine virtuelle »](http://social.msdn.microsoft.com/Forums/WAVirtualMachinesforWindows/thread/9693f56c-fcd3-4d42-850e-5e3b56c7d6be) (en anglais) sur le forum d’assistance.
 
-*   Les tailles de machines virtuelles A8/A10 et A9/A11 présentent les mêmes capacités. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n’ont pas besoin d’une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
+*   Les tailles de machines virtuelles A8/A10 et A9/A11 présentent les mêmes capacités. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n'ont pas besoin d'une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
+
+## Limites générales
+
+Ce tableau indique les limites qui s’appliquent quelle que soit la taille d’une machine virtuelle, pour les machines virtuelles créées avec les outils de gestion des services.
+
+
+[AZURE.INCLUDE [azure-virtual-machines-limits](../../includes/azure-virtual-machines-limits.md)]
+
+Ce tableau indique les limites qui s’appliquent quelle que soit la taille d’une machine virtuelle, pour les machines virtuelles créées avec Resource Manager.
+
+[AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+## Tableaux de taille
 
 Les tableaux ci-après indiquent les tailles et les capacités offertes par chaque série.
 
@@ -118,8 +131,7 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 ### Voir aussi
 
 [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
- 
-[À propos des instances de calcul intensif A8, A9, A10 et A11](http://go.microsoft.com/fwlink/p/?linkid=328042)
- 
 
-<!---HONumber=58_postMigration-->
+[À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
+
+<!---HONumber=July15_HO2-->

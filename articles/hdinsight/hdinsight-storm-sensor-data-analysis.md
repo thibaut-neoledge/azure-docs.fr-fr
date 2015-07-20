@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Analyser les données de capteur avec Apache Storm, Event Hub, et HBase dans HDInsight (Hadoop)
@@ -419,6 +419,5 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 * Pour plus d'informations sur la création de topologies en .NET, consultez [Développement de topologies C# pour Apache Storm sur HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

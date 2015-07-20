@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prise en main d'Azure Search dans Java" 
-	description="Guide de création d'une application Azure Search personnalisée, avec Java comme langage de programmation." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Prise en main d'Azure Search dans Java"
+	description="Guide de création d'une application Azure Search personnalisée, avec Java comme langage de programmation."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/30/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
 #Prise en main d'Azure Search dans Java#
@@ -58,24 +58,24 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
- 
+
      ![][1]
 
-3. Configurez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
+3. Définissez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
 
      ![][2]
 
-	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Pour plus d'informations sur les conventions de dénomination, consultez la section [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) . 
-	
+	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour plus d'informations sur les conventions d'affectation des noms.
+
 	- Le **niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
-	
-		- La **version gratuite** s'exécute sur les clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
-		- La version **standard** s’exécute sur des ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
-	
-	- Les **groupes de ressources** sont des conteneurs pour les services et ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
-	
+
+		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
+		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
+
+	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
+
 	- L’**abonnement** vous permet de choisir votre abonnement, si vous en avez plusieurs.
-	
+
 	- L’**emplacement** correspond à la zone géographique du centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition de ressources entre plusieurs centres de données n'est pas prise en charge.
 
 4. Cliquez sur **Créer** pour approvisionner le service.
@@ -87,9 +87,9 @@ Surveillez les notifications dans la barre de lancement. Une notification s'affi
 
 Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL et la `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
-1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service. 
+1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service.
 
-2. Le tableau de bord du service affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés d’administration.
+2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
 
   	![][3]
 
@@ -121,8 +121,8 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 ## Configurer l'URL et la clé API du service
 
-1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration qui contient le nom du serveur et la clé API. 
- 
+1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration qui contient le nom du serveur et la clé API.
+
 2. Reportez-vous aux étapes précédentes dans cet article, où vous avez trouvé l'URL et la clé API du service dans le [portail Azure](https://portal.azure.com), afin d'obtenir les valeurs que vous devez maintenant saisir dans **config.properties**.
 
 3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service (le premier composant de l'URL http://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
@@ -148,13 +148,13 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s'agit très probablement du répertoire C:\\Program Files\\Apache Software Foundation\\Tomcat *version*.
 
 6. Cliquez sur **Terminer**.
- 
+
 7. Sélectionnez **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
 
 8. Dans **Add JRE**, sélectionnez **Standard VM**.
 
 10. Cliquez sur **Next**.
- 
+
 11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
 
 12. Accédez à **Program Files** | **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
@@ -170,13 +170,13 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 La phase de configuration est maintenant terminée. Vous allez maintenant créer et exécuter le projet.
 
 ## Créer le projet
- 
+
 1. Dans Project Explorer, cliquez avec le bouton droit de la souris sur le nom du projet et sélectionnez **Run As** | **Maven build...** pour configurer le projet.
 
     ![][10]
 
 8. Dans le champ Goals de Edit Configuration, saisissez « clean install », puis cliquez sur **Run**.
- 
+
 Des messages d'état s’affichent dans la fenêtre de la console. Le message BUILD SUCCESS indique que le projet a été généré sans erreur.
 
 ## Exécution de l'application
@@ -189,9 +189,9 @@ Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution d
 
 5. Cliquez avec le bouton droit de la souris sur **Search.jsp**, puis sélectionnez **Run As** | **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
 
-> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez probablement désigner cet emplacement dans  **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit de la souris sur **Search.jsp**, puis cliquez sur **Run As** | **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
+> [AZURE.TIP]Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez probablement désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit de la souris sur **Search.jsp**, puis cliquez sur **Run As** | **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
 
-Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche  permettant d'entrer des termes.
+Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche permettant d'entrer des termes.
 
 Attendez environ une minute avant de cliquer sur **Search**, le temps que le service crée et charge l'index. Si vous obtenez une erreur HTTP 404, Patientez encore un peu avant de réessayer.
 
@@ -213,12 +213,12 @@ Vous pouvez également essayer les termes suivants :
 
 Ceci est le premier didacticiel Azure Search basé sur Java et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
-Si vous avez déjà une certaine maîtrise d’Azure Search, vous pouvez utiliser cet exemple comme un tremplin pour d’autres expérimentations, notamment pour améliorer la [page de recherche](../search-pagination/) ou mettre en place la [navigation par facettes](../search-faceted-navigation/). Vous pouvez également améliorer la page des résultats en lui ajoutant des compteurs et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
+Si vous avez déjà une certaine maîtrise d’Azure Search, vous pouvez utiliser cet exemple comme un tremplin pour d’autres expérimentations, notamment pour améliorer la [page de recherche](search-pagination.md) ou mettre en place la [navigation par facettes](../search-faceted-navigation/). Vous pouvez également améliorer la page des résultats en lui ajoutant des compteurs et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
 
 Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](http://azure.microsoft.com/documentation/services/search/). Vous pouvez également cliquer sur les liens dans notre [liste de vidéos et de didacticiels](https://msdn.microsoft.com/library/azure/dn798933.aspx) pour obtenir des informations supplémentaires.
 
 <!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-11.PNG
+[1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-21.PNG
 [3]: ./media/search-get-started-java/create-search-portal-31.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
@@ -230,5 +230,6 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

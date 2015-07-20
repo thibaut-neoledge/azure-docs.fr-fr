@@ -18,7 +18,7 @@
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##Vue d'ensemble
 Cette rubrique montre comment obtenir un jeton d'authentification de compte Microsoft à l'aide du Kit de développement logiciel (SDK) Live à partir d'une application Windows universelle. Vous utilisez ensuite ce jeton pour authentifier les utilisateurs auprès d'Azure Mobile Services. Dans ce didacticiel, vous ajoutez l'authentification de compte Microsoft à un projet existant à l'aide du Kit de développement logiciel (SDK) Live. Après avoir été correctement authentifié, l'utilisateur connecté est accueilli par son nom et la valeur de son ID s'affiche.
@@ -41,11 +41,11 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 Vous devez ensuite restreindre l'accès à une ressource, en l'occurrence la table *TodoItems* pour vous assurer qu'elle ne soit accessible que par un utilisateur inscrit.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
-Enfin, vous ajoutez le Kit de développement logiciel (SDK) Live et l'utilisez pour authentifier les utilisateurs de votre application.
+Enfin, ajoutez le Kit de développement logiciel (SDK) Live et utilisez-le pour authentifier les utilisateurs de votre application.
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet**.
 
@@ -136,7 +136,7 @@ Enfin, vous ajoutez le Kit de développement logiciel (SDK) Live et l'utilisez p
 
 10. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.
 
-À présent, tout utilisateur authentifié par l'un de vos fournisseurs d'identité enregistrés peut accéder à la table *TodoItem*. Pour mieux sécuriser les données spécifiques à l'utilisateur, vous devez également implémenter l'autorisation. Pour ce faire, vous obtenez l'ID utilisateur d'un utilisateur donné, qui permettra de déterminer le niveau d'accès dont cet utilisateur doit disposer pour une ressource donnée.
+À présent, tout utilisateur authentifié par l'un de vos fournisseurs d'identité enregistrés peut accéder à la table *TodoItem*. Pour mieux sécuriser les données spécifiques à l'utilisateur, vous devez également implémenter l'autorisation. Pour ce faire, obtenez l'ID d'un utilisateur donné, qui permettra de déterminer le niveau d'accès dont il doit disposer pour une ressource donnée.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -161,5 +161,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Azure Management Portal]: https://manage.windowsazure.com/
 [le guide de fonctionnement Mobile Services .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Kit de développement logiciel (SDK) Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

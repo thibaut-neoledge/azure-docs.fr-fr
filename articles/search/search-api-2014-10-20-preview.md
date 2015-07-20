@@ -12,18 +12,16 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/31/2015" 
+	ms.date="06/24/2015" 
 	ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2014-10-20-Preview #
 
-Ce document décrit la version **2014-10-20-Preview** de l'API REST du service Azure Search. Il s'agit d'une version prototype de l'API, susceptible d'être modifiée à tout moment. N'établissez pas de dépendance sur cette API dans le code de production.
-
-> [AZURE.NOTE]Dans la mesure où il s'agit d'une version expérimentale, toutes les fonctionnalités décrites dans ce document ne sont pas disponibles dans l'interface utilisateur du portail Azure. Plus précisément, le support multilingue via l'option `analyzer` dans les champs, la nouvelle fonction de score `tag` et la nouvelle fonctionnalité `suggesters` sont uniquement présentés dans l'API pour le moment. Si vous utilisez l'API pour activer l'une de ces fonctionnalités, vous pourrez afficher, mais pas mettre à jour, les définitions d'index dans le portail, et vous ne pourrez pas visualiser les nouvelles fonctionnalités.
+Ce document décrit la version **2014-10-20-Preview** de l'API REST du service Azure Search. Cette version est désormais obsolète. Si vous utilisez cette API dans le code de production, migrez vers la version disponible dès que possible. Pour obtenir des instructions, consultez [Transition à partir des API en version préliminaire dans Azure Search](search-transition-from-preview.md).
 
 Autre contenu d'API relatif à cette version :
 
-- [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/)
+- [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md)
 
 La documentation de la version publiée de l'API REST du service Azure Search est disponible sur MSDN. Consultez la page [API REST de service Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) pour plus d'informations.
 
@@ -45,7 +43,7 @@ Les API documentées dans cette section donnent accès aux opérations sur les d
 
 - Toutes les API doivent être émises sur le protocole HTTPS (port par défaut : 443).
 
-- Toutes les requêtes de l'API doivent inclure le paramètre de chaîne de requête `api-version`. Sa valeur doit être la version du service en cours, ce qui est illustré dans l'exemple suivant :
+- Toutes les requêtes d'API doivent inclure le paramètre de chaîne de requête `api-version`. Sa valeur doit être la version du service en cours, ce qui est illustré dans l'exemple suivant :
 
     GET /indexes?api-version=2014-10-20-Preview
 
@@ -122,8 +120,9 @@ L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-________________________________________ <a name="IndexOps"></a>
-# Opérations d'index #
+________________________________________
+<a name="IndexOps"></a>
+## Opérations d'index
 
 Vous pouvez créer et gérer des index dans le service Azure Search via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource d'index donnée. Pour créer un index, vous commencez par publier (POST) un document JSON décrivant le schéma d'index. Le schéma définit les champs de l'index, leurs types de données et comment les utiliser (par exemple, dans des recherches en texte intégral, des filtres, des tris, des facettes ou des suggestions). Il définit également des profils de score, des générateurs de suggestions et d'autres attributs pour configurer le comportement de l'index.
 
@@ -176,25 +175,25 @@ Vous pouvez aussi utiliser une requête PUT et spécifier le nom d'index sur l'U
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes du service. La requête **Create Index** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez la méthode POST, fournissez un nom d'index dans le corps de la requête avec la définition du schéma d'index. Avec la méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
+Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Create Index** peut être construite à l'aide d'une méthode POST ou PUT. Si vous utilisez une méthode POST, fournissez un nom d'index dans le corps de la requête, ainsi que la définition du schéma d'index. Avec la méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
 
 Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
-`api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales, comme la prise en charge des analyseurs de langue exprimée via l'attribut d'index de l'analyseur. Pour plus d'informations sur les versions d'API, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx). Consultez la section [Support multilingue](#LanguageSupport) pour plus d'informations sur les analyseurs de langue.
+`api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. Pour plus d'informations sur les versions d'API, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx). Consultez la section [Support multilingue](#LanguageSupport) pour plus d'informations sur les analyseurs de langue.
 
 **En-têtes de requête**
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
-- `Content-Type` : obligatoire. Définissez-le avec la valeur `application/json`
+- `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour 
-- authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
+- authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Create Index** doit inclure un en-tête `api-key` défini sur votre clé d'administration (par opposition à une clé de requête). 
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 <a name="RequestData"></a> **Syntaxe du corps de la requête**
 
-Le corps de la requête contient une définition de schéma, qui inclut la liste des champs de données des documents qui alimenteront cet index, des types de données, des attributs, ainsi qu'une liste facultative de profils de score utilisés pour les documents correspondants au moment de l'interrogation.
+Le corps de la requête contient une définition de schéma qui inclut la liste des champs de données des documents qui alimenteront cet index, des types de données, des attributs, ainsi qu'une liste facultative de profils de calcul de score utilisés pour les documents correspondants au moment de la requête.
 
 Notez que, pour une requête POST, vous devez spécifier le nom d'index dans le corps de la requête.
 
@@ -272,7 +271,7 @@ Remarque : le type de données `Edm.Int64` est pris en charge à partir de la v
     
 **Attributs d'index**
 
-Lors de la création d'un index, les attributs suivants peuvent être définis. Pour plus d'informations sur le score et les profils de score, consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/).
+Lors de la création d'un index, les attributs suivants peuvent être définis. Pour plus d'informations sur le score et les profils de score, consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md).
 
 `name` : définit le nom du champ.
 
@@ -298,7 +297,7 @@ Lors de la création d'un index, les attributs suivants peuvent être définis. 
 
 `retrievable` : définit si le champ peut être retourné dans un résultat de recherche. Cet attribut est utile quand vous voulez utiliser un champ (par exemple, la marge) comme mécanisme de filtre, de tri ou de score, mais que vous ne voulez pas qu'il soit visible par l'utilisateur final. Il doit être `true` pour les champs `key`.
 
-`scoringProfiles` : définit les comportements de score personnalisés qui vous permettent de faire monter certains éléments en haut des résultats de recherche. Les profils de score sont constitués de fonctions et de champs pondérés. Consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](../search-api-scoring-profiles-2014-10-20-preview/) pour plus d'informations sur les attributs utilisés dans un profil de score.
+`scoringProfiles` : définit les comportements de score personnalisés qui vous permettent de faire monter certains éléments en haut des résultats de recherche. Les profils de score sont constitués de fonctions et de champs pondérés. Consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview)](search-api-scoring-profiles-2014-10-20-preview.md) pour plus d'informations sur les attributs utilisés dans un profil de score.
 
 `analyzer` : définit le nom de l'analyseur de texte à utiliser pour le champ. Pour connaître l'ensemble des valeurs autorisées, consultez la rubrique [Support multilingue](#LanguageSupport). Cette option peut être utilisée uniquement avec les champs `searchable`. Une fois l'analyseur choisi, il ne peut pas être modifié pour le champ.
 
@@ -315,7 +314,7 @@ Voici la liste des analyseurs pris en charge avec une brève description de leur
 
 <table style="font-size:12">
     <tr>
-		<th>Langue</th>
+		<th>Langage</th>
 		<th>Nom de l'analyseur</th>
 		<th>Description</th>
 	</tr>
@@ -686,7 +685,7 @@ Par défaut, le corps de la réponse contient le code JSON de la définition d'i
 <a name="UpdateIndex"></a>
 ## Mise à jour d'index ##
 
-Vous pouvez mettre à jour un index existant dans Azure Search à l'aide d'une requête HTTP PUT. Dans la version préliminaire publique, les mises à jour peuvent inclure l'ajout de nouveaux champs au schéma existant, la modification des options CORS et la modification des profils de score (consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview](../search-api-scoring-profiles-2014-10-20-preview/)). Vous spécifiez le nom de l'index à mettre à jour sur l'URI de la requête :
+Vous pouvez mettre à jour un index existant dans Azure Search à l'aide d'une requête HTTP PUT. Dans la version préliminaire publique, les mises à jour peuvent inclure l'ajout de nouveaux champs au schéma existant, la modification des options CORS et la modification des profils de score (consultez [Profils de score (API REST du service Azure Search : 2014-10-20-Preview](search-api-scoring-profiles-2014-10-20-preview.md)). Vous spécifiez le nom de l'index à mettre à jour sur l'URI de la requête :
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
@@ -698,7 +697,7 @@ Quand vous ajoutez un nouveau champ à un index, tous les documents existants de
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes du service. La requête **Update Index** est construite à l'aide de HTTP PUT. Avec la méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
+Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **Update Index** est construite à l'aide de HTTP PUT. Avec la méthode PUT, le nom d'index fait partie de l'URL. Si l'index n'existe pas, il est créé. S'il existe déjà, il est mis à jour en fonction de la nouvelle définition.
 
 Le nom d'index doit être en minuscules, commencer par une lettre ou un chiffre, ne contenir ni barres obliques ni points, et comprendre moins de 128 caractères. Après la lettre ou le chiffre du début, le nom d'index peut comprendre des lettres, des chiffres et des tirets (non consécutifs).
 
@@ -708,10 +707,10 @@ Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-3
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
-- `Content-Type` : obligatoire. Définissez-le avec la valeur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
+- `Content-Type` : obligatoire. À définir avec la valeur `application/json`
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Update Index** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Syntaxe du corps de la requête**
 
@@ -789,9 +788,9 @@ Remarque : le type de données `Edm.Int64` est pris en charge à partir de la v
 
 **Réponse**
 
-Pour une requête correcte : « 204 pas de contenu ».
+Pour une requête correcte : « 204 Pas de contenu ».
 
-Par défaut, le corps de la réponse est vide. Toutefois, si l'en-tête de la requête `Prefer` est défini avec la valeur `return=representation`, le corps de la réponse contient le code JSON de la définition d'index qui a été mise à jour. Dans ce cas, le code d'état de réussite est « 200 OK ».
+Par défaut, le corps de la réponse est vide. Toutefois, si l'en-tête de la requête `Prefer` est défini avec la valeur `return=representation`, le corps de la réponse contient le code JSON pour la définition d'index mise à jour. Dans ce cas, le code d'état de réussite est « 200 OK ».
 
 <a name="ListIndexes"></a>
 ## Liste des index ##
@@ -803,7 +802,7 @@ L'opération **List Indexes** retourne une liste des index actuellement utilisé
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes du service. La requête **List Indexes** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour toutes les requêtes de service. La requête **List Indexes** peut être construite à l'aide de la méthode GET.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -813,7 +812,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **List Indexes** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -868,9 +867,9 @@ L'opération **Get Index** obtient la définition d'index auprès d'Azure Search
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Get Index** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Get Index** peut être construite à l'aide de la méthode GET.
  
-Le [nom de l'index] dans l'URI de la requête spécifie l'index à retourner à partir de la collection d'index.
+Le [nom d’index] de l’URI de la requête spécifie l’index à retourner à partir de la collection d’index.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -880,7 +879,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
 
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -902,9 +901,9 @@ L'opération **Delete Index** supprime de votre service Azure Search un index et
     
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Delete Index** peut être construite à l'aide de la méthode DELETE.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Delete Index** peut être construite à l'aide de la méthode DELETE.
  
-Le [nom de l'index] dans l'URI de la requête spécifie l'index à supprimer dans la collection d'index.
+Le [nom d’index] de l’URI de la requête spécifie l’index à supprimer dans la collection d’index.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -922,10 +921,10 @@ Aucun.
 
 **Réponse**
 
-Code d'état : 204 Pas de contenu est retourné pour une réponse correcte.
+Code d'état : 204 Pas de contenu est renvoyé en cas de réponse correcte.
 
 <a name="GetIndexStats"></a>
-## Obtention de statistiques d'index ##
+## Obtenir des statistiques d'index ##
 
 L'opération **Get Index Statistics** retourne d'Azure Search un nombre de documents pour l'index actuel, ainsi que l'utilisation du stockage.
 
@@ -934,9 +933,9 @@ L'opération **Get Index Statistics** retourne d'Azure Search un nombre de docum
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes du service. La requête **Get Index Statistics** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour toutes les requêtes de services. La requête **Get Index Statistics** peut être construite à l'aide de la méthode GET.
 
-Le [nom de l'index] dans l'URI de la requête indique au service de retourner des statistiques d'index pour l'index spécifié.
+Le [nom d’index] de l’URI de la requête indique au service de retourner les statistiques d’index pour l’index spécifié.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -946,7 +945,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
  
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Get Index Statistics** doit inclure un en-tête `api-key` défini avec la valeur d'une clé d'administration (par opposition à une clé de requête).
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -963,8 +962,9 @@ Le corps de la réponse a le format suivant :
 	  "storageSize": number (size of the index in bytes)
     }
 
-________________________________________ <a name="DocOps"></a>
-# Opérations de document #
+________________________________________
+<a name="DocOps"></a>
+## Opérations de document
 
 Dans Azure Search, un index est rempli à l'aide de documents JSON que vous téléchargez sur le service. Tous les documents que vous téléchargez comprennent le corpus de vos données de recherche. Les documents contiennent des champs, dont certains sont tokenisés dans les termes de recherche à mesure qu'ils sont téléchargés. Le segment d'URL `/docs` dans l'API d'Azure Search représente la collection de documents d'un index. Toutes les opérations sur la collection, telles que le chargement, la fusion, la suppression ou l'interrogation de documents, sont effectuées dans un contexte d'index unique, les URL pour ces opérations commencent donc toujours par `/indexes/[index name]/docs` pour un nom d'index donné.
 
@@ -991,9 +991,9 @@ Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer de
     
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes du service. Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST.
+Le protocole HTTPS est requis pour toutes les requêtes de service. Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST.
 
-L'URI de la requête inclut le [nom de l'index], qui spécifie l'index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
+L’URI de la requête inclut le[nom d’index], qui spécifie l’index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1001,10 +1001,10 @@ Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-3
 
 La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
-- `Content-Type` : obligatoire. Définissez-le avec la valeur `application/json`
-- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
+- `Content-Type` : obligatoire. À définir avec la valeur `application/json`
+- `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour votre service. La requête **Add Documents** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête).
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1108,7 +1108,8 @@ Code d'état : 429 indique que vous avez dépassé votre quota du nombre de doc
         }
       ]
     }
-________________________________________ <a name="SearchDocs"></a>
+________________________________________
+<a name="SearchDocs"></a>
 ## Recherche dans des documents ##
 
 Une opération **Search** est émise en tant que requête GET et spécifie les paramètres de requête qui donnent les critères de sélection des documents correspondants.
@@ -1118,7 +1119,7 @@ Une opération **Search** est émise en tant que requête GET et spécifie les p
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Search** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Search** peut être construite à l'aide de la méthode GET.
 
 L'URI de la requête spécifie l'index à interroger, pour tous les documents qui correspondent aux paramètres de requête.
 
@@ -1151,7 +1152,7 @@ L'URI de la requête spécifie l'index à interroger, pour tous les documents qu
   - Par exemple : `facet=category,count:3,sort:count` obtient les trois premières catégories des résultats de facette triées par ordre décroissant du nombre de documents de chaque ville. Par exemple, si les trois premières catégories sont Budget, Motel et Luxe, que Budget a 5 accès, Motel en a 6 et Luxe en a 4, les compartiments apparaîtront dans l'ordre Motel, Budget et Luxe.
   - Par exemple : `facet=rating,sort:-value` génère des compartiments pour tous les classements possibles, triés par ordre décroissant des valeurs. Par exemple, si les classements vont de 1 à 5, les compartiments apparaissent dans l'ordre 5, 4, 3, 2, 1, quel que soit le nombre de documents qui correspond à chaque classement.
 - `values` (valeur numérique délimitée une barre verticale ou valeurs `Edm.DateTimeOffset` qui spécifient un ensemble dynamique de valeurs d'entrée de facette)
-  - Par exemple : `facet=baseRate,values:10|20` génère trois compartiments : un pour le taux de base compris entre 0 et 10 exclus, un de 10 à 20 exclus et un pour 20 et plus.
+  - Par exemple : `facet=baseRate,values:10|20` génère trois compartiments : un pour le taux de base compris entre 0 et 10 exclus, un de 10 à 20 exclus et un pour 20 et plus.
   - Par exemple : `facet=lastRenovationDate,values:2010-02-01T00:00:00Z` génère deux compartiments : un pour les hôtels rénovés avant février 2010 et un pour les hôtels rénovés à partir du 1er février 2010.
 - `interval` (intervalle d'entiers supérieur à 0 pour les nombres ou `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year` pour les valeurs de date et heure)
   - Par exemple : `facet=baseRate,interval:100` génère des compartiments basés sur des plages de taux de base comprenant 100 valeurs. Par exemple, si les taux de base sont tous compris entre 60 dollars et 600 dollars, il y aura les compartiments suivants : 0-100, 100-200, 200-300, 300-400, 400-500 et 500-600.
@@ -1180,7 +1181,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Search** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1245,7 +1246,7 @@ Remarque : la précision des champs DateTime est réservée aux millisecondes. 
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2014-10-20-Preview
 
-6) Effectuer une recherche dans plusieurs champs de l'index. Par exemple, vous pouvez stocker et interroger des champs pouvant faire l'objet d'une recherche en plusieurs langues, le tout dans le même index. Si des descriptions en anglais et en français coexistent dans le même document, vous pouvez retourner tout ou partie des résultats de la requête :
+6) Effectuer une recherche dans plusieurs champs de l'index. Par exemple, vous pouvez stocker et interroger des champs pouvant faire l'objet d'une recherche en plusieurs langues, le tout dans le même index. Si des descriptions en anglais et en français coexistent dans le même document, vous pouvez en retourner certaines ou la totalité dans les résultats de la requête :
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2014-10-20-Preview
 	
@@ -1281,7 +1282,7 @@ Notez que vous pouvez interroger uniquement un index à la fois. Ne créez pas p
 
 
 <a name="LookupAPI"></a>
-##Recherche de document##
+##Lookup Document##
 
 L'opération **Lookup Document** récupère un document dans Azure Search. Cela est utile quand un utilisateur clique sur un résultat de recherche en particulier et que vous voulez rechercher des détails spécifiques sur ce document.
 
@@ -1290,7 +1291,7 @@ L'opération **Lookup Document** récupère un document dans Azure Search. Cela 
     
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Lookup Document** peut être construite comme suit.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Lookup Document** peut être construite comme suit.
 
     GET /indexes/[index name]/docs/key?[query parameters] 
 
@@ -1298,11 +1299,11 @@ Vous pouvez aussi utiliser la syntaxe traditionnelle OData pour la recherche de 
 
     GET /indexes('[index name]')/docs('[key]')?[query parameters]
 
-L'URI de la requête inclut un [nom d'index] et une [clé], qui spécifient le document à récupérer dans l'index. Vous ne pouvez obtenir qu'un seul document à la fois. Utilisez **Search** pour obtenir plusieurs documents dans une requête unique.
+L’URI de la requête inclut un [nom d’index] et une [clé], qui spécifient le document à extraire de l’index. Vous ne pouvez obtenir qu'un seul document à la fois. Utilisez **Search** pour obtenir plusieurs documents dans une requête unique.
 
 **Paramètres de requête**
 
-`$select=[string]` (facultatif) : liste de champs à récupérer séparés par des virgules. Si la valeur n'est pas spécifiée ou est `*`, tous les champs marqués comme récupérables dans le schéma sont inclus dans la projection.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si la valeur n'est pas spécifiée ou est `*`, tous les champs marqués comme récupérables dans le schéma sont inclus dans la projection.
 
 `api-version=[string]` (obligatoire). Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1314,7 +1315,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Lookup Document** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1349,9 +1350,9 @@ L'opération **Count Documents** récupère le nombre de documents dans un index
     
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Count Documents** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Count Documents** peut être construite à l'aide de la méthode GET.
 
-Le [nom de l'index] dans l'URI de la requête indique au service de retourner le nombre de tous les éléments dans la collection de documents de l'index spécifié.
+Le [nom d’index] dans l’URI de la requête indique au service de retourner le nombre de tous les éléments de la collection de documents de l’index spécifié.
 
 Le paramètre `api-version` est obligatoire. Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1362,7 +1363,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Accept` : cette valeur doit être définie sur `text/plain`.
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Count Documents** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
  
-Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1387,7 +1388,7 @@ Les requêtes de suggestions visent à suggérer des documents cibles, le texte 
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes du service. La requête **Suggestions** peut être construite à l'aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Suggestions** peut être construite à l'aide de la méthode GET.
 
 L'URI de la requête spécifie le nom de l'index à interroger. Il inclut également le terme de recherche d'entrée partiel dans la chaîne de requête.
 
@@ -1405,13 +1406,13 @@ L'URI de la requête spécifie le nom de l'index à interroger. Il inclut égale
 
 `searchFields=[string]` (facultatif) : liste des noms de champs séparés par des virgules dans lesquels rechercher le texte spécifié. Les champs cibles doivent être activés pour les suggestions.
 
-`$top=#` (facultatif, valeur par défaut = 5) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
+`$top=#` (facultatif, valeur par défaut = 5) : nombre de suggestions à récupérer. Doit être un nombre compris entre 1 et 100.
 
-`$filter=[string]` (facultatif) : expression qui filtre les documents considérés comme des suggestions.
+`$filter=[string]` (facultatif) : expression qui filtre les documents pris en compte pour les suggestions.
 
 `$orderby=[string]` (facultatif) : liste d'expressions séparées par des virgules selon lesquelles les résultats doivent être triés. Chaque expression peut être un nom de champ ou un appel à la fonction `geo.distance()`. Chaque expression peut être suivie par `asc` pour indiquer l'ordre croissant, et par `desc` pour indiquer l'ordre décroissant. La valeur par défaut est l'ordre croissant. Il existe une limite de 32 clauses pour `$orderby`.
 
-`$select=[string]` (facultatif) : liste de champs à récupérer séparés par des virgules. Si aucune valeur n'est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
+`$select=[string]` (facultatif) : liste de champs séparés par des virgules à récupérer. Si aucune valeur n'est spécifiée, seuls la clé du document et le texte de suggestion sont retournés.
 
 `api-version=[string]` (obligatoire). Les valeurs valides sont `2014-07-31-Preview` ou `2014-10-20-Preview`. Vous pouvez spécifier la valeur à utiliser sur chaque requête pour obtenir des comportements propres à la version, mais la meilleure pratique consiste à utiliser la même version dans tout le code. La version recommandée est `2014-07-31-Preview` pour une utilisation générale. Vous pouvez également utiliser `2014-10-20-Preview` pour tester les fonctionnalités expérimentales. Pour plus d'informations, consultez [Contrôle de version du service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx).
 
@@ -1423,7 +1424,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs
 
 - `api-key` : l'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de chaîne, unique pour l'URL de votre service. La requête **Suggestions** peut spécifier une clé d'administration ou une clé de requête pour `api-key`.
 
-  Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+  Vous avez également besoin du nom du service pour construire l'URL de la requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 **Corps de la requête**
 
@@ -1465,5 +1466,6 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

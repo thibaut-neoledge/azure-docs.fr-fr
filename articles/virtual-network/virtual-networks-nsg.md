@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Présentation du groupe de sécurité réseau"
    description="En savoir plus sur les groupes de sécurité réseau"
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"
@@ -118,7 +118,7 @@ Association d’un groupe de sécurité réseau à un sous-réseau : lorsqu'un 
 
 Association d'un groupe de sécurité réseau à un sous-réseau et à une machine virtuelle : vous pouvez associer un groupe de sécurité réseau à une machine virtuelle et un autre groupe de sécurité réseau au sous-réseau sur lequel réside la machine virtuelle. Cette association est prise en charge et dans ce cas la machine virtuelle reçoit deux couches de protection. Pour le trafic entrant, le paquet est acheminé via les règles d'accès spécifiées dans le sous-réseau suivi par les règles dans la machine virtuelle. Dans le cas du trafic sortant, il est acheminé via les règles spécifiées d’abord dans la machine virtuelle avant de passer par les règles spécifiées dans le sous-réseau, comme illustré dans le diagramme ci-dessous.
 
-![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
+![ACL de groupe de sécurité réseau](./media/virtual-networks-nsg/figure1.png)
 
 Lorsqu'un groupe de sécurité réseau est associé à une machine virtuelle ou à un sous-réseau, les règles de contrôle d'accès réseau deviennent très explicites. La plate-forme n'insère pas de règle implicite pour autoriser le trafic vers un port particulier. Dans ce cas, si vous créez un point de terminaison dans la machine virtuelle, vous devez également créer une règle pour autoriser le trafic provenant d'Internet. Si vous ne faites pas cela, l'adresse IP virtuelle : <Port> ne sera pas accessible depuis l'extérieur.
 
@@ -127,6 +127,27 @@ Par exemple : vous créez une nouvelle machine virtuelle et vous créez égalem
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 | WEB | 100 | INTERNET | * | * | 80 | TCP | AUTORISER |
+
+## Remarques relatives à la conception
+
+Lorsque vous concevez vos groupes de sécurité réseau, vous devez comprendre comment les machines virtuelles interagissent avec les services d’infrastructure et le service PaaS hébergé par Microsoft Azure. La plupart des services PaaS Microsoft Azure, comme les bases de données et le stockage SQL sont accessibles uniquement via une adresse Internet publique. Cela est également vrai pour les sondes d’équilibrage de charge.
+
+Un scénario courant dans Azure est la ségrégation des rôles de machines virtuelles et PaaS dans les sous-réseaux en fonction de la nécessité pour ces objets d’accéder à Internet. Dans ce scénario, vous disposez par exemple d’un sous-réseau avec des machines virtuelles ou des instances de rôle qui nécessitent un accès aux services PaaS Azure, comme les bases de données et le stockage SQL, mais ce sous-réseau ne requiert aucune communication entrante ou sortante avec l’Internet public.
+
+Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénario :
+
+| Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|PAS D’INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|REFUSER| 
+
+Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
+
+Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle autorisant l’accès à Internet à partir du réseau virtuel, mais refusant l’accès au réseau virtuel à partir d’Internet, comme représenté ci-dessous :
+
+| Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|VERS INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|AUTORISER|
+|À PARTIR D’INTERNET|110| INTERNET|&\#42;|VIRTUAL_NETWORK|&\#42;|TCP|REFUSER| 
 
 
 ## Planification : flux de travail du groupe de sécurité réseau
@@ -187,6 +208,11 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
+**Affichage des groupes de sécurité de réseau associés à une machine virtuelle**
+
+	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
+	| Get-AzureNetworkSecurityGroupAssociation
+
 **Suppression d’un groupe de sécurité réseau d'une machine virtuelle**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
@@ -198,6 +224,11 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
+
+**Affichage des groupes de sécurité de réseau associés à un sous-réseau**
+
+	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
+		-VirtualNetworkName 'VNetUSWest' 
 
 **Suppression d’un groupe de sécurité réseau d’un sous-réseau**
 
@@ -213,5 +244,8 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
+**Affichage de l’ensemble des applets de commande Azure associées aux groupes de sécurité réseau**
 
-<!---HONumber=62-->
+	Get-Command *azurenetworksecuritygroup*
+
+<!---HONumber=July15_HO2-->

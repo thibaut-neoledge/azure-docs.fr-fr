@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## Présentation des files d'attente Service Bus
 
 Les files d’attente Service Bus prennent en charge un modèle de communication de **messagerie répartie**. Lors de l’utilisation de files d’attente, les composants d’une application distribuée ne communiquent pas directement entre eux ; ils échangent plutôt des messages via une file d’attente, qui fait office d’intermédiaire (broker). Un producteur de messages (expéditeur) remet un message à la file d’attente, puis continue son traitement. De manière asynchrone, un consommateur de message (destinataire) extrait le message de la file d’attente, puis le traite. L’expéditeur ne doit pas forcément attendre une réponse du destinataire afin de continuer à traiter et à envoyer d’autres messages. Les files d’attente permettent la livraison de messages sur le principe du **premier entré, premier sorti (FIFO)** à un ou plusieurs destinataires concurrents. Autrement dit, les messages sont en général reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
@@ -53,10 +52,9 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
+5.  Notez la clé ou copiez-la dans le Presse-papiers.
 
-4.  Notez la clé ou copiez-la dans le Presse-papiers.
-
-###Pour obtenir les informations de gestion de l’Explorateur de serveurs
+### Pour obtenir les informations de gestion de l’Explorateur de serveurs
 
 Pour obtenir les informations de connexion en utilisant Visual Studio plutôt que le portail de gestion, suivez la procédure décrite [ici](http://msdn.microsoft.com/library/ff687127.aspx), dans la section intitulée **Connexion à Azure à partir de Visual Studio**. Lorsque vous vous connectez à Azure, le nœud **Service Bus** sous l’arborescence **Azure** dans l’Explorateur de serveurs est automatiquement rempli par les espaces de noms que vous avez déjà créés. Cliquez avec le bouton droit sur un espace de noms, puis cliquez sur **Propriétés** pour que la chaîne de connexion et les autres métadonnées associées à cet espace de noms s'affichent dans le volet **Propriétés** de Visual Studio.
 
@@ -69,4 +67,4 @@ Notez la valeur **SharedAccessKey** ou copiez-la dans le Presse-papiers :
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

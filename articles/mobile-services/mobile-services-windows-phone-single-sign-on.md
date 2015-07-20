@@ -18,7 +18,7 @@
 
 # Authentifier votre application Windows Phone avec l'authentification gérée par le client à l'aide du compte Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 ##Vue d'ensemble
 Cette rubrique montre comment obtenir un jeton d'authentification de compte Microsoft à l'aide du Kit de développement logiciel (SDK) Live à partir d'une application Silverlight Windows Phone 8 ou Windows Phone 8.1. Ce jeton sert ensuite à authentifier les utilisateurs auprès d'Azure Mobile Services. Dans ce didacticiel, vous ajoutez l'authentification de compte Microsoft à un projet existant à l'aide du Kit de développement logiciel (SDK) Live. Après avoir été authentifié, l'utilisateur connecté est accueilli par son nom et la valeur de son ID s'affiche.
 
@@ -40,7 +40,7 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 
 Vous devez ensuite restreindre l'accès à une ressource, en l'occurrence la table *TodoItems* pour vous assurer qu'elle ne soit accessible que par un utilisateur inscrit.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Ajouter l'authentification à l'application
 
@@ -140,5 +140,6 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Autorisation des utilisateurs avec des scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

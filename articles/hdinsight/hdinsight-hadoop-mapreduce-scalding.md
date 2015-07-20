@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # Développer des tâches MapReduce Scalding avec Apache Hadoop dans HDInsight
@@ -168,7 +168,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -288,6 +288,5 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

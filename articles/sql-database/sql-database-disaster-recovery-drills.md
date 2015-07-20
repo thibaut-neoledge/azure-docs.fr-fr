@@ -81,4 +81,6 @@ L'exercice de récupération d'urgence est effectué en utilisant un serveur cib
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Configuration et inscription de votre appareil"
+   description="Explique comment utiliser Windows PowerShell pour StorSimple pour configurer et inscrire un appareil StorSimple qui exécute Update 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
+
 ### Configuration et inscription de l’appareil
 
 1. Accédez à l’interface Windows PowerShell sur la console série de votre appareil StorSimple. Consultez la page [Utilisation de PuTTY pour se connecter à la console en série de l’appareil](#use-putty-to-connect-to-the-device-serial-console) pour obtenir des instructions. **Veillez à suivre la procédure pas à pas, sans quoi vous ne pourrez pas accéder à la console.**
@@ -132,4 +150,4 @@
      
         
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

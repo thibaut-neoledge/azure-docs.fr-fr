@@ -95,4 +95,4 @@ Pour vérifier que l’extension de sécurité Symantec a été installée et es
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

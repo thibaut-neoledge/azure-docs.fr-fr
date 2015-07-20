@@ -100,4 +100,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -4,7 +4,7 @@
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
-	editor="" 
+	editor="dwrede" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/19/2015" 
 	ms.author="mahender"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
@@ -108,7 +108,7 @@ Ce didacticiel requiert les éléments suivants :
 
 6. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez déployé votre application ; le format doit être https://login.windows.net/tenant-name.onmicrosoft.com. Cette valeur peut être copiée dans l'onglet Domaine de votre annuaire Azure Active Directory dans le [portail de gestion Azure].
 
-7. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-RESOURCE-URI-HERE** par l'**URI ID d'application** de votre service mobile. Si vous avez suivi les instructions de la rubrique [Inscription auprès de l'annuaire Azure Active Directory], votre URI ID d'application doit être semblable à https://todolist.azure-mobile.net/login/aad.
+7. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-RESOURCE-URI-HERE** par l'**URI ID d'application** de votre service mobile. Si vous avez suivi les instructions de la rubrique [Inscription auprès d'Azure Active Directory], votre URI ID d'application doit être semblable à https://todolist.azure-mobile.net/login/aad.
 
 8. Dans le code de la méthode `AuthenticateAsync` ci-dessus, remplacez **INSERT-CLIENT-ID-HERE** par l'ID client que vous avez copié dans l'application cliente native.
 
@@ -136,9 +136,10 @@ Ce didacticiel requiert les éléments suivants :
 [Prise en main de données]: mobile-services-ios-get-started-data.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
-[Inscription auprès de l'annuaire Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
+[Inscription auprès d'Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Liaison Xamarin pour la bibliothèque d'authentification Active Directory pour iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [extension Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

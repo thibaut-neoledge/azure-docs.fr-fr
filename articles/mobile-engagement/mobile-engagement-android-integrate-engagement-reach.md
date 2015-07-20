@@ -57,16 +57,25 @@ Modifiez le fichier `AndroidManifest.xml` :
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -95,6 +104,19 @@ Modifiez le fichier `AndroidManifest.xml` :
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## Native Push
+
+Maintenant que vous avez configuré le module Reach, vous devez configurer Native Push pour être en mesure de recevoir les campagnes sur l’appareil.
+
+Nous prenons en charge les deux services sur Android :
+
+  - Appareils Google Play : utilisez [Google Cloud Messaging] en suivant le guide [Comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md).
+  - Appareils Amazon : utilisez [Amazon Device Messaging] en suivant le guide [Comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md).
+
+Si vous voulez cibler à la fois des appareils Amazon et Google Play, il est possible d'avoir tout ce qu'il faut pour le développement au sein d'un fichier AndroidManifest.xml/APK. Quand vous soumettez votre application à Amazon, celle-ci peut être rejetée si elle contient du code GCM.
+
+Dans ce cas, vous devrez utiliser plusieurs fichiers APK.
 
 **Votre application est maintenant prête à recevoir et afficher des couvertures campagnes.**
 
@@ -148,19 +170,6 @@ Le type de retour est utilisé uniquement pour les statistiques de couverture :
 
 -   `Replied` est incrémenté si l'un des récepteurs de diffusion a retourné `true` ou `false`.
 -   `Actioned` est incrémenté uniquement si l'un des récepteurs de diffusion a retourné `true`.
-
-##Comment recevoir des campagnes à tout moment
-
-Quand vous suivez la procédure d'intégration décrite ci-dessus, le service Engagement ne se connecte aux serveurs d'Engagement que si des statistiques doivent faire l'objet d'un rapport (plus un délai d'expiration d'une minute). Les **couvertures campagnes ne peuvent donc être reçues que pendant une session utilisateur**. Heureusement, Engagement peut être configuré de manière à **permettre à votre application de recevoir des couvertures campagnes à tout moment**, y compris lorsque l'appareil est en mode veille (l'appareil doit bien sûr disposer d’une connexion réseau active. Les messages sont retardés quand l'appareil n'est pas connecté au réseau).
-
-Pour profiter des Push à tout moment, vous devez utiliser un ou plusieurs services de Push natif en fonction des appareils que vous ciblez :
-
-  - Appareils Google Play : utilisez [Google Cloud Messaging] en suivant le guide [Comment intégrer GCM à Mobile Engagement](mobile-engagement-android-gcm-integrate.md).
-  - Appareils Amazon : utilisez [Amazon Device Messaging] en suivant le guide [Comment intégrer ADM à Mobile Engagement](mobile-engagement-android-adm-integrate.md).
-
-Si vous voulez cibler à la fois des appareils Amazon et Google Play, il est possible d'avoir tout ce qu'il faut pour le développement au sein d'un fichier AndroidManifest.xml/APK. Quand vous soumettez votre application à Amazon, celle-ci peut être rejetée si elle contient du code GCM.
-
-Dans ce cas, vous devrez utiliser plusieurs fichiers APK.
 
 ##Personnalisation des campagnes marketing
 
@@ -636,5 +645,6 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [ici]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

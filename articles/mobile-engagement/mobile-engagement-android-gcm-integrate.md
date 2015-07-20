@@ -122,5 +122,6 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [Console développeur Google]: https://cloud.google.com/console
 [Console développeurs de Google]: https://cloud.google.com/console
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
 # Résolution des problèmes de bout en bout avec les métriques et la journalisation Azure, AzCopy et Message Analyzer 
@@ -23,7 +23,7 @@ Diagnostic et résolution des problèmes sont essentiels pour la création et la
 
 Dans ce didacticiel, nous montrons comment identifier certaines erreurs du client qui peuvent affecter les performances et comment résoudre ces erreurs de bout en bout à l'aide des outils fournis par Microsoft et Azure Storage, afin d'optimiser l'application cliente.
 
-Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../articles/storage-monitoring-diagnosing-troubleshooting/).
+Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Outils de résolution des problèmes dans les applications Azure Storage
 
@@ -292,7 +292,7 @@ L'illustration ci-dessous montre les résultats du regroupement et du filtre. Si
 
 ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Après avoir appliqué ce filtre, vous verrez que les lignes du journal du client sont exclues, ce dernier n'incluant aucune colonne **StatusCode**. Pour commencer, nous allons revoir le serveur et les journaux de suivi du réseau pour rechercher les erreurs de la plage 404, puis revenir au journal du client pour examiner les opérations du client qui ont déclenché ces erreurs.
+Après avoir appliqué ce filtre, vous verrez que les lignes du journal du client sont exclues, ce dernier n’incluant aucune colonne **StatusCode**. Pour commencer, nous allons revoir le serveur et les journaux de suivi du réseau pour rechercher les erreurs de la plage 404, puis revenir au journal du client pour examiner les opérations du client qui ont déclenché ces erreurs.
 
 >[AZURE.NOTE]Vous pouvez filtrer sur la colonne **StatusCode** et continuer d'afficher les données des trois journaux, y compris du journal du client, si vous ajoutez au filtre une expression qui inclut des entrées de journal où le code d'état a la valeur null. Pour construire cette expression de filtre, utilisez :
 >
@@ -349,18 +349,7 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Retards inattendus de la remise des messages dans une file d'attente | AzureStorageClientDotNetV4.Description contient "Retrying failed operation." | Client |
 | HTTP, augmentation de la valeur PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Réseau |
 | Augmentation de la valeur PercentTimeoutError | HTTP.Response.StatusCode == 500 | Réseau |
-| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Augmentation de la valeur PercentTimeoutError (tous) | *StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## Étapes suivantes
@@ -373,6 +362,6 @@ Pour plus d'informations sur les scénarios de résolution des problèmes de bou
 - [Utilisation de AzCopy avec Microsoft Azure Storage](storage-use-azcopy.md)
 - [Guide d'exploitation de Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
  
-
-<!---HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -79,4 +79,4 @@ Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

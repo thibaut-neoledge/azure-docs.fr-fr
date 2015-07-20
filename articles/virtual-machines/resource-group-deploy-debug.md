@@ -49,7 +49,7 @@ L'interface de ligne de commande Azure comprend plusieurs commandes permettant d
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. Cette commande permet de valider votre modèle et le paramètre du modèle avant de les utiliser. Entrez un modèle personnalisé ou de la galerie et les valeurs de paramètres du modèle que vous prévoyez d'utiliser. Cette applet de commande teste si le modèle est intrinsèquement cohérent et si la valeur que vous avez définie correspond au modèle.
+- **azure group template validate <resource group>**. Cette commande permet de valider vos modèles ainsi que les paramètres de modèles avant de les utiliser. Entrez un modèle personnalisé ou de la galerie et les valeurs de paramètres du modèle que vous prévoyez d'utiliser.
 
     L'exemple suivant montre comment valider un modèle et tous les paramètres requis. L'interface de ligne de commande Azure vous invite à entrer les valeurs de paramètre qui sont requises.
 
@@ -115,7 +115,7 @@ L'interface de ligne de commande Azure comprend plusieurs commandes permettant d
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+Utilisez l’option **--last-deployment** pour récupérer uniquement le journal du dernier déploiement. Le script suivant utilise l’option **--json** et **jq** pour rechercher les échecs de déploiement dans le journal.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -213,6 +213,26 @@ Mais avec Azure Active Directory, vous ou votre administrateur pouvez contrôler
 
 Il est possible que vous rencontriez également des problèmes lorsqu'un déploiement atteint un quota par défaut, ce qui peut être par groupe de ressources, par abonnement, par compte, et pour d'autres étendues également. Vérifiez, à votre convenance, que vous disposez des ressources disponibles pour effectuer correctement le déploiement. Pour obtenir des informations complètes sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
+Pour examiner les quotas de cœurs de votre abonnement, vous devez utiliser la commande `azure vm list-usage` dans l’interface de ligne de commande Azure et l’applet de commande `Get-AzureVMUsage` dans PowerShell. Ce qui suit présente la commande dans l’interface de ligne de commande Azure et indique que le quota de cœurs d’un compte d’évaluation gratuit est de 4 :
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+Si vous essayez de déployer un modèle créant plus de 4 cœurs dans l’Ouest des États-Unis dans l’abonnement ci-dessus, vous obtenez une erreur de déploiement qui peut ressembler à ceci (dans le portail ou en examinant les journaux de déploiement) :
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+Dans ce cas, vous devez accéder au portail et signaler un problème de support afin d’augmenter votre quota pour la région vers laquelle vous souhaitez procéder au déploiement.
+
+> [AZURE.NOTE]N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs de gestion de ressources dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs de gestion de ressources dans toutes les régions. <!-- --> Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vous devez demander le quota approprié à l’aide de la commande suivante, qui est dirigée vers **jq** pour l’analyse json. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+     
 
 ## Interface de ligne de commande Azure et problèmes liés au mode PowerShell
 
@@ -243,7 +263,7 @@ Pour voir si le fournisseur est enregistré pour être utilisé à l'aide de l'i
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+Là encore, si vous souhaitez plus d’informations sur les fournisseurs, y compris sur leur disponibilité régionale, tapez `azure provider list --json`. Les éléments suivants sélectionnent uniquement le premier élément de la liste à afficher :
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ Souvent, vous voudrez utiliser une ressource se trouvant hors du groupe de resso
 
     }
 
-
-
 ## Étapes suivantes
 
 Pour maîtriser la création de modèles, lisez le document [Création de modèles de gestionnaire des ressources Azure](../resource-group-authoring-templates.md), et parcourez le [référentiel AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) pour obtenir des exemples pouvant pas être déployés. Un exemple de la propriété **dependsOn** est l'[équilibrage de charge avec le modèle de règle NAT de trafic entrant](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
@@ -367,6 +385,6 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

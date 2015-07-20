@@ -110,4 +110,7 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Vue d’ensemble d’Azure Virtual Network]: http://msdn.microsoft.com/library/azure/jj156007.aspx
 [À propos des paramètres de configuration de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

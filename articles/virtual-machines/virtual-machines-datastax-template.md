@@ -44,7 +44,7 @@ Procédez comme suit pour créer un cluster Apache Cassandra basé sur DataStax,
 
 ### Étape 1-a : télécharger les fichiers de modèle à l'aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\\Templates\\DataStax).
+Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\\Azure\\Templates\\DataStax).
 
 Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 
@@ -78,13 +78,13 @@ Incluez le nom de votre dossier local et exécutez les commandes suivantes :
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Étape 1-b : télécharger les fichiers de modèle à l'aide de l'interface de ligne de commande Azure
+### Étape 1-b : télécharger les fichiers de modèle à l’aide de l’interface de ligne de commande Azure
 
 Clonez le référentiel de modèles entier à l'aide d'un client git de votre choix, par exemple :
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\Azure\\Templates.
+Lorsque vous avez terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -173,7 +173,7 @@ Chaque paramètre contient des détails, tels que le type de données et les val
 
 ### Étape 3-a : Déployer un cluster DataStax avec un modèle à l’aide de PowerShell
 
-Préparez un fichier de paramètres pour votre déploiement en créant un fichier JSON contenant des valeurs d'exécution pour tous les paramètres. Ce fichier est ensuite transmis en tant qu'entité unique à la commande de déploiement. Si vous n'incluez pas de fichier de paramètres, PowerShell utilisera les valeurs par défaut spécifiées dans le modèle et vous invitera à renseigner les valeurs restantes.
+Préparez un fichier de paramètres pour votre déploiement en créant un fichier JSON contenant des valeurs d'exécution pour tous les paramètres. Ce fichier est ensuite transmis en tant qu’entité unique à la commande de déploiement. Si vous n'incluez pas de fichier de paramètres, PowerShell utilisera les valeurs par défaut spécifiées dans le modèle et vous invitera à renseigner les valeurs restantes.
 
 Voici un exemple de jeu de paramètres issu du fichier **azuredeploy-parameters.json** :
 
@@ -223,7 +223,7 @@ Entrez un nom de déploiement Azure, un nom de groupe de ressources, un emplacem
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l'exécution du modèle correspondant. Le fait de définir et d'utiliser plusieurs fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
+Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, elle extrait les valeurs de paramètre à partir du fichier de paramètres JSON et démarre l'exécution du modèle correspondant. Le fait de définir et d’utiliser plusieurs fichiers de paramètres sur vos différents environnements (par exemple, Test, Production, etc.) favorise la réutilisation du modèle et simplifie les solutions contenant plusieurs environnements complexes.
 
 Lors du déploiement, n'oubliez pas qu'un nouveau compte Azure Storage doit être créé. Le nom fourni en tant que paramètre de compte de stockage doit donc être unique et respecter la configuration requise pour un compte Azure Storage (lettres en minuscules et chiffres uniquement).
 
@@ -482,4 +482,4 @@ Pour résumer, cette approche suggère de :
 Pour plus d'informations, consultez [Langage des modèles du gestionnaire de ressources Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

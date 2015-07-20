@@ -33,7 +33,7 @@ Pour déterminer quel est le nœud principal actif et vérifier le statut des se
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Accès aux fichiers journaux sur le nœud principal secondaire \
+## Accès aux fichiers journaux sur le nœud principal secondaire \\
 
 Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
 
@@ -83,4 +83,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

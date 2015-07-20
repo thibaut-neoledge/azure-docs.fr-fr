@@ -1,24 +1,25 @@
 <properties 
-	pageTitle="Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows" 
-	description="Découvrez comment rétablir la connectivité Bureau à distance (RDP) avec votre machine virtuelle Azure en vous servant d’un package de diagnostic et des procédures d’identification de la source du problème."
+	pageTitle="" 
+	description="Si vous ne pouvez pas connecter votre machine virtuelle Azure Windows, utilisez les tests de diagnostic et les étapes qui suivent pour isoler la source du problème."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
-# Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows
+# 
 
-Cet article décrit une approche méthodique de correction et d’identification de la cause première des connexions Bureau à distance avec les machines virtuelles Azure basées sur Windows.
+Cet article décrit une approche méthodique pour corriger et identifier la cause première des connexions Bureau à distance dans le cas où vous ne parvenez pas à vous connecter avec les machines virtuelles Azure Windows.
 
 ## Étape 1 : Exécution du package de diagnostic Azure IaaS
 
@@ -35,7 +36,7 @@ Si l’exécution du package de diagnostic Azure IaaS ne corrige pas le problè
 
 ## Étape 2 : Identification du message d’erreur provenant du client Bureau à distance
 
-Reportez-vous aux paragraphes suivants en fonction du message d’erreur qui s’affiche.
+Reportez-vous aux paragraphes suivants en fonction du message d’erreur qui s’affiche lorsque vous essayez de vous connecter.
 
 ### Fenêtre de message de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
 
@@ -60,12 +61,24 @@ Voici un exemple de fichier RDP généré par le portail de gestion Azure :
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-La partie adresse comprend le nom de domaine complet du service cloud qui contient la machine virtuelle (ici, tailspin-azdatatier.cloudapp.net) et le port TCP externe du point de terminaison pour le trafic de Bureau à distance (55919).
+Dans cet exemple, la partie adresse comprend le nom de domaine complet du service cloud qui contient la machine virtuelle (ici, tailspin-azdatatier.cloudapp.net) et le port TCP externe du point de terminaison pour le trafic de Bureau à distance (55919).
 
 Solutions possibles à ce problème :
 
 - Si vous êtes sur un intranet d’entreprise, vérifiez que votre ordinateur a bien accès au serveur proxy et peut lui transmettre le trafic HTTPS.
-- Si vous utilisez un fichier RDP stocké localement, essayez d’utiliser celui généré par le portail de gestion Azure pour vous assurer de disposer du nom correct du service cloud et du port du point de terminaison de la machine virtuelle.
+- Si vous utilisez un fichier RDP stocké localement, essayez d’utiliser celui généré par le Portail de gestion Azure pour vous assurer de disposer du nom DNS correct de la machine virtuelle ou du service cloud et du port du point de terminaison de la machine virtuelle.
+
+### Fenêtre de message de Connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
+
+Cause : la machine virtuelle à laquelle vous vous connectez ne peut pas localiser l’autorité de sécurité indiquée dans la partie nom d’utilisateur de vos informations d’identification.
+
+Lorsque votre nom d’utilisateur est au format *SecurityAuthority*\\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+
+Solutions possibles à ce problème :
+
+- Si le compte d’utilisateur est local sur la machine virtuelle, vérifiez l’orthographe du nom de machine virtuelle.
+- Si le compte d’utilisateur est un compte de domaine Active Directory, vérifiez l’orthographe du nom de domaine.
+- Si le compte d’utilisateur est un compte de domaine Active Directory et que le nom de domaine est orthographié correctement, vérifiez qu’un contrôleur de domaine est disponible pour le domaine Active Directory. Ce problème peut être courant dans un réseau virtuel Azure contenant des contrôleurs de domaine dans lequel un ordinateur contrôleur de domaine n’est pas démarré. Solution temporaire : utiliser un compte d’administrateur local, plutôt qu’un compte de domaine.
 
 ### Fenêtre de message de sécurité Windows : Vos informations d’identification n’ont pas fonctionné.
 
@@ -73,8 +86,8 @@ Cause : Le nom de compte et le mot de passe que vous avez indiqués ne peuvent 
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-- Pour les comptes locaux, utilisez la syntaxe <computer name><nom du compte> (exemple : SQL1\\Admin4798). 
-- Pour les comptes locaux, utilisez la syntaxe <domain name><nom du compte> (exemple : CONTOSO\\johndoe).
+- Pour les comptes locaux, utilisez la syntaxe *ComputerName*\\*UserName* (par exemple : SQL1\\Admin4798). 
+- Pour les comptes de domaine, utilisez la syntaxe *DomainName*\\*UserName* (par exemple : CONTOSO\\johndoe).
 
 Pour les ordinateurs que vous promouvez vers les contrôleurs de domaine d’une nouvelle forêt Active Directory, le compte administrateur local auquel vous êtes connecté lorsque vous effectuez la promotion se transforme en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte administrateur local précédent est supprimé. Par exemple, si vous vous connectez au compte administrateur local DC1\\DCAdmin et promouvez la machine virtuelle en tant que contrôleur de domaine dans une nouvelle forêt du domaine corp.contoso.com, le compte local DC1\\DCAdmin est supprimé et un compte de domaine CORP\\DCAdmin est créé avec le même mot de passe.
 
@@ -100,7 +113,7 @@ Voici les composants impliqués.
  
 Avant de vous plonger dans un processus de dépannage détaillé, nous vous recommandons de réfléchir à tout ce qui a changé depuis que vous avez créé des connexions Bureau à distance et de vous baser sur ces modifications pour résoudre le problème. Par exemple :
 
-- Si vous avez créé des connexions Bureau à distance et modifié l’adresse IP publique du service cloud contenant votre machine virtuelle (également appelée adresse IP virtuelle [VIP]), le cache du client DNS peut contenir une entrée pour le nom DNS du service cloud et l’*ancienne adresse IP*. Videz le cache client DNS et réessayez. Vous pouvez aussi essayer de vous connecter à l’aide de la nouvelle adresse VIP.
+- Si vous avez créé des connexions Bureau à distance et modifié l’adresse IP publique de la machine virtuelle ou du service cloud contenant votre machine virtuelle (également appelée adresse IP virtuelle [VIP]), le cache du client DNS peut contenir une entrée pour le nom DNS et l’*ancienne adresse IP*. Videz le cache client DNS et réessayez. Vous pouvez aussi essayer de vous connecter à l’aide de la nouvelle adresse VIP.
 - Si vous avez effectué des modifications à partir du portail de gestion Azure ou du portail Azure en version préliminaire afin d’utiliser une application pour gérer vos connexions Bureau à distance, vérifiez que la configuration de l’application inclut bien le port TCP déterminé de façon aléatoire pour le trafic de Bureau à distance. 
 
 Les paragraphes suivants traitent de l’identification et de la détermination des causes premières du problème, et fournissent des solutions.
@@ -146,7 +159,7 @@ Pour vous assurer que votre périphérique de périmètre intranet d’entrepris
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-Si vous n’avez pas d’ordinateur directement connecté à Internet, vous pouvez facilement créer une machine virtuelle Azure dans son propre service cloud et l’utiliser. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle et le service cloud.
+Si vous n’avez pas d’ordinateur directement connecté à Internet, vous pouvez facilement créer une machine virtuelle Azure dans son propre groupe de ressources ou service cloud et l’utiliser. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-tutorial.md). Une fois le test terminé, supprimez le groupe de ressources ou la machine virtuelle et le service cloud.
 
 Si vous pouvez créer une connexion Bureau à distance avec un ordinateur directement connecté à Internet, recherchez sur votre périphérique de périmètre intranet d’entreprise :
 
@@ -158,24 +171,26 @@ Contactez votre administrateur réseau pour corriger les paramètres de votre p�
 
 ### Source 3 : Point de terminaison de service cloud et liste de contrôle d’accès
 
-Pour vérifier que le point de terminaison de service cloud et la liste de contrôle d’accès ne sont pas la source de votre problème ou de votre erreur de configuration, vérifiez qu’une autre machine virtuelle Azure du même service cloud peut établir des connexions Bureau à distance avec votre machine virtuelle Azure.
+Pour vérifier que le point de terminaison de service cloud et la liste de contrôle d’accès ne sont pas la source de votre problème ou de votre erreur de configuration des machines virtuelles créées dans la gestion des services, vérifiez qu’une autre machine virtuelle Azure du même service cloud ou réseau virtuel peut établir des connexions Bureau à distance avec votre machine virtuelle Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud, vous pouvez facilement en créer une. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
+> [AZURE.NOTE]Pour les machines virtuelles créées dans Resource Manager, passez à [Source 4 : Groupes de sécurité réseau](#nsgs).
 
-Si vous pouvez créer une connexion Bureau à distance avec une machine virtuelle dans le même service cloud, vérifiez les paramètres suivants :
+Si vous ne disposez pas d’une autre machine virtuelle dans le même service cloud ou réseau virtuel, vous pouvez facilement en créer une. Pour plus d’informations, consultez [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-tutorial.md). Une fois le test terminé, supprimez la machine virtuelle supplémentaire.
+
+Si vous pouvez créer une connexion Bureau à distance avec une machine virtuelle dans le même service cloud ou réseau virtuel, vérifiez les paramètres suivants :
 
 - La configuration du point de terminaison pour le trafic de Bureau à distance sur la machine virtuelle cible. Le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service Services Bureau à distance de la machine virtuelle procède à l’écoute. Par défaut, il s’agit du port 3389. 
 - La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [À propos des listes de contrôle d’accès (ACL) réseau](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle dans Azure](virtual-machines-set-up-endpoints.md).
 
-### Source 4 : Groupes de sécurité réseau
+### <a id="nsgs"></a>Source 4 : groupes de sécurité réseau
 
 Les groupes de sécurité réseau vous permettent de mieux contrôler le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé.
 
-Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Pour plus d’informations, consultez [À propos des groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 ### Source 5 : Machine virtuelle Azure Windows
 
@@ -195,7 +210,7 @@ Essayez une nouvelle fois de vous connecter à partir de votre ordinateur. Si vo
 - Le pare-feu Windows ou un autre pare-feu local comporte une règle sortante qui empêche le trafic du Bureau à distance.
 - Le logiciel de détection d’intrusion ou de surveillance réseau s’exécutant sur la machine virtuelle Azure empêche les connexions Bureau à distance.
 
-Pour corriger ces problèmes éventuels, vous pouvez utiliser une session PowerShell distante pour la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat correspondant au service cloud d’hébergement de la machine virtuelle. Accédez à [Configure l’accès à distance sécurisé de PowerShell vers les machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** dans un dossier de votre ordinateur local.
+Pour corriger ces problèmes éventuels des machines virtuelles créées dans la gestion des services, vous pouvez utiliser une session PowerShell distante pour la machine virtuelle Azure. Tout d’abord, vous devez installer un certificat correspondant au service cloud d’hébergement de la machine virtuelle. Accédez à [Configure l’accès à distance sécurisé de PowerShell vers les machines virtuelles Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) et téléchargez le fichier de script **InstallWinRMCertAzureVM.ps1** dans un dossier de votre ordinateur local.
 
 Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
 
@@ -268,9 +283,8 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-[Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-[FAQ sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

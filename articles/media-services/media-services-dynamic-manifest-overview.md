@@ -209,4 +209,4 @@ La rubrique suivante décrit les entités Media Services liées aux filtres. La 
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

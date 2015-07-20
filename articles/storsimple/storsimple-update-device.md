@@ -5,13 +5,14 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="06/15/2015"
    ms.author="v-sharos" />
 
 # Mettre à jour votre appareil StorSimple
@@ -41,7 +42,7 @@ Les mises à jour ordinaires s’effectuent sans interruption du service et peuv
 
 ### Mises à jour en mode Maintenance
 
-Les mises à jour en mode Maintenance provoquent une interruption du service. Il s’agit, par exemple, des mises à niveau du microprogramme du disque ou des mises à niveau du microprogramme USM. Ces mises à jour nécessitent que l’appareil soit placé en mode Maintenance. Pour plus d’informations, consultez la section [Changer le mode de fonctionnement de l’appareil](#change-device-modes). Vous ne pouvez pas utiliser le portail de gestion pour installer les mises à jour en mode Maintenance. Vous devez utiliser Windows PowerShell pour StorSimple.
+Les mises à jour en mode Maintenance provoquent une interruption du service. Il s’agit, par exemple, des mises à niveau du microprogramme du disque ou des mises à niveau du microprogramme USM. Ces mises à jour nécessitent que l’appareil soit placé en mode Maintenance. Pour plus d’informations, consultez l’[Étape 2 : Passage en mode Maintenance](#to-enter-maintenance-mode). Vous ne pouvez pas utiliser le portail de gestion pour installer les mises à jour en mode Maintenance. Vous devez utiliser Windows PowerShell pour StorSimple.
 
 Pour plus d’informations sur l’installation des mises à jour en mode Maintenance, consultez la section [Installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -51,11 +52,14 @@ Pour plus d’informations sur l’installation des mises à jour en mode Mainte
 
 Vous pouvez utiliser le portail de gestion pour appliquer les mises à jour à votre appareil StorSimple.
 
+
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## Installer les mises à jour ordinaires via Windows PowerShell pour StorSimple
 
 Sinon, vous pouvez utiliser Windows PowerShell pour StorSimple pour appliquer les mises à jour ordinaires (mode Normal).
+
+> [AZURE.IMPORTANT]Bien que vous puissiez installer des mises à jour standard à l’aide de Windows PowerShell pour StorSimple, nous vous recommandons vivement de les installer via le portail de gestion. Depuis la version Update 1, des vérifications préalables sont effectuées avant l’installation des mises à jour à partir du portail qui anticipent les échecs et garantissent une meilleure expérience.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -63,24 +67,33 @@ Sinon, vous pouvez utiliser Windows PowerShell pour StorSimple pour appliquer le
 
 Vous utilisez Windows PowerShell pour StorSimple pour appliquer les mises à jour en mode Maintenance à votre appareil StorSimple. Dans ce mode, toutes les demandes d’E/S sont suspendues. Les services tels que la mémoire vive non volatile (NVRAM) ou le service de cluster sont également arrêtés. Les deux contrôleurs sont redémarrés lorsque vous entrez dans ce mode ou que vous le quittez. Lorsque vous quittez ce mode, tous les services reprennent et doivent être sains. (Cela peut prendre quelques minutes.)
 
-Si vous devez appliquer les mises à jour en mode Maintenance, vous recevrez une alerte via le portail de gestion vous informant que vous avez des mises à jour qui doivent être installées. Cette alerte inclut des instructions pour installer les mises à jour à l’aide de Windows PowerShell pour StorSimple. Après avoir mis à jour votre appareil, utilisez la même procédure pour faire passer l’appareil en mode Normal. Pour obtenir des instructions détaillées, consultez la section [Quitter le mode Maintenance](#to-exit-maintenance-mode).
+Si vous devez appliquer les mises à jour en mode Maintenance, vous recevrez une alerte via le portail de gestion vous informant que vous avez des mises à jour qui doivent être installées. Cette alerte inclut des instructions pour installer les mises à jour à l’aide de Windows PowerShell pour StorSimple. Après avoir mis à jour votre appareil, utilisez la même procédure pour faire passer l’appareil en mode Normal. Pour obtenir des instructions détaillées, consultez l’[Étape 4 : Quitter le mode Maintenance](#to-exit-maintenance-mode).
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 > 
 > - Avant de passer en mode Maintenance, vérifiez que les deux contrôleurs d’appareil sont sains en vérifiant l’**État du matériel** sur la page **Maintenance** du portail de gestion. Si le contrôleur n’est pas sain, contactez le support technique Microsoft pour connaître les étapes suivantes. Pour plus d’informations, accédez à Contacter le support technique Microsoft. 
 > - En mode Maintenance, vous devez appliquer la mise à jour d’abord à un contrôleur, puis à l’autre contrôleur.
+
+### Étape 1 : Connexion à la console série
 
 Tout d’abord, utilisez une application telle que PuTTY pour accéder à la console série. La procédure suivante explique comment utiliser PuTTY pour se connecter à la console série.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-Une fois que vous êtes connecté à la console, déterminez s’il existe des mises à jour à installer et passez en mode Maintenance pour les installer.
+### Étape 2 : Passage en mode Maintenance
+
+Une fois que vous êtes connecté à la console, déterminez s’il existe des mises à jour à installer, puis passez en mode Maintenance pour les installer.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
+
+### Étape 3 : Installation des mises à jour
 
 Ensuite, installez les mises à jour.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
+
+    
+### Étape 4 : Quitter le mode Maintenance
 
 Pour finir, quittez le mode Maintenance.
 
@@ -105,7 +118,7 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 
 ## Étapes suivantes
 
-Pour en savoir plus sur [Windows PowerShell pour StorSimple](https://https://msdn.microsoft.com/library/azure/dn772425.aspx).
-
-<!--HONumber=52-->
+Pour en savoir plus sur [Windows PowerShell pour StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
+
+<!---HONumber=July15_HO2-->

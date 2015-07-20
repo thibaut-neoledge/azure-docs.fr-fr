@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création d'un assembly sur la base de données SQL Azure avec CSharp"
-	description="Fournit le code source C# permettant d'émettre une instruction CREATE ASSEMBLY vers la base de données SQL Azure après l'encodage d'un fichier DLL dans une chaîne contenant un nombre hexadécimal long." 
+	pageTitle="Création d’un assembly sur la base de données SQL Azure avec CSharp"
+	description="Fournit le code source C# permettant d’émettre une instruction CREATE ASSEMBLY vers la base de données SQL Azure après l’encodage initial d’un fichier DLL dans une chaîne contenant un nombre hexadécimal long." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -9,15 +9,15 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
-# Création d'un assembly sur la base de données SQL Azure avec CSharp
+# Création d’un assembly sur la base de données SQL Azure avec CSharp
 
 
 <!--
@@ -26,46 +26,44 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 -->
 
 
-Cette rubrique fournit un exemple de code C# permettant d'émettre une instruction [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) vers la base de données SQL Azure. Pour la base de données SQL, la clause FROM ne peut pas accepter le format simple d'un chemin d'accès sur l'ordinateur local qui héberge la base de données. Une solution consiste à encoder d'abord les éléments binaires du fichier DLL de l'assembly dans une longue chaîne contenant un nombre hexadécimal, puis à définir cette chaîne en tant que valeur dans la clause FROM.
+Cette rubrique fournit un exemple de code C# permettant d’émettre une instruction [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) vers la base de données SQL Azure. Pour la base de données SQL, la clause FROM ne peut pas accepter le format simple d’un chemin d’accès sur l’ordinateur local qui héberge la base de données. Une solution consiste à encoder d’abord les éléments binaires du fichier DLL de l’assembly dans une longue chaîne contenant un nombre hexadécimal, puis à définir cette chaîne en tant que valeur dans la clause FROM.
 
 
 ### Conditions préalables
 
 
-Pour comprendre cette rubrique, vous devez posséder des connaissances de base sur les éléments suivants :
+Pour comprendre cette rubrique, vous devez posséder des connaissances de base sur les éléments suivants :
 
 
-- [Fonctions table CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Explique le fonctionnement de l'instruction CREATE ASSEMBLY Transact-SQL avec d'autres instructions pour le serveur Microsoft SQL local.
+- [Fonctions table CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Explique le fonctionnement de l’instruction CREATE ASSEMBLY Transact-SQL avec d’autres instructions pour le serveur Microsoft SQL local.
 
 
 ## A. Technique globale
 
 
 1. Utilisez les instructions DROP FUNCTION et DROP ASSEMBLY si nécessaire pour nettoyer une exécution précédente.
-2. Veillez à vous souvenir de l'emplacement du fichier DLL d'assembly Microsoft .NET Framework compilé à partir de votre propre code. Vous devrez l'indiquer à l'étape suivante. 
+2. Veillez à vous souvenir de l’emplacement du fichier DLL d’assembly Microsoft .NET Framework compilé à partir de votre propre code. Vous devrez l’indiquer à l’étape suivante. 
 3. Exécutez le fichier EXE dont le code source C# est donné dans cette rubrique. Indiquez au fichier EXE où votre fichier DLL se trouve.
  - Votre fichier DLL binaire est encodé dans une longue chaîne contenant un nombre hexadécimal.
  - Une instruction CREATE ASSEMBLY est émise avec la chaîne hexadécimale définie dans la clause FROM.
-4. Utilisez l'instruction [CREATE FUNCTION](http://msdn.microsoft.com/library/ms186755.aspx) pour faire référence à une méthode de votre assembly.
-5. Utilisez l'instruction T-SQL SELECT pour appeler et tester votre fonction.
+4. Utilisez l’instruction [CREATE FUNCTION](http://msdn.microsoft.com/library/ms186755.aspx) pour faire référence à une méthode de votre assembly.
+5. Utilisez l’instruction T-SQL SELECT pour appeler et tester votre fonction.
 
 
-La liste précédente ne fait aucune mention de...<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-... car cette instruction, bien que requise pour Microsoft SQL Server, ne l'est pas pour la base de données SQL Azure.
+La liste précédente ne fait pas mention de...<br/> **execute sp_configure ’clr enabled’, 1;**<br/> .. .car cela n’est pas nécessaire pour la base de données SQL Azure, même si cela est nécessaire pour Microsoft SQL Server.
 
 
-Si besoin pour les nouvelles exécutions, le code T-SQL permettant de supprimer la fonction et l'assembly est le suivant :
+Si besoin pour les nouvelles exécutions, le code T-SQL permettant de supprimer la fonction et l’assembly est le suivant :
 
 
     DROP FUNCTION fnCompareStringsCaseSensitive;
     DROP ASSEMBLY CreateAssemblyFunctions3;
 
 
-## B. Fichier DLL d'assembly simple pour la fonction T-SQL à laquelle faire référence
+## B. Fichier DLL d’assembly simple pour la fonction T-SQL à laquelle faire référence
 
 
-L'exemple de code C# simple donné dans cette section peut être compilé dans un fichier DLL d'assembly.
+L’exemple de code C# simple donné dans cette section peut être compilé dans un fichier DLL d’assembly.
 
 
 Cet exemple de code contient la méthode **CompareCaseSensitiveNet**, à laquelle il est fait référence ultérieurement dans une instruction T-SQL CREATE FUNCTION. Notez que la méthode est décorée avec un attribut .NET nommé **SqlFunction**. Une méthode décorée avec cet attribut peut être appelée par votre code T-SQL en tant que fonction.
@@ -93,14 +91,14 @@ Cet exemple de code contient la méthode **CompareCaseSensitiveNet**, à laquell
 ## C. Exemple de code C&#x23; pour un fichier EXE qui émet une instruction CREATE ASSEMBLY
 
 
-La séquence suivante est mise en œuvre lorsque vous exécutez le fichier EXE créé à partir de cet exemple de code C# :
+La séquence suivante est mise en œuvre lorsque vous exécutez le fichier EXE créé à partir de cet exemple de code C# :
 
 
-1. La ligne de commande d'exécution du fichier EXE appelle la méthode **Main**.
+1. La ligne de commande d’exécution du fichier EXE appelle la méthode **Main**.
 2. La méthode Main appelle la méthode **ObtainHexStringOfAssembly**.
- - Cette méthode génère une chaîne SqlString qui stocke l'assembly sous forme de nombre hexadécimal.
+ - Cette méthode génère une chaîne SqlString qui stocke l’assembly sous forme de nombre hexadécimal.
 3. La méthode Main appelle la méthode **SubmitCreateAssemblyToAzureSqlDb**.
- - L'entrée principale est la chaîne SqlString.
+ - L’entrée principale est la chaîne SqlString.
  - La sortie est un appel CREATE ASSEMBLY qui est envoyé à la base de données SQL Azure.
 
 
@@ -257,19 +255,19 @@ La séquence suivante est mise en œuvre lorsque vous exécutez le fichier EXE c
 ### C.1 Compilation des références et des versions
 
 
-Pour compiler et tester l'exemple de code pour l'outil EXE, nous avons utilisé les éléments suivants :
+Pour compiler et tester l’exemple de code pour l’outil EXE, nous avons utilisé les éléments suivants :
 
 
-- Visual Studio 2013 Update 4
- - Notre type de modèle de projet était l'application console simple.
-- .NET Framework 4.5
+- Visual Studio 2013 Update 4
+ - Notre type de modèle de projet était l’application console simple.
+- .NET Framework 4.5
 
 
-Notre projet Visual Studio faisait référence aux assemblies suivantes pour la compilation :
+Notre projet Visual Studio faisait référence aux assemblies suivantes pour la compilation :
 
 
 - Microsoft.CSharp
-- System
+- Système
 - System.Core
 - System.Data
 - System.Data.DataSetExtensions
@@ -277,7 +275,7 @@ Notre projet Visual Studio faisait référence aux assemblies suivantes pour la 
 - System.Xml.Linq
 
 
-### C.2 Ligne de commande pour l'exécution du fichier EXE
+### C.2 Ligne de commande pour l’exécution du fichier EXE
 
 
 Le bloc de commande suivant affiche un exemple de ligne de commande à entrer pour exécuter le fichier EXE à partir de la console. Les paramètres de la ligne de commande sont encapsulés artificiellement ici pour un meilleur affichage.
@@ -292,13 +290,13 @@ Le bloc de commande suivant affiche un exemple de ligne de commande à entrer po
 		Mypassword123
 
 
-Par souci de simplification, dans cet exemple, le mot de passe est transmis en tant que paramètre de ligne de commande. Une meilleure conception consiste à faire en sorte que le code C# obtienne le mot de passe à partir d'un fichier CONFIG.
+Par souci de simplification, dans cet exemple, le mot de passe est transmis en tant que paramètre de ligne de commande. Une meilleure conception consiste à faire en sorte que le code C# obtienne le mot de passe à partir d’un fichier CONFIG.
 
 
-## D. Exécution d'une instruction CREATE FUNCTION
+## D. Exécution d’une instruction CREATE FUNCTION
 
 
-Une fois l'assembly stocké dans votre serveur de base de données SQL Azure, vous devez exécuter une instruction CREATE FUNCTION Transact-SQL faisant référence à la méthode de l'assembly.
+Une fois l’assembly stocké dans votre serveur de base de données SQL Azure, vous devez exécuter une instruction CREATE FUNCTION Transact-SQL faisant référence à la méthode de l’assembly.
 
 
 Le bloc de code Transact-SQL suivant inclut quelques instructions SELECT non essentielles afin de démontrer que le système de base de données comporte des enregistrements pour votre assembly et votre fonction. Enfin, il y a une instruction qui appelle la fonction.
@@ -325,10 +323,9 @@ Le bloc de code Transact-SQL suivant inclut quelques instructions SELECT non ess
 	GO
 
 
-Le bloc de code Transact-SQL précédent se termine par une instruction SELECT qui appelle la nouvelle fonction. Vous pouvez placer l'instruction SELECT dans une procédure stockée.
+Le bloc de code Transact-SQL précédent se termine par une instruction SELECT qui appelle la nouvelle fonction. Vous pouvez placer l’instruction SELECT dans une procédure stockée.
 
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

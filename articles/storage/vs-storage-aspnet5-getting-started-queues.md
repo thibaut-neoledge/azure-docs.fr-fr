@@ -33,10 +33,11 @@ Pour accéder par programme aux files d'attente des projets ASP.NET 5, vous dev
 
 1. Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Utilisez le code ci-dessous pour obtenir le paramètre de configuration.
 
@@ -104,4 +105,4 @@ Ce processus de suppression d'un message en deux étapes garantit que, si votre 
 [En savoir plus sur Azure Storage](http://azure.microsoft.com/documentation/services/storage/) Voir aussi [Consultation et gestion des ressources de stockage avec l’Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx) et [ASP.NET 5](http://www.asp.net/vnext) (en anglais).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

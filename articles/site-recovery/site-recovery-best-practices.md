@@ -155,7 +155,7 @@ Les fournisseurs et les agents sont installés sur les serveurs locaux, et peuve
 - **Taille du disque de données** : si vous répliquez vers Microsoft Azure, vous pouvez posséder jusqu’à 32 disques de données sur une machine virtuelle, chacun présentant une taille maximale d’1 To. Vous pouvez répliquer et basculer efficacement une machine virtuelle présentant une taille d’environ 32 To.
 - **Limites de plan de récupération** : Scan Recovery peut prendre en charge des milliers de machines virtuelles. Les plans de récupération sont conçus comme un modèle dédié aux applications devant basculer simultanément, de manière à ce que le nombre de machines du plan soit limité à 50.
 - **Limites des services Microsoft Azure** : chaque abonnement Microsoft Azure comporte un ensemble de défauts liés aux services principaux, cloud, etc. Pour valider la disponibilité des ressources de votre abonnement, nous vous recommandons d’exécuter un basculement test. Vous pouvez modifier ces limites via le support Microsoft Azure.
-- **Planification de la capacité** : pour bénéficier d’instructions supplémentaires, utilisez le [planificateur de capacité pour Réplica Hyper-V](http://www.microsoft.com/fr-fr/download/details.aspx?id=39057).
+- **Planification de la capacité** : pour bénéficier d’instructions supplémentaires, utilisez le [planificateur de capacité pour Réplica Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
 - **Bande passante de réplication** : si vous disposez d’une bande passante de réplication insuffisante, notez les points suivants :
 	- **ExpressRoute** : Site Recovery s’associe à des optimiseurs Microsoft Azure ExpressRoute et WAN, tels que Riverbed. [En savoir plus](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) sur ExpressRoute.
 	- **Trafic de réplication** : Site Recovery exécute une réplication initiale intelligente uniquement à l’aide de blocs de données, pas de l’intégralité du disque dur virtuel. Seules les modifications sont répliquées au cours de la réplication en continu.
@@ -189,4 +189,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

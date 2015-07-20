@@ -93,4 +93,6 @@ Dans la comparaison de schémas ci-dessous, la base de données « Adventure Wo
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

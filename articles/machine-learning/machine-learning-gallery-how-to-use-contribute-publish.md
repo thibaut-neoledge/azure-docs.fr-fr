@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Galerie Azure Machine Learning | Microsoft Azure" 
-	description="Description du site de la galerie Azure Machine Learning pour les expériences de Machine Learning publiées par la communauté." 
+	pageTitle="Galerie d’expériences Machine Learning | Microsoft Azure" 
+	description="Partagez et découvrez des expériences d’apprentissage automatique dans la galerie Azure Machine Learning. Apprenez auprès des autres ou commencez simplement l’apprentissage automatique." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="cjgronlund" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="chhavib;garye"/>
+	ms.date="06/29/2015" 
+	ms.author="chhavib;cgronlun;garye"/>
 
 
-# **Galerie Machine Learning** #
+# Partage et découverte des expériences d’apprentissage automatique dans la galerie Machine Learning
 La galerie Azure Machine Learning est un site communautaire destiné à la découverte d'expériences permettant de résoudre des problèmes intéressants. Il s'adresse aux utilisateurs qui cherchent à apprendre des expériences des autres utilisateurs ou qui souhaitent commencer à utiliser Azure Machine Learning. Ces expériences sont principalement partagées par la communauté des utilisateurs Azure Machine Learning.
 
 La galerie permet également aux utilisateurs de parcourir et de copier des expériences partagées par l'équipe de Microsoft Azure Machine Learning.
@@ -26,7 +26,7 @@ La galerie permet également aux utilisateurs de parcourir et de copier des exp�
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Avantages ##
+## Avantages 
 Commencez à utiliser la galerie pour profiter de ces avantages :
 
 - Découvrez des expériences intéressantes 
@@ -37,7 +37,7 @@ Connectez-vous à l'aide de votre compte Microsoft pour profiter de ces avantage
 - Copiez des expériences dans votre espace de travail et commencez à résoudre vos propres problèmes à l'aide d'Azure ML
 - Partagez et présentez votre travail
 
-## Découvrez ##
+## Découvrez 
 Vous pouvez rechercher des expériences intéressantes dans la galerie pour vous aider à résoudre des problèmes liés à l'apprentissage automatique ou simplement pour commencer avec la création d'expériences d'Azure Machine Learning.
 
 Vous pouvez commencer à utiliser la galerie pour explorer et en savoir plus sur les expériences sans vous connecter. Recherchez facilement des expériences publiées récemment, des expériences de tendances dans la galerie ou effectuez des recherches par nom d'expérience, balises, algorithmes et autres attributs.
@@ -48,10 +48,10 @@ Si vous êtes intéressé par une expérience en particulier, vous pouvez lire d
 
 Vous pouvez commenter, donner votre avis ou poser des questions dans la section des commentaires de chaque page d'expérience. Vous pouvez en outre partager une expérience d'intérêt avec vos amis ou collègues à l'aide des fonctionnalités de partage avec les comptes LinkedIn ou Twitter. Vous pouvez également envoyer des liens par e-mail vers ces expériences pour inviter d'autres utilisateurs à consulter ces pages d'expérience.
 
-## Télécharger ##
+## Télécharger 
 La galerie Azure Machine Learning vous permet de copier facilement des expériences dans votre espace de travail en un seul clic et de commencer immédiatement à l'utiliser pour vos besoins. Si vous parcourez la galerie sans être encore connecté, vous serez invité à vous connecter à l'aide de votre compte Microsoft avant que l'expérience ne soit copiée dans votre espace de travail Studio.
 
-## Participez ##
+## Participez 
 Êtes-vous prêt à commencer à partager des expériences dans la galerie ?
 
 Procédez comme suit :
@@ -60,12 +60,12 @@ Procédez comme suit :
 - Créez votre expérience et exécutez-la
 - Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur Publier dans la galerie dans la barre noire inférieure de Studio. ![Publier](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Vous n'avez plus qu'à l'utiliser !
 
-## Nous attendons votre avis ! ##
+## Nous attendons votre avis ! 
 Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utilisateurs. Utilisez l'émoticône sur la droite pour nous dire ce que vous adorez ou ce que vous détestez à propos de la galerie.
 
 ![Commentaires](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Forum Aux Questions (FAQ) ##
+## Forum Aux Questions (FAQ) 
 **Je souhaite apporter des modifications au flux de travail de l'expérience que j'ai envoyée à la galerie. Comment faire ?**
 
 À partir de maintenant, nous ne prenons pas en charge les mises à jour des flux de travail des expériences que vous avez déjà publiées dans la galerie. Vous pouvez publier ces modifications en tant que nouvelle expérience dans la galerie et supprimer l'ancienne. Nous travaillons activement à un moyen de publier des mises à jour de publication pour les flux de travail déjà partagés dans la galerie. Restez connecté.
@@ -109,5 +109,6 @@ La tabulation vous permet de délimiter des balises.
 Le rendu de la description complète n'est pas disponible de façon étendue à tous les utilisateurs de la galerie. Nous travaillons activement à rendre cette fonctionnalité disponible via la prise en charge du rendu de texte.
 
 **[ALLER À LA GALERIE >>](http://gallery.azureml.net)**
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
