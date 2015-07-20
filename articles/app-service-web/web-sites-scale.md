@@ -199,4 +199,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!----HONumber=62-->
+<!-----HONumber=62-->

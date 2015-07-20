@@ -764,4 +764,4 @@ Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une app
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

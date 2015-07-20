@@ -95,5 +95,6 @@ Publier des éléments multimédias (en créant des localisateurs) à l'aide du 
 Les formats de fichiers sources suivants ne sont pas pris en charge par l'empaquetage dynamique.
 
 - Fichiers MP4 Dolby Digital Plus
-- Fichiers Smooth Streaming Dolby Digital Plus <!--HONumber=52-->
- 
+- Fichiers Smooth Streaming Dolby Digital Plus
+
+<!---HONumber=52-->
