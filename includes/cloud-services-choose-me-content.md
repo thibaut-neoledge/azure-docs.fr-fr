@@ -11,8 +11,10 @@ La technologie fournit deux options de machine virtuelle légèrement différent
 
 Toutes les combinaisons de ces deux options d’hébergement de machines virtuelles légèrement différentes sont disponibles dans un service cloud :
 
-* **Rôle Web** exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
-* **Rôle de travail** exécute Windows Server sans IIS.
+* **Rôle Web**  
+  exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
+* **Rôle de travail**  
+  exécute Windows Server sans IIS.
 
 Par exemple, une application simple peut utiliser uniquement un rôle Web, tandis qu'une plus complexe utilisera un rôle de travail pour traiter les requêtes entrantes des utilisateurs, puis transmettre le travail créé par ces requêtes à un rôle de travail pour le traitement. (Cette communication pourrait utiliser [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) ou les [files d’attente Azure](../articles/storage/storage-introduction.md).)
 

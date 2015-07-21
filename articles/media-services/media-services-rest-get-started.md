@@ -84,7 +84,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 	
 	>[AZURE.NOTE]Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 	> 
-	> 
+	> Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
 3. Envoi de vos appels d’API suivants vers la nouvelle URL. 
 	
 	Par exemple, si après avoir essayé de vous connecter, vous avez les éléments suivants :
@@ -497,7 +497,8 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : 
+	HTTP/1.1 204 No Content
 
 ## Suppression du localisateur et d’AcessPolicy 
 
@@ -548,7 +549,8 @@ Media Services fournit l’empaquetage dynamique qui permet de distribuer un con
 
 Pour tirer parti de l’empaquetage dynamique, vous devez effectuer les opérations suivantes :
 
-- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion **à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section). - Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
+- Obtenir au moins une unité de diffusion pour le **point de terminaison de diffusion **à partir duquel vous envisagez de distribuer votre contenu (décrit dans cette section). 
+- Coder ou transcoder vos fichiers votre fichier mezzanine (source) en un ensemble de fichiers mp4 à débit adaptatif ou de fichiers Smooth Streaming à débit adaptatif (les étapes de codage sont décrites plus loin dans ce didacticiel).  
 
 Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un seul format de stockage. Ensuite, Media Services crée et fournit la réponse appropriée en fonction des demandes des clients.
 
@@ -1087,7 +1089,8 @@ L’exemple suivant montre comment spécifier AccessPolicy pour les autorisation
 
 Si l’opération réussit, un code de succès 201 est renvoyé et décrit l’entité AccessPolicy que vous avez créée. Vous utiliserez ensuite l’ID de l’AccessPolicy et l’ID de la ressource contenant le fichier que vous souhaitez remettre (par exemple, une ressource de sortie) pour créer l’entité de localisateur.
 
->[AZURE.NOTE]Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
+>[AZURE.NOTE]
+>Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
 
 
 ###Création d’une URL SAS pour le téléchargement de contenu 
@@ -1153,7 +1156,8 @@ Si l’opération réussit, la réponse suivante est retournée :
 
 La propriété **Path** retournée contient l’URL SAS.
 
->[AZURE.NOTE]Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
+>[AZURE.NOTE]
+>Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
 
 ###Téléchargement de fichiers
 

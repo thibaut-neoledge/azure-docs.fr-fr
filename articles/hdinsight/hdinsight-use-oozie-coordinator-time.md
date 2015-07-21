@@ -65,23 +65,24 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Un cluster HDInsight**. Pour plus d'informations sur la création d'un cluster HDInsight, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision] ou [Prise en main de HDInsight][hdinsight-get-started]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border = "1">
-<tr><th>Propriété du cluster</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Cluster HDInsight sur lequel vous exécutez ce didacticiel.</td></tr>
-<tr><td>Nom d'utilisateur du cluster HDInsight</td><td>$clusterUsername</td><td></td><td>Nom d'utilisateur de cluster HDInsight. </td></tr>
-<tr><td>Mot de passe de l'utilisateur du cluster HDInsight </td><td>$clusterPassword</td><td></td><td>Mot de passe de l'utilisateur du cluster HDInsight.</td></tr>
-<tr><td>Nom du compte de stockage Azure</td><td>$storageAccountName</td><td></td><td>Il s'agit du compte de stockage Azure disponible sur le cluster HDInsight. Pour ce didacticiel, utilisez le compte de stockage par défaut que vous avez indiqué au cours du processus d'approvisionnement du cluster.</td></tr>
-<tr><td>Nom du conteneur d'objets blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le conteneur de stockage d'objets blob Azure utilisé pour le système de fichiers de cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
-</table>
+	<tr><th>Propriété du cluster</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Cluster HDInsight sur lequel vous exécutez ce didacticiel.</td></tr>
+	<tr><td>Nom d'utilisateur du cluster HDInsight</td><td>$clusterUsername</td><td></td><td>Nom d'utilisateur de cluster HDInsight. </td></tr>
+	<tr><td>Mot de passe de l'utilisateur du cluster HDInsight </td><td>$clusterPassword</td><td></td><td>Mot de passe de l'utilisateur du cluster HDInsight.</td></tr>
+	<tr><td>Nom du compte de stockage Azure</td><td>$storageAccountName</td><td></td><td>Il s'agit du compte de stockage Azure disponible sur le cluster HDInsight. Pour ce didacticiel, utilisez le compte de stockage par défaut que vous avez indiqué au cours du processus d'approvisionnement du cluster.</td></tr>
+	<tr><td>Nom du conteneur d'objets blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le conteneur de stockage d'objets blob Azure utilisé pour le système de fichiers de cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
+	</table>
 
 - **Une base de données SQL Azure**. Vous devez configurer une règle de pare-feu pour que le serveur de base de données SQL autorise l'accès à partir de votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
 
 	<table border = "1">
-<tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du serveur de base de données&#160;SQL</td><td>$sqlDatabaseServer</td><td></td><td>Serveur de la base de données&#160;SQL vers lequel Sqoop exporte des données. </td></tr>
-<tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
-<tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
-<tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
-</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
+	<tr><th>Propriété de base de données&#160;SQL</th><th>Nom de la variable Windows&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du serveur de base de données&#160;SQL</td><td>$sqlDatabaseServer</td><td></td><td>Serveur de la base de données&#160;SQL vers lequel Sqoop exporte des données. </td></tr>
+	<tr><td>Nom de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Nom de connexion à la base de données&#160;SQL.</td></tr>
+	<tr><td>Mot de passe de connexion à la base de données&#160;SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>Mot de passe de connexion à la base de données&#160;SQL.</td></tr>
+	<tr><td>Nom de la base de données&#160;SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de données SQL Azure vers laquelle Sqoop exporte des données. </td></tr>
+	</table>
+	> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l’activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d’une base de données SQL et la configuration des règles de pare-feu, consultez [Création et configuration d’une base de données SQL][sqldatabase-create-configure].
 
 
 > [AZURE.NOTE]Remplissez les valeurs dans les tables. Cela vous sera utile pour ce didacticiel.
@@ -184,21 +185,22 @@ L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier d
 	RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l'envoi de la tâche Oozie à partir de votre poste de travail en utilisant Azure PowerShell.
 
 	<table border = "1">
-<tr><th>Variable de workflow</th><th>Description</th></tr>
-<tr><td>${jobTracker}</td><td>Spécifie l'URL du suivi des tâches Hadoop. Utilisez <strong>jobtrackerhost:9010</strong> sur les versions&#160;3.0 et 2.0 de HDInsight.</td></tr>
-<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasb:// du système de fichiers par défaut, par exemple, <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilise <strong>default</strong>.</td></tr>
-</table><table border = "1">
-<tr><th>Variable d'action Hive</th><th>Description</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Répertoire source pour la commande Hive de création d'une table.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE.</td></tr>
-<tr><td>${hiveTableName}</td><td>Nom de la table Hive référençant les fichiers de données log4j.</td></tr>
-</table><table border = "1">
-<tr><th>Variable d'action Sqoop</th><th>Description</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Chaîne de connexion à la base de données SQL.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Table de la base de données SQL&#160;Azure vers laquelle les données sont exportées.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
-</table>Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
+	<tr><th>Variable de workflow</th><th>Description</th></tr>
+	<tr><td>${jobTracker}</td><td>Spécifie l'URL du suivi des tâches Hadoop. Utilisez <strong>jobtrackerhost:9010</strong> sur les versions&#160;3.0 et 2.0 de HDInsight.</td></tr>
+	<tr><td>${nameNode}</td><td>Spécifie l'URL du nœud de nom Hadoop. Utilisez l’adresse wasb:// du système de fichiers par défaut, par exemple, <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>.</td></tr>
+	<tr><td>${queueName}</td><td>Spécifie le nom de la file d’attente auquel est envoyée la tâche. Utilise <strong>default</strong>.</td></tr>
+	</table><table border = "1">
+	<tr><th>Variable d'action Hive</th><th>Description</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>Répertoire source pour la commande Hive de création d'une table.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE.</td></tr>
+	<tr><td>${hiveTableName}</td><td>Nom de la table Hive référençant les fichiers de données log4j.</td></tr>
+	</table><table border = "1">
+	<tr><th>Variable d'action Sqoop</th><th>Description</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>Chaîne de connexion à la base de données SQL.</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>Table de la base de données SQL&#160;Azure vers laquelle les données sont exportées.</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
+	</table>
+	Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 du cluster HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 du cluster HDInsight).
 
 2. Enregistrez le fichier sous **C:\Tutorials\UseOozie\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 

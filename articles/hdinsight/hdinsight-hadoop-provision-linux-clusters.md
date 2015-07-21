@@ -106,19 +106,21 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 		<td>Sélectionnez <b>Ubuntu&#160;12.04 LTS Preview</b> pour approvisionner un cluster HDInsight sur Linux. Pour approvisionner un cluster Windows, consultez la rubrique <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Approvisionnement de clusters Hadoop&#160;Windows dans HDInsight</a>.</td></tr>
 	<tr><td>Version de HDInsight</td>
 		<td>Choisissez la version. Pour HDInsight sur Linux, la valeur par défaut est HDInsight version&#160;3.2, qui utilise Hadoop&#160;2.6.</td></tr>
-	</table>Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
+	</table>
+	Entrez ou sélectionnez les valeurs, comme indiqué dans le tableau, puis cliquez sur la flèche de droite.
 
 4. Sur la page **Configurer le cluster**, entrez ou sélectionnez les valeurs suivantes :
 
 	![Fournir des détails du cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Nom</th><th>Valeur</th></tr>
-<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé précédemment. Les clusters HDInsight requièrent en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p></td></tr>
-<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+	<tr><th>Nom</th><th>Valeur</th></tr>
+	<tr><td>Nœuds de données</td><td>Nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
+	<tr><td>Région/Réseau virtuel</td><td><p>Choisissez la même région que pour le compte de stockage que vous avez créé précédemment. Les clusters HDInsight requièrent en effet que le compte de stockage soit situé dans la même région. Plus loin dans la configuration, vous ne pourrez choisir qu'un compte de stockage situé dans la région spécifiée ici.</p></td></tr>
+	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
+	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
+	</table>
+	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations concernant les répercussions de la taille des machines virtuelles sur les prix, consultez la rubrique <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 
 5. Sur la page **Configuration de l'utilisateur du cluster**, entrez les valeurs suivantes :
@@ -142,7 +144,8 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 	<tr><td>Sélection du metastore Hive/Oozie</td>
 		<td>Cochez cette case pour spécifier une base de données SQL sur le même centre de données que le cluster, afin de l’utiliser en tant que metastore Hive/Oozie. Si vous cochez cette case, vous devez renseigner plusieurs informations concernant la base de données SQL Azure dans les pages suivantes de l’Assistant. Ceci est utile si vous voulez conserver les métadonnées sur les tâches Hive/Oozie après la suppression d'un cluster.</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]Nous vous recommandons d’utiliser l’authentification par clé publique SSH avec SSH car celle-ci est plus sécurisée que l’authentification par mot de passe.
+	</table>
+	> [AZURE.NOTE]Nous vous recommandons d’utiliser l’authentification par clé publique SSH avec SSH car celle-ci est plus sécurisée que l’authentification par mot de passe.
 
 	Cliquez sur la flèche droite.
 
@@ -185,7 +188,8 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
     </td></tr>
 	<tr><td>Comptes de stockage supplémentaires</td>
 		<td>HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant, ce qui vous permet de spécifier les informations de compte. Par exemple, dans la capture d’écran ci-dessus, un compte de stockage supplémentaire est sélectionné, la page&#160;5 est donc ajoutée à la boîte de dialogue.</td></tr>
-</table>Cliquez sur la flèche droite.
+	</table>
+	Cliquez sur la flèche droite.
 
 7. Si vous avez choisi de configurer un stockage supplémentaire pour le cluster, dans la page **Compte de stockage**, entrez les informations du compte pour le compte de stockage supplémentaire :
 
@@ -297,7 +301,8 @@ L’interface de ligne de commande Azure peut être installée à l’aide de NP
 
 **Installation de l’interface de ligne de commande à l’aide de Windows Installer**
 
-1.	Accédez à **http://azure.microsoft.com/downloads/**. 2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
+1.	Accédez à **http://azure.microsoft.com/downloads/**. 
+2.	Faites défiler l’écran pour accéder à la section **Outils en ligne de commande**, puis cliquez sur **Interface de ligne de commande Azure** et suivez les étapes de l’Assistant Web Platform Installer.
 
 **Pour télécharger et importer des paramètres de publication**
 

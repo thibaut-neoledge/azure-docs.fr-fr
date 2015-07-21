@@ -43,21 +43,22 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Cluster Azure HDInsight** : pour obtenir des instructions sur l'approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border="1">
-<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
-<tr><td>Nom du compte de stockage Azure</td><td>$storageAccountName</td><td></td><td>Un compte de stockage Azure disponible sur le cluster HDInsight. Pour ce didacticiel, utilisez le compte de stockage par défaut que vous avez indiqué au cours du processus d'approvisionnement du cluster.</td></tr>
-<tr><td>Nom du conteneur de blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le nom du blob qui est utilisé pour le système de fichiers du cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
-</table>
+	<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
+	<tr><td>Nom du compte de stockage Azure</td><td>$storageAccountName</td><td></td><td>Un compte de stockage Azure disponible sur le cluster HDInsight. Pour ce didacticiel, utilisez le compte de stockage par défaut que vous avez indiqué au cours du processus d'approvisionnement du cluster.</td></tr>
+	<tr><td>Nom du conteneur de blob Azure</td><td>$containerName</td><td></td><td>Dans cet exemple, utilisez le nom du blob qui est utilisé pour le système de fichiers du cluster HDInsight par défaut. Par défaut, il porte le même nom que le cluster HDInsight.</td></tr>
+	</table>
 
 - **Base de données SQL Azure** : vous devez configurer une règle de pare-feu pour le serveur de base de données SQL Azure afin d’autoriser l'accès depuis votre station de travail. Pour des instructions sur la création d'une base de données SQL Azure et la configuration d'un pare-feu, consultez la rubrique [Prise en main de la base de données SQL Azure][sqldatabase-get-started]. Cet article inclut un script Windows PowerShell pour la création de la table de base de données SQL Azure dont vous avez besoin pour ce didacticiel.
 
 	<table border="1">
-<tr><th>Propriété de la base de données&#160;SQL&#160;Azure</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du serveur de base de données SQL Azure.</td><td>$sqlDatabaseServer</td><td></td><td>Le serveur de base de données&#160;SQL&#160;Azure vers lequel Sqoop exporte des données et depuis lequel il en importe. </td></tr>
-<tr><td>Nom de connexion de la base de données&#160;SQL&#160;Azure.</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour la base de données SQL&#160;Azure.</td></tr>
-<tr><td>Le mot de passe de connexion pour la base de données&#160;SQL&#160;Azure</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour la base de données SQL&#160;Azure.</td></tr>
-<tr><td>Nom de la base de données SQL&#160;Azure</td><td>$sqlDatabaseName</td><td></td><td>La base de données&#160;SQL&#160;Azure vers laquelle Sqoop va exporter des données et depuis laquelle il va en importer. </td></tr>
-</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
+	<tr><th>Propriété de la base de données&#160;SQL&#160;Azure</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du serveur de base de données SQL Azure.</td><td>$sqlDatabaseServer</td><td></td><td>Le serveur de base de données&#160;SQL&#160;Azure vers lequel Sqoop exporte des données et depuis lequel il en importe. </td></tr>
+	<tr><td>Nom de connexion de la base de données&#160;SQL&#160;Azure.</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour la base de données SQL&#160;Azure.</td></tr>
+	<tr><td>Le mot de passe de connexion pour la base de données&#160;SQL&#160;Azure</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour la base de données SQL&#160;Azure.</td></tr>
+	<tr><td>Nom de la base de données SQL&#160;Azure</td><td>$sqlDatabaseName</td><td></td><td>La base de données&#160;SQL&#160;Azure vers laquelle Sqoop va exporter des données et depuis laquelle il va en importer. </td></tr>
+	</table>
+	> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis le portail de gestion Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
 
 * **SQL Server** : si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.
 
@@ -76,12 +77,12 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	> [AZURE.NOTE]SQL Server doit également autoriser l'authentification. Vous devez utiliser une connexion SQL Server pour compléter les étapes décrites dans cet article.
 
 	<table border="1">
-<tr><th>Propriété de la base de données&#160;SQL&#160;Server</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>Serveur SQL Server depuis ou vers lequel Sqoop importe et exporte des données. </td></tr>
-<tr><td>Nom de connexion SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour SQL&#160;Server.</td></tr>
-<tr><td>Mot de passe de connexion SQL&#160;Server</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour SQL&#160;Server.</td></tr>
-<tr><td>Nom de la base de données&#160;SQL Server</td><td>$sqlDatabaseName</td><td></td><td>La base de données SQL&#160;Server vers laquelle Sqoop exportera des données et depuis laquelle il en importera. </td></tr>
-</table>
+	<tr><th>Propriété de la base de données&#160;SQL&#160;Server</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>Serveur SQL Server depuis ou vers lequel Sqoop importe et exporte des données. </td></tr>
+	<tr><td>Nom de connexion SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour SQL&#160;Server.</td></tr>
+	<tr><td>Mot de passe de connexion SQL&#160;Server</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour SQL&#160;Server.</td></tr>
+	<tr><td>Nom de la base de données&#160;SQL Server</td><td>$sqlDatabaseName</td><td></td><td>La base de données SQL&#160;Server vers laquelle Sqoop exportera des données et depuis laquelle il en importera. </td></tr>
+	</table>
 
 
 > [AZURE.NOTE]Remplissez les valeurs dans les tables précédentes. Cela vous sera utile pour ce didacticiel.
@@ -99,19 +100,19 @@ Le cluster HDInsight inclut des exemples de données. Vous devrez utiliser les d
 - Une table Hive appelée *hivesampletable*, qui référence le fichier de données situé sous */hive/warehouse/hivesampletable*. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
 
 	<table border="1">
-<tr><th>Champ</th><th>Type de données</th></tr>
-<tr><td>clientid</td><td>string</td></tr>
-<tr><td>querytime</td><td>string</td></tr>
-<tr><td>market</td><td>string</td></tr>
-<tr><td>deviceplatform</td><td>string</td></tr>
-<tr><td>devicemake</td><td>string</td></tr>
-<tr><td>devicemodel</td><td>string</td></tr>
-<tr><td>state</td><td>string</td></tr>
-<tr><td>country</td><td>string</td></tr>
-<tr><td>querydwelltime</td><td>double</td></tr>
-<tr><td>sessionid</td><td>bigint</td></tr>
-<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-</table>
+	<tr><th>Champ</th><th>Type de données</th></tr>
+	<tr><td>clientid</td><td>string</td></tr>
+	<tr><td>querytime</td><td>string</td></tr>
+	<tr><td>market</td><td>string</td></tr>
+	<tr><td>deviceplatform</td><td>string</td></tr>
+	<tr><td>devicemake</td><td>string</td></tr>
+	<tr><td>devicemodel</td><td>string</td></tr>
+	<tr><td>state</td><td>string</td></tr>
+	<tr><td>country</td><td>string</td></tr>
+	<tr><td>querydwelltime</td><td>double</td></tr>
+	<tr><td>sessionid</td><td>bigint</td></tr>
+	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+	</table>
 
 Vous allez d'abord exporter *sample.log* et *hivesampletable* vers la base de données SQL Azure ou vers SQL Server, puis importer à nouveau la table contenant les données de l’appareil mobile dans HDInsight en utilisant la procédure suivante :
 
