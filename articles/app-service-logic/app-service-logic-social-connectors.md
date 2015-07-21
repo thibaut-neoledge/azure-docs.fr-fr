@@ -147,12 +147,19 @@ Exécutez les étapes suivantes pour ajouter un connecteur à une application lo
 Les connecteurs utilisent OAuth ou des noms d'utilisateurs et des mots de passe.
 
 ## En savoir plus sur les applications logiques et les applications web
-[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | [Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md) |
+[Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md) | 
+[Sites Web et Web Apps dans Azure App Service](../app-service-web/app-service-web-overview.md) |
 
 
 ## Autres connecteurs
 
-[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | [Connecteurs B2B](app-service-logic-b2b-connectors.md) | [Connecteurs de protocole](app-service-logic-protocol-connectors.md) | [Connecteurs application + services de données](app-service-logic-data-connectors.md) | [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | 
+[Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | 
+[Connecteurs B2B](app-service-logic-b2b-connectors.md) | 
+[Connecteurs de protocole](app-service-logic-protocol-connectors.md) | 
+[Connecteurs application + services de données](app-service-logic-data-connectors.md) | 
+[Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> 
+[Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
 <!---HONumber=62-->

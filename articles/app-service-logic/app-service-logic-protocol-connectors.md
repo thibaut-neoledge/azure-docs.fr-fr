@@ -154,7 +154,13 @@ Les connecteurs utilisent OAuth ou des noms d'utilisateurs et des mots de passe.
 
 ## Autres connecteurs
 
-[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | [Connecteur B2B](app-service-logic-b2b-connectors.md) | [Connecteurs sociaux](app-service-logic-social-connectors.md) | [Connecteurs application + services de données](app-service-logic-data-connectors.md) | [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | 
+[Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | 
+[Connecteur B2B](app-service-logic-b2b-connectors.md) | 
+[Connecteurs sociaux](app-service-logic-social-connectors.md) | 
+[Connecteurs application + services de données](app-service-logic-data-connectors.md) | 
+[Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> 
+[Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
 <!---HONumber=62-->

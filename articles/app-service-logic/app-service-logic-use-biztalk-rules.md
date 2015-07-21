@@ -109,11 +109,19 @@ Une fois que vous avez créé une application API de règles BizTalk, l'étape s
   1.	Nom : seuls des caractères alphanumériques sont attendus, sans caractères spéciaux. Ce nom doit également être unique dans votre liste de définitions de vocabulaire existante.
   2.	Description : ce champ est facultatif.
   3.	Type : deux types sont pris en charge. Pour cet exemple, choisissez Littéral.
-  4.	Type d'entrée : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données peuvent être sélectionnés : i. Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne") ii. Booléen : peut être vrai ou faux iii. Nombre : peut être n’importe quel nombre décimal iv. DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\PM v. Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. L'utilisateur peut entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé « to ». Pa exemple, l'utilisateur peut entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
+  4.	Type d'entrée : permet aux utilisateurs de sélectionner le type de données de la définition. Actuellement, quatre types de données peuvent être sélectionnés:
+    i.	Chaîne : ces valeurs doivent être placées entre guillemets doubles ("exemple de chaîne")  
+    ii.	Booléen : peut être vrai ou faux  
+    iii.	Nombre : peut être n’importe quel nombre décimal  
+    iv.	DateHeure : signifie que la définition est de type « date ». Vous devez entrer les données au format suivant : mm/jj/aaaa hh:mm: AM\PM  
+    v.	Entrée : c'est là que vous entrez la valeur de votre définition. Les valeurs entrées ici doivent être conformes au type de données choisi. L'utilisateur peut entrer une valeur unique, un ensemble de valeurs séparées par des virgules ou une plage de valeurs à l'aide du mot clé « to ». Pa exemple, l'utilisateur peut entrer la valeur unique 1 ; un ensemble 1, 2, 3 ; ou la plage 1 to 5. Notez que la plage est prise en charge uniquement pour les nombres.
 
 ![Alt text][5]
 ##Définition XML
-Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées suivantes a. Schéma : un clic sur cette option ouvre un nouveau panneau où l’utilisateur peut choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau b. XPATH : cette entrée est déverrouillée uniquement quand vous avez choisi un schéma à l'étape précédente. Un clic sur cette option affiche le schéma sélectionné et permet à l’utilisateur de choisir le nœud pour lequel une définition de vocabulaire doit être créée. c. FAIT : cette entrée identifie l'objet de données qui serait transmis au moteur de règles pour le traitement. Il s'agit d'une propriété avancée. Par défaut, elle a comme valeur le parent de l'expression XPATH sélectionnée. L'entrée FACT est particulièrement importante pour les scénarios de chaînage et de collection.
+Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées suivantes  
+  a.	Schéma : un clic sur cette option ouvre un nouveau panneau où l’utilisateur peut choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau  
+  b.	XPATH : cette entrée est déverrouillée uniquement quand vous avez choisi un schéma à l'étape précédente. Un clic sur cette option affiche le schéma sélectionné et permet à l’utilisateur de choisir le nœud pour lequel une définition de vocabulaire doit être créée.  
+  c.	FAIT : cette entrée identifie l'objet de données qui serait transmis au moteur de règles pour le traitement. Il s'agit d'une propriété avancée. Par défaut, elle a comme valeur le parent de l'expression XPATH sélectionnée. L'entrée FACT est particulièrement importante pour les scénarios de chaînage et de collection.
 
 ![Alt text][6]
 
@@ -123,17 +131,47 @@ Les étapes ci-dessus décrivent l'expérience de création de définitions de v
 ![Alt text][7]
 
 ##Création d'une stratégie
-Une fois que le développeur a créé les vocabulaires nécessaires, il incombe normalement à l'analyste d'entreprise de créer des stratégies d'entreprise via le portail Azure. 1. Dans l'application de règles créée figure une thématique Stratégie. Un clic dessus permet à l'utilisateur d'accéder à la page de création de stratégie. 2. Cette page affiche la liste des stratégies de cette application de règles. Pour ajouter une nouvelle stratégie, il suffit à l'utilisateur de taper un nom de stratégie et d'appuyer sur la touche Tab. Plusieurs stratégies peuvent résider dans une même application API de règles. 3. Un clic sur la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles. ![Alt text][8] 4. Cliquez sur « Ajouter nouveau » pour ajouter une nouvelle règle. Un nouveau panneau s'affiche.
+Une fois que le développeur a créé les vocabulaires nécessaires, il incombe normalement à l'analyste d'entreprise de créer des stratégies d'entreprise via le portail Azure. 
+	1.	Dans l'application de règles créée figure une thématique Stratégie. Un clic dessus permet à l'utilisateur d'accéder à la page de création de stratégie. 
+	2.	Cette page affiche la liste des stratégies de cette application de règles. Pour ajouter une nouvelle stratégie, il suffit à l'utilisateur de taper un nom de stratégie et d'appuyer sur la touche Tab. Plusieurs stratégies peuvent résider dans une même application API de règles. 
+	3.	Un clic sur la stratégie créée redirige l'utilisateur vers la page de détails de la stratégie, où figurent ses règles. 
+	![Alt text][8] 
+	4.	Cliquez sur « Ajouter nouveau » pour ajouter une nouvelle règle. Un nouveau panneau s'affiche.
 
 ##Création de règles
-Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). La zone Condition peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge : 1. And : opérateur conditionnel 2. Or : opérateur conditionnel 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
+Une règle est une collection d'instructions de condition et d'action. Les actions sont exécutées si la condition est remplie. Dans le panneau Créer une règle, donnez un nom unique à la règle (pour cette stratégie) et une description (facultative). La zone Condition peut servir à créer des instructions conditionnelles complexes. Voici les mots clés pris en charge : 
+1. 	And : opérateur conditionnel  
+2. 	Or : opérateur conditionnel  
+3. 	does_not_exist  
+4. 	exists  
+5. 	false  
+6. 	is_equal_to  
+7. 	is_greater_than  
+8. 	is_greater_than_equal to  
+9. 	is_in  
+10. is_less_than  
+11. is_less_than_equal_to  
+12. is_not_in  
+13. is_not_equal_to  
+14. mod  
+15. true 
 
-La zone Action(Then) peut contenir plusieurs instructions, une par ligne, pour créer des actions à exécuter. Voici les mots clés pris en charge : 1. equals 2. false 3. true 4. halt 5. mod 6. null 7. update
+La zone Action(Then) peut contenir plusieurs instructions, une par ligne, pour créer des actions à exécuter. Voici les mots clés pris en charge :  
+1.	equals  
+2.	false  
+3.	true  
+4.	halt  
+5.	mod  
+6.	null  
+7.	update  
 
-Les zones de condition et d'action offrent des fonctionnalités Intellisense pour aider les utilisateurs à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. ![Alt text][9]
+Les zones de condition et d'action offrent des fonctionnalités Intellisense pour aider les utilisateurs à créer une règle rapidement. Vous pouvez les déclencher en appuyant sur Ctrl+Espace ou simplement en commençant à taper. Les mots clés correspondant aux caractères tapés sont automatiquement filtrés et affichés. La fenêtre Intellisense affiche tous les mots clés et les définitions de vocabulaire. 
+![Alt text][9]
 
 ##Chaînage avant explicite
-Les règles BizTalk prennent en charge le chaînage avant explicite. Cela signifie que si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants : 1. update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition. 2. Halt : ce mot clé arrête toutes les exécutions de règles.
+Les règles BizTalk prennent en charge le chaînage avant explicite. Cela signifie que si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants : 
+   1.	update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
+   2.	Halt : ce mot clé arrête toutes les exécutions de règles.
 
 ##Activer/désactiver des règles
 Chaque règle de la stratégie peut être activée ou désactivée. Par défaut, toutes les règles sont activées. Les règles désactivées ne sont pas exécutées lors de l'exécution de la stratégie. Vous pouvez activer/désactiver une règle directement à partir du panneau de la règle (les commandes sont disponibles dans la barre de commandes en haut du panneau) ou à partir de la stratégie (le menu contextuel, accessible par un clic droit sur une règle, contient une option pour activer/désactiver la règle).

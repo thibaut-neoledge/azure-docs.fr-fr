@@ -57,7 +57,7 @@ Avant de pouvoir vous connecter, il est parfois nécessaire de créer une except
 
 ## Connexion à un serveur local
 
-1. Dans Management Studio et Se connecter au serveur, vérifiez que le moteur de base de données est sélectionné, entrez le nom d'une instance locale au format suivant : *servername**instancename*. Si le serveur est local et une instance par défaut, entrez *localhost*.
+1. Dans Management Studio et Se connecter au serveur, vérifiez que le moteur de base de données est sélectionné, entrez le nom d'une instance locale au format suivant : *servername*\\*instancename*. Si le serveur est local et une instance par défaut, entrez *localhost*.
 
 2. Dans Authentification, choisissez **Authentification Windows**, puis entrez un compte Windows qui est membre du rôle administrateur système.
 
@@ -144,5 +144,5 @@ Vous avez maintenant créé et testé plusieurs connexions. Pour plus d'informat
 
 
 
-<!--HONumber=47-->
+<!----HONumber=47-->
  
