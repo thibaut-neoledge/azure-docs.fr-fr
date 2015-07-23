@@ -466,4 +466,4 @@ Dans le portail Microsoft Azure en version préliminaire, accédez au panneau *
 Ce didacticiel vous a montré comment créer une application API dans Visual Studio Code. Pour en savoir plus sur ce logiciel, voir [Visual Studio Code](https://code.visualstudio.com/Docs/). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

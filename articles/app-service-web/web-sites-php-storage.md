@@ -429,4 +429,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

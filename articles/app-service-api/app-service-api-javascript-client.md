@@ -314,6 +314,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
 
 	> **Remarque** : n'utilisez pas le numéro de port du projet HTML du client. Pour ouvrir une fenêtre de navigateur indiquant le numéro de port, faites un clic droit sur le projet d'API, puis cliquez sur Déboguer > Démarrer une nouvelle instance.
 
+
 1. Assurez-vous que le projet d’application API est également en cours d’exécution lorsque vous lancez le client HTML. Dans le cas contraire, le code HTML JavaScript ne fonctionnera pas correctement. Cliquez avec le bouton droit sur la solution et sélectionnez **Propriétés**. Spécifiez que les deux projets web doivent s'**Exécuter sans débogage** et que le projet d'API doit s'exécuter en premier. 
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
@@ -370,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

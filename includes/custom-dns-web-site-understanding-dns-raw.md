@@ -50,4 +50,4 @@ Pour connaître l’adresse IP ainsi que les noms **awverify** et **.azurewebsi
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!---HONumber=62-->
+<!----HONumber=62-->
