@@ -360,8 +360,10 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 		  </property>
 		</configuration>
 
-	* Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment. 
-	> [AZURE.WARNING]Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
+	* Remplacez toutes les instances de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** par la valeur que vous avez reçue précédemment.
+
+
+	> [AZURE.WARNING] Vous devez utiliser le chemin d’accès WASB complet, avec le conteneur et le compte de stockage inclus dans le chemin d’accès. L’utilisation du format court (wasb:///) provoque l’échec de l’action RunHiveScript lorsque le travail est démarré.
 
 	* Remplacez **JOBTRACKERADDRESS** par l’adresse de JobTracker/ResourceManager reçue précédemment.
 
@@ -725,4 +727,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->
