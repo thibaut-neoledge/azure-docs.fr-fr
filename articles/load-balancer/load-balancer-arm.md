@@ -35,7 +35,7 @@ Avec ARM, l’équilibrage de charge Azure contient les ressources enfants suiva
 - Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/fr-fr/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
 
 
 

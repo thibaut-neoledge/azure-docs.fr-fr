@@ -359,20 +359,19 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 
 - [Création de votre première solution de recherche Azure](search-create-first-solution.md) 
 
-- [Création d'un exemple de recherche géospatiale Azure Search](search-create-geospatial.md)
+- [Création d'un exemple de recherche géospatiale Azure Search](search-create-geospatial.md) 
 
 - [Gestion de votre solution de recherche dans Microsoft Azure](search-manage.md) 
 
-- [Présentation technique d'Azure Search](http://msdn.microsoft.com/library/dn798933.aspx)
+- [Présentation technique d'Azure Search](http://msdn.microsoft.com/library/dn798933.aspx) 
 
-- [API REST d'Azure Search](http://msdn.microsoft.com/library/dn798935.aspx)
+- [API REST d'Azure Search](http://msdn.microsoft.com/library/dn798935.aspx) 
 
-- [Vidéo Channel 9 : présentation d'Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
+- [Vidéo Channel 9 : présentation d'Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search) 
 
-- [Vidéo Channel 9 : Azure Search et les données géospatiales](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)
+- [Vidéo Channel 9 : Azure Search et les données géospatiales](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) 
 
-- [Cloud Cover épisode 152 : génération d'un index dans Azure Search](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh)
-
+- [Cloud Cover épisode 152 : génération d'un index dans Azure Search](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) 
 <!--Anchors-->
 [Démarrage avec le service gratuit]: #sub-1
 [Passage à la recherche standard]: #sub-2
@@ -402,11 +401,9 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 
 
 <!--Link references-->
-[Gestion de votre solution de recherche dans Microsoft Azure] : search-manage.md
-[Flux de travail de développement Azure Search] : search-workflow.md
-[Création de votre première solution de recherche Azure] : search-create-first-solution.md
-[Création d'une application de recherche géospatiale à l'aide d'Azure Search] : search-create-geospatial.md
+[Gestion de votre solution de recherche dans Microsoft Azure]: search-manage.md
+[Flux de travail de développement Azure Search]: search-workflow.md
+[Création de votre première solution de recherche Azure]: search-create-first-solution.md
+[Création d'une application de recherche géospatiale à l'aide d'Azure Search]: search-create-geospatial.md
 
-<!--HONumber=49--> 
-
-<!--HONumber=49--> 
+<!---HONumber=49--> 

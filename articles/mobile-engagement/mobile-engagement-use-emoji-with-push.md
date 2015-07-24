@@ -38,7 +38,8 @@ Vous pouvez inclure des émoticônes Emoji dans votre notification push. Actuell
 
 7. Lorsque vous exécutez un test ou activez l'annonce, une notification s’affiche avec l'émoticône spécifiée.
 
-	![][3] ![][4]
+	![][3] 
+	![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
@@ -47,4 +48,4 @@ Vous pouvez inclure des émoticônes Emoji dans votre notification push. Actuell
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->
