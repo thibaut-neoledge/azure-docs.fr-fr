@@ -387,4 +387,4 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!------HONumber=July15_HO2-->

@@ -406,4 +406,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissent
 [Création de votre première solution de recherche Azure]: search-create-first-solution.md
 [Création d'une application de recherche géospatiale à l'aide d'Azure Search]: search-create-geospatial.md
 
-<!---HONumber=49--> 
+<!--------HONumber=49--> 

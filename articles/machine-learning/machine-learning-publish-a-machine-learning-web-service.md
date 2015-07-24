@@ -109,4 +109,4 @@ Pour mettre à jour le service web, ouvrez l'expérience de notation d'origine u
 
 Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez la page [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

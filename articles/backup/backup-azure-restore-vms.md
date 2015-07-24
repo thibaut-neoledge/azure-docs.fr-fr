@@ -97,11 +97,11 @@ Pour la plupart des erreurs, vous pouvez suivre l’action recommandée suggér�
 
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | -------- | -------- | -------|
-| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Étapes suivantes
 - [Gestion des machines virtuelles](backup-azure-manage-vms)
 
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

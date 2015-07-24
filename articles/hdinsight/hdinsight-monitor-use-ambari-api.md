@@ -178,4 +178,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->
