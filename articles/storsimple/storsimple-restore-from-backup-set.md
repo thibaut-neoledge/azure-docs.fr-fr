@@ -1,4 +1,12 @@
-<properties pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
+<properties
+   pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" 
+   description="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
