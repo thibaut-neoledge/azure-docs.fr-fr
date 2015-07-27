@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -107,6 +108,6 @@ Toutes les automatisations et tous les scripts que vous avez créés continueron
 **Les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure peuvent-ils être connectés à mon circuit Express Route ?**
 
 Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connecter les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure à un circuit Express Route. Cette opération sera possible à l’avenir.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

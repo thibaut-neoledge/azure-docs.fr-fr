@@ -72,4 +72,4 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

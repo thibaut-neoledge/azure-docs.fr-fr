@@ -1,8 +1,6 @@
 <properties 
-	title="Elastic database jobs overview" 
-	pageTitle="Vue d'ensemble des tâches de base de données élastiques" 
+	pageTitle="Vue d&#39;ensemble des tâches de base de données élastiques" 
 	description="Illustre le service de tâche de base de données élastique" 
-	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -13,12 +11,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
-# Vue d'ensemble des tâches de base de données élastiques
+# Vue d’ensemble des tâches de base de données élastiques
 
-L'option **Tâches de base de données élastique** (version préliminaire) vous permet d'exécuter des scripts T-SQL (tâches) sur toutes les bases de données d'un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Par exemple, vous pouvez facilement mettre à jour le schéma dans chaque base de données afin d'inclure une nouvelle table. Normalement, vous devez vous connecter indépendamment à chaque base de données pour exécuter les instructions T-SQL ou effectuer d'autres tâches administratives. L'option **Tâches de base de données élastique** gère la tâche de connexion et garantit l'exécution du script, tout en consignant le statut d'exécution de chaque base de données. Pour obtenir des instructions sur l’installation de la version préliminaire, consultez la page [Installation des composants de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).
+L’option **Tâches de base de données élastique** (version préliminaire) vous permet d’exécuter des scripts T-SQL (tâches) sur toutes les bases de données d’un [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool.md). Par exemple, vous pouvez facilement mettre à jour le schéma dans chaque base de données afin d'inclure une nouvelle table. Normalement, vous devez vous connecter indépendamment à chaque base de données pour exécuter les instructions T-SQL ou effectuer d'autres tâches administratives. L’option **Tâche de base de données élastique** gère la tâche de connexion et garantit l’exécution du script, tout en consignant le statut d’exécution de chaque base de données. Pour obtenir des instructions sur l’installation de la version préliminaire, consultez la page [Installation des composants de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md).
 
 ![Service de tâche de base de données élastique][1]
 
@@ -38,13 +36,8 @@ L'option **Tâches de base de données élastique** (version préliminaire) vous
 
 1.	Installez les services utilisés par les tâches de base de données élastiques. Voir [Installation de tâches de bases de données élastiques](sql-database-elastic-jobs-service-installation.md). Si l'installation échoue, voir [comment désinstaller](sql-database-elastic-jobs-uninstall.md).
 2.	Configurez le pool élastique de bases de données pour l'exécution de la tâche via l'[ajout d'un utilisateur à chaque base de données](sql-database-elastic-jobs-add-logins-to-dbs.md).
-3.	Dans la vue du pool élastique de bases de données, cliquez sur **Créer une tâche**.
-4.	Tapez le nom d’utilisateur et le mot de passe de la base de données de contrôle des tâches (stockage des métadonnées des tâches). (Vous créez le nom d’utilisateur et le mot de passe lors de l’installation des tâches de bases de données élastiques).
-5.	Dans le panneau **Créer une tâche**, tapez le nom de la tâche, le nom d’utilisateur et le mot de passe des bases de données cibles (avec des autorisations suffisantes pour l’exécution du script) et collez ou tapez le script T-SQL.
-6.	Cliquez sur **Exécuter** et la tâche exécute le script sur chaque base de données.
-7.	La vue **Gérer les travaux** vous permet d'afficher toutes les tâches en cours d'exécution ou qui ont été exécutées ainsi que leur dernier statut d'exécution.
-8.	Cliquez sur n'importe quelle tâche pour consulter les détails de son exécution et son statut d'exécution sur chaque base de données.
-9.	Si une tâche échoue, cliquez sur son nom pour afficher le journal d'erreurs.
+3.	Créez un script T-SQL idempotent qui peut être exécuté sur chacune des bases de données du pool.
+4.	Procédez comme suit pour exécuter le script : [Création et gestion des tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) 
 
 ## Composants et tarification 
 
@@ -64,4 +57,4 @@ Les composants suivants fonctionnent en synergie pour créer un service Cloud Az
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Création d'un service Azure Search dans le portail" 
-	description="Ajout d'un service Azure Search gratuit ou standard à un abonnement existant à l'aide du portail de gestion" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Création d&#39;un service Azure Search dans le portail"
+	description="Ajout d&#39;un service Azure Search gratuit ou standard à un abonnement existant à l&#39;aide du portail de gestion"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
     tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Création d'un service Azure Search dans le portail
 
-Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se fait à l'aide d'un Kit de développement logiciel (SDK) .NET ou d'une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes et le support multilingue. Pour plus d'informations sur le processus de recherche, consultez [Présentation d'Azure Search](../fundamentals-azure-search-chappell/).
+Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se fait à l'aide d'un Kit de développement logiciel (SDK) .NET ou d'une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes et le support multilingue. Pour plus d'informations sur le processus de recherche, consultez [Présentation d'Azure Search](fundamentals-azure-search-chappell/).
 
 ##Ajout d'un service à votre abonnement  
 
@@ -28,36 +28,36 @@ En tant qu'administrateur, vous pouvez ajouter le service Search à un abonnemen
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** | **Données + stockage** | **Recherche**.
- 
+
      ![][1]
 
-3. Définissez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne peuvent pas être modifiés une fois le service configuré.
+3. Définissez le nom du service, le niveau de tarification, le groupe de ressources, l'abonnement et l'emplacement. Ces paramètres sont requis et ne sont plus modifiables une fois le service approvisionné.
 
      ![][2]
 
-	- Le champ **Nom du service** doit être unique et en minuscules, contenir moins de 15 caractères, et sans espaces. Ce nom fait partie du point de terminaison de votre service Azure Search. Consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour plus d'informations sur les conventions d'affectation des noms. 
-	
-	- Le champ **Niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
-	
-		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour essayer les didacticiels et écrire du code de validation technique, mais n'est pas destinée aux applications de production. Le déploiement d'un service gratuit ne prend généralement que quelques minutes.
-		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes généralement.
-	
-	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
-	
-	- Le champ **Abonnement** vous permet de choisir parmi plusieurs abonnements (le cas échéant).
-	
-	- Le champ **Emplacement** désigne la zone géographique de centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition des ressources entre plusieurs centres de données n'est pas prise en charge.
+	- Le **nom du service** doit être unique, en minuscules et contenir moins de 15 caractères sans espaces. Il devient partie intégrante du point de terminaison de votre service Azure Search. Consultez [Règles d'affectation des noms](https://msdn.microsoft.com/library/azure/dn857353.aspx) pour plus d'informations sur les conventions d'affectation des noms.
 
-4. Cliquez sur **Créer** pour configurer le service.
+	- Le **niveau de tarification** détermine la capacité et la facturation. Les deux niveaux offrent les mêmes fonctionnalités, mais à des niveaux de ressources différents.
+
+		- La **version gratuite** s'applique aux clusters partagés avec d'autres abonnés. Elle offre une capacité suffisante pour tester les didacticiels et écrire du code de validation technique, mais elle n'est pas destinée aux applications de production. En général, le déploiement d'un service gratuit ne prend que quelques minutes.
+		- La version **standard** s'applique aux ressources dédiées et est hautement évolutive. À l'origine, un service standard est fourni avec un réplica et une partition, mais vous pouvez ajuster la capacité une fois le service créé. Le déploiement d'un service standard prend plus de temps, environ quinze minutes.
+
+	- Les **groupes de ressources** sont des conteneurs pour les services et les ressources utilisés dans un but commun. Par exemple, si vous créez une application de recherche personnalisée basée sur Azure Search, Sites web Azure ou le stockage d'objets blob, vous pouvez créer un groupe de ressources qui réunit ces services dans les pages de gestion du portail.
+
+	- L’**abonnement** vous permet de choisir votre abonnement, si vous en avez plusieurs.
+
+	- L’**emplacement** correspond à la zone géographique du centre de données. Actuellement, toutes les ressources doivent s'exécuter dans le même centre de données. La répartition de ressources entre plusieurs centres de données n'est pas prise en charge.
+
+4. Cliquez sur **Créer** pour approvisionner le service.
 
 Surveillez les notifications dans la barre de lancement. Une notification s'affiche lorsque le service est prêt à être utilisé.
 
 <a id="sub-2"></a>
 ##Recherche du nom du service et des clés api de votre service Azure Search
 
-Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL ou la `api-key`. Les connexions à votre service de recherche requièrent que vous disposiez de l'URL et d'une `api-key` pour authentifier l'appel.
+Une fois le service créé, vous pouvez revenir au portail pour obtenir l'URL ou la `api-key`. Pour vous connecter à votre service de recherche, vous devez saisir l'URL et une `api-key` afin d’authentifier l'appel.
 
-1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord des services. 
+1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service de recherche pour ouvrir le tableau de bord du service.
 
 2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
 
@@ -76,7 +76,7 @@ Il n'existe aucune mise à niveau sur place de la version gratuite. Le passage �
 
 Un service de recherche standard commence avec un réplica et une partition, mais il peut facilement être remis à l'échelle à des niveaux de ressource plus élevés.
 
-1.	Une fois le service créé, revenez au tableau de bord des services. 
+1.	Une fois le service créé, revenez au tableau de bord des services.
 
 2.	Cliquez sur la vignette **Mise à l'échelle**.
 
@@ -91,8 +91,8 @@ Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com
 
 La dernière étape de la configuration de Search consiste à confirmer que votre service est opérationnel et accessible à partir d'une application cliente. Vous pouvez utiliser un des liens ci-dessous pour vérifier la disponibilité du service sans saisir de code.
 
-- [Utilisation de Chrome Postman avec Azure Search](../search-chrome-postman/)
-- [Utilisation de Telerik Fiddler avec Azure Search](../search-fiddler/)
+- [Utilisation de Chrome Postman avec Azure Search](search-chrome-postman.md)
+- [Utilisation de Telerik Fiddler avec Azure Search](search-fiddler.md)
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -100,9 +100,9 @@ La dernière étape de la configuration de Search consiste à confirmer que votr
 
 Les informations supplémentaires suivantes vous expliquent comment créer et gérer des applications de recherche utilisant Azure Search.
 
-- [Utilisation d'Azure Search dans .NET](../search-howto-dotnet-sdk/)
+- [Utilisation d'Azure Search dans .NET](search-howto-dotnet-sdk.md)
 
-- [Gestion de votre solution de recherche dans Microsoft Azure](../search-manage/)
+- [Gestion de votre solution de recherche dans Microsoft Azure](search-manage.md)
 
 - [Azure Search sur MSDN](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -120,5 +120,4 @@ Les informations supplémentaires suivantes vous expliquent comment créer et g�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

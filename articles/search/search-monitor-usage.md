@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="04/27/2015"
+   ms.date="07/08/2015"
    ms.author="heidist"/>
 
 # Surveillance de l’utilisation et des statistiques dans un service Azure Search
@@ -55,5 +55,6 @@ Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

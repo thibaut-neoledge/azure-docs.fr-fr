@@ -33,14 +33,13 @@ Ce didacticiel présente les procédures suivantes :
 
 2. Dans le portail de gestion Azure, en bas à gauche de la page Web, cliquez sur **+NEW**, sur **COMPUTE**, sur **VIRTUAL MACHINE**, puis sur **FROM GALLERY**.
 
-3. Sur la page **Choisir une image**, cliquez sur **SQL SERVER**. Sélectionnez ensuite une image SQL Server. Cliquez sur la flèche suivante en bas à droite de la page. 
-![Choisir une image][Image34]
+3. Sur la page **Choisir une image**, cliquez sur **SQL SERVER**. Sélectionnez ensuite une image SQL Server. Cliquez sur la flèche suivante en bas à droite de la page. ![Choisir une image][Image34]
 
 
 Pour obtenir les informations les plus récentes sur les images SQL Server prises en charge sur Azure, consultez la page [Mise en route de SQL Server sur les machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) dans l'ensemble de documentation [SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
 
    
->[AZURE.NOTE] Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Deux options s’offrent à vous : vous pouvez créer une machine virtuelle à l’aide de la version payante à la minute de SQL Server à partir de la galerie et faire migrer les fichiers de votre base de données vers cette nouvelle machine virtuelle en suivant les instructions de l’article [Procédure de migration des fichiers et du schéma de base de données SQL Server entre des ordinateurs virtuels dans Azure en utilisant les disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738) ; **ou bien** vous pouvez mettre à niveau une instance existante de la version d’évaluation de SQL Server vers une autre version de SQL Server dans le cadre de l’accord [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de l’article [Mettre à niveau vers une autre édition de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+>[AZURE.NOTE]Si vous avez créé une machine virtuelle à l’aide de l’image de plateforme de la version d’évaluation de SQL Server, vous ne pouvez pas la mettre à jour vers une image de la version payante à la minute dans la galerie. Deux options s’offrent à vous : vous pouvez créer une machine virtuelle à l’aide de la version payante à la minute de SQL Server à partir de la galerie et faire migrer les fichiers de votre base de données vers cette nouvelle machine virtuelle en suivant les instructions de l’article [Procédure de migration des fichiers et du schéma de base de données SQL Server entre des ordinateurs virtuels dans Azure en utilisant les disques de données](http://go.microsoft.com/fwlink/p/?LinkId=294738) ; **ou bien** vous pouvez mettre à niveau une instance existante de la version d’évaluation de SQL Server vers une autre version de SQL Server dans le cadre de l’accord [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/) en suivant la procédure de l’article [Mettre à niveau vers une autre édition de SQL Server 2014](http://go.microsoft.com/fwlink/?LinkId=396915). Pour plus d'informations sur l'achat d'une copie sous licence de SQL Server, consultez la page [Comment acheter SQL Server ?](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 
 4. Dans la première page **Configuration de la machine virtuelle**, entrez les informations suivantes :
@@ -51,12 +50,7 @@ Pour obtenir les informations les plus récentes sur les images SQL Server prise
 	- Dans la zone **CONFIRM PASSWORD** entrez de nouveau le mot de passe.
 	- Sélectionnez la **taille** adéquate dans le menu déroulant. 
 
-	>[AZURE.NOTE]La taille de la machine virtuelle est spécifiée lors de l’approvisionnement :
- 	> A2 est la taille minimale recommandée pour les charges de travail de production. 
-    > La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. 
-    > Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles.
-   	> Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données.  
-   	> La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+	>[AZURE.NOTE]La taille de la machine virtuelle est spécifiée lors de l’approvisionnement : A2 est la taille minimale recommandée pour les charges de travail de production. La taille minimale recommandée pour une machine virtuelle utilisant SQL Server Édition Entreprise est A3. Sélectionnez A3 ou plus lorsque vous utilisez SQL Server Enterprise Edition. Sélectionnez A4 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail transactionnelles. Sélectionnez A7 lorsque vous utilisez des images SQL Server 2012 ou 2014 Enterprise optimisées pour les charges de travail pour l’entreposage de données. La taille sélectionnée limite le nombre de disques de données que vous pouvez configurer. Pour obtenir les informations les plus récentes sur les tailles de machines virtuelles disponibles et le nombre de disques de données que vous pouvez attribuer à une machine virtuelle, consultez la page [Tailles de machines virtuelles pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 	Cliquez sur la flèche Suivant située en bas à droite pour continuer.
 
@@ -121,7 +115,7 @@ Le chemin de connexion est résumé dans le schéma suivant :
 
 Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
->[AZURE.NOTE] Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d’informations, consultez la page [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d’informations, consultez la page [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
 
 1. Dans le portail de gestion Azure, cliquez sur **VIRTUAL MACHINES**.
 	
@@ -387,4 +381,4 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!------HONumber=July15_HO2-->
+<!---HONumber=July15_HO2-->

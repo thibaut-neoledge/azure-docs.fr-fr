@@ -1,24 +1,27 @@
 <properties 
 	pageTitle="Environnement de test de la configuration de base" 
-	description="Découvrez comment créer un environnement de développement/test simple qui simule un intranet simplifié dans Azure." 
+	description="Découvrez comment créer un environnement de développement ou de test simple qui simule un intranet simplifié dans Microsoft Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Environnement de test de la configuration de base
 
-Cette rubrique contient des instructions détaillées pour créer l’environnement de test de la configuration de base dans un réseau virtuel Microsoft Azure, à l’aide d’ordinateurs exécutant Windows Server 2012 R2. Vous pouvez utiliser l’environnement de test obtenu :
+Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Microsoft Azure, à l’aide de machines virtuelles créées dans Service Management.
+
+Vous pouvez utiliser l’environnement de test obtenu :
 
 - Pour le développement et le test d’applications.
 - La [simulation d’environnement de cloud hybride](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
@@ -138,9 +141,9 @@ Ensuite, ajoutez le disque de données supplémentaire en tant que nouveau volum
 4.	Dans la page Avant de commencer de l’Assistant Nouveau volume, cliquez sur **Suivant**.
 5.	Dans la page Sélectionner le serveur et le disque, cliquez sur **Disque 2**, puis sur **Suivant**. À l’invite, cliquez sur **OK**.
 6.	Dans la page Spécifier la taille du volume, cliquez sur **Suivant**.
-7.	Dans la page Affecter à la lettre d’un lecteur ou à un dossier page, cliquez sur **Suivant**.
-8.	Dans la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
-9.	Dans la page Confirmer les sélections, cliquez sur **Créer**.
+7.	À la page Affecter à la lettre d'un lecteur ou à un dossier, cliquez sur **Suivant**.
+8.	À la page Sélectionner les paramètres du système de fichiers, cliquez sur **Suivant**.
+9.	À la page Confirmer les sélections, cliquez sur **Créer**.
 10.	Lorsque vous avez terminé, cliquez sur **Fermer**.
 
 Ensuite, configurez DC1 comme contrôleur de domaine et serveur DNS pour le domaine corp.contoso.com. Exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
@@ -166,7 +169,7 @@ Ensuite, créez un compte utilisateur dans Active Directory qui sera utilisé po
 
 Notez que les premiers résultats de la commande vous invitent à fournir le mot de passe du compte utilisateur1. Étant donné que ce compte sera utilisé pour les connexions Bureau à distance pour tous les ordinateurs membres de domaine CORP, choisissez un mot de passe fort. Pour en vérifier la force, consultez la page [Password Checker : Utilisation de mots de passe forts](https://www.microsoft.com/security/pc-security/password-checker.aspx). Notez le mot de passe du compte User1 et stockez-le dans un emplacement sécurisé.
 
-Reconnectez-vous à la machine virtuelle DC1 à l’aide du compte CORP\\User1.
+Reconnectez-vous à la machine virtuelle DC1 à l’aide du compte CORP\User1.
 
 Ensuite, pour autoriser le trafic de l’utilitaire Ping, exécutez cette commande à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
@@ -191,7 +194,7 @@ Commencez par entrer le nom de votre service cloud et exécutez les commandes su
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Ensuite, connectez-vous à la machine virtuelle APP1 en utilisant les informations d’identification CORP\\User1 et ouvrez une invite de commandes Windows PowerShell de niveau administrateur.
+Ensuite, connectez-vous à la machine virtuelle APP1 en utilisant les informations d’identification CORP\User1 et ouvrez une invite de commandes Windows PowerShell de niveau administrateur.
 
 Pour vérifier la résolution des noms et la communication réseau entre APP1 et DC1, exécutez la commande **ping dc1.corp.contoso.com** et vérifiez qu’il y a bien quatre réponses.
 
@@ -224,7 +227,7 @@ Commencez par entrer le nom de votre service cloud et exécutez les commandes su
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-Ensuite, connectez-vous à la machine virtuelle CLIENT1 avec les informations d’identification CORP\\User1.
+Ensuite, connectez-vous à la machine virtuelle CLIENT1 avec les informations d’identification CORP\User1.
 
 Pour vérifier la résolution des noms et la communication réseau entre CLIENT1 et DC1, exécutez la commande **ping dc1.corp.contoso.com** à partir d’une invite de commandes Windows PowerShell et vérifiez qu’il y a bien quatre réponses.
 
@@ -235,7 +238,7 @@ Ensuite, vérifiez que vous pouvez accéder au web et aux ressources de partage 
 3.	Dans **Configuration de sécurité renforcée d’Internet Explorer**, cliquez sur **Désactivée** pour **Administrateurs** et **Utilisateurs**, puis cliquez sur **OK**.
 4.	Dans l’écran d’accueil, cliquez sur **Internet Explorer**, puis cliquez sur **OK**.
 5.	Dans la barre d’adresse, tapez **http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1. 6.	Dans la barre des tâches, cliquez sur l’icône de l’Explorateur de fichiers.
-7.	Dans la barre d’adresse, **\\\\app1\\Files**, puis appuyez sur Entrée.
+7.	Dans la barre d’adresse, **\app1\Files**, puis appuyez sur Entrée.
 8.	Vous devez voir une fenêtre de dossier avec le contenu du dossier partagé Files.
 9.	Dans la fenêtre **Files** partagée, double-cliquez sur le fichier **example.txt**. Vous devez voir le contenu du fichier Example.txt.
 10.	Fermez **Example.txt - Bloc-notes** et la fenêtre du dossier partagé **Files**.
@@ -278,6 +281,6 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

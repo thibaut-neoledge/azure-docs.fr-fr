@@ -1,9 +1,7 @@
 <properties 
-	pageTitle="Processus et technologie d'analyse avancée en action : utilisation des clusters Hadoop sur le jeu de données Criteo de 1 To | Microsoft Azure" 
-	description="Utilisation du processus d'analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement." 
-	metaKeywords="" 
+	pageTitle="Processus et technologie d&#39;analyse avancée en action : utilisation des clusters Hadoop sur le jeu de données Criteo de 1 To | Microsoft Azure" 
+	description="Utilisation du processus d&#39;analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&#39;aide d&#39;un groupe de données volumineux (1 To), disponible publiquement." 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -114,7 +112,7 @@ Pour créer des tables Hive pour notre groupe de données Criteo, ouvrez la ***L
 
 **REMARQUE IMPORTANTE** : **exécutez, dans cette procédure pas à pas, toutes les commandes Hive depuis l’invite de l’emplacement/du répertoire Hive mentionnée ci-dessus. Il se chargera automatiquement de tout problème lié au chemin d'accès. Nous utiliserons les termes « Invite du répertoire Hive », « Invite de l’emplacement/du répertoire Hive » et « Ligne de commande Hadoop » de manière interchangeable.**
 
-**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive_home%\\bin hive
+**REMARQUE IMPORTANTE 2** : **pour exécuter une requête Hive, effectuez toujours l'action suivante :** cd %hive_home%\bin hive
 
 Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplement la requête pour l'exécuter.
 
@@ -648,4 +646,4 @@ Ceci met fin à notre discussion portant sur la gestion de groupe de données de
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

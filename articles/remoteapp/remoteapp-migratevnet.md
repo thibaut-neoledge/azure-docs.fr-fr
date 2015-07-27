@@ -2,8 +2,7 @@
     pageTitle="Comment migrer un réseau virtuel RemoteApp vers un réseau virtuel Azure"
     description="Découvrir comment migrer un réseau virtuel RemoteApp vers un réseau virtuel Azure" 
     services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@ Supposons que vous avez déjà créé une collection RemoteApp hybride appelée 
 
 1.	Dans l’onglet **Réseaux** du [Portail de gestion](http://manage.windowsazure.com/), créez un réseau virtuel appelé *AzureVNET* en utilisant un emplacement, une configuration DNS et un espace d’adressage identiques (pour au moins l’un des sous-réseaux *AzureVNET*) à ceux utilisés pour *RemoteAppVNET*.
 2.	Configurez *AzureVNET* de manière à héberger le déploiement d’Active Directory avec lequel la collection *OriginalCollection* est jointe au domaine, ou à établir une connectivité réseau avec ce dernier.
-3.	Dans l’onglet **RemoteApps**, créez une collection RemoteApp appelée *Nouvelle Collection*. (Utilisez l’option **Créer avec VPN** plutôt que l’option **Création rapide**.)
+3.	Dans l’onglet **RemoteApps**, créez une collection RemoteApp appelée *Nouvelle Collection*. (Utilisez l’option **Créer avec VNET** plutôt que l’option **Création rapide**.)
 3.	Configurez *NewCollection* de manière à être déployée sur un sous-réseau dans *AzureVNET*.
 4.	Configurez *NewCollection* de manière à utiliser la même image et les mêmes informations de jonction de domaine que celles utilisées pour *OriginalCollection*.
 5.	Après quelques heures, *NewCollection* apparaît dans la liste de collections avec le statut Actif.
@@ -49,6 +48,6 @@ Si vous DEVEZ migrer des informations utilisateur depuis la collection d’origi
 Vous avez terminé !
 
 Si vous avez des questions ou que vous avez besoin d’aide, envoyez un e-mail [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

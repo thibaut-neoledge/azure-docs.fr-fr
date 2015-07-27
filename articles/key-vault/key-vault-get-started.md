@@ -4,7 +4,8 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
-	manager="mbaldwin"/>
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/04/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # Prise en main d’Azure Key Vault #
+Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](../../../../pricing/details/key-vault/).
 
 ## Introduction  
-Ce didacticiel va vous aider à démarrer avec Azure Key Vault, actuellement en version préliminaire, pour créer un conteneur (coffre) renforcé dans Azure afin de stocker et de gérer des clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation de Windows PowerShell pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut ensuite utiliser cette clé ou ce mot de passe.
+Ce didacticiel vous aide à démarrer avec Azure Key Vault pour créer un conteneur renforcé (un coffre) dans Azure afin de stocker et gérer les clés de chiffrement et les secrets dans Azure. Il vous guide tout au long du processus d’utilisation de Windows PowerShell pour créer un coffre qui contient une clé ou un mot de passe que vous pouvez ensuite utiliser avec une application Azure. Il vous montre également comment une application peut ensuite utiliser cette clé ou ce mot de passe.
 
 **Durée estimée :** 20 minutes
 
 >[AZURE.NOTE]Ce didacticiel n’inclut pas d’instructions sur l’écriture de l’application Azure abordée dans une des étapes, qui montre comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
 >
->Pendant la version préliminaire, vous ne pouvez pas configurer Azure Key Vault dans le portail Azure. Au lieu de cela, vous devez suivre ces instructions Azure PowerShell.
+>Actuellement, vous ne pouvez pas configurer Azure Key Vault dans le portail Azure. Au lieu de cela, vous devez suivre ces instructions Azure PowerShell. Ou, pour obtenir des instructions de l'interface de ligne de commande interplateforme, consultez [ce didacticiel équivalent](key-vault-manage-with-cli.md).
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
@@ -32,7 +34,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../pricing/free-trial) dès aujourd’hui.
+- Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../../pricing/free-trial) dès aujourd’hui.
 - Azure PowerShell, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 - Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
@@ -117,7 +119,7 @@ Tapez ensuite la commande suivante pour importer la clé à partir du fichier PF
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Vous pouvez maintenant référencer cette clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Par exemple : **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 
+Vous pouvez maintenant référencer cette clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** pour toujours obtenir la version actuelle, utilisez **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
 Pour afficher l’URI de cette clé, tapez :
 
@@ -131,7 +133,7 @@ Tapez ensuite la commande suivante :
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Par exemple : **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword** pour toujours obtenir la version actuelle, utilisez **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** pour obtenir cette version spécifique.
 
 Pour afficher l’URI de ce secret, tapez :
 
@@ -188,7 +190,7 @@ Par exemple, si le nom de votre coffre est ContosoKeyVault, que l’application 
 
 ## <a id="HSM"></a>Si vous souhaitez utiliser un module de sécurité matériel (HSM) ##
 
-Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
+Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
 
 Pour créer les clés protégées par HSM, vous devez avoir un [abonnement au coffre qui prend en charge les clés protégées par HSM](../../../pricing/free-trial).
 
@@ -239,11 +241,11 @@ Voici d’autres commandes qui peuvent être utiles pour la gestion d’Azure Ke
 
 ## <a id="next"></a>Étapes suivantes ##
 
-Pour suivre un didacticiel sur l’utilisation d’Azure Key Vault dans une application web, consultez la rubrique [Utilisation d’Azure Key Vault à partir d’une application web](key-vault-use-from-web-application.md).
+Pour suivre un didacticiel sur l’utilisation d’Azure Key Vault dans une application web, consultez la page [Utilisation d’Azure Key Vault à partir d’une application web](key-vault-use-from-web-application.md).
 
 Pour obtenir la liste des applets de commande Windows PowerShell pour Azure Key Vault, consultez la page [Applets de commande Azure Key Vault](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Pour les références de programmation, consultez la page [Coffre de clés](https://msdn.microsoft.com/library/azure/dn903625.aspx) dans la bibliothèque de documentation Microsoft Azure sur MSDN.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@ Avant de commencer, assurez-vous qu’Azure PowerShell est prêt à l’emploi.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Présentation des groupes et des modèles de ressources Azure
+## Présentation des groupes de ressources et des modèles Azure Resource Manager
 
 La plupart des applications déployées et s’exécutant dans Microsoft Azure sont basées sur une combinaison de différents types de ressources cloud (au moins une machine virtuelle et un compte de stockage, une base de données SQL ou un réseau virtuel). Les modèles Microsoft Azure Resource Manager permettent de déployer et de gérer ces différentes ressources en même temps à l’aide d’une description JSON des ressources et des paramètres de configuration et de déploiement associés.
 
@@ -416,7 +417,7 @@ Voici un exemple :
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 
-Le type d'information suivant s'affiche :
+Le type d’information suivant s’affiche :
 
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
@@ -1126,4 +1127,4 @@ Les informations suivantes s’affichent :
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

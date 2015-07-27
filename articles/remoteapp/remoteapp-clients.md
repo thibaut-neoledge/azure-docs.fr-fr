@@ -1,9 +1,7 @@
-
 <properties
     pageTitle="Accès à vos applications"
-    description="Découvrez quels clients sont pris en charge pour RemoteApp et comment accéder à vos applications."
+    description="Découvrez quels clients sont pris en charge pour Azure RemoteApp et comment accéder à vos applications."
     services="remoteapp"
-    solutions="" documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,12 +11,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2015"
+    ms.date="06/30/2015"
     ms.author="elizapo" />
 
 
 
-# Accès à vos applications
+# Accès à vos applications dans Azure RemoteApp
 
 L'un des intérêts de RemoteApp repose sur le fait que vous pouvez accéder à des applications publiées sur votre ordinateur à partir de l'un de vos appareils. Mieux encore, vous pouvez commencer à travailler sur un appareil, puis passer sur un autre et reprendre exactement là où vous vous étiez arrêté. Pour commencer, vous devez télécharger le client adapté à votre appareil et vous connecter au service.
 
@@ -205,5 +203,6 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 8. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
 
 ![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="06/29/2015" 
 	ms.author="josephd"/>
 
 # Instructions d’implémentation des services d’infrastructure Azure
@@ -22,7 +23,7 @@ Azure est une excellente plateforme d’implémentation de configurations de dé
 
 Ce guide identifie les nombreux domaines pour lesquels la planification est un élément essentiel au bon fonctionnement d’une charge de travail informatique dans Azure. Par ailleurs, il indique un ordre pour la création des ressources nécessaires. Même si une certaine flexibilité est possible, Microsoft recommande d’appliquer l’ordre indiqué dans cet article à la planification et la prise de décision.
 
-Cet article est une adaptation du contenu du billet de blog [Instructions pour l’implémentation d’Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa (responsable du développement d’applications chez Microsoft), Hugo Salcedo (responsable du développement d’applications chez Microsoft) et Greg Hinkel (ancien responsable du développement d’applications chez Microsoft) pour leur documentation d’origine.
+Cet article est une adaptation du contenu du billet de blog [Instructions pour l’implémentation d’Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
 
 > [AZURE.NOTE]Les groupes d’affinités ont été déconseillés et leur utilisation n’est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d'affinités](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
@@ -43,10 +44,10 @@ Par conséquent, il est utile d'identifier les types de ressources nécessitant 
 - au début du nom (préfixe)
 - à la fin du nom (suffixe)
 
-Voici deux exemples de noms possibles pour un service cloud hébergeant un moteur de calcul :
+Voici deux exemples de noms possibles pour un groupe de ressources hébergeant un moteur de calcul :
 
-- Svc-CalculationEngine (préfixe)
-- CalculationEngine-Svc (suffixe)
+- Rg-CalculationEngine (préfixe)
+- CalculationEngine-Rg (suffixe)
 
 Les affixes peuvent faire référence à différents aspects des ressources spécifiques. Le tableau suivant présente des exemples généralement utilisés.
 
@@ -54,7 +55,7 @@ Aspect | Exemples | Remarques
 --- | --- | ---
 Environnement | dev, stg, prod | En fonction de l'objectif et du nom de chaque environnement.
 Emplacement | usw (West US), use (East US 2) | En fonction de la région du centre de données et de l'organisation.
-Composant, service ou produit Azure | Svc pour service cloud, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée.
+Composant, service ou produit Azure | Rg pour groupe de ressources, Svc pour service cloud, VNet pour réseau virtuel | En fonction du produit auquel la ressource est associée.
 Rôle | sql, ora, sp, iis | En fonction du rôle de la machine virtuelle.
 Instance | 01, 02, 03, etc. | Pour les ressources possédant plusieurs instances. Par exemple, des serveurs Web à charge équilibrée dans un service cloud.
 		
@@ -73,6 +74,7 @@ Vous devez définir chaque type de ressource dans la convention d'affectation de
 - Réseaux virtuels
 - Sous-réseaux
 - Groupes à haute disponibilité
+- Groupes de ressources
 - Services cloud
 - Machines virtuelles
 - Points de terminaison
@@ -83,7 +85,7 @@ Les noms doivent être aussi descriptifs que possible, afin que le nom puisse fo
 
 ### Noms d'ordinateur
 
-Lorsque les administrateurs créent une machine virtuelle, ils doivent spécifier un nom de machine virtuelle dans Microsoft Azure. Microsoft Azure utilise ensuite le nom de la machine virtuelle comme nom de ressource de la machine virtuelle Azure. Azure utilise le même nom comme nom d'ordinateur pour le système d'exploitation installé sur la machine virtuelle. Toutefois, ces noms peuvent ne pas toujours être identiques.
+Lorsque les administrateurs créent une machine virtuelle, ils doivent spécifier un nom de machine virtuelle de 15 caractères maximum dans Microsoft Azure. Microsoft Azure utilise ensuite le nom de la machine virtuelle comme nom de ressource de la machine virtuelle Azure. Azure utilise le même nom comme nom d'ordinateur pour le système d'exploitation installé sur la machine virtuelle. Toutefois, ces noms peuvent ne pas toujours être identiques.
 
 Si une machine virtuelle est créée à partir d’un fichier .VHD qui contient déjà un système d’exploitation, le nom de la machine virtuelle dans Microsoft Azure peut différer du nom de l’ordinateur du système d’exploitation de la machine virtuelle. Dans ce cas, la gestion de la machine virtuelle devient plus difficile. C’est pourquoi nous le déconseillons. Assurez-vous que le nom de ressource de la machine virtuelle Azure est toujours le même que le nom d'ordinateur attribué au système d'exploitation de cette machine virtuelle.
 
@@ -161,7 +163,7 @@ Les comptes de stockage sont liés à des objectifs d'extensibilité. Pour vous 
 
 Azure crée des machines virtuelles avec un disque de système d'exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d'exploitation et les disques de données sont des objets blob Azure, tandis que le disque temporaire est sauvegardé à l'aide d'un stockage local sur le nœud comprenant l'emplacement de la machine. Le disque temporaire est alors inapproprié pour les données qui doivent être conservées au cours d’un recyclage de système, car la machine peut être migrée en mode silencieux d’un nœud à l’autre, ce qui implique la perte de toutes les données de ce disque. Ne stockez rien sur le disque temporaire.
 
-Les disques de système d'exploitation et les disques de données ont une taille maximale de 1 023 Go, étant donné que la taille maximale d'un objet blob est de 1 024 Go et qu'il doit contenir les métadonnées (pied de page) du fichier VHD (un Go est constitué de 10 243 octets). Vous pouvez mettre en place un entrelacement de disques dans Windows pour dépasser cette limite.
+Les disques de système d’exploitation et les disques de données ont une taille maximale de 1 023 Go, étant donné que la taille maximale d’un objet blob est de 1 024 Go et qu’il doit contenir les métadonnées (pied de page) du fichier de VHD (un Go compte 1 024<sup>3</sup> octets). Vous pouvez mettre en place un entrelacement de disques dans Windows pour dépasser cette limite.
 
 ### Disques agrégés par bandes
 Outre la possibilité de créer des disques d'une taille supérieure à 1 023 Go, l'entrelacement de disques améliore les performances dans de nombreux cas en permettant à plusieurs objets blob de sauvegarder le stockage d'un seul volume. Les E/S nécessaires pour écrire et lire des données à partir d'un seul disque sont alors parallélisées.
@@ -204,15 +206,19 @@ Tâche :
 
 ## 4. Services cloud
 
-Les services cloud sont un bloc de construction fondamental d'Azure, à la fois pour les services PaaS et IaaS. Pour le PaaS, les services cloud représentent une association de rôles dont les instances peuvent communiquer entre elles. Les services cloud sont associés à une adresse IP virtuelle publique (VIP) et à un équilibrage de charge, qui prend le trafic entrant provenant d'Internet et équilibre la charge pour les rôles configurés de manière recevoir le trafic.
+Les services cloud sont un bloc de construction fondamental de la gestion des services Azure, à la fois pour les services PaaS et IaaS. Pour le PaaS, les services cloud représentent une association de rôles dont les instances peuvent communiquer entre elles. Les services cloud sont associés à une adresse IP virtuelle publique (VIP) et à un équilibrage de charge, qui prend le trafic entrant provenant d'Internet et équilibre la charge pour les rôles configurés de manière recevoir le trafic.
 
 Dans le cas de l'IaaS, les services cloud offrent des fonctionnalités similaires, bien que, dans la plupart des cas, la fonctionnalité d'équilibrage de charge soit utilisée pour transférer le trafic vers des ports TCP ou UDP spécifiques à partir d'Internet vers les nombreuses machines virtuelles au sein de ce service cloud.
+
+> [AZURE.NOTE]Les services cloud n’existent pas dans Azure Resource Manager. Pour découvrir les avantages d’Azure Resource Manager, consultez la page [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Les noms de service cloud sont particulièrement importants dans l'IaaS, car Azure les utilise en tant que partie intégrante de la convention d'affectation de noms pour les disques par défaut. Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d'union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.
 
 Microsoft Azure expose les noms de service cloud, dans la mesure où ils sont associés à l'adresse IP virtuelle dans le domaine « cloudapp.net ». Pour une expérience utilisateur de l'application optimale, un surnom doit être configuré pour remplacer le nom de service cloud complet. Pour cela, utilisez un enregistrement CNAME dans votre DNS public qui mappe le nom DNS public de votre ressource (par exemple, www.contoso.com) sur le nom DNS du service cloud qui héberge la ressource (par exemple, le service cloud qui héberge les serveurs web pour www.contoso.com).
 
 En outre, la convention d’affectation de noms utilisée pour les services cloud devra peut-être tolérer des exceptions, car les noms de service cloud doivent être uniques parmi tous les autres services cloud Microsoft Azure, quel que soit le locataire Microsoft Azure.
+
+Limite importante des services cloud à prendre en compte : seule une opération de gestion de machine virtuelle peut être effectuée à la fois pour toutes les machines virtuelles dans le service cloud. Lorsque vous effectuez une opération de gestion de machine virtuelle sur une machine virtuelle dans le service cloud, vous devez attendre qu’elle soit terminée avant de pouvoir en effectuer une nouvelle sur une autre machine virtuelle. Par conséquent, vous ne devez conserver qu’un petit nombre de machines virtuelles dans un service cloud.
 
 Les abonnements Azure peuvent prendre en charge 200 services cloud au maximum.
 
@@ -342,15 +348,14 @@ La conception qui en résulte doit comprendre :
 - un abonnement et un compte Azure ;
 - des comptes de stockage ;
 - un réseau virtuel avec deux sous-réseaux ;
-- un ensemble de services cloud ;
 - des groupes à haute disponibilité pour les groupes de serveurs avec un rôle similaire ;
-- des machines virtuelles.
+- Machines virtuelles
+- un seul groupe de ressources.
 
 Tous les éléments ci-dessus sont conformes aux conventions d'affectation de noms de Contoso :
 
 - Contoso utilise [Charge de travail informatique]-[Emplacement]-[Ressources Azure] comme préfixe. Pour cet exemple, « azfae » (Azure Financial Analysis Engine, moteur d'analyse financière Azure) est le nom de la charge de travail informatique et « use » (East US 2) est l'emplacement, car la plupart des clients initiaux de Contoso sont situés sur la côte est des États-Unis.
 - Les comptes de stockage utilisent contosoazfaeusesa[description]. Notez que contoso a été ajouté au préfixe pour garantir l’unicité et que les noms de compte de stockage ne prennent pas en charge l’utilisation de traits d’union.
-- Les services cloud utilisent contoso-azfae-use-cs-[description]. Notez que contoso a été ajouté au préfixe pour garantir l’unicité.
 - Les réseaux virtuels utilisent AZFAE-USE-VN[numéro].
 - Les groupes à haute disponibilité utilisent azfae-use-as-[rôle].
 - Les noms de machine virtuelle utilisent azfae-use-vm-[nom de machine virtuelle].
@@ -359,17 +364,12 @@ Tous les éléments ci-dessus sont conformes aux conventions d'affectation de no
 
 Contoso utilise son abonnement d'entreprise, nommé Contoso Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
 
-### Comptes de stockage
+### des comptes de stockage ;
 
 Contoso a déterminé que deux comptes de stockage sont nécessaires :
 
 - **contosoazfaeusesawebapp** pour le stockage standard de serveurs Web, de serveurs d'applications et de contrôleurs de domaine avec leurs disques de données supplémentaires ;
 - **contosoazfaeusesasqlclust** pour le stockage premium de serveurs SQL Server en cluster et de leurs disques de données supplémentaires.
-
-Contoso les a créés avec les commandes PowerShell suivantes :
-
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesawebapp" -Location "East US 2"
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesasqlclust" -Location "East US 2" -Type Premium_LRS
 
 ### Un réseau virtuel avec des sous-réseaux
 
@@ -386,18 +386,6 @@ Ils créé un réseau virtuel cloud avec les paramètres suivants à l'aide du p
 - Second sous-réseau :
 	- Nom : BackEnd
 	- Espace d'adressage : 10.0.2.0/24
-
-### Services cloud
-
-Contoso a créé deux services cloud :
-
-- **contoso-azfae-use-cs-frontend** pour les serveurs Web frontaux ;
-- **contoso-azfae-use-cs-backend** pour les serveurs d'applications back-end, les serveurs SQL server en cluster et les contrôleurs de domaine.
-
-Contoso les a créés avec les commandes PowerShell suivantes :
-
-	New-AzureService -Service "contoso-azfae-use-cs-frontend" -Location "East US 2"
-	New-AzureService -Service "contoso-azfae-use-cs-backend" -Location "East US 2"
 
 ### Groupes à haute disponibilité
 
@@ -431,108 +419,12 @@ Voici la configuration obtenue.
 Cette configuration comprend :
 
 - un réseau virtuel cloud avec deux sous-réseaux (FrontEnd et BackEnd) ;
-- deux services cloud ;
 - deux comptes de stockage ;
 - quatre groupes à haute disponibilité, un pour chaque niveau du moteur d'analyse financière ;
 - les machines virtuelles pour les quatre niveaux ;
 - un jeu d'équilibrage de charge externe pour le trafic Web basé sur HTTPS depuis Internet vers les serveurs web ;
 - un jeu d'équilibrage de charge interne pour le trafic Web non crypté depuis les serveurs Web vers les serveurs d'applications.
-
-Ces commandes Azure PowerShell créent les machines virtuelles dans cette configuration pour les comptes de stockage, les services cloud et le réseau virtuel créés précédemment.
-
-	#Specify the storage account for the web and application servers
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesawebapp"
-	
-	#Specify the cloud service name for the web servers
-	$ServiceName="contoso-azfae-use-cs-frontend"
-	
-	#Get the image string for the latest version of the Windows Server 2012 R2 Datacenter image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first web server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web01 -InstanceSize large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web1 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second web server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web2 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the cloud service name for the application, SQL server, and authentication tiers
-	$ServiceName="contoso-azfae-use-cs-backend"
-	
-	#Create the first domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc01 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc02 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create an internal load balancer instance for the application server tier 
-	Add-AzureInternalLoadBalancer -ServiceName $ServiceName -InternalLoadBalancerName "AppTierILB" –SubnetName BackEnd –StaticVNetIPAddress 10.0.2.100
-	
-	#Create the first application server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app01 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureEndpoint -Name App1 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second application server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Add-AzureEndpoint -Name App2 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the premium storage account for the SQL Server cluster
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesasqlclust"
-	
-	#Create the majority node witness server for the SQL Server cluster
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the majority node witness server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sqlmn01 -InstanceSize Medium -ImageName $image -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Change the image string for the latest version of the SQL Server 2014 image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql01 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql02 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
+- un seul groupe de ressources.
 
 ## Ressources supplémentaires
 
@@ -546,6 +438,7 @@ Ces commandes Azure PowerShell créent les machines virtuelles dans cette config
 
 [Diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
+[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

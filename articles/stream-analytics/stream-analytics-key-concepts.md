@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="En savoir plus sur les concepts clés de Stream Analytics | Microsoft Azure" 
 	description="Découvrez les principaux concepts de Stream Analytics : composants d’une tâche Stream Analytics, notamment les entrées et sorties prises en charge, la configuration de la tâche et les mesures associées." 
-	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,9 +29,9 @@ Avec Stream Analytics, vous pouvez :
 - Traiter des données de télémétrie pour effectuer une surveillance et un diagnostic en quasi-temps réel. 
 - Récupérer et archiver des événements en temps réel en vue d'un traitement ultérieur
 
-Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md).
+Pour plus d’informations, consultez [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md).
 
-Une tâche Stream Analytics comprend l’ensemble des éléments suivants : * Une ou plusieurs sources d’entrée * Une requête sur un flux entrant de données * Une cible de sortie.
+Un travail Stream Analytics comprend l’ensemble des éléments suivants : - Une ou plusieurs sources d’entrée - Une requête sur un flux de données entrantes - Une cible de sortie.
 
 
 ## Entrées
@@ -139,10 +138,14 @@ La cible de sortie correspond à l'emplacement d'écriture des résultats du tra
 - Stockage sur les tables Azure : il s'agit d'un magasin de données structurées avec moins de contraintes sur le schéma. Les entités avec un schéma et des types différents peuvent être stockées dans la même table Azure. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace. Pour plus d'informations, consultez [Introduction à Azure Storage](../storage/storage-introduction.md) et [Conception d'une stratégie de partition extensible pour le stockage de tables Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Base de données SQL Azure : cette cible de sortie convient aux données de nature relationnelle ou aux applications qui dépendent de contenus hébergés dans une base de données.
 
+## Unités de diffusion en continu ##
+Pour fournir des performances plus prévisibles aux clients, Azure Stream Analytics utilise des unités de diffusion en continu pour représenter les ressources et la puissance afin d’exécuter un travail. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s. Chaque travail Azure Stream Analytics doit avoir au moins une unité de diffusion en continu, qui correspond à la valeur par défaut de tous les travaux. Pour en savoir plus sur la sélection du nombre approprié d’unités de diffusion en continu pour un travail, consultez [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md).
 
 ## Mise à l'échelle des travaux
 
-Un travail Stream Analytics peut être mis à l’échelle en configurant les unités de diffusion, qui définissent la puissance de traitement des données allouée à une tâche. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s. Chaque abonnement dispose d'un quota de 12 unités de diffusion en continu par région à allouer aux travaux de cette région.
+La métrique Utilisation de % d’unités de diffusion en continu définie ci-dessous, est un indicateur de la nécessité de mise à l’échelle d’un travail Azure Stream Analytics. Une utilisation élevée de % d’unités de diffusion peut provenir d’une grande fenêtre dans une requête, d’événements volumineux dans la plage de tolérance pour les événements d’entrée en désordre ou d’une combinaison des éléments ci-dessus. Le partitionnement de la requête, ou son fractionnement en plusieurs étapes et l’ajout d’unités de diffusion en continu à partir de l’onglet Échelle sont les deux stratégies visant à éviter cette condition.
+
+Vous pouvez observer une utilisation des ressources de référence même sans événements d’entrée, car le système consomme une certaine quantité de ressources. La quantité des ressources consommées par le système peut également varier au fil du temps.
 
 Pour plus d'informations, consultez [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md).
 
@@ -156,9 +159,9 @@ Pour activer la surveillance des travaux, vous devez désigner un compte Azure S
 ### Mesures
 Les mesures suivantes sont disponibles pour surveiller l'utilisation et les performances des travaux Stream Analytics :
 
+- Utilisation de % d’unités de diffusion en continu : indicateur de la capacité relative de traitement des événements pour une ou plusieurs des étapes de la requête. Si cet indicateur atteint 80 % ou plus, il est fort probable que le traitement des événements soit retardé ou arrêté.
 - Erreurs : nombre de messages d'erreur générés par un travail Stream Analytics.
-- Événements d'entrée : quantité de données reçues par la tâche Stream Analytics, en termes de 
-- nombre d'événements.
+- Événements d'entrée : quantité de données reçues par le travail Stream Analytics, en termes de nombre d'événements.
 - Événements de sortie : quantité de données envoyées par le travail Stream Analytics à la cible de sortie, en termes de nombre d'événements.
 - Événements non ordonnés : nombre d'événements reçus dans le désordre qui ont été supprimés ou dont l'horodatage a été réglé, en fonction de la stratégie d'arrivée en désordre.
 - Erreurs de conversion de données : nombre d'erreurs de conversion de données générées par un travail Stream Analytics.
@@ -203,4 +206,4 @@ Maintenant que vous connaissez les concepts clés de Stream Analytics, consulte
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

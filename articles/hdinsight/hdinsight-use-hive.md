@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Découvrez Hive et comment utiliser HiveQL | Microsoft Azure"
-	description="Découvrez Apache Hive et comment l'utiliser avec Hadoop dans HDInsight. Choisissez la façon dont vous souhaitez exécuter votre tâche Hive et utilisez HiveQL pour analyser un exemple de fichier Apache log4j." 
-	keywords="hiveql,what is hive"
+	description="Découvrez Apache Hive et comment l&#39;utiliser avec Hadoop dans HDInsight. Choisissez comment exécuter votre tâche Hive et utilisez HiveQL pour analyser un exemple de fichier Apache log4j."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # Utilisation de Hive et HiveQL avec Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j
@@ -24,7 +23,7 @@
 
 Dans ce didacticiel, apprenez à utiliser Apache Hive dans Hadoop sur HDInsight et choisissez comment exécuter votre tâche Hive. Découvrez également HIveQL et comment analyser un exemple de fichier Apache log4j.
 
-##<a id="why"></a>Qu’est-ce Hive et pourquoi l’utiliser ? 
+##<a id="why"></a>Qu’est-ce Hive et pourquoi l’utiliser ?
 [Apache Hive](http://hive.apache.org/) est un système d'entrepôt de données pour Hadoop qui permet de résumer des données, d’envoyer des requêtes et d'analyser des données à l’aide de HiveQL (un langage de requête similaire à SQL). Hive peut être utilisé pour explorer vos données de manière interactive ou pour créer des tâches de traitement par lots réutilisables.
 
 Hive vous permet de concevoir une structure sur des données largement non structurées. Une fois que vous avez défini la structure, vous pouvez utiliser Hive pour interroger ces données sans connaître Java ou MapReduce. **HiveQL** (le langage de requête Hive) vous permet d'écrire des requêtes avec des instructions semblables à T-SQL.
@@ -73,7 +72,7 @@ Dans l’exemple précédent, les instructions HiveQL effectuent les opérations
 * **CREATE EXTERNAL TABLE** : crée une nouvelle table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à leur emplacement d’origine et dans leur format d’origine.
 * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 * **STORED AS TEXTFILE LOCATION** : indique à Hive l'emplacement des données (le répertoire exemple/données) et précise qu'elles sont stockées sous la forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.
-* **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+* **SELECT** : sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]**. Cette commande renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
 > [AZURE.NOTE]Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, telle qu’un processus de téléchargement de données automatisé, ou par une autre opération MapReduce et vous souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
 >
@@ -109,7 +108,7 @@ Les [documents de conception Hive sur Tez](https://cwiki.apache.org/confluence/d
 
 HDInsight peut exécuter des tâches HiveQL à l’aide de différentes méthodes. Utilisez la table suivante pour choisir la méthode qui vous convient, puis cliquez sur le lien pour obtenir une présentation détaillée.
 
-| **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ... avec ce **système d'exploitation cluster** | ... depuis ce **système d’exploitation client** |
+| **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ... avec ce **système d'exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X ou Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux ou Windows | Linux, Unix, Mac OS X ou Windows |
@@ -163,4 +162,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,7 +1,6 @@
 <properties 
-	pageTitle="Aide-mémoire d'algorithme d'apprentissage automatique | Microsoft Azure" 
-	description="Un aide-mémoire imprimable d'algorithme d'apprentissage automatique vous permet de choisir l'algorithme adapté à votre modèle prédictif dans Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"	
+	pageTitle="Aide-mémoire d&#39;algorithme d&#39;apprentissage automatique | Microsoft Azure" 
+	description="Un aide-mémoire imprimable d&#39;algorithme d&#39;apprentissage automatique vous permet de choisir l&#39;algorithme adapté à votre modèle prédictif dans Azure Machine Learning Studio."
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -90,4 +89,4 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->
