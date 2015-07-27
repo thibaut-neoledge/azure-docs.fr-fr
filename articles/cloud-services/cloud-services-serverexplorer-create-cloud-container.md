@@ -33,4 +33,4 @@ Pour afficher l'**Explorateur de serveurs** dans Visual Studio, choisissez **Aff
 Maintenant que vous disposez d'un conteneur de service cloud, vous pouvez [créer et déployer](cloud-services-how-to-create-deploy.md) un service cloud.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

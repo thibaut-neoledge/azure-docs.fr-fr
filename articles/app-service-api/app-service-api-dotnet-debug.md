@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Déboguer une application API dans Azure App Service
@@ -64,11 +64,11 @@ Les étapes suivantes vous permettent de déboguer votre application API lorsqu
 
 ## Déboguer une application API en local 
 
-Il peut arriver lorsque vous souhaitiez déboguer votre application API en local, par exemple pour éviter des allers-retours potentiellement lents lors du cycle de test/débogage. Les étapes suivantes indiquent comment déboguer votre application API en local, en utilisant l’interface utilisateur Swagger en tant que client de test.
+Il se peut que vous souhaitiez déboguer votre application API en local, par exemple pour éviter des allers-retours potentiellement lents lors du cycle de test/débogage. Les étapes suivantes indiquent comment déboguer votre application API en local, en utilisant l’interface utilisateur Swagger en tant que client de test.
 
 1. Dans Visual Studio, ouvrez le fichier *web.config* du projet d’application API. 
  
-2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](http://portal.azure.com).
+2. Dans votre navigateur, accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 
 3. Cliquez sur le bouton **Parcourir** dans la barre latérale et sélectionnez **API Apps**.
 
@@ -109,11 +109,26 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 
 	![Définition de points d’arrêt](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Cliquez sur &lt;F5> pour démarrer une session de débogage Visual Studio. Lorsque le navigateur charge la page, vous devez voir apparaître un message d’erreur. Dans la barre d’adresse du navigateur, ajoutez */swagger* à la fin de l’URL et appuyez sur &lt;Entrée>.
+11. Appuyez sur F5 pour démarrer une session de débogage Visual Studio.
+ 
+13.  Si le niveau d’accès de l’application API est défini sur **Public (anonyme)**, vous pouvez utiliser la page de l’interface utilisateur Swagger à tester.
 
-12. Une fois l’interface utilisateur Swagger chargée, cliquez sur le terme **Get** pour afficher le schéma de l’objet Contact, puis cliquez sur **Faire un essai**. Visual Studio arrête l’exécution du programme au niveau des points d’arrêt que vous avez définis précédemment et vous pouvez déboguer la logique de votre contrôleur.
+	* Lorsque le navigateur charge la page, vous voyez un message d’erreur. Dans la barre d’adresse du navigateur, ajoutez */swagger* à la fin de l’URL et appuyez sur Entrée.
 
-	![Faites un essai](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	* Une fois l’interface utilisateur Swagger chargée, cliquez sur le terme **Get** pour afficher le schéma de l’objet Contact, puis cliquez sur **Faire un essai**.
+
+		Visual Studio arrête l’exécution du programme au niveau des points d’arrêt que vous avez définis précédemment et vous pouvez déboguer la logique de votre contrôleur.
+
+		![Faites un essai](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+
+14.	Si le niveau d’accès de l’application API a la valeur **Public (authentifié)**, vous avez besoin de vous authentifier et d’utiliser un outil de navigation en suivant les procédures indiquées dans [Protéger une application API](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request) pour une demande POST, comme suit :
+
+	* Accédez à l’URL de connexion à la passerelle et entrez les informations d’identification pour vous connecter.
+	* Récupérez la valeur du jeton Zumo à partir du cookie x-zumo-auth.
+	* Ajoutez un en-tête x-zumo-auth à votre demande et définissez sa valeur par rapport à la valeur du cookie x-zumo-auth.
+	* Envoyez la demande.
+
+	**Remarque :** en mode local, Azure ne peut pas contrôler l’accès à l’application API pour vous assurer que seuls les utilisateurs authentifiés peuvent exécuter ses méthodes. Sur Azure, tout le trafic destiné à l’application API est acheminé via la passerelle, et la passerelle ne transmet pas les demandes non authentifiées. Il n’y a pas de redirection en mode local, ce qui signifie que les demandes non authentifiées peuvent accéder à l’application API. L’importance de l’authentification telle qu’elle est décrite ci-dessus vient du fait que vous pouvez exécuter correctement le code lié à l’authentification dans l’application API, comme le code qui récupère des informations sur l’utilisateur connecté. Pour plus d’informations sur la manière dont la passerelle gère l’authentification pour les applications API, consultez la page [Authentification pour les applications API et les applications mobiles](../app-service/app-service-authentication-overview.md#azure-app-service-gateway).
 
 ## Étapes suivantes
 
@@ -121,7 +136,7 @@ Le débogage distant pour les applications API vous permet de mieux voir l'exéc
 
 Les applications API App Service sont des applications web App Service qui présentent des fonctionnalités supplémentaires pour l’hébergement des services web. Vous pouvez donc utiliser les mêmes outils de débogage et de résolution des problèmes pour les applications API que ceux que vous utilisez pour les applications web. Pour plus d’informations, consultez [Dépanner une application web dans Azure App Service à l’aide de Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-L’application API que vous avez créée dans cette série est disponible publiquement pour tous les appelants. Pour plus d’informations sur la façon de protéger l’application API afin que seuls les utilisateurs authentifiés puissent l’appeler, consultez la page [Protéger une application API : ajouter une authentification de fournisseur de réseau social ou Azure Active Directory](app-service-api-dotnet-add-authentication.md).
+L’application API que vous avez créée dans cette série est disponible publiquement pour tous les appelants. Pour en savoir plus sur la protection des applications API de manière à ce que seuls les utilisateurs authentifiés puissent les appeler, consultez la page [Authentification pour les applications API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

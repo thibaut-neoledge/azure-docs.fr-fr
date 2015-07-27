@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,24 +12,54 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Présentation d’Application Insights
 
-Visual Studio Application Insights vous permet de suivre les performances et l’utilisation de votre site Web en ligne ou d’une application Smart Device.
+Application Insights est un service d'analyse extensible qui vous permet de comprendre les performances et l'utilisation de votre application en direct. Il est conçu pour les développeurs, pour vous aider à améliorer en permanence les performances et la convivialité de votre application.
 
+Il fonctionne avec les applications web et les applications autonomes sur un large éventail de plateformes : .NET ou J2EE, hébergées sur site ou dans le cloud ; des applications pour appareil sous Windows, iOS, Android, OSX et autres plateformes.
+
+Il est destiné à l'équipe de développement. Avec lui, vous pouvez :
+
+* [Analyser les modèles d'utilisation][knowUsers] pour mieux comprendre vos utilisateurs et améliorer sans cesse votre application. 
+ * Nombre de pages consultées, les utilisateurs nouveaux et qui reviennent, la géolocalisation, les plateformes ainsi que d’autres analyses d’utilisation principales
+ * Suivre les chemins d'utilisation pour évaluer la réussite de chaque fonctionnalité.
 * [Détectez, triez et diagnostiquez][detect] les problèmes de performances et corrigez-les avant que la plupart de vos utilisateurs ne s’en rende compte.
  *  Alertes sur les changements de performances ou les incidents.
  *  Métriques permettant de diagnostiquer des problèmes de performances, comme les temps de réponse, l’utilisation du processeur et le suivi des dépendances.
  *  Tests de disponibilité pour les applications web.
  *  Alertes et rapports d’incidents et d’exceptions
  *  Puissante recherche des journaux de diagnostic (y compris le suivi des journaux à partir de vos frameworks de journalisation préférés).
-* [Améliorez en permanence votre application][knowUsers] en comprenant comment les utilisateurs s’en servent. 
- * Nombre d’affichages de pages, utilisateurs nouveaux et qui reviennent, ainsi que d’autres analyses d’utilisation principales
- * Effectuez le suivi de vos propres événements pour évaluer les tendances d’utilisation et le succès de chaque fonctionnalité.
 
-## Comment cela fonctionne-t-il ?
+Le Kit de développement logiciel (SDK) de chaque plateforme inclut une gamme de modules qui surveillent d’emblée l'application. En outre, vous pouvez coder vos propres mesures de télémétrie pour obtenir des analyses plus détaillées et personnalisées.
+
+Les données de télémétrie recueillies à partir de votre application sont stockées et analysées dans le portail Azure, où des vues intuitives et de puissants outils accélèrent le diagnostic et l’analyse.
+
+![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
+
+
+## Plateformes et langages
+
+Il existe des Kits de développement logiciel pour un nombre croissant de plateformes. Actuellement, la liste comprend :
+
+ * les [serveurs ASP.NET][greenbrown] sur Azure ou votre serveur IIS
+ * [Azure Cloud Services](app-insights-cloudservices.md)
+ * les [serveurs J2EE][java]
+ * [les pages Web][client] : HTML + JavaScript
+ * [Les applications universelles Windows Phone, Windows Store, Windows 10 et une intégration directe avec le portail des développeurs Windows 10][windows]
+ * [Ordinateurs Windows][desktop]
+ * [iOS][ios]
+ * [Android][android]
+ * [Autres plateformes][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+
+Application Insights peut également obtenir les mesures de télémétrie à partir des applications web ASP.NET existantes sur IIS, sans les recréer.
+
+Si votre application comporte un client, un serveur et d’autres composants, vous pouvez tous les instrumenter. Les données seront intégrées au portail Application Insights pour vous permettre, par exemple, d’associer des événements au niveau du client à des événements au niveau du serveur.
+
+
+## Fonctionnement
 
 Vous installez un petit Kit de développement logiciel (SDK) dans votre application et configurez un compte dans le portail Application Insights. Le Kit de développement logiciel (SDK) surveille votre application et envoie les données de télémétrie au portail. Le portail vous montre des graphiques statistiques et fournit de puissants outils de recherche pour vous aider à diagnostiquer les problèmes.
 
@@ -42,54 +72,52 @@ Pour les serveurs ASP.NET et les applications web Azure, vous pouvez également 
 * surveiller une application web sans la régénérer ou la réinstaller.
 * suivre les appels aux modules dépendants.
 
-## Avec quels types d’applications fonctionne-t-il ?
+### Quelle est la surcharge ?
 
-Il existe actuellement des Kits de développement logiciel (SDK) pour :
-
-* les applications web
- * [ASP.NET][greenbrown] sur Azure ou votre serveur IIS
- * [Java][java] sur JRE 
- * [les pages Web][client] : HTML + JavaScript
-* les applications Smart Device
- * [Windows][windows]
- * [iOS][ios]
- * [Android][android]
- * Cordova
- * [autres plateformes][platforms]
+L'impact sur les performances est très faible. Le suivi des appels n’entraîne aucun blocage, et les appels sont regroupés par lots et envoyés dans un thread séparé.
 
 
-## Comment l’utiliser ?
+## Pour commencer
 
-* [Détection, tri et diagnostic des problèmes][detect]
-* [Analyse de l’utilisation de votre application][knowUsers]
+1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L’inscription est gratuite et vous pouvez choisir l'outil le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
+
+2. Connexion au [portail Azure en version préliminaire](http://portal.azure.com)
+3. Créez une ressource Application Insights. C’est ici que vous pouvez afficher les données de votre application.
+
+    ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
+
+    Choisissez votre type d’application.
+
+4. Ouvrez votre nouvelle ressource, puis le guide de démarrage rapide.
+    
+    ![Parcourir,](./media/app-insights-overview/quickstart.png)
+
+    Cette rubrique explique comment installer le Kit de développement logiciel (SDK) de votre application. S’il s’agit d’une application web, vous découvrirez également comment ajouter le SDK à des pages web et comment configurer des tests de disponibilité.
 
 
-## De quoi ai-je besoin pour l’utiliser ?
-
-* Un abonnement à Microsoft Azure. Application Insights est un des nombreux services cloud d’Azure, qui incluent également des sites web, des bases de données, des machines virtuelles et plus encore. (Mais vous pouvez utiliser Application Insights pour surveiller n’importe quelle application, votre application n’a pas à s’exécuter dans Azure.) 
-
- * Votre organisation peut avoir un compte.
+Pour plus de détails, choisissez votre type d'application sous Prise en main dans la barre de navigation située à gauche de cette page.
 
 
-## Comment faire pour démarrer ?
+## Support et commentaires
 
-Choisissez votre plateforme à partir du menu Démarrer sur la gauche.
+* Questions et problèmes :
+ * [Résolution des problèmes][qna]
+ * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* Bogues :
+ * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* Suggestions
+ * [User Voice](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
-Dans tous les cas, la procédure de base est la suivante :
 
-1. Créez une ressource Application Insights dans [Azure][portal] (et obtenez sa clé d’instrumentation).
-2. Instrumentez votre application avec le Kit de développement logiciel (SDK) approprié (et configurez-la avec la clé d’instrumentation).
-3. Exécutez votre application en mode débogage ou en direct.
-4. Affichez les résultats dans votre ressource dans [Azure][portal].
+## Vidéos
 
-Dans certains cas, un plug-in est disponible pour votre IDE (par exemple, Visual Studio ou Eclipse). Il effectue les deux premières étapes pour vous. Toutefois, vous pouvez toujours effectuer la procédure manuellement.
 
-Si votre application est un site Web ou un service, il existe certains ajouts facultatifs et des variations de la procédure de base :
+> [AZURE.VIDEO 218]
 
-* Ajoutez un kit de développement logiciel (SDK) à l’application côté serveur et à l’[appareil][windows] client ou à la [page web][client]. Les données de télémétrie sont fusionnées dans le portail de sorte que vous pouvez mettre en corrélation les événements aux deux extrémités.
-* Configurez des tests web pour surveiller la disponibilité de votre site à partir de points dans le monde entier.
-* Instrumentez une application côté serveur déjà en ligne, sans la régénérer ou la redéployer. Cette option est disponible pour les [serveurs IIS][redfield] et les [applications web Azure][azure].
-* Analysez les appels de dépendance que votre application effectue vers d’autres composants comme des bases de données ou via les API REST. Disponible pour les [serveurs IIS][redfield] et les [applications web Azure][azure].
+> [AZURE.VIDEO usage-monitoring-application-insights]
+
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -97,6 +125,7 @@ Si votre application est un site Web ou un service, il existe certains ajouts fa
 [android]: app-insights-android.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
+[desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [ios]: app-insights-ios.md
@@ -104,9 +133,10 @@ Si votre application est un site Web ou un service, il existe certains ajouts fa
 [knowUsers]: app-insights-overview-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

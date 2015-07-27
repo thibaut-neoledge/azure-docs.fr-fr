@@ -42,12 +42,21 @@ Ensuite, ouvrez une fenêtre Commande, puis naviguez jusqu'au répertoire d'inst
 
 > [AZURE.NOTE]À partir de la version AzCopy 3.0.0, la syntaxe de la ligne de commande AzCopy nécessite que chaque paramètre soit spécifié avec son nom. *Exemple :*, `/ParameterName:ParameterValue`.
 
+## Écrire votre première commande AzCopy
+
+**Chargement d'un fichier à partir du système de fichiers vers le stockage d'objets blob :**
+	
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
+
+Notez que lorsque vous copiez un fichier unique, vous devez spécifier l’option /Pattern avec le nom du fichier. Vous trouverez plusieurs exemples dans la section suivante de cet article.
+
+## Introduction aux paramètres
+
 Les paramètres AzCopy sont décrits dans le tableau ci-dessous. Vous pouvez également taper une des commandes suivantes dans la ligne de commande pour obtenir de l'aide sur l'utilisation d'AzCopy :
 
 - Pour l'aide détaillée sur la ligne de commande AzCopy : `AzCopy /?`
 - Pour l'aide détaillée sur un paramètre AzCopy : `AzCopy /?:SourceKey`
 - Pour des exemples de ligne de commande : `AzCopy /?:Samples` 
-
 
 <table>
   <tr>
@@ -810,7 +819,7 @@ AzCopy crée un fichier de données JSON dans le dossier local ou dans le conte
 
 Le fichier de données JSON créé respecte le format de charge utile pour les métadonnées minimales. Pour des informations sur le format de charge utile, consultez la page [Format de charge utile pour les opérations du service de Table](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Notez que lorsque vous exportez des entités de table de stockage vers Storage Blob, AzCopy exportera les entités de table pour les fichiers de données temporaires locaux en premier lieu, puis les téléchargera vers l'objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin d'accès par défaut « <code>%LocalAppData%\Microsoft\Azure\AzCopy</code> », vous pouvez spécifier l’option /Z:[dossier de fichier journal] pour modifier l’emplacement de dossier du fichier et ainsi modifier l'emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l'option /SplitSize, bien que le fichier de données temporaire dans le disque local est supprimé instantanément. Une fois qu'il a été téléchargé vers l'objet Blob, assurez-vous que vous disposez de suffisamment d'espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés,
+Notez que lorsque vous exportez des entités de table de stockage vers Storage Blob, AzCopy exportera les entités de table pour les fichiers de données temporaires locaux en premier lieu, puis les téléchargera vers l'objet blob. Ces fichiers de données temporaires sont placés dans le dossier du fichier journal avec le chemin d'accès par défaut « <code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code> », vous pouvez spécifier l’option /Z:[dossier de fichier journal] pour modifier l’emplacement de dossier du fichier et ainsi modifier l'emplacement des fichiers de données temporaires. La taille des fichiers de données temporaires est définie par la taille de vos entités de table et la taille spécifiée avec l'option /SplitSize, bien que le fichier de données temporaire dans le disque local est supprimé instantanément. Une fois qu'il a été téléchargé vers l'objet Blob, assurez-vous que vous disposez de suffisamment d'espace sur le disque local pour stocker ces fichiers de données temporaires avant qu’ils soient supprimés,
 
 ### Fractionnement des fichiers exportés
 
@@ -902,4 +911,4 @@ Pour plus d'informations sur Azure Storage et AzCopy, consultez les ressources s
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

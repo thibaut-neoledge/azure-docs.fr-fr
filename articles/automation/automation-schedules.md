@@ -66,4 +66,4 @@ L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/lib
 - [Planification d'un Runbook dans Azure Automation](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

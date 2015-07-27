@@ -17,25 +17,33 @@ Vous allez configurer un blog WordPress avec un modèle par défaut. L’illustr
 
 1. Connectez-vous au portail Azure.
 
-2. Pour ouvrir Azure Marketplace, cliquez sur l’icône **Marketplace** ou sur l’icône **Nouveau** en bas à gauche du tableau de bord, sélectionnez **Web et mobilité**, puis **Azure Marketplace** en bas.
+2. Ouvrez Azure Marketplace en cliquant sur l’icône **Marketplace** :
+
+    ![Icône Marketplace][marketplace]
+
+    Ou en cliquant sur l’icône **Nouveau** dans l’angle supérieur droit du tableau de bord, puis en sélectionnant**Marketplace** au bas de la liste.
 	
-	![Création][5]
+    ![Création][5]
 	
-3. Sélectionnez **Applications Web**. Recherchez **WordPress** et cliquez sur l’icône **WordPress**.
+3. Sélectionnez **Web + mobile**. Recherchez **WordPress** et cliquez sur l’icône **WordPress**.
 
 	![WordPress dans la liste][7]
 	
 5. Après avoir lu la description de l’application WordPress, sélectionnez **Créer**.
 
-6. Cliquez sur **APP WEB** et indiquez les valeurs requises pour configurer votre application web.
+6. Cliquez sur **Application web** et indiquez les valeurs requises pour configurer votre application web.
 	
-   ![Configurer une application][8]
+    ![Configurer une application][8]
 
-7. Cliquez sur **BASE DE DONNÉES** et indiquez les valeurs requises pour configurer votre application MySQL. 
+7. Cliquez sur **Base de données** et indiquez les valeurs requises pour configurer votre application MySQL.
 
-   ![Configurer la base de données][database]
+    ![Configurer la base de données][database]
 
-8. Si nécessaire, cliquez sur **ABONNEMENT** et spécifiez l’abonnement à utiliser. 
+8. Fournissez un nom pour le nouveau groupe de ressources.
+
+    ![Définir un groupe de ressources][groupname]
+
+8. Si nécessaire, cliquez sur **ABONNEMENT** et spécifiez l’abonnement à utiliser.
 
 7. Lorsque vous avez terminé la définition de l’application web, cliquez sur **Créer** et attendez que l’application web soit créée.
 
@@ -47,11 +55,11 @@ Vous allez configurer un blog WordPress avec un modèle par défaut. L’illustr
 	
 1. Cliquez sur votre nouvelle application web pour afficher les détails la concernant.
 
-   ![lancer le tableau de bord][10]
+    ![lancer le tableau de bord][10]
 
 2. Dans la page **Essentials**, cliquez sur **Parcourir** ou sur le lien situé sous **URL** pour ouvrir la page d’accueil de l’application web.
 
-   ![URL du site][browse]
+    ![URL du site][browse]
 
 3. Si vous n’avez pas installé WordPress, entrez les informations de configuration appropriées requises par ce logiciel, puis cliquez sur **Installer WordPress** pour finaliser la configuration et ouvrir la page de connexion à l’application web.
 
@@ -66,16 +74,18 @@ Vous allez configurer un blog WordPress avec un modèle par défaut. L’illustr
 
 
 
-[5]: ./media/website-from-gallery/startmarketplace.png
+[5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/selectwordpress.png
-[8]: ./media/website-from-gallery/configureweb.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/seewebapp.png
+[10]: ./media/website-from-gallery/select-web.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 [webapps]: ./media/website-from-gallery/selectwebapps.png
-[database]: ./media/website-from-gallery/configuredb.png
-[resourcegroup]: ./media/website-from-gallery/showgroup.png
-[browse]: ./media/website-from-gallery/browse.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

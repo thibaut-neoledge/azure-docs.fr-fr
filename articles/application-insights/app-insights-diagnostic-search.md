@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Utilisation de Recherche de diagnostic dans Application Insights
@@ -81,6 +81,12 @@ Dans cet exemple, il est clair que la demande `Reports/Employees` provoque la ma
 
 En outre, si vous voulez également voir les autres événements qui se sont produits pendant ce temps, vous pouvez vérifier **les événements dont les propriétés ne sont pas définies**.
 
+## Supprimer le robot et tester le trafic web
+
+Utilisez le filtre de **trafic réel ou synthétique** et activez l'option **réel**.
+
+Vous pouvez également filtrer par **source du trafic synthétique**.
+
 ## Inspecter les occurrences individuelles
 
 Ajoutez le nom de cette demande au jeu de filtres et vous pourrez inspecter chaque occurrence de cet événement.
@@ -89,7 +95,7 @@ Ajoutez le nom de cette demande au jeu de filtres et vous pourrez inspecter chaq
 
 Pour les événements des demandes, les détails indiquent les exceptions qui se sont produites lors du traitement de la demande.
 
-Cliquez sur une exception pour en afficher les détails.
+Cliquez sur une exception pour en afficher les détails, y compris l’arborescence des appels de procédure.
 
 ![Cliquez sur une exception](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -192,4 +198,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

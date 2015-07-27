@@ -2,4 +2,4 @@ Les limites et les tailles des solutions de cache Redis Azure varient en fonc
 
 Pour plus d’informations sur les limites de configuration du cache Redis Azure, consultez la section [Configuration du serveur Redis par défaut](redis-cache/cache-configure.md#default-redis-server-configuration).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

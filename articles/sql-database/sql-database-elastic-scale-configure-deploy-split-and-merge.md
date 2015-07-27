@@ -1,9 +1,8 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques
@@ -23,19 +22,19 @@
 2. Ouvrez une invite de commandes et accédez au répertoire où vous avez téléchargé nuget.exe.
 3. Télécharger le dernier package de fractionnement/fusion dans le répertoire actif à l’aide de la commande ci-dessous : `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans le répertoire actif. Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les .dll clients requis) dans le sous-répertoire **content\splitmerge\powershell**.
+Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans le répertoire actif. Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\\splitmerge\\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les .dll clients requis) dans le sous-répertoire **content\\splitmerge\\powershell**.
 
 ## Composants requis
 
-1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure en version préliminaire](https://ms.portal.azure.com). Créez une **base de données SQL**. Indiquez le nom de la base de données et créez un utilisateur et un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
+1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://ms.portal.azure.com). Créez une **base de données SQL**. Indiquez le nom de la base de données et créez un utilisateur et un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 
-2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans la [version préliminaire du portail](https://ms.portal.azure.com), dans **Paramètres du pare-feu**, assurez-vous que le paramètre **Autoriser l’accès aux Services Azure** est défini sur **Activé**. Cliquez sur l’icône « Enregistrer ».
+2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, assurez-vous que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé**. Cliquez sur l’icône « Enregistrer ».
 
     ![Services autorisés][1]
 
-3. Créez un compte Azure Storage qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au [portail de gestion Azure](https://manage.windowsazure.com). En bas à gauche, cliquez sur **Nouveau**, **Services de données**, **Stockage**, puis sur **Création rapide**.
+3. Créez un compte Azure Storage qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure en version préliminaire. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Données + stockage** et **Stockage**.
 
-4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion. Accédez au [portail de gestion Azure](https://manage.windowsazure.com). En bas à gauche, cliquez sur **Nouveau**, puis sur **Calcul**, **Service cloud** et **Création rapide**.
+4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion. Accédez au portail Azure en version préliminaire. Dans la barre à gauche, cliquez successivement sur **Nouveau**, **Compute**, **Service cloud** et **Créer**.
 
 
 ## Configuration de votre service de fractionnement/fusion
@@ -54,13 +53,13 @@ Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans 
 5.    Pour le rôle **SplitMergeWorker**, entrez une chaîne de connexion valide sur le stockage Azure pour le paramètre **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
 ### Configuration de la sécurité
-Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, reportez-vous à la [configuration de la sécurité de la fusion et du fractionnement](../sql-database-elastic-scale-configure-security.md).
+Pour obtenir des instructions détaillées permettant de configurer la sécurité du service, reportez-vous à la [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Dans le cadre d’un simple déploiement de test permettant de mener à bien ce didacticiel, le bon fonctionnement du service nécessite d’effectuer un nombre minimum d’étapes de configuration. Ces dernières permettent uniquement à l’ordinateur/au compte qui les exécute de communiquer avec le service.
 
 ### Création d’un certificat auto-signé
 
-Créez un répertoire à partir duquel vous allez exécuter la commande suivante à l’aide d’une fenêtre [d’invite de commandes développeur pour Visual Studio](http://msdn.microsoft.com/fr-fr/library/ms229859.aspx) :
+Créez un répertoire à partir duquel vous allez exécuter la commande suivante à l’aide d’une fenêtre [d’invite de commandes développeur pour Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) :
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -87,7 +86,7 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 
 ### Téléchargement du fichier PFX dans le service cloud
 
-Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
+Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Sélectionnez **Services Cloud**.
 2. Sélectionnez le service cloud créé ci-dessus pour le service de fractionnement/fusion.
@@ -113,10 +112,11 @@ Pour le rôle de travail :
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l’autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d’informations, consultez la rubrique [Configuration de la sécurité](../sql-database-elastic-scale-configure-security.md).
+Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l’autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d’informations, consultez la rubrique [Configuration de la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Déploiement de votre service de fractionnement/fusion
-1. Accédez au [portail de gestion Azure](https://manage.windowsazure.com).
+
+1. Accédez au [portail Azure](https://manage.windowsazure.com).
 2. Cliquez sur l’onglet **Services cloud** à gauche et sélectionnez le service cloud que vous avez créé précédemment.
 3. Cliquez sur **Tableau de bord**.
 4. Choisissez l’environnement intermédiaire, puis cliquez sur **Télécharger un nouveau déploiement intermédiaire**.
@@ -131,6 +131,7 @@ Veuillez noter que pour les déploiements de production, des certificats distinc
 
 
 ## Résolution des problèmes de déploiement
+
 Si votre rôle web ne parvient pas à être en ligne, il s’agit probablement d’un problème avec la configuration de sécurité. Vérifiez que le protocole SSL est configuré comme décrit ci-dessus.
 
 Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôle web réussit, il s’agit probablement d’un problème de connexion à la base de données d’états que vous avez créée précédemment.
@@ -145,6 +146,7 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
 * Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com, cliquez sur « Bases de données SQL » à gauche, puis sur « Serveurs » en haut, et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Azure** est défini sur « Oui ». (voir la section « Configuration requise » en haut de cet article).
 
 ## Test du déploiement du service de fractionnement/fusion
+
 ### Connexion avec un navigateur web
 
 Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail de gestion Azure en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
@@ -327,4 +329,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

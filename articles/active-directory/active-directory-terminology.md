@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -47,4 +46,4 @@ Comptes professionnels ou scolaires | Un compte d'utilisateur attribué par une 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -64,4 +64,4 @@ Pour la plupart des organisations qui souhaitent juste activer l’authentificat
 	- Accès conditionnel aux ressources locales et cloud via l’inscription de l’appareil, une adhésion à Azure AD ou des stratégies Intune MDM
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

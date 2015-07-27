@@ -136,7 +136,7 @@ Voici les principales limitations :
 
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
 
 <!--Image references-->
 
@@ -147,4 +147,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

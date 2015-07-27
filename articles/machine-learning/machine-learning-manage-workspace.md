@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -51,10 +51,10 @@ Cliquez sur l’onglet **TABLEAU DE BORD**.
 Dans le tableau de bord, vous pouvez afficher l’utilisation globale de votre espace de travail et obtenir un aperçu rapide des informations de l’espace de travail.
 
 - Le graphique **CALCUL** affiche les ressources de calcul utilisées par l’espace de travail. Vous pouvez modifier l’affichage pour afficher les valeurs absolues ou relatives et vous pouvez modifier la plage de temps affichée dans le graphique.
-- La **Présentation de l’utilisation** affiche le stockage Azure utilisé par l’espace de travail. Remarque : la surveillance du stockage n’est pas disponible pour la version préliminaire publique d’Azure Machine Learning.
+- La **Présentation de l’utilisation** affiche le stockage Azure utilisé par l’espace de travail.
 - L’**Aperçu rapide** fournit un résumé des informations de l’espace de travail ainsi que des liens utiles.
 
-> [AZURE.NOTE]Le lien **OUVRIR DANS STUDIO** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
+> [AZURE.NOTE]Le lien **Se connecter à ML Studio** ouvre Machine Learning Studio via le compte Microsoft auquel vous êtes actuellement connecté. Le compte Microsoft que vous utilisez pour vous connecter au portail Azure afin de créer l’espace de travail n’est pas automatiquement autorisé à ouvrir cet espace de travail. Pour ouvrir un espace de travail, vous devez être connecté au compte Microsoft qui a été défini comme propriétaire de l’espace de travail ou recevoir une invitation du propriétaire à rejoindre l’espace de travail.
 
 
 ## Pour octroyer ou suspendre un accès pour les utilisateurs ##
@@ -66,7 +66,7 @@ Dans l’onglet Configuration, vous pouvez
 - suspendre l’accès à l’espace de travail Machine Learning en cliquant sur REFUSER. Les utilisateurs ne seront plus en mesure d’ouvrir l’espace de travail de Machine Learning Studio. Pour restaurer l’accès, cliquez sur AUTORISER.
 - Modifier le propriétaire de l’espace de travail en spécifiant un autre compte Microsoft. 
 
-Pour gérer qui a accès à l’espace de travail dans Machine Learning Studio, cliquez sur **OUVRIR DANS STUDIO** (voir la remarque ci-dessus concernant **OUVRIR DANS STUDIO**). Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES** puis **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
+Pour gérer qui a accès à l’espace de travail dans Machine Learning Studio, cliquez sur **Se connecter à ML Studio** dans l’onglet **TABLEAU DE BORD** (voir la remarque ci-dessus concernant **Se connecter à ML Studio**). Cela ouvre l’espace de travail de Machine Learning Studio. À ce stade, cliquez sur l’onglet **PARAMÈTRES** puis **UTILISATEURS**. Vous pouvez cliquer sur **INVITER PLUS D’UTILISATEURS** pour octroyer à des utilisateurs un accès à l’espace de travail, ou sélectionner un utilisateur et cliquer sur **SUPPRIMER**.
 
 
 ## Pour gérer des services Web dans cet espace de travail
@@ -94,4 +94,4 @@ Vous pouvez également publier le service web sur le Marketplace de données Azu
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

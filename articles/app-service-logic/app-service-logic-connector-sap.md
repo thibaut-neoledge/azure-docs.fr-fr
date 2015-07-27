@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connecteur SAP" 
-   description="Utilisation du connecteur SAP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connecteur SAP"
+   description="Utilisation du connecteur SAP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Connecteur SAP #
 
-Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Dans certains scénarios, vous pouvez être amené à utiliser SAP, installé localement et derrière le pare-feu. En exploitant le connecteur SAP dans votre flux, vous pouvez couvrir un éventail de scénarios. Quelques exemples :
+Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Dans certains scénarios, vous pouvez être amené à utiliser SAP, installé localement et derrière le pare-feu. En exploitant le connecteur SAP dans votre flux, vous pouvez couvrir un large éventail de scénarios. Quelques exemples :
 
 1.	Exposer une section des données résidant dans votre SAP via un frontal web ou d'utilisateur mobile.
 2.	Publier des données sur votre SAP après leur traitement approprié.
@@ -28,7 +28,7 @@ Les connecteurs peuvent être utilisés dans les applications logiques pour extr
 Pour ces scénarios, vous devez effectuer ce qui suit :
 
 1. Créez une instance de l'application API du connecteur SAP.
-2. Établissez une connectivité hybride pour que l'application API puisse communiquer localement avec SAP.
+2. Établissez une connectivité hybride pour que l’application API puisse communiquer localement avec SAP.
 3. Utilisez l’application API créée dans une application logique pour accomplir le processus d’entreprise souhaité.
 
 ## Créez une instance de l'application API du connecteur SAP. ##
@@ -39,7 +39,9 @@ Pour utiliser le connecteur SAP, vous devez créer une instance de l’applicati
 2. Accédez à « Web et mobile > API Apps » et recherchez « SAP Connector ».
 3. Configurez-le comme suit :
 	1. Fournissez les détails génériques comme le nom, le plan de service de l’application, etc. dans le premier panneau.
-	2. Dans le cadre des paramètres du package, fournissez les informations d'identification SAP. Fournissez également une chaîne de connexion Azure Service Bus. Celle-ci sert à établir une connectivité hybride avec votre SAP local. 
+
+	2. Dans le cadre des paramètres du package, fournissez les informations d'identification SAP. Fournissez également une chaîne de connexion Azure Service Bus. Celle-ci sert à établir une connectivité hybride avec votre SAP local.
+
 	3. Les RFC, TRFC, BAPI et IDOC doivent être configurés en fonction des besoins du scénario. Si plusieurs valeurs doivent être fournies, alors elles peuvent être séparées par des virgules.
 
 ![][1]
@@ -92,7 +94,4 @@ Complétez l'application logique pour définir le processus d'entreprise, puis e
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

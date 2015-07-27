@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionner une application API avec une passerelle existante
@@ -24,11 +24,15 @@ Pour en savoir plus sur la création de modèles, voir [Création de modèles Az
 
 Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Pour accéder au modèle complet, voir [Application API avec le nouveau modèle de passerelle](../../templates/app-service-api-arm-existing-gateway-provision/).
+Pour accéder au modèle complet, voir [Application API avec le nouveau modèle de passerelle](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-existing/azuredeploy.json).
 
 ## Ce que vous allez déployer
 
 Dans ce modèle, vous allez déployer une application API associée à une passerelle et à un plan d’hébergement App Service existants.
+
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+
+[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-existing%2Fazuredeploy.json)
 
 ## Paramètres
 
@@ -178,13 +182,13 @@ Notez que les noms de la passerelle et de l’application web d’hébergement 
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 ### Interface de ligne de commande Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/existing-gateway-existing-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-existing/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -32,6 +32,33 @@ Consultez la rubrique [Prise en main d’Application Insights pour Windows Phon
 * Comparez les anciennes et nouvelles versions d’ApplicationInsights.config. Fusionnez les personnalisations que vous avez effectuées sur l'ancienne version.
 * Régénérez votre solution.
 
+## Version 1.0.0
+
+### Kit de développement logiciel (SDK) pour application Windows
+
+- Nouvelle initialisation pour les applications Windows. Une nouvelle classe `WindowsAppInitializer` avec la méthode `InitializeAsync()` permet l'initialisation de l’amorçage de la collection de SDK. Cette modification permet un contrôle plus précis et améliore considérablement les performances d'initialisation de l’application par rapport à la technique ApplicationInsights.config précédente.
+- DeveloperMode n’est plus défini automatiquement. Pour modifier le comportement DeveloperMode, vous devez le spécifier dans le code.
+- Le package NuGet n’injecte plus d’informations dans ApplicationInsights.config. Il est recommandé d'utiliser la nouvelle valeur WindowsAppInitializer lorsque vous ajoutez manuellement un package NuGet.
+- ApplicationInsights.config lit uniquement `<InstrumentationKey>`, tous les autres paramètres sont ignorés dans les paramètres WindowsAppInitializer.
+- Store Market sera automatiquement collecté par le Kit de développement logiciel (SDK).
+- Nombreux correctifs de bogues, amélioration de la stabilité et des performances.
+
+### Kit de développement logiciel (SDK) principal
+
+- Le fichier ApplicationInsights.config n'est plus obligatoire. Et il n’est pas ajouté par le package NuGet. La configuration peut être entièrement spécifiée dans le code.
+- Le package NuGet n’ajoutera plus de fichier cible à votre solution. Cela supprime la configuration automatique de DeveloperMode lors d’une version de débogage. DeveloperMode doit être défini manuellement dans le code.
+
+## Version 0.17
+
+### Kit de développement logiciel (SDK) pour application Windows
+
+- Le Kit de développement logiciel (SDK) pour application Windows prend désormais en charge les applications universelles Windows créées par rapport à Windows 10 Technical Preview et VS 2015 RC.
+
+### Kit de développement logiciel (SDK) principal
+
+- TelemetryClient s'initialise par défaut avec InMemoryChannel.
+- Nouvelle API ajoutée, `TelemetryClient.Flush()`. Cette méthode de visage déclenchera immédiatement un blocage du téléchargement de tous les appareils de télémétrie connectés à ce client. Cela permet de déclencher manuellement le téléchargement avant l'arrêt du processus.
+- Le package NuGet a ajouté une cible .Net 4.5. Cette cible n'a aucune dépendance externe (suppression des dépendances BCL et EventSource).
 
 ## Version 0.16 
 
@@ -50,4 +77,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -111,7 +111,7 @@ FROM	[edw].customer
 > [AZURE.NOTE]Toute modification portant sur la stratégie de schéma nécessite une révision du modèle de sécurité de la base de données. Dans de nombreux cas, il est possible de simplifier le modèle de sécurité en attribuant des autorisations au niveau du schéma. S’il vous faut des autorisations plus granulaires, vous pouvez utiliser des rôles de base de données.
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
 
 <!--Image references-->
 
@@ -122,4 +122,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Gestion et audit d’accès aux ressources"
    description="Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations utilisateur pour les ressources déployées dans Azure."
-   services="azure-portal"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="06/18/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Gestion et audit d’accès aux ressources
@@ -59,7 +59,7 @@ Si la dernière version d’Azure PowerShell n’est pas déjà installée sur v
 
 1. Connectez-vous à votre compte Azure avec vos informations d’identification. La commande retourne les informations relatives à votre compte.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@ Si la dernière version d’Azure PowerShell n’est pas déjà installée sur v
 
 2. Si vous avez plusieurs abonnements, fournissez l’ID d’abonnement que vous souhaitez utiliser pour le déploiement.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Basculez sur le module Azure Resource Manager.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 ### Affichez les rôles disponibles
 Pour afficher tous les rôles disponibles pour votre abonnement, exécutez l’applet de commande **Get-AzureRoleDefinition**.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@ Pour afficher tous les rôles disponibles pour votre abonnement, exécutez l’a
 ### Accordez l’autorisation de lecteur à un groupe pour l’abonnement.
 1. Vérifiez la définition du rôle **Lecteur** en fournissant le nom du rôle lors de l’exécution de la commande **Get-AzureRoleDefinition**. Vérifiez que les actions autorisées sont celles que vous aviez l’intention d’attribuer.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@ Pour afficher tous les rôles disponibles pour votre abonnement, exécutez l’a
 
 2. Obtenez le groupe de sécurité requis en exécutant l’applet de commande **Get-AzureADGroup**. Fournissez le nom réel du groupe dans votre abonnement. ExampleAuditorGroup est présenté ci-dessous.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. Créez l’attribution de rôle pour le groupe de sécurité auditeur. Lorsque la commande est terminée, la nouvelle attribution de rôle est retournée.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@ Pour afficher tous les rôles disponibles pour votre abonnement, exécutez l’a
 ###Accordez l’autorisation de collaborateur à une application pour un groupe de ressources.
 1. Vérifiez la définition du rôle **Collaborateur** en fournissant le nom du rôle lors de l’exécution de la commande **Get-AzureRoleDefinition**. Vérifiez que les actions autorisées sont celles que vous aviez l’intention d’attribuer.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:> Get-AzureRoleDefinition Contributor
 
 2. Obtenez l’ID de l’objet principal du service en exécutant la commande **Get-AzureADServicePrincipal** et en fournissant le nom de l’application dans votre abonnement. ExampleApplication est présentée ci-dessous.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. Créez les attributions de rôle pour le principal du service en exécutant la commande **New-AzureRoleAssignment**.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Pour obtenir une explication plus détaillée de la configuration d’une application Azure Active Directory et d’un principal du service, consultez [Authentification d’un principal du service avec Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
 ###Accorder les autorisations de propriétaire à l’utilisateur d’une ressource.
 1. Vérifiez la définition du rôle **Propriétaire** en fournissant le nom du rôle lors de l’exécution de la commande **Get-AzureRoleDefinition**. Vérifiez que les actions autorisées sont celles que vous aviez l’intention d’attribuer.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:> Get-AzureRoleDefinition Owner
 
 2. Créez les attributions de rôle pour l’utilisateur.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Listez les journaux d’audit du groupe de ressources.
 Pour obtenir le journal d’audit pour un groupe de ressources, exécutez la commande **Get-AzureResourceGroupLog**.
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## Comment utiliser Azure CLI pour Mac, Linux et Windows
 
@@ -270,4 +270,4 @@ Créez l’affectation du rôle.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

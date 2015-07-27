@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights pour les applications Web JavaScript
@@ -44,7 +44,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
-* Dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared_Layout.cshtml
+* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\_Layout.cshtml
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
@@ -135,11 +135,15 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Sélectionnez n'importe quel événement pour afficher plus de détails.
+Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
 > [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
 
 > [En savoir plus sur la recherche de diagnostic][diagnostic]
+
+### Propriétés d'affichage de la page
+
+* **Durée d'affichage de la page** Le temps nécessaire pour charger la page et lancer l’exécution des scripts. Plus précisément, l'intervalle entre le début du chargement de la page et l'exécution de l’élément trackPageView. Si vous avez déplacé trackPageView de sa position habituelle après l'initialisation du script, il affiche une autre valeur. 
 
 ## Suivi personnalisé de l’utilisation
 
@@ -177,4 +181,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

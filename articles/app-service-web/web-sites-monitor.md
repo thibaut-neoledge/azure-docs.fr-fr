@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
-
-
 
 #<a name="howtomonitor"></a>Surveiller les applications web dans Microsoft Azure App Service
 
@@ -24,7 +22,7 @@
 
 ##<a name="websitemetrics"></a>Procédure : ajouter des métriques relatives à une application web
 
-1. Dans les pages de gestion de l’application web du [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), cliquez sur l’onglet **Surveiller** pour afficher la page de gestion **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
+1. Dans la page de l'application web du [portail Azure](https://manage.windowsazure.com), cliquez sur l'onglet **Surveiller** pour afficher la page de gestion **Surveiller**. Par défaut, le graphique de la page **Monitor** affiche les mêmes mesures que celui de la page **Tableau de bord**.
 
 2. Pour afficher des métriques supplémentaires concernant l’application web, cliquez sur l’option **Ajouter des métriques** située en bas de la page. La boîte de dialogue **Choisir des métriques** apparaît.
 
@@ -37,25 +35,25 @@
 6. Pour supprimer des mesures de la page **Monitor**, sélectionnez la ou les mesure(s) de votre choix, puis cliquez sur l'icône **Delete Metric** au bas de la page.
 
 ##<a name="howtoreceivealerts"></a>Procédure : recevoir des notifications d’alerte et gérer des règles d’alerte dans Azure
-Lorsque l’application web est en mode **Standard**, vous pouvez recevoir des alertes basées sur les métriques de surveillance de cette application web. La fonction d'alerte requiert le paramétrage préalable de la surveillance d'un point de terminaison Web, à effectuer dans la section **Monitoring** de la page **Configure**. Sur la page **Paramètres** du portail de gestion Azure, vous pouvez alors créer une règle pour déclencher une alerte lorsque la mesure de votre choix atteint une valeur définie. Vous pouvez également paramétrer l'envoi d'un courrier électronique lorsque l'alerte est déclenchée. Pour plus d’informations, consultez la page [Procédure : recevoir des notifications d’alerte et gérer les règles d’alerte dans Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+
+Lorsque l’application web est en mode **Standard**, vous pouvez recevoir des alertes basées sur les métriques de surveillance de cette application web. La fonction d'alerte requiert le paramétrage préalable de la surveillance d'un point de terminaison Web, à effectuer dans la section **Monitoring** de la page **Configure**. Vous pouvez également choisir de recevoir un courrier électronique lorsqu'une mesure de votre choix atteint une valeur que vous spécifiez. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Procédure : afficher les quotas d’utilisation d’une application web
 
-Les applications web peuvent être configurées pour s’exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l’échelle** de l’application web. Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
+Les applications web peuvent être configurées pour s'exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l'échelle** de l’application web dans le [portail Azure](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
 
 >[AZURE.NOTE]Lorsqu’une application web est configurée pour s’exécuter en mode **Standard**, elle se voit allouer des ressources dédiées équivalentes aux valeurs **Petit** (par défaut), **Moyen** ou **Grand** associées aux tailles de machine virtuelle figurant dans le tableau situé sur la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]. Aucune limite n’est fixée concernant les ressources qu’un abonnement peut utiliser pour exécuter des applications web en mode **Standard**. Toutefois, vous ne pouvez pas créer plus de 500 applications web en mode **Standard**, pour chaque région.
 
 ### Procédure : afficher les quotas d’utilisation des applications web configurées en mode Partagé ###
 Pour déterminer dans quelle mesure les quotas d’utilisation des ressources sont affectés par une application web, procédez comme suit :
 
-1. Ouvrez la page de gestion **Tableau de bord** de l’application web.
+1. Ouvrez la page de gestion **Tableau de bord** de l’application web dans le [portail Azure](https://manage.windowsazure.com).
 2. La section **Présentation de l’utilisation** affiche les quotas d’utilisation de votre plan [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Il s’agit d’un sous-ensemble des éléments suivants :
 	-	**Données sorties**, **Temps processeur** et **Mémoire** : lorsque le quota est dépassé, Microsoft Azure arrête l’application web pendant le reste de l’intervalle de quota en cours. Microsoft Azure démarre l’application web au début de l’intervalle de quota défini suivant.
 	-	**Stockage de système de fichiers** : une fois ce quota atteint, l’espace de stockage du système de fichiers reste accessible pour les opérations de lecture, mais les opérations d’écriture (y compris celles que requiert l’activité normale de l’application web) sont bloquées. Les opérations d’écriture sont à nouveau exécutées lorsque l’utilisation des fichiers est restreinte ou que l’application web est déplacée vers un plan App Service associé à un quota plus important.
 	-	**Ressources liées** : les quotas des ressources liées à une application web, comme les bases de données ou le stockage, sont également affichés ici.
 
 	Certains quotas peuvent être appliqués par plan d’hébergement web, tandis que d’autres sont appliqués par site. Pour plus d’informations sur les quotas d’utilisation de chaque plan d’hébergement web, consultez [Limites de sites web](azure-subscription-service-limits.md#websiteslimits).
-
 
 ##<a name="resourceusage"></a> Procédure : éviter tout dépassement des quotas
 
@@ -64,10 +62,9 @@ Les quotas ne sont pas liés aux performances ou au coût : ils sont un moyen p
 - Déplacez votre ou vos sites web vers un plan App Service de niveau supérieur pour bénéficier d’un quota plus élevé. Par exemple, le seul quota associé aux plans **De base** et **Standard** est « Stockage de système de fichiers ».
 - Comme le nombre d’instances d’une application web augmente, il est de plus en plus probable que l’une d’elles dépasse le quota de ressources partagées. En cas de besoin, envisagez de remettre à l’échelle des instances supplémentaires d’une application web lorsque les quotas de ressources partagées sont dépassés.
 
-
 ##<a name="howtoconfigdiagnostics"></a>Procédure : configurer les diagnostics et télécharger les journaux d’une application web
 
-Les diagnostics sont activés sur la page de gestion **Configurer** de l’application web. Il existe deux types de diagnostics : **diagnostic d’application** et **diagnostics de site**.
+Les diagnostics sont activés sur l'onglet **Configurer** de l'application web dans le [portail Azure](https://manage.windowsazure.com). Il existe deux types de diagnostics : **diagnostic d’application** et **diagnostics de site**.
 
 #### Diagnostic d'application ####
 
@@ -95,16 +92,14 @@ Pour plus d’informations sur les comptes de stockage Azure, consultez la page 
 
 La journalisation relative aux applications dans les ressources de stockage nécessitant l'utilisation d'un client de stockage pour afficher les données de journalisation, cette fonction est très utile lorsque vous prévoyez d'utiliser un service ou une application capable de lire et de traiter directement les données à partir d'une table ou du stockage d’objets blob Azure. La journalisation dans le système de fichiers génère des fichiers pouvant être téléchargés sur votre ordinateur local via FTP ou d'autres utilitaires, comme décrit plus loin dans cette section.
 
-> [AZURE.NOTE]Les options **Diagnostic d'application (système de fichiers)**, **Diagnostic d'application (stockage de table)** et **Diagnostic d'application (stockage d’objets blob)** peuvent être activées simultanément et être associées à des niveaux de journalisation spécifiques. Ainsi, vous pouvez par exemple consigner les erreurs et les avertissements pour être stockés dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau détaillé de journalisation du système de fichiers une fois le code de l'application instrumenté pour résoudre un problème.
+Les options **Diagnostic d'application (système de fichiers)**, **Diagnostic d'application (stockage de table)** et **Diagnostic d'application (stockage d’objets blob)** peuvent être activées simultanément et être associées à des niveaux de journalisation spécifiques. Ainsi, vous pouvez par exemple consigner les erreurs et les avertissements pour être stockés dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau détaillé de journalisation du système de fichiers une fois le code de l'application instrumenté pour résoudre un problème.
 
-> [AZURE.NOTE]Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**.
->
-> Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE]La journalisation des applications s'appuie sur les informations de journalisation générées par votre application. La méthode permettant de générer ce type d’informations et le format de celles-ci sont propres au langage de votre application. Pour obtenir des informations sur le langage utilisé dans le cadre de la journalisation des applications, lisez les articles suivants :
 >
-> - **.NET** - [Activation de la journalisation de diagnostic pour Sites Web Azure](/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
-> - **Node.js** - [Débogage d'une application Node.js dans Sites Web Azure](/develop/nodejs/how-to-guides/Debug-Website/)
+> - **.NET** - [Dépanner une application web dans le Service d'application Microsoft Azure à l'aide de Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
+> - **Node.js** - [Débogage d'une application Node.js dans Sites Web Azure](web-sites-nodejs-debug.md)
 >
 > La journalisation relative aux applications dans les tables ou les objets blob n'est prise en charge que pour les applications .NET.
 
@@ -137,7 +132,7 @@ Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires
 
 - Emplacement où sont enregistrés les journaux de l'application ; chemin relatif à la racine du serveur Web.
 
-- Valeur par défaut : ..\..\LogFiles\Application
+- Valeur par défaut : ..\\..\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -157,7 +152,7 @@ Les fichiers journaux peuvent être téléchargés à l’aide de FTP, d’Azure
 
 **FTP**
 
-1. Ouvrez la page de gestion **Tableau de bord** de l’application web, puis notez le site FTP figurant sous **Fichiers journaux de diagnostic** et le compte répertorié sous **Utilisateur du déploiement**. Le site FTP héberge les fichiers journaux ; le compte répertorié sous Deployment User permet de vous authentifier auprès du site FTP.
+1. Ouvrez la page de gestion **Tableau de bord** de l'application web dans le [portail Azure](https://manage.windowsazure.com), puis notez le site FTP figurant sous **Fichiers journaux de diagnostic** et le compte répertorié sous **Utilisateur du déploiement**. Le site FTP héberge les fichiers journaux ; le compte répertorié sous Deployment User permet de vous authentifier auprès du site FTP.
 2. Si vous n'avez pas déjà créé les identifiants pour le déploiement, le compte figurant sous **Deployment User** est associé à **Not set**. Dans ce cas, vous devez créer les identifiants de déploiement comme décrit dans la section Reset Deployment Credentials du Tableau de bord, car ces identifiants vous permettent de vous authentifier auprès du site FTP sur lequel sont stockés les fichiers journaux. Azure ne prend pas en charge l'authentification auprès du site FTP avec les informations d'identification Live ID.
 3. Pensez à utiliser un client FTP comme [FileZilla][fzilla] pour vous connecter au site FTP. Le client FTP facilite la saisie des informations d'identification. En outre, l'affichage des dossiers d'un site FTP y est généralement plus clair que dans un navigateur.
 4. Copiez les fichiers journaux du site FTP sur votre ordinateur en local.
@@ -266,7 +261,6 @@ Une fois que la surveillance des points de terminaison est configurée, vous pou
 
 	Azure va maintenant surveiller activement le point de terminaison et envoyer une alerte par courrier électronique quand le temps de réponse sera supérieur à 3 secondes.
 
-
 Pour en savoir plus sur la surveillance du point de terminaison d’une application web, consultez les vidéos suivantes :
 
 - [Scott Guthrie présente Sites Web Azure et paramètre la surveillance des points de terminaison](/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
@@ -276,11 +270,11 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

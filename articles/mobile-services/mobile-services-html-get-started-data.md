@@ -257,4 +257,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application HTML pou
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

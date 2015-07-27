@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
 	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/12/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
@@ -27,12 +26,12 @@ Dans cet article, découvrez comment créer vos propres outils d’analyse déci
 
 > [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics.
 
-##Composants requis
+## Composants requis ##
 
 * Un compte Microsoft Azure utilisant un ID d’organisation (Power BI fonctionne avec un ID d’organisation uniquement. L’ID d’organisation est l’adresse de messagerie professionnelle, par exemple xyz@mycompany.com. Les adresses de messagerie personnelles comme xyz@hotmail.com ne sont pas des ID d’organisation. Pour en savoir plus sur les ID d’organisation, cliquez [ici](https://msdn.microsoft.com/subscriptions/dn531048.aspx). Un forum aux questions est également disponible sous forme de téléchargement [ici](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409)).
 * Une entrée pour alimenter un travail Stream Analytics en flux de données. Stream Analytics accepte les entrées d'Azure Event Hubs ou d'Azure Blob storage.  
 
-##Création d’un travail Azure Stream Analytics
+## Création d’un travail Azure Stream Analytics ##
 
 Dans le [portail Azure](https://manage.windowsazure.com), cliquez sur **Nouveau, Services de données, Stream Analytics, Création rapide**.
 
@@ -48,7 +47,7 @@ Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste d
 
 > [AZURE.TIP]Le nouveau travail est affiché avec l’état **Non démarré**. Notez que le bouton **Démarrer** situé en bas de la page est désactivé. Cela est dû au fait qu’avant de pouvoir démarrer le travail, vous devez configurer son entrée, sa sortie, sa requête, etc.
 
-##Spécification d'une entrée de travail
+## Spécification d'une entrée de travail ##
 
 Pour ce didacticiel, nous supposons que vous utilisez EventHub comme entrée avec la sérialisation JSON et l’encodage utf-8.
 
@@ -73,7 +72,7 @@ Pour ce didacticiel, nous supposons que vous utilisez EventHub comme entrée ave
   *	**Encodage** - UTF8
 *	Cliquez sur la coche pour ajouter cette source et vérifier que Stream Analytics peut se connecter au concentrateur d’événements.
 
-##Ajouter une sortie Power BI
+## Ajouter une sortie Power BI ##
 
 1.  En haut de la page, cliquez sur **Sortie**, puis sur**Ajouter une sortie**. Power BI est répertorié comme option de sortie.
 
@@ -104,7 +103,7 @@ Fournissez les valeurs suivantes :
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-##Écriture d’une requête
+## Écriture d’une requête ##
 
 Accédez à l’onglet **Requête** de votre travail. Écrivez la requête dont vous souhaitez obtenir la sortie dans votre Power BI. Par exemple, il peut s’agir de la requête SQL suivante :
 
@@ -125,7 +124,7 @@ Accédez à l’onglet **Requête** de votre travail. Écrivez la requête dont 
     
 Démarrez votre travail. Assurez-vous que votre concentrateur d’événements reçoit des événements et que votre requête génère les résultats attendus. Si votre requête renvoie 0 ligne, le jeu de données et les tables de Power BI ne sont pas créés automatiquement.
 
-##Créez le tableau de bord dans Power BI
+## Créez le tableau de bord dans Power BI ##
 
 Accédez à [Powerbi.com](https://powerbi.com) et connectez-vous à l’aide de votre ID d’organisation. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé :
 
@@ -161,10 +160,34 @@ Notez que ce didacticiel ne vous a montré la création que d’un seul type de 
 
 Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
-## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+## Limites et meilleures pratiques ##
+Power BI utilise des contraintes d’accès concurrentiel et le débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
 
-## Étapes suivantes
+C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour vous assurer le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes :![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+
+Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+
+Cela signifie que nous pouvons modifier la requête d’origine :
+
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+    	OutPBI
+    FROM
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,4),
+    	dspl
+
+
+
+## Obtenir de l'aide ##
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Étapes suivantes ##
 
 - [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md)
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
@@ -185,4 +208,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

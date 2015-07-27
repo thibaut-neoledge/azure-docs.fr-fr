@@ -227,4 +227,4 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

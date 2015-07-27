@@ -3,7 +3,6 @@
 	description="Découvrez comment utiliser Mobile Services pour stocker des données dans le stockage de tables." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@ Découvrez comment utiliser le stockage de tables via Mobile Services en consult
 [Mobile Services et Microsoft Azure Storage]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

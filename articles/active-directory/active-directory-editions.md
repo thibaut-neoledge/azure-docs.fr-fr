@@ -122,4 +122,4 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

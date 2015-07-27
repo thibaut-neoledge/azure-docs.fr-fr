@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connecteur Salesforce" 
-   description="Utilisation du connecteur Salesforce" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connecteur Salesforce"
+   description="Utilisation du connecteur Salesforce"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Utilisation du connecteur Salesforce dans votre application logique#
 
 Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux. Le connecteur Salesforce vous permet de créer et de modifier différentes entités, comme les comptes, les prospects, etc. Voici les scénarios d’intégration classiques qui impliquent Salesforce.
 
-- Synchronisation des comptes entre Salesforce et les systèmes ERP tels que SAP et QuickBooks	
+- Synchronisation des comptes entre Salesforce et les systèmes ERP tels que SAP et QuickBooks
 
 - Flux des commandes aux encaissements de Salesforce aux systèmes ERP
 
 
 Dans le cadre des paramètres de package du connecteur, l'utilisateur peut spécifier les entités que le connecteur peut gérer et les actions, les paramètres d'entrée et de sortie sont renseignés de manière dynamique. Voici les différentes actions disponibles dans le connecteur Salesforce.
- 
+
 - Créer une entité : utilisez cette action pour créer une entité Salesforce comme un compte, un cas ou un objet personnalisé.
 
 - Mettre à jour une entité : utilisez cette action pour mettre à jour une entité Salesforce existante.
@@ -133,7 +133,4 @@ Créons une application logique simple qui crée un compte dans Salesforce et me
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

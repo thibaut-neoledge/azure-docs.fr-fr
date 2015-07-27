@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
 1.  Téléchargez une [version archivée ZIP ou GZ][release] du projet Socket.IO (la version 1.3.5 a été utilisée pour ce document).
 
 
-3.  Extrayez l’archive et copiez le répertoire **examples\chat** dans un nouvel emplacement. Par exemple, **\node\chat**.
+3.  Extrayez l’archive et copiez le répertoire **examples\\chat** dans un nouvel emplacement. Par exemple, **\\node\\chat**.
 
 ## Modifier le fichier app.js et installer les modules
 
@@ -57,7 +57,7 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
 		  "socket.io": "1.3.5"
 		}
 
-4. Depuis la ligne de commande, accédez au répertoire **\node\chat** et utilisez la commande npm pour installer les modules requis par cette application :
+4. Depuis la ligne de commande, accédez au répertoire **\\node\\chat** et utilisez la commande npm pour installer les modules requis par cette application :
 
         npm install
 
@@ -76,7 +76,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 		azure site deployment user set [username] [password]
 
 
-3. Accédez au répertoire **\node\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
+3. Accédez au répertoire **\\node\\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
 
 		azure site create mysitename --git
 
@@ -91,7 +91,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 
 		git push azure master
 
-	Vous recevez des messages d'état au fur et à mesure que les modules sont importés sur le serveur. Une fois ce processus terminé, l’application est hébergée sur votre application web Azure.
+	Lorsque vous y êtes invité, entrez vos informations d'identification de l'étape 2. Vous recevez des messages d'état au fur et à mesure que les modules sont importés sur le serveur. Une fois ce processus terminé, l’application est hébergée sur votre application web Azure.
 
  	> [AZURE.NOTE]Lors de l’installation du module, il est possible que des erreurs du type ’Le projet importé... est introuvable’ s’affichent. Vous pouvez les ignorer sans problème.
 
@@ -125,7 +125,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
 
 ###Ajout des modules redis et socket.io-redis
 
-1. Sur la ligne de commande, accédez au répertoire __\node\chat__ et exécutez la commande suivante :
+1. Sur la ligne de commande, accédez au répertoire __\\node\\chat__ et exécutez la commande suivante :
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
 
 ###Validation des modifications et redéploiement
 
-Depuis la ligne de commande dans le répertoire __\node\chat__, utilisez les commandes suivantes pour valider les modifications et redéployer l'application.
+Depuis la ligne de commande dans le répertoire __\\node\\chat__, utilisez les commandes suivantes pour valider les modifications et redéployer l'application.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -260,7 +260,7 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
 		  </system.webServer>
 		</configuration>
 
-	> [AZURE.NOTE]Si votre application utilise un point d’entrée autre que **app.js**, vous devez remplacer toutes les occurrences d’**app.js** par le point d’entrée approprié. Par exemple, vous devez remplacer **app.js** par **server.js**.
+	Si votre application utilise un point d’entrée autre que **app.js**, vous devez remplacer toutes les occurrences d’**app.js** par le point d’entrée approprié. Par exemple, vous devez remplacer **app.js** par **server.js**.
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -283,4 +283,4 @@ Ce didacticiel vous a expliqué comment créer une application de conversation i
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

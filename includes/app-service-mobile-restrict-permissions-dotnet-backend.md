@@ -28,4 +28,4 @@ Par défaut, toutes les requêtes adressées aux ressources de l’application m
 
 6. Republiez votre projet d’application mobile.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

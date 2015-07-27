@@ -383,4 +383,4 @@ Contenu de `ptvs_virtualenv_proxy.py` :
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Déployer une application complexe de manière prévisible dans Microsoft Azure"
-	description="Découvrez comment déployer une application complexe dans Microsoft Azure, sous la forme d’une unité unique et de manière prévisible, en utilisant des modèles de groupe de ressources JSON et des scripts PowerShell."
+	pageTitle="Mise en service et déploiement de microservices de manière prévisible dans Azure"
+	description="Découvrez comment déployer une application composée de microservices dans Azure App Service sous forme d'unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et de scripts PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# Déployer une application complexe de manière prévisible dans Microsoft Azure #
+# Mise en service et déploiement de microservices de manière prévisible dans Azure #
 
-Ce didacticiel indique comment déployer une application complexe dans Microsoft Azure, sous la forme d’une unité unique et de manière prévisible, en utilisant des modèles de groupe de ressources JSON et des scripts PowerShell.
+Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell.
 
-Dans DevOps, la répétabilité et la prévisibilité jouent un rôle majeur pour assurer la réussite du déploiement à grande échelle d’une application complexe. [Microsoft Azure App Services](/services/app-service/) vous permet de créer des applications complexes (applications web, logiques, API et mobiles). [Microsoft Azure Resource Manager](../resource-group-overview.md) vous permet de gérer tous les composants d’une application de ce type, de manière centralisée. À présent, vous pouvez également déployer une application complexe de ce type à l’aide de modèles JSON et de scripts PowerShell simples.
+Lors de la mise en service et du déploiement d'applications à grande échelle qui sont composées de microservices hautement découplés, la répétition et la prévisibilité sont essentielles à la réussite. [Azure App Service](/services/app-service/) vous permet de créer des microservices qui incluent des applications Web, des applications mobiles, des applications API et des applications logiques. [Azure Resource Manager](../resource-group-overview.md) vous permet de gérer tous les microservices en tant qu'unité, avec les dépendances de ressources, comme les paramètres de contrôle de la source et de base de données. À présent, vous pouvez également déployer une application de ce type à l’aide de modèles JSON et de scripts PowerShell simples.
 
 ## Procédure à suivre ##
 
 Dans ce didacticiel, vous allez déployer une application incluant les éléments suivants :
 
--	Deux applications web
+-	Deux applications Web (par exemple, deux microservices)
 -	Une base de données SQL principale
 -	Paramètres d’application, chaînes de connexion et contrôle de code source
 -	Paramètres de mise à l’échelle automatique, alertes et Application Insights
@@ -90,7 +90,7 @@ Si vous utilisez GitHub pour contrôler le code source, vous pouvez placer un [b
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Comme vous avez pu le constater, en quelques minutes, une application complexe a été entièrement déployée, avec l’ensemble de ses composants, dépendances, paramètres et bases de données, ainsi que la publication en continue, configurés par l’orchestration automatisée de Microsoft Azure Resource Manager. Tout cela a été possible grâce à deux éléments :
+Comme vous avez pu le constater, en quelques minutes, deux applications de microservices ont été entièrement déployées, avec l'ensemble de leurs composants, dépendances, paramètres et bases de données, ainsi que la publication en continue, configurés par l'orchestration automatisée de Microsoft Azure Resource Manager. Tout cela a été possible grâce à deux éléments :
 
 -	le bouton Déployer dans Azure ;
 -	la présence du fichier azuredeploy.json dans la racine du référentiel.
@@ -274,7 +274,7 @@ Les étapes de cette section ont permis d’accomplir les tâches principales su
 2.	Création d’un fichier de paramètres pour accompagner le fichier de modèle
 3.	Déploiement du fichier de modèle avec le fichier de paramètres
 
-Cette dernière étape est facile à accomplir via l’applet de commande PowerShell. Pour voir les actions effectuées par Visual Studio lors du déploiement de votre application, accédez à l’élément Scripts\Deploy-AzureResourceGroup.ps1. Il y a beaucoup de code, mais je vais mettre en évidence celui que vous devez écrire pour déployer le fichier de modèle avec le fichier de paramètres.
+Cette dernière étape est facile à accomplir via l’applet de commande PowerShell. Pour voir les actions effectuées par Visual Studio lors du déploiement de votre application, accédez à l’élément Scripts\\Deploy-AzureResourceGroup.ps1. Il y a beaucoup de code, mais je vais mettre en évidence celui que vous devez écrire pour déployer le fichier de modèle avec le fichier de paramètres.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -282,7 +282,11 @@ La dernière applet de commande, `New-AzureResourceGroup`, est celle qui effectu
 
 ## Résumé ##
 
-Dans DevOps, la répétabilité et la prévisibilité jouent un rôle majeur pour assurer la réussite du déploiement à grande échelle d’une application complexe. Dans ce didacticiel, vous avez déployé une application sur Microsoft Azure en tant que groupe de ressources unique, à l’aide du modèle Azure Resource Manager. J’espère qu’il vous a permis d’acquérir les connaissances requises pour convertir une application complexe en modèle, dans Microsoft Azure, et de la déployer de manière prévisible sur cette plate-forme.
+Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour assurer la réussite du déploiement à grande échelle d'une application composée de microservices. Dans ce didacticiel, vous avez déployé deux applications de microservices sur Microsoft Azure en tant que groupe de ressources unique, à l'aide du modèle Azure Resource Manager. J'espère qu'il vous a permis d'acquérir les connaissances requises pour convertir une application en modèle, dans Microsoft Azure, et de la mettre en service et la déployer de manière prévisible sur cette plate-forme.
+
+## Étapes suivantes ##
+
+Découvrez comment [appliquer les méthodologies agiles et publier en continu votre application de microservices facilement](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## Autres ressources ##
@@ -300,4 +304,4 @@ Dans DevOps, la répétabilité et la prévisibilité jouent un rôle majeur po
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

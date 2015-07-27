@@ -2,7 +2,6 @@
 	pageTitle="Déplacer des données vers SQL Server on Azure | Microsoft Azure" 
 	description="Déplacer des données vers SQL Server on Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -19,7 +18,7 @@
 
 #Déplacer des données vers SQL Server on Azure
 
-Ce document décrit le déplacement de données issues de fichiers plats (CSV/TSV) ou d’une instance SQL Server locale vers une instance SQL Server sur Azure. Cette tâche fait partie du processus de science des données Azure fourni par Azure Machine Learning.
+Ce document décrit le déplacement de données issues de fichiers plats (csv/tsv) ou d’une instance SQL Server locale vers une instance SQL Server sur Azure. Cette tâche fait partie du processus de science des données Azure fourni par Azure Machine Learning.
 
 
 <table>
@@ -43,7 +42,7 @@ Ce document décrit le déplacement de données issues de fichiers plats (CSV/TS
   </td>
 </tr>
 <tr>
-  <td><b>SQL Server local</b></td>
+  <td><b>Instance&#160;SQL Server locale</b></td>
   <td>
     1. <a href="#export-flat-file">Exportation dans un fichier plat</a><br>
     2. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br>    
@@ -64,7 +63,7 @@ Cette section décrit le processus de déplacement de données vers une instance
 Ce document décrit le déplacement de données à partir des sources suivantes :
   
 1. [À partir de fichiers plats](#filesource_to_sqlonazurevm) 
-2. [À partir d’un serveur SQL Server local](#sqlonprem_to_sqlonazurevm)
+2. [À partir d’une instance SQL Server locale](#sqlonprem_to_sqlonazurevm)
 
 
 ### <a name="filesource_to_sqlonazurevm"></a>Source du fichier
@@ -78,7 +77,7 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 
 ### <a name="insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
-BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (On-Premise SQL Server, SQL Azure et SQL Server VM on Azure).
+BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
 > [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?** Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
@@ -177,7 +176,7 @@ Vous pouvez utiliser l’utilitaire SSIS (SQL Server Integrations Services) pour
 - Pour en savoir plus sur les outils SQL Server Data Tools, consultez l’article [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx).  
 - Pour en savoir plus sur l’Assistant Importation et Exportation, consultez l’article [Assistant Importation et Exportation SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Déplacement de données à partir d’une instance On-Premise SQL Server
+### <a name="sqlonprem_to_sqlonazurevm"></a>Déplacement de données à partir d’une instance SQL Server locale
 
 Pour déplacer des données d’une instance On-Premise SQL Server, la procédure est la suivante :
 
@@ -189,9 +188,9 @@ Chacune de ces étapes est décrite ci-après :
 
 #### <a name="export-flat-file"></a>Exporter dans un fichier plat
 
-Plusieurs méthodes documentées [ici](https://msdn.microsoft.com/library/ms175937.aspx) permettent d’exporter des données en bloc à partir d’une serveur SQL Server local. Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
+Plusieurs méthodes documentées [ici](https://msdn.microsoft.com/library/ms175937.aspx) permettent d’exporter des données en bloc à partir d’une instance SQL Server locale. Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
 
-1. Exportez les données de On-Premise SQL Server dans un fichier à l’aide de l’utilitaire BCP, comme suit :
+1. Pour exporter les données de l’instance SQL Server locale vers un fichier à l’aide de l’utilitaire BCP, procédez comme suit :
 
 	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
 
@@ -233,4 +232,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

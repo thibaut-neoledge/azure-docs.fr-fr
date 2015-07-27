@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Créer une tâche web .NET dans Azure App Service
@@ -165,7 +165,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 4. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -238,6 +238,14 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	L’URL complète se compose de ce que vous avez entré ici et de .azurewebsites.net (comme indiqué en regard de la zone de texte **Nom de l’application web**). Par exemple, si l’application web porte le nom ContosoAds, l’URL sera ContosoAds.azurewebsites.net.
 
+9. Dans la liste déroulante [Plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), sélectionnez **Créer un plan App Service**.
+
+11. Entrez un nom pour le plan App Service, par exemple : ContosoAdsPlan.
+
+9. Dans la liste déroulante [Groupe de ressources](../resource-group-overview.md), sélectionnez **Créer un groupe de ressources**.
+
+11. Entrez un nom pour le groupe de ressources, par exemple : ContosoAdsGroup.
+
 9. Dans la liste déroulante **Région**, sélectionnez la région que vous avez choisie pour votre compte de stockage.
 
 	Ce paramètre indique le centre de données Azure dans lequel votre application Web sera exécutée. Conserver l’application web et le compte de stockage dans le même centre de données réduit la latence et les frais d’acheminement des données.
@@ -245,6 +253,8 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 9. Dans la liste déroulante **Serveur de bases de données**, sélectionnez **Créer un serveur**.
 
 	Si votre abonnement a déjà un serveur, vous pouvez sélectionner ce serveur dans la liste déroulante.
+
+1. Entrez un nom pour le serveur de base de données, par exemple : ContosoAdsServer.
 
 1. Entrez un **Nom d'utilisateur de la base de données** et un **Mot de passe de la base de données**.
 
@@ -280,7 +290,7 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 	Vous pouvez ignorer l'avertissement indiquant qu'aucune base de données n'est en cours de publication. Entity Framework Code First crée la base de données ; il n'est pas nécessaire de la publier.
 
-	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJobs sont copiés dans le dossier *app_data\jobs\continuous* de l’application web.
+	La fenêtre d’aperçu indique que les fichiers binaires et de configuration du projet WebJobs sont copiés dans le dossier *app_data\\jobs\\continuous* de l’application web.
 
 	![WebJobs files in preview window](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -308,7 +318,7 @@ Par sécurité, il est conseillé [d'éviter de placer des informations sensible
 	
 9. Cliquez sur **Save**.
 
-	![Connection strings in management portal](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Chaînes de connexion dans le portail Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur l’application web, puis cliquez sur **Arrêter l’application web**.
 
@@ -331,7 +341,7 @@ Par sécurité, il est conseillé [d'éviter de placer des informations sensible
 
 ### Affichage du tableau de bord du Kit de développement logiciel (SDK) WebJobs
 
-1. Dans le portail Azure, sélectionnez votre application web.
+1. Dans le [portail Azure](https://manage.windowsazure.com), sélectionnez votre application web.
 
 2. Cliquez sur l'onglet **Tâches web**.
 
@@ -349,7 +359,7 @@ Par sécurité, il est conseillé [d'éviter de placer des informations sensible
 
 	Le bouton **Rappeler la fonction** de cette page commande à l'infrastructure du SDK de rappeler la fonction et vous permet de modifier les données déjà transmises à la fonction.
 
->[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail de gestion Azure, ouvrez l’onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** en bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance de la base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Azure, ouvrez l'onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** en bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance de la base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ### Activation d'AlwaysOn pour les processus longs
 
@@ -469,9 +479,9 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- *Web.config*
 	- *Global.asax.cs*  
 	- Dans le dossier *Controllers* : *AdController.cs*. 
-	- Dans le dossier *Views\Shared* : fichier <em>_Layout.cshtml</em>. 
-	- Dans le dossier *Views\Home* : *Index.cshtml*. 
-	- Dans le dossier *Views\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
+	- Dans le dossier *Views\\Shared* : fichier <em>_Layout.cshtml</em>. 
+	- Dans le dossier *Views\\Home* : *Index.cshtml*. 
+	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
 
@@ -483,7 +493,9 @@ Vous pouvez maintenant générer, exécuter et déployer l'application en suivan
 
 ## <a id="code"></a>Vérifier le code de l’application
 
-Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure. Pour le code propre au SDK, consultez la [section Program.cs](#programcs).
+Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure.
+
+> **Remarque :** pour le code propre au SDK WebJobs, consultez [Program.cs et Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -604,9 +616,9 @@ Du code similaire obtient une référence à la file d'attente *blobnamerequest*
 
 Le fichier *_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
+Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -695,7 +707,7 @@ Voici le code qui supprime les objets blob lorsque vous supprimez une publicité
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml et Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml et Details.cshtml
 
 Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
 
@@ -705,7 +717,7 @@ Le fichier *Details.cshtml* affiche l'image intégrale :
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml et Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml et Edit.cshtml
 
 Les fichiers *Create.cshtml* et *Edit.cshtml* spécifient l’encodage de formulaire qui permet au contrôleur d’obtenir l’objet `HttpPostedFileBase`.
 
@@ -785,7 +797,7 @@ Dans la version de service cloud de l'application, l'ID de l'enregistrement est
 
 ### Utilisation du Kit de développement logiciel (SDK) WebJobs en dehors de WebJobs
 
-Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l’application web au compte de stockage que vous utilisez, en définissant la chaîne de connexion AzureWebJobsDashboard dans l’onglet **Configurer** du portail de gestion. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
+Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l'application web au compte de stockage que vous utilisez, en définissant la chaîne de connexion AzureWebJobsDashboard dans l'onglet **Configurer** du portail Azure. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -798,8 +810,7 @@ Dans ce didacticiel, nous avons vu une simple application multiniveau qui utilis
 Pour plus d'informations, consultez la page [Ressources recommandées pour les tâches web Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
- 
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page : [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

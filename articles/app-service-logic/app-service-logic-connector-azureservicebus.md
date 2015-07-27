@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Application API du connecteur Azure Service Bus" 
-   description="Utilisation du connecteur Azure Service Bus" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Utilisation du connecteur Azure Service Bus dans Azure App Service"
+   description="Utilisation du connecteur Azure Service Bus"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,49 +12,66 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="06/29/2015"
+   ms.author="andalmia"/>
 
 
-# Utilisation du connecteur Azure Service Bus dans votre application logique #
+# Connecteur Azure Service Bus
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
+Le connecteur Azure Services Bus vous permet d'envoyer des messages à partir d'entités Service Bus telles que des files d'attente et des rubriques, et de recevoir des messages provenant d'entités Services Bus telles que des files d'attente et des abonnements.
 
-Le connecteur Azure Service Bus vous permet d’échanger des messages avec une file d’attente, une rubrique ou un abonnement.
+## Déclencheurs et actions
+Les déclencheurs sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une action est le résultat du déclencheur. Par exemple, lorsqu’une commande ou un nouveau message est placé dans une file d’attente, une alerte ou un message est envoyé.
 
-## Création d’un connecteur Azure Service Bus pour votre application logique ##
-Pour utiliser le connecteur Azure Service Bus, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
+Le connecteur Azure Service Bus peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML.
 
-1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « Web et mobilité > API Apps » et recherchez « Connecteur Azure Service Bus ».
-3.	Configurez le connecteur Azure Service Bus comme suit :
- 
-	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur Azure Service Bus - **Paramètres du package** - **Chaîne de connexion** : chaîne de connexion pour Azure Service Bus. Exemple : Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key] - **Nom de l'entité** : nom de la file d'attente ou de la rubrique - **Nom de l'abonnement** : nom de l'abonnement à partir duquel recevoir des messages.
+Le connecteur Azure Service Bus propose les déclencheurs et les actions suivants :
 
-4.	Cliquez sur Créer. Un connecteur Azure Service Bus est créé.
-5.	Une fois l’instance d’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur Azure Service Bus. 
+Déclencheurs | Actions
+--- | ---
+Message disponible | Envoyer un message
 
-## Utilisation du connecteur Azure Service Bus dans votre application logique ##
-Une fois votre application API créée, vous pouvez utiliser le connecteur Azure Service Bus comme déclencheur ou action pour votre application logique. Pour cela, vous devez procéder comme suit :
+## Créer le connecteur Azure Service Bus
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
-1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur Azure Service Bus.
- 
-	![][2]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. 
- 
-	![][3]
-3.	Le connecteur Azure Service Bus s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
- 
-	![][4]
-4. Vous pouvez déposer l’application API du connecteur Azure Service Bus dans l’éditeur en cliquant sur « Connecteur Azure Service Bus ».
- 
-5.	Vous pouvez maintenant utiliser le connecteur Azure Service Bus dans le flux. Vous pouvez utiliser le message récupéré du déclencheur Azure Service Bus (« Message disponible ») dans les autres actions du flux.
- 
-	![][5] ![][6] 
-6.	De même, vous pouvez utiliser l’action Azure Service Bus « Envoyer le message » pour envoyer un message.
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Sélectionnez **API Apps** et recherchez « Connecteur Azure Service Bus ».
+3. Indiquez le nom, le plan App Service et d’autres propriétés : <br/> ![][1]
 
-	![][7] ![][8]
+4. Entrez les paramètres de package suivants :
+
+	Nom | Description
+--- | ---
+Chaîne de connexion | La chaîne de connexion pour Azure Service Bus. Par exemple, entrez : *Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key]*.
+Nom de l’entité | Entrez le nom de la file d’attente ou de la rubrique.
+Nom d'abonnement | Entrez le nom de l’abonnement à partir duquel recevoir les messages.
+
+5. Cliquez sur **Create**.
+
+Une fois le connecteur créé, vous pouvez l’ajouter à une application logique dans le même groupe de ressources.
+
+## Utilisation du connecteur Service Bus dans votre application logique
+Une fois votre connecteur créé, vous pouvez utiliser le connecteur Azure Service Bus comme déclencheur ou action pour votre application logique. Pour ce faire :
+
+1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur Azure Service Bus : <br/> ![][2]
+
+2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux : <br/> ![][3]
+
+3. Le connecteur Azure Service Bus s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite : <br/> ![][4]
+
+4. Vous pouvez déposer le connecteur Azure Service Bus dans l’éditeur en cliquant sur « Connecteur Azure Service Bus ».
+
+5.	Vous pouvez maintenant utiliser le connecteur Azure Service Bus dans le flux de travail. Vous pouvez utiliser le message récupéré du déclencheur Azure Service Bus (« Message disponible ») dans les autres actions du flux : <br/> ![][5] <br/> ![][6]
+
+Vous pouvez également recourir à l’action « Envoyer un message » d’Azure Service Bus : <br/>![][7]<br/>![][8]
+
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 	<!--Image references-->
@@ -67,4 +84,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Azure
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

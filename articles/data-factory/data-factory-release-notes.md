@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Notes de publication sur Azure Data Factory
@@ -112,4 +112,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

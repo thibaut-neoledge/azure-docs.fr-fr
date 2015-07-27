@@ -54,7 +54,7 @@ Pour créer une activité personnalisée :
 ## Utilisation de l’activité personnalisée dans un pipeline
 Pour utiliser l'activité personnalisée dans un pipeline :
 
-1.	**Compressez** tous les fichiers binaires à partir des dossiers de sortie **bin\debug** ou **bin\release** du projet. 
+1.	**Compressez** tous les fichiers binaires à partir des dossiers de sortie **bin\\debug** ou **bin\\release** du projet. 
 2.	**Téléchargez le fichier .zip** comme objet blob sur votre **stockage d’objets blob Azure**. 
 3.	Mettez à jour le fichier **JSON du pipeline** afin qu’il fasse référence au fichier zip, aux DLL de l’activité personnalisée, à la classe d’activité et à l’objet blob qui contient le fichier zip dans le JSON du pipeline. Dans le fichier JSON :
 	<ol type ="a">
@@ -286,8 +286,8 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
 
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
-11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** (selon le type de build).
-12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\bin\Debug.
+11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
+12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug.
 13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Microsoft Azure utilisé par le service lié **MyBlobStore** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **blobcustomactivitycontainer**, le cas échéant. 
 
 
@@ -523,4 +523,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -247,4 +247,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

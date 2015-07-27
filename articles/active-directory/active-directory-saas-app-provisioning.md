@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory
@@ -76,8 +76,7 @@ Veuillez nous contacter via le [forum des commentaires sur Azure Active Director
 Azure AD approvisionne des utilisateurs pour les applications SaaS en se connectant aux points de terminaison d’approvisionnement fournis par chaque fournisseur de l’application. Ces points de terminaison permettent à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs par programmation. Voici une brève présentation des différentes étapes que suit Azure AD pour automatiser l’approvisionnement.
 
 1. Lorsque vous activez l’approvisionnement d’une application pour la première fois, les actions suivantes sont effectuées :
- - Azure AD tente de faire correspondre tous les utilisateurs existants dans l’application SaaS à leurs identités dans l’annuaire.
- - Lorsqu’un utilisateur est mis en correspondance, il a automatiquement accès à l’application, ce qui lui permet de procéder à son authentification unique.
+ - Azure AD tente de faire correspondre tous les utilisateurs existants dans l’application SaaS à leurs identités dans l’annuaire. Lorsqu'un utilisateur est mis en correspondance, il n’est *pas* automatiquement activé pour l’authentification unique. Pour qu’un utilisateur puisse accéder à l’application, il doit être affecté de manière explicite à l’application dans Azure AD, soit directement, soit via une appartenance au groupe.
  - Si vous avez déjà spécifié quels utilisateurs doivent être affectés à l’application et si Azure AD ne parvient pas à trouver des comptes existants pour ces utilisateurs, Azure AD configure de nouveaux comptes pour eux dans l’application.
 2. Une fois la synchronisation initiale terminée comme décrit ci-dessus, Azure AD vérifie les modifications suivantes toutes les 10 minutes :
  - Si de nouveaux utilisateurs sont affectés à l’application (directement ou via l’appartenance à un groupe), ils sont approvisionnés par un nouveau compte dans l’application SaaS.
@@ -107,4 +106,4 @@ Pour qu’une application puisse prendre en charge l’approvisionnement automat
 
 Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

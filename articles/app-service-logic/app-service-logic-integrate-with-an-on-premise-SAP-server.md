@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Intégrer un serveur SAP local dans Microsoft Azure App Service"
 	description="Découvrez comment intégrer un serveur SAP local"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Intégrer un serveur SAP local
 Avec le connecteur SAP, vous pouvez connecter des applications web, mobiles et logiques Azure App Services à votre serveur SAP existant. Vous pouvez appeler des RFC, BAPI et des tRFC, et envoyer des IDOC au serveur SAP.
-	
+
 Le serveur SAP peut même se trouver derrière votre pare-feu local. Dans le cas d'un serveur local, la connectivité est établie via un écouteur hybride, comme illustré ci-dessous :
 
 ![Flux de connectivité hybride][1]
@@ -40,12 +40,12 @@ Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinat
 
 
 ## Créer un adaptateur SAP
-1. Connectez-vous au portail de gestion Azure. 
+1. Connectez-vous au portail de gestion Azure.
 2. Sélectionnez **Nouveau**.
 3. Dans le panneau de création, sélectionnez **Calculer** > **Azure Marketplace**.
 4. Dans le panneau Marketplace, sélectionnez **Applications API** et recherchez SAP dans la barre de recherche :
-	
-	![Application API du connecteur SAP][2]	
+
+	![Application API du connecteur SAP][2]
 5. Sélectionnez le **Connecteur SAP** publié par Microsoft.
 6. Dans le panneau du connecteur SAP, sélectionnez **Créer**.
 7. Dans le nouveau panneau qui s'ouvre, entrez les informations suivantes :
@@ -125,8 +125,4 @@ Pour l'action sélectionnée, les paramètres d'entrée et de sortie sont affich
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

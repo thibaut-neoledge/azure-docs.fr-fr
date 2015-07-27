@@ -73,7 +73,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
     ![Dans le stockage, ouvrez Paramètres, Clés et copiez la clé d’accès principale.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Démarrez l’exportation continue vers le stockage Azure.
+## Démarrer l’exportation continue vers le stockage Azure
 
 1. Sur le portail Azure, accédez à la ressource Application Insights que vous avez créée pour votre application.
 
@@ -305,4 +305,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure" 
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Création et téléchargement d'un disque dur virtuel Linux dans Azure"
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ Si vous n'utilisez pas un environnement Windows, il est recommandé d'utiliser 
 		echo "Rounded Size = $rounded_size"
 
  3. Redimensionnez le disque brut à l'aide de $rounded_size défini dans le script ci-dessus :
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. À présent, convertissez le disque RAW en disque dur virtuel à taille fixe :
@@ -189,7 +189,4 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

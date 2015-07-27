@@ -106,4 +106,4 @@ Une fois le développeur ajouté à un groupe, il peut voir tous les produits as
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -32,9 +32,25 @@ Consultez la rubrique [Prise en main d'Application Insights pour .NET](app-insi
 * Comparez ApplicationInsights.config avec l'ancienne copie. La plupart des modifications que vous apercevez sont dues à la suppression de certains modules et à l’ajout d'autres paramétrables. Rétablissez les personnalisations que vous avez apportées à l'ancienne version.
 * Régénérez votre solution.
 
+## Version 1.1
+
+- Un nouveau type de télémétrie`DependencyTelemetry` a été ajouté, qui peut être utilisé pour envoyer des informations sur les appels de dépendance à partir de l'application (par exemple des appels SQL, HTTP, etc.).
+- Une nouvelle méthode de surcharge `TelemetryClient.TrackDependency` a été ajoutée, qui vous permet d'envoyer des informations sur les appels de dépendance.
+- Une valeur NullReferenceException fixe est envoyée par le module de diagnostics lorsque TelemetryConfiguration.CreateDefault est utilisé.
+
+## Version 1.0
+
+- Les initialiseurs et les modules de télémétrie ont été déplacés des sous-espaces de noms distincts vers les espace de noms `Microsoft.ApplicationInsights.Extensibility.Web` racines.
+- Le préfixe « Web » a été supprimé des noms des initialiseurs et des modules de télémétrie car il est déjà inclus dans le nom de l'espace de noms `Microsoft.ApplicationInsights.Extensibility.Web`.
+- `DeviceContextInitializer` a été déplacé de l’assembly `Microsoft.ApplicationInsights` vers l’assembly `Microsoft.ApplicationInsights.Extensibility.Web` et converti en un`ITelemetryInitializer`.
+- Renommez l'espace de noms et l'assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` à `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` pour les rendre cohérents avec le nom du package NuGet.
+- Renommez `RemoteDependencyModule` en `DependencyTrackingTelemetryModule`.
+- Renommez `CustomPerformanceCounterCollectionRequest` en `PerformanceCounterCollectionRequest`.
+
 ## Version 0.17
 - Suppression de la dépendance à EventSource NuGet pour les applications du framework 4.5.
-- Les cookies de sessions et d'utilisateurs anonymes ne seront pas générés côté serveur. Les modules de télémétrie ```WebSessionTrackingTelemetryModule``` et ```WebUserTrackingTelemetryModule``` ne sont plus pris en charge et ont été supprimés du fichier ApplicationInsights.config. Les cookies du Kit de développement logiciel (SDK) JavaScript seront respectés.
+- Les cookies de sessions et d'utilisateurs anonymes ne seront pas générés côté serveur. Pour implémenter le suivi de l'utilisateur et de la session pour les applications web, l’instrumentation avec JS SDK est désormais obligatoire – les cookies du SDK JavaScript sont toujours respectés. Les modules de télémétrie ```WebSessionTrackingTelemetryModule``` et ```WebUserTrackingTelemetryModule``` ne sont plus pris en charge et ont été supprimés du fichier ApplicationInsights.config. Notez que cette modification peut provoquer un changement significatif du nombre d'utilisateurs et de sessions car seules les sessions créées par l'utilisateur sont désormais comptabilisées.
+- OSVersion n'est plus renseigné par le Kit de développement logiciel (SDK) par défaut. Lorsqu’elles sont vides, les valeurs OS et OSVersion sont calculées par le pipeline Application Insights, en fonction de l'agent utilisateur. 
 - Le canal de persistance optimisé pour les scénarios de charge élevée est utilisé pour le Kit de développement logiciel (SDK) Web. Problème de « Spirale de la mort » résolu. Lorsque le nombre d'éléments de télémétrie dépasse largement la limite du point de terminaison, Spirale de la mort vous permet d’effectuer, après un certain temps, une nouvelle tentative, mais de manière limitée.
 - Le mode Développeur est optimisé pour la production. Lorsqu’il est laissé par erreur, il ne cause pas une aussi grande surcharge qu’avant la tentative d’envoi d’informations supplémentaires.
 - Le mode Développeur par défaut ne sera activé que lorsque l'application sera sous débogueur. Vous pouvez le remplacer à l'aide de l’interface ```DeveloperMode```Propriété de ```ITelemetryChannel```.
@@ -58,4 +74,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.topic="article"
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Intégration du Kit de développement logiciel (SDK) du module Couverture Windows Phone Silverlight
@@ -113,15 +113,15 @@ L'objet EngagementReach fournit deux méthodes pour gérer les autorisations de 
 
 Vous pouvez également décider de désactiver MPNS via la configuration Engagement <windows-phone-sdk-reach-configuration>.
 
-> 2.9.1) L'application doit tout d'abord décrire les notifications envoyées et **obtenir l'autorisation expresse de l'utilisateur.** Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services MPNS doivent être cohérentes avec la description fournie à l'utilisateur et doit respecter toutes les [politiques d'application][Content Policies] et [exigences supplémentaires pour les types d'application spécifiques] applicables.
+> 2\.9.1) L'application doit tout d'abord décrire les notifications envoyées et **obtenir l'autorisation expresse de l'utilisateur.** Elle **doit également proposer un moyen de désactiver la réception de notifications Push**. Toutes les notifications fournies par le biais des services MPNS doivent être cohérentes avec la description fournie à l'utilisateur et doit respecter toutes les [politiques d'application][Content Policies] et [exigences supplémentaires pour les types d'application spécifiques] applicables.
 
 2) Vous ne devez pas utiliser trop de notifications Push. Engagement gérera les notifications pour vous.
 
-> 2.9.2) L'application et son utilisation du service MPNS ne doivent pas utiliser une capacité réseau ou une bande passante MNPS excessive, ni surcharger de notifications un appareil Windows Phone ou autre service ou appareil Microsoft, comme déterminé par Microsoft à sa discrétion, ni endommager ou interférer avec les réseaux ou serveurs Microsoft ou tout serveur ou serveurs tiers connectés au service MNPS.
+> 2\.9.2) L'application et son utilisation du service MPNS ne doivent pas utiliser une capacité réseau ou une bande passante MNPS excessive, ni surcharger de notifications un appareil Windows Phone ou autre service ou appareil Microsoft, comme déterminé par Microsoft à sa discrétion, ni endommager ou interférer avec les réseaux ou serveurs Microsoft ou tout serveur ou serveurs tiers connectés au service MNPS.
 
 3) N'utilisez pas le service MPNS pour envoyer des informations critiques. Engagement utilise MPNS, cette règle s'applique donc aussi pour les campagnes créées dans le serveur frontal Engagement.
 
-> 2.9.3) Le service MNPS ne peut pas être utilisé pour envoyer des notifications stratégiques ou pouvant toucher à la vie des utilisateurs, y compris, mais sans s'y limiter, les notifications critiques liées à une affection ou un dispositif médical. MICROSOFT NE GARANTIT AUCUNEMENT LA NON-INTERRUPTION, L'ABSENCE D'ERREUR OU L'EXÉCUTION EN TEMPS RÉEL DE L'UTILISATION DU SERVICE MPNS OU DE LA LIVRAISON DES NOTIFICATIONS MPNS.
+> 2\.9.3) Le service MNPS ne peut pas être utilisé pour envoyer des notifications stratégiques ou pouvant toucher à la vie des utilisateurs, y compris, mais sans s'y limiter, les notifications critiques liées à une affection ou un dispositif médical. MICROSOFT NE GARANTIT AUCUNEMENT LA NON-INTERRUPTION, L'ABSENCE D'ERREUR OU L'EXÉCUTION EN TEMPS RÉEL DE L'UTILISATION DU SERVICE MPNS OU DE LA LIVRAISON DES NOTIFICATIONS MPNS.
 
 **Nous ne pouvons pas garantir que votre application soit validée si vous ne respectez pas ces recommandations.**
 
@@ -266,4 +266,4 @@ Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre
 [exigences supplémentaires pour les types d'application spécifiques]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

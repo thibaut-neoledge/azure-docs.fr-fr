@@ -4,7 +4,7 @@
 	description="Découvrez comment restaurer une machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="aashishr"/>
+	ms.author="trinadhk"/>
 
 # Restaurer une machine virtuelle
 Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle à partir des sauvegardes stockées dans l’archivage de sauvegarde Azure à l’aide de la tâche de restauration.
@@ -55,9 +55,9 @@ Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle �
   - Spécifiez le nom de la machine virtuelle : dans un service cloud donné, le nom de la machine virtuelle doit être unique. Si vous envisagez de remplacer une machine virtuelle existante portant le même nom, commencez par supprimer la machine virtuelle existante ainsi que les disques de données, puis restaurez les données à partir d’Azure Backup.
   - Sélectionnez un service cloud pour la machine virtuelle : ce champ est obligatoire pour la création d’une machine virtuelle. Vous pouvez utiliser un service cloud existant ou en créer un.
 
-        Quel que soit le nom du service cloud choisi, il doit être globalement unique. En règle générale, le nom du service cloud est associé à une URL destinée au public au format [cloudservice].cloudapp.net. Azure ne vous autorise pas à créer un nouveau service cloud si le nom a déjà été utilisé. Si vous choisissez de créer un nouveau service cloud, le nom de la machine virtuelle lui sera attribué. Dans ce cas, le nom de la machine virtuelle choisi doit être suffisamment particulier pour être appliqué au service cloud associé.
+        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
 
-         Nous affichons uniquement les services cloud et les réseaux virtuels qui ne sont associés à aucun groupe d’affinités dans les informations de l’instance à restaurer. [En savoir plus](https://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
+        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
 
 2. Sélectionnez un compte de stockage pour la machine virtuelle : ce champ est obligatoire pour la création de la machine virtuelle. Vous pouvez sélectionner un compte de stockage existant dans la même région que l’archivage de sauvegarde Azure. Nous ne prenons pas en charge les comptes de stockage redondants dans une zone ou de type Premium.
 
@@ -90,18 +90,18 @@ Une fois l’opération de restauration terminée, elle est marquée comme termi
 
 ![Travail de restauration terminé](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [recréer les points de terminaison](virtual-machines-set-up-endpoints) de la machine virtuelle dans le portail Azure.
+Après la restauration de la machine virtuelle, vous devrez peut-être réinstaller les extensions de la machine virtuelle d’origine et [modifier les points de terminaison](virtual-machines-set-up-endpoints) de la machine virtuelle dans le portail Azure.
 
 ## Résolution des erreurs
 Pour la plupart des erreurs, vous pouvez suivre l’action recommandée suggérée dans les détails de l’erreur. Voici quelques points supplémentaires pour vous aider à résoudre les erreurs :
 
 | Opération de sauvegarde | Détails de l’erreur | Solution de contournement |
 | -------- | -------- | -------|
-| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+| Restauration | Échec de la restauration avec une erreur interne du cloud | <ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si une adresse est configurée, cela signifie que des paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec une adresse IP réservée et les machines virtuelles existantes dans le service cloud sont dans un état arrêté.<br>Vous pouvez vérifier qu’un service cloud a une adresse IP réservée à l’aide des applets de commande PowerShell suivantes :<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Étapes suivantes
 - [Gestion des machines virtuelles](backup-azure-manage-vms)
 
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

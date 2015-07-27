@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Connecteur SFTP"
 	description="Prise en main du connecteur SFTP"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="adgoda"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 # Utilisation du connecteur SFTP dans votre application logique #
 
@@ -28,7 +28,7 @@ Pour utiliser le connecteur SFTP, vous devez d’abord créer une instance de l�
 1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
 2.	Accédez à « Web et mobilité > API Apps » et recherchez « Connecteur SFTP ».
 3.	Configurez le connecteur SFTP comme suit :
- 
+
 	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur SFTP - **Paramètres du package** - **Adresse du serveur** : indiquez le nom ou l'adresse IP du serveur SFTP - **Accepter toute clé d'hôte de serveur SSH** : détermine si n'importe quelle clé d'hôte publique SSH émanant du serveur doit être acceptée. Si ce paramètre est désactivé, la clé d'hôte est comparée à la clé spécifiée dans la propriété « Empreinte de la clé d'hôte du serveur SSH » - **Clé d'hôte du serveur SSH** : spécifiez l'empreinte de la clé hôte publique du serveur SSH - **Dossier racine** : spécifiez le chemin d'accès au dossier racine - **Chiffrement** : spécifiez le chiffrement - **Port serveur** : spécifiez le numéro de port du serveur SFTP
 4. Cliquez sur Créer. Un connecteur SFTP est créé.
 
@@ -38,23 +38,23 @@ Pour utiliser le connecteur SFTP, vous devez d’abord créer une instance de l�
 6. Cliquez sur le composant « Sécurité » pour configurer la sécurité (Nom d’utilisateur, Mot de passe, Clé privée, Mot de passe du fichier PPK) du connecteur SFTP. Sélectionnez l’onglet d’autorisation « Mot de passe », « Clé privée » ou « Multifacteur » dans Sécurité et spécifiez les propriétés requises.
 
 	![][3] ![][4] ![][5]
-6. Une fois la configuration de sécurité enregistrée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur SFTP. 
+6. Une fois la configuration de sécurité enregistrée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur SFTP.
 
 ## Utilisation du connecteur SFTP dans votre application logique ##
 Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP comme déclencheur ou action pour votre application logique. Pour cela, vous devez procéder comme suit :
 
 1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur SFTP.
- 	
+
 	![][6]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. 
- 	
+2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux.
+
 	![][7]
 3.	Le connecteur SFTP s’affiche dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite.
- 
+
 	![][8]
 4.	Vous pouvez déposer l’application API du connecteur SFTP dans l’éditeur en cliquant sur « Connecteur SFTP ».
- 
-	
+
+
 6.	Vous pouvez maintenant utiliser le connecteur SFTP dans le flux. Vous pouvez utiliser le fichier récupéré du déclencheur SFTP (« TriggerOnFileAvailable ») dans d’autres actions du flux.
 
 	**Remarque :** le déclencheur SFTP « TriggerOnFileAvailable » supprime le fichier récupéré après le traitement de celui-ci.
@@ -66,7 +66,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	- **Masque de fichiers** : spécifiez le masque à appliquer pour récupérer les fichiers. '*' récupère tous les fichiers dans le dossier spécifié.
 	- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
 
- 
+
 	![][9] ![][10]
 
 7.	De même, vous pouvez utiliser les actions SFTP dans le flux. Vous pouvez utiliser l’action « Charger le fichier » pour charger un fichier sur le serveur SFTP. Configurez les propriétés d’entrée de l’action « Charger le fichier » comme suit :
@@ -96,6 +96,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 [10]: ./media/app-service-logic-connector-sftp/img10.PNG
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

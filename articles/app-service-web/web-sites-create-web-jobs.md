@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Exécuter des tâches en arrière-plan avec les tâches web
@@ -166,7 +165,7 @@ Les tâches planifiées peuvent être configurées avec plus de précision sur l
 
 ## <a name="WHPNotes"></a>Remarques
 	
-- Depuis mars 2014, les applications web en mode Gratuit peuvent expirer si, pendant 20 minutes, aucune requête à destination du site (de déploiement) SCM et du portail de l’application web n’est ouverte dans Azure. Cette situation ne sera pas annulée par les requêtes à destination du site actif.
+- Les applications web en mode Gratuit peuvent expirer si, pendant 20 minutes, aucune requête à destination du site (de déploiement) SCM et du portail de l'application web n'est ouverte dans Azure. Cette situation ne sera pas annulée par les requêtes à destination du site actif.
 - Le code d'une tâche en continu doit être écrit pour s'exécuter dans une boucle infinie.
 - Les tâches en continu sont uniquement exécutées comme tel lorsque l’application web est opérationnelle.
 - Les modes Basique et Standard proposent la fonctionnalité Toujours actif qui, lorsqu’elle est activée, empêche les applications web de devenir inactives.
@@ -210,4 +209,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

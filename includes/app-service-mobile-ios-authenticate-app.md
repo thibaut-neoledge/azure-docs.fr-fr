@@ -25,4 +25,4 @@
 
 3. Appuyez sur **Exécuter** pour démarrer l’application, puis connectez-vous avec votre fournisseur d’identité choisi. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -39,7 +39,7 @@ Procédez comme suit pour créer un projet de service cloud nommé « expressap
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Remplacez les répertoires du répertoire **c:\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
+2. Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **expressapp** et un rôle Web nommé **WebRole1** :
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -135,4 +135,4 @@ Une fois le déploiement terminé, votre navigateur s'ouvre et affiche la page W
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

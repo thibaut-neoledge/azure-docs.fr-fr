@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/23/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Flux de travail typique de développement Azure Search
@@ -22,7 +22,7 @@ Cet article propose une feuille de route pour inclure Azure Search en tant que c
 
 Les sections suivantes décrivent un flux de travail typique pour la création d’un prototype initial qui vous aidera à évaluer dans quelle mesure Azure Search répond aux prérequis de votre application en termes d’outil de recherche. La seconde partie de cet article couvre les décisions de conception importantes dans le cadre d’une initiative de développement d’application plus poussée.
 
-Avant de commencer à créer un prototype, nous vous recommandons de visualiser un de nos didacticiels de prise en main ou cette [présentation vidéo approfondie d’une heure](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Les didacticiels de prise en main sont proposés en langages [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/) et [Node.JS](../search-get-started-nodejs/).
+Avant de commencer à créer un prototype, nous vous recommandons de visualiser un de nos didacticiels de prise en main ou cette [présentation vidéo approfondie d’une heure](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Les didacticiels de prise en main sont proposés en langages [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md) et [Node.JS](search-get-started-nodejs.md).
 
 ##Développement du prototype
 
@@ -34,7 +34,7 @@ Pour les applications avec données volatiles (comme, par exemple, en cas de cha
 
 ###Étape 1 : Configuration du service
 
-Azure Search est un service en ligne entièrement géré disponible via un abonnement Azure. [Une fois inscrit sur Azure](http://azure.microsoft.com/pricing/free-trial/), l’ajout du service de recherche est très rapide. Consultez [Créer un service de recherche sur le portail](../search-create-service-portal/) pour des instructions sur l’ajout d’un service de recherche à votre abonnement.
+Azure Search est un service en ligne entièrement géré disponible via un abonnement Azure. [Une fois inscrit sur Azure](http://azure.microsoft.com/pricing/free-trial/), l’ajout du service de recherche est très rapide. Consultez [Créer un service de recherche sur le portail](search-create-service-portal.md) pour des instructions sur l’ajout d’un service de recherche à votre abonnement.
 
 Deux niveaux de tarification sont disponibles. Nous vous recommandons d’utiliser le service partagé (gratuit) pour créer votre prototype, le seul inconvénient étant que vous ne pourrez travailler qu’avec un sous-ensemble limité de vos données. Le service partagé est gratuit pour les abonnés (par le biais de la version d’essai ou d’un abonnement normal) et rapide à installer. Le nombre d’index et de documents que vous pouvez utiliser est toutefois limité à 3 index ou 10 000 documents par index ou 50 Mo de stockage total, quelle que soit la première limite atteinte.
 
@@ -42,7 +42,7 @@ Deux niveaux de tarification sont disponibles. Nous vous recommandons d’utilis
 
 Une fois le service créé, vous êtes prêt à créer l’index, en commençant par la définition de son schéma.
 
-Le portail vous permet de créer rapidement et facilement un index. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](../search-create-index-portal/).
+Le portail vous permet de créer rapidement et facilement un index. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](search-create-index-portal.md).
 
 > [AZURE.NOTE]**À l’intérieur d’un index Azure Search**
 >
@@ -66,14 +66,14 @@ Il existe plusieurs manières de charger des documents, mais toutes ne requière
 
 ####Comment charger des données dans un index
 
-Une approche consiste à utiliser un indexeur. Pour Azure DocumentDB ou les sources de données relationnelles SQL Server dans Azure (notamment la base de données Azure SQL ou SQL Server dans Azure VM), vous pouvez utiliser les [indexeurs](https://msdn.microsoft.com/library/dn946891.aspx) pour extraire des documents à partir d’une source de données prise en charge. Des exemples de code qui utilisent des indexeurs pour le chargement de documents sont indiqués dans ces didacticiels de prise en main : [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/) et [Node.JS](../search-get-started-nodejs/).
+Une approche consiste à utiliser un indexeur. Pour Azure DocumentDB ou les sources de données relationnelles SQL Server dans Azure (notamment la base de données Azure SQL ou SQL Server dans Azure VM), vous pouvez utiliser les [indexeurs](https://msdn.microsoft.com/library/dn946891.aspx) pour extraire des documents à partir d’une source de données prise en charge. Des exemples de code qui utilisent des indexeurs pour le chargement de documents sont indiqués dans ces didacticiels de prise en main : [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md) et [Node.JS](search-get-started-nodejs.md).
 
 Une seconde option consiste à écrire un programme simple à l'aide de l'API REST ou de la bibliothèque .NET qui charge les documents :
 
 - [Ajout, mise à jour ou suppression de documents (API REST)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [Classe DocumentOperationsExtensions](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Une troisième option efficace pour les ensembles de données très réduits consiste à télécharger les documents à l’aide de [Fiddler](../search-fiddler/) ou [Chrome Postman](../search-chrome-postman/).
+Une troisième option efficace pour les ensembles de données très réduits consiste à télécharger les documents à l’aide de [Fiddler](search-fiddler.md) ou [Chrome Postman](search-chrome-postman.md).
 
 Une quatrième option, peut-être la plus simple, consiste à emprunter le code à partir de l’[exemple d’API REST C# Adventure Works](https://azuresearchadventureworksdemo.codeplex.com/) qui charge les documents à partir d'une base de données (.mdf) intégrée dans la solution, ou l’[exemple d’API REST C# Scoring Profiles](https://azuresearchscoringprofiles.codeplex.com/) qui charge des données à partir de fichiers de données JSON inclus dans la solution.
 
@@ -83,7 +83,7 @@ Une quatrième option, peut-être la plus simple, consiste à emprunter le code 
 
 Une fois les documents chargés dans l’index, vous pouvez écrire votre première requête.
 
-Le moyen le plus rapide pour obtenir des résultats de recherche initiaux à l’aide de votre service de recherche consiste à utiliser [Fiddler](../search-fiddler/) ou [Chrome Postman](../search-chrome-postman/) pour afficher une réponse, mais vous souhaiterez probablement écrire un code simple d'interface utilisateur pour afficher les résultats dans un format lisible.
+Le moyen le plus rapide pour obtenir des résultats de recherche initiaux à l’aide de votre service de recherche consiste à utiliser [Fiddler](search-fiddler.md) ou [Chrome Postman](search-chrome-postman.md) pour afficher une réponse, mais vous souhaiterez probablement écrire un code simple d'interface utilisateur pour afficher les résultats dans un format lisible.
 
 Les API pour les opérations de recherche incluent :
 
@@ -100,19 +100,19 @@ La valeur par défaut est 50 documents. Vous pouvez modifier le nombre d’élé
 
 Maintenant que vous disposez d’un service et d’un index, vous pouvez tester des fonctionnalités supplémentaires pour améliorer l'expérience de recherche. Une courte liste de fonctionnalités à étudier est décrite ci-dessous.
 
-Les **pages de recherche** incluent souvent le nombre de documents dans un ensemble de résultats, ou utilisent la pagination pour diviser les résultats en nombres plus faciles à gérer. Consultez [Pagination](../search-pagination-page-layout/) pour plus d'informations.
+Les **pages de recherche** incluent souvent le nombre de documents dans un ensemble de résultats, ou utilisent la pagination pour diviser les résultats en nombres plus faciles à gérer. Consultez [Pagination](search-pagination-page-layout.md) pour plus d'informations.
 
 **searchMode=all** est un paramètre de requête qui modifie la façon dont Azure Search évalue l'opérateur NOT. Par défaut, les requêtes qui incluent NOT (-) ne réduisent pas le nombre de résultats mais l’augmentent. Vous pouvez définir ce paramètre pour modifier la façon dont l’opérateur est évalué. Cette opération est documentée dans [Rechercher des Documents](https://msdn.microsoft.com/library/dn798927.aspx) ou [Énumération SearchMode](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx).
 
-Les **profils de score** sont utilisés pour améliorer les scores de recherche, afin que les éléments qui répondent aux critères prédéfinis apparaissent dans les premiers résultats de recherche. Consultez [Prise en main des profils de score](../search-get-started-scoring-profiles/) pour accéder à cette fonctionnalité.
+Les **profils de score** sont utilisés pour améliorer les scores de recherche, afin que les éléments qui répondent aux critères prédéfinis apparaissent dans les premiers résultats de recherche. Consultez [Prise en main des profils de score](search-get-started-scoring-profiles.md) pour accéder à cette fonctionnalité.
 
 Les **filtres** sont utilisés pour limiter les résultats de la recherche en fournissant des critères supplémentaires sur la sélection. Les expressions de filtre sont placées dans la requête. Consultez [Rechercher des documents](https://msdn.microsoft.com/library/dn798927.aspx) pour plus d'informations.
 
-La **navigation à facettes** est utilisée pour le filtrage autonome. Azure Search génère et renvoie la structure, et votre code restitue la structure de navigation à facettes dans une page de résultats. Consultez [Navigation à facettes](../search-faceted-navigation/) pour plus d'informations.
+La **navigation à facettes** est utilisée pour le filtrage autonome. Azure Search génère et renvoie la structure, et votre code restitue la structure de navigation à facettes dans une page de résultats. Consultez [Navigation à facettes](search-faceted-navigation.md) pour plus d'informations.
 
 Les **générateurs de suggestion** font référence aux requêtes prédictives ou avec saisie semi-automatique qui renvoient des suggestions de termes à mesure l'utilisateur saisit les premières lettres d'une expression de recherche. Consultez [Opération de suggestion](https://msdn.microsoft.com/library/dn798936.aspx) ou [Classe de générateurs de suggestions](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) pour plus d'informations.
 
-Les **analyseurs de langage** fournissent les règles linguistiques utilisées pendant l'analyse de texte. L'analyseur de langage par défaut pour Azure Search est Lucene English, mais vous pouvez utiliser un autre ou même plusieurs analyseurs en les spécifiant dans votre index. Les analyseurs Lucene sont disponibles dans toutes les API. Les processeurs de langage naturel de Microsoft sont disponibles uniquement dans l’[API REST 2015-02-28-Preview](../search-api-2015-02-28-preview/). Consultez [Support multilingue](https://msdn.microsoft.com/library/dn879793.aspx) pour plus d'informations.
+Les **analyseurs de langage** fournissent les règles linguistiques utilisées pendant l'analyse de texte. L'analyseur de langage par défaut pour Azure Search est Lucene English, mais vous pouvez utiliser un autre ou même plusieurs analyseurs en les spécifiant dans votre index. Les analyseurs Lucene sont disponibles dans toutes les API. Les processeurs de langage naturel de Microsoft sont disponibles uniquement dans l’[API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Consultez [Support multilingue](https://msdn.microsoft.com/library/dn879793.aspx) pour plus d'informations.
 
 ###Étape 6 : Mise à jour d'index et de documents
 
@@ -144,7 +144,7 @@ Actuellement, un petit sous-ensemble de fonctionnalités n’existe pas encore d
 - [Fonctionnalité moreLikeThis - aperçu uniquement](../search-api-2015-02-28-preview/)
 - [API de gestion](https://msdn.microsoft.com/library/dn832684.aspx)
 
-Vous pouvez consulter régulièrement l’article [Nouveautés](../search-latest-updates/) pour surveiller les changements de statut des fonctionnalités.
+Vous pouvez consulter régulièrement l’article [Nouveautés](search-latest-updates.md) pour surveiller les changements de statut des fonctionnalités.
 
 ###Détermination des méthodes de synchronisation des données : émission (Push) ou extraction (Pull)
 
@@ -191,4 +191,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@ La version préliminaire du portail fonctionne parfaitement sur les PC, les Mac 
 ### Navigateurs pris en charge
 Les versions les plus récentes des navigateurs suivants sont prises en charge :
 
-- Internet Explorer (10 et versions ultérieures)
+- Internet Explorer (11 et versions ultérieures)
 - Safari (7 et versions ultérieures)
 - Chrome (la dernière version)
 - Firefox (la dernière version)
 
 *Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

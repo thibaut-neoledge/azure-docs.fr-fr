@@ -1,26 +1,18 @@
 <properties
-   pageTitle="Azure Backup - Forum Aux Questions"
+   pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
    description="Forum aux questions sur le service Azure Backup"
    services="backup"
    documentationCenter=""
-   authors="prvijay"
+   authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="03/26/2015"
-	 ms.author="prvijay"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
-Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, accédez au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/fr-fr/home?forum=windowsazureonlinebackup) et publiez vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
+Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
 
 ## Installation et configuration
-
 **Q1. Quelle est la liste des systèmes d’exploitation pris en charge à partir desquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ?** <br/> R1. La liste suivante de systèmes d’exploitation est prise en charge par Azure Backup
 
 
@@ -39,13 +31,13 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q2. Où puis-je télécharger le dernier agent Azure Backup ?** <br/> R2. Vous pouvez télécharger le dernier agent [ici](http://aka.ms/azurebackup_agent). Il peut être installé sur Windows Server, SCDPM ou un client Windows
 
-**Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Il est recommandé d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR5 depuis février 2015)
+**Q3. Quelle version du serveur SCDPM est prise en charge ?** <br/> R3. Nous vous recommandons d’installer le [dernier](http://aka.ms/azurebackup_agent) agent Azure Backup sur le dernier correctif cumulatif de SCDPM (UR6 depuis juillet 2015)
 
 **Q4. Pendant la configuration de l’agent Azure Backup, je suis invité à entrer les « informations d’identification de coffre ». Ces informations d’identification de coffre ont-elles une date d’expiration ?** <br/> R4. Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de coffre à partir de votre archivage de sauvegarde.
 
-**Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis mars 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
+**Q5. Le nombre d’archivages de sauvegarde pouvant être créés dans chaque abonnement Azure est-il limité ?** <br/> R5. Oui. Depuis juillet 2015, vous pouvez créer 25 archivages par abonnement. Si vous avez besoin de plus d’archivages, créez un autre abonnement.
 
-**Q6. Les archivages sont-ils des entités de facturation ?** <br/> R6. Même s’il est possible d’obtenir une facture détaillée pour chaque archivage, il est vivement recommandé de considérer l’abonnement Azure comme entité de facturation. Il est cohérent sur tous les services et est plus facile à gérer.
+**Q6. Les archivages sont-ils des entités de facturation ?** <br/> R6. Même s’il est possible d’obtenir une facture détaillée pour chaque archivage, nous vous recommandons vivement de considérer l’abonnement Azure comme entité de facturation. Il est cohérent sur tous les services et est plus facile à gérer.
 
 **Q7. Le nombre de serveurs/ordinateurs pouvant être inscrits pour chaque archivage est-il limité ?** <br/> R7. Oui, vous pouvez inscrire un maximum de 50 ordinateurs par archivage. Si vous avez besoin d’inscrire davantage d’ordinateurs, créez un autre archivage.
 
@@ -57,56 +49,48 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q11. À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?** <br/> R11. L’ensemble suivant de lecteurs/volumes peut être sauvegardé :
 
-+ Support amovible : le lecteur doit être déclaré fixe pour être utilisé comme source d’éléments de sauvegarde.
-
-+ Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
-
-+ Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
-
-+ Partage réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
+- Support amovible : le lecteur doit être déclaré fixe pour être utilisé comme source d’éléments de sauvegarde.
+- Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
+- Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
+- Partage réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
+- Volumes protégés par BitLocker : le volume doit être déverrouillé pour pouvoir effectuer la sauvegarde.
+- Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge pour cette version du service de sauvegarde en ligne.
 
 **Q12. Quels types de fichier et dossier puis-je sauvegarder à partir de mon serveur ?**<br/> R12. Les types suivants sont pris en charge :
 
-+ Chiffré
-
-+ Compressé
-
-+ Partiellement alloué
-
-+ Compressé + partiellement alloué
-
-+ Liens physiques : non pris en charge, ignorés
-
-+ Point d’analyse : non pris en charge, ignoré
-
-+ Chiffré + compressé : non pris en charge, ignoré
-
-+ Chiffré + partiellement alloué : non pris en charge, ignoré
-
-+ Flux compressé : non pris en charge, ignoré
-
-+ Flux partiellement alloué : non pris en charge, ignoré
+- Chiffré
+- Compressé
+- Partiellement alloué
+- Compressé + partiellement alloué
+- Liens physiques : non pris en charge, ignorés
+- Point d’analyse : non pris en charge, ignoré
+- Chiffré + compressé : non pris en charge, ignoré
+- Chiffré + partiellement alloué : non pris en charge, ignoré
+- Flux compressé : non pris en charge, ignoré
+- Flux partiellement alloué : non pris en charge, ignoré
 
 **Q13. Quelle est la taille minimale requise du dossier du cache ?** <br/> R13. La taille du dossier du cache est déterminée par la quantité de données que vous sauvegardez. En général, 10 à 15 % de l’espace requis pour le stockage de données est alloué au dossier du cache.
 
-**Q14. Comment empêcher les données d’un serveur spécifique d’être récupérées par d’autres serveurs de mon organisation ? **<br/> R14. Tous les serveurs inscrits dans le même archivage sont en mesure de récupérer les données sauvegardées par d’autres serveurs qui utilisent la même phrase secrète. Si vous voulez que la récupération ne concerne que certains serveurs de votre organisation, vous devez utiliser une phrase secrète distincte pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
+**Q14. Comment empêcher les données d’un serveur spécifique d’être récupérées par d’autres serveurs de mon organisation ?**<br/> R14. Tous les serveurs inscrits dans le même archivage sont en mesure de récupérer les données sauvegardées par d’autres serveurs qui utilisent la même phrase secrète. Si vous voulez que la récupération ne concerne que certains serveurs de votre organisation, vous devez utiliser une phrase secrète distincte pour ces serveurs. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
 
 **Q15. Puis-je « migrer » mes données de sauvegarde entre les abonnements ?** <br/> R15 : non
 
 **Q16 : puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
 
+**Question 17 : L'agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
+
+**Question 18 : Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu'elle a démarré ?** <br/>R18 : Non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu'au moment de l'annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
+
+**Q19 : Pourquoi l'avertissement « Les sauvegardes Azure n'ont pas été configurées pour ce serveur » apparaît-il alors que j'avais planifié des sauvegardes standard ?** <br/>R19 : Cela peut se produire lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s'est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
+
 ## Sauvegarde et rétention
-**Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis mars 2015, la taille de chaque source de données doit être inférieure ou égale à 1,7 To. Une source de données peut être l’un des éléments suivants :
+**Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis juillet 2015, la taille de chaque source de données doit être inférieure ou égale à 1,7 To. Une source de données peut être l’un des éléments suivants :
 
-+ Volume de fichier/dossier
-
-+ Base de données SQL
-
-+ Batterie de serveurs SharePoint
-
-+ Serveur Exchange
-
-+ Machine virtuelle Hyper-V
+- Volume de fichier/dossier
+- Base de données SQL
+- Batterie de serveurs SharePoint
+- Serveur Exchange
+- Machine virtuelle Hyper-V
 
 **Q2. Le nombre de planifications de sauvegarde est-il limité ?**<br/> R2. Oui, Azure Backup permet 3 copies de sauvegarde par jour via un client/serveur Windows et 2 copies de sauvegarde par jour via SCDPM.
 
@@ -118,7 +102,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18 h 00. <br/>
 
-![Planification de sauvegarde et rétention][1] <br/>
+![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
 **Q7. Une copie incrémentielle est-elle transférée pour les stratégies de rétention planifiées ?** <br/> R7. Non, la copie incrémentielle est envoyée en fonction de l’heure mentionnée dans la page de planification de sauvegarde. Les points qui peuvent être conservés sont déterminés par la stratégie de rétention.
 
@@ -128,13 +112,13 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Depuis avril 2015, vous pouvez créer un maximum de 366 points de récupération. Vous pouvez utiliser n’importe quelle permutation pour arriver à un nombre inférieur à 366. Par ex., la somme des points de rétention de l’image ci-dessous est égale à 354. <br/>
 
-![Écran de rétention][2]
+![Écran de rétention](./media/backup-azure-backup-faq/RetentionScreen1.png)
 
 **Q11. Quand Microsoft augmentera la limite de 366, devrai-je mettre à niveau l’agent ou réamorcer la sauvegarde initiale ?** <br/> R11. Non. Quand nous modifierons notre service, vous serez averti via nos médias sociaux (blogs, annonces Azure, portail, etc.). Selon vos besoins, vous devrez uniquement modifier la stratégie de rétention.
 
 **Q12. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/> R12. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Vous pouvez gagner 30 à 40 % d’espace de compression en fonction du type de données à sauvegarder.
 
-## Récupérations
+## Récupérer
 **Q1. Combien de récupérations puis-je effectuer sur les données sauvegardées dans Azure ?**<br/> R1. Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
 
 **Q2. Le trafic sortant du centre de données Azure m’est-il facturé pendant les récupérations ?**<br/> R2. Non. Vos récupérations sont gratuites et le trafic sortant ne vous est pas facturé.
@@ -148,10 +132,4 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-
-<!--Image references-->
-[1]: ./media/backup-azure-backup-faq/Schedule.png
-[2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

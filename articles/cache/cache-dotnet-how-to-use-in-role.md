@@ -413,4 +413,4 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

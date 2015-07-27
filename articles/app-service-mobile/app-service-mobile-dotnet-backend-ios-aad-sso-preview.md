@@ -96,7 +96,7 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
 
 5. Dans le code de la méthode `loginAndGetData`, remplacez **INSERT-RESOURCE-URI-HERE** par l’**URI ID d’application** de votre application mobile. Si vous avez suivi les instructions de la rubrique [Configuration de votre application mobile avec Azure Active Directory], votre URI ID d’application doit être semblable à https://contosogateway.azurewebsites.net/login/aad.
 
-6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié dans l’application cliente native.
+6. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-CLIENT-ID-HERE**￼ par l’ID client que vous avez copié dans l’application cliente native.
 
 7. Dans le code de la méthode `loginAndGetData` ci-dessus, remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison /login/done de votre passerelle App Service. Cette valeur doit être semblable à https://contosogateway.azurewebsites.net/login/done.
 
@@ -118,4 +118,4 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
  [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

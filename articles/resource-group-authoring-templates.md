@@ -1,24 +1,26 @@
 <properties
    pageTitle="Création de modèles Azure Resource Manager"
    description="Créez des modèles Azure Resource Manager à l'aide de la syntaxe JSON déclarative pour déployer des applications sur Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
 Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
+
+Cette rubrique décrit les sections du modèle. Pour obtenir les schémas réels, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Format de modèle
 
@@ -400,6 +402,7 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
 - [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
+- [Présentation d’Azure Resource Manager](./resource-group-overview.md)
+- [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

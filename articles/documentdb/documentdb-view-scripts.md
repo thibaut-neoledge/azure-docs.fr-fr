@@ -82,4 +82,4 @@ L'Explorateur de scripts vous permet d'afficher facilement les artefacts de prog
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

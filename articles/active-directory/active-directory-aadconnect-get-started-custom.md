@@ -58,7 +58,7 @@ Sur l’écran Connexion à Azure AD, entrez un compte et un mot de passe d’ad
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### Connexion de vos annuaires
-Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour plus d’informations, consultez la rubrique [Résumé d’un compte AD Connect](active-directory-addconnect-account-summary).
+Pour vous connecter à votre service de domaine Active Directory, Azure AD Connect a besoin des informations d’identification d’un compte doté d’autorisations suffisantes. Ce compte peut être un compte d’utilisateur normal, car seules des autorisations de lecture par défaut sont nécessaires. Toutefois, selon votre scénario, vous pouvez avoir besoin d’autorisations supplémentaires. Pour plus d’informations, consultez la rubrique [Résumé d’un compte AD Connect](active-directory-aadconnect-account-summary.md).
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -125,6 +125,9 @@ Ces attributs sont désormais disponibles via l’API Graph :
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## Écriture différée d’utilisateur (version préliminaire)
+
+> [AZURE.WARNING]Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
+
 L’écriture différée d’utilisateur vous permet de récupérer un utilisateur créé dans Azure AD (via le portail, l’API Graph, PowerShell ou toute autre méthode), pour le réécrire vers une version locale d’AD DS. Pour activer la fonctionnalité, sélectionnez « Écriture différée d’utilisateur » dans la page Fonctionnalités facultatives. L’emplacement où les utilisateurs sont créés est à présent affiché. La configuration par défaut crée tous les utilisateurs dans un seul emplacement dans AD DS.
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -133,6 +136,9 @@ Les utilisateurs sont créés avec un mot de passe aléatoire. Vous devez donc r
 >[AZURE.NOTE]La synchronisation de mot de passe et l’écriture différée de mot de passe ne sont pas compatibles avec cette fonctionnalité préliminaire.
 
 ## Écriture différée de groupe (version préliminaire)
+
+> [AZURE.WARNING]Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
+
 L’option pour l’écriture différée de groupe dans les fonctionnalités facultatives permet l’écriture différée de « groupes dans Office 365 » vers une forêt avec Exchange installé. Il s’agit d’un nouveau type de groupe qui est toujours contrôlé dans le cloud. Cette fonctionnalité est disponible dans outlook.office365.com ou myapps.microsoft.com, comme indiqué ici :
 
 
@@ -152,7 +158,16 @@ Ce groupe est représenté comme un groupe de distribution dans les versions loc
 Des informations supplémentaires sont disponibles [ici](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/).
 
 ## Écriture différée d’appareil (version préliminaire)
-La fonctionnalité d'écriture différée d’appareil vous permet de récupérer un appareil inscrit dans le cloud (par exemple, dans Intune) et d’y accéder de façon conditionnelle dans AD DS. Vous devez préparer AD DS avant d’activer la fonctionnalité. Si vous installez AD FS et le service d’inscription pour appareil (DRS), ce dernier fournit des applets de commande PowerShell pour préparer AD à l’écriture différée d’appareil. Si vous n’avez pas encore installé le service d’inscription pour appareil, vous pouvez exécuter C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 en tant qu’administrateur d’entreprise.
+
+> [AZURE.WARNING]Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
+
+La fonctionnalité d'écriture différée d’appareil vous permet de récupérer un appareil inscrit dans le cloud (par exemple, dans Intune) et d’y accéder de façon conditionnelle dans AD DS. Vous devez préparer AD DS avant d’activer la fonctionnalité. Si vous installez AD FS et le service d’inscription pour appareil (DRS), ce dernier fournit des applets de commande PowerShell pour préparer AD à l’écriture différée d’appareil. Si vous n’avez pas encore installé le service d’inscription pour appareil, vous pouvez exécuter C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 en tant qu’administrateur d’entreprise.
+
+Pour pouvoir utiliser l’applet PowerShell, vous devez préalablement l’importer.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+Pour ce faire, vous devez installer localement Active Directory et MSOnline PowerShell.
 
 
 
@@ -258,4 +273,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 * [En savoir plus](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

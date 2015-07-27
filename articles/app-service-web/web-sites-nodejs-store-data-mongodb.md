@@ -113,7 +113,7 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 1. Dans la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
 
-	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\node\tasklist**
+	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\\node\\tasklist**
 
 2. Entrez la commande suivante pour installer la commande express.
 
@@ -571,4 +571,4 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

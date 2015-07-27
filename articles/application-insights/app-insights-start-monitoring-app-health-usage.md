@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Ajout d’un suivi des dépendances
 
-## Finalisation de l’installation
+Le Kit de développement logiciel (SDK) a besoin d'un peu d'aide pour accéder à certaines données. En particulier, vous aurez besoin de cette étape supplémentaire pour mesurer automatiquement les appels de votre application vers des bases de données, des API REST et d’autres composants externes. Ces mesures de dépendance peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances.
 
-Pour obtenir une vue à 360 degrés de votre application, vous devez faire certaines choses :
+#### Si votre application s'exécute sur votre serveur IIS
+
+Connectez-vous à votre serveur avec des droits d'administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+
+Vous pouvez également utiliser Status Monitor pour [instrumentaliser une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n'a pas été créée avec le Kit de développement logiciel (SDK).
+
+#### Si votre application est une application web Azure
+
+Dans le panneau de contrôle de votre application web Azure, ajoutez l'extension Application Insights.
+
+![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(L'extension s’applique uniquement à une application qui créée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+
+## Ajout d’une surveillance côté client
+
+Vous avez installé le Kit de développement logiciel (SDK) qui envoie des données de télémétrie de l'extrémité serveur de votre application. Vous pouvez maintenant ajouter une surveillance côté client. Cette surveillance vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le client.
+
+Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu'au niveau du nombre de clics et de frappes sur les touches.
+
+#### Si vos clients sont des navigateurs web
+
+Si votre application affiche des pages web, ajoutez un extrait de code JavaScript sur chaque page. Récupérez le code à partir de votre ressource Application Insights :
+
+![Dans votre application web, ouvrez Démarrage rapide et cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+Notez que le code contient la clé d'instrumentation qui identifie la ressource de votre application.
+
+[En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
+
+#### Si vos clients sont des applications pour des appareils
+
+Si votre application sert des clients tels que des téléphones ou autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
+
+Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d'instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
 
 
-* [Ajoutez le Kit de développement logiciel (SDK) JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme l’utilisateur, la session, le nombre d’affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétrie personnalisées que vous pouvez rédiger dans les scripts de vos pages.
-* Ajoutez un suivi des dépendances pour diagnostiquer les problèmes provoqués par les bases de données ou les autres composants utilisés par votre application :
- * [dans votre application web Azure ou une machine virtuelle][azure]
- * [dans votre serveur IIS local][redfield]
+## Terminez l’installation
+
+Pour obtenir une vue à 360 degrés de votre application, vous devez effectuer quelques opérations :
+
+* [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 * [Capture du suivi du journal][netlogs] dans votre infrastructure de journalisation favorite
 * [Suivez des événements et des métriques personnalisés][api] dans votre client ou votre serveur ou les deux, pour en savoir plus sur la façon dont votre application est utilisée.
-* [Configurez les tests web][availability] pour vous assurer que votre application est bien active.
 
 ## <a name="ide"></a> Méthode automatisée
 
@@ -196,4 +231,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

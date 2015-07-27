@@ -5,4 +5,4 @@ Le moyen le plus simple de créer votre premier compte de stockage Azure est d�
 Vous pouvez créer un compte de stockage Azure à l’aide d’[Azure PowerShell](../articles/storage/storage-powershell-guide-full.md), de l’[interface de ligne de commande Azure](../articles/storage/storage-azure-cli.md) ou de l’[API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

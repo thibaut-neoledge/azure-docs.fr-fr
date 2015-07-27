@@ -81,4 +81,4 @@ Dans la prochaine étape, vous allez mettre à jour l'application de démarrage 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

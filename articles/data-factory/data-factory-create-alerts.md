@@ -172,4 +172,4 @@ Exécutez la commande suivante pour afficher les événements générés :
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

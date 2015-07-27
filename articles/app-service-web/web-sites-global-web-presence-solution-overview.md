@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -35,7 +35,7 @@ Vous pouvez créer rapidement des sites à partir d’un système de gestion de 
 
 Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], [Drupal] et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
 
-Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Publication fiable
 
@@ -141,4 +141,4 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

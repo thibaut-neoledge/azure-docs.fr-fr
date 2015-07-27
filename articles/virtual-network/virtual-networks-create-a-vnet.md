@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # Création d'un réseau virtuel
@@ -48,15 +48,8 @@ Une fois que vous avez créé un réseau virtuel, vous pouvez lui ajouter de nou
 
 
 ## Étapes suivantes
--  [Vue d'ensemble technique du réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  En savoir plus sur les [réseaux virtuels](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx) dans Azure. 
 
--  [Création d’une machine virtuelle personnalisée](virtual-machines-create-custom)
+-  [Ajouter une machine virtuelle](../virtual-machines/virtual-machines-create-custom.md) à un réseau virtuel.
 
--  [FAQ sur le réseau virtuel](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file)
-
--  [Présentation de la résolution de noms Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

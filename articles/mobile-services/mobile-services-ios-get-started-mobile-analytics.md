@@ -102,4 +102,4 @@ Si vous voulez en savoir plus les possibilités offertes par Capptain pour votre
 [Mobile Services niveau Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

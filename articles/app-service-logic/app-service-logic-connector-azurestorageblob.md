@@ -13,89 +13,91 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="05/11/2015"
+   ms.date="06/30/2015"
    ms.author="rajram"/>
    
-#Connecteur d'objet blob de stockage Azure
+# Connecteur d'objet blob de stockage Azure
+Connectez-vous à votre objet blob de stockage Azure pour télécharger et supprimer des objets blob dans le conteneur d’objets blob. Les connecteurs peuvent être utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
 
-##Vue d'ensemble
-Le connecteur d'objet blob de stockage Azure vous permet de télécharger et supprimer des objets blob dans un conteneur d'objets blob.
+## Déclencheurs et actions
+Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
 
-##Créer un connecteur d'objet blob de stockage Azure
-Pour créer un nouveau connecteur de stockage Azure, procédez comme indiqué ci-dessous. <ul> <li>Lancez le portail Azure <li>Ouvrez Azure Marketplace à l’aide de +Nouveau (au bas de la page) -> Web+Mobile --> Azure Marketplace.</ul>
+Le connecteur d’objet blob de stockage peut être utilisé comme une action dans une application logique et prend en charge les données aux formats JSON et XML. Actuellement, il n’y a aucun déclencheur pour le connecteur d’objet blob de stockage.
 
-![Lancez Azure Marketplace][1]<br> <ul> <li>Cliquez sur Applications API<li>Recherchez <i>Blob</i>, puis sélectionnez le connecteur d’objet blob de stockage Azure </ul>.
+Le connecteur d’objet blob de stockage propose les déclencheurs et les actions suivants :
 
-![Sélectionner le connecteur d’objet blob de stockage Azure][2] <br> <ul> <li>Cliquez sur Créer <li>Dans le panneau du connecteur d’objet blob de stockage Azure qui s’ouvre, fournissez les données suivantes. </ul>
-
-![Créer le connecteur d’objet blob de stockage Azure][3]
-
-- **Emplacement** : choisissez l’emplacement géographique dans lequel vous voulez déployer le connecteur.
-- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur.
-- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où doit résider le connecteur.
-- **Plan d’hébergement web** : sélectionnez ou créez un plan d’hébergement web.
-- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
-- **Nom** : indiquez le nom de votre connecteur d’objet blob de stockage.
-- **Paramètres du package** 
-	- **URI du conteneur/SAP** : spécifiez l’URI du conteneur d’objets blob. L’URI peut également inclure le jeton SAP. Par exemple http://storageaccountname.blob.core.windows.net/containername ou http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah.
-	- **Clé d’accès** : spécifiez une clé d’accès de compte de stockage principal/secondaire valide. Laissez ce champ vide si vous utilisez un jeton SAP pour l'authentification.
-- Cliquez sur Créer. Un nouveau connecteur d'objet blob de stockage Azure est créé.
-
-##Utiliser le connecteur d'objet blob de stockage Azure dans une application logique
-Une fois le connecteur d'objet blob de stockage Azure créé, il peut être consommé à partir du flux.
-
-Créez un flux via +Nouveau -> Web+Mobile -> LogicApp. Fournissez les métadonnées pour le flux, y compris le groupe de ressources.
-
-![Créer une application logique][4]
-
-Cliquez sur *Déclencheurs et actions*. Le concepteur de flux s'ouvre.
-
-![Concepteur de flux d’application logique vide][5]
-
-Le connecteur d’objet blob de stockage Azure peut être utilisé en tant qu’action.
-
-###Actions
-Cliquez sur le connecteur d'objet blob de stockage Azure dans le panneau droit. Le connecteur répertorie les actions prises en charge.
-
-![Liste des actions de l’objet blob de stockage Azure][10]
-
-Le connecteur d'objet blob de stockage Azure prend en charge six actions. Les voici :
-
-- **Obtenir un objet blob** : obtenir un objet blob particulier dans le conteneur.
-- **Télécharger un objet blob** : télécharger un nouvel objet blob ou mettre à jour un existant.
-- **Supprimer un objet blob** : supprimer un objet blob spécifique d’un conteneur.
-- **Répertorier des objets blob** : répertorie tous les objets blob dans un répertoire.
-- **Créer un instantané d’un objet blob** : créer un instantané en lecture seule d’un objet blob spécifique.
-- **Copier un objet blob** : créer un objet blob en copiant un autre objet blob. L'objet blob source peut être dans le même compte ou dans un autre compte.
-
-Prenons un exemple : Télécharger un objet blob. Cliquez sur Télécharger un objet blob.
-
-![Entrées de l’action de téléchargement de l’objet blob][11]
+Déclencheurs | Actions
+--- | ---
+Aucun | <ul><li>Get Blob : Obtenir un objet blob spécifique du conteneur</li><li>Upload Blob : télécharger un nouvel objet blob ou mettre à jour un objet blob existant</li><li>Delete Blob : supprimer un objet blob spécifique à partir d’un conteneur</li><li>List Blobs : répertorier tous les objets blob dans un répertoire</li><li>Snapshot Blob : créer un instantané en lecture seule d’un objet blob spécifique</li><li>Copy Blob : créer un nouvel objet blob en le copiant à partir d’un autre objet blob. L’objet blob source peut être dans le même compte ou dans un autre compte.</li></ul>
 
 
-- **Chemin d’accès d’objet blob** : spécifie le chemin de l’objet blob à télécharger. Le chemin est interprété par rapport au chemin du conteneur configuré.
-- **Contenu d’écriture de l’objet blob** : spécifie le contenu et les propriétés de l’objet blob à télécharger.
-- **Encodage de transfert de contenu** : spécifiez none ou Base64.
-- **Remplacer** : si la valeur est true, l’objet blob existant est remplacé. Sinon, une erreur est retournée si un objet blob existe déjà dans le même chemin.
+## Créer le connecteur d’objet blob de stockage Azure
 
-Indiquez les entrées et cliquez sur la coche pour terminer leur configuration.
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Sélectionnez **API Apps** et recherchez « Blob » : <br/>![Sélectionner le connecteur d’objet blob de stockage Azure][2]
+
+3. **Créez** le connecteur.
+4. Entrez le nom, le plan App Service et d'autres propriétés.
+5. Entrez les paramètres de package suivants :
+
+	Nom | Requis | Description
+--- | --- | ---
+Conteneur/URI SAS | Oui | Entrez l’URI du conteneur d’objets blob. L’URI peut également inclure le jeton SAP. Par exemple, indiquez http://*storageaccountname*.blob.core.windows.net/containername ou http://*storageaccountname*.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
+Clé d’accès | Non | Entrez une clé d’accès de compte de stockage primaire ou secondaire valide. Si vous utilisez un jeton SAP pour l’authentification, laissez ce champ vide.
+
+	![Créer le connecteur d’objet blob de stockage Azure][3]
+
+6. Cliquez sur **Create**.
+
+## Utiliser le connecteur d'objet blob de stockage Azure dans une application logique
+Une fois le connecteur d’objet blob de stockage Azure créé, il peut être ajouté à votre flux de travail.
+
+1. Créez une application logique : Nouveau -> Web+Mobile -> LogicApp. Indiquez les propriétés de votre application logique :
+
+	![Créer une application logique][4]
+
+2. Cliquez sur **Déclencheurs et actions**. Le concepteur de flux de travail s’ouvre :
+
+	![Concepteur de flux d’application logique vide][5]
+
+3. Sélectionnez votre connecteur d’objet blob de stockage Azure dans le volet droit. Le connecteur répertorie les actions disponibles :
+
+	![Liste des actions de l’objet blob de stockage Azure][10]
+
+4. Dans ce scénario, nous allons utiliser l’action **Upload Blob** :
+
+	![Entrées de l’action de téléchargement de l’objet blob][11]
+
+5. Indiquez les valeurs d’entrée et sélectionnez la case à cocher pour terminer la configuration :
+
+	Entrée | Description
+--- | ---
+Chemin d’accès d’objet blob | Détermine le chemin d’accès de l’objet blob à télécharger. Le chemin est interprété par rapport au chemin du conteneur configuré.
+Contenu en écriture de l’objet blob | Entrez le contenu et les propriétés de l’objet blob à télécharger.
+Encodage de transfert de contenu | Tapez aucun ou Base64.
+Remplacer | Lorsque la valeur est true, l’objet blob existant est remplacé. Lorsque la valeur est false, elle retourne une erreur si un objet blob existe déjà sur le même chemin d’accès.
 
 Notez que l'action de téléchargement de l'objet blob de stockage Azure configurée montre à la fois les paramètres d'entrée et les paramètres de sortie.
 
-####Utilisation des sorties des actions précédentes en tant qu’entrée des actions de l’objet blob de stockage Azure
-Notez que dans la capture d'écran configurée, la valeur du contenu est définie par une expression.
+#### Utilisation des sorties des actions précédentes en tant qu’entrée des actions de l’objet blob de stockage Azure
+Dans la capture d’écran précédente, la valeur **Content** peut être une expression :
 
 	@triggers().outputs.body.Content
 
-
-Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'un exemple. L'expression prend la sortie du déclencheur de l'application logique et l'utilise comme contenu du fichier à télécharger. Supposons que vous vouliez utiliser la sortie d'une action précédente, par exemple l'action transform. Dans ce cas, l'expression serait :
+Vous pouvez définir n'importe quelle valeur souhaitée. L'expression prend la sortie du déclencheur de l'application logique et l'utilise comme contenu du fichier à télécharger. Par exemple, vous souhaitez utiliser la sortie d’une transformation. Dans ce scénario, l’expression serait :
 
 	@actions('transformservice').outputs.body.OutputXML
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-azurestorageblob/LaunchAzureMarketplace.PNG
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
 [3]: ./media/app-service-logic-connector-azurestorageblob/CreateAzureStorageBlobConnector.PNG
 [4]: ./media/app-service-logic-connector-azurestorageblob/CreateLogicApp.PNG
@@ -108,4 +110,4 @@ Vous pouvez définir n'importe quelle valeur souhaitée. Il s'agit simplement d'
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

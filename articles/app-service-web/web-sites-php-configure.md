@@ -177,4 +177,4 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

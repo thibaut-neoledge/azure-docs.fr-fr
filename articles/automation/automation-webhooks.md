@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="07/05/2015"
    ms.author="bwren" />
 
 # Webhooks Azure Automation
@@ -92,6 +92,7 @@ Le client reçoit l'un des codes de réponse suivants à la requête POST.
 |:---|:----|:---|
 | 202 | Acceptée | La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
 | 400 | Demande incorrecte | La demande a été refusée pour l'une des raisons suivantes. <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l'URL n'est pas valide.</li> </ul>|
+| 404 | Introuvable | La demande a été refusée pour l'une des raisons suivantes. <ul><li>Le webhook est introuvable.</li> <li>Le Runbook est introuvable.</li> <li>Le compte est introuvable.</li></ul> |
 | 500 | Erreur interne du serveur | L'URL est valide, mais une erreur s'est produite. Soumettez à nouveau la demande. |
 
 En supposant que la requête aboutisse, la réponse webhook contient l'ID de travail au format JSON comme suit. Elle contient un ID de tâche unique, mais le format JSON permet des améliorations ultérieures potentielles.
@@ -173,4 +174,4 @@ L'exemple suivant de Runbook accepte la requête de l'exemple précédent et dé
 - [Démarrage d'un Runbook](automation-starting-a-runbook.md)
 - [Affichage de l'état d'une tâche du Runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # Surveillance d’un site SharePoint avec Application Insights
@@ -41,7 +41,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous placeriez le script dans View\Shared_Layout.cshtml
+Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous placeriez le script dans View\\Shared_Layout.cshtml
 
 Le script contient la clé d'instrumentation qui dirige la télémétrie vers votre ressource Application Insights.
 
@@ -73,6 +73,8 @@ Insérez un composant Web et incorporez l'extrait de code qu'il contient.
 
 ## Affichage des données relatives à votre application
 
+Redéployez votre application.
+
 Revenez au panneau de votre application dans le [portail Azure](http://portal.azure.com).
 
 Les premiers événements s’affichent dans Recherche de diagnostic.
@@ -81,11 +83,11 @@ Les premiers événements s’affichent dans Recherche de diagnostic.
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
-**Analyse de l'utilisation** donne un aperçu des utilisateurs, des sessions et des affichages de page :
+L’**analyse de l'utilisation** renvoie aux graphiques des utilisateurs, des sessions et des affichages de page :
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Cliquez sur Affichages de page pour plus de détails :
+Par exemple, cliquez sur Affichages de page pour plus de détails :
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -106,4 +108,4 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

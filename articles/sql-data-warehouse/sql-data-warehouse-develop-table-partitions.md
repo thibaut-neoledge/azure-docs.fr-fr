@@ -319,4 +319,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

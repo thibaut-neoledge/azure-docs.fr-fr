@@ -116,7 +116,7 @@ Au cours de cette étape, vous allez créer une application ASP.NET MVC. Lors de
 
 1. Dans **Nom**, tapez **MvcACS**, puis cliquez sur **OK**.
 1. Dans la boîte de dialogue suivante, sélectionnez **Application Internet**, puis cliquez sur **OK**.
-1. Modifiez le fichier *Views\Shared_LoginPartial.cshtml* en remplaçant son contenu par le code suivant :
+1. Modifiez le fichier *Views\\Shared_LoginPartial.cshtml* en remplaçant son contenu par le code suivant :
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Félicitations ! Vous avez correctement intégré ACS à votre application Web 
 
 Dans cette section, nous allons modifier l'application de manière à ce qu'elle affiche les demandes envoyées par ACS. L'outil Identity and Access Tool a créé un groupe de règles qui transmet les demandes du fournisseur d'identité vers l'application. Il est important de noter que différents fournisseurs envoient des demandes distinctes.
 
-1. Ouvrez le fichier *Controllers\HomeController.cs*. Ajoutez une instruction **using** pour **System.Threading** :
+1. Ouvrez le fichier *Controllers\\HomeController.cs*. Ajoutez une instruction **using** pour **System.Threading** :
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ Dans cette section, nous allons modifier l'application de manière à ce qu'elle
 
 1. Cliquez sur **Ajouter**.
 
-1. Remplacez le contenu du fichier *Views\Home\Claims.cshtml* par le code suivant :
+1. Remplacez le contenu du fichier *Views\\Home\\Claims.cshtml* par le code suivant :
 
         @{
             ViewBag.Title = "Claims";
@@ -402,4 +402,4 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir d'autres scénari
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
+   ms.date="07/08/2015"
    ms.author="yossib"/>
 
 
@@ -76,7 +76,7 @@ Les étapes ci-dessous vous guideront pour l'obtention de l'ID de client de votr
 Pour modifier le script PowerShell ci-dessous afin de travailler avec votre répertoire, remplacez $ClientID, $ClientSecret et $tenantdomain avec les valeurs correctes de « Délégation de l'accès dans Azure AD ».
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ Pour modifier le script PowerShell ci-dessous afin de travailler avec votre rép
 
 
 ## Exécution du script
-Une fois que vous avez terminé la modification du script, exécutez-le, puis vérifiez que les données attendues dans le X sont de retour.
+Une fois que vous avez terminé la modification du script, exécutez-le, puis vérifiez que les données attendues dans le rapport AuditEvents sont retournées.
 
 Le script renvoie des listes qui répertorient tous les rapports disponibles et renvoie le contenu du rapport AccountProvisioningEvents dans la fenêtre PowerShell au format JSON. Il crée également des fichiers avec le même résultat dans JSON, texte et XML. Vous pouvez commenter l'expérience en modifiant le script pour renvoyer des données à partir d'autres rapports, et également commenter les formats de sortie dont vous n'avez pas besoin.
 
@@ -136,6 +136,5 @@ Le script renvoie des listes qui répertorient tous les rapports disponibles et 
 - Curieux de savoir quels rapports de sécurité, d'audit et d'activité sont disponibles ? Découvrez [Rapports de sécurité, d'audit et d'activité d'Azure AD](active-directory-view-access-usage-reports.md)
 - Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Rapports et événements Azure AD (aperçu)](https://msdn.microsoft.com/library/azure/mt126081.aspx) pour plus d'informations sur le service REST d'API Graph
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

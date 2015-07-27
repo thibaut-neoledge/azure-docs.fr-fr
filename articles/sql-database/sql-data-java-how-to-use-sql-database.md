@@ -726,4 +726,4 @@ Pour plus d’informations sur Microsoft JDBC Driver pour SQL Server, consultez 
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

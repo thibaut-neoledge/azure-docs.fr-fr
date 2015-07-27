@@ -444,4 +444,4 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

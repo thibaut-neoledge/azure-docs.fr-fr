@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@ Il est d'usage courant de stocker les chaînes de connexion, les informations d'
 
 Azure App Service vous permet de stocker les informations de configuration dans l’environnement d’exécution Web Apps en tant que **paramètres d’application** et **chaînes de connexion**. Ces valeurs sont exposées sur votre application au moment de l'exécution via des *variables d'environnement* pour la plupart des langages de programmation. Pour les applications .NET, ces valeurs sont injectées dans votre configuration .NET au moment de l’exécution.
 
-Les **paramètres d’application** et les **chaînes de connexion** sont configurables via le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ou des utilitaires tels que PowerShell ou l’interface de ligne de commande Azure.
+Les **paramètres d'application** et les **chaînes de connexion** sont configurables via le [portail Azure en version préliminaire](http://portal.azure.com) ou des utilitaires tels que PowerShell ou l'interface de ligne de commande Azure.
 
 Pour plus d’informations sur les paramètres d’application et les chaînes de connexion, consultez la page [Configuration des applications web](web-sites-configure.md).
 
 ### FTPS
 
-Azure fournit un accès FTP sécurisé au système de fichiers de votre application web via **FTPS**. Ceci vous permet d’accéder en toute sécurité au code de l’application web ainsi qu’aux journaux de diagnostic. Le lien FTPS de votre application web se trouve dans la page **Tableau de bord** du [portail de gestion Azure](https://manage.windowsazure.com).
+Azure fournit un accès FTP sécurisé au système de fichiers de votre application web via **FTPS**. Ceci vous permet d’accéder en toute sécurité au code de l’application web ainsi qu’aux journaux de diagnostic. Vous trouverez le lien FTPS pour votre application web avec les étapes suivantes :
+
+1. Ouvrez la [version préliminaire du portail Azure](http://portal.azure.com).
+2. Sélectionnez **Parcourir tout**.
+3. Dans le panneau **Parcourir**, sélectionnez **Web Apps**.
+4. Dans le panneau **Web Apps**, sélectionnez l'application web souhaitée.
+5. Dans le panneau de l'application web, sélectionnez **Tous les paramètres**.
+6. Dans le panneau **Paramètres**, sélectionnez **Propriétés**.
+7. Les liens FTP et FTPS sont fournis dans le panneau **Paramètres**. 
 
 Pour plus d'informations sur FTPS, consultez la page [Protocole FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
@@ -78,4 +86,4 @@ Pour plus d’informations sur la journalisation des informations des applicatio
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

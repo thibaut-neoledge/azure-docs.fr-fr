@@ -1,54 +1,53 @@
-Here are the usage constraints and other service limits for the Azure Active Directory service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+Présentation des contraintes d'utilisation et autres limites de service pour le service Azure Active Directory.
 
-## Directories
+### Répertoires
 
-A single user can only be associated with a maximum of 20 Azure Active Directory directories. This limit can be reached in any of the following examples:
+Un utilisateur ne peut être associé qu’à un maximum de 20 répertoires Azure Active Directory. Cette limite peut être atteinte dans un des exemples suivants :
 
-- A single user creates 20 directories.
-- A single user is added to 20 directories as a member.
-- A single user creates 10 directories and later is added by others to 10 different directories.
+- Un seul utilisateur crée 20 répertoires.
+- Un seul utilisateur est ajouté à 20 répertoires en tant que membre.
+- Un seul utilisateur crée 10 répertoires et est ajouté ultérieurement par d'autres à 10 autres répertoires.
 
-## Objects
+### Objets
 
-- There are no limits for subscribers of Azure Active Directory Premium or Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune, or any other Microsoft online service that relies on Azure Active Directory for directory services.
-- A maximum of 500,000 objects can be used in a single directory with the Free edition of Azure Active Directory.
-- A non-admin user can create up to 250 objects.
+- Il n’existe pas de limite pour les abonnés d’Azure Active Directory Premium ou Azure Active Directory de base, Enterprise Mobility Suite, Office 365, Microsoft Intune ou tout autre service en ligne Microsoft associé à Azure Active Directory pour les services de répertoire.
+- 500 000 objets au maximum peuvent être utilisés dans un répertoire unique avec l'édition gratuite d'Azure Active Directory.
+- Un utilisateur non administrateur peut créer jusqu'à 250 objets.
 
-##Schema extensions
+###Extensions de schéma
 
-Currently “User”, “Group”, “TenantDetail”, “Device”, “Application” and “ServicePrincipal” entities can be extended with “String” type or “Binary” type single-valued attributes. These include the following limitations:
+Actuellement, les entités « Utilisateur », « Groupe », « TenantDetail », « Périphérique », « Application » et « ServicePrincipal » peuvent être étendues avec des attributs à valeur unique de type « binaire » ou « chaîne ». Ces entités incluent les limitations suivantes :
 
-- String type extensions can have maximum of 256 characters.
-- Binary type extensions are limited to 256 bytes.
-- 100 extension values (across ALL types and ALL applications) can be written to any single object.
-- Schema extensions are available only in Graph API-version 1.21-preview. The application must be granted write access to register an extension.
+- Les extensions de type chaîne peuvent avoir jusqu'à 256 caractères.
+- Les extensions de type binaire sont limitées à 256 octets.
+- 100 valeurs d'extension (pour TOUT type et TOUTE application) peuvent être écrites pour un objet unique.
+- Les extensions de schéma sont disponibles uniquement dans l’aperçu de la version 1.21 de l’API Graph. L’accès en écriture pour enregistrer une extension doit être accordé à l'application.
 
-## Applications
+### Applications
 
-A maximum of 10 users can be owners of a single application.
+10 utilisateurs au maximum peuvent être propriétaires d'une seule application.
 
-## Groups
+### Groupes
 
-- A maximum of 10 users can be owners of a single group.
-- Any number of objects can be members of a single group in Azure Active Directory.
+- 10 utilisateurs au maximum peuvent être propriétaires d'un seul groupe.
+- Un nombre quelconque d'objets peuvent être membre d'un groupe unique dans Azure Active Directory.
 
 
 > [AZURE.NOTE]
 >
-There is a limit for the number of objects you can synchronize from your On Premises Active Directory to Azure Active Directory.
-- If you’re using DirSync the limit is 15K users.
-- If you’re using Azure AD Connect, the limit is 50K users.
+> Il existe une limite pour le nombre d’objets que vous pouvez synchroniser à partir de votre Active Directory local vers Azure Active Directory.
+>
+> - Si vous utilisez DirSync, la limite se situe à 15 000 utilisateurs.
+> - Si vous utilisez Azure AD Connect, la limite se situe à 50 000 utilisateurs.
 
-## Access Panel
+<br/>
+### Panneau d'accès
 
-- There is no limit to the number of applications that can be seen in the Access Panel per end user for subscribers to Azure AD Premium or the Enterprise Mobility Suite.
-- A maximum of 10 preintegrated SaaS apps (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user with the Free or Azure AD Basic editions of Azure Active Directory. End users might see more than 10 apps if your organization developed apps that were integrated afterward with Azure Active Directory. This limit does not apply to Administrator accounts.
+- Il n’existe pas de limite au nombre d’applications par utilisateur final qui peuvent être affichées dans le Panneau d’accès pour les abonnés à Azure Active Directory Premium ou Enterprise Mobility Suite.
+- Un maximum de 10 vignettes de l’application (exemples : Box, Salesforce, ou Dropbox) peuvent être consultées dans le Panneau d’accès pour chaque utilisateur final avec l’édition gratuite ou de base d’Azure Active Directory. Cette limite ne s'applique pas aux comptes d'administrateur.
 
-## Reports
+### Rapports
 
-A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated.
+1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées.
 
-## What's next
-- [Sign up for Azure as an organization](sign-up-organization.md)
-- [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
-- [Azure AD terminology](active-directory-terminology.md)
+<!---HONumber=July15_HO3-->

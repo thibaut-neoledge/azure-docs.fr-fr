@@ -76,7 +76,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8 : ouvrez le fichier .sln situé dans le dossier **platforms\wp8** de Visual Studio 2012 Express pour Windows Phone.
+		1. Windows Phone 8 : ouvrez le fichier .sln situé dans le dossier **platforms\\wp8** de Visual Studio 2012 Express pour Windows Phone.
 
 		2. Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
@@ -171,4 +171,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

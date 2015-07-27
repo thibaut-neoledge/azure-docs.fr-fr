@@ -109,4 +109,4 @@ Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'appl
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

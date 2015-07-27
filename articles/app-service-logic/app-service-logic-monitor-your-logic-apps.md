@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="07/01/2015"
 	ms.author="stepsic"/>
 
 #Analyser vos applications logiques
@@ -37,17 +37,23 @@ Le panneau de détails contient un graphique avec la durée d'exécution et la s
 
 ![Exécution et actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
-Pour finir, sur une action particulière, vous pouvez obtenir toutes les données qui ont été passées à l’action et qui ont été reçues à partir de l’action dans les sections **Entrées** et **Sorties**.
+Pour finir, sur une action particulière, vous pouvez obtenir toutes les données qui ont été passées à l’action et qui ont été reçues à partir de l’action dans les sections **Entrées** et **Sorties**. Cliquez sur les liens pour consulter la totalité du contenu (vous pouvez également copier les liens pour télécharger le contenu).
 
 L’**ID de suivi** est une autre information importante. Cet identificateur est transmis dans les en-têtes de tous les appels d'actions. Si vous utilisez la journalisation dans votre propre service, nous vous recommandons d'enregistrer l'ID de suivi. Vous pourrez ainsi rechercher cet identificateur dans vos propres journaux.
 
-##Historique de déclencheur et contrôle de version
+##Historique du déclencheur 
 
-Il existe deux fonctionnalités supplémentaires qui actuellement ne sont pas disponibles dans l’interface utilisateur (elles le seront prochainement), mais qui sont accessibles via [l’api REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+Des déclencheurs d’interrogation vérifient une API à intervalles réguliers, mais ne démarrent pas nécessairement une exécution ; tout dépend de la réponse (par exemple `200` signifie qu’il faut exécuter et `202` signifie qu’il ne faut pas exécuter). L’historique de déclencheur vous permet de voir tous les appels qui ont lieu, mais qui n’exécutent pas l’application logique (les réponses `202`).
 
-1. **Historique de déclencheur** : des déclencheurs d’interrogation vérifient l’API à intervalles réguliers, mais ne démarrent pas nécessairement une exécution. Tout dépend de la réponse (par exemple `200` signifie qu’il faut exécuter et `202` signifie qu’il ne faut pas exécuter). L’historique de déclencheur vous permet de voir tous les appels qui ont lieu, mais qui n’exécutent pas l’application logique (les réponses `202`).
+![Historique du déclencheur](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
-2. **Versions précédentes** : quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l'application logique qui existait lors du démarrage de l'exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L'API REST d'historique des versions vous donne accès à ces informations.
+Pour chaque déclencheur, vous pouvez voir s’il a été **déclenché**, s’il ne l’a pas été ou si une erreur a été générée (il a **échoué**). Pour découvrir la raison pour laquelle le déclencheur a échoué, vous pouvez cliquer sur le lien **Sorties**. S’il s’est déclenché, cliquez sur le lien **Exécuter** pour voir ce qui est arrivé après le déclenchement.
+
+Notez que pour les déclencheurs *d’émission*, vous ne pourrez *pas* voir les heures auxquelles l’exécution a commencé ; vous verrez cependant les appels *Inscription pour rappel* qui sont passés lorsque l’application logique s’inscrit pour être rappelée. Si votre déclencheur d’émission ne fonctionne pas, il peut s’agir d’un problème d’inscription (que vous pouvez voir au niveau des Sorties) ; sinon, vous devez examiner cette API en particulier.
+
+##Contrôle de version
+
+Il existe une fonctionnalité supplémentaire qui n’est actuellement pas possible dans l’interface utilisateur (elle le sera prochainement), mais est cependant disponible via [l’api REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l'application logique qui existait lors du démarrage de l'exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L'API REST d'historique des versions vous donne accès à ces informations.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

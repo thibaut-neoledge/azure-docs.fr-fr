@@ -43,4 +43,4 @@ Vous pouvez utiliser le portail de gestion Azure ou des API d’Azure Media Se
 3. Des en-têtes de cache de 2 secondes s’appliquent par défaut aux fichiers manifestes de diffusion en continu en direct (ou sélections) quelle que soit la configuration d'Azure Media ou d’Azure Storage, et elles sont irremplaçables.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

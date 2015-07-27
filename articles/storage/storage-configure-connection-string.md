@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -41,15 +41,7 @@ Vous pouvez utiliser la classe Azure [CloudConfigurationManager](https://msdn.mi
 
 ## Création d’une chaîne de connexion à l’émulateur de stockage
 
-Le compte de l’émulateur de stockage est un compte local avec un nom et une clé connus. Vous pouvez utiliser un format de chaîne de raccourci, `UseDevelopmentStorage=true`, pour vous référer à l'émulateur de stockage à partir d'une chaîne de connexion. Par exemple, une chaîne de connexion vers l'émulateur de stockage dans un fichier app.config ressemblera à ceci :
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-Vous pouvez aussi spécifier un proxy HTTP à utiliser lorsque vous testez votre service sur l’émulateur de stockage. Cela peut être utile pour observer les demandes et les réponses HTTP pendant que vous déboguez des opérations sur les services de stockage. Pour spécifier un proxy, ajoutez l’option `DevelopmentStorageProxyUri` à la chaîne de connexion, puis définissez sa valeur sur l’URI du proxy. Voici par exemple une chaîne de connexion qui pointe vers l’émulateur de stockage et configure un proxy HTTP :
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
 Pour plus d’informations sur l’émulateur de stockage, consultez la rubrique [Utilisation de l'émulateur de stockage Azure pour le développement et le test](storage-use-emulator.md).
 
@@ -60,9 +52,10 @@ Pour créer une chaîne de connexion à votre compte de stockage Azure, utilisez
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Par exemple, votre chaîne de connexion ressemble à l’exemple de chaîne de connexion suivant :
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]Azure Storage prend en charge HTTP et HTTPS au sein d’une chaîne de connexion, mais nous vous conseillons vivement d’utiliser HTTPS.
     
@@ -75,9 +68,12 @@ Vous pouvez spécifier explicitement les points de terminaison de service dans v
 
 Pour créer une chaîne de connexion qui spécifie un point de terminaison d’objet blob explicite, spécifiez le point de terminaison complet pour chaque service, y compris la spécification de protocole (HTTP ou HTTPS) au format suivant :
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 Vous devez spécifier au moins un point de terminaison de service, mais vous n’avez pas besoin de tous les spécifier. Par exemple, si vous créez une chaîne de connexion pour un point de terminaison personnalisé d’objet blob, la spécification des points de terminaison de file d’attente et de table est facultative. Notez que si vous choisissez de ne pas indiquer les points de terminaison de file d’attente et de table à partir de la chaîne de connexion, vous ne serez pas en mesure d’accéder aux services de Table et de File d’attente à partir de votre code à l’aide de cette chaîne de connexion.
 
@@ -92,9 +88,11 @@ Si vous avez enregistré un nom de domaine personnalisé utilisable avec le serv
 
 Par exemple, une chaîne de connexion à un point de terminaison d’objet blob sur un domaine personnalisé peut être semblable à :
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### Spécification d’un point de terminaison d’objet blob avec une signature d’accès partagé 
 
@@ -116,8 +114,12 @@ Pour créer une chaîne de connexion pour le service de stockage dans les régio
 
 Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîne de connexion suivant :
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

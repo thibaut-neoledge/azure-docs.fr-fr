@@ -474,4 +474,4 @@ La stratégie d'autorisation de la clé de contenu étant configurée, consultez
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

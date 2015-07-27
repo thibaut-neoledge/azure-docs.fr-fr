@@ -1,8 +1,6 @@
 <properties 
 	pageTitle="Calcul des options d’hébergement fournies par Azure" 
 	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : Virtual Machines, Sites Web, Cloud Services et bien d’autres." 
-	headerExpose="" 
-	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -40,12 +38,9 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 
 Azure offre également d’autres modèles d’hébergement de calcul à des fins plus spécialisées, comme les éléments suivants :
 
-* [Mobile Services](/services/mobile-services/) :  
-  optimisé pour offrir un serveur principal de cloud pour les applications qui s’exécutent sur des appareils mobiles.
-* [Batch](/services/batch/) :  
-  optimisé pour le traitement de grands volumes de tâches similaires, dans l’idéal des charges de travail qui se prêtent à l’exécution de tâches en parallèle sur plusieurs ordinateurs.
-* [HDInsight (Hadoop)](/services/hdinsight/) :  
-  optimisé pour l’exécution de travaux [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) sur les clusters Hadoop. 
+* [Mobile Services](/services/mobile-services/) : optimisé pour offrir un serveur principal de cloud pour les applications qui s’exécutent sur des appareils mobiles.
+* [Batch](/services/batch/) : optimisé pour le traitement de grands volumes de tâches similaires, dans l’idéal des charges de travail qui se prêtent à l’exécution de tâches en parallèle sur plusieurs ordinateurs.
+* [HDInsight (Hadoop)](/services/hdinsight/) : optimisé pour l’exécution de travaux [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) sur les clusters Hadoop. 
 
 ## Que dois-je utiliser ? Faire un choix
 
@@ -81,4 +76,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * En savoir plus sur [Cloud Service](services/cloud-services/)
 * En savoir plus sur [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

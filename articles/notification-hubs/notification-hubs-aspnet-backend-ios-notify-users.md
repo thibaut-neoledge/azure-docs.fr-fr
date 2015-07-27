@@ -466,4 +466,4 @@ La prise en charge des notifications Push dans Azure vous permet d’accéder à
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

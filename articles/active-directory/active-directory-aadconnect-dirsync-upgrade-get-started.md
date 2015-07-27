@@ -22,7 +22,8 @@ Cette documentation vous aidera à mettre à niveau votre installation existante
 
 ## Téléchargez Azure AD Connect
 
-Pour commencer à utiliser Azure AD Connect, vous pouvez télécharger la dernière version à l’adresse suivante : [Télécharger la version préliminaire publique d’Azure AD Connect](http://connect.microsoft.com/site1164/program8612)
+Pour commencer à utiliser Azure AD Connect, vous pouvez télécharger la dernière version à l’adresse suivante : [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
 
 ## Avant d’installer Azure AD Connect
 Avant d’installer Azure AD Connect et d’effectuer la mise à niveau à partir de la synchronisation d’annuaires, voici ce dont vous aurez besoin.
@@ -125,7 +126,7 @@ Lorsque vous installez Azure AD Connect sur un nouveau serveur, il ne trouve p
 1. Lancez le programme d’installation d’Azure AD Connect (MSI)
 2. Lorsque vous voyez l’écran Bienvenue à Azure AD Connect. Quittez l’Assistant en cliquant sur le X en haut à droite de la fenêtre.
 3. Ouvrez une invite de commandes
-4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\Program Files\Microsoft Azure Active Directory Connect), exécutez la commande suivante :
+4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\\Program Files\\Microsoft Azure Active Directory Connect), exécutez la commande suivante :
     * AzureADConnect.exe /migrate
 
 Azure AD Connect se connecte et vous présente l’interface utilisateur suivante :
@@ -205,4 +206,4 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

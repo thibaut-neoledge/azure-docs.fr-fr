@@ -52,33 +52,33 @@ En cliquant sur le bouton Nouveau, vous avez ouvert toutes les catégories de s
 
 ### SQL Data Warehouse
 
-Comme vous pouvez le voir, Microsoft Azure propose un grand nombre de moteurs de données et de stockage. Toutefois, ce guide de prise en main porte sur SQLDW.
+Comme vous pouvez le voir, Microsoft Azure propose un grand nombre de moteurs de données et de stockage. Toutefois, ce guide de prise en main est destiné à SQL Data Warehouse.
 
 - À présent, sélectionnez SQL Data Warehouse.
 
 ## Configurer SQL Data Warehouse
 
-Pour terminer le processus d’approvisionnement, il suffit à présent de configurer SQL Data Warehouse.
+Pour terminer le processus de déploiement, configurez simplement SQL Data Warehouse.
 
 
 ### Nom de la base de données
 
-La première étape consiste à donner un nom à la base de données.
+La première étape consiste à nommer la base de données.
 
 
 
-- Pour les besoins de ce guide, nous l’appellerons « MySQLDW ».
+- Pour ce démarrage rapide, nous l’appellerons « MonSQLDW ».
 
 
-> [AZURE.NOTE]Bien sûr, lorsque vous créez votre propre base de données, vous pouvez lui attribuer le nom de votre choix. Toutefois, ce nom doit respecter les exigences de dénomination de base de Microsoft Azure.
+> [AZURE.NOTE]Bien sûr, lorsque vous créez votre propre base de données, vous pouvez lui attribuer le nom de votre choix. Toutefois, ce nom doit respecter les exigences de dénomination de base d’Azure.
 
 ### Performances
 
-L’option relative aux performances est **importante**. L’évolutivité de la puissance offerte par SQL Data Warehouse repose sur ce curseur. Vous pouvez augmenter ou diminuer les performances à tout moment, et non uniquement lorsque vous configurez le cluster. Plus vous faites glisser le curseur vers la droite, plus le nombre de ressources à votre disposition est élevé. Si ces ressources ne sont plus nécessaires, vous pouvez immédiatement le remettre à son emplacement de départ, ce qui vous permet de réduire les coûts. SQL Data Warehouse vous permet de modifier votre profil de performances à la demande sans avoir à recréer le cluster, ni à déplacer des données.
+L’option relative aux performances est **importante**. L’évolutivité de la puissance de SQL Data Warehouse repose sur ce curseur. Vous pouvez augmenter ou diminuer les performances à tout moment, et pas uniquement lorsque vous configurez l’entrepôt de données. Plus vous faites glisser le curseur vers la droite, plus le nombre de ressources à votre disposition est élevé. Si ces ressources ne sont plus nécessaires, vous pouvez immédiatement le remettre à son emplacement de départ, ce qui vous permet de réduire les coûts. SQL Data Warehouse vous permet de modifier votre profil de performances à la demande sans devoir recréer l’entrepôt de données, ni déplacer des données.
 
 - Vous pouvez voir de quelle manière le nombre d’unités Data Warehouse augmente à mesure que vous faites glisser le curseur vers la droite, et de quelle manière il baisse lorsque vous le déplacez vers la gauche.
 
-- Avant de terminer cette étape, vérifiez que vous avez remis le curseur à son emplacement de départ, vers la gauche. En effet, pour l’instant, la nouvelle base de données correspond à un petit entrepôt de données ; nous n’avons pas besoin d’un grand nombre de ressources. Réservez-les pour la suite de votre essai !
+- Avant de terminer cette étape, vérifiez que vous avez remis le curseur à son emplacement de départ, vers la gauche. Comme le nouvel entrepôt de données est petit, nous n’avons pas besoin d’un grand nombre de ressources. Réservez-les pour la suite de votre essai !
 
 ### Sélectionner une source
 
@@ -88,7 +88,7 @@ Cette option vous donne la possibilité d’utiliser une base de données vide, 
 
 ### Serveur logique
 
-Votre base de données SQL Data Warehouse réside sur un serveur logique. Le serveur logique garantit la cohérence de la configuration au niveau de l’instance pour un certain nombre de bases de données, et localise le service sur un centre de données Microsoft Azure.
+Votre nouvelle base de données SQL Data Warehouse réside sur un serveur logique. Le serveur logique garantit la cohérence de la configuration d’un certain nombre de bases de données, et localise le service dans un centre de données Azure.
 
 Les options que vous devez configurer sont les suivantes : 1) Nom du serveur. 2) Nom de l’administrateur du serveur. 3) Mot de passe. 4) Emplacement du centre de données. 5) Autorisation d’accès au serveur pour les services Microsoft Azure.
 
@@ -103,7 +103,7 @@ Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un en
 
 Pour les besoins de ce guide de démarrage rapide, vous pouvez conserver les valeurs par défaut du groupe de ressources.
 
-Voici quelques informations supplémentaires sur les [groupes de ressources].
+Voici quelques informations supplémentaires sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
 
 ### Abonnement
 Un utilisateur unique peut être associé à un ou plusieurs abonnements Microsoft Azure. Si votre identifiant de connexion est associé à plusieurs abonnements, vous pouvez choisir celui qui vous convient.
@@ -153,18 +153,17 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Le service SQLDW est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser.
 
-Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : 1) [vous connecter et envoyer des requêtes] à la base de données SQLDW ; 2) exporter des données depuis la base de données SQLDW vers le stockage des objets blob Microsoft Azure ; 3) charger des données supplémentaires dans la base de données SQLDW.
+Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : [Connecter et interroger](sql-data-warehouse-get-started-connect-query.md) l’entrepôt de données. 2. Exporter les données de l’entrepôt de données vers le stockage d’objets blob Azure. 3. Charger d’autres données dans l’entrepôt de données.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[vous connecter et envoyer des requêtes]: ./sql-data-warehouse-get-started-connect-query/
-[groupes de ressources]: ./azure-preview-portal-using-resource-groups/
+
 
 <!--External links-->
 [version d’essai gratuit]: https://azure.microsoft.com/fr-fr/pricing/free-trial/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

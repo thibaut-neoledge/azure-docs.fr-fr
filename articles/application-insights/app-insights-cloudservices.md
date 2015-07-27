@@ -122,12 +122,12 @@ Voici un exemple de ce que vous voyez sur le portail Application Insights :
 
 Les compteurs suivants sont collectés par défaut :
 
-    * \Process(??APP_WIN32_PROC??)\% Processor Time
+    * \Process(??APP_WIN32_PROC??)% Processor Time
 	* \Memory\Available Bytes
-	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)\% Processor Time
+	* \Processor(_Total)% Processor Time
 
 De plus, les éléments suivants sont également collectés pour les rôles Web :
 
@@ -196,4 +196,4 @@ Pour obtenir une vue à 360 degrés de votre application, vous devez faire cert
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

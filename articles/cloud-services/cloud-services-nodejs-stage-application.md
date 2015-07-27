@@ -90,4 +90,4 @@ Vous avez correctement effectué un déploiement intermédiaire et mis à niveau
   [Présentation de la gestion des déploiements dans Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -57,4 +57,4 @@ Pour plus d’informations, consultez les liens suivants :
 [Service Management REST API Reference](https://msdn.microsoft.com/library/azure/ee460799.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

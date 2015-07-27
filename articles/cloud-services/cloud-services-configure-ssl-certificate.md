@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # Configuration de SSL pour une application dans Azure
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 Le chiffrement SSL (Secure Socket Layer) est la méthode de sécurisation la plus couramment utilisée pour envoyer des données sécurisées sur Internet. Cette tâche présente la spécification d'un point de terminaison HTTPS pour un rôle Web et le téléchargement d'un certificat SSL pour sécuriser votre application.
 
 > [AZURE.NOTE]Les procédures de cette tâche s'appliquent à Azure Cloud Services. Pour Sites Web Azure, consultez la page [Configuration d'un certificat SSL pour un site Web Azure](../web-sites-configure-ssl-certificate.md).
 
 Cette tâche utilise un déploiement de production. Les informations concernant le déploiement intermédiaire sont fournies à la fin de cette rubrique.
+
+Lisez [ceci](cloud-services-how-to-create-deploy.md) tout d’abord si vous n'avez pas encore créé de service cloud.
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
 
 ## Étape 1 : obtention d’un certificat SSL
 
@@ -105,27 +112,22 @@ Votre application doit être configurée pour utiliser le certificat, et un poin
 
 Maintenant que les fichiers de définition du service et de configuration de service ont été mis à jour, créez un package pour votre déploiement afin de le télécharger dans Azure. Si vous utilisez **cspack**, assurez-vous que vous n'utilisez pas l'indicateur **/generateConfigurationFile**, car les informations de certificat que vous venez juste d'entrer seraient écrasées.
 
-## Étape 3 : téléchargement du package de déploiement et du certificat
+## Étape 3 : téléchargement d'un certificat
 
 Votre package de déploiement a été mis à jour pour utiliser le certificat, et un point de terminaison HTTPS a été ajouté. Vous pouvez maintenant télécharger le package et le certificat dans Azure via le portail de gestion.
 
 1. Connectez-vous au [portail de gestion Azure][]. 
-2. Cliquez sur **New**, sur **Cloud Service**, puis sur **Custom Create**.
-3. Dans la boîte de dialogue **Create a cloud service**, entrez les valeurs de l'URL, de la région et du groupe d'affinités et de l'abonnement. Assurez-vous que l'option **Deploy a cloud service package now** est sélectionnée, puis cliquez sur le bouton **Next**.
-3. Dans la boîte de dialogue **Publish your cloud service**, entrez les informations requises pour votre service cloud, sélectionnez **Production** comme environnement et assurez-vous que l'option **Add certificates now** est activée. (Si un de vos rôles contient une seule instance, assurez-vous que l'option **Deploy even if one or more roles contain a single instance** est activée.) 
+2. Cliquez sur **Cloud Services** dans le volet de navigation de gauche.
+3. Cliquez sur le service cloud de votre choix.
+4. Cliquez sur l’onglet **Certificats**.
 
-    ![Publier votre service cloud][0]
+    ![Cliquez sur l'onglet Certificats](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  Cliquez sur le bouton **Next**.
-5.  Dans la boîte de dialogue **Add Certificate**, entrez l'emplacement du fichier .pfx du certificat SSL, le mot de passe du certificat, puis cliquez sur **Attach certificate**.  
+5. Cliquez sur le bouton **Télécharger**.
 
-    ![Ajouter le certificat][1]
-
-6.  Assurez-vous que votre certificat figure dans la section **Attached Certificates**.
-
-    ![Certificats joints][4]
-
-7.  Cliquez sur le bouton **Complete** pour créer votre service cloud. Lorsque le déploiement atteint l'état **Ready**, vous pouvez passer aux étapes suivantes.
+    ![Télécharger](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. Fournissez le **Fichier**, le **Mot de passe** puis cliquez sur **Terminé** (la coche).
 
 ## Étape 4 : connexion à l’instance de rôle à l’aide de HTTPS
 
@@ -161,4 +163,4 @@ Si vous voulez utiliser SSL pour un déploiement intermédiaire au lieu d'un dé
   [Configuration d’un certificat SSL sur un point de terminaison HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

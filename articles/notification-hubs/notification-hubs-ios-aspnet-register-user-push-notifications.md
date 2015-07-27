@@ -236,4 +236,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

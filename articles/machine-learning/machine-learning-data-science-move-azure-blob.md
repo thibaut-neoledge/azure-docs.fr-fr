@@ -41,11 +41,7 @@ Azure Storage Explorer est un outil Windows gratuit qui permet d’examiner et d
 
 1.  Lancez Azure Storage Explorer. 
 2.  Si le compte de stockage auquel vous souhaitez accéder ne figure pas dans Azure Storage Explorer, cliquez sur le bouton « Ajouter un compte » pour ajouter le compte. S’il est déjà ajouté, sélectionnez-le dans la liste déroulante « Sélectionner un compte de stockage ». ![Create workspace][1] <br>
-3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s’affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteneur pour en afficher les objets blob dans le panneau droit.
-![Create workspace][2]
-<br>
-![Create workspace][3]
-<br>
+3. Entrez le nom et la clé du compte de stockage, puis cliquez sur Ajouter le compte de stockage. Vous pouvez ajouter plusieurs comptes de stockage. Chaque compte s’affiche sur un onglet. Les conteneurs de ce compte de stockage apparaissent dans le panneau gauche. Sélectionnez un conteneur pour en afficher les objets blob dans le panneau droit. ![Create workspace][2] <br> ![Create workspace][3] <br>
 4. Chargez les données en cliquant sur le bouton « Charger ». Sélectionnez un ou plusieurs fichiers à charger à partir du système de fichiers, puis cliquez sur « Ouvrir » pour lancer le chargement.
 5. Téléchargez les données en sélectionnant le blob dans le conteneur correspondant et en cliquant sur le bouton « Télécharger ».
 
@@ -179,4 +175,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminologie
@@ -113,4 +113,4 @@ Un pipeline s'exécute sur un concentrateur unique ce qui constitue une caracté
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

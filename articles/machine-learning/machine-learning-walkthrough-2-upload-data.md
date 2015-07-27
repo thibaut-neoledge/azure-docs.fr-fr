@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -62,7 +62,7 @@ Une fois les données converties au format CSV, nous devons les télécharger ve
 2.	Cliquez sur **+NOUVEAU** en bas de la fenêtre.
 3.	Sélectionnez **JEU DE DONNÉES**.
 4.	Sélectionnez **DEPUIS UN FICHIER LOCAL**.
-5.	Dans la boîte de dialogue **Télécharger un nouveau jeu de données**, cliquez sur **Parcourir** puis recherchez le fichier **german.csv** que vous avez créé.
+5.	Dans la boîte de dialogue **Charger un nouveau jeu de données**, cliquez sur **Parcourir**, puis recherchez le fichier **german.csv** que vous avez créé.
 6.	Entrez le nom du jeu de données. Pour les besoins de cet exemple, nous allons l'appeler « Données de carte de crédit allemande UCI ».
 7.	Pour le type de données, sélectionnez **Fichier CSV générique sans en-tête (.nh.csv)**.
 8.	Ajoutez la description de votre choix.
@@ -80,4 +80,4 @@ Pour plus d'informations sur l'importation de différents types de données dans
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

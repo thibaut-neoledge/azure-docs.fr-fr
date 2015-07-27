@@ -1,19 +1,19 @@
 <properties
    pageTitle="Création d’un nouveau principal du service Azure à l’aide du portail Azure"
    description="Décrit comment créer un nouveau principal du service Azure qui peut être utilisé avec le contrôle d’accès basé sur les rôles dans Azure Resource Manager pour gérer l’accès aux ressources."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Création d’un nouveau principal du service Azure à l’aide du portail Azure
@@ -134,4 +134,4 @@ Gestion et audit de l’accès
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

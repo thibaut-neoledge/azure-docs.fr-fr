@@ -74,4 +74,4 @@ En savoir plus sur la [charge de travail de l’entrepôt de données]
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

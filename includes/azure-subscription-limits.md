@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Comptes du service <a href="http://azure.microsoft.com/services/batch/">Batch en version préliminaire</a> par région par abonnement</p></td>
+   <td valign="middle"><p>Comptes <a href="http://azure.microsoft.com/services/batch/">Batch</a> par région et par abonnement</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

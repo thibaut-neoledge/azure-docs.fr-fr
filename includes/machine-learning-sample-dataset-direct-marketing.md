@@ -1,3 +1,3 @@
 Le jeu de données contient les informations client et les indications relatives à leurs réponses à une campagne de publipostage direct. Chaque ligne représente un client. Le jeu de données contient neuf caractéristiques sur les données démographiques de l’utilisateur et le comportement passé, ainsi que trois colonnes d’étiquette (visite, conversion et dépense). La colonne binaire Visite indique qu’un client a effectué une visite après la campagne marketing ; la colonne Conversion indique que le client a fait un achat ; et la colonne Dépense indique le montant dépensé. Le jeu de données a été fourni par Kevin Hillstrom dans le cadre du MineThatData E-Mail Analytics And Data Mining Challenge.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

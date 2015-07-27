@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@ Cette rubrique explique comment utiliser le service Cache Redis Azure pour l’�
 
 Si votre application web ASP.NET utilise l'état de session, vous devez configurer un fournisseur d'état de session externe (le service Redis Cache ou un fournisseur d'état de session SQL). Si vous utilisez l'état de session mais aucun fournisseur externe, vous êtes limité à une seule instance de votre application web. Le service Redis Cache est la solution la plus rapide et la plus simple.
 
-<h2><a id="createcache"></a>Créer le cache</h2>
+##<a id="createcache"></a>Création du cache
 Suivez les [instructions indiquées](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) pour créer le cache.
 
-<h2><a id="configureproject"></a>Ajouter le package NuGet RedisSessionStateProvider à votre application web</h2>
+##<a id="configureproject"></a>Ajouter le package NuGet RedisSessionStateProvider à votre application web
 Installez le package NuGet `RedisSessionStateProvider`. Utilisez la commande suivante pour effectuer l’installation à partir de la console du gestionnaire de package : (**Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@ Pour effectuer l’installation à partir d’**Outils** > **Gestionnaire de pa
 
 Pour plus d'informations, consultez la [page NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) et [Configuration des clients du cache](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modifier le fichier web.config</h2>
+##<a id="configurewebconfig"></a>Modifier le fichier web.config
 Outre la création de références d'assembly pour le cache, le package NuGet ajoute des entrées de stub dans le fichier *web.config*.
 
 1. Ouvrez le fichier *web.config*, puis recherchez l'élément **sessionState**.
@@ -74,8 +74,7 @@ Outre la création de références d'assembly pour le cache, le package NuGet aj
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Utiliser l’objet Session dans le code</h2>
-La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Pour ajouter des objets à l'état de session, utilisez la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
+<a id="usesessionobject"></a>Utiliser l'objet Session dans le code La dernière étape consiste à utiliser l'objet Session dans votre code ASP.NET. Pour ajouter des objets à l'état de session, utilisez la méthode **Session.Add**. Cette méthode utilise des paires clé-valeur pour stocker des éléments dans le cache d'état de session.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -109,4 +108,4 @@ Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets d
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

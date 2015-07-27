@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Utilisation du connecteur Oracle dans Microsoft Azure App Service" 
-   description="Utilisation du connecteur Oracle" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Utilisation du connecteur Oracle dans Microsoft Azure App Service"
+   description="Utilisation du connecteur Oracle"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Connecteur de base de données Oracle
@@ -23,11 +23,11 @@ Connectez-vous à un serveur de base de données Oracle en local pour créer et 
 
 - Exposer une partie des données résidant dans votre base de données Oracle via une application web ou mobile.
 - Insérer des données dans votre table de stockage de votre base de données Oracle. Par exemple, vous pouvez entrer des dossiers d'employés, mettre à jour des bons de commande, et ainsi de suite.
-- Extraire des données d'Oracle et les exploiter dans un processus métier. Par exemple, vous pouvez obtenir les dossiers de clients et les placer dans SalesForce. 
+- Extraire des données d'Oracle et les exploiter dans un processus métier. Par exemple, vous pouvez obtenir les dossiers de clients et les placer dans SalesForce.
 
 
 ## Déclencheurs et actions
-Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
+Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
 
 Le connecteur de base de données Oracle peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Pour chaque table incluse dans les paramètres de votre package (voir plus loin dans cette rubrique), il existe un jeu d'actions JSON et un jeu d'actions XML. Si vous choisissez un déclencheur ou une action XML, vous pouvez utiliser l'[application API Transformation](app-service-logic-transform-xml-documents.md) pour convertir les données dans un autre format XML.
 
@@ -45,7 +45,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Sélectionnez **API Apps** et recherchez « Connecteur de base de données Oracle ».
 3. Entrez le nom, le plan App Service et d'autres propriétés.
-4. Entrez les paramètres de package suivants :
+4. Entrez les paramètres de package suivants :
 
 	Nom | Requis | Description
 --- | --- | ---
@@ -69,7 +69,7 @@ Instruction de post-interrogation | Non | Entrez l'instruction à exécuter apr�
 Prenons une application logique simple qui interroge les données d'une table Oracle, ajoute des données dans une autre table et met les données à jour.
 
 ### Ajouter le déclencheur
-1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur Oracle créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : <br/> ![][5] 
+1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur Oracle créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : <br/> ![][5]
 
 2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : <br/> ![][6]
 
@@ -80,7 +80,7 @@ Prenons notre application logique simple qui interroge les données d'une table 
 
 Pour utiliser le connecteur Oracle comme une action, entrez le nom des tables et/ou des procédures stockées que vous avez saisies lorsque vous avez créé le connecteur Oracle :
 
-1. Sélectionnez le même connecteur Oracle dans la galerie comme action. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : <br/> ![][8] 
+1. Sélectionnez le même connecteur Oracle dans la galerie comme action. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : <br/> ![][8]
 
 2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓: <br/> ![][9]
 
@@ -115,8 +115,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
 	description="Prise en main d’une base de données SQL. Découvrez comment créer une instance de base de données SQL et vous-y connecter à l’aide d’ADO.NET, d’ODBC et du fournisseur EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
-	authors="jeffreyg" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,13 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="jeffreyg"/>
-
-
-
-
-
 
 
 # Utilisation d’une base de données SQL Azure dans des applications .NET
@@ -46,11 +41,11 @@ La base de données SQL fournit des services de stockage de données relationnel
 
 Ensuite, créez et configurez un serveur et une base de données. Le portail de gestion Azure propose une refonte des workflows qui vous permettent de commencer par la création d’une base de données avant de déployer un serveur.
 
-<h3 name="createsrvr">Création d'une instance de base de données et d'un serveur logique</h3>
+**Créer une instance de base de données et un serveur logique :**
 
-1. Connectez-vous au [portail de gestion Azure][].
+1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
 
-2. Cliquez sur **+Nouveau** en bas de la page.
+2. Cliquez sur **NOUVEAU** en bas de la page.
 
 3. Cliquez sur **Services de données**.
 
@@ -66,7 +61,7 @@ Ensuite, créez et configurez un serveur et une base de données. Le portail de 
 
 	Le paramètre MAXSIZE est spécifié lors de la création de la base de données et peut être modifié ultérieurement à l’aide de l’instruction ALTER DATABASE. MAXSIZE offre la possibilité de limiter la taille de la base de données.
 
-	Pour chaque base de données SQL créée sur Azure, il existe réellement trois réplicas de cette base de données. Ces derniers garantissent une haute disponibilité. Le basculement est transparent et fait partie du service. Le [contrat de niveau de service (SLA)][] garantit 99,9 % de disponibilité pour la base de données SQL.
+	Pour chaque base de données SQL créée sur Azure, il existe réellement trois réplicas de cette base de données. Ces derniers garantissent une haute disponibilité. Le basculement est transparent et fait partie du service.
 
 8. Dans Serveur, sélectionnez **Nouveau serveur de base de données SQL**.
 
@@ -91,16 +86,16 @@ Comme vous pouvez le remarquer, vous n'avez spécifié aucun nom de serveur. La 
 Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de bord. Ce dernier fournit des chaînes de connexion que vous pouvez copier et utiliser dans le code de l'application. Il affiche également l’URL de gestion que vous devez spécifier si vous vous connectez à la base de données à partir de Management Studio ou d’un autre outil d’administration.
 
 
-![image](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![Tableau de bord de base de données SQL](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 
 À l’étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre réseau soient autorisées à y accéder.
 
-<h3 name="configFWLogical">Configuration du pare-feu pour le serveur logique</h3>
+**Configuration du pare-feu pour le serveur logique**
 
 1. Cliquez sur **Bases de données SQL**, sur **Serveurs** en haut de la page, puis sur le serveur que vous venez de créer.
 
-	![Image2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+	![Configuration d’un pare-feu](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
 
 2. Cliquez sur **Configurer**.
 
@@ -114,7 +109,7 @@ Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de 
 
 6. Cliquez sur la coche en regard de la règle pour l’enregistrer.
 
-	![Image3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+	![Plage d’adresses IP des paramètres de pare-feu](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
 
 7. Cliquez sur **Enregistrer** en bas de la page pour achever cette étape. Si **Enregistrer** n'est pas visible, actualisez la page du navigateur.
 
@@ -126,7 +121,7 @@ Vous disposez à présent d’une instance de base de données, d’un serveur l
 Cette section montre comment se connecter à une instance de base de données SQL à l’aide de différents fournisseurs de données .NET Framework. Pour obtenir des recommandations sur la connexion à un serveur de base de données SQL et à une base de données, consultez :
 
 
-- [Connexions à la base de données SQL : recommandations centrales](../sql-database-connect-central-recommendations/).
+- [Connexions à la base de données SQL : recommandations centrales](../sql-database-connect-central-recommendations.md).
 
 
 Si vous optez pour Visual Studio et que votre configuration ne comprend pas une application web Azure en tant qu’application principale, aucun outil supplémentaire ni Kit de développement logiciel (SDK) n’a besoin d’être installé sur l’ordinateur de développement. Vous êtes prêt à développer votre application.
@@ -209,35 +204,11 @@ Voici par exemple la chaîne de connexion suivante :
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Entity Framework][].
+Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Entity Framework](http://msdn.microsoft.com/library/bb738561.aspx).
 
 ## Étapes suivantes
 
-Vous avez découvert les notions de base de la connexion à la base de données SQL. Consultez à présent les ressources suivantes pour obtenir plus d’informations sur la base de données SQL.
-
--   [Développement de base de données SQL Azure : Rubriques de procédures][]
--   [Base de données SQL][]
-
-
-  [What is SQL Database]: #WhatIs
-  [Sign in to Azure]: #PreReq1
-  [Create and Configure SQL Database]: #PreReq2
-  [Connect to SQL Database]: #connect-db
-  [Connect Using ADO.NET]: #using-sql-server
-  [Connect Using ODBC]: #using-ODBC
-  [Connect Using EntityClient Provider]: #using-entity
-  [Next Steps]: #next-steps
-  [Azure Free Trial]: {localLink:2187} "Version d’évaluation gratuite"
-  [portail de gestion Azure]: http://manage.windowsazure.com
-  [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Database]: http://msdn.microsoft.com/library/windowsazure/gg442309.aspx
-  [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621784.aspx
-  [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
-  [contrat de niveau de service (SLA)]: {localLink:1132} "Contrat SLA"
-  [Fournisseur EntityClient pour Entity Framework]: http://msdn.microsoft.com/library/bb738561.aspx
-  [Développement de base de données SQL Azure : Rubriques de procédures]: http://msdn.microsoft.com/library/windowsazure/ee621787.aspx
-  [Base de données SQL]: http://msdn.microsoft.com/library/windowsazure/ee336279.aspx
+Maintenant que vous avez appris les principes de base de la connexion à une base de données SQL, consultez [Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

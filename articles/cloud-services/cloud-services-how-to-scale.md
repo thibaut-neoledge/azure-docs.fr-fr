@@ -227,4 +227,4 @@ Vous pouvez planifier la mise à l'échelle automatique de votre application en 
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
@@ -48,7 +48,7 @@ Cette section décrit le code lié à la synchronisation hors connexion dans l'e
 
     Pour obtenir une référence à une table de synchronisation, utilisez la méthode `syncTableWithName`. Pour supprimer la fonctionnalité de synchronisation hors connexion, utilisez plutôt `tableWithName`.
 
-3. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
+2. Avant de pouvoir effectuer des opérations de table, le magasin local doit être initialisé. Voici le code approprié dans la méthode `QSTodoService.init` :
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@ Cette section décrit le code lié à la synchronisation hors connexion dans l'e
 
     Le premier paramètre de `initWithDelegate` est utilisé pour spécifier un gestionnaire de conflits. Étant donné que nous avons passé `nil`, nous obtiendrons le gestionnaire de conflits par défaut, qui échoue en cas de conflit.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. Les méthodes `pullData` et `syncData` effectuent l’opération de synchronisation réelle : `syncData` commence par transmettre par push les nouvelles modifications, puis `pullData` appelle pour obtenir les données à partir du serveur principal distant.
+3. Les méthodes `pullData` et `syncData` effectuent l’opération de synchronisation réelle : `syncData` commence par transmettre par push les nouvelles modifications, puis `pullData` appelle pour obtenir les données à partir du serveur principal distant.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@ Cette section décrit le code lié à la synchronisation hors connexion dans l'e
 
     Le deuxième paramètre `pullWithQuery` est un ID de requête qui est utilisé pour la *synchronisation incrémentielle*. La synchronisation incrémentielle récupère uniquement les enregistrements modifiés depuis la dernière synchronisation, à l’aide de l’horodatage `UpdatedAt` de l’enregistrement (appelé `ms_updatedAt` dans le magasin local). L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `nil` comme ID de requête. Notez que cette opération peut ne pas être très efficace, dans la mesure où elle récupère tous les enregistrements de chaque opération d'extraction.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. Dans la classe `QSTodoService`, la méthode `syncData` est appelée après les opérations qui modifient les données, `addItem` et `completeItem`. Elle est également appelée à partir de `QSTodoListViewController.refresh`, pour que l’utilisateur obtienne les données les plus récentes chaque fois qu’il effectue le mouvement d’actualisation. L’application exécute également une synchronisation au démarrage, puisque `QSTodoListViewController.init` appelle `refresh`.
@@ -212,13 +212,13 @@ Dans cette section, vous allez désactiver le Wi-Fi dans le simulateur pour cré
 
 Pour pouvoir prendre en charge la fonctionnalité de synchronisation hors connexion, nous avons utilisé l’interface `MSSyncTable` et initialisé `MSClient.syncContext` avec un magasin local. Dans ce cas, le magasin local était une base de données avec données de base.
 
-Lorsque vous utilisez un magasin de données de base local, vous devez définir certaines tables avec les [propriétés système correctes] [Examen du modèle des données de base].
+Quand vous utilisez un magasin de données de base local, vous devez définir certaines tables avec les [propriétés système correctes](#review-core-data).
 
 Les opérations normales de création, lecture, mise à jour et suppression pour Mobile Apps fonctionnent comme si l’application était toujours connectée, mais toutes les opérations se rapportent au magasin local.
 
 Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avons utilisé les méthodes `MSSyncTable.pullWithQuery` et `MSClient.syncContext.pushWithCompletion`.
 
-*  Pour transmettre par push les modifications au serveur, nous avons appelé `Review the Core Data model`. Cette méthode est membre de `MSSyncContext` à la place de la table de synchronisation parce qu’elle envoie par Push les modifications sur toutes les tables.
+*  Pour transmettre par push les modifications au serveur, nous avons appelé `pushWithCompletion`. Cette méthode est membre de `MSSyncContext` à la place de la table de synchronisation parce qu’elle envoie par Push les modifications sur toutes les tables.
 
     Seuls les enregistrements qui ont été modifiés d'une certaine façon en local (par le biais d'opérations CUD) seront envoyés au serveur.
 
@@ -275,7 +275,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/fr-fr/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

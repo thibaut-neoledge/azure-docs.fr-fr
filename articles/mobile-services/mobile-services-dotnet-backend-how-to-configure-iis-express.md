@@ -26,4 +26,4 @@ Pour tester un service mobile localement avec des clients exécutés sur un ému
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -107,16 +107,14 @@ Les paramètres de configuration de la **disponibilité** présents dans la tabl
 ## Activité de copie - Forum Aux Questions
 ### Q : quelles sont les régions prises en charge par l'activité de copie ?
 
-L'activité de copie prend en charge la copie des données dans les régions suivantes : est des États-Unis, est des États-Unis 2, ouest des États-Unis, centre des États-Unis, centre-nord des États-Unis, centre-sud des États-Unis, Europe du Nord, Europe de l'Ouest et Asie du Sud-Est.
+L'activité de copie prend en charge la copie des données dans les régions suivantes : est des États-Unis, est des États-Unis 2, ouest des États-Unis, centre des États-Unis, centre-nord des États-Unis, centre-sud des États-Unis, Europe du Nord, Europe de l'Ouest, Asie du Sud-Est, est du Japon et sud du Brésil.
 
 La copie de données est également prise en charge dans d'autres régions, en utilisant l'une des régions ci-dessus pour le routage des données. L'opération de copie est mesurée en fonction de la région via laquelle les données sont acheminées.
 
 Région de destination de la copie | Région utilisée pour le routage
 -------------------------- | -----------------------
 Asie de l'Est | Asie du Sud-Est
-Est du Japon | Ouest des États-Unis
-Ouest du Japon | Ouest des États-Unis
-Sud du Brésil | Est des États-Unis 2
+Ouest du Japon | Est du Japon
 
 ### Comment effectuer une copie vers plusieurs tables de sortie ?
 Vous pouvez posséder plusieurs tables de sortie dans un pipeline, comme illustré dans l'exemple suivant :
@@ -217,4 +215,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -72,4 +72,4 @@ Après avoir choisi ce que vous souhaitez afficher, cliquez sur le bouton **Mise
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,6 @@
 	pageTitle="Processus d’analyse avancé et technologie en action : Utilisation de SQL Server | Microsoft Azure" 
 	description="Processus d’analyse avancé et technologie en action"  
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -167,7 +166,7 @@ Dans cet exercice, nous allons :
 
 - Nous connecter à **SQL Server Management Studio** à l’aide de l’authentification Windows ou SQL et des nom et mot de passe de connexion SQL.
 - Explorer les distributions de données de quelques champs portant sur différentes périodes.
-- Examiner la qualité des données des champs de longitude et de latitude.
+- examiner la qualité des données des champs de longitude et de latitude ;
 - Générer des étiquettes de classification binaire et multiclasse reposant sur la valeur **tip_amount**.
 - Générer des fonctionnalités et calculer/comparer les distances des trajets.
 - Joindre les deux tables et extraire un échantillon aléatoire que nous utiliserons pour créer les modèles.
@@ -716,4 +715,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

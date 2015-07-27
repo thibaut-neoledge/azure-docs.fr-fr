@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Connecteurs#
+
+> [AZURE.NOTE]Cette rubrique va être supprimée. Reportez-vous à la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour connaître l’ensemble des connecteurs et applications API intégrés disponibles.
+
+
 Les connecteurs sont des applications API qui vous permettent de vous connecter à des services et données qui s’exécutent dans le cloud ou localement. Les connecteurs permettent entre autre d’accéder facilement aux données avec différents déclencheurs et actions intégrés facilement accessibles dans Logic Apps.
 
 Azure App Service fournit un certain nombre de connecteurs prêts à l’emploi :
@@ -46,14 +50,16 @@ Azure App Service fournit un certain nombre de connecteurs prêts à l’emploi�
 * [Connecteur SugarCRM]
 * [Connecteur Twilio]
 * [Connecteur Twitter]
-* Connecteur Wait
+* [Connecteur Wait]
 * [Connecteur Yammer]
+
 
 ##Connecteurs Premium et API Apps##
 * [Connecteur AS2]
 * [BizTalk EDIFACT]
 * [Encodeur de fichier plat BizTalk]
-* Service BizTalk Transform
+* [Encodeur JSON BizTalk]
+* [Service BizTalk Transform]
 * [Règles BizTalk]
 * [BizTalk X12]
 * [Extracteur XPath BizTalk]
@@ -112,7 +118,10 @@ Vous pouvez aussi utiliser des connecteurs comme actions dans le cadre de votre 
 [Validateur XML BizTalk]: app-service-logic-xml-validator.md
 [Règles BizTalk]: app-service-logic-use-biztalk-rules.md
 [Connecteur AS2]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[Service BizTalk Transform]: app-service-logic-transform-xml-documents.md
+[Connecteur Wait]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

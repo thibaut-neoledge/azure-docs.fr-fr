@@ -123,7 +123,7 @@ Le module Azure inclut des cmdlets qui vous aident à télécharger et à import
 
 4. À l’invite, téléchargez et enregistrez le profil de publication et notez le chemin d’accès et le nom du fichier .publishsettings. Ces informations sont requises lorsque vous exécutez la cmdlet **Import-AzurePublishSettingsFile** pour importer les paramètres. L’emplacement par défaut et le format de nom de fichier sont les suivants :
 
-			C:\Users<UserProfile>\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Tapez une commande semblable à celle qui suit, en remplaçant les espaces réservés par le nom de votre compte Windows, le chemin d’accès et le nom de fichier :
 
@@ -260,4 +260,4 @@ Voici certaines des ressources disponibles pour apprendre à utiliser Azure et W
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

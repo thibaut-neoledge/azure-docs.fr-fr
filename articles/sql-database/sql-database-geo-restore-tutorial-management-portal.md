@@ -70,7 +70,7 @@ Le processus de restauration peut prendre du temps. Pour surveiller l’état de
 
 Pour plus d’informations, consultez les liens suivants :
 
-[Restaurer une base de données SQL Azure à l’aide d’une limite de restauration dans le temps dans le portail Azure](sql-database-point-in-time-restore-tutorial-management-portal.md)
+[Restaurer une base de données SQL Azure à l’aide d’une restauration jusqu’à une date et heure dans le portail Azure](sql-database-point-in-time-restore-tutorial-management-portal.md)
 
 [Restaurer une base de données SQL Azure supprimée dans le portail Azure](sql-database-restore-deleted-database-tutorial-management-portal.md)
 
@@ -80,4 +80,4 @@ Pour plus d’informations, consultez les liens suivants :
 
 [Géo-restauration de base de données SQL Azure (blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

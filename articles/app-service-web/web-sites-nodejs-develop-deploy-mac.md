@@ -32,7 +32,7 @@ Pour créer une application web et activer la publication Git, suivez la procéd
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur l'icône **+NEW** dans le coin inférieur gauche du portail.
+2. Cliquez sur l'icône **+ NOUVEAU** dans le coin supérieur gauche du portail.
 
 3. Cliquez sur **Web et mobilité**, puis sur **Application web**.
 
@@ -134,7 +134,7 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
 ##Publication des modifications apportées à votre application
 
-1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez « Hello World\n » par « Hello Azure\n ». Enregistrez le fichier.
+1. Ouvrez le fichier **server.js** dans un éditeur de texte, puis remplacez « Hello World\\n » par « Hello Azure\\n ». Enregistrez le fichier.
 2. Dans la ligne de commande, remplacez les répertoires par le répertoire **helloworld** et exécutez les commandes suivantes :
 
 		git add .
@@ -196,4 +196,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

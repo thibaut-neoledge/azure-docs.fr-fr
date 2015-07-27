@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -175,9 +175,7 @@ Avant de publier votre application dans App Service Web Apps, vous devez mettre 
 
 	![Publier dans WebMatrix][edit_publish]
 
-3. Cliquez sur **Choisir un site existant dans Windows Azure**.
-
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
+3. Cliquez sur **Choisir un site existant dans Microsoft Azure**.
 
 3. Sélectionnez l’application web App Service créée précédemment.
 
@@ -263,4 +261,4 @@ Vous pouvez facilement modifier votre application en modifiant la copie locale d
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

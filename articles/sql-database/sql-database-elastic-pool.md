@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -29,9 +29,7 @@ Microsoft a créé les pools de bases de données élastiques spécifiquement po
 
 Un pool de bases de données élastique est un ensemble de ressources disponibles partagé par les bases de données élastiques dans le pool. Vous pouvez ajouter des bases de données au pool ou les en supprimer à tout moment. Les bases de données du pool partagent les ressources (exprimées en unités de débit de base de données élastique ou eDTU) et la capacité de stockage du pool, mais chaque base de données utilise uniquement les ressources dont elle a besoin quand elle en a besoin, libérant ainsi les ressources pour d’autres bases de données si nécessaire. Au lieu de sur-approvisionner des bases de données individuelles et de payer pour des ressources inutilisées, vous allouez globalement à un coût prévisible les ressources du pool. Ceci permet de répartir le coût pour adopter un modèle commercial compétitif et d’adapter les performances de chaque base de données.
 
-Les bases de données susceptibles d'être intégrées à des pools de bases de données élastiques ne sont généralement actives que moins 50 % du temps. Généralement, les bases de données sont parfois inactives, actives avec de faibles demandes en ressources ou actives avec des demandes en ressources élevées.
-
-Toutes les bases de données n'adoptent pas ce schéma. Il existe des bases de données qui ont une demande en ressources constante. Elles sont mieux adaptées aux niveaux de service Basic, Standard et Premium dans lesquels les ressources sont attribuées individuellement.
+Les bases de données susceptibles d'être intégrées à des pools de bases de données élastiques ne sont généralement actives que moins 50 % du temps. Généralement, les bases de données sont parfois inactives, actives avec de faibles demandes en ressources ou actives avec des demandes en ressources élevées. Toutes les bases de données n'adoptent pas ce schéma. Il existe des bases de données qui ont une demande en ressources constante. Elles sont mieux adaptées aux niveaux de service Basic, Standard et Premium dans lesquels les ressources sont attribuées individuellement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
 Vous pouvez créer un pool de bases de données élastiques en quelques minutes à l’aide du portail Microsoft Azure ou de PowerShell. Pour plus d'informations, consultez [Créer et gérer un pool élastique](sql-database-elastic-pool-portal.md). Pour en savoir plus sur les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence des bases de données élastiques](sql-database-elastic-pool-reference.md).
 
@@ -65,4 +63,4 @@ Les bases de données pour lesquelles la géo-réplication est déjà activée p
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

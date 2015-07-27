@@ -167,4 +167,4 @@ L’exemple suivant montre la demande HTTP vers l’URI racine de Media Services
 
 <!-- URLs. -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

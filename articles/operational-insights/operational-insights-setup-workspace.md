@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Configuration de votre espace de travail et gestion des paramètres
@@ -34,7 +34,7 @@ Chaque espace de travail peut être associé à plusieurs comptes utilisateur et
 
 ## Liaison d’un espace de travail existant à un abonnement Azure
 
-Il est possible de créer un espace de travail à partir de [opinsights.azure.com](http://opinsights.azure.com). Toutefois, ces espaces de travail disposent de certaines limites, la plus notable étant celle de 500 Mo de téléchargement de données par jour si vous utilisez un compte gratuit. Pour apporter des modifications à cet espace de travail, vous devez **lier votre espace de travail existant à un abonnement Azure**.
+Il est possible de créer un espace de travail à partir de [microsoft.com/oms](https://microsoft.com/oms). Toutefois, ces espaces de travail disposent de certaines limites, la plus notable étant celle de 500 Mo de téléchargement de données par jour si vous utilisez un compte gratuit. Pour apporter des modifications à cet espace de travail, vous devez **lier votre espace de travail existant à un abonnement Azure**.
 
 >[AZURE.IMPORTANT]Pour lier un espace de travail, votre compte Azure doit déjà avoir accès à l’espace de travail que vous souhaitez lier. En d’autres termes, le compte que vous utilisez pour accéder au portail Azure doit être **le même** que le compte que vous utilisez pour accéder à votre espace de travail Operational Insights. Si ce n’est pas le cas, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
@@ -179,6 +179,5 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 2. Sélectionnez un des motifs de fermeture de votre espace de travail ou saisissez une autre raison dans la zone de texte.
 
 3. Cliquez sur **Fermer l’espace de travail**.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

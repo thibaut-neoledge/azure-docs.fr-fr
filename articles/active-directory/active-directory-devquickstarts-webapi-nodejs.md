@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. Indiquez au serveur que nous utilisons l’authentification.
+### 2\. Indiquez au serveur que nous utilisons l’authentification.
 
 Ouvrez votre fichier `server.js` dans votre éditeur favori et ajoutez les informations suivantes **sous l’instruction server.get()** où vous avez défini vos itinéraires, mais au-dessus de la méthode **server.listen()**.
 
@@ -1043,7 +1043,7 @@ Nous devons indiquer à Restify de commencer à utiliser ses `authorizationParse
 ```
 
 
-### 3. Ajoutez le module Passport OAuth2 à notre code.
+### 3\. Ajoutez le module Passport OAuth2 à notre code.
 
 Ici, nous utilisons les paramètres propres à OAuth2 que nous avons ajoutés au fichier config.js. Si notre fichier `aadutils.js` a fait son travail d’analyse de notre document de métadonnées de fédération, toutes ces valeurs doivent être remplies, même si elles sont vides dans le fichier config.js.
 
@@ -1178,4 +1178,4 @@ Clonez simplement sur votre ordinateur de développement et configurez comme ind
 [Bibliothèque ADAL pour .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

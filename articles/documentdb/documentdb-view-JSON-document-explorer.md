@@ -140,4 +140,4 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

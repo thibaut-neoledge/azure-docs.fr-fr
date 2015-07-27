@@ -160,4 +160,4 @@ Pour plus d’informations sur l’utilisation de OAuth 2.0 et la gestion des A
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

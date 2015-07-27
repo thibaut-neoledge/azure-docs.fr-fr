@@ -173,4 +173,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
  * [Surveillance des utilisateurs](https://newrelic.com/docs/features/real-user-monitoring) : vue d'ensemble de la manière dont RUM détaille le temps qu'il faut aux navigateurs de vos utilisateurs pour charger vos pages web, leur provenance et les navigateurs qu'ils utilisent
  * [Recherche d'aide](https://newrelic.com/docs/site/finding-help) : ressources disponibles dans le centre d'aide en ligne de New Relic
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Fonctions des modèles de gestionnaire des ressources Azure"
    description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles de gestionnaire des ressources Azure
@@ -382,4 +382,4 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 - [Déploiement d'une application avec un modèle de gestionnaire des ressources Azure](azure-portal/resource-group-template-deploy.md)
 - [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

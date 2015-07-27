@@ -69,4 +69,4 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 
 <!--Other web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

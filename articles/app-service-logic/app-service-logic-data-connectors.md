@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Connecteurs de données dans Microsoft Azure App Service
+
+> [AZURE.NOTE]Cette rubrique va être supprimée. Reportez-vous à la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour connaître l’ensemble des connecteurs et applications API intégrés disponibles.
 
 
 ## Qu’est-ce qu’un connecteur d’application API Application + services de données ?
@@ -47,17 +49,6 @@ Voici une brève présentation de chacun des connecteurs Application + services 
 <td>Le connecteur Azure Services Bus vous permet d'envoyer des messages à partir d'entités Service Bus telles que des files d'attente et des rubriques, et de recevoir des messages provenant d'entités Services Bus telles que des files d'attente et des abonnements.
 <td>Nouveaux messages
 <td>Envoyer un message
-</tr>
-<tr>
-<td>Azure Storage Table
-<td>Le connecteur Azure Storage Table vous permet de vous connecter à Azure Storage Table et d'effectuer différentes actions, telles qu'Obtenir une entité, Interroger des entités, Insérer une entité, Mettre à jour une entité, Supprimer une entité et un déclencheur pour extraire des données.
-<td>Nouvelle entité
-<td><li>Obtenir une entité
-	<li>Insérer une entité
-	<li>Supprimer une entité
-	<li>Mettre à jour une entité
-	<li>Requête
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@ Voici une brève présentation de chacun des connecteurs Application + services 
 	<li>Sélectionner dans la table
 	<li>Supprimer de la table
 	<li>Appeler une procédure stockée
-</tr>
-
-<tr>
-<td>MongoDB
-<td>Un connecteur MongoDB vous permet de créer, mettre à jour, supprimer et obtenir des documents à partir d'une collection MongoDB.
-<td>Nouveau document
-<td>	<li>Ajouter un document
-		<li>Mettre à jour un document
-		<li>Obtenir des documents
-		<li>Upsert de document
-		<li>Supprimer un document
 </tr>
 
 
@@ -261,7 +241,8 @@ Les connecteurs utilisent OAuth ou des noms d'utilisateurs et des mots de passe.
 
 
 ## Autres connecteurs
-[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md) | [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md) | [Connecteur B2B](app-service-logic-b2b-connectors.md) | [Connecteurs sociaux](app-service-logic-social-connectors.md) | [Connecteurs de protocole](app-service-logic-protocol-connectors.md) | [Connecteurs application + services de données](app-service-logic-data-connectors.md) | [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+[Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

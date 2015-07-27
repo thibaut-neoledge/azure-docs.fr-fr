@@ -220,4 +220,4 @@ Pour plus d’informations, consultez [Lecture de votre contenu avec les lecteur
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

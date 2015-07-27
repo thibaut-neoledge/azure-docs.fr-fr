@@ -41,4 +41,4 @@ Get-help New-AzureService
     - Pour publier votre projet de service cloud dans Azure, reportez-vous à l'exemple de code **PublishCloudService.ps1** disponible dans l'article [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

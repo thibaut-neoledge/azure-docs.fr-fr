@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Signatures d'accès partagé : présentation du modèle SAP | Microsoft Azure" 
-	description="Découvrez comment déléguer l’accès aux ressources d’objets blob, de files d’attente et de tables avec les signatures d’accès partagé" 
+	pageTitle="Signatures d’accès partagé : Présentation du modèle SAP | Microsoft Azure" 
+	description="Découvrez la délégation d’accès aux ressources d’Azure Storage, notamment les objets blob, les files d’attente et les tables, à l’aide des signatures d’accès partagé. Ces signatures vous permettent de protéger la clé de votre compte de stockage tout en octroyant un accès aux ressources de votre compte à d’autres utilisateurs. Vous pouvez contrôler les autorisations accordées et l’intervalle pendant lequel la signature d’accès partagé est valide. Si vous établissez également une stratégie d’accès stockée, vous pouvez révoquer la signature d’accès partagé si vous craignez que la sécurité de votre compte ne soit compromise." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tamram"/>
 
 
@@ -35,11 +35,11 @@ Vous pouvez utiliser une signature d'accès partagé lorsque vous voulez fournir
 Un service où les utilisateurs lisent et écrivent leurs propres données dans votre compte de stockage correspond à un scénario courant dans lequel une signature d'accès partagé peut s'avérer utile. Dans un scénario où un compte de stockage stocke les données utilisateur, il existe deux modèles de conception types :
 
 
-1. Les clients chargent et téléchargent les données par le biais d’un service proxy frontal, qui se charge de l’authentification. Ce service présente l'avantage de permettre la validation des règles métier, mais pour de grosses quantités de données ou des transactions à haut volume, la création d'un service qui peut être mis à l'échelle en fonction de la demande peut se révéler coûteuse ou difficile.
+1\. Les clients chargent et téléchargent les données par le biais d’un service proxy frontal, qui se charge de l’authentification. Ce service présente l'avantage de permettre la validation des règles métier, mais pour de grosses quantités de données ou des transactions à haut volume, la création d'un service qui peut être mis à l'échelle en fonction de la demande peut se révéler coûteuse ou difficile.
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
+2\. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -231,11 +231,9 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
 [Délégation de l’accès avec une signature d’accès partagé (API REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-[Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service] : ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+[Présentation des signatures d'accès partagé des tables et des files d'attente](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service] : ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!----HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

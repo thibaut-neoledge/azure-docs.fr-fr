@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Ajout de l’authentification à une application existante
@@ -81,6 +81,5 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

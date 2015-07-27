@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion d'un service cloud - Azure" 
-	description="Découvrez comment gérer des services cloud dans le portail de gestion Azure." 
+	description="Découvrez comment gérer des services cloud dans le portail Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # Gestion des services cloud
 
-Dans la zone **Cloud Services** du portail de gestion Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+Dans la zone **Cloud Services** du portail Azure, vous pouvez mettre à jour un rôle de service ou un déploiement, promouvoir un déploiement intermédiaire en déploiement de production, lier des ressources à votre service cloud afin de voir les dépendances de ressources et d'étendre les ressources en même temps, mais aussi supprimer un service cloud ou un déploiement.
 
 
 ## Mise à jour d’un rôle ou d’un déploiement de service cloud
 
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le tableau de bord, la page **Cloud Services** ou la page **Instances**. Vous pouvez mettre à jour un ou plusieurs rôles. Vous devrez charger un nouveau package de service et un nouveau fichier de configuration de service.
 
-1. Dans le [portail de gestion Azure](https://manage.windowsazure.com/), dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
+1. Dans le [portail Azure](https://manage.windowsazure.com/), dans le tableau de bord, dans la page **Cloud Services** ou dans la page **Instances**, cliquez sur **Update**.
 
 	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -154,4 +158,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

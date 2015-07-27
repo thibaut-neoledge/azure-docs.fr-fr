@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,6 +40,6 @@ L'onglet **TABLEAU DE BORD** du service web contient deux liens vers des informa
 
 La page d'aide sur l'API contient des exemples en langages R, C# et Python.
 
-<!-- Add link to Derrick's articles on web services -->
+Pour plus d’informations sur l’accès au service web et son utilisation, consultez [Utilisation d’un service web Azure Machine Learning publié à partir d’une expérience Machine Learning](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

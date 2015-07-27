@@ -40,7 +40,7 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 
 ##<a name="update-app"></a>Mise à jour de l'application pour se connecter avant l'inscription
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Test de l'application
@@ -61,4 +61,4 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

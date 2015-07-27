@@ -1,3 +1,3 @@
 Il s’agit sans doute de l’une des bases de données les plus réputées dans la littérature de la reconnaissance des formes. Le jeu de données est relativement petit, avec 50 exemples de mesures de pétales provenant de trois variétés d’iris.<p> </p><b>Utilisation :</b> prédire le type d’iris à partir des mesures. <p> </p><b>Recherche associée : </b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

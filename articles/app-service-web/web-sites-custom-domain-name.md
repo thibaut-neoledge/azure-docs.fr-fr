@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="07/13/2015"
 	ms.author="mwasson"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service
@@ -27,7 +27,7 @@
 
 Lorsque vous créez une application web, Azure l'attribue à un sous-domaine de azurewebsites.net. Par exemple, si votre application web se nomme **contoso**, l'URL est **contoso.azurewebsites.net**. Azure attribue également une adresse IP virtuelle.
 
-Pour une application web de production, vous souhaitez probablement afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment réserver ou configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (Cet article présente des instructions générales pour tout bureau d’enregistrement de domaines. Les onglets en haut de cet article fournissent des liens vers des articles pour des bureaux d'enregistrement de domaines spécifiques.)
+Pour une application web de production, vous souhaitez probablement afficher un nom de domaine personnalisé pour vos utilisateurs. Cet article explique comment réserver ou configurer un domaine personnalisé avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -70,7 +70,8 @@ Ignorez cette étape si vous créez un enregistrement CNAME. Pour créer un enre
 3.	Cliquez sur le panneau **Web Apps**.
 4.	Cliquez sur le nom de votre application web.
 5.	Sur la page **Essentials**, cliquez sur **Tous les paramètres**.
-6.	Cliquez sur **Domaines personnalisés et SSL**. L’adresse IP se trouve au bas de la page (juste au-dessus de la section **Liaisons SSL**).
+6.	Cliquez sur **Domaines personnalisés et SSL**. 
+7.	Dans le panneau **Domaines personnalisés et SSL**, cliquez sur **Apporter des domaines externes**. L'adresse IP se trouve en bas de cette partie.
 
 ## Création des enregistrements DNS
 
@@ -110,7 +111,7 @@ Dans le cas où le nom de domaine personnalisé est « contoso.com », cela cré
 
 >[AZURE.NOTE]Vous pouvez utiliser Azure DNS pour héberger les enregistrements de domaine nécessaires pour votre application web. Pour configurer votre domaine personnalisé et créer vos enregistrements, dans le système Azure DNS, consultez [Création d’enregistrements DNS personnalisés pour une application web](../dns-web-sites-custom-domain).
 
-<a name="awverify" /></a>
+<a name="awverify" />
 ## Création d’un enregistrement awverify (enregistrements A uniquement)
 
 Si vous créez un enregistrement A, l’application web requiert également un enregistrement CNAME spécial, utilisé pour vérifier que vous possédez le domaine que vous souhaitez utiliser. Cet enregistrement CNAME doit avoir la forme suivante.
@@ -129,7 +130,7 @@ Les visiteurs de votre application web ne verront pas le sous-domaine awverify. 
 
 ## Étapes suivantes
 
-Pour plus d'informations, consultez [Prise en main d’Azure DNS](http://azure.microsoft.com/fr-fr/documentation/articles/dns-getstarted-create-dnszone) et [Domaine délégué vers Azure DNS](http://azure.microsoft.com/fr-fr/documentation/articles/dns-domain-delegation)
+Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-getstarted-create-dnszone) et [Domaine délégué vers Azure DNS](../dns/dns-domain-delegation)
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -146,4 +147,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](http://azure.m
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

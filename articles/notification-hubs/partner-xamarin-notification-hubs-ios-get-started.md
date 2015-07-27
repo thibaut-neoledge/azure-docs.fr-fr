@@ -480,4 +480,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

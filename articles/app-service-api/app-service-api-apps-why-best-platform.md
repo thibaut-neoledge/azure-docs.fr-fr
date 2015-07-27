@@ -30,7 +30,7 @@ API Apps offre des fonctionnalités de développement, de déploiement, de publi
 
 - **Utilisation facile** : le support [Swagger](http://swagger.io/) intégré facilite l’utilisation de vos API par un certain nombre de clients. Le Kit de développement logiciel (SDK) d’API Apps peut générer le code client de vos API dans divers langages, par exemple C#, Java et Javascript.
 
-- **Contrôle d’accès simple** : les services d’authentification intégrés prennent en charge Azure Active Directory ou d’autres services tiers (comme Facebook et Twitter). Vous pouvez protéger une API d’application de tout accès non authentifié sans apporter de modifications à votre code. Si vous êtes familiarisé avec les services d’authentification fournis par [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication) : les applications API s’appuient sur cette infrastructure et s’étendent aux API hébergées par API Apps. Le Kit de développement logiciel (SDK) d’App Service vous permet également d’utiliser une syntaxe simplifiée pour le code d’autorisation. Pour plus d'informations, consultez [Protéger une application API](app-service-api-dotnet-add-authentication.md).
+- **Contrôle d’accès simple** : les services d’authentification intégrés prennent en charge Azure Active Directory ou d’autres services tiers (comme Facebook et Twitter). Vous pouvez protéger une API d’application de tout accès non authentifié sans apporter de modifications à votre code. Si vous êtes familiarisé avec les services d’authentification fournis par [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication) : les applications API s’appuient sur cette infrastructure et s’étendent aux API hébergées par API Apps. Le Kit de développement logiciel (SDK) d’App Service vous permet également d’utiliser une syntaxe simplifiée pour le code d’autorisation. Pour plus d’informations, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
 
 - **Connexion facile aux plateformes SaaS** : les [applications API de connecteur](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) dans Azure Marketplace sont fournies par Microsoft et certaines autres sociétés pour simplifier le code à écrire pour assurer l’interaction avec SalesForce, Office 365, Twitter, Facebook, Dropbox et bien d’autres encore.
 
@@ -41,6 +41,10 @@ API Apps offre des fonctionnalités de développement, de déploiement, de publi
 Vous pouvez insérer votre API existante en l’état ; vous n’avez pas besoin de modifier le code de vos API existantes pour bénéficier des fonctions d’application API : il vous suffit de déployer votre code sur une application API. Vous pouvez utiliser ASP.NET, Java, PHP, Node.js ou Python pour vos API.
 
 Applications API inclut en outre les [fonctions d’App Service Web Apps](../app-service-web/app-service-web-overview.md).
+
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) est un service distinct qui offre des fonctionnalités telles que la consolidation du point de terminaison et la limitation de requêtes. Vous pouvez utiliser l’API de gestion avec les applications API.
+>
+>Les applications API sont actuellement en version préliminaire publique. [App Service Web Apps](../app-service-web/app-service-web-overview.md) est un service en disponibilité générale conçu pour la création et l’hébergement d’applications critiques sécurisées à l’échelle mondiale. Si vous recherchez un service en disponibilité générale pour créer votre API aujourd’hui, Web Apps est une option intéressante. Quand la fonction API Apps passera en disponibilité générale, nous proposerons un chemin de mise à jour des applications web existantes et d’exploitation des fonctionnalités supplémentaires proposées par API Apps.
 
 ### Fonctions d’API Apps prochainement accessibles
 
@@ -54,10 +58,6 @@ Dans un avenir proche, la plateforme API Apps créera également un écosystème
 
 La plupart de ces fonctionnalités, comme le Marketplace public et les mises à jour automatiques, sont déjà disponibles pour les applications API fournies par Microsoft.
 
->[AZURE.NOTE] [Azure API Management](/services/api-management/) est un service distinct qui offre des fonctionnalités telles que la consolidation du point de terminaison et la limitation de requêtes. Vous pouvez utiliser l’API de gestion avec les applications API.
->
->Les applications API sont actuellement en version préliminaire publique. Cette fonctionnalité se base sur [App Service Web Apps](../app-service-web/app-service-web-overview.md), un service en disponibilité générale conçu pour la création et l’hébergement d’applications critiques sécurisées à l’échelle mondiale. Si vous recherchez un service en disponibilité générale pour créer votre API aujourd’hui, Web Apps est une option intéressante. Quand la fonction API Apps passera en disponibilité générale, nous proposerons un chemin de mise à jour des applications web existantes et d’exploitation des fonctionnalités proposées par API App.
-
 ## Concepts liés aux applications API ##
 
 - **Passerelle** : application web qui gère les fonctions d’administration des API et l’authentification de toutes les applications API dans un groupe de ressources. 
@@ -70,10 +70,10 @@ La plupart de ces fonctionnalités, comme le Marketplace public et les mises à 
 
 Pour prendre en main les applications API, suivez le didacticiel [Créer une application API](app-service-dotnet-create-api-app.md).
 
-Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/fr-fr/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

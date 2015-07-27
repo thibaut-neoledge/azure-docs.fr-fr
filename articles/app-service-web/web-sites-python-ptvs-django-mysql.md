@@ -148,7 +148,7 @@ Dans cette section, nous allons configurer notre application web pour utiliser l
 
 ## Publication de l’application web dans Azure App Service
 
-Le Kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service.
+Le kit de développement logiciel (SDK) Azure .NET offre un moyen simple de déployer votre application web dans Azure App Service.
 
 1.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**.
 
@@ -211,4 +211,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

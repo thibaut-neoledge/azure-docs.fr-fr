@@ -28,10 +28,7 @@ La première fois que vous ouvrez le portail de gestion Azure, l'onglet **TOUS L
 Une nouvelle fenêtre apparaît avec les onglets suivants : La présente rubrique décrit ces onglets.
 
 ## Démarrage rapide (![Quick Start][QuickStart])
-Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles.
-<table border="1">
-    <tr>
-        <td><strong>Obtenir les outils</strong></td>
+Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne pas être disponibles. <table border="1"> <tr> <td><strong>Obtenir les outils</strong></td>
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
@@ -236,20 +233,11 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 
 ##### Pour supprimer ou afficher des mesures dans le graphique :
 1. Sélectionnez l'onglet **Surveiller**.
-2. Sélectionnez **Ajouter des métriques** dans la barre des tâches :
-<br/>
-![Sélectionnez Ajouter des métriques.][AddMetrics]
+2. Sélectionnez **Ajouter des métriques** dans la barre des tâches : <br/> ![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
-5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.
-<br/>
-Par exemple, la mesure **Utilisation du processeur** apparaît en grisé. Son résultat n’est pas affiché dans le graphique :
-<br/>
-![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]
-<br/>
-Cliquez sur le cercle en grisé pour permettre à la mesure **Utilisation du processeur** d'afficher son résultat dans le graphique :
-<br/>
-![La mesure Utilisation du processeur est activée][EnabledMetric]
+5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique. <br/> Par exemple, la mesure **Utilisation du processeur** apparaît en grisé. Son résultat n’est pas affiché dans le graphique : <br/> ![La mesure Utilisation du processeur apparaît en grisé  
+][GrayedMetric] <br/> Cliquez sur le cercle en grisé pour permettre à la mesure **Utilisation du processeur** d'afficher son résultat dans le graphique : <br/> ![La mesure Utilisation du processeur est activée][EnabledMetric]
 
 6. Pour supprimer une mesure du graphique affiché et de la liste, sélectionnez **Supprimer une métrique** dans la barre des tâches. Pour réintégrer la mesure dans la liste, sélectionnez **Ajouter des métriques** dans la barre des tâches, vérifiez la mesure et cochez la case pour revenir à l'onglet **Surveiller**. Sélectionnez le cercle en grisé pour activer la mesure.
 
@@ -368,4 +356,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

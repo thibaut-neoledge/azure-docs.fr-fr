@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)
 
-> [AZURE.NOTE]Cet article décrit les indexeurs dans la version [2015-02-28-Preview](../search-api-2015-02-28-preview.md). Actuellement, la seule différence entre la version `2015-02-28` documentée sur [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) et la version `2015-02-28-Preview` décrite ici est la mise à disposition de *fieldMappings*, comme décrit dans [Création d'un indexeur](#CreateIndexer).
+> [AZURE.NOTE]Cet article décrit les indexeurs dans la version [2015-02-28-Preview](search-api-2015-02-28-preview.md). Actuellement, la seule différence entre la version `2015-02-28` documentée sur [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) et la version `2015-02-28-Preview` décrite ici est la mise à disposition de *fieldMappings*, comme décrit dans [Création d'un indexeur](#CreateIndexer).
 
 ## Vue d'ensemble
 
@@ -775,4 +775,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

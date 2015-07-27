@@ -1,3 +1,3 @@
 Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500, et sont stockées sous forme de données XML.<p> </p>Avant son téléchargement dans Azure ML Studio, le jeu de données a été traité comme suit :<ul><li>Extraction du contenu textuel de chaque société particulière</li><li>Suppression de la mise en forme wiki</li><li>Suppression des caractères non alphanumériques</li><li>Conversion de tout le texte en minuscule</li><li>Ajout d’autres catégories de sociétés connues</li></ul><p> </p>Notez que pour certaines sociétés, aucun article n’a pu être trouvé, donc le nombre d’enregistrements est inférieur à 500.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

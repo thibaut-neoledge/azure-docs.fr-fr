@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Application API du connecteur SMTP" 
-   description="Utilisation du connecteur SMTP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Application API du connecteur SMTP"
+   description="Utilisation du connecteur SMTP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,73 +12,84 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="07/01/2015"
+   ms.author="andalmia"/>
 
 
-# Utilisation du connecteur SMTP dans votre application logique #
+# Connecteur SMTP
 
-Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre du flux.
+Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données dans le cadre d’un flux de travail.
 
 Le connecteur SMTP vous permet de vous connecter à un serveur SMTP et d’exécuter une action pour envoyer un message électronique avec des pièces jointes. Avec l’action « Envoyer le message électronique » du connecteur SMTP, vous pouvez envoyer un message électronique à une ou plusieurs adresses électroniques.
 
-## Création d’un connecteur SMTP pour votre application logique ##
-Pour utiliser le connecteur SMTP, vous devez d’abord créer une instance de l’application API de ce connecteur. Pour cela, procédez comme suit :
+## Déclencheurs et actions
+Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu’une commande est mise à jour ou si un nouveau client est ajouté, un courrier électronique est envoyé au nouveau client.
 
-1.	Ouvrez Azure Marketplace à l’aide de l’option + NOUVEAU en bas à gauche du portail Azure.
-2.	Accédez à « Web et mobilité > Azure Marketplace » et recherchez « Connecteur SMTP ».
-3.	Configurez le connecteur SMTP comme suit :
- 
-	![][1]
-	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur
-	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur
-	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider
-	- **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web
-	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur
-	- **Nom** : donnez un nom à votre connecteur SMTP
-	- **Paramètres du package**
-		- **Nom d'utilisateur** : spécifiez le nom d'utilisateur pour la connexion au serveur SMTP
-		- **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur SMTP
-		- **Adresse du serveur** : spécifiez le nom ou l'adresse IP du serveur SMTP
-		- **Port du serveur** : spécifiez le numéro de port du serveur SMTP
-		- **Utiliser SSL** : spécifiez true pour utiliser SMTP sur un canal SSL/TLS sécurisé
-4.	Cliquez sur Créer. Un connecteur SMTP est créé.
-5.	Une fois l’instance d’application API créée, vous pouvez créer une application dans le même groupe de ressources pour utiliser le connecteur SMTP. 
+Le connecteur SMTP peut être utilisé comme une action dans une application logique et prend en charge les données aux formats JSON et XML. Actuellement, il n’y a aucun déclencheur pour ce connecteur.
 
-## Utilisation du connecteur SMTP dans votre application logique ##
-Une fois votre application API créée, vous pouvez utiliser le connecteur SMTP comme action pour votre application logique. Pour cela, vous devez procéder comme suit :
+Le connecteur SMTP propose les déclencheurs et les actions suivants :
 
-1.	Créez une application logique et choisissez le groupe de ressources qui contient le connecteur SMTP.
- 
+Déclencheurs | Actions
+--- | ---
+Aucun | Envoi de courrier électronique
+
+
+## Créer le connecteur SMTP
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
+
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Sélectionnez **API Apps** et recherchez « Connecteur SMTP ».
+3. **Créez** le connecteur.
+4. Entrez le nom, le plan App Service et d'autres propriétés.
+5. Entrez les paramètres de package suivants :
+
+	Nom | Requis | Description
+	--- | --- | ---
+	User Name | Oui | Entrez un nom d’utilisateur pouvant se connecter au serveur SMTP.
+	Mot de passe | Oui | Entrez le mot de passe d'utilisateur.
+	Adresse du serveur | Oui | Entrez le nom du serveur SMTP ou l’adresse IP.
+	Port du serveur | Oui | Entrez le numéro de port du serveur SMTP.
+	Activer SSL | Non | Spécifiez *true* pour utiliser SMTP sur un canal SSL/TLS sécurisé.
+
+6. Sélectionnez **Créer**.
+
+## Utilisation du connecteur SMTP dans votre application logique
+Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme action pour votre application logique. Pour ce faire :
+
+1.	Création d’une application logique :
+
 	![][2]
-2.	Ouvrez « Déclencheurs et actions » pour ouvrir le concepteur d’applications logiques et configurer votre flux. 
- 
+2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques et configurer votre flux de travail :
+
 	![][3]
-3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le.
- 
+3.	Le connecteur SMTP apparaît dans la section « Applications API dans ce groupe de ressources » de la galerie située à droite. Sélectionnez-le :
+
 	![][4]
-4.	Vous pouvez déposer l’application API du connecteur SMTP dans l’éditeur en cliquant sur « Connecteur SMTP ». 
-	
-7.	Vous pouvez maintenant utiliser le connecteur SMTP dans le flux. Sélectionnez l’action « Envoyer le message électronique » et configurez les propriétés d’entrée comme suit :
-	- **À** : adresse électronique du ou des destinataires. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
-	- **Cc** : adresse électronique du ou des destinataires en copie. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
-	- **Objet** : objet du message électronique.
-	- **Corps** : corps du message électronique.
-	- **HTML** : lorsque cette propriété est configurée sur true, le contenu du corps est envoyé au format HTML.
-	- **Cci** : adresse électronique du ou des destinataires en copie cachée. Séparez les adresses électroniques avec un point-virgule (;). Par exemple : recipient1@domain.com;recipient2@domain.com.
-	- **Importance** : importance du message électronique. Les options sont Normale, Faible, Haute.
-	- **Pièces jointes** : pièces jointes à envoyer avec le message électronique. Il contient les champs suivants :
-		- Contenu (chaîne)
-		- Encodage de transfert de contenu (Enum) (« none »|« base64 »)
-		- Type de contenu (chaîne)
-		- ID de contenu (chaîne)
-		- Nom de fichier (chaîne)
-	 
-	
+4.	Sélectionnez le connecteur SMTP pour l’ajouter automatiquement au Concepteur de flux de travail.
+
+Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer le message électronique** et configurez les propriétés d’entrée :
+
+	Property | Description
+	--- | ---
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+
 	![][5]
 	![][6]
 
+## En faire plus avec votre connecteur
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -87,6 +98,5 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SMTP 
 [4]: ./media/app-service-logic-connector-smtp/img4.PNG
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

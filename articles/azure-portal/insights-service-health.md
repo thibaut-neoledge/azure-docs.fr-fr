@@ -53,4 +53,4 @@ Azure publie chaque interruption du service et chaque dégradation des performan
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

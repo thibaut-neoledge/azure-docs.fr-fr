@@ -33,4 +33,4 @@ Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updat
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -19,4 +19,4 @@ Maintenant que vous avez configuré votre application et votre service mobile po
 
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

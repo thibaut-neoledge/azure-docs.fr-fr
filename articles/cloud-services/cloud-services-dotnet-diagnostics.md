@@ -207,7 +207,7 @@ Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEve
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -332,7 +332,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
 
 ### Étape 3 : déploiement de votre application
 1.	Cliquez avec le bouton droit sur le projet **WadExampleVM** dans l’**Explorateur de solutions**, puis choisissez **Ouvrir un dossier dans l’Explorateur de fichiers**.
-2.	Naviguez vers le dossier *bin\Debug* et copiez tous les fichiers (WadExampleVM.*)
+2.	Naviguez vers le dossier *bin\\Debug* et copiez tous les fichiers (WadExampleVM.*)
 3.	Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Se connecter à l'aide du Bureau à distance**.
 4.	Une fois connecté à la machine virtuelle, créez un dossier nommé WadExampleVM, puis collez vos fichiers d'application dans le dossier.
 5.	Lancez l'application WadExampleVM.exe. Une fenêtre de console vide doit apparaître.
@@ -351,7 +351,7 @@ Cette procédure pas à pas part du principe que vous disposez d'un abonnement A
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@ Le fichier de configuration Diagnostics définit les valeurs qui sont utilisées
 ### Azure Diagnostics ne démarre pas
 Diagnostics comprend deux composants : un plug-in d’agent invité et l’agent de surveillance. Les fichiers journaux du plug-in d'agent invité sont situés dans le fichier :
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
 
 Les codes d'erreur suivants sont renvoyés par le plug-in :
 
@@ -778,4 +778,4 @@ Le tableau suivant compare les fonctionnalités prises en charge par Azure Diagn
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

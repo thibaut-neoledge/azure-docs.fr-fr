@@ -220,9 +220,13 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 
 		git remote add azure [URL for remote repository]
 
-7. Envoyez vos modifications dans Azure en entrant la commande suivante :
+7. Configurez Git pour enregistrer vos informations d'identification localement afin qu'elles soient automatiquement ajoutées à vos commandes push générées à partir de VS Code.
 
-		git push azure master
+		git config credential.helper store
+
+8. Envoyez vos modifications dans Azure en entrant la commande suivante : Après cette commande push initiale vers Azure, vous pourrez exécuter toutes les commandes push à partir de VS Code.
+
+		git push -u azure master
 
 	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment. **Remarque : votre mot de passe ne sera pas visible.**
 
@@ -232,7 +236,9 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez la republier en sélectionnant l’option **Valider Tout** de VS Code, puis en entrant la commande **git push azure master** dans l'invite de commandes.
+> [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez republier directement dans VS Code à l'aide de la fonctionnalité intégrée de Git en sélectionnant l'option **Valider tout** suivie de l'option **Push**. Vous trouverez l'option **Push** disponible dans le menu déroulant à côté des boutons **Valider tout** et **Actualiser**.
+
+Si vous avez besoin de collaborer sur un projet, envisagez d'alterner les commandes push vers GitHub et les commandes push vers Azure.
 
 ## Exécution de l'application dans Azure
 Maintenant que vous avez déployé votre application Web, exécutez l'application lorsque celle-ci est hébergée dans Azure.
@@ -250,4 +256,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi VS Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

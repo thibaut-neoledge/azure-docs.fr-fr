@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # Qu'est-ce qu'Azure App Service ?
-Azure App Service est le seul service cloud qui intègre tout ce dont vous avez besoin pour créer rapidement et facilement des applications web et mobiles pour toute plateforme et tout appareil. Conçue pour les développeurs, App Service est une plateforme PaaS (Platform as a Service) entièrement gérée avec des fonctionnalités puissantes telles que la fonctionnalité DevOps intégrée, l'intégration continue avec Visual Studio Online et GitHub, le support technique intermédiaire et de production, et la mise à jour corrective automatique.
+Azure App Service est le seul service cloud qui intègre tout ce dont vous avez besoin pour créer rapidement et facilement des applications web et mobiles pour toute plateforme et tout appareil. Conçue pour les développeurs, App Service est une plateforme entièrement gérée avec des fonctionnalités puissantes telles que la fonctionnalité intégrée d’opérations de développement, l’intégration continue avec Visual Studio Online et GitHub, la prise en charge des environnements intermédiaires et de production, et la mise à jour corrective automatique.
 
 Azure App Service est un service unique qui inclut toutes les fonctionnalités existantes d'Azure Web Sites, Azure Mobile Services et Azure Biztalk Services, ainsi que de nouvelles fonctionnalités. [Obtenez plus d’informations](http://azure.microsoft.com/documentation/services/app-service/) sur la manière dont App Service se rapporte à ces services existants.
 
 ## Pourquoi utiliser App Service ?
 Centrée sur le développement rapide d'applications web et mobiles, ainsi que sur l'automatisation des processus d'entreprise, Azure App Service fournit un ensemble de fonctionnalités d'entreprise intégrées via une expérience de gestion et de développement unique qui vous offre les avantages suivants :
 
-- **Création rapide d’applications web et mobiles** - Générez, déployez et gérez rapidement des applications web et mobiles pour des employés ou des clients à l’aide d’un serveur principal unique. Tirez parti de vos compétences existantes dans vos langages favoris -- .NET, Java, NodeJS, PHP ou Python. Accélérez le développement d'applications en accédant à une riche galerie d'API, de connecteurs et de logiques de programmation, disponible dans Azure Marketplace.
+- **Création rapide d’applications web et mobiles** - Générez, déployez et gérez rapidement des applications web et mobiles pour des employés ou des clients à l’aide d’un serveur principal unique. Tirez parti de vos compétences existantes dans vos langages favoris : .NET, Java, NodeJS, PHP ou Python. Accélérez le développement d'applications en accédant à une riche galerie d'API, de connecteurs et de logiques de programmation, disponible dans Azure Marketplace.
 
 - **Connexion à n’importe quel service et déverrouillage de vos données** - Connectez votre application web ou mobile à des systèmes d’entreprise ou SaaS en quelques minutes à l’aide de connecteurs intégrés. Choisissez parmi plus de 50 connecteurs pour des systèmes d'entreprise tels que SAP, Siebel et Oracle, des services SaaS d'entreprise populaires tels que Salesforce et Office 365, et des services Internet populaires tels que Facebook, Twitter et Dropbox.
 
@@ -59,4 +59,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application web](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

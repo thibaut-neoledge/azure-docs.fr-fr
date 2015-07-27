@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Configuration requise pour les images RemoteApp"
-    description="En savoir plus sur la configuration requise pour la création d’images à utiliser avec RemoteApp" 
+    pageTitle="Configuration requise pour les images Azure RemoteApp"
+    description="En savoir plus sur la configuration requise pour la création d’images à utiliser avec Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# Configuration requise pour les images RemoteApp
-RemoteApp utilise une image Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image RemoteApp personnalisée, vous pouvez commencer avec une image existante ou en [créer une](remoteapp-create-custom-image.md).
+# Configuration requise pour les images Azure RemoteApp
+Azure RemoteApp utilise une image Windows Server 2012 R2 pour héberger tous les programmes que vous souhaitez partager avec vos utilisateurs. Pour créer une image personnalisée, vous pouvez commencer avec une image existante ou en [créer une](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]Saviez-vous que votre abonnement Azure RemoteApp vous donne accès à une image Windows Server 2012 R2 pré-build dans la galerie de machines virtuelles Azure et que vous pouvez l’utiliser pour créer votre propre image de modèle ? [Voyez par vous-même](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]Saviez-vous que votre abonnement Azure RemoteApp vous donne accès à une image Windows Server 2012 R2 dans la galerie de machines virtuelles Azure et que vous pouvez l’utiliser pour créer votre propre image de modèle ? [Voyez par vous-même](remoteapp-image-on-azurevm.md).
 
 
 Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être téléchargée en vue d'être utilisée avec Azure RemoteApp :
@@ -43,4 +43,4 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
 - Le téléchargement de votre disque dur virtuel à partir d’une chaîne d’instantanés n’est pas pris en charge.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

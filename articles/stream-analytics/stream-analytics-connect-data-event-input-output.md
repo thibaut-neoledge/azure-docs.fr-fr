@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Connexion à des entrées et sorties
@@ -90,8 +90,7 @@ Quelques paramètres doivent être configurés pour les flux de données Event H
 3. Nom de la stratégie du concentrateur d’événements : nom de la stratégie d’accès partagé au concentrateur d’événements. La stratégie d’accès partagé peut être configurée pour un concentrateur d’événements sous l’onglet Configurer. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès.
 4. Nom de la clé de la stratégie du concentrateur d’événements : clé principale ou secondaire de la stratégie d’accès partagé au concentrateur d’événements.  
 5. Groupe de consommateurs du concentrateur d’événements : paramètres facultatifs pour les entrées du concentrateur d’événements. Groupe de consommateurs qui absorbe les données du concentrateur d’événements. En l’absence de spécification, les travaux Stream Analytics utilisent le groupe de consommateurs par défaut pour recevoir les données à partir du concentrateur d’événements. Nous recommandons d’utiliser un groupe de consommateurs distinct pour chaque travail Stream Analytics.
-
-Colonne de clé de partition : paramètre facultatif pour les sorties du concentrateur d’événements. Colonne d’attributs des données utilisée comme clé de partition pour la sortie du concentrateur d’événements.
+6. Colonne de clé de partition : paramètre facultatif pour les sorties du concentrateur d’événements. Colonne d’attributs des données utilisée comme clé de partition pour la sortie du concentrateur d’événements. 
 
 ##Utilisation de la sortie de tables Azure
 
@@ -126,8 +125,7 @@ Choisissez « Stockage de tables » comme sortie.
 Dans la page suivante, entrez les informations de la table Azure. L’alias de sortie est le nom que vous pouvez utiliser dans votre requête pour diriger la sortie de cette requête vers cette base de données.
 
 
-![graphic14][graphic14]
-![graphic15][graphic15]
+![graphic14][graphic14] ![graphic15][graphic15]
 
 La taille du lot est le nombre d’enregistrements pour une opération par lot, laissez la valeur par défaut si vous n’êtes pas familier avec cela, ou consultez la page [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) pour plus de détails
 
@@ -151,7 +149,7 @@ Dans cet exemple, les informations d’identification fournies étaient incorrec
 ![graphic19][graphic19]
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -185,4 +183,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

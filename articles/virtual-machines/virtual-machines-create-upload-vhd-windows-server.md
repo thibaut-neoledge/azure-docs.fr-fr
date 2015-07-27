@@ -53,7 +53,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation a été in
 
 1. Connectez-vous au système d'exploitation.
 
-2. Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur. Remplacez le répertoire par **%windir%\system32\sysprep**, puis exécutez `sysprep.exe`.
+2. Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur. Remplacez le répertoire par **%windir%\\system32\\sysprep**, puis exécutez `sysprep.exe`.
 
 	![Ouvrir une fenêtre d'invite de commandes](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@ Maintenant que vous avez créé une machine virtuelle, tentez de créer une mach
 [Étape 4 : téléchargement du fichier .vhd]: #upload
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

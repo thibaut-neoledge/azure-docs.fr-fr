@@ -83,4 +83,4 @@ Cette section présente la configuration d’un projet d’API web existant comm
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

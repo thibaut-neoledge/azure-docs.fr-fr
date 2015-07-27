@@ -423,7 +423,7 @@ Les fichiers statiques sont automatiquement collectés dans le cadre du script d
 
 Si vous souhaitez ignorer les fichiers statiques pour votre application Django :
 
-    .skipDjango
+    \.skipDjango
 
 Vous devrez alors effectuer la collecte manuellement sur votre ordinateur local :
 
@@ -515,4 +515,4 @@ Pour plus d’informations sur l’utilisation de Base de données SQL et de MyS
 [Documentation Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

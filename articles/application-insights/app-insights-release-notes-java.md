@@ -37,16 +37,21 @@ Une fois la mise à jour effectuée, vous devrez fusionner toutes les personnali
  
 Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plupart des modifications que vous apercevez sont dues aux ajouts et suppressions de modules. Rétablissez toutes les personnalisations que vous avez apportées.
 
+## Version 1.0.0
+- Ajout de la prise en charge du plug-in d’écriture Application Insights pour CollectD.
+- Ajout de la prise en charge de l'agent Java Application Insights.
+- Correction d'un problème de compatibilité avec la prise en charge des versions HttpClient 4.2 et ultérieures.
+
 ## Version 0.9.6
-- Rendez le Kit de développement logiciel (SDK) Java compatible avec servlet v2.5 et HttpClient pre-v4.3
-- Ajout de la prise en charge des intercepteurs Java EE
-- Suppression des dépendances redondantes de l'appender Logback
+- Rendez le Kit de développement logiciel (SDK) Java compatible avec servlet v2.5 et HttpClient pre-v4.3.
+- Ajout de la prise en charge des intercepteurs Java EE.
+- Suppression des dépendances redondantes de l'appender Logback.
 
 ## Version 0.9.5  
 
 - Résolution du problème qui empêchait la corrélation des événements personnalisés avec les utilisateurs/sessions en raison d'erreurs d'analyse de cookie.  
 - Amélioration de la logique de résolution de l'emplacement du fichier de configuration ApplicationInsights.xml.
-- Suppression du suivi des sessions et des utilisateurs (il sera uniquement effectué par les Kits de développement logiciel (SDK) côté client).
+- Les cookies de sessions et d'utilisateurs anonymes ne seront pas générés côté serveur. Pour implémenter l'utilisateur et la session de suivi pour les applications web, instrumentation avec le SDK JavaScript est désormais obligatoire – les cookies provenant du SDK JavaScript sont toujours respectés. Notez que cette modification peut provoquer un changement significatif du nombre d'utilisateurs et de sessions car seules les sessions créées par l'utilisateur sont désormais comptabilisées.
 
 ## Version 0.9.4
 
@@ -55,4 +60,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

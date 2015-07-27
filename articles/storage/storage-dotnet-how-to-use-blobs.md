@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation du stockage d’objets blob à partir de .NET | Microsoft Azure"
-	description="Découvrez comment utiliser le stockage d’objets blob Microsoft Azure pour télécharger, charger, répertorier et supprimer le contenu d’objets blob. Les exemples sont écrits en C#."
+	description="Découvrez le stockage d’objets blob Azure et comment créer un conteneur, et charger, télécharger, répertorier et supprimer un contenu d’objet blob."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

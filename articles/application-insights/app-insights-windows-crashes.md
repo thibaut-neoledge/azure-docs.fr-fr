@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Détection et diagnostic des incidents dans les applications Windows Store et Windows Phone avec Application Insights
@@ -21,7 +21,7 @@
 
 Si vos utilisateurs rencontrent des incidents lors de l’utilisation de votre application, vous devez le savoir rapidement et obtenir le plus d’informations sur les conditions de ces incidents. Avec Application Insights, vous pouvez surveiller la fréquence à laquelle se produisent ces incidents, recevoir des alertes lorsqu’ils surviennent et étudier des rapports les concernant.
 
-Le terme « incident » signifie que l'application s'arrête en raison d'une exception non interceptée. Si votre application intercepte une exception, vous pouvez l’intégrer dans un rapport avec l’API TrackException() tout en continuant l’exécution de l’application. Dans ce cas, cette exception ne sera pas enregistrée comme un incident.
+Le terme « incident » signifie que l'application s'arrête en raison d'une exception non interceptée. Si votre application intercepte une exception, vous pouvez l’intégrer dans un rapport avec [l’API TrackException][apiexceptions] tout en continuant l’exécution de l’application. Dans ce cas, cette exception ne sera pas enregistrée comme un incident.
 
 
 ## Surveillance de la fréquence d'incident
@@ -80,6 +80,8 @@ Si vous développez en configuration de version finale, les événements sont st
 
 [Problèmes de détection, de tri et de diagnostic avec Application Insights][detect]
 
+[API Application Insights][api]
+
 [Capture des journaux de diagnostic][trace]
 
 [Résolution des problèmes](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@ Si vous développez en configuration de version finale, les événements sont st
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

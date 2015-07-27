@@ -45,7 +45,7 @@ Pour configurer un compte de base de données DocumentDB dans Azure :
 1. Si vous ne disposez pas d'un compte de base de données, créez-en un en suivant les instructions de la page [Création d'un compte de base de données](documentdb-create-account.md). Si vous disposez déjà d'un compte, passez à l'étape 2.
 2. À l'aide du panneau **Clés** indiqué dans l'illustration suivante, copiez l'**URI** et la **CLÉ PRIMAIRE** de votre point de terminaison dans votre Presse-papiers et conservez-les à portée de main, car nous utiliserons ces valeurs dans l'application web que nous allons créer.
 
-![Capture d'écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d'URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
+![Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
 
 
 ##<a id="CreateJSP"></a>Étape 2 : création de l'application JSP ##
@@ -118,7 +118,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 
 	Dans ce projet, nous utilisons [Project Lombok](http://projectlombok.org/) pour générer le constructeur, les accesseurs get, les méthodes setter et un générateur. Vous pouvez également écrire ce code manuellement ou faire en sorte que l'IDE le génère.
 
-2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque demande. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. C'est ici également que vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR\\_ENDPOINT\\_HERE] par l'URI et [YOUR\\_KEY\\_HERE] par la CLÉ PRIMAIRE.
+2. Pour appeler le service DocumentDB, vous devez instancier un nouveau **DocumentClient**. En général, il est préférable de réutiliser le **DocumentClient** plutôt que de construire un nouveau client à chaque demande. Nous pouvons réutiliser le client en l'encapsulant dans un **DocumentClientFactory**. C'est ici également que vous devez coller les valeurs d'URI et de CLÉ PRIMAIRE que vous avez enregistrées dans le Presse-papiers à l'[étape 1](#CreateDB). Remplacez [YOUR_ENDPOINT_HERE] par l’URI et [YOUR_KEY_HERE] par votre CLÉ PRIMAIRE.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -777,6 +777,6 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 22. Pour déployer votre projet sur un site web Azure, consultez l'[Étape 6. déploiement de votre application sur Azure Websites](#Deploy). 
 
 [1]: media/documentdb-java-application/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

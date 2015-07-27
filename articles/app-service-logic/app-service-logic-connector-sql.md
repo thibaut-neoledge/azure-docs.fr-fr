@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Utilisation du connecteur SQL dans Microsoft Azure App Service" 
-   description="Utilisation du connecteur SQL" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Utilisation du connecteur SQL dans Microsoft Azure App Service"
+   description="Utilisation du connecteur SQL"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,18 +12,18 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="06/30/2015"
+   ms.author="sameerch"/>
 
 
 # Connecteur SQL Microsoft
 
 Connectez-vous à une base de données SQL Server ou Azure SQL en local pour créer et modifier vos informations ou données. Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d'un « flux ». En utilisant le connecteur SQL dans votre flux, vous pouvez effectuer une multitude d'opérations. Vous pouvez, par exemple :
 
-- Exposer une partie des données résidant dans votre base de données SQL via une interface utilisateur web ou mobile. 
+- Exposer une partie des données résidant dans votre base de données SQL via une interface utilisateur web ou mobile.
 - Insérer des données dans une table de stockage de votre base de données SQL. Par exemple, vous pouvez entrer des dossiers d'employés, mettre à jour des bons de commande, et ainsi de suite.
-- Extraire des données SQL et les exploiter dans un processus métier. Par exemple, vous pouvez obtenir les dossiers de clients et les placer dans SalesForce. 
+- Extraire des données SQL et les exploiter dans un processus métier. Par exemple, vous pouvez obtenir les dossiers de clients et les placer dans SalesForce.
 
 ## Déclencheurs et actions
 Les *déclencheurs* sont des événements qui se produisent. Par exemple, lorsqu'une commande est mise à jour ou lorsqu'un nouveau client est ajouté. Une *action* est le résultat du déclencheur. Par exemple, lorsqu'une commande est mise à jour, envoyer une alerte au vendeur. Ou bien, lorsqu'un nouveau client est ajouté, lui envoyer un message de bienvenue.
@@ -34,7 +34,7 @@ Le connecteur SQL propose les déclencheurs et les actions suivants :
 
 Déclencheurs | Actions
 --- | ---
-Interrogation des données | <ul><li>Insérer dans la table</li><li>Mettre à jour la table</li><li>Sélectionner dans la table</li><li>Supprimer de la table</li><li>Appeler une procédure stockée</li>
+Interrogation des données | <ul><li>Insérer dans la table</li><li>Mettre à jour la table</li><li>Sélectionner dans la table</li><li>Supprimer de la table</li><li>Appeler une procédure stockée</li></ul>
 
 ## Créer le connecteur SQL
 
@@ -43,22 +43,22 @@ Un connecteur peut être créé dans une application logique ou directement à p
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Sélectionnez **API Apps** et recherchez « Connecteur SQL ».
 3. Entrez le nom, le plan App Service et d'autres propriétés.
-4. Entrez les paramètres de package suivants :
+4. Entrez les paramètres de package suivants :
 
 	Nom | Requis | Description
 --- | --- | ---
 Nom du serveur | Oui | Entrez le nom du serveur SQL. Par exemple, entrez *SQLserver/sqlexpress* ou *SQLserver.mydomain.com*.
 Port | Non | La valeur par défaut est 1433.
-Nom d’utilisateur | Oui | Entrez un nom d'utilisateur pouvant se connecter au serveur SQL. Si vous vous connectez à un serveur SQL en local, entrez le domaine\nom d'utilisateur. 
+Nom d’utilisateur | Oui | Entrez un nom d'utilisateur pouvant se connecter au serveur SQL. Si vous vous connectez à un serveur SQL en local, entrez les informations d’identification SQL.
 Mot de passe | Oui | Entrez le mot de passe d'utilisateur.
 Nom de la base de données | Oui | Entrez la base de données à laquelle vous vous connectez. Par exemple, vous pouvez entrer *Customers* ou *dbo/orders*.
-Local | Oui | La valeur par défaut est False. Entrez False si vous vous connectez à une base de données SQL Azure. Entrez True si vous vous connectez à un serveur SQL en local. 
+Local | Oui | La valeur par défaut est False. Entrez False si vous vous connectez à une base de données SQL Azure. Entrez True si vous vous connectez à un serveur SQL en local.
 Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
-Nom du serveur partenaire | Non | Si le serveur principal est indisponible, vous pouvez entrer un serveur partenaire comme serveur secondaire ou de sauvegarde. 
-Tables | Non | Répertoriez les tables de base de données qui peuvent être mises à jour par le connecteur. Par exemple, entrez *OrdersTable* ou *EmployeeTable*. Si aucune table n'est entrée, toutes les tables peuvent être utilisées. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action. 
-Procédures stockées | Non | Entrez une procédure stockée existante qui peut être appelée par le connecteur. Par exemple, entrez *sp_IsEmployeeEligible* ou *sp_CalculateOrderDiscount*. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action. 
-Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table_name. 
-Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL permettant d'interroger la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple : SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau. 
+Nom du serveur partenaire | Non | Si le serveur principal est indisponible, vous pouvez entrer un serveur partenaire comme serveur secondaire ou de sauvegarde.
+Tables | Non | Répertoriez les tables de base de données qui peuvent être mises à jour par le connecteur. Par exemple, entrez *OrdersTable* ou *EmployeeTable*. Si aucune table n'est entrée, toutes les tables peuvent être utilisées. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
+Procédures stockées | Non | Entrez une procédure stockée existante qui peut être appelée par le connecteur. Par exemple, entrez *sp_IsEmployeeEligible* ou *sp_CalculateOrderDiscount*. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
+Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table_name.
+Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL permettant d'interroger la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple : SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
 5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/> ![][1]
 
@@ -77,15 +77,15 @@ La valeur **Requête d'interrogation de données** est exécutée uniquement lor
 
 #### Exemple de requête d'interrogation de données
 
-	SELECT *, GetData() as 'PollTime' FROM [Order] 
-		WHERE OrderStatus = 'ProcessedForCollection' 
-		ORDER BY Id DESC; 
-	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk' 
-		WHERE Id = 
+	SELECT *, GetData() as 'PollTime' FROM [Order]
+		WHERE OrderStatus = 'ProcessedForCollection'
+		ORDER BY Id DESC;
+	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk'
+		WHERE Id =
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Ajouter le déclencheur
-1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : <br/> ![][5] 
+1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : <br/> ![][5]
 
 2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : <br/> ![][6]
 
@@ -96,7 +96,7 @@ Prenons notre scénario dans lequel une application logique simple interroge les
 
 Pour utiliser le connecteur SQL comme une action, entrez le nom des tables et/ou des procédures stockées que vous avez saisies lorsque vous avez créé le connecteur SQL :
 
-1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : <br/> ![][8] 
+1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : <br/> ![][8]
 
 2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓: <br/> ![][9]
 
@@ -105,6 +105,18 @@ Pour utiliser le connecteur SQL comme une action, entrez le nom des tables et/ou
 4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : <br/> ![][12]
 
 Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement dans la table interrogée.
+
+## Ce que vous pouvez et ne pouvez pas faire
+
+Requête SQL | Pris en charge | Non pris en charge
+--- | --- | ---
+Clause Where | <ul><li>Opérateurs : AND, OR, =, <>, <, <=, >, >= et LIKE</li><li>Plusieurs sous-conditions peuvent être associées à l’aide de ‘(‘ et ‘)’</li><li>Littéraux de chaîne, Datetime (entre guillemets simples), nombres (ne doivent contenir que des caractères numériques)</li><li>Au format d’expression binaire, comme ((opérande opérateur opérande) AND/OR (opérande opérateur opérande))*</li></ul> | <ul><li>Opérateurs : Between, IN</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +.</li><li>Toutes les jointures</li><li>IS NULL et IS NOT Null</li><li>Tous les nombres avec des caractères non numériques, comme les nombres hexadécimaux</li></ul> Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés par une virgule. Aucun préfixe de nom de table n’est autorisé (le connecteur fonctionne sur une seule table à la fois).</li><li>Les noms peuvent être insérés entre crochets ‘[‘ et ‘]’</li></ul> | <ul><li>Mots-clés comme TOP, DISTINCT, etc.</li><li>Alias comme Rue + Ville + Code postal AS Adresse</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +</li></ul>
+
+#### Conseils
+
+- Pour les requêtes avancées, nous vous suggérons de créer une procédure stockée et de l’exécuter à l’aide de l’API d’exécution d’une procédure stockée.
+- Si vous utilisez des requêtes internes, utilisez-les dans des procédures stockées.
+- Pour associer plusieurs conditions, vous pouvez utiliser les opérateurs « AND » et « OR ».
 
 ## Configuration hybride (facultatif)
 
@@ -118,7 +130,9 @@ Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-ser
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](../app-service-api/app-service-api-manage-in-portal.md).
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 
 <!--Image references-->
@@ -132,7 +146,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

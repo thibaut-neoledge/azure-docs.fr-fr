@@ -36,9 +36,9 @@ Ce didacticiel vous familiarise avec ces étapes de base :
 Ce didacticiel requiert les éléments suivants :
 
 * exécution de Visual Studio 2013 sur Windows 8.1 ;
-* finalisation de [Créer une application Windows].
-* [Kit de développement logiciel (SDK) Azure Mobile Services version 2.0.0 (ou version ultérieure)][Azure Mobile App SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.2 (ou version ultérieure)][SQLite store Nuget]
+* finalisation de [Créer une application Windows][create a windows app].
+* [Kit de développement logiciel (SDK) Azure Mobile Services version 2.0.0 (ou version ultérieure)][azure mobile app sdk nuget]
+* [Azure Mobile Services SQLite Store version 1.0.2 (ou version ultérieure)][sqlite store nuget]
 * [SQLite pour Windows 8.1](www.sqlite.org/downloads)
 
 >[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
@@ -264,13 +264,14 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 
 <!-- URLs. -->
-[TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[todolist offline sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[create a windows app]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [Créer une application Windows]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [SQLite pour Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[sqlite for windows phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
 
-[Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
+[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
+[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

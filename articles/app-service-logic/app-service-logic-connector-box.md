@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # Utilisation du connecteur Box dans votre application logique
 
@@ -43,8 +43,7 @@ L'application de la galerie Box vous fournit des actions en tant que mécanismes
     <td>Chemin du dossier dont les fichiers sont à répertorier.</td>
     <td>Oui</td>
   </tr>
-</table>
->[AZURE.NOTE]Ce paramètre ne permet pas de retourner le contenu d'un fichier.
+</table>>[AZURE.NOTE]Ce paramètre ne permet pas de retourner le contenu d'un fichier.
 
 
 
@@ -66,8 +65,7 @@ L'application de la galerie Box vous fournit des actions en tant que mécanismes
     <td>Spécifie s'il s'agit d'un fichier texte ou binaire.</td>
     <td>Non</td>
   </tr>
-</table>
->[AZURE.NOTE]Cette opération ne supprime pas le fichier une fois qu'il a été lu.
+</table>>[AZURE.NOTE]Cette opération ne supprime pas le fichier une fois qu'il a été lu.
 
 
 
@@ -104,7 +102,7 @@ L'application de la galerie Box vous fournit des actions en tant que mécanismes
   </tr>
   <tr>
     <td>Chemin de fichier</td>
-    <td>Chemin d'accès complet aux fichiers y compris les dossiers.</td>
+    <td>Chemin d'accès complet aux fichiers, y compris les dossiers.</td>
     <td>Oui</td>
   </tr>
 </table>
@@ -162,4 +160,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

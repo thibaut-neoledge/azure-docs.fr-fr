@@ -255,4 +255,4 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

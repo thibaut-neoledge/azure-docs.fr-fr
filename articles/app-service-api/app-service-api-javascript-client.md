@@ -107,7 +107,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 1. La dernière étape pour activer CORS consiste à délimiter les méthodes d'action individuelles que vous voulez activer. Ajoutez l'attribut **EnableCors** à chacune des méthodes ou sur la totalité du contrôleur, comme illustré dans le code ci-dessous.
 
-	> **Remarque** : l'utilisation des caractères génériques pour tous les paramètres avec l'attribut EnableCors est destiné uniquement à des fins de démonstration. Elle ouvre votre API à toutes les origines et à toutes les requêtes HTTP. Utilisez cet attribut avec précaution et assurez-vous d'en comprendre les implications.
+	> **Remarque** : l'utilisation des caractères génériques pour tous les paramètres avec l'attribut EnableCors est réservée à des fins de démonstration. Elle ouvre votre API à toutes les origines et à toutes les requêtes HTTP. Utilisez cet attribut avec précaution et assurez-vous d'en comprendre les implications.
 
 		using ContactList.Models;
 		using System.Collections.Generic;
@@ -312,8 +312,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
 
 1, Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
 
-	> **Remarque** : n'utilisez pas le numéro de port du projet HTML du client. Pour ouvrir une fenêtre de navigateur indiquant le numéro de port, faites un clic droit sur le projet d'API, puis cliquez sur Déboguer > Démarrer une nouvelle instance.
-
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
 1. Assurez-vous que le projet d’application API est également en cours d’exécution lorsque vous lancez le client HTML. Dans le cas contraire, le code HTML JavaScript ne fonctionnera pas correctement. Cliquez avec le bouton droit sur la solution et sélectionnez **Propriétés**. Spécifiez que les deux projets web doivent s'**Exécuter sans débogage** et que le projet d'API doit s'exécuter en premier. 
 
@@ -366,9 +365,10 @@ Dans cette section, vous allez déployer le client HTML/JavaScript comme une app
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
-## Résumé 
+## Étapes suivantes 
+
 Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme JavaScript pour accéder aux backends d'applications API. Vous pouvez changer la fonctionnalité d’accès REST et utiliser une autre infrastructure JavaScript.
 
- 
+Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

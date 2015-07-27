@@ -32,26 +32,33 @@ Les jeux d'enregistrements sont créés à l'aide de la cmdlet New-AzureDnsRecor
 
 Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Les jeux d'enregistrements de type SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
 Si un jeu d’enregistrements existe déjà, la commande échouera à moins que le commutateur -Overwrite ne soit utilisé. L'option « -Overwrite » déclenche une invite de confirmation, qui peut être supprimée en utilisant le commutateur -Force.
 
 Dans l'exemple ci-dessus, la zone est spécifiée à l'aide d'un objet de la zone, tel que retourné par Get-AzureDnsZone ou New-AzureDnsZone. Autrement, vous pouvez également spécifier la zone suivant le nom de zone et le nom de groupe de ressources :
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:> $rs = New-AzureDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
 New-AzureDnsRecordSet retourne un objet local qui représente le jeu d'enregistrements créé dans Azure DNS.
 
 >[AZURE.NOTE]Les jeux d'enregistrements CNAME ne peuvent pas coexister avec d'autres jeux d'enregistrements portant le même nom. Par exemple, vous ne pouvez pas créer un CNAME avec le nom relatif « www » et un enregistrement A avec le nom relatif « www » en même temps. Étant donné que l’extrémité de la zone (nom = « @ ») contient toujours les jeux d’enregistrements NS et SOA créés lors de la création de la zone, cela signifie que vous ne pouvez pas créer un jeu d’enregistrements CNAME au niveau de l’extrémité de la zone. Ces contraintes sont dues aux normes DNS, il ne s’agit pas de limites d'Azure DNS.
 
+### Enregistrements génériques
+Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
+
+>[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
+
+>Les jeux d'enregistrements génériques sont pris en charge pour tous les types d'enregistrements, hormis NS et SOA.
+
 ## Obtention d’un jeu d'enregistrements
 Pour récupérer un jeu d'enregistrements existant, utilisez « Get-AzureDnsRecordSet », spécifiant le nom relatif du jeu d’enregistrements, le type d'enregistrement et la zone :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name www –RecordType A -Zone $zone
+	PS C:> $rs = Get-AzureDnsRecordSet -Name www –RecordType A -Zone $zone
 
 Comme avec New-AzureDnsRecordSet, le nom de l'enregistrement doit être un nom relatif, c'est-à-dire qu’il doit être différent du nom de la zone. La zone peut être spécifiée à l'aide d'un objet de zone (comme indiqué ci-dessus) ou par nom de zone et le nom de groupe de ressources :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> $rs = Get-AzureDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
 
 Get-AzureDnsRecordSet retourne un objet local qui représente le jeu d'enregistrements créé dans Azure DNS.
 
@@ -61,12 +68,12 @@ En omettant les paramètres –Name et/ou –RecordType, Get-AzureDnsRecordSet p
 ### Option 1 : 
 Liste de tous les jeux d'enregistrements. Ceci renverra tous les jeux d'enregistrements, quel que soit le nom ou le type d'enregistrement :
 
-	PS C:\> $list = Get-AzureDnsRecordSet -Zone $zone
+	PS C:> $list = Get-AzureDnsRecordSet -Zone $zone
 ### Option 2 : 
 
 Liste des jeux d'enregistrements pour un type d'enregistrement donné. Ceci renverra tous les jeux d'enregistrements correspondant au type d'enregistrement donné (dans ce cas, les enregistrements A) :
 
-	PS C:\> $list = Get-AzureDnsRecordSet –RecordType A -Zone $zone 
+	PS C:> $list = Get-AzureDnsRecordSet –RecordType A -Zone $zone 
 
 Dans les deux cas mentionnés ci-dessus, la zone peut être spécifiée à l'aide d'un objet de la zone (comme indiqué) ou en précisant les paramètres – ZoneName et –ResourceGroupName.
 
@@ -81,51 +88,51 @@ Une fois que le jeu d'enregistrements contient la collection d'enregistrements s
 
 ### Création d’un jeu d’enregistrements avec un seul enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 La séquence des opérations pour créer un enregistrement peut également être « envoyée », en passant l’objet du jeu d'enregistrements à l'aide du canal et non en tant que paramètre. Par exemple :
 
-	PS C:\> New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
+	PS C:> New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
 
 ### Création d’un jeu d’enregistrements AAAA avec un seul enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Création d’un jeu d’enregistrements CNAME avec un seul enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Création d’un jeu d’enregistrements MX avec un seul enregistrement
 Dans cet exemple, nous utilisons le nom de jeu d'enregistrements "@" pour créer l'enregistrement MX à l'apex de la zone (par exemple, « contoso.com »). Cela est courant pour les enregistrements MX.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Création d’un jeu d’enregistrements NS avec un seul enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 ### Création d’un jeu d’enregistrements SRV avec un seul enregistrement
 
 Si vous créez un enregistrement SRV à la racine de la zone, indiquez simplement le _service et le_protocole dans le nom de l'enregistrement. Il est inutile d'inclure également « . @ » dans le nom de l'enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Création d’un jeu d’enregistrements TXT avec un seul enregistrement
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ## Modification des jeux d'enregistrements existants
 La modification des jeux d'enregistrements existants suit le même procédé que pour la création d'enregistrements. La séquence des opérations est la suivante :
@@ -139,9 +146,9 @@ Ceci est illustré dans les exemples suivants :
 ### Mise à jour d’un enregistrement dans un jeu d'enregistrements existant
 Pour cet exemple, nous allons modifier l'adresse IP d'un enregistrement A existant :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
-	PS C:\> $rs.Records[0].Ipv4Address = "134.170.185.46"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
+	PS C:> $rs.Records[0].Ipv4Address = "134.170.185.46"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 La cmdlet Set-AzureDnsRecordSet utilise des vérifications « etag » pour s’assurer que des modifications simultanées ne sont pas remplacées. Utilisez l’indicateur « -Overwrite » pour supprimer ces vérifications. Pour plus d'informations, consultez Etags et balises.
 
@@ -151,9 +158,9 @@ La cmdlet Set-AzureDnsRecordSet utilise des vérifications « etag » pour s�
 
 L'exemple suivant montre comment modifier la propriété « Email » de l'enregistrement SOA :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
-	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
+	PS C:> $rs.Records[0].Email = "admin.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ### Modification des enregistrements NS à l’extrémité de la zone
 
@@ -161,17 +168,17 @@ L'exemple suivant montre comment modifier la propriété « Email » de l'enre
 
 L'exemple suivant montre comment modifier la propriété de durée de vie du jeu d'enregistrement NS :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType NS -Zone $zone
-	PS C:\> $rs.Ttl = 300
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+	PS C:> $rs.Ttl = 300
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ### Ajout d’enregistrements à un jeu d'enregistrements existant
 Dans cet exemple, nous ajoutons deux enregistrements MX supplémentaires au jeu d'enregistrements existant :
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ## Suppression d’un enregistrement d’un jeu d'enregistrements existant
 
@@ -180,50 +187,50 @@ Des enregistrements peuvent être supprimés d'un jeu d’enregistrements à l'a
 La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime pas le jeu d'enregistrements. Consultez [Suppression d’un jeu d'enregistrements](#delete-a-record-set) ci-dessous pour en savoir plus.
 
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 La séquence des opérations pour supprimer un enregistrement d’un jeu d’enregistrements peut également être « envoyée » en transmettant l’objet du jeu d’enregistrements à l'aide du canal et non en tant que paramètre. Par exemple :
 
-	PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
+	PS C:> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
 ### Suppression de l'enregistrement AAAA d'un jeu d'enregistrements
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Suppression de l'enregistrement CNAME d'un jeu d'enregistrements
 
 Étant donné qu’un jeu d'enregistrements CNAME peut contenir un enregistrement au maximum, la suppression de cet enregistrement laissera un jeu d'enregistrements vide.
 
-	PS C:\> $rs =  Get-AzureDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs =  Get-AzureDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Suppression de l'enregistrement MX d'un jeu d'enregistrements
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Suppression de l’enregistrement NS du jeu d'enregistrements
 	
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Suppression de l'enregistrement SRV d'un jeu d'enregistrements
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Suppression de l'enregistrement TXT d'un jeu d'enregistrements
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ## Suppression d’un jeu d'enregistrements
 Les jeux d'enregistrements peuvent être supprimés à l'aide de la cmdlet Remove-AzureDnsRecordSet.
@@ -234,28 +241,28 @@ Utilisez l'une des trois méthodes suivantes pour supprimer un jeu d’enregistr
 ### Option 1 :
 Spécifiez tous les paramètres par nom :
 
-	PS C:\> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
 Le commutateur facultatif « -Force » peut être utilisé pour supprimer l'invite de confirmation.
 
 ### Option 2 :
 Spécifiez le jeu d'enregistrements par nom et par type puis spécifiez la zone par objet :
 
-	PS C:\> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
+	PS C:> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
 ### Option 3 :
 Spécifiez le jeu d'enregistrements par objet :
 
-	PS C:\> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
+	PS C:> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
 La spécification du jeu d'enregistrement à l'aide d'un objet permet aux vérifications « etag » de s’assurer que les modifications simultanées ne sont pas supprimées. L'indicateur facultatif « -Overwrite » supprime ces vérifications. Pour plus d'informations, consultez [Etags et balises](../dns-getstarted-create-dnszone#Etags-and-tags).
 
 L'objet du jeu d'enregistrements peut également être envoyé au lieu d’être transmis en tant que paramètre :
 
-	PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
+	PS C:> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
 
 ##Voir aussi
 
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](../dns-getstarted-create-recordset)<BR> [Réalisation d’opérations sur des zones DNS](../dns-operations-dnszones)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](../dns-sdk)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

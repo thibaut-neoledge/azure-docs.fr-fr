@@ -1,10 +1,23 @@
-<properties title="" pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" 
+	description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article"  
+	ms.tgt_pltfrm="na" 
+	ms.date="07/08/2015" 
+	ms.author="heidist" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)
 
-> [AZURE.NOTE]Cet article décrit un prototype de nouvelles fonctionnalités qui ne sont pas dans la version publiée de l'API. Pour plus d'informations sur les versions et la capacité de prise en charge, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx) sur MSDN. Pour plus d'informations sur les autres fonctionnalités dans cette API en version préliminaire, consultez [API REST du service Azure Search : version 2014-10-20-Preview](../search-api-2014-10-20-preview/).
+> [AZURE.NOTE]Cet article décrit un prototype de nouvelles fonctionnalités qui ne sont pas dans la version publiée de l'API. Pour plus d'informations sur les versions et la capacité de prise en charge, consultez [Contrôle de version de service Azure Search](http://msdn.microsoft.com/library/azure/dn864560.aspx) sur MSDN. Pour plus d'informations sur les autres fonctionnalités dans cette API en version préliminaire, consultez [API REST du service Azure Search : version 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 ## Vue d’ensemble
 
@@ -80,7 +93,7 @@ La liste suivante décrit les en-têtes de requête obligatoires et facultatifs.
 - `Content-Type` : obligatoire. À définir avec la valeur `application/json`
 - `api-key` : obligatoire. L'en-tête `api-key` est utilisé pour authentifier la requête auprès de votre service de recherche. Il s'agit d'une valeur de type chaîne de caractères, unique pour votre service. La requête **Create Data Source** doit inclure un en-tête `api-key` défini avec la valeur de votre clé d'administration (par opposition à une clé de requête). 
  
-Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Prise en main d'Azure Search](search-get-started.md).
+Vous avez également besoin du nom du service pour construire l'URL de requête. Vous pouvez obtenir le nom du service et l'en-tête `api-key` à partir de votre tableau de bord de service dans le portail Azure en version préliminaire. Pour obtenir de l'aide sur la navigation dans les pages, consultez [Création d'un service Azure Search dans le portail](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Syntaxe du corps de la requête**
 
@@ -135,7 +148,7 @@ Cette stratégie peut être spécifiée comme suit :
 
 ***Stratégie SQL de détection des modifications intégrée***
 
-Si votre base de données SQL prend en charge le [suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), nous vous recommandons d’utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d’identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
+Si votre base de données SQL prend en charge le [suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462.aspx), nous vous recommandons d’utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d’identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
 
 Le suivi intégré des modifications SQL est pris en charge à partir des versions de base de données SQL suivantes : - SQL Server 2008 R2, si vous utilisez des machines virtuelles SQL IaaS ; - Base de données SQL Azure V12, si vous utilisez SQL Azure.
 
@@ -657,4 +670,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

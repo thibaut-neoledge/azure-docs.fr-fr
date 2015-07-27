@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="06/30/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>Qu'est ce que la fonctionnalité Applications mobiles ?
@@ -56,4 +56,4 @@ Pour plus d'informations sur la plateforme Azure App Service, consultez [Azure A
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

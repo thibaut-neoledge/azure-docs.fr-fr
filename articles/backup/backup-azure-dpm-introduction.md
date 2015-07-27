@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
 
 # Présentation d'Azure DPM Backup
 
@@ -51,65 +44,12 @@ Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 2. **Télécharger les informations d'identification de l'archivage** : dans Azure Backup, téléchargez dans l'archivage le certificat de gestion que vous avez créé.
 3. **Installer l'Agent Azure Backup et inscrire le serveur** : à partir d'Azure Backup, installez l'agent sur chaque serveur DPM et inscrivez le serveur DPM dans le coffre de sauvegarde.
 
-### Créer un coffre de sauvegarde
-Pour démarrer la sauvegarde de vos machines virtuelles Azure, vous devez d’abord créer un coffre de sauvegarde. L’archivage est une entité qui stocke les sauvegardes et les points de récupération créés au fil du temps. L’archivage contient également les stratégies de sauvegarde qui seront appliquées aux machines virtuelles en cours de sauvegarde.
+[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
-1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com/).
-2. Cliquez sur **Nouveau** -> **Services de données** -> **Services de récupération** -> **Archivage de sauvegarde** > **Création rapide**. Si vous disposez de plusieurs abonnements associés à votre compte professionnel, choisissez l’abonnement correct à associer au coffre de sauvegarde. Dans chaque abonnement Azure, vous pouvez avoir plusieurs coffres de sauvegarde pour organiser les données protégées.
-3. Dans **Name**, entrez un nom convivial pour identifier le coffre. Cette opération doit être unique pour chaque abonnement.
-4. Dans **Region**, sélectionnez la région géographique du coffre. Notez que l’archivage doit se trouver dans la même région que les machines virtuelles que vous souhaitez protéger. Si vous avez des machines virtuelles dans différentes régions, créez un archivage dans chacune d’elles. Il est inutile de spécifier des comptes de stockage pour stocker les données de sauvegarde : le coffre de sauvegarde et le service Azure Backup s'en chargent automatiquement.
-    > [AZURE.NOTE] La sauvegarde de machines virtuelles à l'aide du service Azure Backup est uniquement prise en charge dans les [régions sélectionnées](http://azure.microsoft.com/regions/#services). Vérifiez la liste des régions prises en charge. Si la région que vous recherchez n'est pas prise en charge pour le moment, elle n'apparaîtra pas dans la liste déroulante pendant la création de l'archivage.
+[AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
-5. Dans **Abonnement**, entrez l'abonnement Azure à utiliser avec le coffre de sauvegarde.
-6. Cliquez sur **Créer un archivage**. ![Créer un coffre de sauvegarde](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
+[AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
-    La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d’état en bas du portail. ![Créer une notification toast l’archivage](./media/backup-azure-dpm-introduction/creating-vault.png)
-
-    Un message confirme que l'archivage a été correctement créé et l'archivage est affiché dans la page Services de récupération avec l'état **Actif**.
-
-    ![Liste des archivages de sauvegarde](./media/backup-azure-dpm-introduction/backup_vaultslist.png)
-
-7. Cliquez sur le coffre de sauvegarde pour accéder à la page **Démarrage rapide**, où sont affichées les instructions pour la sauvegarde des serveurs DPM. ![Instructions de sauvegarde de machines virtuelles dans la page Tableau de bord](./media/backup-azure-dpm-introduction/vmbackup-instructions.png)
-
-    > [AZURE.NOTE]Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options).
-
-### Télécharger les informations d'identification de coffre
-1. Cliquez sur **Services de récupération** puis sur le coffre de sauvegarde. Dans la page de **démarrage rapide**, cliquez sur **Télécharger les informations d'identification de coffre** pour télécharger le fichier d'informations d'identification et l'enregistrer dans un emplacement sécurisé. Comme vous ne pouvez pas modifier les informations d'identification, vous n'avez pas besoin d'ouvrir l'emplacement. Pour des raisons de sécurité, la clé dans le fichier expire au bout de 48 heures.
-
-2. Copiez le fichier vers un emplacement sécurisé facilement accessible par les serveurs DPM que vous souhaitez inscrire dans le coffre de sauvegarde Azure. Vous devez sélectionner le fichier lorsque vous installez l'agent Azure Backup.
-
-### Installer l'agent Azure Backup et inscrire le serveur
-Vous allez télécharger le fichier d'installation de l'Agent et l’exécuter sur chaque serveur DPM contenant les données que vous souhaitez sauvegarder. Les agents sont stockés dans le **Centre de téléchargement Azure** et ils ont leur propre processus d'installation. Lorsque vous exécutez le programme d'installation, l'agent est installé et le serveur DPM est inscrit auprès du coffre. Notez les points suivants :
-
-- Vous aurez besoin des autorisations administratives sur le serveur DPM pour installer l'agent.
-- Pour installer l'agent sur plusieurs serveurs DPM, vous pouvez placer le fichier d'installation sur une ressource réseau partagée ou utiliser la stratégie de groupe ou des produits de gestion comme System Center Configuration Manager.
-- Vous n'avez pas besoin de redémarrer le serveur DPM après l'installation.
-
-#### Pour installer l'agent de sauvegarde et inscrire le serveur
-
-1. Dans la page de **démarrage rapide** du coffre Azure Backup, cliquez sur **Télécharger l'agent Azure Backup**, sélectionnez **Pour Windows Server ou System Center Data Protection Manager ou client Windows**. Téléchargez l'application sur le serveur DPM sur lequel vous souhaitez l'exécuter.
-2. Exécutez le fichier d'installation **MARSAgentInstaller.exe**. Acceptez les termes du contrat de service et installez les logiciels requis manquants.
-3. Dans la page **Paramètres d'installation**, sélectionnez le **dossier d'installation** et l'**emplacement du cache**.
-
-    L'emplacement par défaut du cache est <system drive>:\Program Files\Azure Backup Agent. Dans l'emplacement du cache, le processus d'installation crée un sous-dossier nommé **Scratch** dans le dossier **Azure Backup Agent**. L'emplacement du cache doit avoir au moins 2,5 gigaoctets (Go) d'espace libre (ou 10 % de la taille des données qui seront sauvegardées dans Azure). Seuls les administrateurs système et les membres locaux du groupe Administrateurs ont accès au répertoire du cache pour empêcher les attaques par déni de service.
-
-4. Dans la page **Configuration du proxy**, définissez les paramètres de proxy personnalisés permettant à l'agent de se connecter à Azure. Si vous ne configurez aucun paramètre, les paramètres d'accès à Internet par défaut sur le serveur DPM seront utilisés. Notez que si vous utilisez un serveur proxy nécessitant une authentification, vous devez compléter les informations sur cette page.
-5. Dans la page **Abonnement à Microsoft Update**, nous vous recommandons d'activer les mises à jour. Si le serveur est déjà activé pour les mises à jour automatiques, cette étape est ignorée. Notez que les paramètres Microsoft Update s'appliquent à toutes les mises à jour de produits Microsoft et ne sont pas exclusifs à l'agent Azure Backup.
-6. La page **Installation** s'affiche. L'installation vérifie que le logiciel requis est installé puis finalise la configuration. Lorsque l'opération est terminée, vous recevrez un message confirmant que l'agent Azure Backup a été installé avec succès. À ce stade, vous pouvez choisir de rechercher les mises à jour. Nous vous recommandons d'autoriser la vérification des mises à jour.
-7. Cliquez sur **Passer à l'inscription** pour inscrire le serveur dans l'archivage.
-8. Dans la page **Identification de l'archivage**, sélectionnez le fichier d'inscription d'archivage généré dans le coffre Azure Backup.
-9. Dans la page **Paramètre de chiffrement**, indiquez les détails du code secret ou générez-en un automatiquement.
-10. Cliquez sur Générer un code secret suivi par Copier dans le Presse-papiers. Vous recevrez un message indiquant que votre code secret a été copié dans le Presse-papiers. Il est maintenant recommandé d'ouvrir le bloc-notes et de coller le code secret à partir du Presse-papiers, d'enregistrer le fichier, puis de l'imprimer avant de mettre la copie en lieu sûr. Cliquez sur S'inscrire pour inscrire votre serveur DPM auprès de votre coffre de sauvegarde.
-
-    > [AZURE.TIP] Au moment de définir le paramètre de chiffrement, n'oubliez pas de copier la phrase secrète dans le presse-papiers.
-11. Cliquez sur **S'inscrire**.
-
-    Une fois l'inscription terminée, la console DPM affiche la disponibilité d'Azure Backup.
-
-    Azure Backup chiffre toujours les données à la source avec le code secret (chaîne alphanumérique) que vous spécifiez ou générez automatiquement.
-    >[AZURE.NOTE]Azure Backup ne conserve jamais le code secret. Si vous le perdez, les données ne peuvent pas être restaurées, ni récupérées. Nous vous recommandons vivement de sauvegarder la clé dans un emplacement externe.
-
-Lorsque vous spécifiez un code secret puis cliquez sur **Terminer**, quelques secondes sont nécessaires pour que l'agent inscrive le serveur de production dans le coffre de sauvegarde. Une fois l'inscription dans le coffre terminée, une page récapitulative **Inscription du serveur** s'affiche.
 
 ## Spécifications (et limitations)
 
@@ -141,4 +81,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE]À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Autorisation côté service des utilisateurs dans Mobile Services avec un backend JavaScript | Centre de développement pour appareils mobiles"
+	pageTitle="Autorisation côté service des utilisateurs d’un service mobile principal JavaScript | Azure Mobile Services"
 	description="Découvrez comment autoriser des utilisateurs sur le backend JavaScript Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -70,4 +70,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

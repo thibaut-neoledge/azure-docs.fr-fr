@@ -133,4 +133,4 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

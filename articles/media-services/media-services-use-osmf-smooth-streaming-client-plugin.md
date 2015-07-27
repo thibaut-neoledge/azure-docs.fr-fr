@@ -403,4 +403,4 @@ Pour plus d'informations sur le développement avec OSMF, consultez la page offi
 
 [Plug-in de diffusion en continu adaptative Microsoft pour la mise à jour OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

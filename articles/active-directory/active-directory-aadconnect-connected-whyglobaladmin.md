@@ -34,4 +34,4 @@ Pour la configuration personnalisée | Nous activons la synchronisation dans vot
 * [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

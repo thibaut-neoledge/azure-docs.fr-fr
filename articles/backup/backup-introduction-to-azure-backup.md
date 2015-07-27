@@ -66,4 +66,4 @@ Combiné avec SCDPM, Azure Backup peut sauvegarder les éléments suivants :
 + Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

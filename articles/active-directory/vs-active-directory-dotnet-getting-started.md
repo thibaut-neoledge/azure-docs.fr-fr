@@ -77,4 +77,4 @@ Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez u
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

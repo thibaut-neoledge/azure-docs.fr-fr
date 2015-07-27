@@ -32,7 +32,7 @@ Un enregistrement A est utilisé pour mapper un nom vers son adresse IP. Dans 
  
 Créez un enregistrement A et assignez-le à une variable $rs
 	
-	PS C:\>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+	PS C:>$rs=New-AzureDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### Étape 2 :
 
@@ -40,7 +40,7 @@ Ajoutez la valeur IPv4 à un jeu d’enregistrements précédemment créé « 
 
 > [AZURE.NOTE]Pour rechercher l'adresse IP pour une application web, suivez les étapes dans [Configuration d’un nom de domaine personnalisé dans Azure App Service](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### Étape 3 :
 
@@ -56,7 +56,7 @@ En supposant que votre domaine est déjà géré par Azure DNS (consultez [Dél
 
 Ouvrez Powershell et créez un nouveau jeu d'enregistrements CNAME puis affectez-le à une variable $rs :
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -75,7 +75,7 @@ Une fois le jeu d'enregistrements CNAME créé, vous devez créer une valeur d'a
 
 À l'aide de la variable « $rs » attribuée précédemment, vous pouvez utiliser la commande PowerShell ci-dessous pour créer l'alias pour l’application web contoso.azurewebsites.net.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
 	Name              : www
 	ZoneName          : contoso.com
@@ -90,11 +90,11 @@ Une fois le jeu d'enregistrements CNAME créé, vous devez créer une valeur d'a
 
 Validez vos modifications à l'aide de la cmdlet Set-AzureDnsRecordSet :
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
 
 Vous pouvez valider l'enregistrement correctement créé en interrogeant « www.contoso.com » à l'aide de nslookup, comme indiqué ci-dessous :
 
-	PS C:\> nslookup
+	PS C:> nslookup
 	Default Server:  Default
 	Address:  192.168.0.1
  
@@ -117,7 +117,7 @@ Dans l'exemple ci-dessous, l'enregistrement « awverify » sera créé pour co
 
 ### Étape 1 :
 
-	PS C:\> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+	PS C:> $rs = New-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -133,7 +133,7 @@ Dans l'exemple ci-dessous, l'enregistrement « awverify » sera créé pour co
 
 Une fois le jeu d'enregistrements awverify créé, vous devez attribuer l'alias du jeu d’enregistrements CNAME à awverify.contoso.azurewebsites.net, comme indiqué dans la commande ci-dessous :
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
 	Name              : awverify
 	ZoneName          : contoso.com
@@ -148,7 +148,7 @@ Une fois le jeu d'enregistrements awverify créé, vous devez attribuer l'alias 
 
 Validez vos modifications à l'aide de la cmdlet Set-AzureDnsRecordSet, comme indiqué dans la commande ci-dessous :
 
-	PS C:\>Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:>Set-AzureDnsRecordSet -RecordSet $rs
 
 Maintenant, vous pouvez continuer à suivre les étapes dans [Configuration d'un nom de domaine personnalisé pour App Service](../web-sites-custom-domain-name) afin de configurer votre application web pour utiliser un domaine personnalisé.
 
@@ -165,4 +165,4 @@ Maintenant, vous pouvez continuer à suivre les étapes dans [Configuration d'un
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

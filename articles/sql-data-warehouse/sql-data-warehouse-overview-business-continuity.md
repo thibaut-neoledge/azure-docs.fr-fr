@@ -64,10 +64,10 @@ Pour en savoir plus sur les fonctionnalités de continuité d’activité d’au
 <!--Image references-->
 
 <!--Article references-->
-[business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Options de redondance de stockage Microsoft Azure]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
-[Vue d’ensemble de la continuité des activités]: sql-database-business-continuity.md
+[Vue d’ensemble de la continuité des activités]: ../sql-database/sql-database-business-continuity.md
 [Récupérer après une erreur d’utilisateur]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@ Pour en savoir plus sur les fonctionnalités de continuité d’activité d’au
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

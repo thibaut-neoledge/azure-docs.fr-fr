@@ -109,7 +109,7 @@ Généralement, la méthode la plus simple pour rechercher la cause d’une erre
 
 	![Messages d’erreur détaillés](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	L'erreur affichée est générée par l'ajout de la ligne affichée en rouge à *Views\Home\Index.cshtml*.
+	L'erreur affichée est générée par l'ajout de la ligne affichée en rouge à *Views\\Home\\Index.cshtml*.
 
 La modification du fichier Web.config n’est qu’un exemple des scénarios dans lesquels la capacité de lecture et de modification des fichiers sur votre application web Microsoft Azure simplifie la résolution des problèmes.
 
@@ -123,7 +123,7 @@ Cette section vous montre comment procéder au débogage à distance en utilisan
 
 1. Ouvrez le projet Web que vous avez créé durant le didacticiel [Prise en main d'Azure et d'ASP.NET][GetStarted].
 
-1. Ouvrez *Controllers\HomeController.cs*.
+1. Ouvrez *Controllers\\HomeController.cs*.
 
 2. Supprimez la méthode `About()` et insérez le code suivant à la place.
 
@@ -269,7 +269,7 @@ Si votre fonction [a écrit des journaux](websites-dotnet-webjobs-sdk-storage-qu
 
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 
-* Vous pouvez manuellement connecter le débogueur à n’importe quel processus, et non au seul processus d’application web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/fr-fr/library/vstudio/sc65sadd.aspx).
+* Vous pouvez manuellement connecter le débogueur à n’importe quel processus, et non au seul processus d’application web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Présentation des journaux de diagnostic
 
@@ -296,7 +296,7 @@ Pour plus d’informations sur la création de journaux d’application dans Web
 
 ### Ajout d'instructions de suivi à l'application
 
-1. Ouvrez *Controllers\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
+1. Ouvrez *Controllers\\HomeController.cs*, puis remplacez le contenu du fichier par le code suivant afin d’ajouter les instructions `Trace` ainsi qu’une instruction `using` au `System.Diagnostics` :
 
 		using System;
 		using System.Collections.Generic;
@@ -517,9 +517,9 @@ Tous les journaux que vous pouvez surveiller dans la fenêtre **Sortie** peuvent
 
 	![Fichier téléchargé](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Les journaux de suivi d'application sont dans des fichiers *.txt* dans le dossier *LogFiles\Application*.
-	* Les journaux de serveur Web sont dans des fichiers *.log* dans le dossier *LogFiles\http\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) pour afficher et manipuler ces fichiers.
-	* Les journaux de messages d'erreur détaillés sont dans des fichiers *.html* dans le dossier *LogFiles\DetailedErrors*.
+	* Les journaux de suivi d'application sont dans des fichiers *.txt* dans le dossier *LogFiles\\Application*.
+	* Les journaux de serveur Web sont dans des fichiers *.log* dans le dossier *LogFiles\\http\\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) pour afficher et manipuler ces fichiers.
+	* Les journaux de messages d'erreur détaillés sont dans des fichiers *.html* dans le dossier *LogFiles\\DetailedErrors*.
 
 	Le dossier *deployments* contient les fichiers créés par la publication à partir du contrôle de code source : il n'a rien à voir avec la publication Visual Studio. Le dossier *Git* contient le suivi lié à la publication à partir du contrôle de code source et au service de diffusion de fichier journal en continu.
 
@@ -565,8 +565,7 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 1. Dans la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur l’onglet **Journaux**, puis sur **Configurer la journalisation dans le portail de gestion**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Cette opération ouvre l’onglet **Configurer** dans le portail de gestion de votre application Web. Pour accéder à cet emplacement, vous pouvez aussi cliquer sur l’onglet **Applications web**, sur l’application Web, puis sur l’onglet **Configurer**.
 
@@ -735,7 +734,7 @@ Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualis
 
 Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH](http://nuget.org/packages/elmah/). Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Notez également que vous n'avez pas besoin d'utiliser le suivi ASP.NET ou System.Diagnostics si vous voulez activer une diffusion de journaux en continu à partir d'Azure. Le service de diffusion de journaux en continu des applications Web Azure diffusera tous les fichiers *.txt*, *.html* ou *.log* qu’il trouvera dans le dossier *LogFiles*. Par conséquent, vous pouvez créer votre propre système de journalisation, qui écrira des données dans le système de fichiers de l’application web ; votre fichier sera automatiquement diffusé en continu et téléchargé. Tout ce que vous avez à faire est d'écrire un code d'application qui crée les fichiers dans le dossier *d:\home\logfiles*.
+Notez également que vous n'avez pas besoin d'utiliser le suivi ASP.NET ou System.Diagnostics si vous voulez activer une diffusion de journaux en continu à partir d'Azure. Le service de diffusion de journaux en continu des applications Web Azure diffusera tous les fichiers *.txt*, *.html* ou *.log* qu’il trouvera dans le dossier *LogFiles*. Par conséquent, vous pouvez créer votre propre système de journalisation, qui écrira des données dans le système de fichiers de l’application web ; votre fichier sera automatiquement diffusé en continu et téléchargé. Tout ce que vous avez à faire est d'écrire un code d'application qui crée les fichiers dans le dossier *d:\\home\\logfiles*.
 
 ### Analyse de journaux de serveur Web
 
@@ -752,7 +751,7 @@ Le site Web Microsoft TechNet comporte une section [Utilisation du suivi des dem
 
 ### Débogage de Cloud Services
 
-Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une application Web, consultez [Débogage de services cloud](http://msdn.microsoft.com/fr-fr/library/windowsazure/ee405479.aspx).
+Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une application Web, consultez [Débogage de services cloud](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
@@ -764,4 +763,4 @@ Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une app
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement co
 
   
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

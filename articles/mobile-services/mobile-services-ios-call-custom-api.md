@@ -4,7 +4,6 @@
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
-	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -57,4 +56,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultezÂ
 [Stockage des scripts serveur dans le contrÃ´le du code source ]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

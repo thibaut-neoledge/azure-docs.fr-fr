@@ -150,4 +150,4 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
   [Création d'une tâche Blitline]: #createjob
   [Enregistrement d'une image sur Azure Storage]: #saveazure
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

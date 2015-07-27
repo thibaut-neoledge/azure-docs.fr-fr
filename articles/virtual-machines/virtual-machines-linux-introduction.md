@@ -110,4 +110,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

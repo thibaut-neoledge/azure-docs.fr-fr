@@ -111,4 +111,4 @@ Pour plus d'informations sur les hubs d'événements, consultez les rubriques su
 [solution de messages de file d'attente]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

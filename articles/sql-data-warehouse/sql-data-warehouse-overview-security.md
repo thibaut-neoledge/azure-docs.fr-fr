@@ -59,7 +59,7 @@ La gestion des bases de données et serveurs logiques à partir du portail de ge
 
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires sur le développement, consultez la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
 
 <!--Image references-->
 
@@ -78,4 +78,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

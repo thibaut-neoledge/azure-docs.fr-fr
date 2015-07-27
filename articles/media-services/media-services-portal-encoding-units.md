@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 
@@ -58,4 +58,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

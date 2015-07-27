@@ -1,5 +1,5 @@
 
-##<a name="storage-client-server"></a>Installation du client de stockage dans le projet de service mobile
+##Installation du client de stockage dans le projet de service mobile
 
 Avant de pouvoir générer une signature d'accès partagé en vue de télécharger des images vers un stockage d'objets blob, vous devez ajouter le package NuGet qui installe la bibliothèque du client de stockage dans le projet de service mobile.
 
@@ -11,7 +11,7 @@ Avant de pouvoir générer une signature d'accès partagé en vue de télécharg
 
   	La bibliothèque cliente des services de stockage Azure est alors ajoutée au projet de service mobile.
 
-##<a name="update-data-model"></a>Mise à jour de la définition TodoItem dans le modèle de données
+##Mise à jour de la définition TodoItem dans le modèle de données
 
 La classe TodoItem définit l'objet de données et vous devez ajouter à cette classe les propriétés ajoutées au client.
 
@@ -28,7 +28,7 @@ La classe TodoItem définit l'objet de données et vous devez ajouter à cette c
 
 	>[AZURE.NOTE]Lors de l’utilisation de l’initialiseur de base de données par défaut, Entity Framework supprime et recrée la base de données lorsqu’il détecte une modification du modèle de données dans la définition de Code First. Pour modifier ce modèle de données et conserver les données existantes dans la base de données, vous devez utiliser les migrations Code First. L'initialiseur par défaut ne peut pas être utilisé avec une base de données SQL dans Azure. Pour plus d'informations, consultez la rubrique [Utilisation des migrations Code First pour mettre à jour le modèle de données](../articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
-##<a name="update-scripts"></a>Mise à jour du contrôleur TodoItem pour générer une signature d'accès partagé 
+##Mise à jour du contrôleur TodoItem pour générer une signature d’accès partagé 
 
 La classe **TodoItemController** existante est mise à jour de manière à ce que la méthode **PostTodoItem** génère une signature d'accès partagé (SAP) lorsqu'un nouvel élément TodoItem est inséré. De plus
 
@@ -132,4 +132,4 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 [Création d'un compte de stockage]: ../articles/storage/storage-create-storage-account.md
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

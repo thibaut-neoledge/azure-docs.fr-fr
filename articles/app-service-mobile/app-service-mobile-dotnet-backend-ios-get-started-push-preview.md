@@ -123,4 +123,4 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

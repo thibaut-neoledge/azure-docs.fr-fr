@@ -50,10 +50,10 @@ La solution Microsoft Azure StorSimple comprend les composants suivants :
 
 ## Étapes suivantes
 
-En savoir plus sur les [composants StorSimple](https://technet.microsoft.com/library/cc754482.aspx) et consulter les [notes de publication de StorSimple](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+En savoir plus sur les [composants StorSimple](storsimple-components.md).
 
 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

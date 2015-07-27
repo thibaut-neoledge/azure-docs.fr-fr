@@ -105,4 +105,4 @@ Pour des didacticiels complets, rendez-vous sur la page [Didacticiels du Centre 
 [Mise à l’échelle d’une application web dans Azure App Service]: web-sites-scale.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

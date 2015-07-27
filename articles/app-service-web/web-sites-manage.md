@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="MikeWasson" 
-	writer="mwasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -94,4 +93,4 @@ Pour ajouter une règle d’alerte, cliquez sur le graphique puis sur **Ajouter 
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

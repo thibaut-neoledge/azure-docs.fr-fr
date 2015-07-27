@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -29,18 +29,7 @@ Certains graphiques sont segmentés : la hauteur totale du graphique correspond
 
 Les pointillés indiquent la valeur de la mesure une semaine auparavant.
 
-## Valeurs de point
 
-Pointez votre souris sur le graphique pour afficher les valeurs des mesures à ce stade.
-
-
-![Pointez la souris sur un graphique](./media/app-insights-metrics-explorer/02-focus.png)
-
-La valeur de la mesure à un moment donné est agrégée à l'intervalle d'échantillonnage précédent. Cela peut varier en fonction de la période de l'ensemble du graphique.
-
-L'intervalle d'échantillonnage, ou « grain », s'affiche en haut du panneau.
-
-![En-tête du panneau.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Période
 
@@ -56,6 +45,23 @@ Dans le panneau Vue d'ensemble, sélectionnez une partie du graphique pour l'ouv
 
 ![Sélectionnez une partie d'un graphique.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## Valeurs de granularité et de point
+
+Pointez votre souris sur le graphique pour afficher les valeurs des mesures à ce stade.
+
+![Pointez la souris sur un graphique](./media/app-insights-metrics-explorer/02-focus.png)
+
+La valeur de la mesure à un moment donné est agrégée à l'intervalle d'échantillonnage précédent.
+
+L'intervalle d'échantillonnage, ou « grain », s'affiche en haut du panneau.
+
+![En-tête du panneau.](./media/app-insights-metrics-explorer/11-grain.png)
+
+Vous pouvez ajuster le niveau de granularité dans le panneau Période :
+
+![En-tête du panneau.](./media/app-insights-metrics-explorer/grain.png)
+
+Les niveaux de granularité disponibles dépendent de la période que vous sélectionnez. Les niveaux de granularité explicites sont des alternatives à la granularité « automatique » pour la période.
 
 ## Metrics Explorer
 
@@ -190,4 +196,4 @@ Si vous souhaitez mettre en place une exportation continue des données pour les
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

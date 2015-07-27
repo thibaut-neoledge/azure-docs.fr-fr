@@ -72,8 +72,8 @@ Pour configurer la délégation, vous devez connaître les noms de serveur de no
 
 À l’aide d’Azure PowerShell, les enregistrements NS faisant autorité peuvent être récupérés comme suit (le nom d’enregistrement « @ » fait référence à des enregistrements au sommet de la zone) :
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ Une fois la délégation effectuée, vous pouvez vérifier que la résolution de
 
 Notez que vous n’avez pas à spécifier les serveurs de noms Azure DNS, dans la mesure où le processus de résolution DNS normal trouve les serveurs de noms automatiquement si la délégation a été correctement configurée.
 
-	PS C:\> nslookup –type=SOA contoso.com
+	PS C:> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ La seule différence est qu'à l'étape 3, les enregistrements NS doivent être
 
 L'exemple PowerShell suivant illustre cette différence. Tout d'abord, nous créons les zones parent et enfant. Elles peuvent se trouver dans le même groupe de ressources ou des groupes de ressources différents :
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Ensuite, nous récupérons les enregistrements NS faisant autorité dans la zone enfant :
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Enfin, nous créons le jeu d'enregistrements NS correspondant dans la zone parente pour effectuer la délégation (notez que le nom du jeu d'enregistrements dans la zone parente correspond au nom de la zone enfant, en l'occurrence « partners ») :
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 De la même façon que pour la délégation à l'aide d'un bureau d'enregistrement, nous pouvons vérifier que tout est correctement configuré en recherchant l'enregistrement SOA de la zone enfant :
 
-	PS C:\> nslookup –type=SOA partners.contoso.com
+	PS C:> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ De la même façon que pour la délégation à l'aide d'un bureau d'enregistreme
 [Référence de l’API REST d’Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

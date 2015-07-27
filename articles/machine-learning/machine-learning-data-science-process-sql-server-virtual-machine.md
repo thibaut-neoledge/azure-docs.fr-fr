@@ -2,7 +2,6 @@
 	pageTitle="Traiter les données de SQL Azure | Microsoft Azure" 
 	description="Traiter les données de SQL Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -157,4 +156,4 @@ Pour découvrir un exemple de procédure pas à pas du processus de science des 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

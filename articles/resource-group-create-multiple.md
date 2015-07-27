@@ -1,0 +1,117 @@
+<properties
+   pageTitle="Création de plusieurs instances de ressources"
+   description="Ce didacticiel explique comment utiliser l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources."
+   services="na"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
+
+<tags
+   ms.service="azure-resource-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="07/14/2015"
+   ms.author="tomfitz"/>
+
+# Création de plusieurs instances de ressources dans Azure Resource Manager
+
+Cette rubrique explique comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource.
+
+## copy et copyIndex()
+
+Dans la ressource que vous souhaitez créer à plusieurs reprises, vous pouvez définir un objet **copy** qui indique le nombre d’itérations à effectuer. La copie respecte le format suivant :
+
+    "copy": { 
+        "name": "websitescopy", 
+        "count": "[parameters('count')]" 
+    } 
+
+Vous pouvez accéder à la valeur de l’itération avec la fonction **copyIndex()**, comme illustré ci-dessous dans la fonction concaténée.
+
+    [concat('examplecopy-', copyIndex())]
+
+## Utilisation de la valeur d’index dans le nom
+
+Vous pouvez utiliser l’opération de copie pour créer plusieurs instances d’une ressource, nommées de manière unique en fonction de l’index d’incrémentation. Cela peut être utile si, par exemple, vous voulez ajouter un nombre unique à la fin de chaque nom de ressource déployée. Pour déployer trois sites web nommés :
+
+- examplecopy-0
+- examplecopy-1
+- examplecopy-2
+
+Utilisez le modèle suivant :
+
+    "parameters": { 
+      "count": { 
+        "type": "int", 
+        "defaultValue": 3 
+      } 
+    }, 
+    "resources": [ 
+      { 
+          "name": "[concat('examplecopy-', copyIndex())]", 
+          "type": "Microsoft.Web/sites", 
+          "location": "East US", 
+          "apiVersion": "2014-06-01",
+          "copy": { 
+             "name": "websitescopy", 
+             "count": "[parameters('count')]" 
+          }, 
+          "properties": {} 
+      } 
+    ]
+
+## Valeur d’index de décalage
+
+Vous noterez que dans l’exemple précédent, la valeur d’index va de 0 à 2. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction **copyIndex()**, par exemple **copyIndex(1)**. Le nombre d’itérations à effectuer est toujours spécifié dans l’élément copy, mais la valeur de copyIndex est décalée en fonction de la valeur spécifiée. Ainsi, si nous utilisons le même modèle que dans l’exemple précédent, mais que nous spécifions **copyIndex(1)**, nous déploierons trois sites web nommés :
+
+- examplecopy-1
+- examplecopy-2
+- examplecopy-3
+
+## Utilisation avec un tableau
+   
+L’opération copy se révèle particulièrement utile lorsque vous travaillez avec des tableaux, car vous pouvez itérer sur chaque élément du tableau. Pour déployer trois sites web nommés :
+
+- examplecopy-Contoso
+- examplecopy-Fabrikam
+- examplecopy-Coho
+
+Utilisez le modèle suivant :
+
+    "parameters": { 
+      "org": { 
+         "type": "array", 
+             "defaultValue": [ 
+             "Contoso", 
+             "Fabrikam", 
+             "Coho" 
+          ] 
+      },
+      "count": { 
+         "type": "int", 
+         "defaultValue": 3 
+      } 
+    }, 
+    "resources": [ 
+      { 
+          "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
+          "type": "Microsoft.Web/sites", 
+          "location": "East US", 
+          "apiVersion": "2014-06-01",
+          "copy": { 
+             "name": "websitescopy", 
+             "count": "[parameters('count')]" 
+          }, 
+          "properties": {} 
+      } 
+    ]
+
+## Étapes suivantes
+- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
+- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
+- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+
+<!---HONumber=July15_HO3-->

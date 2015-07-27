@@ -248,4 +248,4 @@ Vous savez désormais créer et déployer une application web WebMatrix dans Azu
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

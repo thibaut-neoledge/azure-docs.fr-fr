@@ -74,4 +74,4 @@ Pour mettre tout cela en contexte, dans un déploiement de forêt Account-Resour
 Les transformations couvrent de nombreux aspects et constituent une large partie de la configuration personnalisée possible avec Azure AD Connect. La configuration personnalisée n’est pas traitée dans ce document de vue d’ensemble, mais nous examinerons certains flux d’attributs supplémentaires plus loin dans ce document.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

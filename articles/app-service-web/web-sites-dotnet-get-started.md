@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
 # Création d’une application web ASP.NET dans Azure App Service
@@ -58,7 +58,7 @@ Vous devez tout d’abord créer un projet d’application Web. Visual Studio cr
 
 3. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
 
-4. Désactivez la case à cocher **Ajouter Application Insights au projet**.
+4.  [Application Insights](app-insights-overview.md) surveille la disponibilité, les performances et l'utilisation. Désactivez la case à cocher **Ajouter Application Insights au projet** si vous ne voulez pas l'essayer.
 
 4. Nommez l’application **MonExemple**, puis cliquez sur **OK**.
 
@@ -295,7 +295,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Manière d'éviter les délais de sortie de veille après les périodes d'inactivité
 
-	Par défaut, les applications web sont déchargées si elles sont inactives depuis un certain temps. La première demande après une telle période doit patienter jusqu’à ce que l’application web soit rechargée. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d’informations, consultez les options de configuration dans [Configuration des applications web](web-sites-configure.md).
+	Par défaut, les applications web sont déchargées si elles sont inactives depuis un certain temps. La première demande après une telle période doit patienter jusqu’à ce que l’application web soit rechargée. Pour éviter ce temps d'attente, vous pouvez activer la fonction AlwaysOn. Pour plus d'informations, consultez les options de configuration dans [Configuration des applications web](web-sites-configure.md).
 
 * Ajout de fonctions en temps réel telles que la conversation instantanée
 
@@ -316,4 +316,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

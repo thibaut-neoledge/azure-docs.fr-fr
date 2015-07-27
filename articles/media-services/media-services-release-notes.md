@@ -231,7 +231,7 @@ La dernière version du Kit de développement logiciel (SDK) de Media Services p
 
 	Pour plus d'informations, reportez-vous à la propriété **CustomHostNames** dans la rubrique [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités\nouveaux scénarios intégrés à la version préliminaire publique
+### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités\\nouveaux scénarios intégrés à la version préliminaire publique
 
 * Aperçu de la diffusion en continu. Pour plus d'informations, consultez la page [Utilisation de la diffusion en continu Azure Media Services].
 
@@ -537,4 +537,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

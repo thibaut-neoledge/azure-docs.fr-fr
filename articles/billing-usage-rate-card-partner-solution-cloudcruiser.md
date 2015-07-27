@@ -133,4 +133,4 @@ Le graphique inférieur présente les mêmes données, mais réparties par dépa
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figure 8 : planification du classeur"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figure 9 : exemple de rapport pour le scénario de comparaison des coûts de la charge de travail"
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

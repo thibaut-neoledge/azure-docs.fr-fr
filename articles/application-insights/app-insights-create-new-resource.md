@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # Créer une ressource Application Insights dans Azure
@@ -55,20 +55,20 @@ Une fois votre application créée, un nouveau panneau s’ouvre. Vous y trouver
 Pour y revenir lors de votre prochaine connexion à Azure, recherchez la vignette d’accès rapide à votre application située sur le tableau d’accueil (écran d’accueil). Sinon, cliquez sur Parcourir.
 
 
-## Copiez la clé d’instrumentation.
+## Copie de la clé d’instrumentation
 
+La clé d'instrumentation identifie la ressource que vous avez créée. Vous devrez la fournir au SDK.
 
-Vous en aurez besoin rapidement pour diriger les données du kit de développement logiciel (SDK) de votre application vers la ressource que vous venez de créer.
+![Cliquez sur Essentials, sur la clé d'instrumentation, puis appuyez sur CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 
-![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-create-new-resource/02-props.png)
+## Installation du Kit de développement logiciel (SDK) dans votre application
 
-## Configurer votre kit de développement logiciel (SDK)
+Installez le Kit de développement logiciel (SDK) Application Insights dans votre application. Cette étape repose en grande partie sur votre type d’application.
 
 La clé d’instrumentation permet de configurer le [kit de développement logiciel (SDK) que vous avez installé dans votre application][start].
 
-Cette étape repose en grande partie sur le type d’application que vous utilisez.
+Le SDK inclut des modules standard qui envoient des données de télémétrie sans avoir à écrire du code. Pour suivre les actions des utilisateurs ou diagnostiquer des problèmes plus en détail,[utilisez l'API][api] pour envoyer votre propre télémétrie.
 
-Dans certains cas, vous installez des modules standard qui envoient des données de télémétrie sans avoir à écrire du code. Dans tous les cas, vous pouvez [utiliser l’API][api] pour envoyer vos propres données de télémétrie.
 
 ## <a name="monitor"></a>Reportez-vous aux données de télémétrie
 
@@ -92,4 +92,4 @@ Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

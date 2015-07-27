@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Présentation du Kit de développement logiciel (SDK) Azure WebJobs
@@ -22,7 +22,7 @@
 
 Cet article explique la nature du Kit de développement logiciel (SDK) WebJobs, examine quelques scénarios courants pour lesquels il est utile, et présente son utilisation dans votre code.
 
-[WebJobs](web-sites-create-web-jobs.md) est une fonctionnalité de Microsoft Azure App Service qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web. La fonction du Kit de développement logiciel (SDK) WebJobs est de simplifier l’écriture de code qui s’exécute en tant que tâche web et fonctionne avec des files d’attente, des objets blob et des tables Azure Storage, ainsi que des files d’attente Service Bus.
+[WebJobs](websites-webjobs-resources.md) est une fonctionnalité de Microsoft Azure App Service qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web. La fonction du Kit de développement logiciel (SDK) WebJobs est de simplifier l’écriture de code qui s’exécute en tant que tâche web et fonctionne avec des files d’attente, des objets blob et des tables Azure Storage, ainsi que des files d’attente Service Bus.
 
 Ce Kit comprend les composants suivants :
 
@@ -105,4 +105,4 @@ Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même 
 Pour en savoir plus sur le Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

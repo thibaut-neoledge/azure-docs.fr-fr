@@ -19,4 +19,4 @@ Dans cette section, vous allez tester votre nouvelle application avec le service
 
 	Une demande POST est alors envoyée au service mobile local. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans la table sont renvoyés par le service mobile et les données sont affichées dans la deuxième colonne de l'application.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

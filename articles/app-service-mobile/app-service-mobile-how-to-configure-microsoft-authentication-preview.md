@@ -66,4 +66,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

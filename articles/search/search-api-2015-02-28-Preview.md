@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
@@ -80,7 +80,7 @@ L'API du service Azure Search prend en charge deux syntaxes pour la recherche d'
 
 ________________________________________
 <a name="IndexOps"></a>
-## Opérations d’index
+## Opérations d'index
 
 Vous pouvez créer et gérer des index dans le service Azure Search via de simples requêtes HTTP (POST, GET, PUT, DELETE) sur une ressource d'index donnée. Pour créer un index, vous commencez par PUBLIER un document JSON décrivant le schéma d'index. Le schéma définit les champs de l'index, leurs types de données et comment les utiliser (par exemple, dans des recherches en texte intégral, des filtres, des tris ou des facettes). Il définit également des profils de calcul de score, des générateurs de suggestions et d'autres attributs permettant de configurer le comportement de l'index.
 
@@ -795,7 +795,7 @@ Voici la liste des analyseurs pris en charge avec une brève description de leur
 	</tr>
   	<tr>
 		<td>Coréen</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>Outil de recherche de radical réduite (lemmatisation)</li>
@@ -1465,7 +1465,7 @@ L'opération **Get Index** obtient la définition d'index auprès d'Azure Search
 
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Get Index** peut être construite à l’aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Get Index** peut être construite à l'aide de la méthode GET.
  
 Le [nom d’index] de l’URI de la requête spécifie l’index à retourner à partir de la collection d’index.
 
@@ -1499,7 +1499,7 @@ L'opération **Delete Index** supprime de votre service Azure Search un index et
     
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Delete Index** peut être construite à l’aide de la méthode DELETE.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Delete Index** peut être construite à l'aide de la méthode DELETE.
  
 Le [nom d’index] de l’URI de la requête spécifie l’index à supprimer dans la collection d’index.
 
@@ -1531,7 +1531,7 @@ L'opération **Get Index Statistics** retourne d'Azure Search un nombre de docum
 
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes de services. La requête **Get Index Statistics** peut être construite à l’aide de la méthode GET.
+Le protocole HTTPS est requis pour toutes les requêtes de services. La requête **Get Index Statistics** peut être construite à l'aide de la méthode GET.
 
 Le [nom d’index] de l’URI de la requête indique au service de retourner les statistiques d’index pour l’index spécifié.
 
@@ -1589,7 +1589,7 @@ Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer de
     
 **Requête**
 
-Le protocole HTTPS est requis pour toutes les requêtes de service. Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d’un index spécifié à l’aide de la requête HTTP POST.
+Le protocole HTTPS est requis pour toutes les requêtes de service. Vous pouvez télécharger, fusionner, fusionner-ou-télécharger ou supprimer des documents à partir d'un index spécifié à l'aide de la requête HTTP POST.
 
 L’URI de la requête inclut le[nom d’index], qui spécifie l’index pour la publication des documents. Vous pouvez publier des documents uniquement dans un index à la fois.
 
@@ -1921,7 +1921,7 @@ Vous pouvez aussi utiliser la syntaxe traditionnelle OData pour la recherche de 
 
     GET /indexes('[index name]')/docs('[key]')?[query parameters]
 
-L’URI de la requête inclut un [nom d’index] et une [clé], qui spécifient le document à extraire de l’index. Vous ne pouvez obtenir qu’un seul document à la fois. Utilisez **Search** pour obtenir plusieurs documents dans une requête unique.
+L’URI de la requête inclut un [nom d’index] et une [clé], qui spécifient le document à extraire de l’index. Vous ne pouvez obtenir qu'un seul document à la fois. Utilisez **Search** pour obtenir plusieurs documents dans une requête unique.
 
 **Paramètres de requête**
 
@@ -1972,7 +1972,7 @@ L'opération **Count Documents** récupère le nombre de documents dans un index
     
 **Requête**
 
-Le protocole HTTPS est requis pour les requêtes de service. La requête **Count Documents** peut être construite à l’aide de la méthode GET.
+Le protocole HTTPS est requis pour les requêtes de service. La requête **Count Documents** peut être construite à l'aide de la méthode GET.
 
 Le [nom d’index] dans l’URI de la requête indique au service de retourner le nombre de tous les éléments de la collection de documents de l’index spécifié.
 
@@ -2107,4 +2107,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

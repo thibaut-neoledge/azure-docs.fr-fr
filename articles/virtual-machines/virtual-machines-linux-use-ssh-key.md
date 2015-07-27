@@ -79,7 +79,7 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 ### Utilisation de msysgit ###
 
 1.	Téléchargez et installez msysgit à partir de l’emplacement suivant : [http://msysgit.github.com/](http://msysgit.github.com/).
-2.	Exécutez `msys` à partir du répertoire installé (par exemple : c:\msysgit\msys.exe).
+2.	Exécutez `msys` à partir du répertoire installé (par exemple : c:\\msysgit\\msys.exe).
 3.	Accédez au répertoire `bin` en tapant `cd bin`.
 
 
@@ -176,4 +176,4 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

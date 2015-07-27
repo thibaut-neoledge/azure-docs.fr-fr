@@ -60,21 +60,11 @@ Ces rôles sont les suivants :
 - largerc
 - xlargerc
 
-Vous pouvez visualiser les rôles qui vous correspondent à l’aide de la requête ci-après.
-
-```
-SELECT  ro.[name]           AS [db_role_name]
-FROM    sys.database_principals ro
-WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
-AND     ro.[is_fixed_role]  = 0
-;
-```
-
 Par défaut, chaque utilisateur appartient à la classe de ressource smallrc. Toutefois, tout utilisateur peut être ajouté à une ou plusieurs classes de ressource supérieures. SQL Data Warehouse prend en compte l’appartenance au rôle le plus élevé pour l’exécution des requêtes. L’ajout d’un utilisateur à une classe de ressource plus élevée augmente les ressources pour cet utilisateur, mais consomme également davantage d’emplacements de concurrence, ce qui risque de limiter votre capacité de concurrence. Ceci est dû au fait que lorsque le nombre de ressources alloué à une requête augmente, le système doit limiter les ressources consommées par les autres requêtes. Rien n’est jamais gratuit.
 
 La ressource la plus importante régie par la classe de ressource supérieure est la mémoire. La plupart des tables d’entrepôt de données d’une taille significative utilisent des index columnstore cluster. Bien que cette approche offre généralement les meilleures performances pour les charges de travail d’entrepôt de données, la gestion de ces index est une opération qui utilise beaucoup de mémoire. Il est souvent très avantageux d’utiliser les classes de ressource supérieures pour les opérations de gestion des données, comme les reconstructions d’index.
 
-Pour augmenter votre mémoire, il vous suffit d’ajouter l’utilisateur de votre base de données à l’un des rôles mentionnés ci-dessus.
+Pour augmenter votre mémoire, il vous suffit d’ajouter l’utilisateur de votre base de données à l’un des rôles/l’une des classes de ressources mentionnés ci-dessus.
 
 Vous pouvez ajouter ou supprimer votre nom au niveau du rôle de base de données de gestion des charges de travail en utilisant les procédures `sp_addrolemember` et `sp_droprolemember`. Notez que vous devez disposer d’une autorisation `ALTER ROLE` pour effectuer cette opération. Vous n’avez pas la possibilité d’utiliser la syntaxe DDL ALTER ROLE. Vous devez utiliser les procédures stockées mentionnées ci-dessus.
 
@@ -90,13 +80,22 @@ Le tableau ci-après détaille l’augmentation de mémoire disponible pour chaq
 | largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
 | xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
 -->
-| Mémoire disponible (par dist.) | Priorité | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
-| smallrc (valeur par défaut) (s) | Moyenne | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo |
-| mediumrc (m) | Moyenne | 100 Mo | 200 Mo | 200 Mo | 400 Mo | 400 Mo | 400 Mo | 800 Mo | 800 Mo | 800 Mo | 1 600 Mo |
-| largerc (l) | Élevé | 200 Mo | 400 Mo | 400 Mo | 800 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo |
-| xlargerc (xl) | Élevé | 400 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo | 3 200 Mo | 3 200 Mo | 6 400 Mo |
 
+<!--
+| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
+| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
+| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
+| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
+-->
+
+| Mémoire disponible (par dist.) | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :-------------------------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc (valeur par défaut) (s) | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo | 100 Mo |
+| mediumrc (m) | 100 Mo | 200 Mo | 200 Mo | 400 Mo | 400 Mo | 400 Mo | 800 Mo | 800 Mo | 800 Mo | 1 600 Mo |
+| largerc (l) | 200 Mo | 400 Mo | 400 Mo | 800 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo |
+| xlargerc (xl) | 400 Mo | 800 Mo | 800 Mo | 1 600 Mo | 1 600 Mo | 1 600 Mo | 3 200 Mo | 3 200 Mo | 3 200 Mo | 6 400 Mo |
 
 En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l’utilisateur est élevée, plus la consommation des emplacements de concurrence est importante. Le tableau ci-dessous présente la consommation des emplacements de concurrence par les requêtes pour une classe de ressource donnée.
 
@@ -122,6 +121,147 @@ En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l�
 
 Il est important de garder à l’esprit que la charge de travail des requêtes active doit respecter les seuils de requêtes concurrentes et d’emplacements de concurrence. Dès que l’un de ces seuils est dépassé, les requêtes sont placées en file d’attente. Les requêtes mises en file d’attente sont alors traitées dans l’ordre de priorité suivi par l’heure de la requête.
 
+En coulisse, les choses sont un peu plus compliquées. Les classes de ressources sont mappées dynamiquement à un ensemble générique de groupes de gestion des charges de travail au sein du gouverneur de ressources. Les groupes utilisés dépendent de la valeur DWU de l’entrepôt. Toutefois, il existe un total de huit groupes de charges de travail utilisés par SQL Data Warehouse. Il s'agit de :
+
+- SloDWGroupC00
+- SloDWGroupC01
+- SloDWGroupC02
+- SloDWGroupC03
+- SloDWGroupC04
+- SloDWGroupC05
+- SloDWGroupC06
+- SloDWGroupC07
+
+Ces 8 groupes sont mappés à la consommation d’emplacements d’accès concurrentiel
+
+| Groupe de charges de travail | Mappage d’emplacement d’accès concurrentiel | Mappage de priorité |
+| :------------  | :----------------------- | :--------------- |
+| SloDWGroupC00 | 1 | Moyenne |
+| SloDWGroupC01 | 2 | Moyenne |
+| SloDWGroupC02 | 4 | Moyenne |
+| SloDWGroupC03 | 8 | Moyenne |
+| SloDWGroupC04 | 16 | Élevé |
+| SloDWGroupC05 | 32 | Élevé |
+| SloDWGroupC06 | 64 | Élevé |
+| SloDWGroupC07 | 128 | Élevé |
+
+Par exemple, si DW500 est la valeur actuelle du paramètre DWU de SQL Data Warehouse, les groupes de charges de travail actives sont mappés aux classes de ressources comme suit :
+
+| Classe de ressource | Groupe de charges de travail | Emplacements d’accès concurrentiel utilisés | Importance |
+| :------------- | :------------- | :---------------------   | :--------- |
+| smallrc | SloDWGroupC00 | 1 | Moyenne |
+| mediumrc | SloDWGroupC02 | 4 | Moyenne |
+| largerc | SloDWGroupC03 | 8 | Moyenne |
+| xlargerc | SloDWGroupC04 | 16 | Élevé |
+
+Pour examiner en détail les différences dans l’allocation des ressources mémoire dans la perspective du gouverneur de ressources, utilisez la requête suivante :
+
+```
+WITH rg
+AS
+(   SELECT  pn.name									AS node_name
+	,		pn.[type]								AS node_type
+	,		pn.pdw_node_id							AS node_id
+	,		rp.name									AS pool_name
+    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
+    ,       wg.name									AS group_name
+    ,       wg.importance							AS group_importance
+    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
+    ,       wg.max_dop								AS group_max_dop
+    ,       wg.effective_max_dop					AS group_effective_max_dop
+	,		wg.total_request_count					AS group_total_request_count
+	,		wg.total_queued_request_count			AS group_total_queued_request_count
+	,		wg.active_request_count					AS group_active_request_count
+	,		wg.queued_request_count					AS group_queued_request_count
+    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
+															        AND wg.pool_id      = rp.pool_id
+	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
+	WHERE   wg.name like 'SloDWGroup%'
+	AND     rp.name = 'SloDWPool'
+) 
+SELECT	pool_name
+,		pool_max_mem_MB
+,		group_name
+,		group_importance
+,		(pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
+,		node_name
+,		node_type
+,       group_total_request_count
+,       group_total_queued_request_count
+,       group_active_request_count
+,       group_queued_request_count
+FROM	rg
+ORDER BY 
+	node_name
+,	group_request_max_memory_grant_pcnt
+,	group_importance
+;
+```
+
+> [AZURE.NOTE]La requête ci-dessus permet également d’analyser l’utilisation active et de l’historique des groupes de charges de travail lors du dépannage.
+
+## Exemples de gestion des charges de travail
+
+Un utilisateur a d’abord besoin d’une connexion pour que vous puissiez lui accorder l’accès à SQL Data Warehouse.
+
+Ouvrez une connexion à la base de données MASTER de votre SQL Data Warehouse et exécutez les commandes suivantes :
+
+```
+CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
+
+CREATE USER newperson for LOGIN newperson
+```
+
+[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans Base de données SQL Microsoft Azure].
+ 
+Une fois que la connexion a été créée, un compte d’utilisateur doit être ajouté.
+
+Ouvrez une connexion à la base de données SQL Data Warehouse et exécutez la commande suivante :
+
+```
+CREATE USER newperson FOR LOGIN newperson
+```
+
+Lorsque vous avez terminé, vous devez accorder des autorisations à l’utilisateur. L’exemple indiqué ci-dessous accorde `CONTROL` dans la base de données SQL Data Warehouse. Au niveau de la base de données, `CONTROL` est l’équivalent de db_owner dans SQL Server.
+
+```
+GRANT CONTROL ON DATABASE::MySQLDW to newperson
+```
+
+Pour afficher les rôles de gestion des charges de travail, utilisez la requête suivante :
+
+```
+SELECT  ro.[name]           AS [db_role_name]
+FROM    sys.database_principals ro
+WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
+AND     ro.[is_fixed_role]  = 0
+;
+```
+
+Pour ajouter un utilisateur à un rôle de gestion des charges de travail, utilisez la requête suivante :
+
+``` 
+EXEC sp_addrolemember 'largerc', 'newperson' 
+```
+
+Pour supprimer un utilisateur d’un rôle de gestion des charges de travail, utilisez la requête suivante :
+
+``` 
+EXEC sp_droprolemember 'largerc', 'newperson' 
+```
+> [AZURE.NOTE]Il n’est pas possible de supprimer un utilisateur dans la classe smallrc.
+
+Pour afficher les utilisateurs membres d’un rôle donné, utilisez la requête suivante : ```
+SELECT	r.name AS role_principal_name
+,		m.name AS member_principal_name
+FROM	sys.database_role_members rm
+JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
+JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
+WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
+;
+```
+
 ## Détection des requêtes en file d’attente
 Pour identifier les requêtes qui sont placées dans une file d’attente de concurrence, vous pouvez toujours consulter la vue de gestion dynamique (DMV) `sys.dm_pdw_exec_requests`.
 
@@ -131,6 +271,7 @@ SELECT 	 r.[request_id]									AS Request_ID
 		,r.[submit_time]								AS Request_SubmitTime
 		,r.[start_time]									AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+        ,r.resource_class                               AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r
 ;
 ```
@@ -144,7 +285,7 @@ Il s'agit de :
 - DmsConcurrencyResourceType
 - BackupConcurrencyResourceType
 
-Le type LocalQueriesConcurrencyResourceType se réfère aux requêtes qui se trouvent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes et les fonctions système DMV telles que SELECT @@VERSION sont des exemples de requêtes locales (localqueries).
+Le type LocalQueriesConcurrencyResourceType se réfère aux requêtes qui se trouvent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
 
 Le type UserConcurrencyResourceType se rapporte aux requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
 
@@ -232,8 +373,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-
+[Gestion des bases de données et des connexions dans Base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

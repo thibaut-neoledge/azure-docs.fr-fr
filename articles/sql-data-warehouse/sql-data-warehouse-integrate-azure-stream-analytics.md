@@ -63,7 +63,7 @@ Dès que la connexion à la base de données est établie, une notification s’
 
 
 ## Étapes suivantes
-Pour découvrir une vue d’ensemble de l’intégration, voir [Vue d’ensemble sur l’intégration de SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][].
+Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique [Vue d’ensemble sur l’intégration de SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][].
 
 <!--Image references-->
 [Add Output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
@@ -82,4 +82,4 @@ Pour découvrir une vue d’ensemble de l’intégration, voir [Vue d’ensemble
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -99,4 +99,4 @@ Cliquez sur la page « Bienvenue » pour modifier le texte s'affichant sur la 
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

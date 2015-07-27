@@ -258,4 +258,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -23,12 +23,12 @@ Vous pouvez utiliser keytool pour ajouter le certificat d'autorité de certifica
 
 ## Ajout d'un certificat au magasin cacerts
 
-1. À l'invite de commandes définie pour le dossier **jdk\jre\lib\security** de votre JDK, exécutez la commande suivante pour afficher les certificats installés :
+1. À l'invite de commandes définie pour le dossier **jdk\\jre\\lib\\security** de votre JDK, exécutez la commande suivante pour afficher les certificats installés :
 
 	`keytool -list -keystore cacerts`
 
 	Vous êtes invité à entrer le mot de passe du magasin. Le mot de passe par défaut est **changeit**. (Pour le modifier, consultez la documentation relative à keytool à la page <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>.) Cet exemple suppose que le certificat avec l'empreinte numérique MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 n'est pas répertorié, et que vous souhaitez l'importer (ce certificat spécifique est requis par le service de l'API Twilio).
-2. Obtenez le certificat dans la liste de certificats répertoriée dans la page [Certificats racines GeoTrust](http://www.geotrust.com/resources/root-certificates/). Cliquez avec le bouton droit sur le lien du certificat avec le numéro de série 35:DE:F4:CF et enregistrez-le dans le dossier **jdk\jre\lib\security**. Dans le cadre de cet exemple, il est enregistré dans un fichier nommé **Equifax_Secure_Certificate_Authority.cer**.
+2. Obtenez le certificat dans la liste de certificats répertoriée dans la page [Certificats racines GeoTrust](http://www.geotrust.com/resources/root-certificates/). Cliquez avec le bouton droit sur le lien du certificat avec le numéro de série 35:DE:F4:CF et enregistrez-le dans le dossier **jdk\\jre\\lib\\security**. Dans le cadre de cet exemple, il est enregistré dans un fichier nommé **Equifax_Secure_Certificate_Authority.cer**.
 3. Importez le certificat via la commande suivante :
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -52,4 +52,4 @@ Si vous devez ajouter le certificat racine Baltimore CyberTrust, son numéro de 
 
 Pour plus d'informations sur les certificats racines utilisés par Azure, consultez [Migration des certificats racines Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

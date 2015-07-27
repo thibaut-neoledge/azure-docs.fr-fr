@@ -16,24 +16,24 @@
    ms.date="06/09/2015"
    ms.author="danlep"/>
 
-# Création d’une machine virtuelle à l’aide de l’interface de ligne de commande Azure
+# Création d’une machine virtuelle à l’aide de l’interface de ligne de commande Azure (Azure CLI)
 L'interface de ligne de commande Azure est un excellent moyen de gérer votre infrastructure Azure à partir de n'importe quelle plateforme.
 
 Il ne suffit pas d'installer l'interface de ligne de commande Azure et de détenir un abonnement Azure pour créer une machine virtuelle sur-le-champ. Examinons la procédure en détail. Si vous n'avez pas de compte Azure, [obtenez-en un gratuitement](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Installation de l'interface de ligne de commande Azure
 
-Suivez ces instructions pour installer l'[interface de ligne de commande Azure](../xplat-cli.md#install).
+Suivez les instructions pour l’[installation de l’interface de ligne de commande Azure](../xplat-cli.md#install).
 
-## Connexion à Azure avec l'interface de ligne de commande Azure
+## Connexion à Azure à l’aide de l’interface de ligne de commande Azure
 
 Vous pouvez connecter l’installation de votre interface de ligne de commande Azure avec un compte Azure personnel, professionnel ou scolaire. Pour comprendre les différences et effectuer votre choix, consultez [Connexion à votre abonnement Azure](../xplat-cli.md#configure).
 
-## Création d'une machine virtuelle et connexion à celle-ci dans Azure
+## Création d’une machine virtuelle et connexion à celle-ci dans Azure
 
 La création d'une machine virtuelle commence par le choix (ou le téléchargement) d'une image et l'utilisation de la commande `azure vm create`.
 
-1. Pour choisir une image depuis la ligne de commande, vous pouvez répertorier les images de machine virtuelle disponibles à l'aide de la commande `azure vm image list`. Comme il y a beaucoup d'images, vous pouvez afficher les résultats page par page en utilisant `more` ou les filtrer à l'aide de `grep` (Linux) ou `findstr` (Windows). Par exemple, si vous recherchez des images Ubuntu sur Linux, utilisez une commande similaire à celle-ci :
+1. Pour choisir une image depuis la ligne de commande, vous pouvez répertorier les images de machine virtuelle disponibles à l’aide de la commande `azure vm image list`. En raison du nombre d’images, vous pouvez afficher les résultats page par page en utilisant `more` ou les filtrer à l’aide de `grep` (Linux) ou `findstr` (Windows). Par exemple, si vous recherchez des images Ubuntu sur Linux, utilisez une commande similaire à celle-ci :
 
         azure vm image list | grep Ubuntu
 
@@ -45,15 +45,13 @@ La création d'une machine virtuelle commence par le choix (ou le téléchargeme
 
         azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-fr-fr-30GB
 
-2. Création de votre machine virtuelle.
-
-    Une fois que vous avez choisi une image de machine virtuelle, utilisez la commande `vm create` pour créer l'image. Cette commande comporte de nombreuses options que vous pouvez répertorier avec la commande help :
+2. Une fois que vous avez choisi une image de machine virtuelle, utilisez la commande `vm create` pour créer l'image. Cette commande comporte de nombreuses options que vous pouvez répertorier avec la commande `help` :
 
         vm create --help
 
-    Outre l'image issue de l'étape 1, les arguments clés nécessaires pour créer une machine virtuelle sont l'emplacement, le nom DNS et le nom d'utilisateur.
+    Outre l’image issue de l’étape 1, les arguments clés nécessaires pour créer une machine virtuelle sont l’emplacement, le nom DNS et le nom d’utilisateur.
 
-    Pour l'authentification, vous pouvez choisir de spécifier un mot de passe (sur la ligne de commande ou de manière interactive) ou de vous authentifier à l'aide d'un certificat. Si vous choisissez un mot de passe, celui-ci doit comporter au moins 8 caractères, contenir des majuscules et des minuscules, ainsi qu'un caractère spécial (par exemple, un caractère parmi !@#$%^&+=). Nous vous conseillons de mettre le mot de passe entre guillemets et de placer les caractères spéciaux dans une séquence d'échappement si vous le passez depuis la ligne de commande.
+    Pour l’authentification, vous pouvez choisir de spécifier un mot de passe (sur la ligne de commande ou de manière interactive) ou de vous authentifier à l’aide d’un certificat. Si vous choisissez un mot de passe, celui-ci doit comporter au moins 8 caractères, contenir des majuscules et des minuscules, ainsi qu’un caractère spécial (par exemple, un caractère parmi !@#$%^&+=). Nous vous conseillons de mettre le mot de passe entre guillemets et de placer les caractères spéciaux dans une séquence d'échappement si vous le passez depuis la ligne de commande.
 
     Pour choisir un emplacement, vous pouvez utiliser la commande `vm location list` afin de sélectionner une région proche de chez vous.
 
@@ -71,10 +69,9 @@ Dans l'exemple ci-dessus, comme c'est le port SSH par défaut qui a été a ouve
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-Pour obtenir d'autres exemples d'utilisation de l'interface de ligne de commande Azure pour gérer l'infrastructure Azure, n'hésitez pas à visiter la [page de référence des commandes de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md)
+Pour obtenir d’autres exemples d’utilisation de l’interface de ligne de commande Azure pour gérer l’infrastructure Azure, n’hésitez pas à visiter la [page de référence des commandes de l’interface de ligne de commande Azure](../virtual-machines-command-line-tools.md).
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

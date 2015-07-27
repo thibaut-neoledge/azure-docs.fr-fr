@@ -71,7 +71,7 @@ Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau 
 20150101,1,3
 ```
 
-Enregistrez-les dans votre répertoire temporaire local, C:\Temp\DimDate2.txt.
+Enregistrez-les dans votre répertoire temporaire local, C:\\Temp\\DimDate2.txt.
 
 ### Étape 3 : Connecter et importer les données
 Grâce à bcp, vous pouvez connecter et importer les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
@@ -150,4 +150,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

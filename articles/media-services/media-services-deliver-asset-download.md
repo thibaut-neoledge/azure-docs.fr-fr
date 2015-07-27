@@ -75,4 +75,4 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 	}
    
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

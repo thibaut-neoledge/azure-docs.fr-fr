@@ -194,7 +194,7 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
 L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911**. L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222**. Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Pour vérifier la version d’Azure AD Sync
-1.	Accédez à **%ProgramFiles%\Azure Active Directory Sync**.2.	Recherchez l’exécutable **ConfigWizard.exe**.
+1.	Accédez à **%ProgramFiles%\\Azure Active Directory Sync**.2.	Recherchez l’exécutable **ConfigWizard.exe**.
 3.	Cliquez avec le bouton droit sur l’exécutable et sélectionnez l’option **Propriétés** dans le menu contextuel.
 4.	Cliquez sur l’onglet **Détails**.
 5.	Recherchez le champ **Version du fichier**.
@@ -342,4 +342,4 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -420,4 +420,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

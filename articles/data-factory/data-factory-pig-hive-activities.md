@@ -24,7 +24,7 @@ Cette procédure pas à pas fournit des instructions détaillées pour l’utili
 
 ### Conditions préalables
 1. Suivez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted].
-2. Créez le fichier **hivequery.hql** dans un sous-dossier nommé **Hive** sous **C:\ADFGetStarted** avec le contenu suivant.
+2. Créez le fichier **hivequery.hql** dans un sous-dossier nommé **Hive** sous **C:\\ADFGetStarted** avec le contenu suivant.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -140,7 +140,7 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@ Article | Description
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

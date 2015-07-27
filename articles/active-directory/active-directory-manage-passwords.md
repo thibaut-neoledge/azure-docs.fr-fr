@@ -48,4 +48,4 @@ Utilisez les liens suivants pour accéder à la documentation qui vous intéress
 - [Gestion des groupes dans Azure AD](active-directory-manage-groups.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

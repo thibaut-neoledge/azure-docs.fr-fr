@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #Comment mapper un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN)
@@ -83,11 +83,11 @@ Les procédures décrites dans cette rubrique vous montrent comment effectuer le
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#Voir aussi
+##Voir aussi
 
 
-[Comment activer le réseau de distribution de contenu (CDN) pour Azure](./cdn-create-new-endpoint.md) **Vue d’ensemble du CDN Azure**.
+[Comment activer le réseau de distribution de contenu (CDN) pour Azure](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Création de graphiques dans Azure Automation
@@ -115,11 +115,11 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 |:---|:---|
 |Valeur constante|Entrez une valeur pour le paramètre. Cette option est disponible uniquement pour les types de données suivants : Int32, Int64, String, Boolean, DateTime, Switch. |
 |Sortie d'activité|Sortie d'une activité qui précède l'activité actuelle dans le workflow. Toutes les activités valides sont répertoriées. Sélectionnez simplement l'activité pour utiliser sa sortie comme valeur de paramètre. Si l'activité génère un objet ayant plusieurs propriétés, vous pouvez taper le nom de la propriété après avoir sélectionné l'activité.|
-|Paramètre d'entrée de Runbook<br>*(Bientôt disponible)*|Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité.|  
-|Ressource variable Automation<br>*(Bientôt disponible)*|Sélectionnez une variable Automation comme entrée.|  
-|Ressource d'identification Automation<br>*(Bientôt disponible)*|Sélectionnez les informations d'identification Automation comme entrée.|  
-|Ressource de certificat Automation<br>*(Bientôt disponible)*|Sélectionnez un certificat Automation comme entrée.|  
-|Ressource de connexion Automation<br>*(Bientôt disponible)*|Sélectionnez une connexion Automation comme entrée.| 
+|Paramètre d'entrée de Runbook|Sélectionnez un paramètre d'entrée de Runbook en tant qu'entrée pour le paramètre de l'activité.|  
+|Ressource variable Automation|Sélectionnez une variable Automation comme entrée.|  
+|Ressource d'identification Automation|Sélectionnez les informations d'identification Automation comme entrée.|  
+|Ressource de certificat Automation|Sélectionnez un certificat Automation comme entrée.|  
+|Ressource de connexion Automation|Sélectionnez une connexion Automation comme entrée.| 
 |Expression PowerShell|Spécifiez une expression PowerShell simple. L'expression sera évaluée avant l'activité, et le résultat utilisé pour la valeur du paramètre. Vous pouvez utiliser des variables pour faire référence à la sortie d'une activité ou à un paramètre d'entrée de Runbook.|
 |Chaîne vide|Une valeur de chaîne vide.|
 |Null|Une valeur Null.|
@@ -228,7 +228,7 @@ Vous pouvez également récupérer la sortie d'une activité dans une source de 
 
 ### Points de contrôle
 
-Les recommandations relatives à la définition de [points de contrôles](automation-runbook-concepts/#checkpoints) dans votre Runbook s'appliquent également aux Runbooks graphiques. Vous pouvez ajouter une activité pour l'applet de commande Checkpoint-Workflow à l'endroit où vous devez définir un point de contrôle. Vous devez ensuite suivre cette activité avec une activité Add-AzureAccount au cas où le Runbook démarrerait à partir de ce point de contrôle sur un autre Worker.
+Les recommandations relatives à la définition de [points de contrôles](automation-powershell-workflow/#checkpoints) dans votre Runbook s'appliquent également aux Runbooks graphiques. Vous pouvez ajouter une activité pour l'applet de commande Checkpoint-Workflow à l'endroit où vous devez définir un point de contrôle. Vous devez ensuite suivre cette activité avec une activité Add-AzureAccount au cas où le Runbook démarrerait à partir de ce point de contrôle sur un autre Worker.
 
 ## Authentification auprès de ressources Azure
 
@@ -276,8 +276,8 @@ Les données créées par toute activité qui ne dispose pas d'un lien sortant s
 
 ## Articles connexes
 
-- [Concepts de Runbook Azure Automation](automation-runbook-concepts.md)
+- [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - [Ressources Automation](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

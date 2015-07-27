@@ -127,4 +127,4 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

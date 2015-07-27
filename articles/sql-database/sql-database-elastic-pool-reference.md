@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,26 +21,26 @@
 
 Pour les développeurs SaaS chargés d’administrer des dizaines, des centaines, voire des milliers de bases de données, un pool de bases de données élastiques simplifie la création, la gestion et la maintenance des coûts autant que des performances, sur l’ensemble du groupe de bases de données.
 
-Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools élastiques, ainsi que sur la programmabilité.
+Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité.
 
 ## Vue d’ensemble
 
-Un pool élastique est un ensemble d’unités de débit de base de données (DTU) et d’unités de stockage (Go) qui sont partagées par plusieurs bases de données. Vous pouvez à tout moment ajouter des éléments dans les bases de données élastiques, et supprimer des bases de données dans le pool. Les bases de données élastiques du pool utilisent uniquement les ressources qu’il leur faut dans le pool, libérant les ressources disponibles à l’attention des bases de données qui les requièrent, exclusivement.
+Un pool de base de données élastique est une collection d’unités de débit de base de données (DTU) et d’unités de stockage (Go) qui sont partagées par plusieurs bases de données. Vous pouvez à tout moment ajouter des éléments dans les bases de données élastiques, et supprimer des bases de données dans le pool. Les bases de données élastiques du pool utilisent uniquement les ressources qu’il leur faut dans le pool, libérant les ressources disponibles à l’attention des bases de données qui les requièrent, exclusivement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
 
 
-## Conditions requises pour créer et gérer des pools élastiques
+## Conditions requises pour créer et gérer des pools de bases de données élastiques
 
 
-- Les pools élastiques sont uniquement disponibles sur les serveurs de base de données SQL Microsoft Azure version 12.   
-- Les API PowerShell et REST destinées aux pools élastiques sont prises en charge sur Azure Resource Manager (ARM) uniquement. Les commandes de gestion de service (RDFE) ne sont pas gérées. 
-- La création et la gestion des pools élastiques sont prises en charge sur le [portail Microsoft Azure](https:portal.azure.com) uniquement. 
+- Les pools de bases de données élastiques sont uniquement disponibles sur les serveurs de base de données SQL Azure version 12.   
+- La création et la gestion des pools de bases de données élastiques sont prises en charge à l’aide du [portail Microsoft Azure](https://portal.azure.com), de PowerShell et des API REST dans Azure Resource Manager (ARM) uniquement ; le [portail Azure Classic](https://manage.windowsazure.com/) et les commandes de gestion de service (RDFE) ne sont pas pris en charge. 
 
 
 ## Restrictions relatives à la version préliminaire actuelle
 
-- Le niveau de tarification d’un pool élastique dans la version préliminaire actuelle est « Standard ».  
-- L’importation directe d’une base de données dans un pool élastique n’est pas prise en charge. Vous pouvez l’importer dans une base de données autonome, puis déplacer cette dernière vers le pool. Par contre, il est possible d’exporter une base de données depuis un pool.
+- Le niveau de tarification d’un pool de base de données élastique dans la version préliminaire actuelle est « Standard ».  
+- L’importation directe d’une base de données dans un pool n’est pas prise en charge. Vous pouvez l’importer dans une base de données autonome, puis déplacer cette dernière vers le pool. Par contre, il est possible d’exporter une base de données depuis un pool.
+- Chaque pool peut contenir un maximum 100 bases de données.
 
 
 ## Liste d’articles
@@ -49,9 +49,9 @@ Les articles suivants vous aideront à vous familiariser avec l’utilisation de
 
 | Article | Description |
 | :-- | :-- |
-| [Pools élastiques de bases de données SQL](sql-database-elastic-pool.md) | Vue d’ensemble des pools élastiques. |
-| [Créer et gérer un pool élastique de bases de données SQL avec le portail Microsoft Azure](sql-database-elastic-pool-portal.md) | Comment créer et gérer un pool élastique avec le portail Microsoft Azure. |
-| [Créer et gérer un pool élastique de bases de données SQL avec PowerShell](sql-database-elastic-pool-powershell.md) | Comment créer et gérer un pool élastique avec des applets de commande PowerShell. |
+| [Pools de bases de données SQL élastiques](sql-database-elastic-pool.md) | Vue d’ensemble des pools élastiques. |
+| [Créer et gérer un pool de base de données SQL élastique à l’aide du portail Azure](sql-database-elastic-pool-portal.md) | Comment créer et gérer un pool élastique avec le portail Microsoft Azure. |
+| [Créer et gérer un pool de base de données SQL élastique à l’aide de PowerShell](sql-database-elastic-pool-powershell.md) | Comment créer et gérer un pool élastique avec des applets de commande PowerShell. |
 | [Vue d’ensemble des tâches de base de données élastique](sql-database-elastic-jobs-overview.md) | Vue d’ensemble du service de tâches élastiques, qui permet l’exécution de scripts T-SQL sur toutes les bases de données élastiques dans un pool. |
 | [Installation du composant de tâche de base de données élastique](sql-database-elastic-jobs-service-installation.md) | Comment installer le service de tâche de base de données élastique. |
 | [Création de l’utilisateur requis pour le service de tâches élastiques](sql-database-elastic-jobs-add-logins-to-dbs.md) | Pour exécuter un script de tâche de base de données élastique, vous devez ajouter les autorisations appropriées à chaque base de données du pool. |
@@ -63,7 +63,7 @@ Les articles suivants vous aideront à vous familiariser avec l’utilisation de
 Un pool élastique est une ressource ARM de type « ElasticPool » dans la base de données SQL Microsoft Azure.
 
 - **namespace** : Microsoft.Sql/ElasticPool
-- **secondary-endpoint** pour les appels d’API REST (gestionnaire de ressources Microsoft Azure) : https://management.azure.com
+- **management-endpoint** pour les appels d’API REST (Azure Resource Manager) : https://management.azure.com
 
 
 
@@ -111,11 +111,10 @@ Le nombre maximal d’ouvriers et de sessions simultanés pris en charge pour to
 
 ## Limites relatives à Microsoft Azure Resource Manager
 
-Un pool élastique nécessite un serveur de base de données SQL Microsoft Azure version 12. Les serveurs sont situés au sein d’un groupe de ressources.
+Les serveurs de base de données SQL Azure version 12 sont situés dans des groupes de ressources.
 
 - Chaque groupe de ressources peut inclure un maximum de 800 serveurs.
 - Chaque serveur peut présenter un maximum de 800 pools élastiques.
-- Chaque pool élastique peut inclure un maximum de 100 bases de données.
 
 
 ## Latence des opérations du pool élastique
@@ -192,4 +191,4 @@ Le prix unitaire des DTU d’un pool élastique est supérieur au prix unitaire 
 | 40891 | EX_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. |
 | TBD | EX_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

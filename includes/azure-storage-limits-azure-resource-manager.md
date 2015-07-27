@@ -1,3 +1,5 @@
+Les limites suivantes s’appliquent uniquement lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure.
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Ressource</th>
@@ -13,4 +15,4 @@
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

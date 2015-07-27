@@ -117,9 +117,7 @@ Un compte de stockage peut contenir un nombre quelconque de files d'attente. Une
 
 ## Stockage de fichiers (aperçu)
 
-De nombreuses applications héritées reposent sur des partages de fichiers, une dépendance qui complique le déplacement de ces applications sur le cloud. Le stockage de fichiers offre des partages de fichiers sur le cloud permettant de migrer des applications héritées vers Azure rapidement, sans réécritures onéreuses.
-
-Les applications exécutées dans les machines virtuelles ou services cloud Azure peuvent monter un partage de stockage de fichiers pour accéder aux données de fichiers, tout comme une application de bureau monterait un partage SMB classique. Un nombre illimité de composants d'application peuvent montrer un partage de fichiers et y accéder simultanément.
+Le stockage de fichiers Azure offre des partages de fichiers SMB 2.1 dans le cloud permettant de migrer des applications héritées utilisant ces partages vers Azure rapidement, sans réécritures onéreuses. Avec le stockage de fichiers Azure, les applications exécutées sur des machines virtuelles Azure ou dans des services cloud peuvent monter un partage de fichiers dans le cloud, tout comme une application de bureau monte un partage SMB standard. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
 
 Un partage de stockage de fichiers étant un partage de fichiers SMB 2.1 standard, les applications exécutées dans Azure peuvent accéder aux données du partage grâce à des API d'E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
 
@@ -226,4 +224,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

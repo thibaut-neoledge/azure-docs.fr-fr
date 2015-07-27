@@ -67,7 +67,7 @@ Dans cette section, vous allez créer une application Android connectée à votr
 
 
 5. Téléchargez maintenant votre application :
-	- La dernière version de l’application utilise la version 2.0 du Kit de développement logiciel (SDK) Mobile Services pour Android. Vous pouvez télécharger cette version à partir d’<a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">ici</a>. Cliquez sur **Télécharger le Zip** et décompressez-le : le projet se trouve dans Prise en main sous le dossier Android.
+	- La dernière version de l’application utilise la version 2.0 du Kit de développement logiciel (SDK) Mobile Services pour Android. Vous pouvez télécharger cette version <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">ici</a>. Cliquez sur **Télécharger le Zip** et décompressez-le : le projet se trouve dans Prise en main sous le dossier Android.
 
 	- Une version antérieure utilise la version précédente du Kit de développement logiciel (SDK). Pour l’utiliser, sous **Télécharger et exécuter l’application**, cliquez sur **Télécharger**. Cette opération télécharge le projet de votre exemple d'application _To do list_ qui est connectée à votre service mobile. Les fichiers projet sont compressés. Accédez à leur emplacement et décompressez-les sur votre ordinateur.
 
@@ -124,4 +124,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

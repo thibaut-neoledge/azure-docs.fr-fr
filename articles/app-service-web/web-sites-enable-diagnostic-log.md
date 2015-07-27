@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
 
 # Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 
-## Vue d'ensemble
+## Vue d’ensemble
 
-Azure fournit des diagnostics intégrés pour aider au débogage d’une application Web hébergée dans un [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
+Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
-> [AZURE.NOTE]Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]Cet article utilise le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell et l’interface de ligne de commande Azure (CLI Azure) pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnostics de serveur Web et diagnostics d’application
 
-[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l’application Web. Ces informations sont réparties, en toute logique, en **diagnostics de serveur Web** et en **diagnostics d’application**.
+Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en **diagnostics de serveur Web** et en **diagnostics d’application**.
 
 ### Diagnostics de serveur web
 
@@ -38,40 +38,39 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 ### Diagnostic d'application
 
-Les diagnostics d’application vous permettent de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/fr-fr/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Le diagnostic d'application vous permet de résoudre les problèmes affectant l'application en cours d'exécution en émettant des informations lorsque certains fragments de code sont utilisés. Cela est très utile lorsque vous essayez de déterminer pourquoi le code emprunte un chemin spécifique, le plus souvent lorsque le chemin entraîne une erreur ou provoque un comportement indésirable.
+Lors de l'exécution, vous pouvez récupérer ces journaux pour vous aider lors du dépannage. Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
 
-Pour plus d’informations sur l’utilisation des diagnostics d’application avec Visual Studio, consultez [Résolution des problèmes des applications Web Azure dans Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
-
-> [AZURE.NOTE]Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
-
-Les applications web Azure journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
+Les applications web App Service journalisent également les informations de déploiement lorsque vous publiez du contenu dans une application web. Cela est effectué automatiquement et il n'existe aucun paramètre de configuration pour la journalisation du déploiement. Cette dernière vous permet de déterminer le motif d'échec d'un déploiement. Si vous utilisez, par exemple, un script de déploiement personnalisé, vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l'échec du script.
 
 ## <a name="enablediag"></a>Activation des diagnostics
 
-Pour activer les diagnostics sur le [portail de gestion Azure](https://portal.azure.com), accédez au panneau de votre application Web, puis cliquez sur **Tous les paramètres > Journaux de diagnostics**.
+Pour activer les diagnostics sur le [portail Azure en version préliminaire](https://portal.azure.com), accédez au panneau de votre application web, puis cliquez sur **Paramètres > Journaux de diagnostics**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Partie des journaux](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Lors de l’activation de l’option **Journal des applications**, vous devez également sélectionner le **Niveau de journalisation** et préciser si la journalisation doit être activée pour **Système de fichiers**, **Stockage de tables** ou **Stockage d’objets blob**. Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage de tables** et le **stockage d'objets blob** consignent davantage d'informations, telles que l'ID d'instance, l'ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
+Lorsque vous activez le **diagnostic d'application**, vous choisissez également le **niveau**. Ce paramètre vous permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées.
 
-Lorsque vous activez le **Diagnostic de site**, vous devez sélectionner le **stockage** ou le **système de fichiers** pour la **journalisation du serveur Web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
+> [AZURE.NOTE]Contrairement à la modification du fichier web.config, le fait d'activer le diagnostic d'application ou de modifier les niveaux de journalisation de diagnostic ne recycle pas le domaine dans lequel l'application s'exécute.
 
-> [AZURE.NOTE]Les informations stockées dans le **stockage de tables** ou le **stockage d’objets blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
+Dans le [portail Azure](https://manage.windowsazure.com), sous l'onglet **Configurer** de l'application web, vous pouvez sélectionner **stockage** ou **système de fichiers** pour la **journalisation du serveur web**. Si vous sélectionnez le **stockage**, vous avez également la possibilité de sélectionner un compte de stockage, puis un conteneur d'objets blob dans lequel les journaux seront écrits. Tous les autres journaux relatifs au **diagnostic de site** sont écrits uniquement dans le système de fichiers.
 
-Les paramètres suivants sont disponibles lors de l'activation du **diagnostic d'application** :
+Dans le [portail Azure](https://manage.windowsazure.com), l'onglet **Configurer** de l'application web comprend également des paramètres supplémentaires pour le diagnostic d'application :
 
-* **Niveau de journalisation** : permet de filtrer les données capturées selon le critère **Information**, **Avertissement** ou **Erreur**. Vous pouvez également sélectionner le niveau **Détaillé** pour que toutes les informations générées par l'application soient consignées. Le **niveau de journalisation** peut être défini différemment pour **Système de fichiers**, **Stockage de tables** et **Stockage d'objets blob**.
 * **Système de fichiers** : stocke les informations de diagnostics d’application dans le système de fichiers d’application web. Vous pouvez accéder à ces fichiers par FTP ou les télécharger sous la forme d’une archive ZIP en utilisant Azure PowerShell ou l’interface de ligne de commande Azure (CLI Azure).
 * **Stockage de tables** : stocke les informations de diagnostic d’application dans la table et le compte Azure Storage spécifiés.
 * **Stockage d'objets blob** : stocke les informations de diagnostic d'application dans le conteneur d'objets blob et le compte Azure Storage spécifiés.
 * **Période de rétention** : par défaut, les journaux ne sont pas automatiquement supprimés du **stockage d'objets blob**. Sélectionnez **Set retention** et entrez la période de conservation des journaux (en jours) si vous souhaitez les supprimer automatiquement.
 
-> [AZURE.NOTE]Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d’objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
+Vous pouvez activer simultanément toute combinaison de système de fichiers, stockage de tables ou stockage d’objets blob. Des configurations de niveau de journalisation individuelles sont également possibles. Vous pouvez, par exemple, consigner les erreurs et les avertissements dans le stockage d'objets blob dans le cadre d'une solution de journalisation à long terme, tout en activant un niveau de journalisation détaillé du système de fichiers.
+
+Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage de tables** et le **stockage d'objets blob** consignent davantage d'informations, telles que l'ID d'instance, l'ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
+
+> [AZURE.NOTE]Les informations stockées dans le **stockage de tables** ou le **stockage d’objets blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](/downloads/#).
 
 > [AZURE.NOTE]Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite**. Si vous n'avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d'Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
@@ -93,7 +92,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 
 ### FTP
 
-Pour accéder à des informations de diagnostic par FTP, consultez le **Tableau de bord** de votre application Web sur le portail de gestion Azure. Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
+Pour accéder à des informations de diagnostic par FTP, consultez le **Tableau de bord** de votre application web sur le [portail Azure](https://manage.windowsazure.com). Dans la section **Quick Glance**, cliquez sur le lien **FTP Diagnostic Logs** pour accéder aux fichiers journaux via FTP. L'entrée **Deployment/FTP User** indique le nom d'utilisateur à utiliser pour accéder au site FTP.
 
 > [AZURE.NOTE]Si l’entrée **Utilisateur du déploiement/FTP** n’est pas définie ou si vous avez oublié le mot de passe de cet utilisateur, vous pouvez créer un utilisateur et un mot de passe en utilisant le lien **Réinitialiser les informations d’identification du déploiement** dans la section **Aperçu rapide** du **Tableau de bord**.
 
@@ -136,7 +135,7 @@ Lors du développement d’une application, il est utile de visualiser des infor
 
 > [AZURE.NOTE]Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 
-> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\home\LogFiles** sont également diffusées.
+> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\** sont également diffusées.
 
 ### Diffusion d'informations en continu avec Azure PowerShell
 
@@ -323,18 +322,17 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 
 > [AZURE.NOTE]Les journaux générés par les applications Web Azure ne prennent pas en charge les champs __s-computername__, __s-ip__ ou __cs-version__.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-
-##<a name="nextsteps"></a> Étapes suivantes
+##<a name="nextsteps"></a>Étapes suivantes
 
 - [Surveillance d’applications Web](/fr-fr/manage/services/web-sites/how-to-monitor-websites/)
-- [Didacticiel - Résolution des problèmes des applications Web](/fr-fr/develop/net/best-practices/troubleshooting-web-sites/)
 - [Résolution des problèmes des applications Web Azure dans Visual Studio](/fr-fr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [Analyse des journaux d’application Web dans HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (en anglais)
+
+> [AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Connecteur Office 365" 
-   description="Utilisation du connecteur Office 365" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Connecteur Office 365"
+   description="Utilisation du connecteur Office 365"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Utilisation du connecteur Office 365 dans votre application logique#
@@ -80,7 +80,7 @@ Créons une application logique simple qui se déclenche quand un message élect
 	![][9]
 
 11. Le déclencheur Office 365 Nouvel e-mail est configuré et vous pouvez également voir les paramètres de sortie.
-	
+
 	![][10]
 
 12.	Sélectionnez Connecteur Office 365 dans la section des éléments récemment utilisés dans la galerie et une nouvelle action Office 365 est ajoutée.
@@ -157,7 +157,4 @@ Créons une application logique simple qui se déclenche quand un message élect
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

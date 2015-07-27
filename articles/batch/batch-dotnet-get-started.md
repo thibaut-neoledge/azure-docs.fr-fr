@@ -602,4 +602,4 @@ Un travail décrit une charge de travail à exécuter et doit inclure toutes les
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

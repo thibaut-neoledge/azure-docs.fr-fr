@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Prise en main d’Application Insights avec Java dans Eclipse
@@ -100,9 +100,17 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 
 ## Télémétrie côté client
 
-Dans la vignette de démarrage rapide du panneau Vue d’ensemble, vous pouvez obtenir un script à ajouter à vos pages web.
+Dans le panneau Démarrage rapide, cliquez sur Obtenir le code pour analyser mes pages web :
 
-Les mesures liées au nombre de consultations de la page, à l’utilisateur et à la session s’affichent dans le panneau de la vue d’ensemble :
+![Dans le panneau de vue d’ensemble de l’application, cliquez sur Démarrage rapide, Obtenir le code pour analyser mes pages web. Copiez le script](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Insérez l'extrait de code dans l’en-tête de vos fichiers HTML.
+
+#### Affichage des données côté client
+
+Ouvrez et utilisez vos pages web mises à jour. Attendez une minute ou deux, puis revenez dans Application Insights et actualisez le panneau d'utilisation.
+
+Les mesures liées au nombre de consultations de la page, à l’utilisateur et à la session s’affichent dans le panneau d’utilisation :
 
 ![Sessions, utilisateurs et affichages de pages](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ Les mesures liées au nombre de consultations de la page, à l’utilisateur et 
 
 ## Tests web de disponibilité
 
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour cela, cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
 
 Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
 
@@ -156,9 +164,9 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

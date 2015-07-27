@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Connecteurs et applications API B2B dans Microsoft Azure App Service
@@ -33,8 +33,8 @@ Connecteur ou applications API | Description
 --- | ---
 Gestion des partenaires commerciaux BizTalk | Application API qui crée des relations entreprise-entreprise (B2B) à l'aide de partenaires et d'accords. Ces relations utilisent le protocole AS2, EDIFACT et X12.<br/><br/>L’application API TPM (Gestion des partenaires commerciaux) est la configuration de base requise du connecteur AS2 et des applications API X12 or EDIFACT. 
 Connecteur AS2 | Connecteur qui reçoit et envoie des messages via le transport AS2. Le connecteur transporte les données de manière fiable et sécurisée sur Internet.
-BizTalk EDIFACT | Application API qui reçoit et envoie des messages via EDIFACT. EDIFACT est également communément appelé UN/EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport) et son utilisation est très répandue dans le monde de l'industrie.
-BizTalk X12 | Application API qui reçoit et envoie des messages via le protocole X12. Le protocole X12 est également communément appelé ASC X12 (Accredited Standards Committee X12) et son utilisation est très répandue dans le monde de l'industrie. 
+BizTalk EDIFACT | Application API qui reçoit et envoie des messages via EDIFACT. EDIFACT est également communément appelé UN/EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport) et son utilisation est très répandue dans de nombreux secteurs d’activité.
+BizTalk X12 | Application API qui reçoit et envoie des messages via le protocole X12. Le protocole X12 est également communément appelé ASC X12 (Accredited Standards Committee X12) et son utilisation est très répandue dans de nombreux secteurs d’activité. 
 
 
 À l'aide de ces applications API, vous pouvez effectuer différentes tâches de messagerie EDI. Par exemple, à l'aide du connecteur AS2, vous pouvez recevoir et envoyer différents types de messages (EDI, XML, fichier plat, etc.) de manière sécurisée à un client, une division de votre société comme les ressources humaines ou toute personne qui utilise AS2.
@@ -202,6 +202,7 @@ Les étapes suivantes ajoutent les applications API B2B aux applications logique
 
 
 ## Autres connecteurs
-[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md)<br/> [Connecteurs d’entreprise](app-service-logic-enterprise-connectors.md)<br/> [Connecteurs sociaux](app-service-logic-social-connectors.md)<br/> [Connecteurs de protocole](app-service-logic-protocol-connectors.md)<br/> [Connecteurs application + services de données](app-service-logic-data-connectors.md)<br/> [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

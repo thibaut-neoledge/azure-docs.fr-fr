@@ -66,7 +66,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 ###Ajout de code
 
-1. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">ici</a>. Décompressez le fichier .zip et copiez **notificationhubs\notification-hubs-0.4.jar** et **notifications\notifications-1.0.1.jar** dans le répertoire **app\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier libs.
+1. Téléchargez le Kit de développement logiciel (SDK) Android Notification Hubs <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">ici</a>. Décompressez le fichier .zip et copiez **notificationhubs\\notification-hubs-0.4.jar** et **notifications\\notifications-1.0.1.jar** dans le répertoire **app\\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier libs.
 
 
 
@@ -511,4 +511,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

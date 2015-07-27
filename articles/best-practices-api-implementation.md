@@ -22,7 +22,7 @@
 ![](media/best-practices-api-implementation/pnp-logo.png)
 
 
-Certaines rubriques de ce guide font l’objet de discussions et peuvent être modifiées ultérieurement. N’hésitez pas à nous faire part de vos commentaires !
+Certaines rubriques de ce guide font l’objet de discussions et pourront être modifiées. N’hésitez pas à nous faire part de vos commentaires.
 
 ## Vue d’ensemble
 Une API Web RESTful soigneusement développée définit les ressources, les relations et les schémas de navigation auxquels ont accès les applications clientes. Lorsque vous implémentez et déployez une API Web, vous devez tenir compte des exigences physiques de l’environnement hébergeant l’API Web et de la configuration de l’API Web, non de la structure logique des données. Ce guide est axé sur les meilleures pratiques relatives à l’implémentation d’une API Web et sa publication dans l’objectif de la rendre disponible aux applications clientes. Les problématiques de sécurité sont évoquées séparément dans le document sur les recommandations en matière de sécurité de l’API. Vous trouverez des informations détaillées sur la conception de l’API Web dans le document sur les recommandations en matière de conception de l’API.
@@ -942,11 +942,11 @@ Une API Web peut être utilisée par de nombreuses applications clientes de dif
 
 	Il est possible d’implémenter un mécanisme simple d’interrogation comportant une URI _d’interrogation_ qui joue le rôle d’une ressource virtuelle, en appliquant l’approche suivante :
 
-	1. L’application cliente envoie la requête initiale à l’API Web.
+	1. L’application cliente envoie la requête initiale à l’API web.
 
-	2. L’API Web stocke les informations sur la requête dans une table conservée dans le stockage de table ou Microsoft Azure Cache et génère une clé unique pour cette entrée, éventuellement sous la forme d’un élément GUID.
+	2. L’API web stocke les informations sur la requête dans une table conservée dans le stockage de table ou Microsoft Azure Cache et génère une clé unique pour cette entrée, éventuellement sous la forme d’un élément GUID.
 
-	3. L’API Web lance le traitement en tant que tâche séparée. Dans la table, l’API Web consigne l’état _Running_ (En cours d’exécution) pour la tâche.
+	3. L’API web lance le traitement en tant que tâche séparée. Dans la table, l’API Web consigne l’état _Running_ (En cours d’exécution) pour la tâche.
 
 	4. L’API Web renvoie un message de réponse présentant le code de statut HTTP 202 (Accepté) et l’élément GUID de l’entrée de table dans le corps du message.
 
@@ -1151,4 +1151,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

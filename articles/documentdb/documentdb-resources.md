@@ -459,4 +459,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

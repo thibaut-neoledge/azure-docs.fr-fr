@@ -4,7 +4,6 @@
 	services="azure-portal" 
 	documentationCenter="" 
 	authors="" 
-	writer="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,7 +74,7 @@ Création et déploiement d’applications
   
 - [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)  
 - [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md)
-- [Déploiement d’une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../resource-group-deploy-debug.md)  
 - [Fonctions des modèles Azure Resource Manager](../resource-group-template-functions.md)  
 - [Opérations de modèle avancées](../resource-group-advanced-template.md)  
@@ -95,4 +94,4 @@ Gestion et audit de l’accès
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

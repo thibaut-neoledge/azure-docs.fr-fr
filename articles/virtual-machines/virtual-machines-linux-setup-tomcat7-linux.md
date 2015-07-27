@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure" 
-	description="Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux." 
+	pageTitle="Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure" 
+	description="Apprenez à configurer Tomcat7 avec Microsoft Azure à l’aide d’une machine virtuelle Azure exécutant Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="NingKuang" 
@@ -16,116 +16,106 @@
 	ms.date="05/21/2015" 
 	ms.author="ningk"/>
 
-#How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure 
+#Configuration de Tomcat7 sur un ordinateur virtuel Linux avec Microsoft Azure 
 
-Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.
+Apache Tomcat (ou simplement Tomcat, auparavant également Jakarta Tomcat) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le Servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems et fournit un environnement de serveur web HTTP Java pur dans lequel exécuter un code Java. Dans la configuration la plus simple, Tomcat s’exécute dans un processus de système d’exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d’un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.
 
-In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.
+Dans ce guide, vous installerez Tomcat7 sur une image Linux et le déploierez dans Microsoft Azure.
 
-You will learn:
+Vous apprendrez à effectuer les opérations suivantes :
 
--	How to create a virtual machine in Azure.
--	How to prepare the virtual machine for tomcat7.
--	How to install tomcat7.
+-	Création d’une machine virtuelle dans Azure.
+-	Préparation de la machine virtuelle pour tomcat7.
+-	Installation de tomcat7.
 
-It is assumed that the reader already has an Azure subscription. If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si ce n’est pas le cas, vous pouvez vous inscrire pour obtenir une évaluation gratuite sur [http://azure.microsoft.com](http://azure.microsoft.com). Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d’Azure](http://azure.microsoft.com/overview/what-is-azure/).
 
-This topic assumes that you have basic working knowledge of tomcat and Linux.
+Cette rubrique suppose que vous avez des connaissances de base relatives à tomcat et Linux.
 
-##Phase 1: Create an image
-In this phase, you will create a virtual machine using a Linux image in Azure.
+##Phase 1 : Création d’une image
+Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.
 
-###Step 1: Generate an SSH Authentication Key
-SSH is an important tool for system administrators. However, configuring access security based on a human-determined password is not a best practice. Malicious users can break into your system based on a user name and a weak password.
+###Étape 1 : Générer une clé d’authentification SSH
+SSH est un outil important pour les administrateurs système. Toutefois, une configuration de la sécurité d’accès basée sur un mot de passe déterminé par l’homme n’est pas recommandée. Les utilisateurs malveillants peuvent s’introduire dans votre système si vous disposez d’un nom d’utilisateur et d’un mot de passe faibles.
 
-The good news is that there is a way to leave remote access open and have not to worry about passwords. The method consists of authentication with asymmetric cryptography. The user’s private key is the one that grants the authentication. You can even lock the user’s account to disallow password authentication completely.
+Toutefois, il existe un moyen de laisser l’accès à distance ouvert. Vous n’aurez donc pas à vous soucier des mots de passe. La méthode se compose d’une authentification avec chiffrement asymétrique. La clé privée de l’utilisateur est celle qui accorde l’authentification. Vous pouvez même verrouiller le compte de l’utilisateur pour interdire complètement l’authentification par mot de passe.
 
-Another advantage of this method is that you do not need different passwords to log on to different servers. You can authenticate using the personal private key on all servers, which prevents you from having to remember several passwords.
+Un autre avantage de cette méthode est que vous n’avez pas besoin de mots de passe différents pour vous connecter à des serveurs différents. Vous pouvez vous authentifier à l’aide de la clé privée personnelle sur tous les serveurs, ce qui vous évite d’avoir à mémoriser plusieurs mots de passe.
 
-It is also possible to login with requiring a password with this method.
+Il est également possible de se connecter avec un mot de passe avec cette méthode.
 
-Follow these steps to generate the SSH authentication key.
+Pour générer la clé d’authentification SSH, procédez comme suit.
 
-1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
-2.	Run PUTTYGEN.EXE.
-3.	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
-![][1]
-4.	After the generate process, Puttygen.exe will show your generated key. For example:  
-![][2]
-5.	Select and copy the public key in **Key** and save it in a file named publicKey.pem. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
-6.	Click **Save private key** and save it in a file named privateKey.ppk. 
+1.	Téléchargez et installez Puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+2.	Exécutez PUTTYGEN.EXE.
+3.	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
+4.	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
+5.	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé publicKey.pem. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
+6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk. 
 
-###Step 2: Create the image in the Azure Preview Portal.
-In the [Azure Preview Portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image. ![][3]
+###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
+Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
  
-For **Host Name** specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example tomcatdemo, and Azure will generate the URL as tomcatdemo.cloudapp.net.
+Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple tomcatdemo, et Azure génère l’URL comme tomcatdemo.cloudapp.net.
 
-For **SSH Authentication Key**, copy the key value from the **publicKey.pem** file, which contains the public key generated by puttygen.  
-![][4]
+Pour **Clé d’authentification SSH**, copiez la valeur de clé à partir du fichier **publicKey.pem** qui contient la clé publique générée par puttygen. ![][4]
   
-Configure other settings as needed, and then click Create.
+Configurez d’autres paramètres selon les besoins, puis cliquez sur Créer.
 
-##Phase 2: Prepare your virtual machine for Tomcat7
-In this phase, you will configure an endpoint for tomcat traffic and then connect to your new virtual machine.
-###Step 1: Open the HTTP port to allow web access
-Endpoints in Azure consist of a protocol (TCP or UDP), along with a public and private port. The private port is the port that the service is listening on the virtual machine. The public port is the port that the Azure cloud service is listening on externally for incoming, Internet-based traffic.
+##Phase 2 : Préparation de la machine virtuelle pour Tomcat7
+Lors de cette phase, vous allez configurer un point de terminaison pour le trafic tomcat, puis vous connecter à votre nouvelle machine virtuelle.
+###Étape 2 : Ouverture du port HTTP pour autoriser l’accès web
+Les points de terminaison dans Azure se composent d’un protocole (TCP ou UDP) et d’un port public et privé. Le port privé est celui que le service écoute sur la machine virtuelle. Le port public est celui que le service cloud Azure écoute en externe pour le trafic Internet entrant.
 
-TCP port 8080 is the default port number on which tomcat listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to tomcat pages.
+Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. L’ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d’autres clients Internet) d’accéder aux pages tomcat.
 
-1.	In the Azure Preview Portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
-![][5]
-2.	To add an endpoint to your virtual machine, click the **Endpoints** box. ![][6] 
-3.	Click **Add**.  
-	1.	For the **endpoint**, type a name for the endpoint in Endpoint, and then type 80 in **Public Port**.  
+1.	Dans le portail Azure en version préliminaire, cliquez sur **Parcourir** -> **Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée. ![][5]
+2.	Pour ajouter un point de terminaison à votre machine virtuelle, cliquez sur la zone **Points de terminaison**. ![][6] 
+3.	Cliquez sur **Ajouter**.  
+	1.	Entrez un nom pour le **Point de terminaison** dans Point de terminaison, puis tapez 80 dans **Port public**.  
 	  
-		If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat. For example, http://tomcatdemo.cloudapp.net.
+		Si vous affectez le port 80, vous n’avez pas besoin d’inclure le numéro de port dans l’URL qui vous permet d’accéder à tomcat. Par exemple, http://tomcatdemo.cloudapp.net.
 
-		If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat. For example, http://tomcatdemo.cloudapp.net:81/.
-	2.	Type 8080 in Private Port. By default, tomcat listens on TCP port 8080. If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.  
-![][7]
+		Si vous affectez une autre valeur pour le port, par exemple 81, vous devez ajouter le numéro de port à l’URL pour accéder à tomcat. Par exemple, http://tomcatdemo.cloudapp.net:81/.
+	2.	Tapez 8080 dans Port privé. Par défaut, tomcat écoute sur le port TCP 8080. Si vous avez modifié le port d’écoute par défaut de tomcat, vous devez mettre à jour Port privé pour qu’il s’agisse du même que le port d’écoute tomcat. ![][7]
  
-4.	Click **OK** to add the endpoint to your virtual machine.
+4.	Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuelle.
 
 
 
-###Step 2: Connect to the image you created.
-You can choose any SSH tool to connect to your virtual machine. In this example, we use Putty.
+###Étape 2 : Connexion à l’image que vous avez créée
+Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-First, get the DNS name of your virtual machine from the Azure Preview Portal. **Click Browse** -> **Virtual machines** -> the name of your virtual machine -> **Properties**, and then look in the **Domain Name** field of the **Properties** tile.
+Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
-Get the port number for SSH connections from the **SSH** field. Here is an example.  
-![][8]
+Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple. ![][8]
  
-Download Putty from [here](http://www.putty.org/) .
+Téléchargez Putty [ici](http://www.putty.org/).
 
-After downloading, click the executable file PUTTY.EXE. Configure the basic options with the host name and port number obtained from the properties of your virtual machine. Here is an example:  
-![][9]
+Après le téléchargement, cliquez sur le fichier exécutable PUTTY.EXE. Configurez les options de base avec le nom d’hôte et le numéro de port obtenus à partir des propriétés de votre machine virtuelle. Voici un exemple : ![][9]
  
-In the left pane, click **Connection** -> **SSH** -> **Auth** and then click **Browse** to specify the location of the **privateKey.ppk** file, which contains the private key generated by puttygen in Phase 1: Create an Image. Here is an example:  
-![][10]
+Dans le volet gauche, cliquez sur **Connexion** -> **SSH** -> **Authentification**, puis cliquez sur **Parcourir** pour spécifier l’emplacement du fichier **privateKey.ppk** qui contient la clé privée générée par puttygen lors de la Phase 1 : Création d’une image. Voici un exemple : ![][10]
  
-Click **Open**. You might be alerted by a message box. If you have configured the DNS name and port number correctly, click **Yes**. ![][11]
+Cliquez sur **Ouvrir**. Une boîte de message peut s’afficher. Si vous avez configuré le nom DNS et le numéro de port correctement, cliquez sur **Oui**. ![][11]
 
 
-You should see the following:  
-![][12]
+Les éléments suivants doivent s’afficher : ![][12]
 
-Enter the user name specified when you created the virtual machine in Phase 1: Create an Image. You will see something like the following:  
-![][13]
+Entrez le nom d’utilisateur spécifié lors de la création de la machine virtuelle lors de la Phase 1 : Création d’une image. Vous verrez quelque chose comme suit : ![][13]
 
 
 
 
 
-##Phase 3: Install software
-In this phase, you install the Java runtime environment, tomcat, and other tomcat components.
+##Phase 3 : Installation du logiciel
+Dans cette phase, vous installez l’environnement d’exécution Java, tomcat et d’autres composants de tomcat.
 
-###Java runtime environment
-Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.
+###Environnement d’exécution Java
+Tomcat est écrit en Java. Il existe deux types de kits de développement Java (JDK) (OpenJDK et JDK Oracle). Vous pouvez choisir celui que vous souhaitez.
 
->AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
+>AZURE.NOTE : les deux JDK ont pratiquement le même code pour les classes dans l’API Java, mais le code de la machine virtuelle est en fait différent. En ce qui concerne les bibliothèques, OpenJDK utilise généralement des bibliothèques libres tandis que celles d’Oracle sont fermées. Mais le JDK Oracle a plus de classes et quelques correctifs et il est plus stable qu’OpenJDK.
 
-The following commands download the different JDKs.
+Les commandes suivantes téléchargent les différents JDK.
 
 open-jdk
 
@@ -134,165 +124,160 @@ open-jdk
 
 oracle-jdk
 
--	To download the JDK from the Oracle website:  
+-	Pour télécharger le JDK depuis le site Web d’Oracle :  
 
 		wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 
--	To create a directory to contain the JDK files:
+-	Pour créer un répertoire contenant les fichiers JDK :
 
 		sudo mkdir /usr/lib/jvm  
 
--	To extract the JDK files into the /usr/lib/jvm/ directory:
+-	Pour extraire les fichiers JDK dans le répertoire /usr/lib/jvm :
 
 		sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
 
--	To set Oracle JDK as the default JVM:
+-	Pour définir le JDK Oracle comme JVM par défaut :
 
 		sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
 		sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
 
-####Test:
-You can use a command like the following to test if the Java runtime environment is installed correctly:
+####Test :
+Vous pouvez utiliser une commande semblable à la suivante pour vérifier si l’environnement d’exécution Java est correctement installé :
 
 	java -version  
 
-If you installed open-jdk, you should see a message like the following: ![][14]
+Si vous avez installé open-jdk, vous devez voir un message semblable au suivant : ![][14]
 
-If you installed oracle-jdk, you should see a message like the following: ![][15]
+Si vous avez installé oracle-jdk, vous devez voir un message semblable au suivant : ![][15]
 
 ###Tomcat7
-Using the following command to install tomcat7:
+Utilisez la commande suivante pour installer tomcat7 :
 
 	sudo apt-get install tomcat7  
 
-If you are not using tomcat7, use the appropriate variation of this command.
+Si vous n’utilisez pas tomcat7, utilisez la variation appropriée de cette commande.
 
-####Test:
+####Test :
 
-To check if tomcat7 is successfully installed, browse to your tomcat server’s DNS name (http://tomcatexample.cloudapp.net/ is the example URL in this article). If you see a page like the following, you have tomcat7 installed correct. ![][16]
+Pour vérifier si Tomcat7 est correctement installé, recherchez le nom DNS de votre serveur Tomcat (pour l’exemple d’URL dans cet article, http://tomcatexample.cloudapp.net/). Si vous voyez une page similaire à celle-ci, Tomcat7 est correctement installé. ![][16]
 
 
-###Install other Tomcat components
-There are other optional tomcat components that you can also install.
+###Installation d’autres composants de Tomcat
+Il existe d’autres composants facultatifs de tomcat que vous pouvez également installer.
 
-Use the **sudo apt-cache search tomcat7** command to see all the available components. The following commands are examples to install some useful parts.
+Utilisez la commande ** sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
 
 	sudo apt-get install tomcat7-admin      #admin web applications
 	sudo apt-get install tomcat7-user         #tools to create user instances  
 
-##Phase 4: Configure Tomcat
-In this phase, you administer tomcat.
-###Start and stop tomcat7
-The tomcat7 server will automatically start when you install it. You can also start it yourself with the following command:
+##Phase 4 : Configuration de Tomcat
+Dans cette phase, vous administrez tomcat.
+###Démarrage et arrêt de tomcat7
+Le serveur de tomcat7 démarre automatiquement lorsque vous l’installez. Vous pouvez également le lancer vous-même avec la commande suivante :
 
 	sudo /etc/init.d/tomcat7 start
 
-To stop tomcat7：
+Pour arrêter tomcat7 ：
 
 	sudo /etc/init.d/tomcat7 stop 
 
-To view the status of tomcat7：
+Pour afficher l’état de tomcat7 ：
 
 	sudo /etc/init.d/tomcat7 status
 
-To restart tomcat services：
+Pour redémarrer les services de tomcat ：
 
 	sudo /etc/init.d/tomcat7 restart
 
-###Tomcat administration
-You can edit the Tomcat user configuration file to setup your admin credentials with the following command:
+###Administration de Tomcat
+Vous pouvez modifier le fichier de configuration utilisateur de Tomcat pour configurer vos informations d’identification d’administration avec la commande suivante :
 
 	sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Here is an example:  
-![][17]
+Voici un exemple : ![][17]
 
->AZURE.NOTE: Create a strong password for the admin user name.
+>AZURE.NOTE : Création d’un mot de passe fort pour le nom d’utilisateur admin.
 
-After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:
+Après avoir modifié ce fichier, vous devez redémarrer les services tomcat7 avec la commande suivante pour vous assurer que les modifications prennent effet :
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Open your browser, and enter the URL **http://<your tomcat server DNS name>/manager/html**. For the example in this article, the URL is http://tomcatexample.cloudapp.net/manager/html.
+Ouvrez votre navigateur et entrez l’URL **http://<your tomcat server DNS name>/manager/html**. Par exemple, dans cet article, l’URL est http://tomcatexample.cloudapp.net/manager/html.
 
-After connecting, you should see something similar to the following:  
-![][18]
+Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit : ![][18]
  
-##Common issues
+##Problèmes courants
 
-###Can't access the virtual machine with Tomcat and Moodle from the Internet
+###Impossible d’accéder à une machine virtuelle avec Tomcat et Moodle à partir d’Internet
 
--	**Symptom**  
-Tomcat is running but you can’t see the Tomcat default page with your browser.
--	**Possible root case**   
-	1.	The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.  
+-	**Symptôme** Tomcat est en cours d’exécution, mais vous ne voyez pas la page par défaut Tomcat avec votre navigateur.
+-	**Cause principale possible**   
+	1.	Le port d’écoute tomcat n’est pas identique au Port privé du point de terminaison de votre machine virtuelle pour le trafic tomcat.  
 	
-		Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.
+		Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le Port privé est identique au port d’écoute tomcat. Consultez la Phase 1 : Création d’une image pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.
 
-		To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release). By default, the tomcat listen port is 8080. Here is an example:
+		Pour déterminer le port d’écoute de tomcat, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/tomcat7/server.xml (version Debian). Par défaut, le port d’écoute de tomcat est 8080. Voici un exemple :
 
 			<Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"  URIEncoding="UTF-8"            redirectPort="8443" />  
 
-		If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS. First, open the Profile:
+		Si vous utilisez un ordinateur virtuel comme Debian ou Ubuntu et que vous souhaitez modifier la valeur par défaut de port d’écoute de Tomcat (par exemple 8081), vous devez également ouvrir le port pour le système d’exploitation. Tout d’abord, ouvrez le profil :
 
 			sudo vi /etc/default/tomcat7  
 
-		Then uncomment the last line and change “no” to “yes”.
+		Supprimez ensuite le commentaire de la dernière ligne, puis remplacez « non » par « oui ».
 
 			AUTHBIND=yes
 
-	2.	The firewall has disabled the listen port of tomcat.
+	2.	Le pare-feu a désactivé le port d’écoute tomcat.
 
-		If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by tomcat is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to the Tomcat default page:
+		Si vous ne voyez que la page Tomcat par défaut à partir de l’hôte local, il est probable que le port sur lequel tomcat écoute soit bloqué par le pare-feu. Vous pouvez utiliser l’outil w3m pour parcourir la page web. Les commandes suivantes installent w3m et accèdent à la page par défaut Tomcat :
 
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
 -	**Solution**
-	1. If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.   
+	1. Si le port d’écoute tomcat n’est pas identique au Port privé du point de terminaison pour le trafic sur la machine virtuelle, vous devez modifier le Port privé pour qu’il soit identique au port d’écoute de tomcat.   
 	
-	2.	If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:
+	2.	Si le problème est dû au pare-feu/iptables, ajoutez les lignes suivantes à /etc/sysconfig/iptables :
 	
 			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-		Note that the second line is only needed for https traffic.
+		Notez que la deuxième ligne est nécessaire uniquement pour le trafic https.
 
-		Make sure this is above any lines that would globally restrict access, such as the following:
+		Assurez-vous que ces lignes sont au-dessus de toutes les lignes qui limiteraient globalement l’accès, telles que les suivantes :
 
 			-A INPUT -j REJECT --reject-with icmp-host-prohibited  
 
-		To reload the iptables, run the following command:
+		Pour recharger les iptables, exécutez la commande suivante :
 
 			service iptables restart  
 
-		This has been tested on CentOS 6.3.
+		Cela a été testé sur CentOS 6.3.
 
-###Permission denied when upload you project files to /var/lib/tomcat7/webapps/  
+###Autorisation refusée quand vous téléchargez vos fichiers de projet vers /var/lib/tomcat7/webapps/  
 
--	**Symptom**  
-When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  
+-	**Symptôme** Quand vous utilisez un client SFTP (par exemple, FileZilla) pour vous connecter à votre machine virtuelle et que vous accédez à /var/lib/tomcat7/webapps/ pour publier votre site, un message d’erreur semblable au suivant s’affiche :  
 
 		status:	Listing directory /var/lib/tomcat7/webapps
 		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
 		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
 		Error:	File transfer failed
 
--	**Possible root case** You have no permissions to access the /var/lib/tomcat7/webapps folder.
--	**Solution**  
-You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
+-	**Cause principale possible** Vous n’êtes pas autorisé à accéder au dossier /var/lib/tomcat7/webapps.
+-	**Solution** Vous devez obtenir l’autorisation à partir du compte racine. Vous pouvez modifier le propriétaire par défaut de ce dossier (la racine) et choisir le nom d’utilisateur que vous avez utilisé lors de l’approvisionnement de la machine. Voici un exemple avec le nom de compte azureuser :  
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-	Use the -R option to apply the permissions for all files inside of a directory too.
+	Utilisez l’option -R pour appliquer aussi les autorisations pour tous les fichiers contenus dans un répertoire.
 
-	Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:
+	Notez que cette commande fonctionne également pour les répertoires. L’option -R modifie les autorisations pour tous les fichiers et répertoires contenus dans le répertoire. Voici un exemple :
 
 		sudo chown -R username:group directory  
 
-	This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.
+	Cette commande modifie le propriétaire (utilisateur et groupe) pour tous les fichiers et répertoires contenus dans le répertoire et le répertoire lui-même.
 
-	The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.
+	La commande suivante modifie uniquement l’autorisation du répertoire mais laisse intacts les fichiers et dossiers dans le répertoire.
 
 		sudo chown username:group directory
 
@@ -318,4 +303,4 @@ You need get permission from the root account. You can change the ownership of t
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

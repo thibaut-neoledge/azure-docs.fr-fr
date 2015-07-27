@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Connecteur AS2" 
-   description="Connecteur AS2" 
+   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service" 
+   description="Utilisation du connecteur AS2" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
@@ -13,97 +13,91 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/14/2015"
+   ms.date="06/29/2015"
    ms.author="rajram"/>
 
-#Connecteur AS2
-Le connecteur Microsoft Azure AS2 permet de recevoir et d'envoyer des messages selon le protocole de transport AS2 dans les communications interentreprises. AS2 signifie « Applicability Statement 2 ». Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
+# Connecteur Microsoft AS2
+Le connecteur Microsoft Azure AS2 vous permet de recevoir et d’envoyer des messages via le protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
 
-##Conditions préalables
-- Application API TPM : avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1].
-- Base de données SQL Azure : chacune des applications API B2B requiert sa propre base de données SQL Azure.
-- Conteneur de stockage d'objets Blob Azure : stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n'avez pas besoin de l'archivage des messages AS2, un conteneur de stockage n'est pas utile. 
+## Déclencheurs et actions
+Un déclencheur démarre une nouvelle instance en fonction d’un événement spécifique, comme l’arrivée d’un message AS2 provenant d’un partenaire. Une action correspond au résultat, par exemple, après la réception d’un message AS2, le message est envoyé avec AS2.
 
-##Utilisation du connecteur AS2
-Pour utiliser le connecteur AS2, vous devez d'abord créer une instance de l'application API du connecteur AS2. Cela est possible inline, lors de la création d'une application logique ou en sélectionnant l'application API du connecteur AS2 à partir d'Azure Marketplace.
+Le connecteur AS2 peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Le connecteur AS2 propose les déclencheurs et les actions suivants :
 
-##Configuration du connecteur AS2
+Déclencheurs | Actions
+--- | ---
+Recevoir et décoder | Encoder et envoyer
+
+## Conditions préalables requises
+Vous devez créer les éléments suivants avant qu’ils puissent être utilisés par le connecteur AS2 :
+
+Prérequis | Description
+--- | ---
+Application API TPM | Avant de créer un connecteur AS2, vous devez créer un [connecteur de gestion des partenaires commerciaux BizTalk][1]. <br/><br/>**Remarque** Vous devez connaître le nom de votre application API TPM. 
+Base de données SQL Azure | Stocke les éléments B2B, notamment les partenaires, les schémas, les certificats et les accords. Chacune des applications API B2B requiert sa propre base de données SQL Azure. <br/><br/>**Remarque** Copiez la chaîne de connexion dans cette base de données.<br/><br/>[Créer une base de données SQL Azure](../sql-database-create-configure.md)
+Conteneur de stockage d'objets blob Azure | Stocke les propriétés de message quand l'archivage AS2 est activé. Si vous n’avez pas besoin de l’archivage des messages AS2, le conteneur de stockage n’est pas utile. <br/><br/>**Remarque** Si vous activez l’archivage, copiez la chaîne de connexion dans ce stockage d’objets blob.<br/><br/>[À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+
+## Créer le connecteur AS2
+
+Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
+
+1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
+2. Sélectionnez **API Apps** et recherchez « Connecteur AS2 ».
+3. Entrez le nom, le plan App Service et d'autres propriétés.
+4. Entrez les paramètres de package suivants :
+
+	Propriété | Description
+--- | --- 
+Chaîne de connexion de base de données | Entrez la chaîne de connexion ADO.NET dans la base de données SQL Azure que vous avez créée. Quand vous copiez la chaîne de connexion, le mot de passe n'y est pas ajouté. Veillez à entrer le mot de passe dans la chaîne de connexion avant de coller.
+Activer l'archivage des messages entrants | facultatif. Activez cette propriété pour stocker les propriétés d'un message AS2 entrant reçu d'un partenaire. 
+Chaîne de connexion de stockage d'objets blob Azure | Entrez la chaîne de connexion dans le conteneur de stockage d'objets blob Azure que vous avez créé. Quand l'archivage est activé, les messages encodés et décodés sont stockés dans ce conteneur de stockage.
+Nom de l'instance TPM | Entrez le nom de l’application API **Gestion des partenaires commerciaux BizTalk** que vous avez créée précédemment. Quand vous créez le connecteur AS2, il exécute uniquement les accords AS2 inclus dans cette instance TPM spécifique.
+
+5. Sélectionnez **Créer**.
+
 Les partenaires commerciaux sont des entités impliquées dans des communications B2B (entreprise à entreprise). Lorsque deux partenaires établissent une relation, il est question d'un « accord ». L’accord défini est basé sur le type de communication dont les deux partenaires souhaitent bénéficier. Il est propre au protocole ou au transport.
 
-Les étapes de création d'un accord de partenariat commercial sont documentées [ici][2].
+Les étapes de création d’un accord de partenariat commercial sont documentées [ici][2].
 
-##Utilisation du connecteur AS2 dans l'aire du concepteur d'applications logiques
-Vous pouvez utiliser le connecteur AS2 comme un déclencheur ou une action.
+## Utiliser le connecteur comme un déclencheur
 
-###Déclencheur
-- Lancez le concepteur de flux des applications logiques Azure
-- Cliquez sur le connecteur AS2 dans le panneau de droite
+1. Lors de la création ou de la modification d’une application logique, sélectionnez le connecteur AS2 que vous avez créé dans le volet droit : <br/>![Paramètres du déclencheur][3]
 
-	![Paramètres du déclencheur][3]
-- Cliquez sur ->
+2. Cliquez sur la flèche droite → : <br/> ![Options du déclencheur][4]
 
-	![Options du déclencheur][4]
-- Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder*
+3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : <br/> ![Entrée Recevoir et décoder][5]
 
-	![Entrée Recevoir et décoder][5]
-- Ce déclencheur ne possède aucune entrée. Cliquez sur ->
+4. Ce déclencheur ne possède aucune entrée. Cliquez sur la flèche droite → : <br/> ![Recevoir et décoder configuré][6]
 
-	![Recevoir et décoder configuré][6]
-- Dans le cadre de la sortie, le connecteur renvoie la charge AS2, ainsi que les métadonnées spécifiques AS2.
+Dans le cadre de la sortie, le connecteur renvoie la charge AS2, ainsi que les métadonnées spécifiques AS2.
 
-###Action
-- Cliquez sur le connecteur AS2 dans le panneau de droite
+## Utiliser le connecteur comme une action
+1. Après votre déclencheur (ou si vous choisissez d’exécuter cette logique manuellement), ajoutez le connecteur AS2 que vous avez créé à partir du volet droit : <br/> ![Paramètres d'action][7]
 
-	![Paramètres d'action][7]
-- Cliquez sur ->
+2. Cliquez sur la flèche droite → : <br/> ![Liste d'actions][8]
 
-	![Liste d'actions][8]
-- Le connecteur AS2 ne prend en charge qu'une seule action. Sélectionnez *Encoder et envoyer*
+3. Le connecteur AS2 ne prend en charge qu’une seule action. Sélectionnez *Encoder et envoyer* : <br/> ![Entrée Encoder et envoyer][9]
 
-	![Entrée Encoder et envoyer][9]
-- Indiquez les entrées de l'action et configurez celle-ci
+4. Indiquez les entrées de l’action et configurez celle-ci : <br/> ![Encoder et envoyer configuré][10]
 
-	![Encoder et envoyer configuré][10]
+Les paramètres incluent :
 
-<table>
-	<tr>
-		<th>Paramètre</th>
-		<th>Type</th>
-		<th>Description du paramètre</th>
-	</tr>
-	<tr>
-		<td>Payload</td>
-		<td>objet</td>
-		<td>Payload</td>
-	</tr>
-	<tr>
-		<td>AS2 à partir de</td>
-		<td>string</td>
-		<td>AS2 à partir de</td>
-	</tr>
-	<tr>
-		<td>AS2 vers</td>
-		<td>string</td>
-		<td>AS2 vers</td>
-	</tr>
-	<tr>
-		<td>URL du partenaire</td>
-		<td>string</td>
-		<td>URL du partenaire</td>
-	</tr>
-	<tr>
-		<td>Activer l'archivage</td>
-		<td>booléenne</td>
-		<td>Activer l'archivage</td>
-	</tr>
-</table>
+Paramètre | Type | Description
+--- | --- | ---
+Payload | objet| Le contenu de la charge utile pour encoder et publier sur le point de terminaison configuré. La charge utile doit être fournie en tant qu’objet JSON.
+AS2 à partir de | string | Identité AS2 de l’expéditeur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
+AS2 vers | string | L’identité AS2 du récepteur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
+URL du partenaire | string | Le point de terminaison du partenaire auquel le message doit être envoyé.
+Activer l'archivage | booléenne | Détermine si le message sortant doit être archivé.
 
 L'action retourne un code de réponse HTTP 200 en cas de réussite.
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Pour plus d’informations sur les applications logiques, consultez la page [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](../app-service-api/app-service-api-manage-in-portal.md).
+Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -117,4 +111,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

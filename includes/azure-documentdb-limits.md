@@ -108,4 +108,4 @@
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

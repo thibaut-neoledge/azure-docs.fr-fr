@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="05/04/2015"
+   ms.date="07/09/2015"
    ms.author="coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
 
->[AZURE.IMPORTANT]**Azure Automation DSC est actuellement en version préliminaire limitée**, et n'est pas pris en charge pour les charges de production. Pour le moment, il est basé uniquement sur des applets de commande et ne dispose d'aucune interface graphique utilisateur. En vous inscrivant à la version préliminaire d'Azure Automation DSC, vous reconnaissez que cette fonctionnalité est en version préliminaire et qu'elle est soumise à des conditions d'utilisation différentes ou limitées, tel que stipulé dans le [contrat de service](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409). Vous reconnaissez également accepter les [Conditions d'utilisation supplémentaires de la version préliminaire](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). Bien qu'actuellement ce service puisse être utilisé gratuitement, une tarification sera introduite par la suite.
+>[AZURE.IMPORTANT]**Azure Automation DSC est actuellement en version préliminaire limitée**, et n'est pas pris en charge pour les charges de production. Pour le moment, il est principalement basé sur des applets de commande et ne dispose que d’une interface graphique utilisateur minimale. En vous inscrivant à la version préliminaire d'Azure Automation DSC, vous reconnaissez que cette fonctionnalité est en version préliminaire et qu'elle est soumise à des conditions d'utilisation différentes ou limitées, tel que stipulé dans le [contrat de service](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409). Vous reconnaissez également accepter les [Conditions d'utilisation supplémentaires de la version préliminaire](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). Bien qu'actuellement ce service puisse être utilisé gratuitement, une tarification sera introduite par la suite.
 
 ## Qu'est-ce que PowerShell DSC ? ##
 Le service de configuration d'état souhaité (DSC, Desired State Configuration) est une nouvelle plateforme de gestion de Windows PowerShell qui permet de gérer la configuration d'hôtes physiques et de machines virtuelles à l'aide d'une syntaxe PowerShell déclarative.
@@ -49,6 +49,8 @@ Azure Automation DSC s'appuie sur les concepts de base introduits dans PowerShel
 
 Azure Automation DSC vous permet de [créer et de gérer des configurations d'état souhaité PowerShell](https://technet.microsoft.com/library/dn249918.aspx), d'importer des [ressources DSC](https://technet.microsoft.com/library/dn282125.aspx) et de générer des configurations de nœuds DSC (documents MOF), le tout dans le cloud. Ces éléments DSC seront placés sur le [server collecteur DSC](https://technet.microsoft.com/library/dn249913.aspx) Azure Automation afin que les nœuds cibles (tels que les machines virtuelles et physiques) dans le cloud ou localement puissent les choisir, se conformer à l'état qu'elle spécifie et retourner à Azure Automation un rapport attestant de leur conformité à l'état souhaité.
 
+> [AZURE.VIDEO microsoft-ignite-2015-heterogeneous-configuration-management-using-microsoft-azure-automation]
+
 ## Conditions d'utilisation d'Azure Automation DSC ##
 ### Configuration ###
 PowerShell DSC a introduit un nouveau concept appelé « configurations ». Les configurations vous permettent de définir, via la syntaxe PowerShell, l'état souhaité pour votre environnement. Pour configurer votre environnement à l'aide de DSC, commencez par définir un bloc de script Windows PowerShell en utilisant le mot clé « configuration », suivi d'un identificateur, puis d'accolades ({}) pour délimiter le bloc.
@@ -69,7 +71,7 @@ L'exécution (compilation) d'une configuration DSC produit une ou plusieurs conf
 
 Azure Automation DSC vous permet d'importer, de créer et de compiler des configurations DSC dans Azure Automation, de la même façon que les Runbooks peuvent être importés, créés et démarrés dans Azure Automation.
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le **module PowerShell Azure Resource Manager** pour la gestion des configurations DSC :
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des configurations DSC :
 
 - `Get-AzureAutomationDscConfiguration`
 - `Import-AzureAutomationDscConfiguration`
@@ -82,7 +84,7 @@ Lors de la compilation d'une configuration DSC, une ou plusieurs configurations 
 
 Les nœuds PS DSC sont informés des configurations de nœuds qu'ils doivent adopter via des méthodes Push ou Pull DSC. Azure Automation DSC repose sur la méthode Pull DSC, où les nœuds demandent des configurations de nœuds qu'ils doivent appliquer à partir de serveurs collecteurs Azure Automation DSC. Étant donné que les nœuds effectuent la demande à Azure Automation DSC, ils peuvent se trouver derrière des pare-feu, avoir tous les ports entrants fermés, etc. Ils ont uniquement besoin d'un accès sortant à Internet.
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le **module PowerShell Azure Resource Manager** pour la gestion des configurations de nœuds DSC : `Get-AzureAutomationDscNodeConfiguration`
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des configurations de nœuds DSC : `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Nœud###
@@ -91,7 +93,7 @@ Un nœud DSC est une machine dont la configuration est gérée par DSC. Il peut 
 
 Azure Automation DSC facilite l'intégration de nœuds en vue de leur gestion par Azure Automation DSC, et permet de changer la configuration de nœud affectée à chaque nœud côté serveur, de sorte que la prochaine fois qu'un nœud recherchera des instructions sur le serveur, il adoptera un rôle différent et modifiera sa configuration afin de s'y conformer. Les nœuds signalent également à Azure Automation DSC leur état et leur conformité à la configuration.
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](../powershell-azure-resource-manager.md) pour la gestion des nœuds DSC :
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des nœuds DSC :
 
 -	`Get-AzureAutomationDscNode`  
 -	`Register-AzureAutomationDscNode` (utilisée pour intégrer des machines virtuelles Azure v2 en tant que nœuds)
@@ -137,7 +139,7 @@ PowerShell :
         ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
 
         # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/fr-fr/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
+        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
         Properties = @{
             RegistrationKey = $RegistrationInfo.PrimaryKey
             RegistrationUrl = $RegistrationInfo.Endpoint
@@ -168,7 +170,7 @@ Il est également possible d'importer des ressources DSC dans le cadre des modul
 
 Azure Automation DSC est fourni avec exactement les mêmes ressources DSC intégrées que PS DSC. Des ressources supplémentaires peuvent être ajoutées à Azure Automation DSC en important dans Azure Automation des modules PowerShell contenant les ressources.
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](../powershell-azure-resource-manager.md) pour la gestion des nœuds DSC :
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des nœuds DSC :
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -185,7 +187,7 @@ Dans Azure Automation DSC, une tâche de compilation est une instance de compila
 >[AZURE.NOTE]À l'instar des Runbooks, les configurations peuvent être publiées. Cela n'est pas lié au placement des éléments DSC sur le serveur collecteur Azure Automation DSC. Suite à une tâche de compilation, les éléments DSC sont placés sur le serveur collecteur Azure Automation DSC. Pour plus d'informations sur la « publication » dans Azure Automation, consultez [Publication d'un Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
 
-Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](../powershell-azure-resource-manager.md) pour la gestion des tâches de compilation :
+Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des tâches de compilation :
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
@@ -218,8 +220,10 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Lorsqu'un nœud est d'abord enregistré avec un compte Azure Automation, ou que le nœud est modifié pour être mappé à une autre configuration de nœud côté serveur, son état sera conforme, même s'il n'est pas réellement conforme à la configuration de nœud à laquelle qu'il est maintenant mappé. Dès que le nœud a envoyé son premier rapport après l'inscription ou qu'un mappage de configuration de nœud a changé, l'état du nœud peut être approuvé.
 
-- Lorsqu'une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l'aide de `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension`, ou de l'extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, si l'inscription échoue avec le message **Le nom de l'ordinateur n'a pas été indiqué et le répertoire de configuration ne contient aucun fichier de configuration**, il s'agit d'une fausse alerte et l'inscription de la machine virtuelle a réussi. Il est possible de vérifier si l'inscription a réussi à l'aide de l'applet de commande `Get-AzureAutomationDscNode`.
+- Lorsqu'une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l'aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, ou de l'extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, si l'inscription échoue avec le message **Le nom de l'ordinateur n'a pas été indiqué et le répertoire de configuration ne contient aucun fichier de configuration**, il s'agit d'une fausse alerte et l'inscription de la machine virtuelle a réussi. Il est possible de vérifier si l'inscription a réussi à l'aide de l'applet de commande `Get-AzureAutomationDscNode`.
 
- 
+- Lorsqu’une machine virtuelle Azure est intégrée pour la gestion avec Azure Automation DSC à l’aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`, ou de l’extension de machine virtuelle Azure Automation DSC dans le portail Azure en version préliminaire, une heure peut être nécessaire avant que la machine virtuelle apparaisse comme un DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
-<!---HONumber=62-->
+- Les nœuds DSC intégrés à Azure Automation DSC affichent initialement un état « Conforme », même s’ils ne sont pas réellement conformes à la configuration du nœud DSC à laquelle ils sont mappés. Lorsqu’un nœud effectue sa première extraction et envoie son premier rapport DSC à Azure Automation DSC, l'état du nœud doit être correct.
+
+<!---HONumber=July15_HO3-->

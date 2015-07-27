@@ -3,7 +3,7 @@
     pageTitle="Nouveautés d’Azure RemoteApp"
     description="En savoir plus sur les modifications et les améliorations apportées à Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@ Vous avez besoin de voir Azure RemoteApp en action ? Découvrez le didacticiel 
 
 Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’autres mises à jour.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

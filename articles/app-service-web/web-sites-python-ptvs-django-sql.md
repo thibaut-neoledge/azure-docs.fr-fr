@@ -221,4 +221,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [Base de données SQL]: /documentation/services/sql-database/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

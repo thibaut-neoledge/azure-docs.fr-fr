@@ -86,4 +86,4 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

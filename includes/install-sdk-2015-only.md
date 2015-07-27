@@ -6,4 +6,4 @@ Si vous n’avez pas installé Visual Studio, Visual Studio Express pour le web 
 
 >[AZURE.NOTE]En fonction du nombre de dépendances du Kit de développement logiciel (SDK) qui se trouvent déjà sur votre ordinateur, l'installation du SDK peut prendre un certain temps (de plusieurs minutes à une demi-heure, voire plus).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

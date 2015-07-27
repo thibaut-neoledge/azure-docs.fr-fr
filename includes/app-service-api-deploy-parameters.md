@@ -1,10 +1,10 @@
-Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée Paramètres, qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez ou selon l'environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
+Azure Resource Manager vous permet de définir des paramètres pour les valeurs que vous voulez spécifier lorsque le modèle est déployé. Ce modèle inclut une section appelée Paramètres, qui contient toutes les valeurs de paramètres. Vous devez définir un paramètre pour les valeurs qui varient selon le projet que vous déployez, ou de l’environnement dans lequel vous effectuez le déploiement. Ne définissez pas de paramètres pour les valeurs qui restent identiques. Chaque valeur de paramètre est utilisée dans le modèle pour définir les ressources déployées.
 
 Nous allons décrire chaque paramètre du modèle.
 
 ### gatewayName
 
-Nom de la passerelle que vous souhaitez créer. L'application API est enregistrée pour cette passerelle.
+Le nom de la passerelle. L'application API est enregistrée pour cette passerelle.
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@ Nom de la passerelle que vous souhaitez créer. L'application API est enregistr
 
 ### apiAppName
 
-Nom de l'application API à créer.
+Nom de l'application API à créer. Le nom doit contenir entre 8 et 50 caractères.
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ Emplacement de la nouvelle application API.
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

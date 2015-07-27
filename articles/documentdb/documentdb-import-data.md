@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Importation de données vers DocumentDB | Azure" 
-	description="Découvrez comment utiliser l'outil de migration de données open source DocumentDB pour importer des données depuis différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure et des collections DocumentDB." 
+	description="Découvrez comment utiliser l'outil de migration de données open source DocumentDB pour importer des données depuis différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure, Amazon DynamoDB et des collections DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
 
 # Importation de données vers DocumentDB #
 
-Cet article vous montre comment utiliser l'outil de migration de données open source DocumentDB pour importer des données dans [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) à partir de différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure et les collections DocumentDB.
+Cet article vous montre comment utiliser l'outil de migration de données open source DocumentDB pour importer des données dans [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) à partir de différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure, Amazon DynamoDB et les collections DocumentDB.
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
@@ -27,6 +27,8 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 -	Comment puis-je importer des données SQL Server vers DocumentDB ?
 -	Comment puis-je importer des données MongoDB vers DocumentDB ?
 -	Comment puis-je importer des données à partir du stockage de tables Azure vers DocumentDB ?
+-	Comment puis-je importer des données à partir d’Amazon DynamoDB vers DocumentDB ?
+-	Comment puis-je importer des données à partir de HBase vers DocumentDB ?
 -	Comment puis-je migrer des données entre des collections DocumentDB ?
 
 ##<a id="Prerequisites"></a>Configuration requise ##
@@ -44,6 +46,8 @@ L'outil de migration de données DocumentDB est une solution open source permett
 - SQL Server
 - Fichiers CSV
 - Stockage de tables Azure
+- Amazon DynamoDB
+- HBase
 - Collections DocumentDB
 
 L'outil d'importation inclut une interface utilisateur graphique (dtui.exe) et peut aussi être piloté à partir de la ligne de commande (dt.exe). En fait, il existe une option pour générer la commande associée après avoir configuré une importation via l'interface utilisateur. Des données sources tabulaires (par exemple, des fichiers SQL Server ou CSV) peuvent être transformées de manière à ce que des relations hiérarchiques (sous-documents) puissent être créées pendant l'importation. Poursuivez votre lecture pour en savoir plus sur les options sources, les exemples de lignes de commande pour l’importation depuis chaque source, les options cibles et l'affichage des résultats d’importation.
@@ -197,6 +201,34 @@ Voici un exemple de ligne de commande pour importer depuis le stockage de tables
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
+##<a id="DynamoDBSource"></a>Importation à partir d’Amazon DynamoDB ##
+
+L’option d’importateur source d’Amazon DynamoDB vous permet d'importer à partir d'une table d’Amazon DynamoDB et de filtrer éventuellement les entités à importer. Plusieurs modèles sont fournis pour faciliter au maximum la configuration d'une importation.
+
+![Capture d’écran des options sources Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource1.png)
+
+![Capture d’écran des options sources Amazon DynamoDB](./media/documentdb-import-data/dynamodbsource2.png)
+
+Le format de la chaîne de connexion Amazon DynamoDB est :
+
+	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+
+> [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance Amazon DynamoBD spécifiée dans le champ de la chaîne de connexion est accessible.
+
+Voici un exemple de ligne de commande pour importer à partir d'Amazon DynamoDB :
+
+	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+
+##<a id="BlobImport"></a>Importation des fichiers à partir du stockage d’objets blob Azure##
+
+Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez simplement une expression régulière pour sélectionner le(s) fichier(s) à importer.
+
+![Capture d’écran des options sources du fichier blob](./media/documentdb-import-data/blobsource.png)
+
+Voici un exemple de ligne de commande pour importer des fichiers JSON à partir du stockage d’objets blob Azure :
+
+	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+
 ##<a id="DocumentDBSource"></a>Importation à partir de DocumentDB ##
 
 L'option de l'importateur source DocumentDB vous permet d'importer à partir d'une ou plusieurs collections DocumentDB et de filtrer éventuellement des documents à l'aide d'une requête.
@@ -233,7 +265,25 @@ Voici quelques exemples de lignes de commande pour l’importation depuis Docume
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
 	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+
+##<a id="HBaseSource"></a>Importation à partir de HBase ##
+
+L’option d’importateur source HBase vous permet d’importer des données à partir d'une table HBase et de filtrer éventuellement les données. Plusieurs modèles sont fournis pour faciliter au maximum la configuration d'une importation.
+
+![Capture d’écran des options sources HBase](./media/documentdb-import-data/hbasesource1.png)
+
+![Capture d’écran des options sources HBase](./media/documentdb-import-data/hbasesource2.png)
+
+Le format de la chaîne de connexion HBase Stargate est :
+
+	ServiceURL=<server-address>;Username=<username>;Password=<password>
+
+> [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance HBase spécifiée dans le champ de la chaîne de connexion est accessible.
+
+Voici un exemple de ligne de commande pour importer à partir de HBase :
+
+	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>Importation de DocumentDB (importation en bloc) ##
 
@@ -255,7 +305,7 @@ Pour importer dans seule collection, entrez le nom de la collection dans laquell
 
 Une fois que les noms de la collection ont été spécifiés, choisissez le niveau de tarification souhaité des collections (S1, S2 ou S3). Pour de meilleures performances d'importation, choisissez S3. Cliquez [ici](documentdb-performance-levels.md) pour en savoir plus sur les niveaux de performances DocumentDB.
 
-> [AZURE.NOTE]Le paramètre de niveau de performance s'applique uniquement à la création de collection. Si la collection spécifiée existe déjà, son niveau de tarification ne sera pas modifié.
+> [AZURE.NOTE]Le paramètre de niveau de performance s'applique uniquement à la création de collections. Si la collection spécifiée existe déjà, son niveau de tarification ne sera pas modifié.
 
 Pendant l'importation de plusieurs collections, l'outil d'importation prend en charge le partitionnement basé sur le hachage. Dans ce scénario, spécifiez la propriété de document que vous voulez utiliser comme clé de partition (si la clé de partition est vide, les documents seront partitionnés de manière aléatoire entre les collections cibles).
 
@@ -307,7 +357,7 @@ Pour importer dans seule collection, entrez le nom de la collection dans laquell
 
 Une fois que les noms de la collection ont été spécifiés, choisissez le niveau de tarification souhaité des collections (S1, S2 ou S3). Pour de meilleures performances d'importation, choisissez S3. Cliquez [ici](documentdb-performance-levels.md) pour en savoir plus sur les niveaux de performances DocumentDB.
 
-> [AZURE.NOTE]Le paramètre de niveau de performance s'applique uniquement à la création de collection. Si la collection spécifiée existe déjà, son niveau de tarification ne sera pas modifié.
+> [AZURE.NOTE]Le paramètre de niveau de performance s'applique uniquement à la création de collections. Si la collection spécifiée existe déjà, son niveau de tarification ne sera pas modifié.
 
 Pendant l'importation de plusieurs collections, l'outil d'importation prend en charge le partitionnement basé sur le hachage. Dans ce scénario, spécifiez la propriété de document que vous voulez utiliser comme clé de partition (si la clé de partition est vide, les documents seront partitionnés de manière aléatoire entre les collections cibles).
 
@@ -333,11 +383,33 @@ L'importateur d’enregistrement séquentiel DocumentDB dispose des options avan
 
 > [AZURE.TIP]L’outil d’importation utilise le mode de connexion DirectTcp par défaut. Si vous rencontrez des problèmes liés au pare-feu, passer au mode de connexion passerelle qui ne nécessite que le port 443.
 
+##<a id="IndexingPolicy"></a>Spécification d’une stratégie d'indexation lors de la création de collections DocumentDB ##
+
+Lorsque vous autorisez l'outil de migration à créer des collections pendant l'importation, vous pouvez spécifier la stratégie d'indexation des collections. Dans la section des options d’importation en bloc avancées DocumentDB et des options d'enregistrement séquentiel DocumentDB, accédez à la section de la stratégie de l'indexation.
+
+![Capture d’écran des options de stratégie d’indexation avancées DocumentDB](./media/documentdb-import-data/indexingpolicy1.png)
+
+À l'aide de l’option de stratégie d'indexation avancée, vous pouvez sélectionner un fichier de stratégie d'indexation, saisir manuellement une stratégie d'indexation ou en sélectionner une parmi les différents modèles proposés par défaut (en cliquant avec le bouton droit dans la zone de texte de stratégie d'indexation).
+
+L'outil fournit les modèles de stratégie suivants :
+
+- Par défaut. Cette stratégie est préférable si vous exécutez des requêtes d’efficacité sur des chaînes et des requêtes ORDER BY, de plage et d’efficacité sur des nombres. Cette stratégie dispose d’une surcharge de stockage d'index inférieure à Plage.
+- Hachage. Cette stratégie est préférable si vous exécutez des requêtes d'efficacité sur des nombres et des chaînes. Cette stratégie dispose de la plus faible surcharge de stockage d'index.
+- Plage. Cette stratégie est préférable si vous exécutez des requêtes ORDER BY, de plage et d'efficacité sur des nombres et des chaînes. Cette stratégie dispose d’une surcharge de stockage d'index supérieure à Par défaut ou Hachage.
+
+
+![Capture d’écran des options de stratégie d’indexation avancées DocumentDB](./media/documentdb-import-data/indexingpolicy2.png)
+
+> [AZURE.NOTE]Si vous ne spécifiez pas de stratégie d'indexation, la stratégie par défaut sera appliquée. Pour en savoir plus sur les stratégies d'indexation DocumentDB, cliquez [ici](documentdb-indexing-policies.md).
+
+
 ## Exportation vers un fichier JSON
 
-L'exportateur JSON DocumentDB vous permet d’exporter des options sources disponibles vers un fichier JSON qui contient un tableau des documents JSON. L'outil gère l'exportation pour vous. Vous pouvez également choisir d'afficher la commande de migration qui en résulte et d’exécuter la commande vous-même.
+L'exportateur JSON DocumentDB vous permet d’exporter des options sources disponibles vers un fichier JSON qui contient un tableau des documents JSON. L'outil gère l'exportation pour vous. Vous pouvez également choisir d'afficher la commande de migration qui en résulte et d’exécuter la commande vous-même. Le fichier JSON résultant peut être stocké localement ou dans le stockage d’objets blob Azure.
 
-![Capture d’écran des options d'exportation JSON DocumentDB](./media/documentdb-import-data/jsontarget.png)
+![Capture d’écran des options d'exportation de fichier local JSON DocumentDB](./media/documentdb-import-data/jsontarget.png)
+
+![Capture d’écran des options d'exportation du stockage d’objets blob Azure JSON DocumentDB](./media/documentdb-import-data/jsontarget2.png)
 
 Vous pouvez éventuellement choisir d’agrémenter le JSON qui en résulte, ce qui augmente la taille du document obtenu tout en rendant le contenu plus lisible.
 
@@ -404,4 +476,4 @@ Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journa
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

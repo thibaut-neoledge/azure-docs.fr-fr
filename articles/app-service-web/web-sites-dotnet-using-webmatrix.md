@@ -250,4 +250,4 @@ Vous pouvez utiliser WebMatrix pour modifier le site et le republier sur votre i
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

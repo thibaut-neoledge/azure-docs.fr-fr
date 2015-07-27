@@ -29,4 +29,4 @@ L’exemple précédent montre une connexion standard, qui nécessite que le cli
 
 				[self loadAuthInfo];
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

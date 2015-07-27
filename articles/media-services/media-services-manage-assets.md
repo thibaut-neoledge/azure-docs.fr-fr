@@ -86,4 +86,4 @@ L’extrait de code suivant supprime tous les éléments multimédias du compte 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

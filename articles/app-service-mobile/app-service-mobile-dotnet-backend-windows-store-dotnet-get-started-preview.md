@@ -88,4 +88,4 @@ Maintenant que le backend d'application mobile est publié et que le client est 
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

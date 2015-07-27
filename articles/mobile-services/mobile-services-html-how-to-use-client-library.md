@@ -608,4 +608,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [Appel d'une API personnalisée à partir du client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

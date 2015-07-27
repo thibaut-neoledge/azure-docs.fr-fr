@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/29/2015"
+   ms.date="07/08/2015"
    ms.author="juliako"/>
 
 
@@ -103,4 +103,4 @@ Le compte de stockage Diagnostics peut désormais être spécifié dans le fichi
 	Si vous rencontrez toujours les problèmes ci-dessus, installez la dernière version du SDK Azure 2.6 pour [Visual Studio 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) ou [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

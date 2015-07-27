@@ -37,4 +37,4 @@ Dans cette section, vous allez ajouter à votre annuaire deux nouveaux utilisate
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

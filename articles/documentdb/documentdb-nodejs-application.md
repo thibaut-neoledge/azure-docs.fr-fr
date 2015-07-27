@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Création d&#39;une application web Node.js avec DocumentDB | Azure" 
-	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d&#39;une application web Node.js Express hébergée sur Azure Websites." 
+	pageTitle="Création d'une application web Node.js avec DocumentDB | Azure" 
+	description="Apprenez à utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d'une application web Node.js Express hébergée sur Azure Websites." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -93,7 +93,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
 
 	![Capture d'écran de l'onglet package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
+       Ce code indique à Node (et à Azure ultérieurement) que votre application dépend de ces modules supplémentaires.
 
 ## <a name="_Toc395783180"></a>Étape 4 : utilisation du service DocumentDB dans une application Node
 
@@ -176,8 +176,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut.
-> Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection prend un paramètre facultatif requestOptions qui permet de spécifier le type d'offre de la collection. Si aucune valeur requestOptions.offerType n'est fournie, alors la collection est créée à l'aide du type d'offre par défaut. Pour plus d'informations sur les types d'offre DocumentDB, reportez-vous aux [Niveaux de performances dans DocumentDB](documentdb-performance-levels.md)
 		
 3. Enregistrez et fermez le fichier **docdbUtils.js**.
 
@@ -390,7 +389,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = config;
 
-3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
+3. Dans le fichier **config.js**, mettez à jour les valeurs des paramètres HOST et AUTH_KEY avec les valeurs trouvées dans le panneau Clés de votre compte DocumentDB, dans le [portail Microsoft Azure en version préliminaire](http://portal.azure.com) :
 
 4. Enregistrez et fermez le fichier **config.js**.
  
@@ -424,7 +423,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l'aide des valeurs lues dans **config.js**), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**. 
+6. Ces lignes définissent une nouvelle instance de notre objet **TaskDao**, avec une nouvelle connexion à DocumentDB (à l'aide des valeurs lues dans **config.js**), initialisent l'objet Task et relient les actions de formulaire à des méthodes dans notre contrôleur **TaskList**.
 
 7. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
  
@@ -451,8 +450,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 
 
-	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu.
-	Enregistrez et fermez ce fichier **layout.jade**.
+	Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. Enregistrez et fermez ce fichier **layout.jade**.
 
 4. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
@@ -496,9 +494,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 	Ce code étend la mise en page et fournit du contenu pour l'espace réservé **content** que nous avons vu plus haut dans le fichier **layout.jade**.
 	
-	Dans cette mise en page, nous avons créé deux fichiers HTML. 
-	Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **completetask** de notre contrôleur.
-	Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **addtask** de notre contrôleur.
+	Dans cette mise en page, nous avons créé deux fichiers HTML. Le premier formulaire contient un tableau pour nos données et un bouton qui permet de mettre à jour des éléments en appelant la méthode **/completetask** de notre contrôleur. Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet de créer un élément en appelant la méthode **/addtask** de notre contrôleur.
 	
 	Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
@@ -559,8 +555,8 @@ Félicitations ! Vous venez de créer votre première application web Express N
 
 Vous pouvez télécharger le code source de l'application de référence complète [ici](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
-
-<!--HONumber=52-->
+  [Node.js]: http://nodejs.org/
+  [Git]: http://git-scm.com/
  
+
+<!---HONumber=July15_HO3-->

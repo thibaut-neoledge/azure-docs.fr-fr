@@ -69,4 +69,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Prise en main de votre application mobile]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

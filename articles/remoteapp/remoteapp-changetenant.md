@@ -3,7 +3,7 @@
     pageTitle="Modification du client Azure Active Directory dans Azure RemoteApp"
     description="Apprenez à modifier le client Azure Active Directory associé à Azure RemoteApp"
     services="remoteapp"
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -48,4 +48,4 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 
 Vous pouvez à présent utiliser le client Azure AD pour contrôler l’accès à l’abonnement Azure et configurer l’accès utilisateur dans Azure RemoteApp.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

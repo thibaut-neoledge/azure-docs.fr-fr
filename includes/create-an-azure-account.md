@@ -18,4 +18,4 @@ Vous avez besoin d’un compte Azure pour y déployer des applications. Cet arti
 [2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
 [3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

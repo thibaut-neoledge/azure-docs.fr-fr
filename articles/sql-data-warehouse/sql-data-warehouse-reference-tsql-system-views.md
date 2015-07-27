@@ -258,16 +258,16 @@ Voici des liens vers les vues du schéma d'informations SQL Server disponibles 
 - [VIEWS (Transact-SQL)](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Étapes suivantes
-Pour plus d'informations, consultez la [vue d'ensemble de référence de SQL Data Warehouse][].
+Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL Data Warehouse][].
 
 <!--Image references-->
 
 <!--Article references-->
-[vue d'ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
+[vue d’ensemble de référence de SQL Data Warehouse]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

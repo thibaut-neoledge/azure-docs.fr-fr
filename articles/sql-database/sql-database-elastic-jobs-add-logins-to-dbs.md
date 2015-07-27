@@ -1,9 +1,7 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Ajout d'utilisateurs à un pool élastique de bases de données" 
-	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" 
-	metaKeywords="azure sql database elastic databases credentials" 
-	services="sql-database" documentationCenter=""  
+	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -16,9 +14,9 @@
 	ms.date="04/20/2015" 
 	ms.author="sidneyh" />
 
-# Ajout d'utilisateurs au pool élastique de bases de données
+# Ajout d’utilisateurs à un pool de base de données élastique
 
-Les tâches de bases de données élastiques vous permettent d'exécuter le même script sur chaque base de données d'un [pool élastique de bases de données](sql-database-elastic-pool.md). Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+Les **tâches de bases de données élastiques** vous permettent d’exécuter un même script dans chaque base de données d’un [pool de base de données élastique](sql-database-elastic-pool.md). Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Composants requis
 * [Créer un pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool-portal.md)
@@ -38,7 +36,7 @@ Les tâches de bases de données élastiques vous permettent d'exécuter le mêm
 
 ## Étapes suivantes
 
-Exécutez une tâche sur le pool de bases de données. Voir [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md).
+Exécuter une tâche dans le pool de base de données élastique. Voir [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -46,4 +44,4 @@ Exécutez une tâche sur le pool de bases de données. Voir [Création et gestio
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

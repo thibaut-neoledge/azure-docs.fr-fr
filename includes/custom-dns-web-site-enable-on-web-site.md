@@ -24,4 +24,4 @@ Une fois la propagation des enregistrements de votre nom de domaine terminée, v
 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -142,4 +142,4 @@ Notez que ce changement affecte également les méthodes substituées.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

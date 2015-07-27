@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Analyse des performances d’une application" 
+	pageTitle="Surveillance des performances d'application web Azure" 
 	description="Graphique de charge et de temps de réponse, informations de dépendance et alertes sur les performances." 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# Analyse des performances d’une application
+# Surveillance des performances d'application web Azure
 
-Dans le [portail Azure](http://portal.azure.com), vous pouvez configurer l’analyse pour collecter des statistiques et des détails sur les dépendances de l’application dans vos applications web ou vos machines virtuelles.
+Dans le [portail Azure](http://portal.azure.com), vous pouvez configurer l’analyse pour collecter des statistiques et des détails sur les dépendances de l’application dans vos [applications web Azure](../app-service-web/app-service-web-overview.md) ou vos [machines virtuelles](../virtual-machines/virtual-machines-about.md).
 
 Azure prend en charge l’Analyse des performances des applications (*APM*) en tirant parti des *extensions*. Ces dernières sont installées dans votre application et collectent les données qu’elles renvoient aux services d’analyse.
+
+Application Insights et New Relic sont deux des extensions de surveillance des performances disponibles. Pour utiliser New Relic, vous installez un agent lors de l'exécution. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK), et vous pouvez également installer une extension qui fournit l'accès aux données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
 
 ## Activation d’une extension
 
 1. Cliquez sur **Parcourir** et sélectionnez l’application web ou la machine virtuelle que vous souhaitez instrumenter.
 
-2. Cliquez sur la vignette **Analyse des applications** sous **Analyse**.
+2. Ajoutez l’extension Application Insights ou New Relic. Si vous instrumentez une application web :
 
-3. Choisissez le fournisseur d’extensions que vous souhaitez utiliser, par exemple **Application Insights** ou **New Relic**.
-
-![Analyse des performances des applications web](./media/insights-perf-analytics/05-extend.png)
+![Paramètres, Extensions, Ajouter, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 Ou, si vous utilisez une machine virtuelle :
 
-![Machine virtuelle](./media/insights-perf-analytics/10-vm1.png)
+![Cliquez sur la vignette Analyse](./media/insights-perf-analytics/10-vm1.png)
 
 ### Pour Application Insights : régénérez avec le Kit de développement logiciel (SDK)
 
-New Relic peut être installé automatiquement sans aucune instrumentation supplémentaire, mais Application Insights a d’autres exigences.
+Application Insights fonctionne en installant un SDK dans votre application.
 
 Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet.
 
@@ -81,4 +81,4 @@ Une fois que vous arrivez sur le panneau, pour Application Insights par exemple,
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

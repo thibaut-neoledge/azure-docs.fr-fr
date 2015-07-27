@@ -43,8 +43,8 @@ Vous utilisez le panneau **Application API** pour les tâches suivantes :
 - Configurer la stratégie de mise à jour : cliquez sur **Paramètres > Paramètres de l’application**. La valeur par défaut est **Activé**. Cela signifie que quand une nouvelle version de l’application API est publiée sur le Marketplace, votre application API sera automatiquement mise à jour vers la nouvelle version, s’il s’agit d’une modification sans rupture.  
 - Configurer l’authentification pour les appels sortants depuis l’application API : cliquez sur **Paramètres > Authentification**. Si l’application API effectue des appels à un service externe qui requiert une authentification, les valeurs de configuration requises sont entrées ici. Par exemple, un connecteur Dropbox requiert un ID de client et une question secrète du client pour accéder au service Dropbox.
 - Configurer [RBAC](../role-based-access-control-configure.md) : cliquez sur **Paramètres > Utilisateurs**. L’accès utilisateur que vous configurez ici détermine seulement qui peut accéder aux fonctionnalités spécifiques à une application API. Pour configurer RBAC pour les fonctionnalités de l’application web, utilisez le panneau **Hôte d’application API**. Vous voudrez normalement conserver les paramètres RBAC pour l’application API et pour l’hôte d’application API synchronisés. Si vous donnez à un utilisateur l’accès à l’application API, mais pas à l’hôte d’application API, il ne pourra pas utiliser les fonctionnalités présentes sur le panneau **Application API** qui appartiennent en fait à l’hôte d’application API.
-- Afficher la définition de l’API : cliquez sur **Définition d’API** dans la section **Résumé** pour afficher la liste des méthodes exposées par l’**Application API**.
-- [Installer le Gestionnaire de connexions hybrides](](../app-service-logic/app-service-logic-hybrid-connection-manager.md). (Cela s’applique aux applications API de connecteur intégrées). Le Gestionnaire de connexion hybride vous donne la possibilité de vous connecter à un système SQL Server ou SAP local. Cette connectivité hybride utilise Microsoft Azure Service Bus pour effectuer la connexion et le contrôle de la sécurité entre vos ressources Microsoft Azure et vos ressources locales.
+- Afficher la définition de l’API : cliquez sur **Définition d’API** dans la section **Résumé** pour afficher la liste des méthodes exposées par l’application API.
+- [Installer le Gestionnaire de connexion hybride](../app-service-logic/app-service-logic-hybrid-connection-manager.md). Le Gestionnaire de connexion hybride vous donne la possibilité de vous connecter à un système SQL Server ou SAP local. Cette connectivité hybride utilise Microsoft Azure Service Bus pour effectuer la connexion et le contrôle de la sécurité entre vos ressources Microsoft Azure et vos ressources locales.
 
 ### Tâches que vous pouvez effectuer sur les panneaux Application API et Hôte d’application API 
 
@@ -130,8 +130,8 @@ Pour accéder à une application API dans l’Explorateur de serveurs, cliquez 
 
 ## Étapes suivantes
 
-Cet article vous a montré comment utiliser le portail Azure pour gérer des applications API.
+Cet article vous a montré comment utiliser le portail Azure pour effectuer des tâches de gestion d’application API. Pour les applications API que vous installez à partir de la galerie d’applications API, consultez également la page [Gestion et contrôle de vos connecteurs et applications API intégrés](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Pour en savoir plus sur la gestion des applications API via la ligne de commande, consultez les articles de la section **Automatiser** du menu affiché à gauche de l’article (sur les fenêtres de navigation agrandies) ou sur sa partie supérieure (sur les fenêtres de navigation réduites).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -229,4 +229,4 @@ Créez un contexte de serveur en utilisant le paramètre **New-AzureSqlDatabaseS
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

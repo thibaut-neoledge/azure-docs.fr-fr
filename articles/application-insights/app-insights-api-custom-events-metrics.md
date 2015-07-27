@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # API Application Insights pour les événements et les mesures personnalisés 
@@ -35,6 +35,7 @@ Méthode | Utilisé pour
 [`TrackException`](#track-exception)|Exceptions de journal pour des diagnostics. Effectuez un suivi lorsqu’ils se produisent par rapport à d’autres événements et examinez les arborescences des appels de procédure.
 [`TrackRequest`](#track-request)| Notez la fréquence et la durée des requêtes du serveur pour l’analyse des performances.
 [`TrackTrace`](#track-trace)|Messages du journal de diagnostic Vous pouvez également capturer des journaux tiers.
+[`TrackDependency`](#track-dependency)|Consignez la durée et la fréquence des appels vers les composants externes dont dépend votre application.
 
 Vous pouvez [associer des propriétés et des mesures](#properties) à la plupart de ces appels de télémétrie.
 
@@ -231,6 +232,7 @@ Si cela est plus pratique, vous pouvez collecter les paramètres d'un événemen
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> Événements de durée
 
 Vous avez parfois besoin d’obtenir une représentation graphique de la durée nécessaire à la réalisation d’une action. Par exemple, vous souhaitez savoir de combien de temps les utilisateurs ont besoin pour évaluer leurs choix dans un jeu. Il s'agit d'un exemple intéressant de l'utilisation du paramètre de mesure.
@@ -367,7 +369,7 @@ Vous pouvez également l'appeler vous-même si vous souhaitez simuler des requê
 
 ## Suivi des exceptions
 
-Envoyez des exceptions à Application Insights : pour [les compter][metrics] comme indication de la fréquence d'un problème, et pour [examiner des occurrences individuelles][diagnostic].
+Envoyez des exceptions à Application Insights : pour [les compter][metrics] comme indication de la fréquence d'un problème, et pour [examiner des occurrences individuelles][diagnostic]. Les rapports incluent des arborescences des appels de procédure.
 
 *C#*
 
@@ -397,6 +399,30 @@ Utilisez ceci pour diagnostiquer des problèmes en envoyant une « piste de nav
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 La limite de taille sur `message` est plus importante que la limite des propriétés. Vous pouvez effectuer une recherche dans le contenu du message, mais (contrairement aux valeurs de propriété), vous ne pouvez pas les filtrer.
+
+## Suivi des dépendances
+
+Le module de suivi des dépendances standard utilise cette API pour consigner les appels vers des dépendances externes, telles que des bases de données ou des API REST. Le module détecte automatiquement des dépendances externes, mais vous souhaiterez peut-être traiter d’autres composants de la même façon.
+
+Par exemple, si vous générez votre code avec un assembly que vous n'avez pas écrit vous-même, vous pouvez diriger tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Pour désactiver le module de suivi des dépendances standard, modifiez [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) et supprimez la référence à `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Définir les paramètres par défaut de la télémétrie personnalisée sélectionnée
 
@@ -432,6 +458,7 @@ Si vous souhaitez simplement définir des valeurs de propriété par défaut pou
     gameTelemetry.TrackEvent("WinGame");
     
 Les appels de télémétrie individuels peuvent remplacer les valeurs par défaut dans leurs dictionnaires de propriété.
+
 
 
 
@@ -692,6 +719,9 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
 * **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
 
+
+
+
 ## Limites
 
 Il existe certaines limites au nombre de mesures et d’événements par application.
@@ -704,6 +734,7 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 * *Q : combien de temps sont conservées les données ?*
 
     Consultez [Rétention de données et confidentialité][data].
+
 
 ## Documents de référence
 
@@ -747,4 +778,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -81,4 +81,4 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

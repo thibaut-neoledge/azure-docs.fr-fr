@@ -66,7 +66,7 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 ### Préparer le stockage d'objets blob Azure et la base de données SQL Azure pour le didacticiel
 À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :
 
-1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStarted** sur votre disque dur.
+1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\\ADFGetStarted** sur votre disque dur.
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@ Effectuez les actions suivantes :
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

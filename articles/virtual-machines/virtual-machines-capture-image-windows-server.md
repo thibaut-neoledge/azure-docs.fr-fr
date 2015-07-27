@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Capture de l’image d’une machine virtuelle exécutant Windows Server" 
-	description="Apprenez à capturer une image d’une machine virtuelle Azure exécutant Windows Server 2008 R2." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Capture de l’image d’une machine virtuelle exécutant Windows Server"
+	description="Apprenez à capturer une image d’une machine virtuelle Azure exécutant Windows Server 2008 R2."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/13/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/13/2015"
 	ms.author="kathydav"/>
 
-#Capture d’une machine virtuelle Windows pour l’utiliser comme modèle#
+#Capture d’une machine virtuelle Windows à utiliser comme modèle#
 
-Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows pour l’utiliser comme modèle afin de créer d’autres machines virtuelles. Ce modèle comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Il ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles utilisant le modèle.
+Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows pour l’utiliser comme modèle afin de créer d’autres machines virtuelles. Ce modèle contient le disque du système d’exploitation et tous les disques de données associés à la machine virtuelle. Il ne comprend pas la configuration réseau et vous devez donc la configurer au moment de créer d’autres machines virtuelles utilisant le modèle.
 
-Microsoft Azure traite ce modèle comme une image et le stocke sous **Mes Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
+Microsoft Azure traite ce modèle comme une image et le stocke sous **Mes Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir la section [À propos des images de machine virtuelle dans Azure][].
 
 ##Avant de commencer##
 
@@ -31,9 +31,9 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 ##Capture de la machine virtuelle##
 
-1. Connectez-vous à la machine virtuelle en cliquant sur **Connecter** dans la barre de commandes. Pour plus d'informations, consultez [Connexion à une machine virtuelle exécutant Windows Server][].
+1. Connectez-vous à la machine virtuelle en cliquant sur **Connecter** dans la barre de commandes. Pour plus d’informations, consultez la section [Connexion à une machine virtuelle exécutant Windows Server][].
 
-2.	Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
+2.	Ouvrez une fenêtre d'invite de commandes en tant qu'administrateur.
 
 
 3.	Accédez au répertoire `%windir%\system32\sysprep`, puis exécutez sysprep.exe.
@@ -50,7 +50,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	![Exécutez Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep arrête la machine virtuelle, ce qui définit l'état de la machine virtuelle dans le [portail de gestion](http://manage.windowsazure.com) sur **Arrêté**.
+7.	Sysprep arrête la machine virtuelle, ce qui modifie l’état de la machine virtuelle dans le [Portail Azure](http://manage.windowsazure.com) et lui attribue la valeur **Arrêté**.
 
 
 8.	Cliquez sur **Virtual Machines**, puis sélectionnez la machine virtuelle à capturer.
@@ -72,11 +72,10 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
  La nouvelle image est désormais disponible dans **Images**. ![Capture d'image réussie](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Étapes suivantes##
-L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Pour ce faire, vous créerez une machine virtuelle personalisée en utilisant la méthode **From Gallery** et en sélectionnant l'image que vous venez de créer. Pour obtenir des instructions, consultez le guide [Création d'une machine virtuelle personnalisée][].
+L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Pour ce faire, vous devez créer une machine virtuelle personnalisée en utilisant l’élément de menu **Depuis la galerie** et en sélectionnant l’image que vous venez de créer. Pour obtenir des instructions, consultez la section [Création d’une machine virtuelle personnalisée][].
 
-	
+
 [À propos des images de machine virtuelle dans Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[Création d'une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
 [Connexion à une machine virtuelle exécutant Windows Server]: http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
@@ -88,6 +87,5 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

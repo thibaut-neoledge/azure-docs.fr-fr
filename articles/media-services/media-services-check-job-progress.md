@@ -427,4 +427,4 @@ L’exemple ci-dessus produit le résultat suivant. Vos valeurs varieront.
 	
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

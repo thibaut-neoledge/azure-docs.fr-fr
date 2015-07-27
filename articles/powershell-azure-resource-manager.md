@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Utilisation d’Azure PowerShell avec Azure Resource Manager" 
 	description="Utilisez Azure PowerShell pour déployer plusieurs ressources sous la forme d’un groupe de ressources dans Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
@@ -47,11 +47,11 @@ Si vous utilisez Azure PowerShell, les applets de commande du module Azure sont 
 
 Pour activer le module AzureResoureManager, tapez :
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 Pour revenir au module Azure, tapez :
 
-    PS C:\> Switch-AzureMode -Name AzureServiceManagement
+    PS C:> Switch-AzureMode -Name AzureServiceManagement
 
 Par défaut, Switch-AzureMode affecte uniquement la session en cours. Pour rendre effectif ce basculement dans toutes les sessions PowerShell, utilisez le paramètre **Global** de Switch-AzureMode.
 
@@ -59,7 +59,7 @@ Pour obtenir de l’aide sur l’applet de commande Switch-AzureMode, tapez : `
   
 Pour obtenir une liste des cmdlets dans le module AzureResourceManager avec un résumé de la rubrique d'aide, tapez :
 
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
 
 Le résultat ressemble à l’extrait qui suit :
 
@@ -92,11 +92,11 @@ Il n’est pas nécessaire d’être un expert en matière d’Azure, de SQL, d�
 
 2. Utilisez la cmdlet **Switch-AzureMode** pour importer les cmdlets dans les modules AzureResourceManager et AzureProfile.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 3. Pour ajouter votre compte Azure à la session Windows PowerShell, utilisez la cmdlet **Add-AzureAccount**.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
 Les applets de commande vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, l’applet de commande télécharge vos paramètres de compte pour qu’ils soient reconnus par Windows PowerShell.
 
@@ -114,13 +114,13 @@ Pour visualiser tous les modèles de la galerie de modèles de groupe de ressour
 
 À l’invite PowerShell, tapez :
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
+    PS C:> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
 
 L’applet de commande renvoie une liste de modèles de la galerie présentant Microsoft comme éditeur. L'utilisation de la propriété **Identity** permet d'identifier le modèle dans les commandes.
 
 Le modèle Microsoft.WebSiteSQLDatabase.0.2.6-preview constitue une approche intéressante. Lorsque vous exécutez la commande, la version du modèle peut être légèrement différente, car une nouvelle version a été publiée. Utilisez la dernière version du modèle. Pour obtenir plus d’informations sur un modèle de la galerie, utilisez le paramètre **Identity**. La valeur du paramètre Identity est l'identité du modèle.
 
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
+    PS C:> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
 L’applet de commande renvoie un objet contenant des informations beaucoup plus détaillées sur le modèle, notamment un résumé et une description.
 
@@ -132,7 +132,7 @@ Enregistrons le modèle dans un fichier JSON sur le disque. Cette étape n'est p
 
 Save-AzureResourceGroupGalleryTemplate enregistre le modèle et renvoie un nom de fichier du fichier de modèle JSON.
 
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
+	PS C:> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
 
 	Path
 	----
@@ -234,7 +234,7 @@ Pour créer un groupe de ressources, utilisez la cmdlet **New-AzureResourceGroup
 
 La commande utilise le paramètre **Name** pour attribuer un nom au groupe de ressources et le paramètre **Location** pour indiquer son emplacement. Utilisez la sortie de **Get-AzureLocation** pour sélectionner un emplacement pour le groupe de ressources. Elle utilise le paramètre **GalleryTemplateIdentity** pour spécifier le modèle de la galerie.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
+	PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
             ....
 
 Dès que vous tapez le nom du modèle, New-AzureResourceGroup récupère le modèle, l'analyse et ajoute les paramètres du modèle à la commande de façon dynamique. Il est ainsi beaucoup plus facile de spécifier les valeurs des paramètres du modèle. En outre, si vous oubliez une valeur obligatoire, Windows PowerShell vous invite à spécifier cette valeur.
@@ -243,25 +243,25 @@ Dès que vous tapez le nom du modèle, New-AzureResourceGroup récupère le mod�
 
 Pour obtenir les paramètres, tapez un signe moins (-) pour indiquer un nom de paramètre, puis appuyez sur la touche de tabulation. Ou bien tapez les premières lettres d'un nom de paramètre tel que siteName, puis appuyez sur la touche de tabulation.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
 
 PowerShell complète le nom du paramètre. Pour parcourir les noms des paramètres, appuyez plusieurs fois sur la touche de tabulation.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
 
 Entrez un nom pour le site web et recommencez à appuyer sur la touche de tabulation pour chacun des paramètres. Les paramètres dotés d'une valeur par défaut sont facultatifs. Pour accepter la valeur par défaut, omettez le paramètre de la commande.
 
 Lorsqu'un paramètre du modèle est associé à une liste de valeurs, comme le paramètre sku dans ce modèle, appuyez sur la touche de tabulation pour parcourir les valeurs du paramètre.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
 
 Voici un exemple de commande New-AzureResourceGroup qui indique uniquement les paramètres du modèle requis et le paramètre courant **Verbose**. Notez que **administratorLoginPassword** est omis.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
+	PS C:> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
 
 Au moment d'entrer la commande, vous êtes invité à saisir le paramètre obligatoire manquant, **administratorLoginPassword**. Puis, lorsque vous tapez le mot de passe, la valeur de la chaîne sécurisée est masquée. Cette stratégie évite le risque de fournir un mot de passe en clair.
 
@@ -280,7 +280,7 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 
 - Pour obtenir tous les groupes de ressources de votre abonnement, utilisez l’applet de commande **Get-AzureResourceGroup** :
 
-		PS C:\>Get-AzureResourceGroup
+		PS C:>Get-AzureResourceGroup
 
 		ResourceGroupName : TestRG
 		Location          : eastasia
@@ -292,7 +292,7 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 
 - Pour obtenir les ressources du groupe de ressources, utilisez l’applet de commande **Get-AzureResource** et son paramètre ResourceGroupName. Sans paramètres, Get-AzureResource récupère l'ensemble des ressources de votre abonnement Azure.
 
-		PS C:\> Get-AzureResource -ResourceGroupName TestRG
+		PS C:> Get-AzureResource -ResourceGroupName TestRG
 		
 		ResourceGroupName : TestRG
 		Location          : eastasia
@@ -315,11 +315,11 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 
 - Pour ajouter une ressource au groupe de ressources, utilisez la cmdlet **New-AzureResourceGroup**. Cette commande ajoute un nouveau site web au groupe de ressources TestRG. Cette commande est un peu plus complexe, car elle n'utilise pas de modèle. 
 
-        PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
+        PS C:>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
 
 - Pour ajouter un nouveau déploiement basé sur un modèle au groupe de ressources, utilisez la commande **New-AzureResourceGroupDeployment**.
 
-		PS C:\>New-AzureResourceGroupDeployment ` 
+		PS C:>New-AzureResourceGroupDeployment ` 
 		-ResourceGroupName TestRG `
 		-GalleryTemplateIdentity Microsoft.WebSite.0.2.6-preview `
 		-siteName TestWeb2 `
@@ -328,9 +328,7 @@ Après avoir créé un groupe de ressources, vous pouvez utiliser les applets de
 
 ## Déplacer une ressource
 
-- Pour déplacer une ressource existante vers le groupe de ressources, utilisez la commande **Move-AzureResource**.
-
-		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+Vous pouvez déplacer des ressources existantes vers un nouveau groupe de ressources. Pour obtenir des exemples, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](resource-group-move-resources.md).
 
 ## Supprimer un groupe de ressources
 
@@ -399,4 +397,4 @@ Gestion et audit de l’accès
 - [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 - [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

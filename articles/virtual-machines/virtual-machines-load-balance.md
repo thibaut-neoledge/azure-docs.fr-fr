@@ -3,7 +3,7 @@
 	description="Décrit les deux types d’équilibrage de charge pris en charge par Azure : équilibrage de charge pour les services cloud et Azure Traffic Manager pour le trafic client." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="cherylmc" 
+	authors="joaoma" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
-	ms.author="cherylmc"/>
+	ms.date="06/16/2015" 
+	ms.author="joaoma"/>
 
 
 # Équilibrage de charge pour les services d’infrastructure Azure#
@@ -36,7 +36,7 @@ Azure Traffic Manager utilise trois méthodes d’équilibrage de charge pour 
 - **Performances** : utilisez cette méthode lorsque vos points de terminaison se trouvent à des emplacements géographiques différents et que vous souhaitez que les clients à l’origine des demandes utilisent le point de terminaison « le plus proche » (latence la plus faible).
 - **Tourniquet (round robin)** : utilisez cette méthode si vous souhaitez répartir la charge sur un ensemble de services cloud situés dans le même centre de données ou sur des services cloud ou des sites Web figurant dans différents centres de données.
 
-Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Pour plus d'informations, consultez la page [À propos des méthodes d'équilibrage de charge dans Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 La figure suivante présente un exemple d’équilibrage de charge Tourniquet utilisé pour répartir le trafic entre différents services cloud.
 
@@ -49,7 +49,7 @@ Cela se déroule généralement de la manière suivante :
 3.	Traffic Manager choisit le service cloud suivant dans la liste du tourniquet et renvoie le nom DNS. Le serveur DNS du client Internet résout le nom en adresse IP et l’envoie au client Internet.
 4.	Le client Internet se connecte au service cloud choisi par Traffic Manager.
 
-Pour plus d'informations, consultez la rubrique [Traffic Manager](http://msdn.microsoft.com/library/azure/hh745750.aspx).
+Pour plus d'informations, consultez la rubrique [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
 ## Équilibrage de charge Azure pour des machines virtuelles ##
 
@@ -61,7 +61,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 ![loadbalancing](./media/virtual-machines-load-balance/LoadBalancing.png)
 
-Pour plus d’informations, consultez la page [Équilibrage de charge Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Pour plus d’informations, consultez la page [Équilibrage de charge Azure](../load-balancer/load-balancer-overview.md). Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge](../load-balancer/load-balancer-internet-getstarted.md).
 
 Azure peut également équilibrer la charge au sein d’un service cloud ou réseau virtuel. On parle alors d'équilibrage de charge interne, que l'on peut utiliser comme suit :
 
@@ -77,10 +77,10 @@ La figure suivante présente un exemple de point de terminaison interne à charg
 
 ## Étapes suivantes
 
-Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Pour découvrir comment créer un jeu d'équilibrage de charge, consultez la page [Configurer un jeu d'équilibrage de charge interne](../load-balancer/load-balancer-internal-getstarted.md).
 
-Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](http://msdn.microsoft.com/library/azure/dn690121.aspx).
+Pour plus d’informations sur l’équilibrage de charge, voir l’article [Équilibrage de charge interne](../load-balancer/load-balancer-internal-overview.md).
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -77,4 +77,4 @@ Dans cet exemple, nous vous avons montré comment utiliser la même base de donn
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Créer une application mobile]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

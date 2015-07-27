@@ -92,4 +92,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

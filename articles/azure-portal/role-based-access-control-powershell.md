@@ -57,22 +57,22 @@ Consultez également les didacticiels suivants afin de vous familiariser avec la
 
 Comme le RBAC ne fonctionne qu'avec le gestionnaire de ressources Azure, la première chose à faire est de passer en mode Gestionnaire de ressources Azure ; entrez :
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 Pour plus d'informations, voir la section [Utilisation de Windows PowerShell avec le gestionnaire de ressources](../powershell-azure-resource-manager.md).
 
 Pour vous connecter à vos abonnements Azure, entrez :
 
-    PS C:\> Add-AzureAccount
+    PS C:> Add-AzureAccount
 
 Dans le contrôle contextuel de votre navigateur, entrez votre nom d'utilisateur et votre mot de passe Azure. PowerShell obtient tous vos abonnements inclus dans ce compte et configure le premier d'entre eux pour être utilisé par défaut. Notez que le RBAC vous permet uniquement d'obtenir les abonnements pour lesquels vous disposez d'autorisations en tant que coadministrateur ou détenteur de certains rôles pour cet abonnement.
 
 Si vous disposez de plusieurs abonnements et souhaitez changer d'abonnement, entrez :
 
     # This will show you the subscriptions under the account.
-    PS C:\> Get-AzureSubscription
+    PS C:> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
-    PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
+    PS C:> Select-AzureSubscription -SubscriptionName <subscription name>
 
 Pour plus d'informations, consultez la section [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md).
 
@@ -80,7 +80,7 @@ Pour plus d'informations, consultez la section [Installation et configuration d'
 
 Voyons maintenant quelles affectations de rôles existent déjà dans l'abonnement. Type :
 
-    PS C:\> Get-AzureRoleAssignment
+    PS C:> Get-AzureRoleAssignment
 
 Cela renverra toutes les affectations de rôles dans l'abonnement. Deux points à noter :
 
@@ -89,7 +89,7 @@ Cela renverra toutes les affectations de rôles dans l'abonnement. Deux points �
 
 Vous pouvez également contrôler les affectations de rôles existantes pour une définition de rôle spécifique, avec une étendue spécifique, pour un utilisateur spécifique. Type :
 
-    PS C:\> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
+    PS C:> Get-AzureRoleAssignment -ResourceGroupName group1 -Mail <user email> -RoleDefinitionName Owner
 
 Cela renverra toutes les affectations de rôles pour un utilisateur spécifique dans votre locataire AD, qui dispose d'une affectation de rôle « Propriétaire » pour le groupe de ressources « group1 ». L'affectation de rôle peut avoir deux origines :
 
@@ -104,48 +104,48 @@ Pour créer une affectation de rôle, vous devez réfléchir aux éléments suiv
 
 Les utilisateurs auxquels vous voulez affecter le rôle : vous pouvez utiliser les applets de commande Azure Active Directory suivantes pour afficher les utilisateurs, groupes et principaux de service figurant dans votre locataire AD.
 
-    PS C:\> Get-AzureADUser
-	PS C:\> Get-AzureADGroup
-	PS C:\> Get-AzureADGroupMember
-	PS C:\> Get-AzureADServicePrincipal
+    PS C:> Get-AzureADUser
+	PS C:> Get-AzureADGroup
+	PS C:> Get-AzureADGroupMember
+	PS C:> Get-AzureADServicePrincipal
 
 Quel rôle vous souhaitez affecter : vous pouvez utiliser l'applet de commande suivante pour afficher les définitions de rôles prises en charge.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:> Get-AzureRoleDefinition
 
 L'étendue à laquelle s'applique l'affectation : il existe trois niveaux d'étendue
 
     - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+    - A resource group, to get a list of resource groups, type `PS C:> Get-AzureResourceGroup`
+    - A resource, to get a list of resources, type `PS C:> Get-AzureResource`
 
 Ensuite, utilisez `New-AzureRoleAssignment` pour créer une affectation de rôle. Par exemple :
 
 
 Cela créera une affectation de rôle au niveau de l'abonnement actuel pour un utilisateur en tant que lecteur.
 
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
+	 PS C:> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
 Cela créera une affectation de rôle au niveau d'un groupe de ressources.
 
-	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
+	PS C:> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
 Cela créera une affectation de rôle pour un groupe au niveau d'un groupe de ressources.
 
-	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
+	PS C:> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
 Cela créera une affectation de rôle au niveau d'une ressource.
 
-	PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
+	PS C:> $resources = Get-AzureResource
+    PS C:> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
 ## Vérification des autorisations
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant
 
-    PS C:\> Get-AzureResourceGroup
-    PS C:\> Get-AzureResource
+    PS C:> Get-AzureResourceGroup
+    PS C:> Get-AzureResource
 
 Ces deux applets de commande renverront uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation de lecture. Elles affichent également les autorisations dont vous disposez.
 
@@ -165,4 +165,4 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

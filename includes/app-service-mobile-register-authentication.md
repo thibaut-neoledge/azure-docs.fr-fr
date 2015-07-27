@@ -23,4 +23,4 @@ Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre applicatio
 <!-- URLs. -->
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

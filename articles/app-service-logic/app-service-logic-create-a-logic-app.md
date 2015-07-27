@@ -172,4 +172,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

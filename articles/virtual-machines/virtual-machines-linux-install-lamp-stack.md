@@ -125,4 +125,4 @@ Il existe de nombreuses autres ressources pour configurer une pile LAMP sur Ubun
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

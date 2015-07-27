@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -38,7 +38,7 @@ Voici un exemple d’une application métier exécutée sur App Service Web Apps
 
 Apportez vos ressources web existantes dans App Service Web Apps à partir d’une variété de langages et d’infrastructures.
 
-Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Sécuriser vos ressources
 
@@ -124,4 +124,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,8 +1,6 @@
 <properties 
-	title="" 
 	pageTitle="Comment choisir les algorithmes d'apprentissage automatique | Microsoft Azure" 
 	description="Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression." 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -264,4 +262,4 @@ Voir aussi :
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser le module New Relic pour analyser votre service mobile." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@ Ensuite, vous allez activer la surveillance New Relic de votre service mobile d
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

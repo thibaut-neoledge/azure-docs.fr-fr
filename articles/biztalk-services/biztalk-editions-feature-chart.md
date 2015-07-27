@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="03/03/2015"
+	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
@@ -229,7 +229,7 @@ Le coût de connexion hybride par unité dépend de l'édition de BizTalk Servic
 
 #### Lorsque je crée un contrat dans BizTalk Services, pourquoi y-a-t-il deux ponts au lieu d'un ?
 
-Chaque contrat comprend deux ponts différents : un pont de communication pour l'envoi, et un autre pour la réception.
+Chaque contrat comprend deux ponts différents : un pont de communication pour l'envoi, et un autre pour la réception.
 
 ####  Que se passe-t-il si j'atteins le nombre de ponts ou de contrats maximum ?
 
@@ -237,7 +237,7 @@ Vous ne pourrez plus déployer d'autres ponts ou créer d'autres contrats. Pour 
 
 #### Comment migrer d'un niveau de BizTalk Services à un autre ?
 
-Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Pour plus d'informations sur les chemins de migration pris en charge, consultez la page [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873).
+Utilisez le flux de sauvegarde et de restauration pour migrer d'un niveau à un autre. Seuls certains chemins de migration sont pris en charge. Pour plus d'informations sur les chemins de migration pris en charge, consultez la page [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md).
 
 #### Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
 
@@ -245,16 +245,16 @@ Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vou
 
 ## Suivant
 
-Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : approvisionnement à l’aide du portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à [BizTalk Services : approvisionnement à l’aide du portail de gestion Azure](biztalk-provision-services.md). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Voir aussi
-- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Limitation BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+- [Approvisionnement de BizTalk Services avec le portail de gestion Azure](biztalk-provision-services.md)<br/>
+- [Tableau comparatif des états d'approvisionnement BizTalk Services](biztalk-service-state-chart.md)<br/>
+- [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+- [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md)<br/>
+- [Limitation BizTalk Services](biztalk-throttling-thresholds.md)<br/>
+- [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335) <br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

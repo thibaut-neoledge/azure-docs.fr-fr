@@ -317,4 +317,4 @@ Les tâches en arrière-plan doivent offrir des performances suffisantes pour é
 - [Files d’attente Azure et files d’attente Service Bus - comparaison et différences](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Procédure : activer les diagnostics dans un service cloud](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

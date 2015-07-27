@@ -159,10 +159,14 @@ Nous vous recommandons de passer en revue le didacticiel [Prise en main d'Azure 
 		               "timeout":"02:00:00"
 		            }
 		         }
-		        ]
+		        ],
+
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z"
 		    }
 		}
 
+	Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez pas de valeur pour la propriété **end**, elle est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ## Paramètres de service web
 Vous pouvez utiliser les paramètres de service web qui sont exposés par un service web Azure Machine Learning publié dans les pipelines Azure Data Factory (ADF). Vous pouvez créer une expérience dans Azure Machine Learning et la publier sous la forme d'un service web, puis utiliser ce service web dans plusieurs pipelines ou activités ADF, en transmettant différentes entrées via les paramètres de service web.
@@ -182,7 +186,7 @@ Vous pouvez également utiliser les [fonctions de Data Factory](https://msdn.mic
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -298,7 +302,7 @@ Dans l'exemple JSON ci-dessus :
 - Les paramètres de l'enregistreur (ceux avec le suffixe « 1 ») ne sont pas remplis automatiquement par le service Data Factory. Par conséquent, vous devez spécifier les valeurs de ces paramètres dans la section **webServiceParameters** du script JSON de l'activité.  
 - **CustID**, **Scored Labels** et **Scored Probabilities** sont enregistrés sous forme de colonnes séparées par des virgules. 
 - Dans cet exemple, **Data table name** correspond à une table dans la base de données de sortie.
-- Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel. Si vous ne spécifiez pas de valeur pour la propriété **end**, elle est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Les dates/heures de **début** et de **fin** doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de **fin** est facultative. Si vous ne spécifiez pas de valeur pour la propriété **end**, elle est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9999-09-09** comme valeur pour la propriété **end**. Pour en savoir plus sur les propriétés JSON, voir [Référence de script JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -324,4 +328,4 @@ Article | Description
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

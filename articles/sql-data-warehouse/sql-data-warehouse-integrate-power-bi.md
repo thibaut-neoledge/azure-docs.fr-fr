@@ -52,7 +52,7 @@ Outre l’utilisation du bouton Open in Power BI, les utilisateurs peuvent se c
 Le nom de serveur complet et le nom de base de données sont spécifiés dans le portail Azure. Notez que pour l’instant, SQL Data Warehouse est uniquement présent dans le portail Azure en version préliminaire.
 
 ## Étapes suivantes
-Pour découvrir une vue d’ensemble de l’intégration, voir [Vue d’ensemble sur l’intégration de SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][].
+Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique [Vue d’ensemble sur l’intégration de SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][].
 
 <!--Image references-->
 
@@ -64,4 +64,4 @@ Pour découvrir une vue d’ensemble de l’intégration, voir [Vue d’ensemble
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

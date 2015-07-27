@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Livre blanc DocumentDB, par David Chappell | Azure" 
+	pageTitle="Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure | Azure" 
 	description="Téléchargez un livre blanc rédigé par David Chappell sur DocumentDB, une base de données NoSQL gérée sur Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# Livre blanc DocumentDB, par David Chappell 
+# Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure 
 
-**Résumé** : découvrez DocumentDB, une base de données NoSQL gérée sur Microsoft Azure. DocumentDB est un choix de technologie de base de données idéal dans les cas suivants :
+Vous n’êtes pas certain que DocumentDB soit adapté à votre application ou à vos données ? Vous souhaitez découvrir comment les données JSON sont stockées et accessibles dans DocumentDB ? Si tel est le cas, ce livre blanc d’introduction, rédigé par David Chappell, constitue un bon point de départ. Il explique comment vous pouvez tirer parti de la flexibilité des données JSON sans schéma, vous permettant ainsi de gérer sans effort les modifications apportées à leur structure.
 
-* Vous désirez enrichir votre application d'un modèle de données sans schéma.
-* Votre base de données a besoin d'une mise à l'échelle pour un stockage et un débit volumineux.
-* Vous souhaitez utiliser un langage de requête et une plateforme de développement familiers.
+Ce livre blanc vous familiarise également avec les concepts suivants :
 
-Ce livre blanc couvre également les concepts fondamentaux suivants :
+ - utilisation du modèle de données DocumentDB pour stocker les données JSON dans des documents et des collections d’une base de données ; 
+ - utilisation des données à l’aide des bibliothèques clientes, des méthodes d’accès RESTful ou de SQL DocumentDB ; 
+ - exécution de la logique à partir de la base de données proprement dite en écrivant des procédures stockées (sprocs), des déclencheurs ou des fonctions définies par l’utilisateur (UDF) et en les stockant dans la collection ;
+ - choix d’une option de cohérence pour répondre aux besoins de fiabilité et de performance de votre application ;
+ - sélection d’une option de tarification en fonction de vos exigences de débit.
 
-* le modèle de données DocumentDB ;
-* l'utilisation des données par les applications ;
-* les options à disposition des applications pour équilibrer les performances de façon cohérente.
+**Téléchargement PDF :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
+ 
 
-
-**Date de publication** : 10 septembre 2014
-
-**Téléchargement** : [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,17 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. Dans **URL**, entrez le nom de votre compte de stockage. Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres. Pour en savoir plus sur l’utilisation de nom pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison de compte stockage](#storage-account-endpoints) ci-dessous.
+3. Dans **URL**, entrez le nom de votre compte de stockage.
+	
+	> [AZURE.NOTE]Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des chiffres.
+	>  
+	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail indique si le nom du compte de stockage sélectionné est déjà utilisé.
+
+	Pour en savoir plus sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints).
 
 4. Dans **Emplacement/Groupe d’affinités**, sélectionnez un emplacement pour votre compte de stockage qui soit proche de vous ou de vos clients. Si l’accès aux données de votre compte de stockage se fera à partir d’un autre service Azure, comme un service cloud ou une machine virtuelle Azure, vous pouvez sélectionner un groupe d’affinités dans la liste afin de regrouper votre compte de stockage dans le même centre de données que les autres services Azure que vous utilisez. Les performances en seront améliorées et les coûts réduits.
 
-	> [AZURE.NOTE]Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage ; vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités.
-
-	Pour plus d’informations sur les groupes d’affinités, consultez [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
+	Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage ; vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités. Pour plus d’informations sur les groupes d’affinités, consultez [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
 
 5. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage. Vous pouvez créer jusqu'à cinq comptes de stockage par abonnement.
 
@@ -163,4 +167,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

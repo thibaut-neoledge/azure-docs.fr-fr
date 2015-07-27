@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # Provisionner une application API avec une nouvelle passerelle
@@ -24,7 +24,7 @@ Pour en savoir plus sur la création de modèles, voir [Création de modèles Az
 
 Pour plus d'informations sur le déploiement d'applications, consultez la rubrique [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Pour accéder au modèle complet, consultez l’[application API avec le nouveau modèle de passerelle](../../templates/app-service-api-arm-new-gateway-provision/).
+Pour accéder au modèle complet, consultez l’[application API avec le nouveau modèle de passerelle](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json).
 
 ## Ce que vous allez déployer
 
@@ -34,9 +34,28 @@ Dans ce modèle, vous allez déployer les éléments suivants :
 - Nouvelle passerelle
 - Nouveau plan d’hébergement App Service
 
+Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
+
+[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)
+
 ## Paramètres
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+Paramètres du nouveau plan d’hébergement.
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
 ## Variables
 
@@ -72,7 +91,7 @@ Crée le plan d’hébergement du service pour l’application API.
 
 Crée une application web qui héberge la passerelle.
 
-Vous pouvez voir que le paramètre **kind** est défini sur **passerelle**, ce qui indique au portail Microsoft Azure que cette application web héberge une passerelle. Le portail masque l’application web du panneau de navigation de l’application web. Un lien est défini entre l’application d’hébergement et la passerelle. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API.
+Vous pouvez voir que le paramètre **kind** est défini sur **passerelle**, ce qui indique au portail Microsoft Azure que cette application web héberge une passerelle. Le portail masque l’application web du panneau de navigation des applications web. Un lien est défini entre l’application web d’hébergement et la passerelle. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API.
 
 
     {
@@ -159,7 +178,7 @@ L’application web d’hébergement est définie en tant que propriété de la
 
 Crée une application web qui héberge l’application API.
 
-Vous pouvez voir que le paramètre **kind** est défini sur **apiApp**, ce qui indique au portail Microsoft Azure que cette application web héberge une passerelle. Le portail masque l’application web du panneau de navigation de l’application web. L’application comprend une extension pour installer le package d’application API vide par défaut. Un lien est défini entre l’application API et l’application d’hébergement web. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API.
+Vous pouvez voir que le paramètre **kind** est défini sur **apiApp**, ce qui indique au portail Microsoft Azure que cette application web héberge une application API. Le portail masque l’application web du panneau de navigation des applications web. L’application comprend une extension pour installer le package d’application API vide par défaut. Un lien est défini entre l’application API et l’application d’hébergement web. La section Paramètres de l’application inclut les valeurs requises pour l’hébergement de l’application API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -272,13 +291,13 @@ Notez que les noms de la passerelle et de l’application web d’hébergement 
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Interface de ligne de commande Azure
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -154,4 +154,4 @@ La fonctionnalité Azure Web Apps vous permet d’ajouter un nombre de domaines
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

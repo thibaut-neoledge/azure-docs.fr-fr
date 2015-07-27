@@ -1,19 +1,19 @@
 <properties
    pageTitle="Présentation d’Azure Resource Manager"
    description="Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -67,6 +67,8 @@ Lorsque vous créez une solution à partir de Marketplace, cette solution inclut
 Pour finir, le modèle devient partie intégrante du code source de votre application. Vous pouvez l’archiver dans votre référentiel de code source et le mettre à jour à mesure que votre application évolue. Le modèle est modifiable par le biais de Visual Studio.
 
 Pour plus d’informations sur la définition du modèle, voir [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
+
+Pour les schémas de modèle, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
 Pour plus d’informations sur l’utilisation d’un modèle pour le déploiement, voir [Déployer une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md) et [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@ Création et déploiement d’applications
 - [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
 - [Fonctions des modèles de gestionnaire des ressources Azure](./resource-group-template-functions.md)
 - [Opérations de modèle avancées](./resource-group-advanced-template.md)
+- [Schémas de modèle](https://github.com/Azure/azure-resource-manager-schemas)
 
 Organisation des ressources
 
@@ -136,4 +139,4 @@ Gestion et audit de l’accès
 - [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 - [Création d’un nouveau principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -453,4 +453,4 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
   [How to: Programmatically access Table Storage]: #tablestorage
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

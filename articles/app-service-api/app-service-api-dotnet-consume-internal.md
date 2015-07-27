@@ -261,6 +261,8 @@ Le kit de développement logiciel (SDK) App Service dépend des définitions de
 Cet article vous a montré comment utiliser une application API interne à partir d’un client .NET. Pour plus d’informations sur l’utilisation d’applications API configurées pour des niveaux d’accès **Public (anonyme)** et **Public (authentifié)**, consultez l’article [Utiliser une application API à partir d’un client .NET dans Azure App Service](app-service-api-dotnet-consume.md).
 
 Pour d'autres exemples de code appelant une application API à partir de clients .NET, téléchargez l'exemple d'application [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
+
+Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

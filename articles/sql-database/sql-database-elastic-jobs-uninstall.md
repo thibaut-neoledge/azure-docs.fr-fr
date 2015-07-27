@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
-# Désinstaller les composants de tâches de bases de données élastiques
+# Comment désinstaller les composants de tâches de bases de données élastiques
 
-Si une défaillance se produit lorsque vous tentez d'installer le service de tâche de base de données élastique, supprimez le groupe de ressources pour le service.
+Si une défaillance se produit lorsque vous tentez d’installer le service de tâche de base de données élastique, supprimez le groupe de ressources du service.
 
 ## Pour installer les composants de service
 
@@ -50,12 +50,12 @@ Ou utilisez ce script PowerShell :
 
 ## Étapes suivantes
 
-Pour réinstaller les tâches de bases de données élastiques, voir [Installation du service de tâche de base de données élastique](sql-database-elastic-jobs-service-installation.md)
+Pour réinstaller les tâches de bases de données élastiques, consultez [Installation du service de tâche de base de données élastique](sql-database-elastic-jobs-service-installation.md).
 
-Pour une vue d'ensemble du service de tâche élastique, voir [Vue d'ensemble des tâches élastiques](sql-database-elastic-jobs-overview.md).
+Pour une présentation du service de tâche élastique, consultez [Vue d’ensemble des tâches élastiques](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

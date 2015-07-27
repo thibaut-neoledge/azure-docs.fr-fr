@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Connexion à une machine virtuelle exécutant Linux dans Azure" 
-	description="Apprenez à vous connecter à une machine virtuelle Azure exécutant Linux en utilisant un client SSH (Secure Shell)." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Connexion à une machine virtuelle exécutant Linux dans Azure"
+	description="Apprenez à vous connecter à une machine virtuelle Azure exécutant Linux en utilisant un client SSH (Secure Shell)."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@ Cette procédure montre comment utiliser le programme PuTTY pour accéder à la 
 	![Connexion à la machine virtuelle](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]L'extension VMAccess peut vous aider à réinitialiser la clé ou le mot de passe SSH en cas d'oubli. En cas d'oubli du nom d'utilisateur, vous pouvez utiliser l'extension pour en créer un nouveau, avec autorité sudo. Pour obtenir des instructions, consultez la rubrique [Réinitialisation d’un mot de passe ou SSH pour les machines virtuelles Linux].
-	
+
 Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez avec un serveur.
 
 <!-- LINKS -->
 [Réinitialisation d’un mot de passe ou SSH pour les machines virtuelles Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -73,4 +73,4 @@ Une application Azure AD a été créée dans le répertoire que vous avez séle
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

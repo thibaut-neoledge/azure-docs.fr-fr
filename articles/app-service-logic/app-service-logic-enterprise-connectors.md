@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Connecteurs d'entreprise dans Microsoft Azure App Service
+
+> [AZURE.NOTE]Cette rubrique va être supprimée. Reportez-vous à la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour connaître l’ensemble des connecteurs et applications API intégrés disponibles.
+
 Microsoft Azure App Service (ou App Service) comprend plusieurs connecteurs qui peuvent être utilisés avec des systèmes d'entreprise, tels que SAP et Marketo. Grâce à ces connecteurs, vous pouvez facilement vous connecter à un système d'entreprise et effectuer différentes tâches.
 
 Ces connecteurs d'entreprise offrent des fonctionnalités de « déclencheurs » ou d'« action ». Un déclencheur démarre une nouvelle instance en fonction d'un événement spécifique, telle que la mise à jour d'une entrée dans MongoDb. Une action est le résultat, par exemple, après la mise à jour d'une entrée de MongoDB, obtenir une entrée MongoDB.
@@ -152,6 +155,7 @@ Certains connecteurs d'entreprise utilisent la sécurité OAuth. Quand vous ajou
 
 
 ## Autres connecteurs
-[Connecteurs d’intégration BizTalk](app-service-logic-integration-connectors.md)<br/> [Connecteurs B2B](app-service-logic-b2b-connectors.md)<br/> [Connecteurs sociaux](app-service-logic-social-connectors.md)<br/> [Connecteurs de protocole](app-service-logic-protocol-connectors.md)<br/> [Connecteurs application + services de données](app-service-logic-data-connectors.md)<br/> [Liste des connecteurs et des applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

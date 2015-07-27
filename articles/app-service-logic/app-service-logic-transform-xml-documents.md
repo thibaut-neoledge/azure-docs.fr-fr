@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transformer des documents XML" 
+	pageTitle="Transformation BizTalk" 
 	description="Découvrez comment transformer des documents XML d'un schéma vers un autre." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformer des documents XML
+#Transformation BizTalk
 
 
-## Présentation de l'application API Transformation BizTalk
+## Vue d’ensemble
 L'application API Transformation BizTalk convertit des données d'un format vers un autre. Par exemple, vous pourriez prendre les adresses d'expédition et de facturation d'un bon de commande et les insérer dans un document de facturation. Ou vous pourriez avoir un message entrant qui contient la date du jour au format *AnnéeMoisJour*. Vous souhaitez remettre en forme la date au format *AnnéeMoisJour* .
 
 Vous pouvez pour cela utiliser l'application API Transformation BizTalk dans Microsoft Azure App Service. Une transformation ou un mappage est composé d'un schéma XML source (l'entrée) et d'un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
@@ -34,46 +34,12 @@ Les fonctionnalités supplémentaires sont les suivantes :
 - Lors de la création d'un mappage, sa représentation graphique est affichée, y compris toutes les relations et les liens que vous créez.
 - Utilisez la fonctionnalité **Tester le mappage** pour ajouter un exemple de message XML. Avec un simple clic, vous pouvez tester le mappage que vous avez créé et afficher la sortie générée.
 - Téléchargez des mappages Azure BizTalk Services existants (.trfm) et exploitez tous les avantages offerts par l'application API Transformation.
+- Lorsque vous créez le mappage, vous n’avez pas besoin d’ajouter un schéma. Lorsque votre mappage est prêt, ajoutez-le à l’application API Transformation. 
 - Comprend la prise en charge du format XML.
-
-
-## Créer une application API Transformation BizTalk
-
-1.	Connectez-vous au portail Azure et accédez au Tableau d'accueil (page d'accueil).
-
-2.	Sélectionnez **Nouveau** > **Web + Mobile** > **Azure Marketplace** > **API Apps** :
-
-	   ![][1]
- 
-	Vous pouvez également sélectionner **Marketplace** dans le Tableau d’accueil et sélectionner **Applications API** dans la liste disponible :
-
-	   ![][2]
- 
-3.	Accédez à Transformation BizTalk en tapant **Transformation** et en sélectionnant **Service de transformation BizTalk** :
-
-	   ![][4]
- 
-4.	Dans le panneau **Service de transformation BizTalk**, sélectionnez **Créer** :
-
-       ![][5]
- 
-5.	Dans le panneau **Nouvelle application API**, entrez les informations suivantes, puis sélectionnez **Créer** :
-
-	- Nom : donnez un nom à votre application API Transformation. 
-	- Plan App Service : sélectionnez ou créez un plan App Service. 
-	- Niveau de tarification : choisissez le niveau de tarification où doit résider cette application. 
-	- Groupe de ressources : sélectionnez ou créez le groupe de ressources où doit résider cette application. 
-	- Emplacement : choisissez l'emplacement géographique où vous souhaitez déployer l'application.
-	
-	   ![][6]
-
-6.	Sélectionnez **Créer**. Votre application API Transformation BizTalk est créée au bout de quelques minutes.
 
 
 ## Télécharger des schémas à partir d'applications API de connecteurs
 Vous pouvez télécharger les schémas XML pour des connecteurs tels que SQL, SAP et SharePoint à partir de la page de résumé de l'application API. Par exemple, si vous souhaitez télécharger des schémas XML pour une application API de connecteur SAP spécifique, accédez à l'application API et ouvrez la page de résumé. Sélectionnez **Télécharger les schémas** pour télécharger sur votre ordinateur un fichier zip contenant tous les schémas correspondant aux actions SAP. Vous pouvez utiliser les schémas pour créer un mappage (.trfm) dans Visual Studio.
-
-   ![][14]
 
 
 ## Créer et ajouter le mappage
@@ -109,7 +75,7 @@ Si le mappage change ou est modifié après son téléchargement, vous pouvez t�
 
 
 ## Utiliser une application API Transformation BizTalk dans une application logique
-Une fois le mappage créé et testé, il est prêt pour la consommation. Les utilisateurs peuvent créer une application logique (Nouveau > **Logic Apps**).
+Une fois le mappage créé et testé, il est prêt pour la consommation.
 
 1. Dans l'application logique, Transformation BizTalk est disponible dans la galerie à droite. Sélectionnez **Service de transformation BizTalk** dans la galerie. La transformation est ajoutée au flux :
 
@@ -150,4 +116,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation. Les uti
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -16,8 +16,8 @@
 </tr>
 </table>
 
-<sup>1</sup>Lors de la création d'une machine virtuelle en dehors d'un groupe de ressources Azure, un service cloud est automatiquement créé pour la contenir. Vous pouvez ensuite ajouter plusieurs machines virtuelles au même service cloud.
+<sup>1</sup>Les machines virtuelles créées dans la gestion des services (plutôt que dans Resource Manager) sont automatiquement stockées dans un service cloud. Vous pouvez ajouter plus de machines virtuelles à ce service cloud pour l’équilibrage de charge et la disponibilité. Voir [Connexion de machines virtuelles à un réseau virtuel ou un service cloud](../virtual-machines/cloud-services-connect-virtual-machine.md).
 
-<sup>2</sup>Les points de terminaison d'entrée permettent d'autoriser la communication vers des machines virtuelles externes au service cloud qui les contient. Les machines virtuelles dans le même service cloud autorisent automatiquement la communication entre tous les ports UDP et TCP pour la communication interne.
+<sup>2</sup>Les points de terminaison d’entrée autorisent les communications avec une machine virtuelle depuis l’extérieur du service cloud de la machine virtuelle. Les machines virtuelles d’un même service cloud ou réseau virtuel peuvent automatiquement communiquer entre elles. Voir [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

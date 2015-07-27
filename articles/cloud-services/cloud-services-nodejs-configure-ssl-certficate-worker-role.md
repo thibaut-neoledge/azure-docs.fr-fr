@@ -77,9 +77,9 @@ Le fichier **.pfx** contenant le certificat est ajouté à votre projet de servi
 
 Lorsqu'une application Node.js est déployée sur un rôle de travail, le certificat de serveur et de la connexion SSL sont gérés par Node.exe. Pour gérer le trafic SSL, vous devez utiliser le module ’https’ au lieu de ’http’. Procédez comme suit pour ajouter le certificat SSL à votre projet, puis modifiez l'application pour utiliser le certificat.
 
-1.   Enregistrez le fichier **.pfx** fourni par votre autorité de certification dans le répertoire contenant votre application. Par exemple, **c:\node\securesite\workerrole1** est le répertoire contenant l'application utilisée dans cet article.
+1.   Enregistrez le fichier **.pfx** fourni par votre autorité de certification dans le répertoire contenant votre application. Par exemple, **c:\\node\\securesite\\workerrole1** est le répertoire contenant l'application utilisée dans cet article.
 
-2.   Ouvrez le fichier **c:\node\securesite\workerrole1\server.js** en utilisant le Bloc-notes, puis remplacez le contenu du fichier par le code suivant :
+2.   Ouvrez le fichier **c:\\node\\securesite\\workerrole1\\server.js** en utilisant le Bloc-notes, puis remplacez le contenu du fichier par le code suivant :
 
 		var https = require('https');
 		var fs = require('fs');
@@ -173,4 +173,4 @@ Maintenant que votre déploiement est opérationnel dans Azure, vous pouvez vous
   
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

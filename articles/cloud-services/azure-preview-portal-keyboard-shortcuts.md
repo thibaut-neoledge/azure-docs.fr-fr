@@ -45,4 +45,4 @@
 Découvrez plus en détail le portail Azure : http://azure.microsoft.com.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

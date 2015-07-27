@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 
@@ -92,7 +93,7 @@ Pour plus d’informations sur la connexion à la machine virtuelle, consultez l
 Créez la machine virtuelle SQL Server à l'aide des options suivantes :
 
 - Créez une machine virtuelle SQL Server 2012 en suivant les étapes 1 à 7 ci-dessus à l’exception de l’étape 3, utilisez l’image SQL Server 2012 au lieu de l’image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page [Configuration d'une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
-	- Lorsque vous sélectionnez cette option, le processus de mise en service conserve une copie des fichiers de configuration SQL Server 2012 dans le répertoire C:\SQLServer_11.0_Full afin que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.
+	- Lorsque vous sélectionnez cette option, le processus de mise en service conserve une copie des fichiers de configuration SQL Server 2012 dans le répertoire C:\\SQLServer_11.0_Full afin que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.
 
 - Utilisez l'outil SQL Server System Preparation (SysPrep) pour installer SQL Server sur la machine virtuelle avec un système d'exploitation de base (comme indiqué ci-dessus aux étapes 1 à 7). Pour plus d'informations, consultez la page [Installation de SQL Server 2012 à l'aide de SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -106,7 +107,7 @@ Créez la batterie de serveurs SharePoint en procédant comme suit :
 
 Étape 2. mettez les serveurs SharePoint en service en créant une autre machine virtuelle avec un système d’exploitation de base (comme indiqué ci-dessus aux étapes 1 à 6). Pour créer un serveur SharePoint sur cette machine virtuelle, sélectionnez l’une des options suivantes :
 
-- Mise en service utilisant l'interface utilisateur graphique SharePoint :
+- Mise en service avec l’interface utilisateur graphique SharePoint :
 	- Pour créer et mettre en service une batterie de serveurs SharePoint, consultez la page [Création d'une batterie de serveurs SharePoint](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure).
 	- Pour ajouter un serveur Web ou d’applications à la batterie de serveurs, consultez la page [Ajouter un serveur Web ou d’applications à la batterie](http://technet.microsoft.com/library/cc261752.aspx).
 	- Pour ajouter un serveur de base de données à une batterie de serveurs existante, consultez la page [Ajout d'un serveur de base de données à une batterie de serveurs existante](http://technet.microsoft.com/library/cc262781).
@@ -274,14 +275,14 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
 ## Ressources supplémentaires
 
-[SharePoint sur Azure Virtual Machines](http://msdn.microsoft.com/library/dn275955.aspx)
+[Machines virtuelles SharePoint sur Azure](http://msdn.microsoft.com/library/dn275955.aspx)
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint intranet](virtual-machines-workload-intranet-sharepoint-farm)
+[Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Instructions de mise en œuvre des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

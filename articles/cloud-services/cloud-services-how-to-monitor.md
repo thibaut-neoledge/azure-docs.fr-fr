@@ -80,7 +80,7 @@ Vous pouvez recevoir des alertes en fonction des mesures de surveillance de votr
 
 1. Dans le [portail de gestion](http://manage.windowsazure.com/), ouvrez la page **Monitor** du service cloud.
 
-	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
+	Par défaut, la table des mesures affiche un sous-ensemble des mesures disponibles. Cette illustration présente les mesures détaillées par défaut d'un service cloud, qui sont limitées au compteur de performances Memory\\Available MBytes, avec les données consolidées au niveau du rôle. Utilisez **Add Metrics** pour sélectionner les données consolidées et les données au niveau du rôle à surveiller dans le portail de gestion.
 
 	![Affichage détaillé](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -124,7 +124,7 @@ Pour afficher les compteurs de performance personnalisés dans le portail, vous 
 2. Accédez au chemin d'accès de l'objet blob à l'aide du modèle **DeploymentId/RoleName/RoleInstance** pour trouver la configuration de votre instance de rôle. 
 
 	![Explorateur de stockage Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Téléchargez le fichier de configuration pour votre instance de rôle et mettez-le à jour pour inclure des compteurs de performance personnalisés. Par exemple, pour analyser l’*écriture sur le disque octet/s* pour le *lecteur C*, ajoutez le code suivant sous le nœud **PerformanceCounters\Subscriptions**
+3. Téléchargez le fichier de configuration pour votre instance de rôle et mettez-le à jour pour inclure des compteurs de performance personnalisés. Par exemple, pour analyser l’*écriture sur le disque octet/s* pour le *lecteur C*, ajoutez le code suivant sous le nœud **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@ Par exemple, les tables suivantes stockent les données de la surveillance déta
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

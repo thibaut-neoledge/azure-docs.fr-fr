@@ -23,7 +23,7 @@ Les objets blob qui bénéficient le plus de la mise en cache Azure CDN sont ceu
 Vous avez deux options pour contrôler la durée de vie.
 
 1.	Ne pas définir de valeurs de cache, donc utiliser la durée de vie par défaut de 7 jours. 
-2.	Définissez explicitement la propriété *x-ms-blob-cache-control* sur une demande **Put Blob**, **Put Block List** ou **Set Blob Properties** ou utilisez la bibliothèque managée Azure pour définir la propriété [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx). Le fait de définir cette propriété définit la valeur de l’en-tête *Cache-Control* pour l’objet blob. La valeur de l'en-tête ou de la propriété doit spécifier la valeur appropriée en secondes. Par exemple, pour définir la période maximale de mise en cache sur un an, vous pouvez spécifier l’en-tête de demande sous la forme `x-ms-blob-cache-control: public, max-age=31556926`. Pour plus d’informations sur la configuration des en-têtes de mise en cache, consultez la [spécification HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Définissez explicitement la propriété *x-ms-blob-cache-control* sur une demande **Put Blob**, **Put Block List** ou **Set Blob Properties** ou utilisez la bibliothèque managée Azure pour définir la propriété [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). Le fait de définir cette propriété définit la valeur de l’en-tête *Cache-Control* pour l’objet blob. La valeur de l'en-tête ou de la propriété doit spécifier la valeur appropriée en secondes. Par exemple, pour définir la période maximale de mise en cache sur un an, vous pouvez spécifier l’en-tête de demande sous la forme `x-ms-blob-cache-control: public, max-age=31556926`. Pour plus d’informations sur la configuration des en-têtes de mise en cache, consultez la [spécification HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Tout contenu que vous voulez mettre en cache via le CDN doit être stocké dans votre compte de stockage Azure en tant qu'objet blob accessible publiquement. Pour plus d’informations sur le service BLOB Azure, consultez la page **Concepts du service BLOB**.
 
@@ -96,4 +96,4 @@ Si vous le souhaitez, vous pouvez utiliser un outil comme **wget** ou Fiddler po
 
 [Comment gérer l’expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

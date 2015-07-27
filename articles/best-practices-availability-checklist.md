@@ -68,4 +68,4 @@
 - **Suivez la progression des longs workflows ** et réessayez en cas d’échec. Les longs workflows sont bien souvent composés de plusieurs étapes. Lorsque vous concevez ces types de workflows, veillez à ce que chaque étape soit indépendante et puisse faire l’objet d’une nouvelle tentative afin de réduire la probabilité du recours à la restauration de l’intégralité du workflow ou à l’exécution de plusieurs transactions de compensation. Surveillez et gérez la progression des longs workflows en implémentant un modèle tel que Scheduler Agent Supervisor. Pour en savoir plus, consultez la page consacrée au [modèle Scheduler Agent Supervisor](https://msdn.microsoft.com/library/dn589780.aspx) du site Web Microsoft.
 - **Plan de récupération d’urgence.** Assurez-vous de disposer d’un plan de récupération documenté, convenu et intégralement testé pour tout type de défaillance susceptible de rendre une partie ou l’intégralité du système indisponible. Éprouvez régulièrement les procédures afin de garantir que l’ensemble du personnel opérationnel maîtrise le processus.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

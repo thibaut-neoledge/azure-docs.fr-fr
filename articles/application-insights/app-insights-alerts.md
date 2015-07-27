@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Configuration d’alertes dans Application Insights
@@ -36,7 +36,7 @@ Pour obtenir un message électronique lorsqu’une métrique dépasse un seuil, 
 
 ![Dans le panneau Règles d’alerte, cliquez sur Ajouter une alerte. Définissez votre application comme ressource à mesurer, fournissez un nom pour l’alerte et sélectionnez une métrique.](./media/app-insights-alerts/01-set-metric.png)
 
-Définissez la ressource avant les autres propriétés. Ne choisissez pas les ressources de test web si vous souhaitez définir des alertes pour les métriques de performances ou d'utilisation.
+Définissez la ressource avant les autres propriétés. **Choisissez la ressource « (composants) »**si vous souhaitez définir des alertes sur les mesures de performances ou d'utilisation.
 
 Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
 
@@ -80,4 +80,4 @@ Les alertes les plus appréciées sont les suivantes :
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

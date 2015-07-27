@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser Azure CLI pour gérer le c
 
 ## Composants requis ##
 
-Avant d’utiliser Azure CLI pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
+Avant d’utiliser l’interface de ligne de commande Azure pour gérer le contrôle d’accès en fonction du rôle, vous devez disposer des composants suivants :
 
 - Azure CLI version 0.8.8 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure CLI](../xplat-cli.md).
 - Consultez également les didacticiels suivants afin de vous familiariser avec la configuration et l’utilisation d’Azure Resource Manager dans Azure CLI : [Utilisation d’Azure CLI avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
@@ -66,7 +66,7 @@ Pour plus d’informations, consultez la section [Installer et configurer Azure 
 
 ## <a id="check"></a>Vérifier les affectations de rôles existantes ##
 
-Voyons maintenant quelles affectations de rôles existent déjà dans l’abonnement. Type :
+Voyons maintenant quelles affectations de rôles existent déjà dans l'abonnement. Type :
 
     azure role assignment list
 
@@ -100,7 +100,7 @@ Pour créer une affectation de rôle, vous devez réfléchir aux éléments suiv
     azure ad sp list
     azure ad sp show`
 
-- Quel rôle vous souhaitez affecter : vous pouvez utiliser l’applet de commande suivante pour afficher les définitions de rôles prises en charge.
+- Quel rôle vous souhaitez affecter : vous pouvez utiliser l'applet de commande suivante pour afficher les définitions de rôles prises en charge.
 
     `azure role list`
 
@@ -118,7 +118,7 @@ Ensuite, utilisez `azure role assignment create` pour créer une affectation de 
 
 - Cela créera une affectation de rôle au niveau d’un groupe de ressources :
 
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - Cela créera une affectation de rôle au niveau d’une ressource :
 
@@ -128,8 +128,8 @@ Ensuite, utilisez `azure role assignment create` pour créer une affectation de 
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant :
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Ces deux applets de commande renverront uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation en lecture. Elles affichent également les autorisations dont vous disposez.
 
@@ -141,11 +141,11 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 
 - [Contrôle d’accès en fonction du rôle dans Azure](../role-based-access-control-configure.md)
 - [Installer et configurer Azure CLI](../xplat-cli.md)
-- [Utilisation d’Azure CLI avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
+- [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 - [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-preview-portal-using-resource-groups.md) : découvrez comment créer et gérer des groupes de ressources dans le portail de gestion Azure.
 - [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d’Azure.
 - [Configurer le contrôle d’accès en fonction du rôle à l’aide de Windows PowerShell](role-based-access-control-powershell.md)
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

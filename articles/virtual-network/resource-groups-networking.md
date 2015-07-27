@@ -257,7 +257,7 @@ Un sous-réseau peut également être associé aux ressources réseau suivantes�
 ## Équilibrage de charge
 Un équilibrage de charge est utilisé lorsque vous voulez étendre vos applications. Les scénarios de déploiement classiques impliquent des applications s'exécutant sur plusieurs instances de machine virtuelle. Les instances de machine virtuelle sont pilotées par un équilibrage de charge qui permet de répartir le trafic réseau entre les différentes instances.
 
-![Cartes d'interface réseau sur une seule machine virtuelle](./media/resource-groups-networking/Figure5.png)
+![Cartes d’interface réseau sur une seule machine virtuelle](./media/resource-groups-networking/Figure5.png)
 
 Les équilibrages de charge contiennent les ressources enfants suivantes :
 
@@ -331,15 +331,15 @@ Les propriétés clé d'un point de terminaison sont les suivantes :
 
 ## Utilisation d’un modèle
 
-Vous pouvez déployer des services dans Azure à partir d'un modèle à l'aide de PowerShell, AzureCLI, ou en cliquant pour les déployer à partir de GitHub. Pour déployer des services à partir d'un modèle dans GitHub, réalisez les étapes suivantes :
+Vous pouvez déployer des services dans Azure à partir d’un modèle à l’aide de PowerShell, AzureCLI, ou en cliquant pour les déployer à partir de GitHub. Pour déployer des services à partir d’un modèle dans GitHub, procédez comme suit :
 
 1. Ouvrez le fichier template3 dans GitHub. Par exemple, ouvrez [Réseau virtuel avec deux sous-réseaux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
-2. Cliquez sur **Déployer dans Azure**, puis connectez-vous au portail Azure avec vos informations d'identification.
+2. Cliquez sur **Déployer dans Azure**, puis connectez-vous au portail Azure avec vos informations d’identification.
 3. Vérifiez le modèle, puis cliquez sur **Enregistrer**.
 4. Cliquez sur **Modifier les paramètres** et sélectionnez un emplacement, par exemple *ouest des États-Unis*, pour le réseau virtuel et les sous-réseaux.
 5. Au besoin, modifiez les paramètres **ADDRESSPREFIX** et **SUBNETPREFIX**, puis cliquez sur **OK**.
-6. Cliquez sur **Sélectionner un groupe de ressources** puis cliquez sur le groupe de ressources auquel vous souhaitez ajouter le réseau virtuel et les sous-réseaux. Vous pouvez également créer un nouveau groupe de ressources en cliquant sur **Ou créer un nouveau**.
-3. Cliquez sur **Create**. Notez la vignette qui affiche **Approvisionnement du déploiement du modèle**. Une fois le déploiement effectué, vous verrez un écran semblable à celle ci-dessous.
+6. Cliquez sur **Sélectionner un groupe de ressources**, puis cliquez sur le groupe de ressources auquel vous souhaitez ajouter le réseau virtuel et les sous-réseaux. Vous pouvez également créer un nouveau groupe de ressources en cliquant sur **Ou créer un nouveau**.
+3. Cliquez sur **Créer**. Notez la vignette qui affiche **Approvisionnement du déploiement du modèle**. Une fois le déploiement effectué, vous verrez un écran semblable à celle ci-dessous.
 
 ![Exemple de déploiement de modèle](./media/resource-groups-networking/Figure6.png)
 
@@ -363,4 +363,4 @@ Vous pouvez déployer des services dans Azure à partir d'un modèle à l'aide d
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

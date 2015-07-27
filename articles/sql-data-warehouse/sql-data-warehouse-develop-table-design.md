@@ -103,7 +103,7 @@ Au lieu du paramètre...
 - **hierarchyid** : utilisez un type CLR non natif ;
 - **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
 - **nvarchar (max)** : utilisez le paramètre « varchar (4000) » ou une valeur inférieure pour optimiser les performances ;
-- **numeric** : utilisez le paramètre « decimal » ;
+- **numeric** : utilisez une valeur décimale ;
 - **sql_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
 - **sysname** : utilisez le paramètre « nvarchar (128) » ;
 - **table** : appliquez une conversion vers des tables temporaires ;
@@ -117,7 +117,7 @@ Prise en charge partielle :
 
 - Les contraintes par défaut prennent uniquement en charge des littéraux et des constantes. Les expressions ou fonctions non déterministes comme `GETDATE()` ou `CURRENT_TIMESTAMP` ne sont pas prises en charge.
 
-> [AZURE.NOTE]Définissez les tables de façon que la taille de ligne maximale (y compris la longueur totale des colonnes à longueur variable) ne dépasse pas 32 767 octets. Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptible de dépasser cette valeur maximale. Toutefois, vous ne pourrez pas insérer ces données dans la table. Essayez également de limiter la taille de vos colonnes à longueur variable, afin d’optimiser le débit lors de l’exécution des requêtes.
+> [AZURE.NOTE]Définissez les tables de façon à ce que la taille de ligne maximale (y compris la longueur totale des colonnes à longueur variable) ne dépasse pas 32 767 octets. Vous pouvez définir des lignes incluant des données d’une longueur variable, susceptibles de dépasser cette valeur maximale. Toutefois, vous ne pourrez pas insérer ces données dans la table. Essayez également de limiter la taille de vos colonnes à longueur variable, afin d’optimiser le débit lors de l’exécution des requêtes.
 
 ## Principes de la distribution de données
 
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -57,4 +57,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultezÂ
 [Stockage des scripts serveur dans le contrÃ´le du code source ]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

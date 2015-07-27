@@ -48,14 +48,9 @@ La prise en charge des services et applications de bureau Windows est assurée 
 
     ![Recherchez « Application Insights »](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Modifiez ApplicationInsights.config (qui a été ajouté par l'installation NuGet). Insérez ceci juste avant la balise de fermeture :
+3. Définissez votre InstrumentationKey dans le code via l’objet `TelemetryConfiguration.Active`.
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    En guise d'alternative, vous pouvez obtenir le même résultat avec ce code :
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>Insertion d’appels de télémétrie
 
@@ -178,4 +173,4 @@ Si vous avez utilisé TrackMetric ou le paramètre de mesure de TrackEvent, ouvr
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

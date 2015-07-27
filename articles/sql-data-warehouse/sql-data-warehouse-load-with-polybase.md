@@ -37,11 +37,11 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 Toute d’abord, vous allez créer les objets dont a besoin PolyBase pour se connecter aux données des objets Blob Microsoft Azure Storage et les interroger.
 
 ## Créer une clé principale de base de données
-Connectez-vous à la base de données principale de votre serveur afin de créer une clé principale de base de données. Cette clé est utilisée pour chiffrer les informations secrètes d’identification au cours de l’étape suivante.
+Connectez-vous à la base de données utilisateur de votre serveur pour créer une clé principale de base de données. Cette clé est utilisée pour chiffrer les informations secrètes d’identification au cours de l’étape suivante.
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 Rubrique de référence : [CREATE MASTER KEY (Transact-SQL)][].
@@ -49,8 +49,13 @@ Rubrique de référence : [CREATE MASTER KEY (Transact-SQL)][].
 ## Créer un fichier d’informations d’identification de niveau base de données
 Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer un fichier d’informations d’identification de niveau base de données qui conserve les informations d’identification dont vous avez besoin pour accéder à votre compte Microsoft Azure Storage. Connectez-vous à votre base de données Data Warehouse et créez un fichier d’informations d’identification de base de données pour chacun des comptes Microsoft Azure Storage pour lesquels vous souhaitez bénéficier d’un accès. Spécifiez un nom d’identité et votre clé secrète de compte Microsoft Azure Storage. Le nom d’identité n’affecte aucunement l’identification à Microsoft Azure Storage.
 
+Pour voir s’il existe déjà des informations d’identification de base de données, utilisez sys.database_credentials, et non sys.credentials, qui affiche uniquement les informations d’identification de serveur.
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```
@@ -176,7 +181,7 @@ Voir [CREATE TABLE AS SELECT (Transact-SQL)][].
 Le chargement avec PolyBase prend en charge uniquement le style d’encodage UTF-8. Pour les autres styles d’encodage, comme UTF-16, envisagez de recourir à l’utilitaire bcp, à SSIS ou à Azure Data Factory pour charger les données dans la base de données SQL Data Warehouse.
 
 ## Étapes suivantes
-Pour obtenir des conseils supplémentaires sur le développement, consultez la [vue d’ensemble sur le développement][].
+Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
 
 <!--Image references-->
 
@@ -202,4 +207,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189450.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -39,7 +39,7 @@ Pour utiliser ce profil de score, votre requête est formulée de façon à spé
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)]().
+Cette requête effectue une recherche du terme « inn », puis transmet l'emplacement actuel. Notez que cette requête inclut d'autres paramètres, tel que `scoringParameter`. Les paramètres de requête sont décrits dans [Recherche dans des documents (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#bkmk_ex)
 
@@ -62,8 +62,6 @@ Un classement basé sur la pertinence peut également être mis en œuvre par l'
 Comme indiqué précédemment, un calcul de score personnalisé est mis en œuvre à l'aide d'un ou de plusieurs profils de calcul de score définis dans un schéma d'index.
 
 Cet exemple montre le schéma d'un index comprenant deux profils de calcul de score (`boostGenre`, `newAndHighlyRated`). Toute requête sur cet index qui comprend un profil comme paramètre de requête utilise le profil pour évaluer le jeu de résultats.
-
-[Essayez l'exemple suivant]().
 
     {
       "name": "musicstoreindex",
@@ -132,41 +130,9 @@ Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous
 
 Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>élément</td><td>description</td></tr></thead>
-<tbody>
-<tr> <td><b>Pondérations</b></td>
-<td>
-Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.
-</td>
-</tr>
-<tr>
-<td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques.
-<br>
-- La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness.
-<br>
-- `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier
-<br>
-- `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`.
-<br>
-<b>Règles d'utilisation des fonctions</b>
-<br>
-Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules.
-<br>
-Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
-<br>
-Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search).
-<br>
-Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>élément</td><td>description</td></tr></thead> <tbody <tr> <td><b>Pondérations</b></td> <td> Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante. </td> </tr> <tr> <td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques. <br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness. <br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier <br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`. <br> <b>Règles d'utilisation des fonctions</b> <br> Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules. <br> Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier. <br> Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search). <br> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index. <td> </tr> </tbody> </table> </font>
 
-Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)]() et [Ajout, mise à jour ou suppression de documents (API Azure Search)](). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
+Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx) et [Ajout, mise à jour ou suppression de documents (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798930.aspx). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
 ##Modèle
 Cette section présente la syntaxe et le modèle de profils de calcul de score. Pour obtenir la description des attributs, consultez [Référence des attributs d'index](#bkmk_indexref) dans la section suivante.
@@ -264,7 +230,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 </tr><tr>
 <td>distance</td>	<td>La fonction de calcul de score à distance est utilisée pour affecter le score de documents sur la base de leur proximité ou de l'éloignement par rapport à un emplacement géographique de référence. L'emplacement de référence est indiqué comme partie intégrante de la requête dans un paramètre (à l'aide de l'option de chaîne scoringParameterquery) en tant qu'argument lon,lat.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Pour obtenir une description des paramètres de requête, consultez [Search Documents (Azure Search API)]().</td>
+<td>distance | referencePointParameter</td>	<td>Paramètre à transmettre dans des requêtes, à utiliser comme emplacement de référence. scoringParameter est un paramètre de requête. Consultez [Rechercher des documents (API de recherche Azure)] (https://msdn.microsoft.com/library/azure/dn798927.aspx) pour obtenir la description des paramètres de requête.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>Nombre indiquant la distance en kilomètres par rapport à l'emplacement de référence où la valorisation se termine.</td>
 </tr><tr>
@@ -317,14 +283,10 @@ Le tableau suivant fournit plusieurs exemples.
 </tbody>
 </table>
 
-Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.org)]().
-
 **Voir aussi**
 
-Création d’index de l’API REST du services 
-Azure Search (API d’Azure Search)
-________________________________________
+Création d’index de l’API REST du services Azure Search (API d’Azure Search) ________________________________________
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

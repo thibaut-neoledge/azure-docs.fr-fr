@@ -6,4 +6,4 @@ Pour déployer les ressources sur Azure, vous devez être connecté à votre co
 
 Les exemples ci-dessous supposent que vous disposez déjà d'un groupe de ressources dans votre compte, qui porte le nom spécifié.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

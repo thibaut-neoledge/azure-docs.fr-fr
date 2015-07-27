@@ -3,7 +3,7 @@
     pageTitle="Téléchargement d'une image personnalisée pour Azure RemoteApp"
     description="Découvrez comment télécharger une image personnalisée pour Azure RemoteApp." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -52,4 +52,4 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

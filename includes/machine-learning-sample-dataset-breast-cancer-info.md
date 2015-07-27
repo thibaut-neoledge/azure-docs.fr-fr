@@ -1,3 +1,3 @@
 Le jeu de données contient des informations complémentaires sur chaque région suspecte dans l’image radio. Chaque exemple fournit des informations (par exemple, intitulé, ID patient, coordonnées du correctif par rapport à l’image entière) sur le numéro de ligne correspondante dans le jeu de données Caractéristiques cancer du sein. Chaque patient présente un certain nombre d’exemples. Pour les patients atteints de cancer, certains exemples sont positifs et d’autres négatifs. Pour les patients non atteints de cancer, tous les exemples sont négatifs. Le jeu de données contient 102 000 exemples. Le jeu de données est biaisé, avec 0,6 % des points positifs, le reste étant négatif. Ce jeu de données a été fourni par Siemens Healthcare.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
 # Création et gestion de tâches de bases de données élastiques
 
-Les **pools élastiques de bases de données** fournissent un modèle prévisible pour déployer un grand nombre de bases de données. Vous pouvez définir le coût minimal des unités de débit de données (UDBD) pour chaque base de données. Vous pouvez facilement gérer les objets courants de ces bases de données à l'aide de **tâches de base des données élastiques**. Le service vous permet d'exécuter en une seule opération des scripts T-SQL sur toutes les bases de données d'un pool. Par exemple, vous pouvez définir la stratégie de chaque base de données pour limiter la consultation des données sensibles à une personne disposant des informations d'identification adéquates.
+Les **pools de bases de données élastiques** fournissent un modèle prédictible pour déployer un grand nombre de bases de données. Vous pouvez définir le coût minimal des unités de débit de données (UDBD) pour chaque base de données. Vous pouvez facilement gérer les objets courants de ces bases de données à l’aide des **tâches de bases des données élastiques**. Le service vous permet d'exécuter en une seule opération des scripts T-SQL sur toutes les bases de données d'un pool. Par exemple, vous pouvez définir la stratégie de chaque base de données pour limiter la consultation des données sensibles à une personne disposant des informations d'identification adéquates.
 
 ## Conditions préalables
 
@@ -29,7 +29,7 @@ Les **pools élastiques de bases de données** fournissent un modèle prévisibl
 ## Création de travaux
 
 1. Dans le volet du pool élastique de bases de données, cliquez sur **Créer une tâche**.
-2. Tapez le nom d’utilisateur et le mot de passe de l’administrateur de base de données (créé à l’installation de Jobs) de la base de données de contrôle Jobs (stockage des métadonnées pour les travaux).
+2. Tapez le nom d’utilisateur et le mot de passe de l’administrateur (créé à l’installation de Jobs) de la base de données de contrôle des tâches (stockage des métadonnées pour les tâches).
 
 	![Nommez la tâche, saisissez ou collez le code puis cliquez sur Exécuter][1]
 2. Dans le volet **Créer une tâche**, nommez la tâche.
@@ -110,4 +110,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

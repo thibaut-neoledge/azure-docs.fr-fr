@@ -91,4 +91,4 @@ Output:
 
 [Développement d’une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

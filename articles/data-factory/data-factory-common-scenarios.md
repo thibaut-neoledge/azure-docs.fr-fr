@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Scénarios courants d'utilisation d'Azure Data Factory
@@ -76,4 +76,4 @@ Consultez les rubriques suivantes pour consommer des données à l'aide de Power
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

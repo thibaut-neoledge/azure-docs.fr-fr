@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- La ressource locale est automatiquement configurée pour utiliser la chaîne de connexion locale principale.
 
 - Le Gestionnaire de connexions hybrides doit utiliser une chaîne de connexion locale valide pour l’autorisation. Les applications web Azure Web Apps ou Mobile Apps doivent utiliser une chaîne de connexion d’application valide pour l’autorisation.
+- Vous pouvez mettre à l’échelle les connexions hybrides en installant une autre instance du gestionnaire des connexions hybrides sur un autre serveur. Configurez l'écouteur local pour utiliser la même adresse que le premier écouteur local. Dans ce cas, le trafic est distribuée de manière aléatoire, en tourniquet (round robin), entre les écouteurs actifs locaux. 
 
 
 ## <a name="ManageHybridConnection"></a>Gestion des connexions hybrides
@@ -123,8 +124,8 @@ Pour gérer vos connexions hybrides, vous pouvez :
 2. Procédez à l’extraction des fichiers.
 3. Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit : 
 
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions*.
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions\fr-fr*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions\\fr-fr*.
 
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 
@@ -145,4 +146,4 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

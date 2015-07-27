@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -74,15 +74,17 @@ Vous pouvez ajouter d’autres tests pour autant d’URL que vous le souhaitez. 
 
 ### <a name="monitor"></a>3. Afficher les rapports de disponibilité
 
-Après 1 à 2 minutes, cliquez sur Actualiser dans le panneau de disponibilité. Il n’est pas automatiquement actualisé.
+Après 1 à 2 minutes, cliquez sur Actualiser dans le panneau de disponibilité/tests web. Il n’est pas automatiquement actualisé.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Le graphique du panneau de disponibilité combine les résultats de tous les tests web réalisés sur cette application.
+Cliquez sur une barre du graphique de synthèse en haut pour obtenir une vue plus détaillée de cette période.
 
-#### Composants de page
+Ces graphiques combinent les résultats de tous les tests web de cette application.
 
-Les images, les feuilles de style, les scripts et les autres composants statiques sont demandés dans le cadre du test.
+#### Composants de votre page web
+
+Les images, les feuilles de style, les scripts et les autres composants statiques de la page web que vous testez sont demandés dans le cadre du test.
 
 Le temps de réponse enregistré est la durée que prend le chargement complet de tous les composants.
 
@@ -90,7 +92,11 @@ Si le chargement d'un composant échoue, le test est marqué comme ayant échou�
 
 ## <a name="failures"></a>Si vous constatez des erreurs...
 
-Dans le panneau Tests web, faites défiler les tests et cliquez sur un test présentant des erreurs.
+Cliquez sur un point rouge.
+
+![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+Ou, faites défiler et cliquez sur un test affichant moins de 100 % de réussite.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -123,7 +129,7 @@ Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple,
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aide de Visual Studio et téléchargez ensuite l'enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
-#### 1. Enregistrement d’un scénario
+#### 1\. Enregistrement d’un scénario
 
 Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
@@ -150,7 +156,7 @@ Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
 (N'insérez pas de boucles dans votre code de test web.)
 
-#### 2. Chargement du test web dans Application Insights
+#### 2\. Chargement du test web dans Application Insights
 
 1. Dans le portail Application Insights, créez un test web.
 
@@ -223,4 +229,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -21,4 +21,4 @@ Cette alternative tire parti du fait que le script de déploiement supprime le d
 
 Si vous avez personnalisé le script de déploiement, vous pouvez modifier le code dans le fichier deploy.cmd afin de forcer la suppression du dossier env.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -132,4 +132,4 @@ Ces vues d’ensemble sur le développement d’applications avec Azure Active D
 
 - **[Azure AD sur Twitter](https://twitter.com/azuread)** : annonces Azure AD limitées à 140 caractères.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

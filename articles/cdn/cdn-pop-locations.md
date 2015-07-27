@@ -71,4 +71,4 @@ Cette rubrique répertorie les emplacements des points de présence (POP) actuel
 - Melbourne
 - Sydney 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -26,6 +26,7 @@ La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau
 
 - Un réseau virtuel régional avec 512 (/23) adresses ou plus est requis
 - Un sous-réseau de ce réseau virtuel avec 256(/ 24) adresses ou plus est requis
+- Le sous-réseau **ne doit contenir aucune autre ressource de calcul**. Un seul environnement App Service peut être déployé dans un sous-réseau. La tentative de création échoue s'il existe d'autres ressources de calcul qui résident déjà dans le sous-réseau.
 
 Si vous ne disposez pas encore d'un réseau virtuel à utiliser pour héberger votre environnement App Service, vous pouvez en créer un lors de la création de l'environnement App Service.
 
@@ -142,4 +143,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

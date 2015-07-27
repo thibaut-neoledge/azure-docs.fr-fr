@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="06/24/2015"
 	ms.author="kenhoff;Justinha"/>
 
 # Afficher vos rapports d'accès et d'utilisation
@@ -33,26 +33,30 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 - Certains rapports d'utilisation de ressources et d’anomalies avancés ne sont disponibles que lorsque vous activez [Azure Active Directory Premium](active-directory-get-started-premium.md). Des rapports avancés vous permettent d'améliorer la sécurité d'accès, de répondre aux menaces potentielles et d'accéder aux analyses relatives à l'utilisation de l’application et à l’accès au périphérique.
 - Les clients situés en Chine peuvent accéder à Azure Active Directory Premium ainsi qu’aux éditions De base à l'aide de l'instance mondiale d'Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Description des rapports
+## Rapports
 
 |	Rapport |	Description |
 |	------												|	-----																						|
-|	Connexions à partir de sources inconnues |	Peut indiquer une tentative de connexion sans être suivi.. |
-|	Connexions après plusieurs échecs |	Peut indiquer une attaque en force brute réussie. |
-|	Connexions depuis plusieurs zones géographiques |	Peut indiquer que plusieurs utilisateurs se connectent avec le même compte. |
-|	Connexions à partir d’adresses IP affichant une activité suspecte |	Peut indiquer une connexion réussie après une tentative d'intrusion insistante. |
-|	Connexions à partir de périphériques potentiellement infectés |	Peut indiquer une tentative de connexion à partir de périphériques potentiellement infectés. |
-|	Activité de connexion anormale |	Peut indiquer les événements anormaux des modèles de connexion des utilisateurs. |
-|	Utilisateurs ayant une activité de connexion anormale |	Indique des utilisateurs dont les comptes ont été compromis. |
+|	**Rapports d’activités anormales**
+|	[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Peut indiquer une tentative de connexion sans être suivi.. |
+|	[Connexions après plusieurs échecs](active-directory-sign-ins-after-multiple-failures.md) |	Peut indiquer une attaque en force brute réussie. |
+|	[Connexions depuis plusieurs zones géographiques](active-directory-sign-ins-from-multiple-geographies.md) |	Peut indiquer que plusieurs utilisateurs se connectent avec le même compte. |
+|	[Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Peut indiquer une connexion réussie après une tentative d'intrusion insistante. |
+|	[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Peut indiquer une tentative de connexion à partir de périphériques potentiellement infectés. |
+|	[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md) |	Peut indiquer les événements anormaux des modèles de connexion des utilisateurs. |
+|	[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |	Indique des utilisateurs dont les comptes ont été compromis. |
 |	Utilisateurs avec des informations d’identification volées |	Utilisateurs avec des informations d’identification volées |
-|	Rapport d’audit |	Événements audités dans votre répertoire |
+|	**Journaux d’activité**
+|	Rapport d'audit |	Événements audités dans votre répertoire |
 |	Activité de réinitialisation de mot de passe |	Fournit une vue détaillée des réinitialisations de mot de passe qui se produisent dans votre organisation. |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe |	Fournit une vue détaillée des réinitialisations de mot de passe qui se produisent dans votre organisation. |
 |	Activité de groupes en libre-service |	Fournit un journal d'activité pour toutes les activités de groupes en libre-service dans votre répertoire |
+|	**Applications intégrées**
 |	Utilisation des applications |	Fournit un résumé de l'utilisation de toutes les applications SaaS intégrées à votre répertoire. |
 |	Activité d’approvisionnement de compte |	Fournit un historique des tentatives d'approvisionnement des comptes vers des applications externes. |
 |	État de substitution de mot de passe |	Fournit une vue d'ensemble détaillée de l'état de substitution de mot de passe automatique des applications SaaS. |
 |	Erreurs de configuration de compte |	Indique un impact sur l'accès des utilisateurs aux applications externes. |
+|	**Gestion des droits**
 |	Utilisation de RMS |	Fournit un résumé de l'utilisation de Rights Management |
 |	Utilisateurs RMS les plus actifs |	Répertorie les 1 000 premiers utilisateurs actifs ayant accédé aux fichiers protégés par RMS |
 |	Utilisation d’un périphérique RMS |	Répertorie les périphériques utilisés pour l'accès aux fichiers protégés par RMS |
@@ -62,6 +66,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 
 |	Rapport |	Gratuit |	De base |	Premium |
 |	------												|	----	|	-----	|	--------	|
+|	**Rapports d’activités anormales**
 |	Connexions à partir de sources inconnues |	✓ |	✓ |	✓ |
 |	Connexions après plusieurs échecs |	✓ |	✓ |	✓ |
 |	Connexions depuis plusieurs zones géographiques |	✓ |	✓ |	✓ |
@@ -70,83 +75,115 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Activité de connexion anormale | | |	✓ |
 |	Utilisateurs ayant une activité de connexion anormale | | |	✓ |
 |	Utilisateurs avec des informations d’identification volées | | |	✓ |
-|	Rapport d’audit | | |	✓ |
+|	**Journaux d’activité**
+|	Rapport d'audit | | |	✓ |
 |	Activité de réinitialisation de mot de passe | | |	✓ |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe | | |	✓ |
 |	Activité de groupes en libre-service | | |	✓ |
+|	**Applications intégrées**
 |	Utilisation des applications | | |	✓ |
 |	Activité d’approvisionnement de compte |	✓ |	✓ |	✓ |
 |	État de substitution de mot de passe | | |	✓ |
 |	Erreurs de configuration de compte |	✓ |	✓ |	✓ |
+|	**Gestion des droits**
 |	Utilisation de RMS | | |	RMS uniquement |
 |	Utilisateurs RMS les plus actifs | | |	RMS uniquement |
 |	Utilisation d’un périphérique RMS | | |	RMS uniquement |
 |	Utilisation d’applications fonctionnant avec RMS | | |	RMS uniquement |
 
-## Détails du rapport
+
+
+
+
+
+
+
+
+## Rapports d’activités anormales
 
 ### Connexions à partir de sources inconnues
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport indique les utilisateurs qui sont parvenus à se connecter à votre répertoire lors de l’affectation d’une adresse IP client qui a été reconnue par Microsoft en tant qu'adresse IP proxy anonyme. Ces proxys sont souvent utilisés par les utilisateurs qui souhaitent masquer l'adresse IP de leur ordinateur, et peuvent également être utilisés dans un but malveillant : les pirates utilisent parfois ces proxys. </p><p> Les résultats de ce rapport indiquent le nombre de fois où un utilisateur est parvenu à se connecter à votre répertoire à partir de cette adresse et de l'adresse IP du proxy.</p> | Répertoire > onglet Rapports |
-
-![Connexions à partir de sources inconnues](./media/active-directory-view-access-usage-reports/signInsFromUnknownSources.PNG)]
+Pour plus d’informations sur ce rapport, consultez [Connexions provenant de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).
 
 ### Connexions après plusieurs échecs
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| Ce rapport indique les utilisateurs qui sont parvenus à se connecter, mais après plusieurs tentatives de connexion infructueuses. Les causes possibles sont : <ul><li>L'utilisateur a oublié son mot de passe</li><li>Son mot de passe lui a été dérobé</li></ul><p>Les résultats de ce rapport vous indiqueront le nombre de tentatives consécutives effectuées par l’utilisateur avant de parvenir à se connecter et l'horodatage associé à la première connexion réussie.</p><p><b>Paramètres de rapport</b> : vous pouvez configurer le nombre minimal de tentatives de connexion infructueuses qui doivent être effectuées consécutivement avant d'apparaître dans le rapport. Lorsque vous modifiez ce paramètre, il est important de savoir que ces modifications ne seront pas appliquées aux échecs de connexion existants qui sont déjà mentionnés dans un rapport existant. Elles seront toutefois appliquées à toutes les connexions futures. Cependant, seuls les administrateurs titulaires d’une licence peuvent effectuer ces modifications. | Répertoire > onglet Rapports |
-
-![Connexions après plusieurs échecs](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
-
+Pour plus d’informations sur ce rapport, consultez [Connexions après plusieurs échecs](active-directory-sign-ins-after-multiple-failures.md).
 
 ### Connexions depuis plusieurs zones géographiques
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport inclut les activités de connexion réussie d'un utilisateur durant lesquelles deux connexions semblent être issues de régions différentes, mais dont le laps de temps constaté entre ces connexions ne permet pas à l'utilisateur de se rendre d’une région à une autre. Les causes possibles sont :</p><ul><li>L’utilisateur partage son mot de passe</li><li>L’utilisateur utilise un bureau à distance pour se connecter via un navigateur Web</li><li>Un pirate s'est connecté au compte d'un utilisateur depuis un autre pays.</li></ul><p>Les résultats de ce rapport vous indiqueront les événements de connexion réussie, ainsi que le laps de temps constaté entre les connexions, les régions d’où semblent provenir les connexions et le temps qu’il faut à l’utilisateur pour se rendre d’une région à une autre.</p><p>Cette durée indiquée n’est qu'une estimation et elle peut être différente de la durée réelle entre ces emplacements. De plus, aucun événement n'est généré pour les connexions constatées dans différentes régions voisines.</p> | Répertoire > onglet Rapports |
-
-![Connexions depuis plusieurs zones géographiques](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
-
+Pour plus d’informations sur ce rapport, consultez [Connexions depuis plusieurs zones géographiques](active-directory-sign-ins-from-multiple-geographies.md).
 
 ### Connexions à partir d’adresses IP affichant une activité suspecte
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport inclut les tentatives de connexion qui ont été effectuées à partir d'adresses IP depuis lesquelles une activité suspecte a été observée. L’activité suspecte inclut plusieurs tentatives de connexion infructueuses à partir de la même adresse IP sur une période relativement courte, et toute autre activité considérée comme suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à partir de cette adresse IP.</p><p>Les résultats de ce rapport vous indiqueront les tentatives de connexion qui proviennent d'une adresse IP depuis laquelle une activité suspecte a été détectée, ainsi que l'horodatage associé à la connexion.</p> | Répertoire > onglet Rapports |
-
-![Connexions à partir d’adresses IP affichant une activité suspecte](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
-
+Pour plus d’informations sur ce rapport, consultez [Connexions provenant d’adresses IP avec une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
 
 ### Activité de connexion anormale
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Ce rapport inclut les connexions qui ont été identifiées comme « anormales » par nos algorithmes d'apprentissage automatique. Une tentative de connexion peut être considérée comme anormale si celle-ci a été effectuée depuis un emplacement inattendu et/ou à une heure également suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à l'aide de ce compte. L'algorithme d'apprentissage automatique considère les événements comme « anormaux » ou « suspects », où « suspects » indique une probabilité plus élevée de violation de la sécurité.</p><p>Les résultats de ce rapport vous indiqueront ces connexions, ainsi que la classification, l’emplacement et l’horodatage associé à chaque connexion.</p><p>Nous enverrons une notification par courrier électronique aux administrateurs généraux si nous constatons 10 événements de connexion ou plus en l’espace de 30 jours. Veillez à inclure aad-alerts-noreply@mail.windowsazure.com dans votre liste d'expéditeurs approuvés.</p> | Répertoire > onglet Rapports |
-
-
+Pour plus d’informations sur ce rapport, consultez [Activités de connexion anormales](active-directory-reporting-irregular-sign-in-activity.md).
 
 ### Connexions à partir de périphériques potentiellement infectés
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| <p>Utilisez ce rapport lorsque vous souhaitez découvrir les connexions effectuées depuis des périphériques sur lesquels des logiciels malveillants peuvent s’exécuter. Nous mettons en corrélation les adresses IP des connexions et les adresses IP à partir desquelles une tentative a été effectuée pour contacter un serveur de logiciels malveillants.</p><p>Recommandation : ce rapport considère qu'une adresse IP a été associée au même périphérique dans les deux cas. Nous vous recommandons donc de contacter l'utilisateur et d'analyser le périphérique de l'utilisateur pour vous en assurer.</p><p>Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les logiciels malveillants](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Répertoire > onglet Rapports |
-
-![Connexions à partir de périphériques potentiellement infectés](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
-
+Pour plus d’informations sur ce rapport, consultez [Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
 
 ### Utilisateurs ayant une activité de connexion anormale
 
+Pour plus d’informations sur ce rapport, consultez [Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
+
+<!-- Users with leaked credentials goes here -->
+
+
+
+
+
+
+
+
+
+## Journaux d’activité
+
+### Rapport d'audit
+
 | Description | Emplacement du rapport |
 | :-------------     | :-------        |
-| <p>Utilisez ce rapport lorsque vous souhaitez afficher tous les comptes d'utilisateurs pour lesquels une activité de connexion anormale a été identifiée. Ce rapport inclut des données provenant de tout autre rapport d'activité anormale. Les résultats de ce rapport vous fourniront plus d'informations sur l'utilisateur et vous indiqueront pourquoi l'événement de connexion a été identifié comme anormal, de même que la date et l’heure, et d’autres informations pertinentes au sujet de l'événement.</p> | Répertoire > onglet Rapports |
+| Indique un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours. <br />Pour plus d'informations, consultez la rubrique [Événements de rapport d’audit d'Azure Active Directory](active-directory-reporting-audit-events.md)  | Répertoire > onglet Rapports |
 
-![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
+![Rapport d'audit](./media/active-directory-view-access-usage-reports/auditReport.PNG)
+
+### Activité de réinitialisation de mot de passe
+
+| Description | Emplacement du rapport |
+| :-------------     | :-------        |
+| Indique toutes les tentatives de réinitialisation de mot de passe réalisées dans votre société | Répertoire > onglet Rapports |
+
+![Activité de réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)
+
+### Activité de l’enregistrement de la réinitialisation de mot de passe
+
+| Description | Emplacement du rapport |
+| :-------------     | :-------        |
+| Indique l’ensemble des enregistrements de réinitialisation de mot de passe réalisés dans votre société | Répertoire > onglet Rapports |
+
+![Activité de l’enregistrement de la réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)
+
+### Activité de groupes en libre-service
+
+| Description | Emplacement du rapport |
+| :-------------     | :-------        |
+| Indique toutes les activités des groupes libre-service gérés dans votre répertoire. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
+
+![Activité de groupes en libre-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)
 
 
-## Rapports d’application intégrée
+
+
+
+
+
+
+
+
+
+## Rapports d’applications intégrées
 
 ### Utilisation des applications : résumé
 
@@ -154,7 +191,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | :-------------     | :-------        |
 | Utilisez ce rapport pour afficher l'utilisation de toutes les applications SaaS dans votre répertoire. Ce rapport est basé sur le nombre de clics effectués par les utilisateurs sur l'application dans le volet d'accès. | Répertoire > onglet Rapports |
 
-![Résumé de l’utilisation des applications](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
+![Résumé de l’utilisation des applications](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
 ### Utilisation des applications : présentation détaillée
@@ -177,7 +214,14 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | :-------------     | :-------        |
 | Utilisez-le pour examiner les erreurs survenant lors de la synchronisation des comptes des applications SaaS vers Azure Active Directory. | Répertoire > onglet Rapports |
 
-![Erreurs de configuration de compte](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
+![Erreurs de configuration de compte](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)
+
+
+
+
+
+
+
 
 
 ## Rapports d’erreur spécifiques à l’utilisateur
@@ -212,42 +256,13 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 
 > Remarque : Pour limiter le nombre de parasites dans ce rapport, les connexions à l’application native [Lync/Skype Entreprise](http://products.office.com/fr-fr/skype-for-business/online-meetings) et celles effectuées via l’[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-fr/w/sso/534.aspx) ne sont pas indiquées.
 
-## Journaux d’activité
-
-### Rapport d'audit
-
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| Indique un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours. <br />Pour plus d'informations, consultez la rubrique [Événements de rapport d’audit d'Azure Active Directory](active-directory-reporting-audit-events.md)  | Répertoire > onglet Rapports |
-
-![Rapport d’audit](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
 
 
-### Rapport d'activité de groupes
-
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| Indique toutes les activités des groupes libre-service gérés dans votre répertoire. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
-
-![Activité de groupes en libre-service](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
 
 
-### Rapport d’activité de l’enregistrement de la réinitialisation de mot de passe
-
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| Indique l’ensemble des enregistrements de réinitialisation de mot de passe réalisés dans votre société | Répertoire > onglet Rapports |
-
-![Activité de l’enregistrement de la réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
 
 
-### Activité de réinitialisation de mot de passe
 
-| Description | Emplacement du rapport |
-| :-------------     | :-------        |
-| Indique toutes les tentatives de réinitialisation de mot de passe réalisées dans votre société | Répertoire > onglet Rapports |
-
-![Activité de réinitialisation de mot de passe](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
 
 
 ## Éléments à prendre en compte si vous suspectez une violation de la sécurité
@@ -262,8 +277,8 @@ Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’
 
 1. Dans le portail de gestion Azure, cliquez sur **Active Directory**, sur le nom du répertoire de votre société, puis sur **Rapports**.
 2. Dans la page Rapports, cliquez sur le rapport que vous souhaitez afficher et/ou télécharger.
-    >
-    > [AZURE.NOTE]
+
+    > [AZURE.NOTE]S’il s’agit de votre première utilisation de la fonctionnalité de création de rapports d’Azure Active Directory, un message s’affiche pour sélectionner votre choix. Si vous acceptez, cliquez sur la coche pour continuer.
 
 3. Cliquez sur le menu déroulant situé près d'Intervalle, puis sélectionnez l’une des plages horaires qui doivent être utilisées lors de la génération de ce rapport :
     - 24 dernières heures
@@ -280,53 +295,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-### Quels rapports génèrent les notifications par courrier électronique
-
-Pour l’instant, seuls le rapport d’activité de connexion anormale et le rapport d’activité des connexions anormales utilisent le système de notification par courrier électronique.
-
-### Que déclenche l’envoi de la notification par courrier électronique ?
-
-Par défaut, Azure Active Directory est configuré pour envoyer automatiquement des notifications par courrier électronique à tous les administrateurs généraux. Le courrier électronique est envoyé dans les conditions suivantes pour chaque rapport.
-
-Pour le rapport d’activité de connexion anormale :
-
-- Sources inconnues : 10 événements
-- Plusieurs échecs : 10 événements
-- Adresses IP affichant une activité suspecte : 10 événements
-- Périphériques infectés : 10 événements
-
-Pour les utilisateurs ayant un rapport d’activité de connexion anormale :
-
-- Sources inconnues : 10 événements
-- Plusieurs échecs : 10 événements
-- Adresses IP affichant une activité suspecte : 10 événements
-- Périphériques infectés : 5 événements
-- Rapport de connexions anormales : 15 événements
-
-Le courrier électronique est envoyé si une des conditions mentionnées ci-dessus est remplie dans les 30 jours, ou lorsque le dernier courrier électronique a été envoyé il y a moins de 30 jours.
-
-Les connexions dites anormales sont celles qui ont été identifiées comme « anormales » par nos algorithmes d’apprentissage automatique, car elles ont été effectuées depuis un emplacement inattendu et/ou à une heure également suspecte. Cela peut signifier qu'un pirate a essayé de se connecter à l'aide de ce compte. Le tableau ci-dessus fournit plus d'informations sur ce rapport.
-
-### Qui reçoit les notifications par courrier électronique ?
-
-Le courrier électronique est envoyé à tous les administrateurs généraux titulaires d'une licence Active Directory Premium. Par mesure de précaution, ce courrier électronique est également envoyé sur leur adresse de messagerie de secours. Les administrateurs doivent inclure aad-alerts-noreply@mail.windowsazure.com dans leur liste d'expéditeurs approuvés pour ne pas rater le courrier électronique.
-
-### Quelle est la fréquence d’envoi de ces courriers électroniques ?
-
-Une fois le premier courrier électronique envoyé, un second suivra lorsque 10 événements de connexion anormale se seront produits dans les 30 jours suivant l’envoi du premier courrier électronique. Comment puis-je accéder au rapport mentionné dans le courrier électronique ?
-
-Lorsque vous cliquerez sur le lien, vous serez redirigé vers la page du rapport du portail de gestion Azure. Pour accéder au rapport, vous devez être à la fois :
-
-- Un administrateur ou un coadministrateur de votre abonnement Azure
-- Un administrateur général du répertoire, titulaire d’une licence Active Directory Premium. Pour plus d’informations, consultez les éditions d’Azure Active Directory.
-
-### Puis-je désactiver ces courriers électroniques ?
-
-Oui, pour désactiver les notifications liées à des connexions anormales dans le portail de gestion Azure, cliquez sur **Configurer**, puis sélectionnez **Désactivé** sous la rubrique **Notifications**.
+Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

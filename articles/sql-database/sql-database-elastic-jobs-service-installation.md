@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
-# Installation des composants de tâches de base de données élastiques
+# Installation des composants de tâches de bases de données élastiques
 
-Le [pool élastique de bases de données (version préliminaire)](sql-database-elastic-pool-portal.md) fournit un modèle prévisible pour déployer un grand nombre de bases de données. Une fois que vous avez créé un pool de bases de données élastique, vous pouvez utiliser des **tâches de base de données élastiques** pour exécuter des tâches administratives sur chaque base de données du pool élastique de bases de données. Par exemple, vous pouvez déployer un nouveau schéma comme la définition d'une stratégie RLS sur chaque base de données pour limiter la consultation des données sensibles à une personne disposant des informations d'identification adéquates. Voici comment installer des **tâches de bases de données élastiques**.
+Le [pool de base de données élastique (version préliminaire)](sql-database-elastic-pool-portal.md) fournit un modèle prédictible pour déployer un grand nombre de bases de données. Une fois que vous avez créé un pool de base de données élastique, vous pouvez utiliser des **tâches de bases de données élastiques** pour exécuter des tâches d’administration dans chaque base de données du pool de base de données élastique. Par exemple, vous pouvez déployer un nouveau schéma comme la définition d'une stratégie RLS sur chaque base de données pour limiter la consultation des données sensibles à une personne disposant des informations d'identification adéquates. Voici comment installer des **tâches de bases de données élastiques**.
 
 **Durée estimée :** 10 minutes.
 
 ## Conditions préalables
 * Un abonnement Azure. Pour obtenir un essai gratuit, voir [Version d'évaluation d'un mois gratuite](http://azure.microsoft.com/pricing/free-trial/).
-* Un pool élastique de bases de données. Voir [Créer un pool élastique de bases de données Azure SQL (version préliminaire)](sql-database-elastic-pool-portal.md).
+* Un pool élastique de bases de données. Consultez [Créer un pool de base de données SQL Azure élastique (version préliminaire)](sql-database-elastic-pool-portal.md).
 
 ## Installer les composants de service
 Connectez-vous tout d'abord à la [version préliminaire du portail Azure](https://ms.portal.azure.com/#).
@@ -63,4 +63,4 @@ Si de nouvelles informations d'identification ont été fournies lors de l'insta
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

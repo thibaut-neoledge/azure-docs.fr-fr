@@ -88,4 +88,4 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 - [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

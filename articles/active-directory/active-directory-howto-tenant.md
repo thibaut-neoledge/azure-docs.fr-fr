@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # Obtention d’un client Azure Active Directory
@@ -64,6 +64,5 @@ Si vous vous êtes déjà inscrit à un abonnement Azure avec votre compte profe
 Si tous les éléments ci-dessus vous sont incompréhensibles, ne vous inquiétez pas. Visitez simplement [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) pour vous inscrire à Azure avec une nouvelle organisation. Une fois le processus terminé, vous aurez votre propre client Azure AD avec le nom de domaine que vous avez choisi lors de votre inscription. Dans le [Portail de gestion Azure](https://manage.windowsazure.com), vous pouvez trouver votre client en accédant à « Active Directory » dans la barre de navigation de gauche.
 
 Dans le cadre du processus d'inscription à Azure, vous devrez fournir les informations d’une carte de crédit. Vous pouvez procéder en toute confiance. Vous ne serez pas facturé pour la publication d'applications dans Azure AD ou la création de nouveaux clients.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->
