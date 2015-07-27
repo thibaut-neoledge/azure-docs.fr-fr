@@ -57,7 +57,7 @@ La mise à jour d’une base de données Web ou Business vers un nouveau niveau 
 
 
 
-## 1\. Déterminer le niveau de service en fonction de la capacité des fonctionnalités
+## 1. Déterminer le niveau de service en fonction de la capacité des fonctionnalités
 
 Les niveaux de service De base, Standard et Premium proposent des fonctions différentes. La première étape de la sélection d’un niveau approprié consiste à déterminer le niveau de service qui fournit le niveau minimal de fonctionnalités requis pour votre entreprise et application.
 
@@ -86,7 +86,7 @@ Après avoir sélectionné un niveau de service approprié qui répond aux exige
 
 
 
-## 2\. Déterminer un niveau de performances acceptable en fonction de l’utilisation historique des ressources
+## 2. Déterminer un niveau de performances acceptable en fonction de l’utilisation historique des ressources
 
 Le service de base de données SQL Azure présente des informations dans le portail de gestion et dans les vues système, afin de vous suggérer le nouveau niveau de service et le niveau de performances comparables à votre base de données Web ou Business existante.
 
@@ -161,7 +161,8 @@ En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande
 
 ![Consommation des ressources][4]
 
-> **Remarque :** les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
+> **Remarque :**
+> les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
 > 
 > bien que le nouveau niveau d’édition/niveau de performances suggéré tienne compte de l’activité de votre base de données pendant les 14 derniers jours, ces données sont basées sur des échantillons de données de consommation de ressources mesurés toutes les 5 minutes. Par conséquent, les pics d’activité à court terme inférieurs à 5 minutes peuvent ne pas apparaître. Ce guide sert donc de point de départ pour mettre à jour votre base de données. Une fois la base de données mise à jour vers le niveau suggéré, vous devez effectuer des contrôles, tests et validations supplémentaires pour déterminer si la base de données doit être élevée ou abaissée à un autre niveau de service/niveau de performances.
 
@@ -203,7 +204,7 @@ Sous forme de graphique : vous pouvez consulter la tendance du pourcentage moye
 
 
 
-## 3\. Pourquoi les performances existantes de ma base de données Web ou Business correspondent-elles aux niveaux Premium supérieurs ?
+## 3. Pourquoi les performances existantes de ma base de données Web ou Business correspondent-elles aux niveaux Premium supérieurs ?
 
 Les bases de données Web et Business n’ont aucune quantité spécifique de capacité de ressources réservée pour une base de données. En outre, il n’existe aucun mécanisme permettant aux clients d’augmenter ou de réduire les performances d’une base de données Web ou Business. De ce fait, les performances des bases de données Web et Business vont d’un niveau d’extrême lenteur à Premium. L’éventail variable des performances est *injustement* dépendant du niveau global de consommation de ressources à tout instant par d’autres bases de données au sein de l’environnement mutualisé partageant les ressources.
 
@@ -216,7 +217,7 @@ Afin de mieux comprendre les différences entre les niveaux de service Web/Busin
 Si votre pourcentage DTU global est très élevé, il convient de vous pencher sur les métriques détaillées qu’incluent les DTU, en particulier l’utilisation des E/S du journal et de la mémoire de la base de données. Vous pourrez peut-être y trouver des domaines dans lesquels optimiser et réduire votre consommation d’DTU.
 
 
-## 4\. Réglage de la charge de travail de votre base de données pour s’ajuster à un niveau inférieur
+## 4. Réglage de la charge de travail de votre base de données pour s’ajuster à un niveau inférieur
 Si l’analyse de l’utilisation historique des ressources de votre base de données indique que vous devez mettre à niveau vers un niveau de performances plus coûteux que ce que vous envisagez, vous pouvez rechercher les domaines dans lesquels un réglage des performances plus fin peut être utile.
 
 Compte tenu de votre connaissance des détails de votre application, si l’utilisation des ressources semble très élevée par rapport à ce que vous attendez de la charge de travail standard, vous disposez peut-être de possibilités de réglage des performances bénéfiques à votre utilisation.
@@ -235,7 +236,7 @@ En plus des réglages de maintenance standard comme l’analyse des index, les p
 
 
 
-## 5\. Effectuer la mise à jour vers le nouveau niveau de service/niveau de performances
+## 5. Effectuer la mise à jour vers le nouveau niveau de service/niveau de performances
 Après avoir déterminé le niveau de service et le niveau de performances appropriés pour votre base de données Web ou Business, vous avez le choix entre plusieurs méthodes pour mettre à jour la base de données vers le nouveau service :
 
 | Outil de gestion | Modification du niveau de performances et du niveau de service d’une base de données|
@@ -248,7 +249,7 @@ Après avoir déterminé le niveau de service et le niveau de performances appro
 Pour plus d’informations, consultez la page [Modification des niveaux de service et des niveaux de performance de base de données](http://msdn.microsoft.com/library/dn369872.aspx)
 
 
-## 6\. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
+## 6. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
 La base de données SQL Azure fournit des informations sur la progression des opérations de gestion (telles que CREATE, ALTER, DROP) effectuées sur une base de données dans la vue de gestion dynamique sys.dm_operation_status de la base de données master du serveur logique où se trouve votre base de données active. Consultez la documentation relative à sys.dm _operation _status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Utilisez la vue de gestion dynalaique du statut de l’opération pour déterminer l’avancement de la mise à niveau d’une base de données. Cet exemple de requête affiche toutes les opérations de gestion effectuées sur une base de données :
 
     SELECT o.operation, o.state_desc, o.percent_complete
@@ -265,7 +266,7 @@ Si vous avez utilisé le portail de gestion pour la mise à jour, une notificati
 Les niveaux de performances sont étalonnés et régis pour fournir les ressources nécessaires permettant d’exécuter la charge de travail de votre base de données dans les limites maximales autorisées pour le niveau de service/niveau de performances sélectionné (c’est-à-dire que la consommation de ressources atteint 100 %). Si votre charge de travail atteint les limites d’utilisation du processeur, d’E/S des données ou d’E/S du journal, vous continuerez à recevoir les ressources au niveau maximum autorisé, mais la latence de vos requêtes sera augmentée. L’atteinte de l’une de ces limites ne génère pas d’erreur, seulement un ralentissement de votre charge de travail, sauf si le ralentissement s’accentue au point que les requêtes arrivent à expiration. Si vous atteignez les limites maximales autorisées de sessions/demandes utilisateur simultanées (threads de travail), l’[erreur 10928 ou 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx) s’affiche.
 
 
-## 7\. Contrôle de la base de données après la mise à niveau
+## 7. Contrôle de la base de données après la mise à niveau
 Après la mise à jour de la base de données Web/Business vers le nouveau niveau de service, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et optimiser l’utilisation en fonction des besoins. Les étapes supplémentaires suivantes sont recommandées pour la surveillance de la base de données.
 
 
@@ -309,4 +310,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

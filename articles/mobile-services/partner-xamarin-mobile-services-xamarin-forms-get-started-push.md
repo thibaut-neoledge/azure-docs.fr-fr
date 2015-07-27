@@ -765,7 +765,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	![Notification toast reçue](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l’application est active, vous devez gérer l’événement (http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) [ShellToastNotificationReceived].
+	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l’application est active, vous devez gérer l’événement [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
    
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -847,4 +847,4 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 [ exemple de notification Push Xamarin.Forms Azure terminé]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

@@ -146,7 +146,7 @@ Sur Linux :
 
 Sur Windows :
 
-    cd \users\azureuser\.ipython\profile_nbserver
+    cd \users\azureuser.ipython\profile_nbserver
 
 Créez le certificat SSL comme suit (Linux et Windows) :
 
@@ -177,7 +177,7 @@ Nous allons ensuite modifier le fichier de configuration du profil (fichier `ipy
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -273,4 +273,4 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

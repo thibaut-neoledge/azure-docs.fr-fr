@@ -49,7 +49,7 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 	Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
 
-7. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Update even if one or more role contain a single instance** afin de permettre à la mise à niveau de continuer.
+7. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Effectuer la mise à jour même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
 
 	Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour.
 
@@ -107,7 +107,7 @@ La procédure qui suit décrit comment lier une nouvelle instance de base de don
 
 	![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
-4. Cliquez sur **Create a new resource** ou **Link an existing resource**.
+4. Cliquez sur **Créer une ressource** ou **Lier une ressource existante**.
 
 5. Choisissez le type de ressource à lier. Dans le [portail de gestion](http://manage.windowsazure.com/), cliquez sur **SQL Database**. (L'aperçu du portail de gestion ne prend pas en charge la liaison d'un compte de stockage à un service cloud.)
 
@@ -148,14 +148,15 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 	![Menu Delete](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 
-3. Pour supprimer un déploiement, cliquez sur **Delete production deployment** ou sur **Delete staging deployment**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
+3. Pour supprimer un déploiement, cliquez sur **Supprimer le déploiement en productiont** ou sur **Supprimer le déploiement en préproduction”**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
 4. Si vous prévoyez de supprimer le service cloud, répétez l'étape 3 si besoin pour supprimer votre autre déploiement.
 
 5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
-> [AZURE.NOTE]Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail de gestion » sur la page <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
+> [AZURE.NOTE]Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour savoir où trouver les tables de mesures, consultez la rubrique « Accès aux données de la surveillance détaillée en dehors du portail de gestion » sur la page <a href="http://azure.mi
+> crosoft.com/documentation/articles/cloud-services-how-to-monitor/">Surveillance des services cloud</a>.
 
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

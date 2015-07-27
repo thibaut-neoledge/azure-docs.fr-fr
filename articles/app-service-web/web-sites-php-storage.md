@@ -41,7 +41,8 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
 
 1. [Installation de Git][install-git]
 
-	> [AZURE.NOTE]Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
+> [AZURE.NOTE]
+> Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
 
 2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
 
@@ -430,4 +431,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

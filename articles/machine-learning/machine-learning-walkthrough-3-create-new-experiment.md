@@ -71,7 +71,7 @@ L'étape suivante de l'expérience consiste à générer des jeux de données s�
 
 1.	Recherchez le module [Fractionner][split], faites-le glisser sur le canevas, et connectez-le au dernier module [Éditeur de métadonnées][metadata-editor].
 2.	Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu'une moitié aléatoire des données est sortie par un port du module [Fractionner][split], et l'autre moitié par l'autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire**, pour changer la répartition entre les données d'apprentissage et de notation. Pour cet exemple, nous ne changeons rien.
-	> [AZURE.TIP]  
+	> [AZURE.TIP] le rapport de division détermine essentiellement la quantité de données sortie par le port de sortie gauche.Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.
 	
 Nous pouvons utiliser les sorties du module [Fractionner][split] à notre gré, mais choisissons la sortie gauche pour les données d'apprentissage et la sortie droite pour les données de notation.
 

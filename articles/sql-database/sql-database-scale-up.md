@@ -27,7 +27,9 @@ Exploitez les informations des sections [Mise à jour des bases de données SQL 
 
 Vous pouvez aisément passer d’un niveau de service à un autre via le portail de gestion Microsoft Azure, [PowerShell](https://msdn.microsoft.com/library/azure/dn546726.aspx) ou les [API REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
-Lorsque vous planifiez cette opération, tenez compte de ce qui suit : - Avant d’effectuer la mise à niveau d’un niveau de services ou de performances vers un autre, assurez-vous que vous disposez du quota disponible requis sur le serveur. S’il vous faut un quota supérieur, appelez le support technique. - Les bases de données fédérées ne peuvent pas être mises à niveau vers les niveaux de service de base, Standard ou Premium.
+Lorsque vous planifiez cette opération, tenez compte de ce qui suit : 
+- Avant d’effectuer la mise à niveau d’un niveau de services ou de performances vers un autre, assurez-vous que vous disposez du quota disponible requis sur le serveur. S’il vous faut un quota supérieur, appelez le support technique. 
+- Les bases de données fédérées ne peuvent pas être mises à niveau vers les niveaux de service de base, Standard ou Premium.
 
 - Pour qu’une base de données puisse passer à une version antérieure, sa taille doit être inférieure à la taille maximale autorisée par le niveau de service voulu. Si vous voulez en savoir plus sur la taille autorisée pour chaque niveau de service, consultez le tableau relatif aux tailles des bases de données et aux niveaux de service proposé dans cette section.
 
@@ -41,9 +43,11 @@ Lorsque vous planifiez cette opération, tenez compte de ce qui suit : - Avant 
 
 - Les nouvelles propriétés de la base de données ne sont appliquées qu’une fois les modifications terminées.
 
-Notez les points suivants : - Les niveaux de service Web et Business seront retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
+Notez les points suivants : 
+- Les niveaux de service Web et Business seront retirés en septembre 2015. Pour en savoir plus, voir [Forum aux questions sur la disparition des éditions Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-<note included> - Il est important de noter que l’implémentation actuelle des [fédérations sera retirée en même temps que les niveaux de service Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Nous vous recommandons d’utiliser [l’infrastructure élastique pour la base de données SQL Microsoft Azure](sql-database-elastic-scale-get-started.md) afin de générer une solution partitionnée et montée en charge sur la base de données SQL Microsoft Azure. Pour essayer cette infrastructure, voir « Prise en main de l’infrastructure élastique de base de données SQL Azure (version préliminaire) ».
+<note included> 
+- Il est important de noter que l’implémentation actuelle des [fédérations sera retirée en même temps que les niveaux de service Web et Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Nous vous recommandons d’utiliser [l’infrastructure élastique pour la base de données SQL Microsoft Azure](sql-database-elastic-scale-get-started.md) afin de générer une solution partitionnée et montée en charge sur la base de données SQL Microsoft Azure. Pour essayer cette infrastructure, voir « Prise en main de l’infrastructure élastique de base de données SQL Azure (version préliminaire) ».
 
 ## Mise à niveau vers un niveau de service plus élevé
 Utilisez l’une des méthodes suivantes pour mettre une base de données à niveau. Ces étapes sont spécifiques à la mise à niveau vers un niveau de service Premium, mais s’appliquent à toutes les mises à niveau.
@@ -64,7 +68,12 @@ Utilisez l’une des méthodes suivantes pour mettre une base de données à niv
 2. Définissez le contexte de serveur avec l’applet de commande New-AzureSqlDatabaseServerContext. Un exemple de syntaxe est fourni dans la section « Utilisation des commandes Microsoft Azure PowerShell ».
 3. Obtenez un handle vers la base de données et le niveau de performances cible. Spécifiez le niveau de performances à l’aide du paramètre Set-AzureSqlDatabase – ServiceObjective.
 
-**Exemple de syntaxe** Dans cet exemple : - La mise à niveau illustrée porte sur le niveau de service Premium. - Le handle $db est créé et pointe vers la base de données « somedb ». - Le handle $P1 est créé et pointe vers le niveau de performances Premium 1. - Le niveau de performances de la base de données $db est défini sur $P1.
+**Exemple de syntaxe**
+Dans cet exemple : 
+- La mise à niveau illustrée porte sur le niveau de service Premium.
+- Le handle $db est créé et pointe vers la base de données « somedb ».
+- Le handle $P1 est créé et pointe vers le niveau de performances Premium 1.
+- Le niveau de performances de la base de données $db est défini sur $P1.
 
 		Windows PowerShell:
 
@@ -120,7 +129,8 @@ Vous pouvez augmenter ou réduire les niveaux de performances d’une base de do
 
 Si vous modifiez le niveau de performances d’une base de données Premium pour laquelle des relations de géo-réplication sont actives, utilisez l’ordre suivant pour indiquer la base de données principale et les bases de données secondaires actives :
 
-En effet, les bases de données secondaires actives doivent présenter un niveau de performances supérieur ou égal à celui de la base de données principale. - Si vous passez à un niveau de performances inférieur, commencez par appliquer la procédure à la base de données principale, puis passez à la ou aux bases de données secondaires actives.
+En effet, les bases de données secondaires actives doivent présenter un niveau de performances supérieur ou égal à celui de la base de données principale.
+- Si vous passez à un niveau de performances inférieur, commencez par appliquer la procédure à la base de données principale, puis passez à la ou aux bases de données secondaires actives.
 
 - Si vous passez vers un niveau de performances supérieur, commencez par les bases de données secondaires actives, puis terminez par la base de données principale.
 
@@ -199,11 +209,13 @@ Cette section indique les conditions préalables à respecter pour pouvoir faire
 
 **Configuration requise**
 
-Pour utiliser les applets de commande Microsoft Azure PowerShell décrites dans la présente rubrique, vous devez installer les logiciels suivants sur l’ordinateur hébergeant PowerShell. 1. Téléchargez une version de Windows PowerShell équivalente à 3.0 ou plus, en accédant à la page http://www.microsoft.com/fr-fr/download/details.aspx?id=34595.
+Pour utiliser les applets de commande Microsoft Azure PowerShell décrites dans la présente rubrique, vous devez installer les logiciels suivants sur l’ordinateur hébergeant PowerShell. 
+1. Téléchargez une version de Windows PowerShell équivalente à 3.0 ou plus, en accédant à la page http://www.microsoft.com/fr-fr/download/details.aspx?id=34595.
 
 2. Téléchargez Microsoft Azure PowerShell à partir de la section sur les outils de ligne de commande, sur la page de [téléchargement des outils et kits de développement logiciel (SDK) de Microsoft Azure](http://azure.microsoft.com/downloads/).
 
-Procédez comme suit : dans l’écran **Démarrer** ou le menu **Démarrer**, accédez au logiciel Microsoft Azure PowerShell et démarrez-le.
+Procédez comme suit :
+dans l’écran **Démarrer** ou le menu **Démarrer**, accédez au logiciel Microsoft Azure PowerShell et démarrez-le.
 
 Saisissez le nom d’utilisateur et le mot de passe associés au serveur.
 
@@ -229,4 +241,4 @@ Créez un contexte de serveur en utilisant le paramètre **New-AzureSqlDatabaseS
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
