@@ -252,4 +252,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

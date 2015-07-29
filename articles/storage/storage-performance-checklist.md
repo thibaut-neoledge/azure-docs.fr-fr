@@ -104,7 +104,10 @@ Si votre application s'approche des objectifs d'évolutivité d'un seul compte d
 -	Si votre application atteint les objectifs d'évolutivité, vérifiez que vous utilisez bien une interruption exponentielle pour les nouvelles tentatives (voir [Nouvelles tentatives](#subheading14)). Il est préférable de veiller à ne jamais s'approcher des objectifs d'évolutivité (en utilisant l'une des méthodes ci-dessus). Vous vous assurez ainsi que votre application n'effectue pas de nouvelle tentative immédiatement, ce qui aurait pour conséquence d'empirer la limitation.  
 
 ####Ressources utiles
-Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité : - vous pouvez consulter les objectifs d'évolutivité actuels sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) sur MSDN. Pour plus d’informations sur les options de redondance de stockage, consultez le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) – voir la section suivante pour plus d'informations. - pour obtenir des informations en cours sur la tarification des services Azure, consultez la rubrique [Tarification Azure](http://azure.microsoft.com/pricing/overview/).
+Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité :
+-	vous pouvez consulter les objectifs d'évolutivité actuels sur la page [Objectifs d'évolutivité et de performances d'Azure Storage](http://msdn.microsoft.com/library/azure/dn249410.aspx) 
+-	sur MSDN. Pour plus d’informations sur les options de redondance de stockage, consultez le billet de blog [Options de redondance et stockage géo-redondant avec accès en lecture Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) – voir la section suivante pour plus d'informations.
+-	pour obtenir des informations en cours sur la tarification des services Azure, consultez la rubrique [Tarification Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Mise en réseau
 Bien que les appels d'API soient importants, les contraintes de réseau physiques de l'application ont souvent un impact majeur sur les performances. Vous trouverez, ci-dessous, certaines des limitations auxquelles les utilisateurs peuvent être confrontés.
@@ -384,4 +387,4 @@ Il est conseillé d'utiliser des files d'attente pour rendre l'architecture de v
 Dans cet article, nous avons passé en revue quelques-unes des pratiques utilisées le plus couramment pour optimiser les performances lors de l'utilisation d'Azure Storage. Nous invitons tous les développeurs d'applications à évaluer chacune d'elles et à prendre en compte les recommandations énoncées afin de bénéficier de performances optimales pour les applications qui utilisent Azure Storage.
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
