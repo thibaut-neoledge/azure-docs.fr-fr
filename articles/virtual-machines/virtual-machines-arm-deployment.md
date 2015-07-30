@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET" 
-	description="Ce didacticiel vous montre comment utiliser certains des clients disponibles dans les bibliothèques de calcul, de stockage et réseau .NET afin de créer et de supprimer des ressources dans Microsoft Azure." 
+	description="Ce didacticiel vous montre comment utiliser certains des clients disponibles dans les bibliothèques de calcul, de stockage et réseau .NET afin de créer et de supprimer des ressources dans Microsoft Azure" 
 	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 
@@ -387,4 +387,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->

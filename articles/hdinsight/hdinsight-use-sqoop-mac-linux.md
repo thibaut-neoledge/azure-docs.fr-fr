@@ -185,7 +185,8 @@ Vous allez tout d’abord exporter **hivesampletable**, dans une table nommée *
 
 ##Importation de Sqoop
 
-1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire **wasb:///tutorials/usesqoop/importeddata** sur HDInsight : 
+1. Utilisez la commande suivante pour importer des données à partir de la table **mobiledata** de la base de données SQL dans le répertoire **wasb:///tutorials/usesqoop/importeddata** sur HDInsight :
+
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     Les champs des données importées sont séparés par un caractère de tabulation et les lignes se terminent par un caractère de nouvelle ligne.

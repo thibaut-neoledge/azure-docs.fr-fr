@@ -127,7 +127,8 @@ Le projet **AdventureWorksWebGeo** nous montre comment ASP.NET MVC 4 peut être
 
 +	La fonction **Search** récupère les emplacements des magasins, qui sont ensuite reçus et ajoutés en tant que repères sur la carte Bing.
 
-4.	Ouvrez HomeController.cs sous **Contrôleurs** et observez la fonction **Search**. Notez l'appel de _storeSearch.Search(lat, lon, 10000). Cela génère l'exécution d'une requête afin de trouver tous les magasins dans un rayon de 10 000 km de la latitude (lat) et la longitude (lon) spécifiées. Les résultats de cette requête sont traités, puis renvoyés à la vue Index afin d'être traités en tant que repères superposés sur la carte Bing. 
+4.	Ouvrez HomeController.cs sous **Contrôleurs** et observez la fonction **Search**. Notez l'appel de _storeSearch.Search(lat, lon, 10000). Cela génère l'exécution d'une requête afin de trouver tous les magasins dans un rayon de 10 000 km de la latitude (lat) et la longitude (lon) spécifiées. Les résultats de cette requête sont traités, puis renvoyés à la vue Index afin d'être traités en tant que repères superposés sur la carte Bing.
+
 La démo est terminée. Nous venons de parcourir l'ensemble des principales opérations qu'il vous faut connaître avant de créer une application ASP.NET MVC 4 basée sur une carte à l'aide d'Azure Search.
 
 

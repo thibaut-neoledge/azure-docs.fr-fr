@@ -847,4 +847,4 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 [ exemple de notification Push Xamarin.Forms Azure terminé]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!----HONumber=July15_HO2-->
+<!------HONumber=July15_HO2-->
