@@ -3,7 +3,9 @@
 
 	![Capture d’écran du portail Azure en version préliminaire, mise en surbrillance du bouton Nouveau, de Données + stockage dans le panneau Créer et d’Azure DocumentDB dans le panneau Données + stockage][1]
 
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
+	
+	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. Dans le panneau **Nouveau compte DocumentDB**, indiquez la configuration souhaitée pour le compte DocumentDB.
@@ -21,17 +23,18 @@
  
 	- Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre compte DocumentDB.
 
-4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. La création du compte DocumentDB peut prendre plusieurs minutes. Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil. ![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne][4]
+4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. La création du compte DocumentDB peut prendre plusieurs minutes. Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil.   
+	![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne][4]  
   
 	Vous pouvez aussi surveiller l’avancement depuis le hub de notifications.
 
-	![Création rapide de bases de données - capture d’écran du concentrateur de Notifications, indiquant que le compte DocumentDB est créé - notification de créateur de base de données en ligne][5]
+	![Création rapide de bases de données - capture d’écran du concentrateur de Notifications, indiquant que le compte DocumentDB est créé - notification de créateur de base de données en ligne][5]  
 
 	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources][6]
 
 5.	Une fois le compte DocumentDB créé, il est prêt à être utilisé avec les paramètres par défaut dans le portail en ligne. Notez que la cohérence par défaut du compte DocumentDB est définie sur **Par session**. Vous pouvez ajuster le paramètre de cohérence par défaut en cliquant sur la vignette **Cohérence par défaut** dans le panneau **Compte DocumentDB**.
 
-    ![Capture d’écran du panneau Groupe de ressources][7]
+    ![Capture d’écran du panneau Groupe de ressources][7]  
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -46,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

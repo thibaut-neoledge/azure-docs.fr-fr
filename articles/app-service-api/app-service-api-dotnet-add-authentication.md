@@ -71,7 +71,8 @@ Le moyen le plus simple de vérifier que votre application API est publiquement 
 
 ## Protéger l’application API
 
-Quand vous avez déployé votre application API, vous l’avez déployée dans un groupe de ressources. Vous pouvez ajouter des applications web et d’autres applications API au même groupe de ressources, et chaque application API du groupe de ressources peut avoir l’un des trois paramètres d’accessibilité suivants : <!--todo: diagram showing different accessibility settings-->
+Quand vous avez déployé votre application API, vous l’avez déployée dans un groupe de ressources. Vous pouvez ajouter des applications web et d’autres applications API au même groupe de ressources, et chaque application API du groupe de ressources peut avoir l’un des trois paramètres d’accessibilité suivants :
+<!--todo: diagram showing different accessibility settings-->
 
 - **Public (anonyme)** : tout le monde peut appeler l’application API en dehors du groupe de ressources sans être connecté.
 - **Public (authentifié)** : seuls les utilisateurs authentifiés sont autorisés à appeler l’application API en dehors du groupe de ressources.
@@ -268,4 +269,4 @@ Vous avez vu comment protéger une application API Azure en exigeant une authent
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
