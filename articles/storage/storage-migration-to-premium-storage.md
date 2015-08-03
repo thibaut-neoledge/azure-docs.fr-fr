@@ -179,13 +179,13 @@ Si vous migrez un disque dur virtuel à partir d’un environnement local, vous 
 2. Ouvrez Azure PowerShell et accédez au dossier où AzCopy est installé.  
 3. Utilisez la commande suivante pour copier le fichier de disque dur virtuel à partir de « Source » vers « Destination ». 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	Les paramètres utilisés dans la commande AzCopy sont décrits ci-dessous :
 
  - **/Source: *&lt;source&gt; :*** emplacement du dossier ou URL du conteneur de stockage qui contient le disque dur virtuel.    
  - **/SourceKey: *&lt;source-account-key&gt; :*** clé de compte de stockage du compte de stockage source.  
- - **/Destination: *&lt;destination&gt; :*** URL du conteneur de stockage où copier le disque dur virtuel.
+ - **/Dest: *&lt;destination&gt; :*** URL du conteneur de stockage où copier le disque dur virtuel.
  - **/DestKey: *&lt;dest-account-key&gt; :*** clé de compte de stockage du compte de stockage de destination.
  - **/BlobType: page :** spécifie si la destination est un objet blob de pages.
  - **/Pattern: *&lt;file-name&gt; :*** spécifiez le nom du fichier de disque dur virtuel que vous copiez.
@@ -315,4 +315,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

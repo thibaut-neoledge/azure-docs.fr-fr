@@ -75,4 +75,4 @@ L'action renvoie la sortie sous forme d'objet. La sortie contient le modèle qui
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

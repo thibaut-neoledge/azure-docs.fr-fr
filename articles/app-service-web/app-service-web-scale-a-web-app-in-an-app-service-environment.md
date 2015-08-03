@@ -84,4 +84,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

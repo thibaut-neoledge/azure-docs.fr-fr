@@ -115,4 +115,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Si vous souhaitez configurer une connexion VPN de site à site et ExpressRoute pour le même réseau virtuel, consultez la rubrique [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](expressroute-coexist.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

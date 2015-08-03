@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Mise à jour des serveurs avec des mises à jour du système
@@ -34,4 +34,6 @@ Avant de pouvoir utiliser les mises à jour du système dans Microsoft Azure Ope
 5. Votre navigateur web ouvre l'article de la Base de connaissances qui décrit la mise à jour. ![image de la page Mises à jour](./media/operational-insights-updates/updates05.png)
 6. En utilisant les informations fournies, vous pouvez définir un programme pour appliquer les mises à jour manquantes.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

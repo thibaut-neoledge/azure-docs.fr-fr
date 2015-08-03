@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/21/2015" 
+	ms.date="07/16/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,7 +35,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 2.	Dans la console du Gestionnaire de package, exécutez les commandes suivantes pour installer les packages NuGet. Le premier est le Kit de développement logiciel (SDK) .NET de gestion Azure Stream Analytics. Le second est le Kit de développement logiciel (SDK) Azure Insights qui sera utilisé pour activer la surveillance. Le dernier est le client Azure Active Directory utilisé pour l'authentification.
 
     ```
-    Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre
+    Install-Package Microsoft.Azure.Management.StreamAnalytics
     Install-Package Microsoft.Azure.Insights -Pre
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
@@ -48,12 +48,12 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
     	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
     	<add key="JobName" value="YOUR JOB NAME" />
     	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-    	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-    	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    	<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+    	<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
     	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
     	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    	<add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
@@ -166,7 +166,7 @@ Le code suivant permet d'activer la surveillance pour un travail Stream Analytic
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -178,4 +178,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -26,6 +26,10 @@ Cette rubrique montre comment authentifier les utilisateurs d'une application Ap
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez également commencer par suivre le didacticiel [Création d’une application Xamarin.Android].
 
+##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+
 ##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Services
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -34,7 +38,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez éga
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li><p>Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur. Vérifiez qu'une exception non gérée avec un code d'état&#160;401 (Non autorisé) est générée après le démarrage de l'application.</p>
    
    	<p>Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié, alors que la table <em>TodoItem</em> requiert désormais une authentification.</p></li>
@@ -91,4 +95,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

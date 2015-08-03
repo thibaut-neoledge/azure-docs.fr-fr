@@ -44,4 +44,4 @@ Les rapports Azure AD conservent les données pendant un certain nombre de jours
 |	Utilisation d’applications fonctionnant avec RMS |	30 jours |
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

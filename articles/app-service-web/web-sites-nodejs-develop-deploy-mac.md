@@ -28,7 +28,8 @@ Voici une capture d'écran de l'application terminée :
 
 Pour créer une application web et activer la publication Git, suivez la procédure ci-après.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous devez disposer d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Pour suivre ce didacticiel, vous devez disposer d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](/fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -97,7 +98,8 @@ Cette section décrit la création d'un fichier **server.js** contenant l'exempl
 
 		git init
 
-	> [AZURE.NOTE]**Si la commande Git n’est pas disponible** [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site Web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez [la page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**Si la commande Git n’est pas disponible** 
+	> [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site Web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez [la page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
 
@@ -196,4 +198,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

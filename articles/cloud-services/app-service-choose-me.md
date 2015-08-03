@@ -34,4 +34,4 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 [Virtual Machines]: ../virtual-machines-choose-me.md
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

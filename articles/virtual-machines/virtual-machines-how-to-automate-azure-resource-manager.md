@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Comment automatiser avec Microsoft Azure Resource Manager" 
-	description="Obtenez des liens vers des rubriques décrivant l’automatisation des machines virtuelles avec Microsoft Azure Resource Manager." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Automatisation avec Microsoft Azure Resource Manager"
+	description="Obtenez des liens vers des rubriques sur l’automatisation de la création et la gestion des machines virtuelles Azure avec le Gestionnaire de ressources."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
-# Comment automatiser avec Microsoft Azure Resource Manager
+# Automatisation avec Microsoft Azure Resource Manager
 
 Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’applications complexes exécutées sur les services d’infrastructure Microsoft Azure. De nombreuses applications nécessitent une combinaison de ressources de calcul, réseau et de stockage, comme Microsoft Azure Virtual Network, le compte de stockage Microsoft Azure et Microsoft Azure Virtual Machines avec les interfaces réseau. Grâce à Microsoft Azure Resource Manager, vous pouvez utiliser ou développer un modèle JSON afin de déployer et de gérer l’ensemble de ces ressources comme une application unique.
 
@@ -59,7 +59,7 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 ## Automatiser avec .NET
 
 [Déployer les ressources Microsoft Azure à l’aide de la bibliothèque .NET](virtual-machines-arm-deployment.md)
-   
+
 ## Automatiser avec Microsoft Azure Automation
 
 [Utiliser Microsoft Azure Automation pour gérer les tâches de machines virtuelles](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

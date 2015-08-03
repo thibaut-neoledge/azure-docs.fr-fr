@@ -17,7 +17,7 @@
 
 # Utilisez les actions du menu MMC dans Gestionnaire d’instantanés StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Dans le Gestionnaire d’instantanés StorSimple, les actions suivantes figureront sur tous les menus d’action et toutes les variations du volet **Actions**.
 
@@ -109,7 +109,7 @@ Vous pouvez utiliser l’action **Exporter la liste** pour enregistrer une liste
 
     3. Pour enregistrer uniquement les éléments sélectionnés, sélectionnez les lignes puis cliquez sur la case à cocher **Enregistrer uniquement les lignes sélectionnées**. Pour enregistrer toutes les listes exportées, désactivez la case à cocher **Enregistrer uniquement les lignes sélectionnées**.
 
-    4. Cliquez sur **Enregistrer**.
+    4. Cliquez sur **Save**.
 
     ![Exporter la liste dans un fichier de valeurs séparées par des virgules](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png)
  
@@ -127,4 +127,4 @@ Utilisez le menu **Aide** pour consulter l’aide en ligne disponible du Gestion
 
 [En savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

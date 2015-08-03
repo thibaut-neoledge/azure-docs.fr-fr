@@ -77,4 +77,4 @@ Vous pouvez calculer approximativement le nombre de disques fortement sollicité
 
 <sup>3</sup>GRS désigne un stockage géo-redondant, tandis que LRS désigne un stockage localement redondant.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

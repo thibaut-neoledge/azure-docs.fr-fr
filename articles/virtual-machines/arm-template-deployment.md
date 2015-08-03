@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" 
-	description="Découvrez comment utiliser certains des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage." 
-	services="virtual-machines,virtual-networks,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Déploiement de ressources Azure à l’aide d’un modèle" description="Apprenez à utiliser quelques-uns des clients disponibles dans la bibliothèque Azure Resource Management pour déployer une machine virtuelle, un réseau virtuel et un compte de stockage" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.topic="article"
+	ms.date="06/15/2015"
 	ms.author="davidmu"/>
 
 # Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle
@@ -55,7 +48,7 @@ Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes po
 
 5. Remplacez {application-id} par l’identificateur que vous venez d’enregistrer, puis créez le principal du service pour l’application :
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Définissez les autorisations relatives à l’utilisation de l’application :
 
@@ -186,7 +179,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
           "resources": [ {
             "apiVersion": "2014-12-01-preview",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",       
+            "name": "[parameters('newStorageAccountName')]",
             "location": "[parameters('location')]",
             "properties": { "accountType": "[parameters('storageAccountType')]" }
           },
@@ -195,7 +188,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddressName')]",
             "location": "[parameters('location')]",
-            "properties": { 
+            "properties": {
               "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
               "dnsSettings": { "domainNameLabel": "[parameters('dnsName')]" }
             }
@@ -256,7 +249,7 @@ Avec un modèle Azure Resource Manager, vous pouvez déployer et gérer des re
                 "adminPassword": "[parameters('adminPassword')]",
                 "windowsProfile": { "provisionVMAgent": "true" }
               },
-              "storageProfile": { 
+              "storageProfile": {
                 "sourceImage": { "id": "[variables('sourceImageName')]" },
                 "destinationVhdsContainer" : "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmStorageAccountContainerName'),'/')]"
               },
@@ -283,7 +276,7 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
 
         {
           "contentVersion": "1.0.0.0",
-          "parameters": { 
+          "parameters": {
             "vmName": { "value": "mytestvm1" },
             "newStorageAccountName": { "value": "mytestsa1" },
             "storageAccountType": { "value": "Standard_LRS" },
@@ -296,8 +289,8 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
             "adminUserName": { "value": "mytestacct1" },
             "adminPassword": { "value": "mytestpass1" },
             "virtualNetworkName": { "value": "mytestvn1" },
-            "dnsName": { "value": "mytestdns1" }, 
-            "nicName": { "value": "mytestnic1" } 
+            "dnsName": { "value": "mytestdns1" },
+            "nicName": { "value": "mytestnic1" }
           }
         }
 
@@ -450,4 +443,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -109,4 +109,4 @@ déployez le service en production.
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

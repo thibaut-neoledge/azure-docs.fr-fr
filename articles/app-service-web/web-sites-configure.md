@@ -128,7 +128,7 @@ Pour afficher les fichiers journaux, vous devez créer des informations d’iden
 ![](./media/web-sites-configure/configure03.png)
 
 
-Le nom d’utilisateur FTP complet est « app\\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
+Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application Web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -174,4 +174,4 @@ Pour plus d’informations, consultez [Surveillance de l’état d’un point de
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

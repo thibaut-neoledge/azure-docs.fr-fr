@@ -73,4 +73,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

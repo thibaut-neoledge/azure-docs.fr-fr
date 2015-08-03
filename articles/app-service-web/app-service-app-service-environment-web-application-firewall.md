@@ -18,7 +18,7 @@
 
 # Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 
-## Vue d’ensemble ##
+## Vue d'ensemble ##
 Les pare-feu d'applications Web comme le [WAF Barracuda pour Azure](https://www.barracuda.com/programs/azure) qui est disponible sur [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) permettent de sécuriser vos applications Web en inspectant le trafic Web entrant pour bloquer les injections SQL, l'exécution de scripts de site à site, les téléchargements de logiciels malveillants, les attaques DDoS d'application et d'autres attaques. Ce type de pare-feu inspecte également les réponses des serveurs Web principaux pour prévention de perte de données (DLP). En association avec l'isolement et la mise à l'échelle supplémentaire fournis par les environnements App Service, ceci fournit un environnement idéal pour héberger des applications Web professionnelles critiques qui doivent résister aux requêtes malveillantes et à un volume de trafic élevé.
 
 ## Paramétrage ##
@@ -97,4 +97,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

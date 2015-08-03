@@ -641,4 +641,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

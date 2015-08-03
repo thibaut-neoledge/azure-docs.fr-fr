@@ -207,4 +207,4 @@ Cet exemple permet de créer une campagne d’annonces simple en spécifiant pri
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

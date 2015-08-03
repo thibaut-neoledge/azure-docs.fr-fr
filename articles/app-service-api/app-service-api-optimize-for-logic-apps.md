@@ -235,4 +235,4 @@ Pour les applications API qui utilisent des métadonnées dynamiques, vous pouv
 Dans cet article, vous avez vu comment améliorer l’expérience utilisateur de votre application API lorsqu’elle est utilisée dans le concepteur d’applications logiques. Nous vous recommandons, à titre de meilleure pratique, de donner des noms conviviaux corrects à toutes les opérations (actions et déclencheurs), paramètres et propriétés. Il est également recommandé de fournir un maximum de 5 opérations de base. Pour les paramètres d’entrée, la recommandation consiste à limiter le nombre de propriétés de base à 4 au maximum ; pour les propriétés, la valeur recommandée est inférieure ou égale à 5. Vos opérations et propriétés restantes doivent être signalées comme avancées.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

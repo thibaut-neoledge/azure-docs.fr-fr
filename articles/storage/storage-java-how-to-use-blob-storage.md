@@ -120,7 +120,7 @@ Pour télécharger un fichier vers un objet blob, obtenez une référence de con
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
         // Define the path to a local file.
-        final String filePath = "C:\\myimages\\myimage.jpg";
+        final String filePath = "C:\myimages\myimage.jpg";
 
     	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
     	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
@@ -186,7 +186,7 @@ Pour télécharger des objets blob, procédez comme pour le chargement d'un obje
 	       if (blobItem instanceof CloudBlob) {
 	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
-    	        blob.download(new FileOutputStream("C:\\mydownloads\" + blob.getName()));
+    	        blob.download(new FileOutputStream("C:\mydownloads\" + blob.getName()));
     	    }
     	}
     }
@@ -265,4 +265,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

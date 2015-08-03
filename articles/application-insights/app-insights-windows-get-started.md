@@ -35,7 +35,7 @@ Vous devez avoir :
 * Un abonnement à [Microsoft Azure][azure].
 * Visual Studio 2013 ou une version ultérieure.
 
-## 1\. Création d’une ressource Application Insights dans Azure 
+## 1. Création d’une ressource Application Insights dans Azure 
 
 Dans le [portail Azure][portal], créez une ressource Application Insights.
 
@@ -50,7 +50,7 @@ Cette clé identifie la ressource. Vous en aurez besoin rapidement, pour configu
 ![Ouvrez le tiroir de liste déroulante Essentials et sélectionnez la clé d'instrumentation](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
+## 2. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
 
 Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) approprié à votre projet.
 
@@ -227,4 +227,4 @@ Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

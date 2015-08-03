@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,7 +40,9 @@ Pour cela, nous devons :
 - Convertir l’*expérience d’apprentissage* que nous avons créée en une *expérience de notation*
 - Publier l’expérience de notation sous la forme d’un service web
 
-Mais tout d’abord, nous devons réduire un peu cette expérience. Nous disposons actuellement de deux modèles différents dans l’expérience, mais nous devons en sélectionner un seul à publier. Supposons que nous ayons décidé que le modèle Arbre de décision optimisé est le plus adapté. La première chose à faire est de supprimer le module [Machine à vecteur de support à deux classes][two-class-support-vector-machine], ainsi que les modules qui ont été utilisés pour sa formation. Vous pouvez d’abord copier l’expérience en cliquant sur **Enregistrer sous** dans la partie inférieure du canevas.
+Mais tout d’abord, nous devons réduire un peu cette expérience. Nous disposons actuellement de deux modèles différents dans l’expérience, mais nous devons en sélectionner un seul à publier.
+
+Supposons que nous ayons décidé que le modèle Arbre de décision optimisé est le plus adapté. La première chose à faire est de supprimer le module [Machine à vecteur de support à deux classes][two-class-support-vector-machine], ainsi que les modules qui ont été utilisés pour sa formation. Vous pouvez d'abord copier l'expérience en cliquant sur **Enregistrer sous** dans la partie inférieure de la zone de dessin.
 
 Nous devons supprimer les modules suivants :
 
@@ -59,11 +61,11 @@ La conversion d’une expérience d’évaluation se déroule en trois étapes 
 2. Réduire l’expérience en supprimant les modules uniquement nécessaires à l’apprentissage
 3. Définir l’emplacement des nœuds d’entrée et de sortie du service web
 
-Heureusement, vous pouvez accomplir ces trois étapes en cliquant simplement sur **Créer une expérience d’évaluation** dans la partie inférieure du canevas.
+Heureusement, vous pouvez accomplir ces trois étapes en cliquant simplement sur **Créer une expérience de notation** dans la partie inférieure de la zone de dessin.
 
-Lorsque vous cliquez sur **Créer une expérience d’évaluation**, plusieurs choses se produisent :
+Lorsque vous cliquez sur **Créer une expérience de notation**, plusieurs choses se produisent :
 
-- Le modèle que nous avons formé est enregistré en tant que module **Modèle formé** dans la palette de module située à gauche du canevas des expériences (vous pouvez le trouver dans la palette sous **Modèles formés**).
+- Le modèle que nous avons formé est enregistré en tant que module **Modèle formé** dans la palette de module située à gauche de la zone de dessin des expériences (vous pouvez le trouver dans la palette sous **Modèles formés**).
 - Les modules qui ont été utilisés pour l’apprentissage sont supprimés. Plus précisément :
   - [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]
   - [Former le modèle][train-model] 
@@ -74,7 +76,7 @@ Lorsque vous cliquez sur **Créer une expérience d’évaluation**, plusieurs c
 
 > [AZURE.NOTE]L’expérience a été enregistrée en deux parties : l’expérience d’apprentissage d’origine et la nouvelle expérience d’évaluation. Vous pouvez y accéder à l’aide des onglets situés dans la partie supérieure du canevas des expériences.
 
-Nous devons effectuer une étape supplémentaire avec notre expérience. Machine Learning Studio a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split], mais il reste l’autre module [Exécuter le script R][execute-r-script]. Étant donné que ce module a été utilisé uniquement pour l’apprentissage et le test (il a fourni une fonction de pondération sur les exemples de données), nous pouvons maintenant le supprimer et connecter [Éditeur de métadonnées][metadata-editor] à [Modèle d’évaluation][score-model].
+Nous devons effectuer une étape supplémentaire avec notre expérience. Machine Learning Studio a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split], mais il reste l'autre module [Exécuter le script R][execute-r-script]. Étant donné que ce module a été utilisé uniquement pour l'apprentissage et le test (il a fourni une fonction de pondération sur les exemples de données), nous pouvons maintenant le supprimer et connecter [Éditeur de métadonnées][metadata-editor] à [Noter le modèle][score-model].
 
 Notre expérience doit alors ressembler à cela :
 
@@ -85,13 +87,13 @@ Vous vous demandez peut-être pourquoi nous avons laissé le jeu de données Don
 
 Il est vrai que ce service n'a pas besoin des données de la carte de crédit d'origine. Mais il a besoin du schéma pour ces données, incluant des informations telles que le nombre de colonnes et lesquelles sont numériques. Ces informations sur le schéma sont indispensables pour interpréter les données de l'utilisateur. Nous laissons ces composants connectés de façon à ce que le module de notation comporte le schéma du jeu de données lorsque le service est en cours d'exécution. Les données ne sont pas utilisées, uniquement le schéma.
 
-Exécutez une dernière fois l'expérience (cliquez sur **EXÉCUTER**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez avec le bouton droit sur la sortie du module [Noter le modèle][score-model] et sélectionnez **Visualiser**. Vous constatez que les données d'origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »).
+Exécutez une dernière fois l'expérience (cliquez sur **EXÉCUTER**). Si vous voulez vérifier que le modèle fonctionne toujours, cliquez sur la sortie du module [Noter le modèle][score-model] et sélectionnez **Afficher les résultats**. Vous constatez que les données d'origine sont affichées, ainsi que la valeur du risque sur le crédit (« Étiquettes notées ») et la probabilité de la notation (« Probabilités notées »).
 
 ##Publication du service web
 
-Pour publier un service web dérivé de notre expérience, cliquez sur **PUBLIER LE SERVICE WEB** sous le canevas et cliquez sur **OUI** à l'invite. Machine Learning Studio publie l’expérience en tant que service web sur le serveur intermédiaire Machine Learning et vous amène au tableau de bord du service.
+Pour publier un service web dérivé de notre expérience, cliquez sur **PUBLIER LE SERVICE WEB** sous la zone de dessin. Machine Learning Studio publie l'expérience en tant que service web et vous amène au tableau de bord du service.
 
-> [AZURE.TIP]Vous pouvez mettre à jour le service web après l’avoir publié. Par exemple, si vous souhaitez modifier votre modèle, modifiez simplement l’expérience de formation, ajustez les paramètres de modèle et cliquez sur **METTRE À JOUR L’EXPÉRIENCE D’ÉVALUATION**. Lorsque vous republiez l'expérience, elle remplace le service web en utilisant alors votre modèle mis à jour.
+> [AZURE.TIP]Vous pouvez mettre à jour le service web après l’avoir publié. Par exemple, si vous souhaitez modifier votre modèle, modifiez simplement l'expérience de formation, ajustez les paramètres de modèle et cliquez sur **PUBLIER LE SERVICE WEB**. Lorsque vous republiez l'expérience, elle remplace le service web en utilisant alors votre modèle mis à jour.
 
 Vous pouvez configurer le service en cliquant sur l'onglet **CONFIGURATION**. Vous pouvez modifier le nom du service (il s'agit par défaut du nom de l'expérience) et lui attribuer une description. Vous pouvez également attribuer des étiquettes plus significatives aux colonnes d'entrée et de sortie.
 
@@ -125,4 +127,4 @@ Les résultats générés par le service web sont affichés au bas du tableau de
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

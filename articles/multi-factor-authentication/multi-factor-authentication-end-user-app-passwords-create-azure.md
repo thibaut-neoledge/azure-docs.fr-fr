@@ -24,7 +24,7 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 
 1. Connectez-vous au portail de gestion Azure.
 3. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
-5. En haut de la page de vérification, sélectionnez les mots de passe d’application.
+5. En haut de la page de vérification, sélectionnez les mots de passe d'application
 6. Cliquez sur **Créer**.
 7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**.
 8. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
@@ -32,4 +32,4 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous voulez peut-
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

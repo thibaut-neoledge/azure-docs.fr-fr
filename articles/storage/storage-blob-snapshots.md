@@ -125,4 +125,4 @@ Dans le scénario 4, l’objet blob de base a été complètement mis à jour et
 
 ![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

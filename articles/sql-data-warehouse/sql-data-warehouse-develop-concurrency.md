@@ -19,7 +19,7 @@
 # Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
 Pour offrir des performances prévisibles à grande échelle, SQL Data Warehouse implémente des mécanismes de gestion de la concurrence des charges de travail et de l’affectation des ressources de calcul.
 
-Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant la façon dont ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données.
+Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données.
 
 ## Accès concurrentiel
 Il est important de noter que la concurrence dans SQL Data Warehouse est régie par deux concepts : **requêtes concurrentes** et **emplacements de concurrence**.
@@ -121,7 +121,7 @@ En outre, comme indiqué ci-dessus, plus la classe de ressource affectée à l�
 
 Il est important de garder à l’esprit que la charge de travail des requêtes active doit respecter les seuils de requêtes concurrentes et d’emplacements de concurrence. Dès que l’un de ces seuils est dépassé, les requêtes sont placées en file d’attente. Les requêtes mises en file d’attente sont alors traitées dans l’ordre de priorité suivi par l’heure de la requête.
 
-En coulisse, les choses sont un peu plus compliquées. Les classes de ressources sont mappées dynamiquement à un ensemble générique de groupes de gestion des charges de travail au sein du gouverneur de ressources. Les groupes utilisés dépendent de la valeur DWU de l’entrepôt. Toutefois, il existe un total de huit groupes de charges de travail utilisés par SQL Data Warehouse. Il s'agit de :
+En coulisse, les choses sont un peu plus compliquées. Les classes de ressources sont mappées dynamiquement à un ensemble générique de groupes de gestion des charges de travail au sein du gouverneur de ressources. Les groupes utilisés dépendent de la valeur DWU de l’entrepôt. Toutefois, il existe un total de huit groupes de charges de travail utilisés par SQL Data Warehouse. Il s’agit des étapes suivantes :
 
 - SloDWGroupC00
 - SloDWGroupC01
@@ -213,7 +213,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans Base de données SQL Microsoft Azure].
+[AZURE.NOTE]Il est judicieux de créer des utilisateurs pour vos connexions dans la base de données MASTER lorsque vous utilisez la base de données SQL Azure et SQL Data Warehouse. Deux rôles de serveur sont disponibles à ce niveau et nécessitent que la connexion ait un utilisateur dans la base de données MASTER afin d’accorder l’appartenance. Il s’agit des rôles `Loginmanager` et `dbmanager`. Dans la base de données SQL Azure et SQL Data Warehouse, ces rôles octroient des droits de gestion des connexions et de création des bases de données. Ce n’est pas le cas de SQL Server. Pour plus d’informations, consultez l’article [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure].
  
 Une fois que la connexion a été créée, un compte d’utilisateur doit être ajouté.
 
@@ -373,8 +373,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Gestion des bases de données et des connexions dans Base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure]: https://msdn.microsoft.com/fr-fr/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

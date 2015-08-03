@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows" 
 	description="Réinitialisez rapidement un mot de passe d’administrateur local ou le service Bureau à distance pour les machines virtuelles Windows à l’aide du portail Azure en version préliminaire ou des commandes PowerShell." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
-# 
+# Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows
 
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison d’un oubli de mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
 
-> [AZURE.NOTE]Cet article ne s’applique pas aux machines virtuelles Azure Resource Manager.
+> [AZURE.NOTE]Cet article ne s’applique pas aux machines virtuelles crées dans Resource Manager.
 
 ## Version préliminaire du portail Azure
 
-Pour réinitialiser le service Bureau à distance dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Réinitialiser l’accès à distance**. Voici un exemple.
+Pour réinitialiser le service Bureau à distance dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l’accès à distance**. Voici un exemple.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Pour réinitialiser le nom et le mot de passe du compte d’administrateur local dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
+Pour réinitialiser le nom et le mot de passe du compte d’administrateur local dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles(classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@ VMAccess ne doit être installé avant que vous puissiez l’utiliser. Tant que 
  
 Tout d'abord, vérifiez que l’agent de machine virtuelle est déjà installé. Renseignez le nom du service cloud et le nom de la machine virtuelle, puis exécutez les commandes suivantes à une invite de commandes de niveau administrateur Azure PowerShell. Remplacez tous les éléments entre guillemets, y compris les caractères < and >.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez **Get-AzureVM** afin d’afficher ces informations pour toutes les machines virtuelles de l’abonnement actuel.
@@ -90,7 +91,7 @@ Les extensions VMAccess exécutent ces deux commandes sur la machine virtuelle 
 
 	Cette commande active le groupe de pare-feu Windows intégré qui autorise le trafic entrant du Bureau à distance, qui utilise le port TCP 3389.
 
-- **Set-ItemProperty -Path ’HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server’ -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path ’HKLM:\System\CurrentControlSet\Control\Terminal Server’ -name "fDenyTSConnections" -Value 0**
 
 	Cette commande définit la valeur de registre fDenyTSConnections sur 0, pour activer les connexions Bureau à distance.
 
@@ -110,6 +111,7 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Se connecter à une machine virtuelle Azure avec RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

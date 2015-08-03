@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Surveillance des dépendances, des exceptions et des temps d'exécution dans les applications web Java" 
-	description="Surveillance étendue de votre site web Java avec Application Insights" 
+	pageTitle="Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java" 
+	description="Surveillance étendue de votre site web Java avec Application Insights" 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -15,37 +15,37 @@
 	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
-# Surveillance des dépendances, des exceptions et des temps d'exécution dans les applications web Java
+# Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
 
 *Application Insights est à l'état de version préliminaire.*
 
-Si vous avez [instrumenté votre application web Java avec Application Insights][java]vous pouvez utiliser l'agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
+Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans aucune modification de code :
 
-* **Dépendances distantes :** données concernant les appels passés par votre application via un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) comme MySQL, SQL Server, PostgreSQL ou SQLite.
-* **Exceptions détectées :** données concernant les exceptions gérées par votre code.
-* **Temps d’exécution de la méthode :** données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
+* **Dépendances distantes** : données concernant les appels effectués par votre application par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) comme MySQL, SQL Server, PostgreSQL ou SQLite.
+* **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
+* **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
-Pour utiliser l'agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java].
+Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java].
 
-## Installation de l'agent Application Insights pour Java
+## Installer l’agent Application Insights pour Java
 
-1. Sur l'ordinateur exécutant votre serveur Java, [téléchargez l'agent](http://go.microsoft.com/fwlink/?LinkId=618633).
-2. Modifiez le script de démarrage de l’application serveur et ajoutez la JVM suivante :
+1. Sur la machine exécutant votre serveur Java, [téléchargez l’agent](http://go.microsoft.com/fwlink/?LinkId=618633).
+2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
 
-    `javaagent:`*chemin d'accès complet au fichier JAR de l'agent*
+    `javaagent:`*chemin d’accès complet au fichier JAR de l’agent*
 
-    Par exemple, dans Tomcat sur une machine Linux :
+    Par exemple, dans Tomcat sur une machine Linux :
 
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 
 
-3. Redémarrez votre serveur d'applications.
+3. Redémarrez votre serveur d’applications.
 
-## Configuration de l’agent
+## Configurer l’agent
 
-Créez un fichier nommé`AI-Agent.xml` et placez-le dans le même dossier que le fichier JAR de l'agent.
+Créez un fichier nommé `AI-Agent.xml` et placez-le dans le même dossier que le fichier JAR de l’agent.
 
-Définissez le contenu du fichier xml. Modifiez l'exemple suivant pour inclure ou omettre les fonctionnalités souhaitées.
+Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure ou omettre les fonctionnalités souhaitées.
 
 ```XML
 
@@ -77,15 +77,17 @@ Définissez le contenu du fichier xml. Modifiez l'exemple suivant pour inclure o
 
 ```
 
-Vous devez activer l'exception de rapports et le minutage pour les méthodes individuelles.
+Vous devez activer l’exception de rapports et le minutage pour les méthodes individuelles.
 
-Par défaut,`reportExecutionTime` est true, `reportCaughtExceptions` est false.
+Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExceptions` sur false.
 
-## Affichage des données
+## Visualiser les données
 
-Dans la ressource d'Application Insights, les temps des dépendances distantes agrégées et d'exécution de la méthode apparaissent [dans la vignette des performances][metrics].
+Dans la ressource Application Insights, les temps des dépendances distantes agrégées et d’exécution de la méthode apparaissent [dans la vignette des performances][metrics].
 
 Pour rechercher des instances individuelles de rapports sur les dépendances, les exceptions et les méthodes, ouvrez [Rechercher][diagnostic].
+
+[En savoir plus sur le diagnostic des problèmes de dépendance](app-insights-dependencies.md#diagnosis).
 
 ## Des questions ? Des problèmes ?
 
@@ -107,4 +109,4 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

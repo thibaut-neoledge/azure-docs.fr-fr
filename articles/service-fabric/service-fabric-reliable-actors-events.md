@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
@@ -55,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-Sur le client, créez un proxy pour l'acteur qui publie l'événement et s'abonne aux événements.
+Sur le client, créez un proxy pour l'acteur qui publie l'événement et s'abonne à ses événements.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -71,6 +71,5 @@ Sur l'acteur, publiez simplement les événements à mesure qu'ils se produisent
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

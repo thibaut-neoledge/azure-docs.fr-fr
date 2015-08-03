@@ -17,7 +17,7 @@
 
 # Comment utiliser le stockage de fichiers Azure avec PowerShell et .NET
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Le service de fichiers Azure expose les partages de fichiers à l’aide du protocole SMB 2.1 standard. Les applications exécutées dans Azure peuvent désormais facilement partager des fichiers entre des machines virtuelles à l’aide d’API de système de fichiers standard et connues, comme ReadFile et WriteFile. En outre, les fichiers sont également accessibles en même temps via une interface REST, qui ouvre une variété de scénarios hybrides. Pour finir, Azure Files repose sur la même technologie que les services BLOB, de Table et de File d’attente, ce qui signifie qu’Azure Files est en mesure de tirer parti de la redondance géographique intégrée à notre plateforme, de la durabilité, de l’évolutivité et de la disponibilité existantes.
 
@@ -121,14 +121,14 @@ Une fois une connexion à distance établie avec la machine virtuelle, vous pouv
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs
+	net use z: \samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas conservé vos informations d’identification, incluez-les en les transmettant comme paramètres dans la commande `net use`.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 Vous pouvez maintenant utiliser le partage de stockage de fichiers à partir de la machine virtuelle, comme vous le feriez à partir de n’importe quel autre lecteur. Vous pouvez émettre des commandes de fichier standard à partir de l’invite de commandes ou afficher le partage monté et son contenu à partir de l’Explorateur de fichiers. Vous pouvez également exécuter du code au sein de la machine virtuelle qui accède au partage de fichiers à l’aide d’API d’E/S de fichiers Windows standard, telles que celles fournies par les [espaces de noms System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) dans le .NET Framework.
 
@@ -237,4 +237,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

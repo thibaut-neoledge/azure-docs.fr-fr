@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/21/2015"
    ms.author="larryfr"/>
 
 # Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio
@@ -30,19 +30,42 @@ Vous apprendrez également à créer des topologies hybrides qui utilisent des c
 
 	-	Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+	-	Visual Studio 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Azure SDK 2.5.1 ou version ultérieure
 
 -	HDInsight Tools pour Visual Studio : consultez la page [Prise en main de HDInsight Tools pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour installer et configurer les outils HDInsight pour Visual Studio.
 
--	Apache Storm sur cluster HDInsight : consultez la page [Prise en main d’Apache Storm sur HDInsight](hdinsight-storm-getting-started.md) pour connaître les étapes de création d’un cluster.
+    > [AZURE.NOTE]Les outils HDInsight pour Visual Studio ne sont pas pris en charge sur Visual Studio Express.
+
+-	Cluster Apache Storm sur HDInsight : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-storm-getting-started.md) pour connaître les étapes de création d’un cluster.
 
 	> [AZURE.NOTE]Les outils HDInsight pour Visual Studio n'acceptent actuellement que Storm sur les versions de cluster HDInsight 3.2.
 
+##Modèles
+
+Les outils HDInsight pour Visual Studio fournissent les modèles suivants :
+
+| Type de projet | Illustre le |
+| ------------ | ------------- |
+| Application Storm | Un projet de topologie Storm vide |
+| Exemple d’enregistreur SQL Azure Storm | Écriture dans la base de données SQL Azure |
+| Exemple de lecteur DocumentDB Storm | Lecture d’Azure DocumentDB |
+| Exemple d’enregistreur DocumentDB Storm | Écriture dans Azure DocumentDB |
+| Exemple de lecteur EventHub Storm | Lecture d’Azure Event Hubs |
+| Exemple d’enregistreur EventHub Storm | Écriture dans Azure Event Hubs |
+| Exemple de lecteur HBase Storm | Lecture des clusters HBase sur HDInsight |
+| Exemple d’enregistreur HBase Storm | Écriture dans les clusters HBase sur HDInsight |
+| Exemple Storm hybride | Utilisation d’un composant Java |
+| Exemple Storm | Une topologie de base des statistiques |
+
+> [AZURE.NOTE]Les exemples de lecteur et d’enregistreur HBase utilisent l’API REST HBase pour communiquer avec un cluster HBase sur HDInsight, pas l’API Java HBase.
+
+Dans les étapes de ce document, vous allez utiliser le type de projet Application Storm de base pour créer une topologie.
+
 ##Création d’une topologie C#
 
-1.	Si vous n’avez pas encore installé la dernière version de HDInsight Tools pour Visual Studio, consultez la page [Prise en main de HDInsight Tools pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1.	Si vous n’avez pas encore installé la dernière version des outils HDInsight pour Visual Studio, consultez [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Ouvrez Visual Studio, sélectionnez **Fichier** > **Nouveau**, puis **Projet**.
 
@@ -58,7 +81,7 @@ Vous apprendrez également à créer des topologies hybrides qui utilisent des c
 
 	-	**Bolt.cs** : un bolt d’exemple qui conserve un décompte des nombres émis par le spout.
 
-	Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents seront téléchargés à partir de NuGet.
+	Dans le cadre de la création du projet, les [packages SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/) les plus récents sont téléchargés à partir de NuGet.
 
 Dans les sections suivantes, vous allez modifier ce projet en une application de statistiques de base.
 
@@ -426,27 +449,20 @@ SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l�
 
 > [AZURE.NOTE]Bien qu’il soit plus facile d’utiliser le spout Event Hubs que les autres composants Java, vous devez toujours utiliser CustomizedInteropJSONSerializer pour sérialiser les données produites par spout.
 
+##Mise à jour de SCP.NET
+
+Les dernières versions de SCP.NET prennent en charge la mise à niveau du package via NuGet. Vous recevez une notification de mise à niveau dès qu’une nouvelle mise à jour est disponible. Pour rechercher manuellement une mise à niveau, procédez comme suit :
+
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+
+2. Dans le Gestionnaire de package, sélectionnez **Mises à jour**. Si une mise à jour est disponible, elle est affichée. Cliquez sur le bouton **Mettre à jour** du package pour l’installer.
+
+> [AZURE.IMPORTANT]Si votre projet a été créé avec l’une des versions précédentes de SCP.NET qui n’utilisaient pas NuGet pour les mises à jour de package, vous devez procéder comme suit pour effectuer la mise à jour vers la nouvelle version :
+>
+> 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+> 2. Dans le champ **Rechercher**, recherchez, puis ajoutez **Microsoft.SCP.Net.SDK** au projet.
+
 ##Résolution de problèmes
-
-###Mise à jour des composants SCP.Net
-
-Lorsque vous créez une topologie Storm C#, la dernière version de SCP.Net est installée. Toutefois, vous devez effectuer des étapes manuelles pour mettre à jour les projets existants vers la dernière version.
-
-1.	Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le nom du projet, puis sélectionnez **Gérer les packages NuGet**.
-
-2.	Lorsque le Gestionnaire de package s’affiche, utilisez le champ de recherche pour rechercher et installer la dernière version de SCP.Net.
-
-	> [AZURE.IMPORTANT]Une fois l’installation terminée, vous pouvez utiliser la version mise à jour de SCP.Net dans votre topologie, mais vous pouvez recevoir des erreurs lors du déploiement de la topologie dans un cluster HDInsight. Cela est dû au fait que la version utilisée pendant le déploiement doit également être mise à jour.
-
-3.	Après l’installation, accédez au répertoire qui contient votre solution et ouvrez le répertoire **Packages**. Un sous-répertoire nommé **Microsoft.SCP.Net.SDK.#.#.#.###** doit y figurer. « # » représente le numéro de version.
-
-4.	Ouvrez le répertoire **Microsoft.SCP.Net.SDK.#.#.#.###** et copiez le contenu.
-
-5.	Dans le répertoire qui contient votre solution, ouvrez le répertoire qui contient votre projet de topologie Storm C# et recherchez le dossier **Microsoft.SCP.Net.SDK**. Celui-ci contient les composants SCP.Net qui seront utilisés pour empaqueter et déployer votre application sur le cluster HDInsight.
-
-6.	Supprimez le contenu existant du répertoire **Microsoft.SCP.Net.SDK** et remplacez-le par la version copiée à partir de **packages/Microsoft.SCP.Net.SDK.#.#.#.###**.
-
-À ce stade, votre projet a été mis à jour pour utiliser la version installée de NuGet pour le développement et le déploiement locaux dans le cluster HDInsight.
 
 ###Test local d’une topologie
 
@@ -579,7 +595,7 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
 
 6.	Enregistrez les modifications, puis utilisez **F5** ou sélectionnez **Débogage** > **Démarrer le débogage** pour démarrer le projet. Une fenêtre de console doit apparaître et enregistrer les statuts avec la progression des tests. Lorsque le message **Tests terminés** s’affiche, appuyez sur n’importe quelle touche pour fermer la fenêtre.
 
-7.	Utilisez l’**Explorateur Windows** pour accéder au répertoire qui contient votre projet, par exemple, **C:\\Users < votre_nom_utilisateur > \\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. Dans ce répertoire, ouvrez **Bin**, puis cliquez sur **Débogage**. Vous devez voir les fichiers texte produits lors de l’exécution de tests : sentences.txt, counter.txt et splitter.txt. Ouvrez chaque fichier texte et inspectez les données.
+7.	Utilisez l’**Explorateur Windows** pour accéder au répertoire qui contient votre projet, par exemple, **C:\Users < votre_nom_utilisateur > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Dans ce répertoire, ouvrez **Bin**, puis cliquez sur **Débogage**. Vous devez voir les fichiers texte produits lors de l’exécution de tests : sentences.txt, counter.txt et splitter.txt. Ouvrez chaque fichier texte et inspectez les données.
 
 	> [AZURE.NOTE]Les chaînes de données sont conservées sous forme de tableau de valeurs décimales dans ces fichiers. Par exemple, le résultat [[97,103,111]] dans le fichier **splitter.txt** correspond au mot « and ».
 
@@ -639,4 +655,4 @@ Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir dav
 
 -	[Prise en main de HBase sur HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

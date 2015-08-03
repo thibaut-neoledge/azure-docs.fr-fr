@@ -376,4 +376,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, suivez ces l
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l’API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

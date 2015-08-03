@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,12 +40,12 @@ Configurons d'abord le modèle Arbre de décision optimisé :
 
 1.	Recherchez le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] dans la palette des modules et faites-le glisser sur le canevas.
 2.	Recherchez le module [Former le modèle][train-model], faites-le glisser sur le canevas et connectez la sortie du module Arbre de décision optimisé vers le port d'entrée de gauche (« Modèle non formé ») du module [Former le modèle][train-model].
-3.	Connectez la sortie du module [Exécuter le script R][execute-r-script] de gauche au port d'entrée à droite (« Jeu de données ») du module [Former le modèle][train-model].
+3.	Connectez la sortie gauche (« Jeu de données du résultat ») du module [Exécuter le script R][execute-r-script] de gauche au port d'entrée à droite (« Jeu de données ») du module [Former le modèle][train-model].
 
 	> [AZURE.TIP]Nous n’avons pas besoin de deux des entrées et de l’une des sorties du module [Exécuter le script R][execute-r-script] pour cette expérience ; nous les laisserons donc sans liaison. Cela est courant pour certains modules.
 
 
-4.	Sélectionnez le module [Former le modèle][train-model]. Dans le volet **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **Index des colonnes** dans la deuxième et entrez « 21 » dans le champ textuel (vous pouvez également sélectionner **Nom de la colonne** et entrer « Risque de crédit »). Cela identifie la colonne 21, qui correspond à la valeur de risque du crédit, comme colonne de prédiction du modèle.
+4.	Sélectionnez le module [Former le modèle][train-model]. Dans le panneau **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **Index des colonnes** dans la deuxième et entrez « 21 » dans le champ textuel (vous pouvez également sélectionner **noms des colonnes** et entrer « Risque de crédit »). Cela identifie la colonne 21, qui correspond à la valeur de risque du crédit, comme colonne de prédiction du modèle.
 
 
 Cette partie de l'expérience ressemble alors à ce qui suit :
@@ -63,12 +63,12 @@ Les arbres de décision optimisés fonctionnent bien avec tout type de caractér
 5.	Connectez l'entrée de ce module de transformation à la sortie du module [Exécuter le script R][execute-r-script] de gauche.
 6.	Connectez le port de sortie de gauche (« Jeu de données transformé ») du module de transformation au port d'entrée de droite (« Jeu de données ») du module [Former le modèle][train-model].
 7.	Dans le volet **Propriétés** du module de transformation, sélectionnez **Tanh** comme paramètre de la **Méthode de transformation**.
-8.	Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **type de colonne** dans la deuxième et sélectionnez **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) seront transformées.
+8.	Cliquez sur **Lancer le sélecteur de colonne**, sélectionnez « Aucune colonne » pour **Commencer par**, sélectionnez **Inclure** dans la première liste déroulante, sélectionnez **type de colonne** dans la deuxième et sélectionnez **Numérique** dans la troisième. Cette action spécifie que toutes les colonnes numériques (et elles seules) seront transformées.
 9.	Cliquez sur le signe (+) pour créer une ligne de listes déroulantes. Sélectionnez **Exclure** dans la première liste déroulante, sélectionnez **index de colonnes** dans la seconde et entrez « 21 » dans le champ textuel. Cette action spécifie que la colonne 21 (Risque du crédit) est ignorée.
 10.	Cliquez sur **OK**.  
 
 
-Le module [Normaliser les données][normalize-data] est maintenant configuré pour effectuer une transformation Tanh sur toutes les colonnes numériques à l’exception de la colonne Risque du crédit.
+Le module [Normaliser les données][normalize-data] est maintenant configuré pour effectuer une transformation Tanh sur toutes les colonnes numériques à l’exception de la colonne Risque de crédit.
 
 Cette partie de l'expérience ressemble alors à ceci :
 
@@ -79,11 +79,11 @@ Nous allons utiliser les données d'évaluation séparées par le module **Fract
 
 1.	Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur le canevas.
 2.	Connectez le port d'entrée de gauche de ce module au modèle Arbre de décision optimisé (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]).
-3.	Connectez le port d'entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Exécuter le script R][execute-r-script] de droite. Notez qu'il est normal que la sortie d'un module soit dirigée vers plusieurs emplacements.
+3.	Connectez le port d'entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Exécuter le script R][execute-r-script] de droite. 
 4.	Copiez et collez le module [Noter le modèle][score-model] pour créer une deuxième copie ou faites glisser un nouveau module sur le canevas.
 5.	Connectez le port d'entrée de gauche de ce module au modèle SVM (c.à.d. connectez-le au port de sortie du module [Former le modèle][train-model] connecté au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]).
-6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Copiez et collez donc le module [Normaliser les données][normalize-data] pour en créer une autre copie et connectez-le à la sortie du module [Exécuter le script R][execute-r-script] de droite.
-7.	Connectez le port d’entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Normaliser les données][normalize-data].  
+6.	Pour le modèle SVM, nous devons effectuer la même transformation pour tester les données comme nous l’avons fait pour les données de formation. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la à la sortie du module [Exécuter le script R][execute-r-script] de droite.
+7.	Connectez le port d'entrée de droite du module [Noter le modèle][score-model] à la sortie du module [Normaliser les données][normalize-data].  
 
 Pour évaluer les résultats notés, nous allons utiliser le module [Évaluer le modèle][evaluate-model].
 
@@ -97,7 +97,7 @@ L'expérience doit ressembler à ceci :
  
 Cliquez sur le bouton **EXÉCUTER** sous le canevas pour exécuter l'expérience. Cette opération peut prendre quelques minutes. Un indicateur rotatif sur chaque module indique qu'il est en cours d'exécution ; une coche verte s'affiche ensuite pour indiquer que l'exécution est terminée.
 
-Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée. Pour examiner les résultats, cliquez avec le bouton droit sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionnez **Visualiser**.
+Lorsque tous les modules comportent une coche, l'exécution de l'expérience est terminée. Pour examiner les résultats, cliquez sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionnez **Afficher les résultats**.
 
 Le module [Évaluer le modèle][evaluate-model] produit une paire de courbes et de mesures qui permettent de comparer les résultats des deux modèles notés. Vous pouvez afficher les résultats sous forme de courbes Receiver Operator Characteristic (ROC), Precision/Recall ou Lift. Les données supplémentaires affichées comprennent une matrice de confusion, les valeurs cumulées pour l’aire sous la courbe (ASC) et d’autres mesures. Vous pouvez modifier la valeur du seuil en déplaçant le curseur vers la gauche ou la droite et voir son influence sur l'ensemble des mesures.
 
@@ -116,7 +116,7 @@ Comme aide supplémentaire pour suivre les modifications que vous apportez aux p
 
 ----------
 
-**Suivant : [Publier le service web](machine-learning-walkthrough-5-publish-web-service.md)**
+**Suite : [Publication du service web](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -134,4 +134,4 @@ Comme aide supplémentaire pour suivre les modifications que vous apportez aux p
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -192,4 +192,4 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

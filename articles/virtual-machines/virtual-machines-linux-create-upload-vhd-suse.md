@@ -180,4 +180,4 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

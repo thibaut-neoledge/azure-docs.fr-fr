@@ -255,9 +255,9 @@ Les champs de transition d'état peuvent être utilisés pour un niveau d'alerte
 L'exemple suivant envoie un rapport d'intégrité via Powershell sur l'application nommée fabric:/WordCount à partir de la source MyWatchdog. Le rapport d'intégrité contient des informations sur la propriété d'intégrité Disponibilité dans un état d'intégrité Error avec une durée de vie infinie. Il interroge ensuite l'intégrité de l'application, qui retourne l'état d'intégrité agrégé Error et l'événement d'état signalé dans la liste des événements d'intégrité.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ Le modèle d'intégrité est très utilisé pour la surveillance et le diagnosti
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

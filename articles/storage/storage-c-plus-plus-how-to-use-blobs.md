@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Utilisation du stockage d'objets blob à partir de C++  
@@ -67,7 +67,7 @@ Vous pouvez utiliser la classe **cloud_storage_account** pour représenter vos i
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **￼cloud_blob_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
+Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **￼cloud_blob_client**￼ en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -165,6 +165,8 @@ Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir u
 		}
 	}
 
+Pour plus d'informations sur les opérations de listage, consultez [Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md).
+
 ## Téléchargement d’objets blob
 Pour télécharger des objets blob, commencez par récupérer une référence d’objet blob, puis appelez la méthode **download_to_stream**. L’exemple suivant utilise la méthode **download_to_stream** pour transférer les contenus d’objets blob vers un objet de flux pouvant être rendu persistant dans un fichier local.
 
@@ -231,6 +233,7 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 
 -	[Utilisation du service de stockage de files d'attente à partir de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Utilisation du stockage de tables à partir de C++](storage-c-plus-plus-how-to-use-tables.md)
+-	[Listage des ressources Azure Storage en C++](storage-c-plus-plus-enumeration.md)
 -	[Bibliothèque cliente de stockage pour C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Référence MSDN d’Azure Storage](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -153,17 +153,17 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Le service SQLDW est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser.
 
-Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : [Connecter et interroger](sql-data-warehouse-get-started-connect-query.md) l’entrepôt de données. 2. Exporter les données de l’entrepôt de données vers le stockage d’objets blob Azure. 3. Charger d’autres données dans l’entrepôt de données.
+Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : [Connecter et interroger][] l’entrepôt de données. 2. Exporter les données de l’entrepôt de données vers le stockage d’objets blob Azure. 3. Charger d’autres données dans l’entrepôt de données.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-
+[Connecter et interroger]: sql-data-warehouse-get-started-connect-query.md
 
 <!--External links-->
 [version d’essai gratuit]: https://azure.microsoft.com/fr-fr/pricing/free-trial/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -73,4 +73,4 @@ Ce didacticiel part du principe que vous connaissez Azure App Services et que vo
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -72,4 +72,4 @@ Le même code de suivi que vous avez ajouté à votre application ci-dessus pour
 * [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

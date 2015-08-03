@@ -286,4 +286,4 @@ Nous prenons en charge la connectivité aux services Office 365 via les fournis
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

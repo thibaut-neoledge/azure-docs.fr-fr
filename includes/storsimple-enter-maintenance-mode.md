@@ -1,5 +1,4 @@
 
-
 #### Pour passer en mode Maintenance
 
 1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
@@ -14,4 +13,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message s’affiche pour indiquer que l’appareil est en mode Maintenance.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

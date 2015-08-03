@@ -55,7 +55,7 @@ Voici ce dont vous aurez besoin :
 **Composant** | **Déploiement** | **Détails**
 --- | --- | ---
 **Serveur de configuration** | <p>Vous le déployez comme une machine virtuelle A3 standard Azure dans le même abonnement que Site Recovery.</p> <p>Vous configurez dans le portail Site Recovery</p> | Ce serveur coordonne la communication entre les ordinateurs protégés, le serveur de traitement et les serveurs cibles maîtres dans Azure. Il configure la réplication et coordonne la récupération dans Azure lors du basculement.
-**Serveur cible maître** | <p>Vous le déployez comme une machine virtuelle Azure — comme serveur Windows basé sur une image de la galerie Windows Server 2012 R2 (pour protéger les ordinateurs Windows) ou comme serveur Linux basé sur une image de la galerie OpenLogic CentOS 6.6 (pour protéger les ordinateurs Linux).</p> <p>Deux options de dimensionnement sont disponibles : A3 standard et D14 standard.<p><p>Le serveur est connecté au même réseau Azure que le serveur de configuration.</p><p>Vous configurez dans le portail Site Recovery</p> | <p>Il reçoit et stocke les données répliquées à partir de vos ordinateurs protégés à l'aide de disques durs virtuels attachés créés sur le stockage d'objets blob dans votre compte de stockage Azure.</p>   
+**Serveur cible maître** | <p>Vous le déployez comme une machine virtuelle Azure — comme serveur Windows basé sur une image de la galerie Windows Server 2012 R2 (pour protéger les ordinateurs Windows) ou comme serveur Linux basé sur une image de la galerie OpenLogic CentOS 6.6 (pour protéger les ordinateurs Linux).</p> <p>Deux options de dimensionnement sont disponibles : A4 standard et D14 standard.<p><p>Le serveur est connecté au même réseau Azure que le serveur de configuration.</p><p>Vous configurez dans le portail Site Recovery</p> | <p>Il reçoit et stocke les données répliquées à partir de vos ordinateurs protégés à l'aide de disques durs virtuels attachés créés sur le stockage d'objets blob dans votre compte de stockage Azure.</p>   
 **Serveur de traitement** | <p>Vous le déployez comme un serveur virtuel ou physique local exécutant Windows Server 2012 R2</p> <p>Nous vous recommandons de le placer sur le même réseau et le même segment de réseau local que les ordinateurs que vous souhaitez protéger, mais vous pouvez l'exécuter sur un autre réseau tant que les ordinateurs protégés disposent d'une visibilité de réseau L3.<p>Vous le configurez et l’enregistrer sur le serveur de configuration dans le portail Site Recovery.</p> | <p>Les ordinateurs protégés envoient des données de réplication au serveur de traitement local. Il possède un cache disque pour mettre en cache les données de réplication qu'il reçoit. Il exécute un certain nombre d’actions sur ces données.</p><p>Il optimise les données en les mettant en cache, en les comprimant et en les chiffrant avant de les envoyer au serveur cible maître.</p><p>Il gère l’installation Push du service de mobilité.</p><p>Il effectue la détection automatique des machines virtuelles VMware.</p>
 **Ordinateurs locaux** | Il s’agit soit de machines virtuelles exécutée sur un hyperviseur VMWare, soit de serveurs physiques exécutant Windows ou Linux. | Vous définissez les paramètres de réplication qui s'appliquent aux machines virtuelles et serveurs. Vous pouvez basculer un ordinateur individuel ou plus fréquemment dans le cadre d'un plan de récupération contenant plusieurs machines virtuelles qui basculent ensemble.
 **Service de mobilité** | <p>S’installe sur chaque ordinateur virtuel ou serveur physique que vous souhaitez protéger</p><p>Peut être installé manuellement ou transmis et installé automatiquement par le serveur de traitement. | Le service prend un instantané VSS des données sur chaque ordinateur protégé et le déplace vers le serveur de traitement, qui à son tour les réplique vers le serveur cible maître.
@@ -169,8 +169,8 @@ Notez les points suivants :
 **Serveur cible maître** | <p>Machine virtuelle Azure A4 ou D14 standard.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais. Par exemple, le chemin d'accès doit être **/usr/local/ASR** pour un serveur cible maître exécutant Linux.</p></p>
 **Serveur de traitement** | <p>Vous pouvez déployer le serveur de traitement sur un ordinateur physique ou virtuel exécutant Windows Server 2012 R2 avec les dernières mises à jour. Effectuez l’installation sur C:/.</p><p>Nous vous recommandons de placer le serveur sur le même réseau et sous-réseau que les ordinateurs que vous souhaitez protéger.</p><p>Installez VMware vSphere CLI 5.5.0 sur le serveur de traitement. Le composant VMware vSphere CLI est requis sur le serveur de traitement pour pouvoir détecter les ordinateurs virtuels gérés par un serveur vCenter ou les ordinateurs virtuels exécutés sur un hôte ESXi.</p><p>Le chemin d'installation doit uniquement comprendre des caractères anglais.</p>
 **VMware** | <p>Un serveur VMWare vCenter qui gère vos hyperviseurs VMware vSphere. Il doit exécuter vCenter version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Un ou plusieurs hyperviseurs vSphere contenant des ordinateurs virtuels VMware que vous souhaitez protéger. L'hyperviseur doit exécuter ESX/ESXi version 5.1 ou 5.5 avec les dernières mises à jour.</p><p>Des outils VMware doivent être installés et exécutés sur les ordinateurs virtuels VMware.</p>
-**Ordinateurs Windows** | <p>Les ordinateurs virtuels VMware ou serveurs physiques protégés sous Windows ont un certain nombre d'exigences.</p><p>Un système d'exploitation 64 bits pris en charge : **Windows Server 2012 R2**, **Windows Server 2012** ou **Windows Server 2008 R2 avec au moins SP1**.</p><p>Le nom d'hôte, les points de montage, les noms de périphériques, le chemin d'accès au système Windows (par ex : C:\\Windows) doivent uniquement être en anglais.</p><p>Le système d'exploitation doit être installé sur le lecteur C:\.</p><p>Seuls les disques de base sont pris en charge. Les disques dynamiques ne sont pas pris en charge.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Vous devez fournir un compte administrateur (vous devez être un administrateur local sur l'ordinateur Windows) pour effectuer l'installation Push du service de mobilité sur les serveurs Windows. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Pour ajouter l'entrée de registre à partir d’une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [En savoir plus](https://msdn.microsoft.com/library/aa826699.aspx) sur le contrôle d’accès.</p><p>Après un basculement, si vous voulez vous connecter à des ordinateurs virtuels Windows dans Azure avec le Bureau à distance, assurez-vous que le Bureau à distance est activé pour l’ordinateur local. Si vous ne vous connectez pas via un VPN, les règles de pare-feu doivent autoriser les connexions Bureau à distance via Internet.</p>
-**Ordinateurs Linux** | <p> Un système d'exploitation 64 bits pris en charge : **Centos 6.4, 6.5, 6.6** ; **Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Les règles de pare-feu sur les ordinateurs protégés doivent leur permettre de joindre les serveurs de configuration et les serveurs cibles maîtres dans Azure.</p><p>Les fichiers /etc/hosts sur des ordinateurs protégés doivent contenir des entrées qui mappent le nom d'hôte local aux adresses IP associées à toutes les cartes réseau </p><p>Si vous souhaitez vous connecter à une machine virtuelle Azure exécutant Linux après un basculement à l'aide d'un client Secure Shell (ssh), assurez-vous que le service Secure Shell sur l'ordinateur protégé est configuré pour démarrer automatiquement au démarrage du système et que les règles de pare-feu autorisent une connexion ssh à celui-ci.</p><p>Le nom d'hôte, les points de montage, les noms de périphériques et les chemins d'accès système et noms de fichier Linux (par ex : /etc/ ; /usr) doivent uniquement être en anglais.</p><p>La protection peut être activée pour les ordinateurs locaux avec le stockage suivant : système de fichiers : EXT3, ETX4, ReiserFS, XFS/Multipath software-Device Mapper (multipath) / Gestionnaire de Volume : LVM2 \\ Les serveurs physiques avec le stockage contrôleur HP CCISS ne sont pas pris en charge.</p>
+**Ordinateurs Windows** | <p>Les ordinateurs virtuels VMware ou serveurs physiques protégés sous Windows ont un certain nombre d'exigences.</p><p>Un système d'exploitation 64 bits pris en charge : **Windows Server 2012 R2**, **Windows Server 2012** ou **Windows Server 2008 R2 avec au moins SP1**.</p><p>Le nom d'hôte, les points de montage, les noms de périphériques, le chemin d'accès au système Windows (par ex : C:\Windows) doivent uniquement être en anglais.</p><p>Le système d'exploitation doit être installé sur le lecteur C:\.</p><p>Seuls les disques de base sont pris en charge. Les disques dynamiques ne sont pas pris en charge.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Vous devez fournir un compte administrateur (vous devez être un administrateur local sur l'ordinateur Windows) pour effectuer l'installation Push du service de mobilité sur les serveurs Windows. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Pour ajouter l'entrée de registre à partir d’une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. [En savoir plus](https://msdn.microsoft.com/library/aa826699.aspx) sur le contrôle d’accès.</p><p>Après un basculement, si vous voulez vous connecter à des ordinateurs virtuels Windows dans Azure avec le Bureau à distance, assurez-vous que le Bureau à distance est activé pour l’ordinateur local. Si vous ne vous connectez pas via un VPN, les règles de pare-feu doivent autoriser les connexions Bureau à distance via Internet.</p>
+**Ordinateurs Linux** | <p> Un système d'exploitation 64 bits pris en charge : **Centos 6.4, 6.5, 6.6** ; **Oracle Enterprise Linux 6.4, 6.5 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>Les règles de pare-feu sur les ordinateurs protégés doivent leur permettre de joindre les serveurs de configuration et les serveurs cibles maîtres dans Azure.</p><p>Les fichiers /etc/hosts sur des ordinateurs protégés doivent contenir des entrées qui mappent le nom d'hôte local aux adresses IP associées à toutes les cartes réseau </p><p>Si vous souhaitez vous connecter à une machine virtuelle Azure exécutant Linux après un basculement à l'aide d'un client Secure Shell (ssh), assurez-vous que le service Secure Shell sur l'ordinateur protégé est configuré pour démarrer automatiquement au démarrage du système et que les règles de pare-feu autorisent une connexion ssh à celui-ci.</p><p>Le nom d'hôte, les points de montage, les noms de périphériques et les chemins d'accès système et noms de fichier Linux (par ex : /etc/ ; /usr) doivent uniquement être en anglais.</p><p>La protection peut être activée pour les ordinateurs locaux avec le stockage suivant : système de fichiers : EXT3, ETX4, ReiserFS, XFS/Multipath software-Device Mapper (multipath) / Gestionnaire de Volume : LVM2 \ Les serveurs physiques avec le stockage contrôleur HP CCISS ne sont pas pris en charge.</p>
 **Tiers** | Le fonctionnement correct de certains composants de déploiement de ce scénario dépend de logiciels tiers. Pour la liste complète, consultez [Informations et remarques relatives aux logiciels tiers](#third-party)
 
 ## Déploiement
@@ -238,7 +238,7 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 
     >[AZURE.WARNING]Ne supprimez ou ne modifiez pas le numéro de port public ou privé des points de terminaison créés lors du déploiement du serveur de configuration.
 
-Le serveur de configuration est déployé dans un service cloud Azure créé automatiquement avec une adresse IP réservée. L'adresse réservée est nécessaire pour s'assurer que l'adresse IP du service cloud du serveur de configuration reste la même pour tous les redémarrages des machines virtuelles (y compris le serveur de configuration) sur le service cloud. La réservation de l'adresse IP publique réservée doit être annulée manuellement lorsque le serveur de configuration est désactivé ou cette adresse restera réservée. Il existe une limite par défaut de 20 adresses IP publiques réservées par abonnement. [En savoir plus](https://msdn.microsoft.com/library/azure/dn630228.aspx) sur les adresses IP réservées.
+Le serveur de configuration est déployé dans un service cloud Azure créé automatiquement avec une adresse IP réservée. L'adresse réservée est nécessaire pour s'assurer que l'adresse IP du service cloud du serveur de configuration reste la même pour tous les redémarrages des machines virtuelles (y compris le serveur de configuration) sur le service cloud. La réservation de l'adresse IP publique réservée doit être annulée manuellement lorsque le serveur de configuration est désactivé ou cette adresse restera réservée. Il existe une limite par défaut de 20 adresses IP publiques réservées par abonnement. [En savoir plus](../virtual-network/virtual-networks-reserved-private-ip.md) sur les adresses IP réservées.
 
 ### inscrire le serveur de configuration dans le coffre
 
@@ -323,19 +323,6 @@ Notez les points suivants :
 - Une connexion VPN utilise l'adresse IP interne du serveur et les ports privés du point de terminaison.
 - Une décision irrévocable doit être prise pour déterminer s'il faut se connecter (données de réplication et contrôle) à partir de vos serveurs locaux aux différents serveurs de composant (serveur de configuration, serveur cible maître) en cours d'exécution dans Azure via une connexion VPN ou internet. Vous ne pouvez pas modifier ce paramètre par la suite. Si vous le faites, vous devez redéployer le scénario et protéger vos ordinateurs de nouveau.  
 
-#### Configurer une connexion VPN (facultative) 
-
-Si vous souhaitez utiliser une connexion VPN ou ExpressRoute connexion, procédez comme suit :
-
-1. En savoir plus ici si vous n’avez actuellement aucune connexion établie :
-
-	- [ExpressRoute or VPN - Quel type de connexion me convient](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/)
-	- [Configurer une connexion de site à site avec un ordinateur virtuel Azure](../vpn-gateway-site-to-site-create.md)
-	- [Configurer une connexion ExpressRoute](../expressroute-configuring-exps.md)
-2. Dans le coffre, cliquez sur **Serveurs** > **Serveurs de Configuration** > Serveur de configuration > **Configurer**.
-3. Dans **Paramètres de connectivité**, assurez-vous que le **Type de connectivité** est défini sur **VPN**. Notez que si vous avez configuré un VPN mais que vous n'avez pas d'accès à internet à partir du site local, vous devez sélectionner l'option VPN. Si vous ne sélectionnez pas cette option, le serveur de traitement ne pourra pas envoyer les données de réplication au serveur cible maître sur ses points de terminaison publics.
-
-	![Activer un VPN](./media/site-recovery-vmware-to-azure/ASRVMWare_EnableVPN.png)
 
 ## Étape 3 : déployer le serveur cible maître
 
@@ -400,12 +387,12 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 
 2. Copiez le fichier zip téléchargé sur le serveur sur lequel vous allez installer le serveur de traitement. Le fichier .zip contient deux fichiers d'installation :
 
-	- Microsoft-ASR_CX_TP_8.2.0.0_Windows*
-	- Microsoft-ASR_CX_8.2.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_8.3.0.0_Windows*
 
 3. Décompressez l'archive et copiez les fichiers d'installation à un emplacement sur le serveur.
-4. Exécutez le fichier d'installation **Microsoft-ASR_CX_TP_8.2.0.0_Windows*** et suivez les instructions. Cette opération installe les composants tiers nécessaires au déploiement.
-5. Ensuite, exécutez **Microsoft-ASR_CX_8.2.0.0_Windows***.
+4. Exécutez le fichier d'installation **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** et suivez les instructions. Cette opération installe les composants tiers nécessaires au déploiement.
+5. Ensuite, exécutez **Microsoft-ASR_CX_8.3.0.0_Windows***.
 6. À la page **Mode du serveur**, sélectionnez **Serveur de traitement**.
 
 	![Mode de sélection du serveur](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -450,7 +437,7 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 
 Si vous n'avez pas désactivé la vérification de la signature pour le service de mobilité lors de l'inscription du serveur de traitement, vous pouvez le faire ultérieurement comme suit :
 
-1. Ouvrez une session sur le serveur de traitement en tant qu'administrateur et ouvrez le fichier C:\\pushinstallsvc\\pushinstaller.conf. Dans la section **[PushInstaller.transport]**, ajoutez cette ligne : **SignatureVerificationChecks=”0”**. Enregistrez et fermez le fichier.
+1. Ouvrez une session sur le serveur de traitement en tant qu'administrateur et ouvrez le fichier C:\pushinstallsvc\pushinstaller.conf. Dans la section **[PushInstaller.transport]**, ajoutez cette ligne : **SignatureVerificationChecks=”0”**. Enregistrez et fermez le fichier.
 2. Redémarrez le service InMage PushInstall.
 
 
@@ -467,11 +454,11 @@ Vous pouvez obtenir les mises à jour sur le **Tableau de bord** de Site Recover
 Si vous exécutez des ordinateurs virtuels ou des serveurs physiques sur lesquels le service de mobilité est déjà installé, vous pouvez obtenir les mises à jour de ce service comme suit :
 
 - Téléchargez les mises à jour de ce service comme suit :
-	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
-- Vous pouvez également obtenir la version mise à jour du service de mobilité à partir du dossier C:\\pushinstallsvc\\repository sur le serveur de traitement après avoir mis à jour ce dernier.
+	- [Windows Server (64 bits uniquement)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6 (64 bits uniquement)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5 (64 bits uniquement)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server SP3 (64 bits uniquement)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+- Vous pouvez également obtenir la version mise à jour du service de mobilité à partir du dossier C:\pushinstallsvc\repository sur le serveur de traitement après avoir mis à jour ce dernier.
 
 
 ## Étape 6 : ajouter des serveurs vCenter ou hôtes ESXi
@@ -534,18 +521,18 @@ Quand vous ajoutez des ordinateurs à un groupe de protection, le service de mob
 
 **Transmettre et installer automatiquement le service de mobilité sur des serveurs Windows :**
 
-1. Installez les dernières mises à jour pour le serveur de traitement, comme décrit dans [Étape 5 : installer les dernières mises à jour] (\#dernières mises à jour) et assurez-vous que le serveur de traitement est disponible. 
+1. Installez les dernières mises à jour pour le serveur de traitement, comme décrit dans [Étape 5 : installer les dernières mises à jour] (#dernières mises à jour) et assurez-vous que le serveur de traitement est disponible. 
 2. Vérifiez qu’il y a une connectivité réseau entre l'ordinateur source et le serveur de traitement, et que l'ordinateur source est accessible depuis le serveur de traitement.  
 3. Configurez le Pare-feu Windows pour autoriser le **Partage de fichiers et d'imprimantes** et l’**Infrastructure de gestion Windows**. Dans les paramètres du Pare-feu Windows, sélectionnez l'option « Autoriser une application ou une fonctionnalité via le pare-feu » et sélectionnez les applications comme indiqué dans l'image ci-dessous. Pour les ordinateurs qui appartiennent à un domaine, vous pouvez configurer la stratégie de pare-feu avec un objet de stratégie de groupe.
 
 	![Paramètres du pare-feu](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. Le compte utilisé pour effectuer l'installation Push doit appartenir au groupe Administrateurs sur l'ordinateur que vous souhaitez protéger. Ces informations d'identification sont uniquement utilisées pour l'installation Push du service de mobilité et vous devez les fournir lorsque vous ajoutez un ordinateur à un groupe de protection.
-5. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Pour ajouter l'entrée de registre à partir d’une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
+5. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Pour ajouter l'entrée de registre à partir d’une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
 
 **Transmettre et installer automatiquement le service de mobilité sur des serveurs Linux :**
 
-1. Installez les dernières mises à jour pour le serveur de traitement, comme décrit dans [Étape 5 : installer les dernières mises à jour] (\#dernières mises à jour) et assurez-vous que le serveur de traitement est disponible.
+1. Installez les dernières mises à jour pour le serveur de traitement, comme décrit dans [Étape 5 : installer les dernières mises à jour] (#dernières mises à jour) et assurez-vous que le serveur de traitement est disponible.
 2. Vérifiez qu’il y a une connectivité réseau entre l'ordinateur source et le serveur de traitement, et que l'ordinateur source est accessible depuis le serveur de traitement.  
 3. Assurez-vous que le compte est un utilisateur racine sur le serveur Linux source.
 4. Assurez-vous que les fichiers /etc/hosts sur le serveur Linux source contiennent des entrées qui mappent le nom d'hôte local aux adresses IP associées à toutes les cartes réseau.
@@ -567,7 +554,7 @@ Quand vous ajoutez des ordinateurs à un groupe de protection, le service de mob
  
 ### Installer le service de mobilité manuellement
 
-Les packages de logiciel utilisés pour installer le service de mobilité sont sur le serveur de traitement dans C:\\pushinstallsvc\\repository. Connectez-vous au serveur de traitement et copiez le package d'installation approprié vers l'ordinateur source selon le tableau ci-dessous :
+Les packages de logiciel utilisés pour installer le service de mobilité sont sur le serveur de traitement dans C:\pushinstallsvc\repository. Connectez-vous au serveur de traitement et copiez le package d'installation approprié vers l'ordinateur source selon le tableau ci-dessous :
 
 | Système d’exploitation source | Package de service de mobilité sur le serveur de traitement |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -596,13 +583,13 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 
 7. Indiquez la phrase secrète du serveur de configuration et cliquez sur **OK** pour inscrire le service de mobilité auprès du serveur de configuration.
 
-**Pour exécuter depuis la ligne de commande : **
+**Pour exécuter depuis la ligne de commande :**
 
-1. Copiez la phrase secrète depuis le CX vers le fichier « C:\\connection.passphrase » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
+1. Copiez la phrase secrète depuis le CX vers le fichier « C:\connection.passphrase » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
-**Installer le service de mobilité manuellement sur un serveur Linux** :
+**Installez le service de mobilité manuellement sur un serveur Linux** :
 
 1. Copiez l'archive tar appropriée selon le tableau ci-dessus, depuis le serveur de traitement vers l'ordinateur source.
 2. Ouvrez un interpréteur de commandes et décompressez l'archive tar vers un chemin d'accès local en exécutant `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`
@@ -684,7 +671,7 @@ Notez les points suivants :
 
 	- a) Modifiez le paramètre de taille.
 	- b) Dans l’onglet **Ordinateurs virtuels**, sélectionnez l’ordinateur virtuel et cliquez sur **Supprimer**.
-	- c) Dans**Supprimer un ordinateur virtuel**, sélectionnez l'option **Désactiver la protection ( àutiliser pour l’exploration de la récupération et le redimensionnement du volume)**. Cette option désactive la protection, mais conserve les points de récupération dans Azure.
+	- c) Dans**Supprimer un ordinateur virtuel**, sélectionnez l'option **Désactiver la protection (à utiliser pour l’exploration de la récupération et le redimensionnement du volume)**. Cette option désactive la protection, mais conserve les points de récupération dans Azure.
 
 		![Définir les propriétés des ordinateurs virtuels](./media/site-recovery-vmware-to-azure/ASRVMWare_RemoveVM.png)
 
@@ -758,6 +745,6 @@ The information in Section A is regarding Third Party Code components from the p
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-Le fichier complet se trouve dans le[Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Le fichier complet se trouve dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

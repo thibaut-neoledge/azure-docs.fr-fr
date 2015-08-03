@@ -3,7 +3,7 @@
 	description="Accéder aux journaux des applications par programmation sur un cluster Hadoop dans HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Accéder aux journaux des applications YARN sur Hadoop dans HDInsight par programmation
 
@@ -115,7 +115,7 @@ Celles-ci font référence aux API nouvellement définies dans le code ci-dessou
 Vous pouvez à présent utiliser le client de l’historique des applications pour répertorier les applications terminées, filtrer les applications en fonction de vos propres critères et télécharger les journaux d’applications appropriés. L’extrait de code suivant montre comment procéder par programmation :
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ Si nécessaire, vous pouvez également télécharger des journaux pour chaque co
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

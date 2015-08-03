@@ -137,7 +137,7 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 
 + [Utiliser MongoDB comme magasin de données avec votre service principal Mobile Services.NET](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>Comme les didacticiels que vous venez de terminer, cette rubrique vous montre comment utiliser un magasin de données non relationnelles pour votre service mobile. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Mobile Services pour utiliser MongoDB plutôt que la base de données SQL comme magasin de données.
  
-+ [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services Web personnalisés.
++ [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
 
 + [Télécharger des images dans le stockage Azure à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Vous montre comment étendre l’exemple de projet TodoList pour vous permettre de télécharger des images à partir de votre application pour le stockage d’objets Blob Azure.
 
@@ -158,4 +158,4 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

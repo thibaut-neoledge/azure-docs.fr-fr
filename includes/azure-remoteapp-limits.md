@@ -20,4 +20,4 @@
 
 Pour demander une augmentation du nombre de collections payantes ou de connexions simultanées, envoyez un e-mail à [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) avec les détails de votre requête, y compris votre ID d’abonnement.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

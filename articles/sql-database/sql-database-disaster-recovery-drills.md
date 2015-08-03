@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/15/2015"
    ms.author="mihaelab"/>
 
 #Exécution d'un exercice de récupération d'urgence
@@ -81,6 +81,4 @@ L'exercice de récupération d'urgence est effectué en utilisant un serveur cib
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

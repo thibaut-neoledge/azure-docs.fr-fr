@@ -48,4 +48,4 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

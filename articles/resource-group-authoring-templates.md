@@ -405,4 +405,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - [Présentation d’Azure Resource Manager](./resource-group-overview.md)
 - [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

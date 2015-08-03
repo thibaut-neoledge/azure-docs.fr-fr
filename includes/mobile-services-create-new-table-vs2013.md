@@ -15,4 +15,4 @@ Avant de pouvoir stocker des données dans le nouveau service mobile, vous devez
 	>
 	>Des tables sont créées avec les colonnes __createdAt, __updatedAt et __version. Lorsqu'un schéma dynamique est activé, Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet JSON dans la requête d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

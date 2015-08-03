@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@ Une fois créé, un fichier de flux de travail peut être téléchargé comme re
 
 Les fichiers de flux de travail par défaut peuvent être modifiés à l'aide de l'outil Concepteur. Vous pouvez vous procurer les fichiers de flux de travail par défaut [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Le dossier contient aussi la description de ces fichiers.
 
+Le blog suivant fournit des vidéos de formation sur l'utilisation du concepteur :
 
->[AZURE.NOTE]Des informations supplémentaires seront bientôt disponibles.
+[Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -61,4 +61,4 @@ Dans cet article, vous avez appris à utiliser io.js avec App Service Web Apps, 
 [script de déploiement de io.js]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -58,4 +58,4 @@ Toutes les API de communication ServiceFabric sont actuellement disponibles uniq
 * [Pile de communication WCF pour les services fiables](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

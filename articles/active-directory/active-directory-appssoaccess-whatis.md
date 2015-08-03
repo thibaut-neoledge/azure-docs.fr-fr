@@ -212,4 +212,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

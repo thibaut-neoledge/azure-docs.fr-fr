@@ -86,7 +86,7 @@ La première étape consiste à ajouter des éléments de l’interface utilisat
 			        android:text="@string/button_subscribe" />
 		</LinearLayout>
 
-2. Ouvrez votre fichier res\\values\\string.xml et ajoutez les lignes suivantes :
+2. Ouvrez votre fichier res\values\string.xml et ajoutez les lignes suivantes :
 
 	    <string name="button_subscribe">Subscribe</string>
 	    <string name="label_world">World</string>
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -281,7 +281,7 @@ L’interface de ligne de commande Azure peut être installée à l’aide de NP
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si vous obtenez une erreur indiquant que la commande du NPM est introuvable, vérifiez que les chemins d’accès suivants figurent dans la variable d’environnement **PATH** : <i>C:\\Program Files (x86)\\nodejs;C:\\Users[nomutilisateur]\\AppData\\Roaming\\npm</i> ou <i>C:\\Program Files\\nodejs;C:\\Users[nomutilisateur]\\AppData\\Roaming\\npm</i>.
+	> [AZURE.NOTE]Si vous obtenez une erreur indiquant que la commande du NPM est introuvable, vérifiez que les chemins d’accès suivants figurent dans la variable d’environnement **PATH** : <i>C:\Program Files (x86)\nodejs;C:\Users[nomutilisateur]\AppData\Roaming\npm</i> ou <i>C:\Program Files\nodejs;C:\Users[nomutilisateur]\AppData\Roaming\npm</i>.
 
 
 5.	Exécutez la commande suivante pour vérifier l'installation :
@@ -758,4 +758,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

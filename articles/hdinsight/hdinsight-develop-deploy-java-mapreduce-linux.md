@@ -44,7 +44,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	* **JAVA_HOME** (ou le chemin d’accès équivalent)
 
-	* **JAVA_HOME\\bin** (ou le chemin d’accès équivalent)
+	* **JAVA_HOME\bin** (ou le chemin d’accès équivalent)
 
 	* Le répertoire d’installation de Maven
 
@@ -60,7 +60,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	* __pom.xml__ - Le [modèle d’objet du projet (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)qui contient les informations et la configuration utilisées pour générer le projet.
 
-	* __src__ - Répertoire contenant le répertoire __main\\java\\org\\apache\\hadoop\\examples__, dans lequel vous créez l'application.
+	* __src__ - Répertoire contenant le répertoire __main\java\org\apache\hadoop\examples__, dans lequel vous créez l'application.
 
 3. Supprimez le fichier __src/test/java/org/apache/hadoop/examples/apptest.java__, car il ne sera pas utilisé dans cet exemple.
 
@@ -220,7 +220,7 @@ Les variables d’environnement suivantes peuvent être définies lors de l’in
 
 	Cela nettoie les artefacts de build précédents, télécharge toute dépendance non encore installée, puis génère et met l’application en package.
 
-3. Une fois la commande exécutée, le répertoire __wordcountjava\\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
+3. Une fois la commande exécutée, le répertoire __wordcountjava\target__ contient un fichier appelé __wordcountjava-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]Le fichier __wordcountjava-1.0-SNAPSHOT.jar__ est un uberjar, qui contient non seulement la tâche WordCount, mais également les dépendances nécessaires à la tâche au moment de l’exécution.
 
@@ -297,4 +297,4 @@ Dans ce document, vous avez appris à développer une tâche MapReduce Java. Con
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

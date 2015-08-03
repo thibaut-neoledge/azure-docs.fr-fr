@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Différentes façons de créer une machine virtuelle Linux" 
-	description="Répertorie les différentes façons de créer une machine virtuelle Linux et fournit des liens vers des instructions." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Différentes façons de créer une machine virtuelle Linux"
+	description="Répertorie les différentes façons de créer une machine virtuelle Linux et fournit des liens vers des instructions."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015" 
-	ms.author="kathydav"/>
+	ms.date="07/20/2015"
+	ms.author="dkshir"/>
 
 # Différentes façons de créer une machine virtuelle Linux
 
@@ -24,15 +24,15 @@ Les modèles Microsoft Azure Resource Manager ont été récemment introduits 
 
 ## Choix des outils
 
-### Interface utilisateur graphique : le portail ou le portail en version préliminaire Microsoft Azure 
+### Interface utilisateur graphique : le portail ou le portail en version préliminaire Microsoft Azure
 
-L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le portail Microsoft Azure ou le portail Microsoft Azure en version préliminaire. Pour obtenir des instructions générales, consultez la page [Création d’une machine virtuelle exécutant Linux][].
+L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le portail Microsoft Azure ou le portail Microsoft Azure en version préliminaire. Pour plus d'informations, consultez [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**.
 
 ### Interface de commande : interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell
 
 Si vous préférez travailler dans une interface de commande, choisissez l’interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell, qui comporte des applets de commande Windows PowerShell pour Microsoft Azure et une console personnalisée.
 
-Pour l’interface de ligne de commande Microsoft Azure, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows][]. Pour utiliser un modèle, consultez Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure.
+Pour la CLI Azure, consultez la page [Création d’une machine virtuelle exécutant Linux][]. Pour utiliser un modèle, consultez [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
 
 Pour Microsoft Azure PowerShell, consultez la page [Utilisation de Microsoft Azure PowerShell pour créer et préconfigurer les machines virtuelles Linux][]. Pour utiliser un modèle, consultez la page [Déploiement et gestion de machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell][].
 
@@ -70,19 +70,21 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 
 [Environnements de test de cloud hybride Azure][]
 
+[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows][]
+
 <!-- LINKS -->
 [vue d’ensemble]: ../resource-group-overview.md
 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
-[Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 
-[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
-[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
+[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Déploiement et gestion de machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
 [Utilisation de Microsoft Azure PowerShell pour créer et préconfigurer les machines virtuelles Linux]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
 [Création d’une machine virtuelle personnalisée exécutant Linux dans Azure]: virtual-machines-linux-create-custom.md
-[Capture d’une machine virtuelle Linux à utiliser comme modèle à l’aide de l’interface de ligne de commande]: virtual-machines-vm-capture-image-cli.md
+[Capture d’une machine virtuelle Linux à utiliser comme modèle à l’aide de l’interface de ligne de commande]: virtual-machines-linux-capture-image.md
 
 [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux]: virtual-machines-linux-create-upload-vhd.md
 
@@ -97,4 +99,7 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Environnement de test de la configuration de base]: virtual-machines-base-configuration-test-environment.md
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO2-->
+[Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
+[Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
+
+<!---HONumber=July15_HO4-->

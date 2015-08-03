@@ -238,4 +238,4 @@ Nous allons à présent créer une campagne simple qui enverra une notification 
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

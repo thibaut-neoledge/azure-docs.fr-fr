@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # Créer une application web Java avec DocumentDB #
@@ -88,7 +88,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 4. Dans la fenêtre **Select Dependency** (Sélectionner une dépendance), procédez comme suit :
  - Dans la zone **GroupId** (ID de groupe), entrez com.microsoft.azure.
  - Dans la zone **Artifact Id** (ID d'artefact), entrez azure-documentdb.
- - Dans la zone **Version**, entrez 1.0.0.
+ - Dans la zone **Version**, entrez 1.1.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. Cliquez sur **Ok** et Maven installe le Kit de développement logiciel (SDK) Java de DocumentDB.
@@ -662,7 +662,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
-		      // Togle table row color
+		      // Toggle table row color
 		      if (isComplete) {
 		        rowElement.addClass("active");
 		        rowElement.removeClass("warning");
@@ -732,7 +732,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 5. Génial ! Maintenant, il ne nous reste qu'à tester l'application. Exécutez l'application localement et ajoutez des éléments Todo en renseignant le nom et la catégorie de l'élément, puis en cliquant sur **Add Task** (Ajouter une tâche).
 
-6. Une fois que l'élément s'affiche, vous pouvez le mettre à jour s'il est terminé en activant/désactivant la case à cocher et en cliquant sur **Update Tasks** (Mettre à jour les tâches).
+6. Une fois que l’élément s’affiche, vous pouvez le mettre à jour s’il est terminé en cochant la case et en cliquant sur **Update Tasks**.
 
 ##<a id="Deploy"></a>Étape 6 : déploiement de votre application sur Azure Websites ##
 
@@ -763,7 +763,7 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 8. Dans l'écran **Local Destination** (Destination locale), cliquez sur **Browse** (Parcourir) pour sélectionner un dossier dans lequel copier le référentiel, puis cliquez sur **Next** (Suivant).
 9. Dans l'écran **Select a wizard to use for importing projects** (Sélectionner un Assistant à utiliser pour l'importation de projets), vérifiez que **Import existing projects** (Importer des projets existants) est sélectionné, puis cliquez sur **Next** (Suivant).
 10. Dans l'écran **Import Projects** (Importer des projets), désélectionnez le projet **DocumentDB**, puis cliquez sur **Finish** (Terminer). Le projet DocumentDB contient le Kit de développement logiciel (SDK) Java de DocumentDB, que nous allons ajouter en tant que dépendance à la place.
-11. Dans l'**Explorateur de projets**, accédez à azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java et remplacez les valeurs HOST et MASTER_KEY par l'URI et la CLÉ PRIMAIRE de votre compte DocumentDB, puis enregistrez le fichier. Pour plus d'informations, consultez l'[Étape 1. création d'un compte de base de données DocumentDB](#CreateDB).
+11. Dans l'**Explorateur de projets**, accédez à azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java et remplacez les valeurs HOST et MASTER_KEY par l'URI et la CLÉ PRIMAIRE de votre compte DocumentDB, puis enregistrez le fichier. Pour plus d'informations, consultez l'[Étape 1. création d'un compte de base de données DocumentDB](#CreateDB).
 12. Dans l'**Explorateur de projets**, cliquez avec le bouton droit sur **azure-documentdb-java-sample**, cliquez sur **Build Path** (Chemin de build), puis sur **Configure Build Path** (Configurer le chemin de build).
 13. Dans l'écran **Java Build Path** (Chemin de build Java), dans le volet droit, sélectionnez l'onglet **Libraries** (Bibliothèques), puis cliquez sur **Add External JARs** (Ajouter des JAR externes). Accédez à l'emplacement du fichier lombok.jar et cliquez sur **Open** (Ouvrir), puis sur **OK**.
 14. Utilisez l'étape 12 pour rouvrir la fenêtre **Properties** (Propriétés), puis, dans le volet de gauche, cliquez sur **Targeted Runtimes** (Runtime ciblés).
@@ -779,4 +779,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

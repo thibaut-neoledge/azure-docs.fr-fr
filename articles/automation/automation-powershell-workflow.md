@@ -163,9 +163,9 @@ Vous pouvez utiliser le mot clé **Parallel** pour créer un bloc de script avec
 
 Par exemple, considérez les commandes PowerShell suivantes qui copier plusieurs fichiers vers une destination sur le réseau. Ces commandes sont exécutées séquentiellement afin que le fichier termine la copie avant de démarrer la suivante.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
 
 Le workflow suivant exécute ces commandes en parallèle afin qu'elles commencent toutes la copie en même temps. Le message confirmant la fin de l'opération apparaît uniquement une fois toutes les copies effectuées.
 
@@ -173,9 +173,9 @@ Le workflow suivant exécute ces commandes en parallèle afin qu'elles commencen
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ L'exemple suivant est similaire à l'exemple précédent concernant la copie de 
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ L'exemple suivant copie plusieurs fichiers vers un emplacement réseau et défin
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Pour plus d'informations sur les points de contrôle, consultez [Ajout de points
 
 - [Mise en route d'un workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

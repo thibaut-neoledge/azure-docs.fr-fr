@@ -28,18 +28,18 @@ L’Assistant Azure AD Connect offre deux possibilités avec des exigences disti
 * Dans Configuration personnalisée, nous vous proposons davantage d’options, mais il existe certaines situations dans lesquelles vous devrez disposer vous-même des autorisations appropriées.
 
 
-## Le tableau suivant présente les informations d’identification collectées et leur utilisation dans la configuration rapide.
+## Informations d’identification collectées et utilisation de ces dernières dans la configuration rapide
 
 Page de l’Assistant | Informations d’identification collectées | Autorisations requises| Utilisation 
 ------------- | ------------- |------------- |------------- |
 Connexion à Azure AD| Informations d’identification Azure Active Directory | Rôle Administrateur général dans Azure AD | <li>Activation de la synchronisation dans l’annuaire Azure AD.</li> <li>Création du compte Azure AD qui sera utilisé pour les opérations de synchronisation continue dans Azure AD.</li>
-Connexion à AD DS | Informations d’identification Active Directory locales | Membre du groupe Administrateurs de l’entreprise dans Active Directory| <li>Création du compte Active Directory local qui sera utilisé pour lire les objets et attributs à partir d’AD en local pour l’opération de synchronisation continue.</li> <li> Attribution des autorisations et des paramètres de contrôle d’accès adéquats pour la synchronisation et la synchronisation de mot de passe vers le compte ci-dessus et vers Active Directory.</li> 
+Connexion à AD DS | Informations d’identification Active Directory locales | Membre du groupe Administrateurs de l’entreprise dans Active Directory| Utilisé comme compte de connecteur AD local ; autrement dit, il s’agit du compte qui lit et écrit les informations d’annuaire pour la synchronisation.
 N/D|Informations d’identification de l’utilisateur exécutant l’Assistant| Administrateur du serveur local|L’Assistant crée le compte Active Directory qui sera utilisé comme compte de connexion au service de synchronisation sur l’ordinateur local.
 
 <br> <br>
 
 
-## Le tableau suivant présente les informations d’identification collectées et leur utilisation dans la configuration personnalisée.
+## Informations d’identification collectées et utilisation de ces dernières dans la configuration personnalisée
 
 Page de l’Assistant | Informations d’identification collectées | Autorisations requises| Utilisation 
 ------------- | ------------- |------------- |------------- |
@@ -55,7 +55,7 @@ Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur d
 
 
 <br> <br>
-## Autorisations requises pour un scénario spécifique
+## Autorisations requises pour des scénarios spécifiques
 
 Scénario |Autorisation
 ------------- | ------------- |
@@ -66,7 +66,7 @@ Utilisateur, Groupe et Écriture différée des appareils|Autorisations en écri
 Authentification unique et AD FS| Autorisations d’administrateur de domaine dans le domaine dans lequel se trouvent vos serveurs fédérés.
 
 <br> <br>
-## Synthèse des comptes créés par Azure AD Connect
+## Synthèse des comptes créés par Azure AD Connect
 
 
 
@@ -90,4 +90,4 @@ AD FS :compte de service administré de groupe (gMSA) (aadcsvc$)|Utilisateur de
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

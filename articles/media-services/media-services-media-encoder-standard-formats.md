@@ -84,4 +84,4 @@ Le tableau suivant répertorie les codecs et les formats de fichiers pris en cha
 
 [Encodage de contenu à la demande avec Azure Media Services](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

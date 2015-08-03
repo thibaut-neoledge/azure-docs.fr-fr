@@ -138,4 +138,4 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

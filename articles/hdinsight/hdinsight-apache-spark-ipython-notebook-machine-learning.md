@@ -13,38 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
 # Créer des applications Machine Learning à l’aide d’Apache Spark sur Azure HDInsight
 
-Découvrez comment créer une application d’apprentissage automatique à l’aide d’un cluster Apache Spark dans HDInsight. Cet article montre comment utiliser le bloc-notes Jupyter Python disponible avec le cluster pour générer et tester notre application. L’application utilise l’exemple de données HVAC.csv, qui est disponible par défaut sur tous les clusters.
+Découvrez comment créer une application d’apprentissage automatique à l’aide d’un cluster Apache Spark dans HDInsight. Cet article montre comment utiliser le bloc-notes Jupyter disponible avec le cluster pour générer et tester notre application. L’application utilise l’exemple de données HVAC.csv, qui est disponible par défaut sur tous les clusters.
 
 **Configuration requise :**
 
 Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark. Pour obtenir les instructions, consultez [Approvisionner les clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
+- Un cluster Apache Spark. Pour obtenir les instructions, consultez [Approvisionner les clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Afficher les données
 
 Avant de créer l’application, nous devons comprendre la structure des données et le type d’analyse que nous allons effectuer sur ces données.
 
-Dans cet article, nous utilisons le fichier exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters HDInsight dans **\\HdiSamples\\SensorSampleData\\hvac**. Téléchargez et ouvrez le fichier CSV pour obtenir un instantané des données.
+Dans cet article, nous utilisons le fichier exemple de données **HVAC.csv**, qui est disponible par défaut sur tous les clusters HDInsight dans **\HdiSamples\SensorSampleData\hvac**. Téléchargez et ouvrez le fichier CSV pour obtenir un instantané des données.
 
 ![HVAC, instantané des données](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "Instantané des données HVAC")
 
-Les données indiquent la température cible et la température réelle d’un bâtiment dans lequel un système HVAC est installé. Supposons que la colonne **System** représente l’ID système et que la colonne **SystemAge** représente le nombre d’années écoulées depuis la mise en place du système HVAC.
+Les données indiquent la température cible et la température réelle d’un bâtiment dans lequel un système HVAC est installé. Supposons que la colonne **System** représente l’ID système et que la colonne **SystemAge** représente le nombre d’années écoulées depuis la mise en place du système HVAC dans le bâtiment.
 
-Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plus froid en fonction de la température cible, étant donné l’ID système et l’ancienneté du système.
+Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plus froid en fonction de la température cible, étant donné un ID système et une ancienneté du système.
 
 ##<a name="app"></a>Écrire une application d’apprentissage automatique à l’aide de Spark MLlib
 
 1. Lancez le bloc-notes [Jupyter](https://jupyter.org). Sélectionnez votre cluster Spark dans le portail Azure, puis, dans la barre des tâches du portail située dans la partie inférieure, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
-2. Créez un bloc-notes. Cliquez sur **Nouveau**, puis sur **Python2**.
+2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
 	![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "Créer un bloc-notes Jupyter")
 
@@ -52,7 +52,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 	![Fournir un nom pour le bloc-notes](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.Notebook.Name.png "Fournir un nom pour le bloc-notes")
 
-3. Commencez à créer votre application d’apprentissage automatique. Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une classification de documents. Dans le pipeline, nous fractionnons le document en mots, que nous convertissons en vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les vecteurs et étiquettes des fonctionnalités.
+3. Commencez à créer votre application d’apprentissage automatique. Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une classification de documents. Dans le pipeline, nous fractionnons le document en mots, que nous convertissons en vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les vecteurs et étiquettes de fonctionnalité.
 
 	Pour créer l’application, commencez par importer les modules requis et affecter des ressources à l’application. Dans la cellule vide du nouveau bloc-notes, collez l’extrait suivant, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -211,9 +211,9 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 	![Redémarrer le noyau Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Redémarrer le noyau Jupyter")
 	  	   
 
-##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour Machine Learning
+##<a name="anaconda"></a>Utiliser la bibliothèque scikit-learn Anaconda pour Machine Learning
 
-Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples sur l’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, notamment la bibliothèque **scikit-learn** pour l’apprentissage automatique. Cette bibliothèque contient également différents jeux de données qui vous permettent de créer des exemples d’application directement à partir d’un bloc-notes Jupyter. Pour obtenir des exemples d’utilisation de la bibliothèque scikit-learn, reportez-vous à [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ##<a name="seealso"></a>Voir aussi
 
@@ -221,7 +221,7 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 * [Approvisionner un cluster Spark sur HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](hdinsight-apache-spark-use-bi-tools.md)
 * [Utiliser Spark sur HDInsight pour créer des applications de diffusion en continu en temps réel](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
-* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -240,4 +240,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

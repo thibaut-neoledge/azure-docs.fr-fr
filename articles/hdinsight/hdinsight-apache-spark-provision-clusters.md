@@ -326,7 +326,7 @@ Lorsque vous approvisionnez un cluster, vous pouvez utiliser d’autres options 
 
 	>[AZURE.NOTE]La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur. Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois dans l’affichage du serveur, cliquez sur **Configurer**, puis pour **Services** **Microsoft Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
 
-	L’approvisionnement du cluster peut prendre plusieurs minutes.
+	La mise en service du cluster peut prendre plusieurs minutes.
 
 **Pour afficher la liste des clusters HDInsight**
 
@@ -497,4 +497,4 @@ Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

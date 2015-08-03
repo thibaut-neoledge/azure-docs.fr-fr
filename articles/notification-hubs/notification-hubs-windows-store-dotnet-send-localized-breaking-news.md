@@ -232,4 +232,4 @@ Pour plus d'informations sur l'utilisation des modèles, consultez [Notification
 [Notification Hubs, procédures pour Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

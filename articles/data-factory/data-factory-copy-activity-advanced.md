@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Scénarios avancés pour l'utilisation de l'activité de copie avec Azure Data Factory 
@@ -24,34 +24,11 @@ Vous pouvez utiliser l'**activité de copie** dans un pipeline pour copier les d
 ## Filtrage de colonne à l'aide de la définition de structure
 En fonction du type de table, il est possible de spécifier un sous-ensemble de colonnes à partir de la source en indiquant un nombre de colonnes dans la définition de **Structure** de la définition de table inférieur à ceux qui se trouvent dans la source de données sous-jacente. Le tableau suivant fournit des informations sur la logique de filtrage de colonne pour différents types de table.
 
-<table>
-
-	<tr>
-		<th align="left">Type de table</th>
-		<th align="left">Logique de filtrage de colonne</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>La définition de <b>Structure</b> dans la table JSON doit correspondre à la structure de l'objet blob. Pour sélectionner un sous-ensemble des colonnes, utilisez la fonctionnalité de mappage de colonnes décrite dans la section suivante, Règles de transformation&#160;: mappage de colonnes.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation et OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			Si la propriété <b>SqlReaderQuery</b> est spécifiée dans le cadre de la définition d'activité de copie, la définition de <b>Structure</b> de la table doit correspondre aux colonnes sélectionnées dans la requête.<br/><br/>
-			Si la propriété <b>SqlReaderQuery</b> n'est pas spécifiée, l'activité de copie construit automatiquement une requête SELECT basée sur les colonnes spécifiées dans la définition de <b>Structure</b> de la définition de la table.
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			La section <b>Structure</b> de la définition de la table peut contenir un ensemble complet ou un sous-ensemble de colonnes dans la table Azure sous-jacente.
-		</td>
-	<tr>
-
-</table>
+| Type de table | Logique de filtrage de colonne |
+|-------------------|----------------------- |
+| AzureBlobLocation |La définition de Structure dans la table JSON doit correspondre à la structure de l’objet blob. Pour sélectionner un sous-ensemble des colonnes, utilisez la fonctionnalité de mappage de colonnes décrite dans la section suivante, Règles de transformation : mappage de colonnes. | 
+| AzureSqlTableLocation et OnPremisesSqlServerTableLocation | Si la propriété SqlReaderQuery est spécifiée dans le cadre de la définition de l’activité de copie, la définition de Structure de la table doit être en harmonie avec les colonnes sélectionnées dans la requête. Si la propriété SqlReaderQuery n’est pas spécifiée, l’activité de copie construit automatiquement une requête SELECT basée sur les colonnes spécifiées dans la définition de Structure de la définition de table. |
+| AzureTableLocation | La section Structure de la définition de la table peut contenir un ensemble complet ou un sous-ensemble des colonnes de la table Azure sous-jacente.
 
 ## Règles de transformation : mappage de colonnes
 Le mappage de colonne peut spécifier la façon dont les colonnes de la table source sont mappées vers les colonnes de table du récepteur. Cette méthode prend en charge les scénarios suivants :
@@ -213,49 +190,14 @@ Dans cet exemple, une requête SQL (par opposition à la table dans l'exemple pr
 
 Les types de données spécifiés dans la section Structure de la définition de table sont uniquement respectés pour **BlobSource**. Le tableau ci-dessous décrit la façon dont les types de données sont gérés pour les autres types de source et de récepteur.
 
-<table>	
-	<tr>
-		<th align="left">Source/Récepteur</th>
-		<th align="left">Logique de gestion du type de données</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>Les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Les types de données définis dans la base de données SQL sous-jacente sont utilisés pour l'extraction de données durant l'activité de copie.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>Les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Les types de données de la source et de la destination sous-jacentes sont comparés. Par ailleurs, une conversion de type implicite est effectuée s'il existe des incompatibilités de types.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td>Lors du transfert de <b>BlobSource</b> vers <b>BlobSink</b>, il n'existe aucune transformation de type&#160;; les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Pour les autres destinations que <b>BlobSink</b>, les types de données définis dans la section <b>Structure</b> de la définition de table sont respectés.<br/><br/>
-		Si la <b>Structure</b> n'est pas spécifiée dans la destination de table, la gestion du type dépend de la propriété <b>format</b> de la table <b>BlobSource</b>&#160;:
-		<ul>
-			<li> <b>TextFormat</b>&#160;: tous les types de colonne sont traités en tant que chaîne et tous les noms de colonne sont définis en tant que «&#160;Prop_&lt;0-N>&#160;»</li> 
-			<li><b>AvroFormat</b>&#160;: permet d'utiliser les types de colonne intégrés et leurs noms dans le fichier Avro.</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>Les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. Les colonnes sont spécifiées en tant que colonnes de type Nullable pour la sérialisation Avro.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>Les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Les types de données définis dans la table Azure sous-jacente sont utilisés.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>Les types de données définis dans la section <b>Structure</b> de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés.</td>
-	</tr>
-
-</table>
+| Source/Récepteur | Logique de gestion du type de données |
+| ----------- | ------------------------ |
+| SqlSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la base de données SQL sous-jacente sont utilisés pour l'extraction de données durant l'activité de copie. |
+| SqlSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données de la source et de la destination sous-jacentes sont comparés. Par ailleurs, une conversion de type implicite est effectuée s'il existe des incompatibilités de types. |
+| BlobSource | Lors du transfert de BlobSource vers BlobSink, il n’existe aucune transformation de type ; les types de données définis dans la section Structure de la définition de la table sont ignorés. Pour les destinations autres que BlobSink, les types de données définis dans la section Structure de la définition de la table sont respectés. Si la Structure n’est pas spécifiée dans la définition de la table, la gestion du type dépend de la propriété format de la table BlobSource, TextFormat : tous les types de colonne sont traités en tant que chaîne, et tous les noms de colonne sont définis en tant que « Prop_<0-N> ». AvroFormat : permet d’utiliser les types et les noms de colonne prédéfinis dans le fichier Avro.
+| BlobSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. Les colonnes sont spécifiées en tant que colonnes de type Nullable pour la sérialisation Avro. |
+| AzureTableSource | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans la table Azure sous-jacente sont utilisés. |
+| AzureTableSink | Les types de données définis dans la section Structure de la définition de la table sont ignorés. Les types de données définis dans le magasin de données d'entrée sous-jacent sont utilisés. |
 
 **Remarque :** le service de Table Azure prend uniquement en charge un ensemble limité de types de données. Pour en savoir plus, veuillez consulter la rubrique [Présentation du modèle de données du service de Table][azure-table-data-type].
 
@@ -347,4 +289,4 @@ Même si l'encodage UTF-8 est très populaire, les fichiers texte d’objet blob
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

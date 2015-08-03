@@ -47,7 +47,7 @@ Ajouter un point de terminaison Azure à une machine virtuelle et définir le mo
 
 Récupérer la configuration du mode de distribution d'équilibrage de charge d'un point de terminaison
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,29 +1,29 @@
-<properties 
-	pageTitle="Batteries de serveurs SharePoint hébergées dans des services d’infrastructure Azure" 
-	description="Retrouvez les articles essentiels décrivant la configuration d’une batterie de serveurs SharePoint 2013 de développement/test ou de production dans les services d’infrastructure Microsoft Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Batteries de serveurs SharePoint hébergées dans des services d’infrastructure Azure"
+	description="Retrouvez les articles essentiels décrivant la configuration d’une batterie de serveurs SharePoint 2013 de développement/test ou de production dans les services d’infrastructure Microsoft Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="index-page" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
-# Batteries de serveurs SharePoint hébergées dans des services d’infrastructure Azure
+# Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure
 
 Configurez votre première ou prochaine batterie de serveurs SharePoint de développement/test ou de production dans les services d’infrastructure Microsoft Azure, où vous pouvez tirer parti de la facilité de configuration et de la possibilité d’étendre rapidement la batterie de serveurs afin d’inclure de nouvelles capacités ou d’optimiser la fonctionnalité clé.
 
-## Batterie de serveurs de développement/test SharePoint de base 
+## Batterie de serveurs de développement/test SharePoint de base
 
-Pour les machines virtuelles créées dans la gestion des services, utilisez la fonctionnalité [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) du Portail Azure en version préliminaire pour créer une batterie de serveurs de développement/test de base pour un site web SharePoint accessible sur Internet.
+Pour les machines virtuelles créées dans la gestion des services, utilisez la fonctionnalité [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) du portail Azure en version préliminaire pour créer une batterie de serveurs de développement/test de base pour un site web SharePoint accessible sur Internet.
 
 L’environnement créé automatiquement se compose de trois serveurs pour un contrôleur de domaine, d’un serveur SQL et du serveur SharePoint sur un réseau virtuel Azure cloud uniquement.
 
@@ -31,7 +31,7 @@ Pour créer une configuration similaire avec des machines virtuelles créées da
 
 ## Batterie de serveurs de développement/test SharePoint haute disponibilité
 
-Pour les machines virtuelles créées dans la gestion des services, utilisez la fonctionnalité [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) du Portail Azure en version préliminaire pour créer une batterie de serveurs de développement/test haute disponibilité pour un site web SharePoint accessible sur Internet.
+Pour les machines virtuelles créées dans la gestion des services, utilisez la fonctionnalité [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) du portail Azure en version préliminaire pour créer une batterie de serveurs de développement/test haute disponibilité pour un site web SharePoint accessible sur Internet.
 
 L’environnement créé automatiquement est composé de neuf serveurs dans un réseau virtuel Azure cloud uniquement : deux pour les contrôleurs de domaine, trois pour un cluster SQL server, deux serveurs SharePoint de couche application et deux serveurs SharePoint de niveau web.
 
@@ -45,17 +45,22 @@ Cette configuration utilise des machines virtuelles créées dans la gestion des
 
 ## Batterie de serveurs de production SharePoint intranet haute disponibilité
 
-Le [déploiement de SharePoint 2013 avec des groupes de disponibilité AlwaysOn SQL Server dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) permet de générer une batterie de serveurs SharePoint Server 2013 intranet haute disponibilité et prête pour la production dans Azure.
+Le déploiement de [SharePoint 2013 avec des groupes de disponibilité AlwaysOn SQL Server dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) permet de générer une batterie de serveurs SharePoint Server 2013 intranet haute disponibilité et prête pour la production dans Azure.
 
 Cette configuration utilise des machines virtuelles créées dans la gestion des services.
 
 ## Ressources supplémentaires
 
-[SharePoint Server sur les services d’infrastructure Azure](https://msdn.microsoft.com/library/dn275955.aspx)
+Consultez ces ressources pour des informations SharePoint supplémentaires relatives aux configurations et informations Azure :
 
-[Planification pour SharePoint 2013 sur les services d’infrastructure Azure](https://msdn.microsoft.com/library/dn275958.aspx)
+- [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
- 
+- [Sites Internet dans Microsoft Azure qui utilisent SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
 
-<!---HONumber=July15_HO2-->
+- [Récupération d’urgence SharePoint Server 2013 dans Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+
+- [Utilisation de Microsoft Azure Active Directory pour l’authentification SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
+
+- [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+
+<!---HONumber=July15_HO4-->

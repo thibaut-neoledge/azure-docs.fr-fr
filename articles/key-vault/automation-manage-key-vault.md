@@ -46,4 +46,4 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 * Consultez les [scripts PowerShell pour Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

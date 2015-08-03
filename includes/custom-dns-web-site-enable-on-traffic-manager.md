@@ -26,4 +26,4 @@ Si vous n’avez pas déjà ajouté votre application web en tant que point de t
 
 À ce stade, vous devez pouvoir entrer le nom de domaine Traffic Manager (contoso.trafficmanager.net) dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

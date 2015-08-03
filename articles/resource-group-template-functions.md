@@ -382,4 +382,4 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 - [Déploiement d'une application avec un modèle de gestionnaire des ressources Azure](azure-portal/resource-group-template-deploy.md)
 - [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

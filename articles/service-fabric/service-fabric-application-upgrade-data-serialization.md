@@ -66,4 +66,4 @@ Le contrat de données est la solution recommandée pour s'assurer de la compati
 [Rubriques avancées](service-fabric-application-upgrade-advanced.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

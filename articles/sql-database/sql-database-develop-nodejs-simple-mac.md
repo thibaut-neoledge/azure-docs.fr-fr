@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Se connecter à une base de données SQL à l’aide de Node.js avec Tedious sous Mac OS X" 
-	description="Cette rubrique présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à la base de données SQL Azure. L'exemple utilise le pilote Tedious pour se connecter."
+	pageTitle="Se connecter à SQL Database à l’aide de Node.js avec Tedious sous Mac OS X" 
+	description="Cette rubrique présente un exemple de code Node.js que vous pouvez utiliser pour vous connecter à Azure SQL Database. L'exemple utilise le pilote Tedious pour se connecter."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="meet-bhagdev" 
@@ -14,17 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
-# Se connecter à une base de données SQL à l’aide de Node.js avec Tedious sous Mac OS X
+# Se connecter à SQL Database à l’aide de Node.js avec Tedious sous Mac OS X
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Cette rubrique présente un exemple de code Node.js qui s’exécute sous Mac OS X. L’exemple se connecte à la base de données SQL Azure en utilisant le pilote Tedious.
+Cette rubrique présente un exemple de code Node.js qui s’exécute sur Mac OS X. L’exemple se connecte à Azure SQL Database en utilisant le pilote Tedious.
 
 
 ## Éléments logiciels requis
@@ -125,7 +125,7 @@ Toutes les instructions SQL sont exécutées à l'aide de la fonction [new Reque
 ## Insérer une ligne, appliquer les paramètres et récupérer la clé primaire générée
 
 
-Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l'objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx). Dans cet exemple, vous verrez comment procéder pour exécuter une instruction insert, transmettre des paramètres en toute sécurité pour une protection contre une injection SQL et récupérer la valeur de la clé primaire générée automatiquement.
+Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx). Dans cet exemple, vous verrez comment procéder pour exécuter une instruction insert, transmettre des paramètres en toute sécurité pour une protection contre une injection SQL et récupérer la valeur de la clé primaire générée automatiquement.
 
 
 L'exemple de code dans cette section applique des paramètres à une instruction SQL INSERT. La valeur de clé primaire qui est générée est récupérée par le programme.
@@ -170,4 +170,4 @@ L'exemple de code dans cette section applique des paramètres à une instruction
 		connection.execSql(request);
 	}
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

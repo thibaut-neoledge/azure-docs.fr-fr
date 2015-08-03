@@ -46,4 +46,4 @@ Cette procédure permet de créer un [ApiController](http://go.microsoft.com/fwl
 
 	>[AZURE.NOTE]Cette méthode POST peut être appelée par n'importe quel client disposant de la clé d'application, qui n'est pas sécurisée. Pour sécuriser le point de terminaison, appliquez l'attribut `[AuthorizeLevel(AuthorizationLevel.User)]` à la méthode ou à la classe afin d'imposer une authentification.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

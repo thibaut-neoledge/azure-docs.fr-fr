@@ -285,4 +285,4 @@ Après environ une heure, les données du compte de stockage sont disponibles po
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

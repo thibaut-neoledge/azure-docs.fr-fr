@@ -210,4 +210,4 @@ En savoir plus sur la création d’applications de diffusion en continu dynamiq
 
 <!-- Images -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

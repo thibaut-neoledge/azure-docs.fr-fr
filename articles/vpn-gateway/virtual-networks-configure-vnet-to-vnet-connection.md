@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configuration d’une connexion de réseau virtuel à réseau virtuel"
+   pageTitle="Configuration d’une connexion de réseau virtuel à réseau virtuel | Microsoft Azure"
    description="Connexion de réseaux virtuels Azure dans des abonnements ou régions identiques ou différents."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
 
@@ -102,7 +102,7 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
 2. Dans le coin inférieur gauche de l'écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
-**Dans la page Détails du réseau virtuel**, entrez les informations suivantes : Pour plus d’informations sur les paramètres de la page de détails, consultez la page [Détails du réseau virtuel](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+**Dans la page Détails du réseau virtuel**, entrez les informations suivantes :
 
   ![Détails du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -111,7 +111,7 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
 
 
-**Sur la page Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit. Pour plus d’informations sur les paramètres de cette page, consultez la [page Serveurs DNS et connectivité VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+**Sur la page Serveurs DNS et connectivité VPN**, saisissez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
   ![Serveurs DNS et connectivité VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -120,12 +120,12 @@ VNet2 : espace d’adressage = 10.2.0.0/16 ; Région = Est du Japon
 
   - N’activez aucune des cases à cocher. Cliquez sur la flèche située en bas à droite pour passer à l’écran suivant.
 
-**Dans la page Espaces d’adresses du réseau virtuel**, indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel. Il existe quelques règles concernant l’espace d’adressage de réseau virtuel. Pour plus d’informations, consultez la page [Espaces d’adressage du réseau virtuel](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS). Il est particulièrement important de sélectionner une plage qui ne chevauche pas une des plages qui sont utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau, qui peut extraire une plage d’adresses IP de votre espace d’adressage de réseau local pour l’utiliser pour votre réseau virtuel.
+**Dans la page Espaces d’adresses du réseau virtuel**, indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel. Il est particulièrement important de sélectionner une plage qui ne chevauche pas une des plages qui sont utilisées pour votre réseau local. Vous devez contacter votre administrateur réseau, qui peut extraire une plage d’adresses IP de votre espace d’adressage de réseau local pour l’utiliser pour votre réseau virtuel.
 
 
   ![Espaces d’adressage du réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
-  **Entrez les informations suivantes**, puis cliquez sur la coche située dans le coin inférieur droit pour configurer votre réseau.
+  **Saisissez les informations suivantes**, puis cliquez sur la coche située dans le coin inférieur droit pour configurer votre réseau.
 
   - **Espace d’adressage** : inclut l’adresse IP de départ et le nombre d’adresses. Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local. Pour cet exemple, nous allons utiliser 10.1.0.0/16 pour VNet1.
   - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
@@ -195,11 +195,11 @@ Lorsque vous avez terminé les étapes précédentes, définissez les clés pré
 
 Pour VNet1
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 Pour VNet2
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Attendez l’initialisation des connexions. Une fois la passerelle initialisée, elle ressemble au graphique ci-dessous. Vos réseaux virtuels sont alors connectés.
 
@@ -223,4 +223,4 @@ Pour plus d’informations sur le schéma de configuration, consultez la page [
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

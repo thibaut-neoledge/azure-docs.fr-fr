@@ -47,4 +47,4 @@ Pour installer le client Chef sur une machine virtuelle Azure, vous disposez des
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

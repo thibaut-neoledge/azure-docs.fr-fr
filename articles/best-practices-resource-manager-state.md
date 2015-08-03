@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Meilleures pratiques pour la gestion de l’état dans les modèles Azure Resource Manager"
 	description="Ce didacticiel présente des approches recommandées pour l’utilisation des objets complexes afin de partager des données d’état avec des modèles Azure Resource Manager et leurs modèles liés."
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -18,13 +18,13 @@
 
 # Partage d’état dans les modèles Azure Resource Manager
 
-Cette rubrique explique comment gérer et partager un état dans un modèle Azure Resource Manager et entre les modèles liés.
+Cette rubrique décrit comment gérer et partager l’état dans un modèle de gestionnaire de ressources Azure et entre des modèles liés.
 
 ## Utilisation d’objets complexes pour le partage d’état
 
 En plus des paramètres à valeur unique, vous pouvez utiliser des objets complexes en tant que paramètres dans un modèle Azure Resource Manager. Ces objets complexes permettent d’implémenter et de référencer des collections de données pour une zone spécifique, telles qu’une taille de t-shirt (pour décrire une machine virtuelle), des paramètres réseau, des paramètres de système d’exploitation (SE) et des paramètres de disponibilité.
 
-L’exemple suivant indique comment définir des variables qui contiennent des objets complexes pour représenter des collections de données. Les collections définissent des valeurs qui sont utilisées pour la taille de machine virtuelle, des paramètres réseau, des paramètres de système d’exploitation et des paramètres de disponibilité.
+L’exemple suivant indique comment définir des variables qui contiennent des objets complexes pour représenter des collections de données. Les collections définissent des valeurs utilisées pour la taille de machine virtuelle, des paramètres réseau, des paramètres de système d’exploitation et des paramètres de disponibilité.
 
     "tshirtSizeLarge": {
       "vmSize": "Standard_A4",
@@ -381,4 +381,4 @@ Dans le modèle principal, vous pouvez utiliser ces données avec la syntaxe sui
 - [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -55,7 +55,7 @@ Les tâches les plus courantes associées à un volume sont les suivantes :
 
 ## Ajout d’un volume
 
-Vous [avez créé un volume](storsimple-deployment-walkthrough.md#step-6:-create-a-volume) lors du déploiement de votre solution StorSimple. La procédure d’ajout d’un volume est similaire.
+Vous [avez créé un volume](storsimple-deployment-walkthrough.md#to-create-a-volume) lors du déploiement de votre solution StorSimple. La procédure d’ajout d’un volume est similaire.
 
 ### Pour ajouter un volume
 
@@ -181,4 +181,4 @@ Découvrez comment [cloner un volume StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

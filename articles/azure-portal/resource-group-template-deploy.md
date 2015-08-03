@@ -58,7 +58,7 @@ Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, co
 
 1. Connectez-vous à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
-        PS C:> Add-AzureAccount
+        PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +66,15 @@ Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, co
 
 2. Si vous avez plusieurs abonnements, fournissez l'ID d'abonnement que vous souhaitez utiliser pour le déploiement.
 
-        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Basculez sur le module Azure Resource Manager.
 
-        PS C:> Switch-AzureMode AzureResourceManager
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 4. Si vous n'avez pas de groupe de ressources, créez-en un. Indiquez le nom du groupe de ressources et l'emplacement dont vous avez besoin pour votre solution. Un résumé du nouveau groupe de ressources est retourné.
 
-        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +92,16 @@ Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, co
    
      - Utiliser des paramètres incorporés.
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Utiliser un objet de paramètres.
 
-            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Utilisation d’un fichier de paramètres. Pour plus d’informations sur le fichier de modèle, consultez [Fichier de paramètres](./#parameter-file).
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Une fois le groupe de ressources déployé, un résumé du déploiement apparaît.
 
@@ -114,11 +114,11 @@ Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, co
 
 6. Pour obtenir des informations sur les échecs de déploiement.
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. Pour obtenir des informations détaillées sur les échecs de déploiement.
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Installer Azure CLI pour Mac, Linux et Windows
 
@@ -256,4 +256,4 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

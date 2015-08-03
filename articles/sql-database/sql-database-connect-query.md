@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="04/14/2015"
+	ms.date="07/17/2015"
 	ms.author="cakarst"/>
 
 
@@ -137,4 +137,4 @@ Dans le panneau des chaînes de connexion de la base de données, vous pouvez tr
 2. Le programme imprime les résultats de la requête dans la fenêtre de la console.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

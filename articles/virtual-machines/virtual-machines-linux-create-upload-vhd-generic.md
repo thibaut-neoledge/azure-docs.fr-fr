@@ -189,4 +189,4 @@ L'[Agent Linux Azure](virtual-machines-linux-agent-user-guide.md) (waagent) es
 
 - Vous devez ensuite arrêter la machine virtuelle et télécharger le disque dur virtuel dans Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

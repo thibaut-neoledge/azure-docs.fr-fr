@@ -25,7 +25,7 @@ Actuellement, certaines applications sans navigateur telles que le client de mes
 
 >[AZURE.NOTE]Authentification moderne pour les clients Office 2013
 >
-> Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Cela signifie qu’une fois activés, les mots de passe d’application ne sont pas obligatoirement utilisés avec les clients Office 2013. Pour plus d’informations, consultez la page [Version préliminaire publique de l’authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d’informations, consultez la page [Version préliminaire publique de l’authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
  
 ## Utilisation de mots de passe d’application
 
@@ -54,4 +54,4 @@ Mode d’utilisation de l’authentification multifacteur|Description
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

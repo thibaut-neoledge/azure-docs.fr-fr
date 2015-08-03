@@ -114,4 +114,4 @@ La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur sourc
 ## Étapes suivantes
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

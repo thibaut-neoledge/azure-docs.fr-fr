@@ -77,11 +77,11 @@ Avant de commencer, tenez compte des points suivants :
 - Écrivez des scripts à l’aide de Windows PowerShell.
 - Les applets de commande VMM sont fournies dans un module Windows PowerShell. Le module VMM Windows PowerShell est installé lors du montage de la console VMM. Pour charger le module VMM dans votre script, exécutez la commande suivante dans le script : Import-Module -Name virtualmachinemanager. [Obtenir des détails](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Vérifiez que vous disposez d’au moins un serveur de bibliothèque au sein de votre déploiement VMM. Par défaut, le chemin d’accès de partage de bibliothèque d’un serveur VMM est disponible localement sur le serveur VMM, sous le nom de dossier MSCVMMLibrary.
-- Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary, configurez le partage comme suit (en utilisant \\libserver2.contoso.com\\share\\ comme exemple) :
+- Si votre chemin d’accès de partage de bibliothèque est distant (ou local mais non partagé avec MSCVMMLibrary, configurez le partage comme suit (en utilisant \libserver2.contoso.com\share\ comme exemple) :
 	- Ouvrez l'Éditeur du Registre.
-	- Accédez à HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
+	- Accédez à HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
 	- Modifiez la valeur ScriptLibraryPath.
-	- Affectez la valeur \\libserver2.contoso.com\\share. Spécifiez le nom de domaine complet.
+	- Affectez la valeur \libserver2.contoso.com\share. Spécifiez le nom de domaine complet.
 	- Fournissez des autorisations d’accès à l’emplacement de partage.
 
 - Les scripts d’un plan de récupération s’exécutent dans le contexte d’un compte de service VMM. Assurez-vous que ce compte dispose des autorisations en lecture sur le partage distant sur lequel se trouve le script, et testez l’exécution du script au niveau de privilège du compte de service VMM.
@@ -96,9 +96,9 @@ Avant de commencer, tenez compte des points suivants :
 
 Créez le script comme suit :
 
-1. Créez un dossier dans le partage de bibliothèque, par exemple <VMMServerName>\\MSSCVMMLibrary\\RPScripts. Placez-le dans les serveurs VMM source et cibles.
+1. Créez un dossier dans le partage de bibliothèque, par exemple <VMMServerName>\MSSCVMMLibrary\RPScripts. Placez-le dans les serveurs VMM source et cibles.
 2. Créez le script (par exemple RPScript), et vérifiez son bon fonctionnement.
-3. Placez le script à l’emplacement <VMMServerName>\\MSSCVMMLibrary sur les serveurs VMM source et cible.
+3. Placez le script à l’emplacement <VMMServerName>\MSSCVMMLibrary sur les serveurs VMM source et cible.
 
 #### Créer un Runbook Azure Automation
 
@@ -110,7 +110,7 @@ Pour étendre votre plan de récupération, exécutez un Runbook Automation Pl
 1. Ouvrez le plan de récupération que vous souhaitez personnaliser.
 2. Cliquez pour ajouter une machine virtuelle ou un groupe.
 3. Pour ajouter un script ou une action manuelle, cliquez sur un élément de la liste **Étape,** puis cliquez sur **Script** ou sur **Action manuelle**. Indiquez si vous souhaitez ajouter le script ou l’action avant ou après l’élément sélectionné. Utilisez les boutons de commande de **Déplacement vers le haut** et de **Déplacement vers le bas** pour faire monter ou descendre le script.
-4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, définissez le chemin d’accès : \\RPScripts\\RPScript.PS1.
+4. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Ainsi, dans le cadre de notre exemple où le partage est situé à l’emplacement \<VMMServerName>\MSSCVMMLibrary\RPScripts, définissez le chemin d’accès : \RPScripts\RPScript.PS1.
 5. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
 5. Exécutez un basculement du plan de récupération, afin de vous assurer du bon fonctionnement du script.
 
@@ -122,4 +122,4 @@ Vous pouvez exécuter différents types de basculement de plan de récupération
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

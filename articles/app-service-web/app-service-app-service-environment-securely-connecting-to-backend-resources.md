@@ -110,4 +110,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

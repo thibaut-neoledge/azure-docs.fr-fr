@@ -1,8 +1,8 @@
 <properties 
     pageTitle="Utilisation de la redirection dans Azure RemoteApp" 
-    description="En savoir plus sur la configuration et l&#39;utilisation de la redirection dans RemoteApp" 
+    description="En savoir plus sur la configuration et l'utilisation de la redirection dans RemoteApp" 
     services="remoteapp" 
-    documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -102,4 +102,4 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -43,7 +43,7 @@ Sinon, examinez votre projet dans l'Explorateur de solutions Visual Studio et so
     ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK : cliquez avec le bouton droit et [sélectionnez Ajouter Application Insights][greenbrown]. Cette opération ajoute le Kit de développement logiciel (SDK) à votre projet et crée également une ressource Application Insights dans Azure.
 5. Journalisation : si votre code comprend des appels à l'ancienne API, comme LogEvent(), vous les découvrirez lorsque vous essayez de générer la solution. Mettez-le à jour pour pouvoir [utiliser la nouvelle API][track].
-6. Pages web : si votre projet comprend des pages web, remplacez les scripts dans les sections <head>. En général, il n'y a qu'une seule copie de la page maître, comme Views\\Shared_Layout.cshtml. [Obtenir le nouveau script à partir du panneau de démarrage rapide dans vos ressources Application Insights dans Azure][usage]. Si vos pages web incluent des appels de télémétrie, comme logEvent ou logPage, [mettez-les à jour pour qu'ils utilisent la nouvelle API][api].
+6. Pages web : si votre projet comprend des pages web, remplacez les scripts dans les sections <head>. En général, il n'y a qu'une seule copie de la page maître, comme Views\Shared_Layout.cshtml. [Obtenir le nouveau script à partir du panneau de démarrage rapide dans vos ressources Application Insights dans Azure][usage]. Si vos pages web incluent des appels de télémétrie, comme logEvent ou logPage, [mettez-les à jour pour qu'ils utilisent la nouvelle API][api].
 7. Surveillance du serveur : si votre application est un service s'exécutant sur IIS, désinstallez l'Agent de surveillance Microsoft du serveur, puis [installez Application Insights Status Monitor][redfield].
 8. Tests web : si vous utilisiez des tests de disponibilité du site web, [recréez-les sur le nouveau portail][availability], avec leurs alertes.
 9. Alertes : configurer des [alertes sur des mesures][alerts] dans le portail Azure.
@@ -73,4 +73,4 @@ Sinon, examinez votre projet dans l'Explorateur de solutions Visual Studio et so
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -40,7 +40,7 @@ Alerte de fraude peut être configuré et installé de manière à ce que vos ut
 
 
 1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Sélectionnez à gauche Active Directory .
+2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui sur lequel vous souhaitez activer les alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, cliquez sur Paramètres.
@@ -71,7 +71,7 @@ Une alerte de fraude peut être déclarée de deux façons. À l’aide de l'app
 ### Pour afficher le rapport de fraude
 
 1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Sélectionnez à gauche Active Directory .
+2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, sous Afficher un rapport, cliquez sur Alerte de fraude.
@@ -103,7 +103,7 @@ Un contournement à usage unique permet à un utilisateur de s'authentifier une 
 ### Pour afficher le rapport de contournement à usage unique
 
 1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Sélectionnez à gauche Active Directory .
+2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui pour lequel vous souhaitez afficher le rapport d’alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, sous Afficher un rapport, cliquez sur Contournement à usage unique.
@@ -171,7 +171,7 @@ La mise en cache vous permet de définir une période spécifique pour que les t
 <ol>
 
 1. Ouvrez une session sur [http://azure.microsoft.com](http://azure.microsoft.com)
-2. Sélectionnez à gauche Active Directory .
+2. Sélectionnez Active Directory à gauche.
 3. En haut de la page, sélectionnez Fournisseurs d'authentification multifacteur. Cela fera apparaître une liste de vos fournisseurs d'authentification multifacteur.
 4. Si vous avez plusieurs fournisseurs d'authentification multifacteur, sélectionnez celui sur lequel vous souhaitez activer les alertes de fraude et cliquez sur Gérer en bas de la page. Si vous n’en avez qu’un, cliquez sur Gérer. Cette opération ouvre le portail de gestion Azure Multi-Factor Authentication.
 5. Dans le portail de gestion Azure Multi-Factor Authentication, sur la gauche, cliquez sur Mise en cache.
@@ -226,7 +226,7 @@ Dans certaines applications, telles qu’Office 2010 (ou version antérieure) e
 
 >[AZURE.NOTE]Authentification moderne pour les clients Office 2013
 >
-> Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d'authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Cela signifie qu'une fois activés, les mots de passe d'application ne sont pas nécessaires pour une utilisation avec les clients Office 2013. Pour plus d'informations, consultez la rubrique [Version préliminaire publique de l'authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Les clients Office 2013 (y compris Outlook) prennent désormais en charge de nouveaux protocoles d’authentification et ils peuvent être activés pour prendre en charge Multi-Factor Authentication. Ainsi, une fois activés, les mots de passe d’application ne sont pas obligatoires avec les clients Office 2013. Pour plus d'informations, consultez la rubrique [Version préliminaire publique de l'authentification moderne Office 2013 annoncée](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 ### Informations à connaître sur les mots de passe d’application
 
@@ -300,8 +300,8 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 --------------------------------------------------------------------------------
 
 
-1. Connexion au portail Office 365
-2. Dans l'angle supérieur droit, sélectionnez le widget de paramètres
+1. Connectez-vous au portail Office 365.
+2. Dans l’angle supérieur droit, sélectionnez le widget de paramètres.
 3. Sur la gauche, sélectionnez Vérification de sécurité supplémentaire
 4. Sur la droite, sélectionnez **Mettre à jour mes numéros de téléphone utilisés pour la sécurité du compte**
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
@@ -314,8 +314,8 @@ Les utilisateurs pourront également créer des mots de passe d’application pa
 
 ### Pour créer des mots de passe d'application dans le portail Azure
 --------------------------------------------------------------------------------
-1. Connectez-vous au portail de gestion Azure
-3. En haut de la page, cliquez avec le bouton droit sur votre nom d'utilisateur et sélectionnez Vérification de sécurité supplémentaire.
+1. Connectez-vous au portail de gestion Azure.
+3. En haut de la page, cliquez avec le bouton droit sur votre nom d’utilisateur et sélectionnez Vérification de sécurité supplémentaire.
 5. En haut de la page de vérification, sélectionnez les mots de passe d'application
 6. Cliquez sur **Créer**
 7. Saisissez un nom pour le mot de passe d’application et cliquez sur **Suivant**
@@ -358,4 +358,4 @@ Pour vous assurer que les comptes d'utilisateur sont sécurisés, vous devez res
 <li>Dans la page Paramètres de service, sous Gérer les paramètres des appareils de l’utilisateur, sélectionnez/désélectionnez l’option **Permettre aux utilisateurs d’interrompre l'authentification multifacteur pour qu’un appareil puisse être mémorisé**.</li>
 ![Interrompre les appareils](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Définir le nombre de jours pendant lesquels vous souhaitez autoriser l’interruption. La valeur par défaut est de 14 jours.</li> <li>Cliquez sur Enregistrer.</li> <li>Cliquez sur Fermer.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -32,7 +32,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###3\.0.0 -> (03/04/2015)
+###3.0.0 -> (03/04/2015)
 
 -   Icône de notification par défaut mise à jour.
 -   Envoyer des commentaires sur l’action de notification du système lorsque vous cliquez sur une notification.
@@ -55,4 +55,4 @@ Aucune.
 Consultez [Procédures de mise à niveau](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

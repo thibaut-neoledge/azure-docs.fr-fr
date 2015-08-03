@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/13/2015"
+   ms.date="07/11/2015"
    ms.author="nitinme"/>
 
 # Didacticiel Hadoop : prise en main de Hadoop avec Hive dans HDInsight sur Linux (version préliminaire)
@@ -22,13 +22,13 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-Ce didacticiel Hadoop vous permet de vous familiariser rapidement avec Azure HDInsight sous Linux en vous montrant comment approvisionner un cluster Hadoop sous Linux et exécuter une requête Hive pour extraire des informations utiles à partir des données non structurées.
+Ce didacticiel Hadoop vous permet de vous familiariser rapidement avec Azure HDInsight sur Linux en vous montrant comment approvisionner un cluster Hadoop sur Linux et comment exécuter une requête Hive.
 
 
 > [AZURE.NOTE]Si vous ne connaissez pas Hadoop et les données volumineuses, vous pouvez en savoir plus sur les termes <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS (Hadoop Distributed File System)</a> et <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Pour comprendre la manière dont HDInsight prend en charge Hadoop dans Azure, consultez la rubrique [Présentation de Hadoop dans HDInsight](hdinsight-hadoop-introduction.md).
 
 
-## Objectif de ce didacticiel ##
+## Objectif de ce didacticiel 
 
 Supposons que vous disposiez d'un vaste jeu de données non structurées et que vous souhaitiez y exécuter des requêtes pour extraire des informations significatives. Voici comment obtenir ce résultat :
 
@@ -67,9 +67,9 @@ Pour simplifier ce didacticiel, seul le conteneur d'objets blob par défaut et l
 
 	![Portail Azure où vous pouvez utiliser Création rapide pour configurer un nouveau compte de stockage.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
 
-3. Entrez les informations pour **URL**, **EMPLACEMENT** et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge. Le nouveau compte de stockage s’affiche dans la liste de stockage.
+3. Renseignez les champs **URL**, **EMPLACEMENT** et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge. Le nouveau compte de stockage figure dès lors dans la liste de stockage.
 
-	>[AZURE.NOTE]L'option Création rapide pour l’approvisionnement d’un cluster HDInsight Linux, tel celui que nous utilisons dans ce didacticiel, ne demande pas un emplacement lors de l’approvisionnement du cluster. Par défaut, elle colocalise le cluster dans le même centre de données que le compte de stockage. Par conséquent, veillez à créer votre compte de stockage dans les emplacements pris en charge pour le cluster, à savoir : **Asie de l’Est**, **Asie du Sud-Est**, **Europe du Nord**, **Europe de l'Ouest**, **Est des États-Unis**, **Ouest des États-Unis**, **Nord du centre des États-Unis**, **Sud du centre des États-Unis**.
+	>[AZURE.NOTE]L'option Création rapide pour l’approvisionnement d’un cluster HDInsight Linux, tel celui que nous utilisons dans ce didacticiel, ne demande pas un emplacement lors de l’approvisionnement du cluster. Par défaut, elle colocalise le cluster dans le même centre de données que le compte de stockage.
 
 4. Attendez que l’**ÉTAT** du nouveau compte de stockage indique **En ligne**.
 5. Sélectionnez le nouveau compte de stockage dans la liste et cliquez sur **GÉRER LES CLÉS D’ACCÈS** au bas de la page.
@@ -271,4 +271,4 @@ Dans ce didacticiel Linux, vous avez appris à approvisionner un cluster Hadoop 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

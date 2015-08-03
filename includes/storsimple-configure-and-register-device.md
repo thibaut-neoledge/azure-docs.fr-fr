@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Configuration et inscription de votre appareil"
-   description="Explique comment utiliser Windows PowerShell pour StorSimple pour configurer et enregistrer votre appareil."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="v-sharos" />
-
 
 #### Configuration et inscription de l’appareil
 
@@ -79,4 +62,4 @@
   
       >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

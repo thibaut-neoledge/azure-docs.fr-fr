@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/17/2015" 
 	ms.author="derrickv" />
 
 
@@ -69,194 +69,32 @@ Vous créez ce type de page lorsque vous publiez un service web. Consultez la p
 3. Sélectionnez **Page d’aide sur l’API** - **REQUÊTE-RÉPONSE** ou **EXÉCUTION DE LOT**.
 
 
-**Page d’aide sur l’API Microsoft Azure ML** La page d’aide sur l’API Microsoft Azure ML contient des détails sur un service web de prédiction, notamment :
+**Page d'aide sur l'API Microsoft Azure ML** La page d'aide sur l'API Microsoft Azure ML contient des détails sur un service web de prédiction.
 
 
-<table>
-	<tr>
-		<td>&#160;</td>
-		<td>Exemple </td>
-	</tr>
-	<tr>
-		<td>URI de requête POST </td>
-
-		<td>https://ussouthcentral.services.azureml.net/workspaces/{ID_espace_travail}/services/{ID_service}/score
-		</td>
-	</tr>
-	<tr>
-		<td>Exemple de demande </td>
-		<td>{ <br/> 
-			&#160;&#160; "Id": "score00001",   <br/>
-			&#160;&#160; "Instance": <br/>
-			&#160;&#160;&#160;&#160; {  <br/>  
- 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
-			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
-			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
-			&#160;&#160;&#160;&#160; } <br/>
-		}</td>
-	</tr>
-	<tr>
-		<td>Corps de réponse </td>
-		<td>
-		<table style="width: 100%">
-
-			<tr>
-				<td><B>Name</B></td>
-				<td><B>Type de données</B></td>
-			</tr>
-	
-			<tr>
-				<td>Fonctionnalité</td>
-				<td>Chaîne</td>
-			</tr>
-			<tr>
-				<td>Nombre</td>
-				<td>Chiffre</td>
-			</tr>
-			<tr>
-				<td>Valeur unique </td>
-				<td>Chiffre </td>
-			</tr>
-			<tr>
-				<td>... </td>
-				<td>... </td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-		<td>Exemple de réponse </td>
-		<td>["Col1","1","1",…] </td>
-	</tr>
-	<tr>
-		<td>Exemple de code </td>
-		<td>(exemple de code en C#, Python et R) </td>
-	</tr>
-</table>
-
-**REMARQUE** Les exemples de code proviennent de « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Microsoft Azure ML.
 
 ### Exemple de code C# ###
 
-Pour vous connecter à un service web Microsoft Azure ML, utilisez un élément **HttpClient** qui transmet ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
+Pour vous connecter à un service web Microsoft Azure ML, utilisez un élément **HttpClient** qui transmet l'élément ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
 
-Pour que vous puissiez vous connecter à un service web Microsoft Azure ML, le package NuGet **Microsoft.AspNet.WebApi.Client** doit être installé.
+Pour vous connecter à un service web Microsoft Azure ML, le package NuGet **Microsoft.AspNet.WebApi.Client** doit être installé.
 
 **Installer le package NuGet Microsoft.AspNet.WebApi.Client dans Microsoft Visual Studio**
 
 1. Publiez le service web « Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 ».
-2. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package.**.
-2. Choisissez l’élément **Install-Package Microsoft.AspNet.WebApi.Client**.
+2. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**.
+2. Choisissez l'élément **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Pour exécuter l’exemple de code**
 
 1. Publiez l’expérience « Exemple 1 : Téléchargement d’un jeu de données depuis l’UCI : jeu de données de classe Adult 2 », inclus dans la collection d’exemples Microsoft Azure ML.
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
-3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
-
-		using System;
-		using System.Collections.Generic;
-		using System.IO;
-		using System.Net.Http;
-		using System.Net.Http.Formatting;
-		using System.Net.Http.Headers;
-		using System.Text;
-		using System.Threading.Tasks;
-
-		namespace CallRequestResponseService
-		{
-	    public class ScoreData
-	    {
-	        public Dictionary<string, string> FeatureVector { get; set; }
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	    }
-	
-	    public class ScoreRequest
-	    {
-	        public string Id { get; set; }
-	        public ScoreData Instance { get; set; }
-	    }
-	
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            InvokeRequestResponseService().Wait();
-	
-	            Console.ReadLine();
-	        }
-	
-	        static async Task InvokeRequestResponseService()
-	        {
-	            //Assign apiKey with the key from a web service.
-	            const string apiKey = "{ApiKey}";
-	
-	            //Assign serviceUri with the Request URI. See How to get a Request URI.
-	            const string serviceUri = "{ServiceUri}";
-	            
-	            using (var client = new HttpClient())
-	            {
-	                ScoreData scoreData = new ScoreData()
-	                {
-	                    //Input data
-	                    FeatureVector = new Dictionary<string, string>() 
-	                    {
-	                        { "Col1", "0" },
-	                        { "Col2", "0" },
-	                        { "Col3", "0" },
-	                        { "Col4", "0" },
-	                        { "Col5", "0" },
-	                        { "Col6", "0" },
-	                        { "Col7", "0" },
-	                        { "Col8", "0" },
-	                        { "Col9", "0" },
-	                        { "Col10", "0" },
-	                        { "Col11", "0" },
-	                        { "Col12", "0" },
-	                        { "Col13", "0" },
-	                        { "Col14", "0" },
-	                        { "Col15", "0" },
-	                    },
-	                    GlobalParameters = 
-	                        new Dictionary<string, string>() {}
-	                };
-	
-	                ScoreRequest scoreRequest = new ScoreRequest()
-	                {
-	                    Id = "score00001",
-	                    Instance = scoreData
-	                };
-	
-	                //Set authorization header
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	             
-	                client.BaseAddress = new Uri(serviceUrl);
-	
-	                //Post HTTP response message
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    //Read result string
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Result: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-		}
+3. Affectez l’élément serviceUri avec l’URI de requête. 
 
 
 ### Exemple de code Python ###
 
-Pour vous connecter à un service web Microsoft Azure ML, utilisez la bibliothèque **urllib2** qui transmet l’élément ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
+Pour vous connecter à un service web Azure ML, utilisez la bibliothèque **urllib2** qui transmet l'élément ScoreData. ScoreData contient un FeatureVector, un vecteur à n dimensions des fonctionnalités numériques qui représente le ScoreData. Vous vous authentifiez auprès du service Microsoft Azure ML au moyen d’une clé API.
 
 
 **Pour exécuter l’exemple de code**
@@ -265,53 +103,7 @@ Pour vous connecter à un service web Microsoft Azure ML, utilisez la biblioth
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
 3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
-		import urllib2
-		# If you are using Python 3+, import urllib instead of urllib2
 	
-		import json 
-	
-		data =  {
-	            "Id": "score00001",
-	            "Instance": {
-	                "FeatureVector": {
-	                    "Col1": "0",
-	                    "Col2": "0",
-	                    "Col3": "0",
-	                    "Col4": "0",
-	                    "Col5": "0",
-	                    "Col6": "0",
-	                    "Col7": "0",
-	                    "Col8": "0",
-	                    "Col9": "0",
-	                    "Col10": "0",
-	                    "Col11": "0",
-	                    "Col12": "0",
-	                    "Col13": "0",
-	                    "Col14": "0",
-	                    "Col15": "0",
-	                },
-	                "GlobalParameters": { }
-	            }
-	        }
-	
-		body = str.encode(json.dumps(data))
-	
-		#Assign serviceUrl with the Request URI. See How to get a Request URI.
-		uri = '{ServiceUri}'
-	
-		#Assign apiKey with the key from a web service.
-		api_key = '{ApiKey}'
-		headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-	
-		req = urllib2.Request(uri, body, headers) 
-		response = urllib2.urlopen(req)
-	
-		#If you are using Python 3+, replace urllib2 with urllib.request in the above code:
-		#req = urllib.request.Request(uri, body, headers) 
-		#response = urllib.request.urlopen(req)
-	
-		result = response.read()
-		print(result) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -147,4 +147,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

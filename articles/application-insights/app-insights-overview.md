@@ -102,7 +102,7 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
 * Questions et problèmes :
  * [Résolution des problèmes][qna]
- * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-fr/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -139,4 +139,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

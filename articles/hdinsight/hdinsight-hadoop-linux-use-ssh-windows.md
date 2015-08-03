@@ -278,4 +278,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Déploiement d’une base de données SQL vers SQL Azure" 
-	description="Déployer une base de données SQL Server vers une base de données SQL Azure à l’aide de l’Assistant dans SQL Server 2016 Management Studio." 
+	description="Déployez une base de données SQL Server sur Azure SQL Database à l’aide de l’Assistant dans SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="sidneyh" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/17/2015" 
 	ms.author="sidneyh"/>
 
 
-# Déploiement d’une base de données SQL Server dans une base de données SQL Azure.
+# Déploiement d’une base de données SQL Server dans Azure SQL Database
 
-Dans cet article, vous utiliserez l’**assistant de déploiement d’une base de données vers une base de données SQL Azure** pour télécharger un exemple de base de données vers la base de données SQL Azure. Vous devez télécharger **SQL Server 2016 Management Studio (CTP 2.1)** pour ce didacticiel.
+Dans cet article, vous utiliserez l’**Assistant de déploiement d’une base de données sur Azure SQL Database** pour charger un exemple de base de données dans Azure SQL Database. Vous devez télécharger **SQL Server 2016 Management Studio (CTP 2.1)** pour ce didacticiel.
 
 Durée totale estimée : 15 minutes (inclut le temps de téléchargement)
 
-> [AZURE.NOTE]Ce didacticiel utilise l’exemple de base de données « School », très simple. Tous ses objets sont compatibles avec la base de données SQL Azure. Il est donc inutile de modifier ou de préparer une base de données pour la migration. Si vous faites migrer une base de données existante plus complexe, vous pouvez également envisager d’utiliser [l’Assistant Migration de base de données SQL](http://sqlazuremw.codeplex.com/) et consulter cette [présentation](sql-database-cloud-migrate.md).
+> [AZURE.NOTE]Ce didacticiel utilise l’exemple de base de données « School », très simple. Tous ses objets sont compatibles avec Azure SQL Database. Il est donc inutile de modifier ou de préparer une base de données pour la migration. Si vous faites migrer une base de données existante plus complexe, vous pouvez également envisager d’utiliser [l’Assistant Migration de base de données SQL](http://sqlazuremw.codeplex.com/) et consulter cette [présentation](sql-database-cloud-migrate.md).
 
 ## Conditions préalables
 
@@ -31,7 +31,7 @@ Un **compte Microsoft Azure**. Pour un essai gratuit, consultez cette [offre](ht
 
 Téléchargez [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx). (Pour plus d’informations sur l’outil, consultez [SQL Server Management Studio - Notes de publication de juin 2015](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-Un serveur existant sur Base de données SQL Azure. Pour obtenir des instructions concernant la création d’une nouvelle base de données (sur un nouveau serveur), consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
+Un **serveur Azure SQL Database** existant. Pour créer un serveur, vous devez d’abord créer au moins une base de données. Lorsque vous créez une base de données, vous avez le choix de la créer sur un nouveau serveur ou sur un serveur existant. Pour obtenir des instructions sur la création d’une base de données (sur un nouveau serveur), consultez [Créer votre première base de données SQL Azure](sql-database-get-started.md).
 
 ## Création de la base de données School sur un serveur local
 
@@ -539,7 +539,7 @@ Vous disposez maintenant d'une base de données locale que vous pouvez exporter 
 	
 ## Déployez la base de données dans SQL Azure 
 	
-1. Dans Management Studio, cliquez avec le bouton droit sur la base de données School que vous venez de créer, pointez sur **Tâches**, puis cliquez sur **Déployer une base de données vers une Base de données SQL Microsoft Azure**.
+1. Dans Management Studio, cliquez avec le bouton droit sur la base de données school que vous venez de créer, pointez sur **Tâches**, puis cliquez sur **Déployer une base de données sur Microsoft Azure SQL Database**.
 2. Dans **Paramètres de déploiement**, attribuez un nom à la base de données, comme *school*.
 5. Cliquez sur **Connecter**. Pour résoudre les problèmes de connectivité, essayez cet [utilitaire de résolution des problèmes](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 6. Dans **Nom du serveur**, entrez les 10 caractères du nom du serveur, suivis de **.database.windows.net**.
@@ -548,24 +548,24 @@ Vous disposez maintenant d'une base de données locale que vous pouvez exporter 
 9. Cliquez sur **Options**.
 10. Dans Propriétés de connexion, dans **Connexion à une base de données**, entrez **master**.
 
-	**Remarque** vous devez vous connecter à la base de données **master** chaque fois que vous souhaitez créer une base de données sur le serveur de base de données SQL Azure. 
+	**Remarque** : vous devez vous connecter à la base de données **master** chaque fois que vous souhaitez créer une base de données sur le serveur Azure SQL Database. 
 11. Cliquez sur **Connecter**. Cette étape termine la spécification de la connexion et vous ramène à l'Assistant.
 12. Cliquez sur **Suivant**, puis sur **Terminer** pour exécuter l'Assistant.
 
 	
 ## Vérification du déploiement de la base de données
 	
-1. Dans Management Studio, sous **l’Explorateur d’objets**, cliquez sur l’icône **Connexion**.
+1. Dans Management Studio, sous l’**Explorateur d’objets**, cliquez sur l’icône **Connexion**.
 2. Dans le champ du nom du **Serveur**, entrez le nom du serveur SQL Azure, suivi de **database.windows.net**
 3. Dans **Authentification**, sélectionnez **Authentification SQL Server**.
 4. Entrez le nom et le mot de passe de connexion administrateur que vous avez créés lors de l’approvisionnement du serveur. 
 5. Cliquez sur le bouton **Options**.
-6. Cliquez sur la liste déroulante **Se connecter à la base de données**, puis cliquez sur **Parcourir un serveur**. Dans la boîte de dialogue, cliquez sur **Oui** pour autoriser l’exploration du serveur.
+6. Cliquez sur la liste déroulante **Se connecter à la base de données**, puis cliquez sur **Parcourir le serveur**. Dans la boîte de dialogue, cliquez sur **Oui** pour autoriser l’exploration du serveur.
 7. Cliquez sur la base de données **school** pour la sélectionner, puis cliquez sur **OK**. 
-8. Puis cliquez sur **Se connecter**. Pour résoudre les problèmes de connectivité, essayez cet [utilitaire de résolution des problèmes](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+8. Puis, cliquez sur **Se connecter**. Pour résoudre les problèmes de connectivité, essayez cet [utilitaire de résolution des problèmes](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
 2. Développez le dossier **Bases de données**. La base de données **School** doit s'afficher dans la liste.
 
-	**Remarque** vous devez vous connecter à la base de données que vous souhaitez interroger. 
+	**Remarque** : vous devez vous connecter à la base de données que vous souhaitez interroger. 
 3. Cliquez avec le bouton droit sur **school**, puis cliquez sur **Nouvelle requête**.
 4. Exécutez la requête suivante pour vérifier que les données sont accessibles.
 
@@ -589,8 +589,8 @@ Vous disposez maintenant d'une base de données locale que vous pouvez exporter 
 		
 ## Étapes suivantes
 
-Pour un didacticiel sur la création d’une base de données SQL Azure, consultez [Prise en main de l’Administration de base de données SQL](sql-database-get-started.md). Pour les notions de base concernant la connexion à une base de données SQL Azure à partir d’une application C#, consultez [Se connecter à et interroger votre base de données SQL avec C#](sql-database-connect-query.md). Pour voir d’autres didacticiels sur la connexion à partir de diverses plateformes (notamment PHP), consultez [Développement de base de données SQL Azure : procédures](https://msdn.microsoft.com/library/azure/ee621787.aspx).
+Pour obtenir un didacticiel sur la création d’une base de données SQL Azure, consultez [Prise en main de l’Administration d'une base de données SQL](sql-database-get-started.md). Pour obtenir des notions de base concernant la connexion à une base de données SQL Azure à partir d’une application C#, consultez [Se connecter à votre base de données SQL et l’interroger avec C#](sql-database-connect-query.md). Pour voir d’autres didacticiels sur la connexion à partir de diverses plateformes (notamment PHP), consultez [Développement avec Azure SQL Database : rubriques de procédures](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

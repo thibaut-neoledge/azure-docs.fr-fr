@@ -43,6 +43,10 @@ Ce didacticiel requiert les éléments suivants :
 
 >[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
+##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="enable-offline-app"></a>Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion
 
 Les fonctionnalités hors connexion de l’application mobile Azure vous permettent d’interagir avec une base de données locale lorsque votre service mobile est hors connexion. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez un `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l'interface `IMobileServiceSyncTable`. Dans ce didacticiel, nous utilisons SQLite pour le magasin local.
@@ -274,4 +278,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

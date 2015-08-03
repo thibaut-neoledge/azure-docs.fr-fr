@@ -387,4 +387,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

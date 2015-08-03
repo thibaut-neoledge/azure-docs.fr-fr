@@ -1,10 +1,4 @@
-<properties 
-	pageTitle="Utilisation d'Azure Key Vault à partir d'une application web | Présentation" description="Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Key Vault à partir d'une application web." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="adamhurwitz" 
-	manager=""
-	tags="azure-resource-manager"//>
+<properties pageTitle="Utilisation d'Azure Key Vault à partir d'une application web | Présentation" description="Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Key Vault à partir d'une application web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -131,4 +125,4 @@ Pour les références de programmation, consultez la page [Référence de l'API 
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

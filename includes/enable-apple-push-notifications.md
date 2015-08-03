@@ -11,4 +11,4 @@
 
 * Enfin, [actualisez les profils de mise en service dans le projet de démarrage rapide Xcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) puis [vérifiez que le profil de mise en service a été créé ou régénéré pour activer les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider"
    manager="timlt"
-   editor="jessebenson"/>
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="07/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Présentation des services fiables
-Service Fabric simplifie l'écriture et la gestion des services fiables avec et sans état. Ce guide traite des sujets suivants :
+Service Fabric simplifie l'écriture et la gestion des services fiables avec et sans état. Ce document abordera les thèmes suivants :
 
-1. Le modèle de programmation Service fiable pour les services avec et sans état
-2. Les différents choix que vous devez faire lors de l'écriture d'un service fiable
+1. Le modèle de programmation Service fiable pour les services avec et sans état.
+2. Les différents choix que vous devez faire lors de l'écriture d'un service fiable.
 3. Différents scénarios et exemples d'utilisation des Services fiables et comment ils sont écrits.
 
 Les Services fiables sont l'un des modèles de programmation disponibles sous Service Fabric. Pour plus d'informations sur le modèle de programmation Acteurs fiables, consultez l'[introduction](../service-fabric/service-fabric-reliable-actors-introduction.md).
@@ -32,20 +32,20 @@ Service Fabric gère la durée de vie des services, depuis la configuration et 
 ## Définition des services fiables
 Les services fiables vous offrent un modèle de programmation simple, puissant, de niveau supérieur pour vous aider à exprimer ce qui est important pour votre application. Avec le modèle de programmation Service fiable, vous obtenez :
 
-1. Pour les services avec état, le modèle de programmation Service fiable vous permet de stocker l'état de manière cohérente et fiable directement dans le service à l'aide des Collections fiables : un ensemble simple de classes de collection hautement disponible qui sera familier pour toute personne ayant déjà utilisé des collections C#. Traditionnellement, les services nécessitaient des systèmes externes pour la gestion d'état fiable. Avec les Collections fiables, vous pouvez stocker l'état à proximité du calcul avec la disponibilité élevée et la fiabilité que vous attendez de la part de magasins externes hautement disponibles.
+1. Pour les services avec état, le modèle de programmation Service fiable vous permet de stocker l'état de manière cohérente et fiable directement dans le service à l'aide des Collections fiables : un ensemble simple de classes de collection hautement disponible qui sera familier pour toute personne ayant déjà utilisé des collections C#. Traditionnellement, les services nécessitaient des systèmes externes pour la gestion d'état fiable. Avec les Collections fiables, vous pouvez stocker l'état à proximité du calcul avec la disponibilité élevée et la fiabilité que vous attendez de la part de magasins externes hautement disponibles, tout en bénéficiant des autres améliorations de latence qu’offre la colocation du calcul et de l’état.
 
 2. Un modèle simple pour l'exécution de votre propre code qui ressemble aux modèles de programmation qui vous sont familiers : votre code dispose d'un point d'entrée bien défini et d'un cycle de vie facile à gérer.
 
 3. Un modèle de communication enfichable : utilisez le transport de votre choix, comme HTTP avec l'[API Web](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, des protocoles TCP personnalisés, etc. Les Services fiables fournissent d'excellentes options prêtes à l'emploi que vous pouvez utiliser ou vous permettent d'utiliser vos propres options.
 
 ## Pourquoi les Services fiables sont-ils différents ?
-Les Services fiables dans Service Fabric sont différents des services que vous avez peut-être écrits auparavant. Service Fabric permet de garantir la fiabilité, la disponibilité, la cohérence et l'évolutivité.
+Les Services fiables dans Service Fabric sont différents des services que vous avez peut-être écrits auparavant. Service Fabric fournit la fiabilité, la disponibilité, la cohérence et l'évolutivité.
 
-+ <u>Fiabilité</u> : votre service continuera de fonctionner, même en cas de problèmes dans l'environnement, comme des pannes d'ordinateurs ou des problèmes réseau.
++ <u>Fiabilité</u> : votre service continuera de fonctionner, même dans des environnements non fiables où vos ordinateurs peuvent rencontrer des pannes ou des problèmes réseau.
 
-+ <u>Disponibilité</u> : votre service sera accessible et réactif (il est possible d'avoir des services qui fonctionnent mais qui sont introuvables ou inaccessibles).
++ <u>Disponibilité</u> : votre service sera accessible et réactif (mais il est possible d'avoir des services qui fonctionnent mais qui sont introuvables ou inaccessibles de l’extérieur).
 
-+ <u>Évolutivité</u> : les services sont dissociés du matériel spécifique et peuvent croître ou diminuer en fonction des besoins au moyen de l'ajout ou de la suppression de matériel ou de ressources virtuelles. Les services peuvent être facilement partitionnés (surtout dans le cas des services avec état) pour s'assurer que les parties indépendants du service puissent s'adapter et répondre aux défaillances indépendamment. Enfin, Service Fabric encourage les services à être légers en autorisant des milliers de services à être configurés dans un processus unique, plutôt que de nécessiter ou de consacrer des instances entières du système d'exploitation à une instance unique d'une charge de travail spécifique.
++ <u>Évolutivité</u> : les services sont dissociés du matériel spécifique et peuvent croître ou diminuer en fonction des besoins au moyen de l'ajout ou de la suppression de matériel ou de ressources virtuelles. Les services peuvent être facilement partitionnés (surtout dans le cas des services avec état) pour s'assurer que les parties indépendantes du service puissent s'adapter et répondre aux défaillances indépendamment. Enfin, Service Fabric encourage les services à être légers en autorisant des milliers de services à être configurés dans un processus unique, plutôt que de nécessiter ou de consacrer des instances entières du système d'exploitation à une instance unique d'une charge de travail spécifique.
 
 + <u>Cohérence</u> : cela signifie que toutes les informations stockées dans ce service sont cohérentes (ceci ne concerne que les services avec état ; plus d'informations sur ce point ultérieurement)
 
@@ -54,9 +54,20 @@ Que votre service soit avec état ou sans état, les Services fiables fournissen
 
 + CreateCommunicationListener : c'est là que le service définit la pile de communications à utiliser. La pile de communications, comme l'[API Web](../service-fabric/service-fabric-reliable-services-communication-webapi.md), est utilisée pour définir les points de terminaison d'écoute pour le service (comment les clients y accèdent), ainsi que l'interaction entre les messages et le reste du code de service.
 
-+ RunAsync : c'est là que votre service peut travailler. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si vous avez un service qui doit sans cesse extraire des messages d'une file d'attente ReliableQueue et les traiter, c'est là que se passe ce travail.
++ RunAsync : c'est ici que votre service exécute sa logique métier. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si vous avez un service qui doit sans cesse extraire des messages d'une file d'attente ReliableQueue et les traiter, c'est là que se passe ce travail.
 
-Les principaux événements du cycle de vie d'un Service fiable sont les suivants : 1. L'objet de service (élément dérivé de StatelessService ou StatefulService) est construit. 2. La méthode CreateCommunicationListener est appelée, donnant au service une chance de renvoyer un écouteur de communication de son choix. + Notez que cela est facultatif, bien que la plupart des services exposent un système d'extrémité directement. 3. Une fois l'écouteur CommunicationListener créé, il est ouvert + CommunicationListeners ont une méthode nommée Open(), qui est appelée à ce stade et qui renvoie l'adresse d'écoute pour le service. Si votre Service fiable utilise l'un des écouteurs ICommunicationListeners intégrés, alors celui-ci est géré pour vous. 4. Une fois l'écouteur de communication défini sur Open(), RunAsync() sur le service principal est appelé. + Notez que RunAsync est facultatif ; si le service effectue tout son travail directement en réponse aux appels utilisateur uniquement, il est inutile d'implémenter RunAsync().
+Les principaux événements du cycle de vie d'un Service fiable sont les suivants :
+
+1. L'objet de service (élément dérivé de StatelessService ou StatefulService) est construit.
+
+2. La méthode CreateCommunicationListener est appelée, donnant au service une chance de renvoyer un écouteur de communication de son choix.
+  + Notez que cela est facultatif, bien que la plupart des services exposent un système d’extrémité directement.
+
+3. Une fois l’écouteur CommunicationListener créé, il est ouvert.
+  + CommunicationListeners ont une méthode nommée Open(), qui est appelée à ce stade et qui renvoie l'adresse d'écoute pour le service. Si votre Service fiable utilise l'un des écouteurs ICommunicationListeners intégrés, alors celui-ci est géré pour vous.
+
+4. Une fois l’écouteur de communication défini sur Open(), RunAsync() sur le service principal est appelé.
+  + Notez que RunAsync est facultatif ; si le service effectue tout son travail directement en réponse aux appels utilisateur uniquement, il est inutile d'implémenter RunAsync().
 
 Quand le service est arrêté (quand il est supprimé ou simplement déplacé d'un emplacement spécifique), l'ordre d'appel est identique. Premièrement Close() est appelé sur CommunicationListener, puis le jeton d'annulation qui a été transmis à RunAsync() est annulé.
 
@@ -119,4 +130,4 @@ Si l'un des éléments suivants correspond aux besoins de votre service d'applic
 + [Lire le modèle de programmation Acteurs fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

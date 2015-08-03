@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 # Connexion et déconnexion de l’application web avec Azure AD
@@ -173,7 +173,7 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Sécurisation d’une API web avec Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

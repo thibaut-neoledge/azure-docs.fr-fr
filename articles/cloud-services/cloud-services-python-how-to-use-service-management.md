@@ -74,7 +74,7 @@ Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et t
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -445,4 +445,4 @@ Vous connaissez désormais les principes de base de la gestion des services. Vou
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

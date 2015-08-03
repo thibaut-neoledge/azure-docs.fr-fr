@@ -40,7 +40,7 @@ La procédure suivante permet de créer un projet de service cloud hébergeant l
 
 
 
-2. Remplacez les répertoires du répertoire **c:\\node**, puis entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
+2. Remplacez les répertoires du répertoire **c:\node**, puis entrez les commandes suivantes pour créer une solution nommée **chatapp** et un rôle de travail nommé **WorkerRole1** :
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -57,13 +57,13 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée obt
 
     ![Fenêtre de navigateur affichant https://github.com/LearnBoost/socket.io/tree/master/examples/chat, avec l'icône de téléchargement ZIP en surbrillance][chat-example-view]
 
-3.  Accédez à la structure de répertoires du référentiel local, jusqu'à atteindre le répertoire **examples\\chat**. Copiez le contenu de ce répertoire dans le répertoire **C:\\node\\chatapp\\WorkerRole1** créé précédemment.
+3.  Accédez à la structure de répertoires du référentiel local, jusqu'à atteindre le répertoire **examples\chat**. Copiez le contenu de ce répertoire dans le répertoire **C:\node\chatapp\WorkerRole1** créé précédemment.
 
-    ![Explorateur affichant le contenu du répertoire examples\\chat extrait de l'archive][chat-contents]
+    ![Explorateur affichant le contenu du répertoire examples\chat extrait de l'archive][chat-contents]
 
-    Les éléments mis en surbrillance sur cette capture d'écran sont les fichiers copiés depuis le répertoire **examples\\chat**.
+    Les éléments mis en surbrillance sur cette capture d'écran sont les fichiers copiés depuis le répertoire **examples\chat**.
 
-4.  Dans le répertoire **C:\\node\\chatapp\\WorkerRole1**, supprimez le fichier **server.js**, puis renommez le fichier **app.js** en **server.js**. Ceci supprime le fichier **server.js** par défaut créé précédemment par la cmdlet **Add-AzureNodeWorkerRole** et le remplace par le fichier d'application de l'exemple de conversation instantanée.
+4.  Dans le répertoire **C:\node\chatapp\WorkerRole1**, supprimez le fichier **server.js**, puis renommez le fichier **app.js** en **server.js**. Ceci supprime le fichier **server.js** par défaut créé précédemment par la cmdlet **Add-AzureNodeWorkerRole** et le remplace par le fichier d'application de l'exemple de conversation instantanée.
 
 ### Modification du fichier Server.js et installation des modules
 
@@ -89,7 +89,7 @@ Avant de tester l'application dans l'émulateur Azure, nous allons apporter quel
 
 Après avoir enregistré vos modifications dans le fichier server.js, procédez comme suit pour installer les modules requis, puis testez l'application dans l'émulateur Azure :
 
-1.  Utilisez **Azure PowerShell** pour remplacer les répertoires du répertoire **C:\\node\\chatapp\\WorkerRole1**, puis exécutez la commande suivante pour installer les modules requis par cette application :
+1.  Utilisez **Azure PowerShell** pour remplacer les répertoires du répertoire **C:\node\chatapp\WorkerRole1**, puis exécutez la commande suivante pour installer les modules requis par cette application :
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -158,4 +158,4 @@ Ce didacticiel vous a montré comment créer une application de conversation ins
   
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

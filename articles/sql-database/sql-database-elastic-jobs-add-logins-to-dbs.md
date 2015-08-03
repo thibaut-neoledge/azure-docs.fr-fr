@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Ajout d'utilisateurs à un pool élastique de bases de données" 
-	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" services="sql-database" 
-	documentationCenter=""  
+	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -44,4 +44,4 @@ Exécuter une tâche dans le pool de base de données élastique. Voir [Créatio
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

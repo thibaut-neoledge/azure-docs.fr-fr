@@ -127,4 +127,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

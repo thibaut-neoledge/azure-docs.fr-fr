@@ -28,7 +28,7 @@ L’exemple suivant montre comment utiliser le stockage Azure pour stocker des i
 2.  Le Kit de développement logiciel (SDK) Azure est installé.
 3.  L'archive Java (JAR) des bibliothèques Azure pour Java et les dépendances applicables JAR sont installées et se trouvent dans le chemin d'accès de build utilisé par votre compilateur Java. Pour plus d’informations sur l’installation des bibliothèques Azure pour Java, consultez la page [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java].
 4.  Un compte de stockage Azure a été configuré. Le nom et la clé du compte de stockage sont utilisés par le code ci-dessous. Consultez la page [Création d'un compte de stockage] pour des informations sur la création d'un compte de stockage et la page [Gestion des comptes de stockage] pour des informations sur la récupération de la clé de compte.
-5.  Vous avez créé un fichier image local nommé et stocké sous le chemin d'accès c:\\myimages\\image1.jpg. Vous pouvez également modifier le constructeur **FileInputStream** dans l'exemple pour utiliser un chemin d'accès à l'image et un nom de fichier différents.
+5.  Vous avez créé un fichier image local nommé et stocké sous le chemin d'accès c:\myimages\image1.jpg. Vous pouvez également modifier le constructeur **FileInputStream** dans l'exemple pour utiliser un chemin d'accès à l'image et un nom de fichier différents.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@ Obtenez une référence pointant vers l'objet blob de blocs qui représente l'ob
 
 Utilisez le constructeur **File** pour obtenir une référence pointant vers le fichier créé en local que vous allez charger. (Assurez-vous d’avoir créé ce fichier avant d’exécuter le code.)
 
-    File fileReference = new File ("c:\\myimages\\image1.jpg");
+    File fileReference = new File ("c:\myimages\image1.jpg");
 
 Chargez le fichier local en appelant la méthode **CloudBlockBlob.upload**. Le premier paramètre de la méthode **CloudBlockBlob.upload** est un objet **FileInputStream** qui représente le fichier local à charger sur le stockage Azure. Le deuxième paramètre est la taille du fichier en octets.
 
@@ -237,7 +237,7 @@ Voici le code complet pour cet exemple. N'oubliez pas de modifier les valeurs de
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\\myimages\\image1.jpg");
+                File fileReference = new File("c:\myimages\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

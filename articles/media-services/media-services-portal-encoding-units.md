@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@ Pour modifier le type d’unité réservée et le nombre d’unités réservées
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note]Les centres de données suivants ne proposent pas le type d’unité réservée Premium : Singapour, Hong Kong, Osaka, Beijing, Shanghai.
+	>[AZURE.NOTE]Les centres de données suivants ne proposent pas le type d’unité réservée Premium : Singapour, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
 
 	Les nouvelles unités réservées d’encodage sont allouées dès que vous cliquez sur ENREGISTRER.
 
-	>[Azure.Note]C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
+	>[AZURE.NOTE]C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût.
 
 ##Quotas et limitations
 
@@ -58,4 +58,4 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

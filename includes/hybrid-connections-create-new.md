@@ -27,4 +27,4 @@
 
 À présent, vous devez installer le Gestionnaire de connexions hybrides sur l’ordinateur local.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

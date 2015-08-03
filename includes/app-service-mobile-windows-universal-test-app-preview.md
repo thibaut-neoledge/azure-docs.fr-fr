@@ -31,4 +31,4 @@ Revenez à Visual Studio et sélectionnez le projet d’application cliente de 
 
 	Notez que les données enregistrées à l’étape précédente sont chargées à partir de l’application mobile après le démarrage de l’application Windows.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

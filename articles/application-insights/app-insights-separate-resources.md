@@ -98,4 +98,4 @@ L'iKey est également utilisée dans les pages web de votre application, dans le
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

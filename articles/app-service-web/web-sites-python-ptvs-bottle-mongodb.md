@@ -238,4 +238,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Bottle
 [Projets de service cloud]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

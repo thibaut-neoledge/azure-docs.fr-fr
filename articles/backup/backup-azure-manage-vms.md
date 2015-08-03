@@ -4,18 +4,11 @@
 	description="Découvrez comment gérer une machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 # Gérer des machines virtuelles
 
@@ -158,6 +151,5 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle ayant l’é
 Dans la page **Tableau de bord**, vous pouvez consulter les informations des machines virtuelles Azure, leur stockage et leurs tâches associées au cours des dernières 24 heures. Vous pouvez afficher l’état de la sauvegarde et les éventuelles erreurs de sauvegarde associées.
 
   ![Tableau de bord](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

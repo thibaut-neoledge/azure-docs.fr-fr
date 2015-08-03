@@ -234,4 +234,4 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

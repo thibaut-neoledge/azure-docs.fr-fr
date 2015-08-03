@@ -70,4 +70,4 @@ Pour plus d’informations sur les paamètres de réseaux virtuels, consultez :
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

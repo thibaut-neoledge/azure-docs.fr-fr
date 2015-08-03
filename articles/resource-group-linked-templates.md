@@ -1,7 +1,7 @@
 <properties
-   pageTitle="Utilisation de modèles liés avec Azure Resource Manager"
+   pageTitle="Utilisation de modèles liés à Azure Resource Manager"
    description="Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -16,7 +16,7 @@
    ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
-# Utilisation de modèles liés avec Azure Resource Manager
+# Utilisation de modèles liés à Azure Resource Manager
 
 À partir d’un modèle Azure Resource Manager, vous pouvez établir un lien avec un autre modèle, ce qui vous permet le cas échéant de décomposer votre déploiement en un ensemble de modèles ciblés, dédiés. Tout comme la décomposition d’une application en plusieurs classes de codes, cette décomposition procure des avantages en matière de test, de réutilisation et de lisibilité.
 
@@ -24,7 +24,7 @@ Vous pouvez déplacer des paramètres d’un modèle principal à un modèle li�
 
 ## Liaison à un modèle
 
-Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement dans le modèle principal pointant vers le modèle lié. Vous définissez la propriété **templateLink** sur l’URI du modèle lié. Vous pouvez fournir des valeurs de paramètre pour le modèle lié en spécifiant les valeurs directement dans votre modèle ou en créant un lien vers un fichier de paramètres. L’exemple suivant utilise la propriété **parameters** afin de spécifier directement une valeur de paramètre.
+Pour créer un lien entre deux modèles, ajoutez une ressource de déploiement dans le modèle principal pointant vers le modèle lié. Vous définissez la propriété **templateLink** à l’URI du modèle lié. Vous pouvez fournir des valeurs de paramètre pour le modèle lié en spécifiant les valeurs directement dans votre modèle ou en créant un lien vers un fichier de paramètres. L’exemple suivant utilise la propriété **parameters** afin de spécifier directement une valeur de paramètre.
 
     "resources": [ 
       { 
@@ -100,4 +100,4 @@ Si vous devez transmettre une valeur du modèle lié vers le modèle principal, 
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
 - [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

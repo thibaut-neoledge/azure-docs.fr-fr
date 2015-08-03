@@ -165,7 +165,7 @@ Pour vérifier si Tomcat7 est correctement installé, recherchez le nom DNS de v
 ###Installation d’autres composants de Tomcat
 Il existe d’autres composants facultatifs de tomcat que vous pouvez également installer.
 
-Utilisez la commande ** sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
+Utilisez la commande **sudo apt-cache search tomcat7** pour afficher tous les composants disponibles. Les commandes suivantes sont des exemples d’installation de certaines parties utiles.
 
 	sudo apt-get install tomcat7-admin      #admin web applications
 	sudo apt-get install tomcat7-user         #tools to create user instances  
@@ -303,4 +303,4 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

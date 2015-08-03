@@ -71,4 +71,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

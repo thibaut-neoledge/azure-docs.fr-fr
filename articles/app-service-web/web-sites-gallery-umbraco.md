@@ -135,4 +135,4 @@ Et voilà ! Vous avez créé un blog à l’aide d’Umbraco CMS en quelques mi
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

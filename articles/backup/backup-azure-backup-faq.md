@@ -132,4 +132,4 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

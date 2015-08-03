@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # FAQ sur la passerelle VPN
@@ -27,7 +27,7 @@ Oui. En fait, il n'existe aucune contrainte de région. Un réseau virtuel peut 
 Oui.
 ### Puis-je me connecter à plusieurs sites à partir d'un seul réseau virtuel ?
 
-Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell et des API REST Azure. Consultez la rubrique FAQ sur la[Connectivité multisite et de réseau virtuel à réseau virtuel](#Multi-Site-and-VNet-to-VNet-Connectivity).
+Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell et des API REST Azure. Consultez la rubrique FAQ sur la[Connectivité multisite et de réseau virtuel à réseau virtuel](#multi-site-and-vnet-to-vnet-connectivity).
 ## Quelles sont mes options de connexion entre différents locaux ?
 
 Virtual Network prend en charge les connexions entre différents locaux suivantes :
@@ -162,7 +162,7 @@ Ajoutez chaque plage que vous souhaitez envoyer via la passerelle pour votre ré
 
 ### Puis-je configurer un tunneling forcé ?
 
-Oui. Consultez [À propos du tunneling forcé](http://go.microsoft.com/fwlink/p/?LinkId=615153).
+Oui. Consultez [À propos du tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
 ### Puis-je configurer mon propre serveur VPN dans Azure et l'utiliser pour me connecter à mon réseau local ?
 
@@ -170,7 +170,7 @@ Oui, vous pouvez déployer vos propres serveurs ou passerelles VPN dans Azure de
 
 ### Plus d'informations sur les types de passerelle, la configuration requise et le débit
 
-Pour plus d'informations, consultez [Passerelles](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Pour plus d'informations, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Connectivité multisite et de réseau virtuel à réseau virtuel
 
@@ -244,4 +244,4 @@ Afficher plus de FAQ relatifs à la mise en réseau pour plus de détails :
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

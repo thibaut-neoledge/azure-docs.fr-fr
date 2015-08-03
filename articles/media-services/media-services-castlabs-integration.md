@@ -25,7 +25,7 @@ Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour
 
 Le diagramme suivant représente une architecture qui intègre Azure Media Services et castLabs.
 
-![Scale page](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![intégration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##Configuration système classique
 
@@ -114,4 +114,4 @@ Pour lire la vidéo protégée en HTML5 avec Chrome et le lecteur castLabs, cont
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -436,4 +436,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

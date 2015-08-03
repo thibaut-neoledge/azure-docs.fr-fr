@@ -22,7 +22,7 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-Maintenant que nous avons déterminé que nous utilisons l’authentification multifacteur dans le cloud, nous pouvons commencer ! Veuillez noter que si vous utilisez Multi-Factor Authentication pour Office 365 ou Multi-Factor Authentication pour les administrateurs Azure, vous pouvez passer à l'étape 3.
+Maintenant que nous avons déterminé que nous utilisons l’authentification multifacteur dans le cloud, nous pouvons commencer ! Veuillez noter que si vous utilisez Multi-Factor Authentication pour Office 365 ou Multi-Factor Authentication pour les administrateurs Azure, vous pouvez passer à l'étape 3. En outre, ce document traite des points suivants
 
 
 1. **Souscrivez un abonnement Azure**
@@ -156,4 +156,4 @@ Une fois que vous avez activé les utilisateurs, il est recommandé d’envoyer 
 ## Étapes suivantes
 Maintenant que vous avez configuré l’authentification multifacteur dans le cloud, vous pouvez passer à l’étape suivante qui consiste à [configurer Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Ici, vous accéderez à des informations sur la création de rapports, l'alerte de fraudes, la personnalisation des messages vocaux et toutes les fonctionnalités qu’offre Azure Multi-Factor Authentication.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

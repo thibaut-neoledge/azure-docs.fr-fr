@@ -129,4 +129,4 @@ Les résultats de recherche de serveur comprennent les informations suivantes :
 - Jours écoulés depuis la dernière mise à jour
 - Version de l’agent Windows Update
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

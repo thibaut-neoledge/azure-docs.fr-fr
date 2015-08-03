@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="jgao"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
@@ -279,4 +279,4 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

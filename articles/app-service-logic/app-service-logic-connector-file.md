@@ -33,7 +33,7 @@ Pour utiliser le connecteur File, vous devez d’abord créer une instance de l�
 
 	- **Nom** : indiquez le nom du connecteur File.
 	- **Paramètres du package**
-		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\\FileConnectorTest
+		- **Dossier racine** : indiquez le chemin du dossier racine sur l'ordinateur hôte. Par exemple : D:\FileConnectorTest
 		- **Chaîne de connexion au Service Bus** : indiquez la chaîne de connexion au Service Bus. Vérifiez que l'espace de noms du Service Bus est de type Standard et NON Basique pour permettre l'utilisation de Service Bus Relays. Service Bus Relay est utilisé pour se connecter au Gestionnaire de connexion hybride.
 	- **Plan App Service** : sélectionnez ou créez un plan App Service.
 	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur.
@@ -82,7 +82,7 @@ Vous trouverez les détails de l'API dans la rubrique [Définition des API du co
 
 <!-- Links -->
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
-[Définition des API du connecteur File]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[Définition des API du connecteur File]: https://msdn.microsoft.com/fr-fr/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

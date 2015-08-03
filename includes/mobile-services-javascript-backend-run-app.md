@@ -19,4 +19,4 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copie de données avec Azure Data Factory (activité de copie)
@@ -40,156 +40,22 @@ Pour en savoir plus, vous pouvez :
 ## Sources et récepteurs pris en charge
 L'activité de copie prend en charge les scénarios de déplacement de données suivants :
 
-<table border="1">	
-	<tr>
-		<th><i>Source/Récepteur<i></th>
-		<th>Objets blob Azure</th>
-		<th>Table Azure</th>
-		<th>Base de données SQL Azure</th>
-		<th>Document DB Azure</th>
-		<th>SQL&#160;Server dans les machines virtuelles Azure</th>
-		<th>SQL Server local</th>
-	</tr>	
+| *Source/Récepteur* | Objets blob Azure | Table Azure | Base de données SQL Azure | Document DB Azure | SQL Server dans les machines virtuelles Azure | SQL Server local |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Objets blob Azure | X | X | X | X | X | X |
+| Table Azure | X | X | X | X | X | X |
+| Base de données SQL Azure | X | X | X | X | X | X |
+| Document DB Azure | X | X | X | | | |  
+| SQL Server local | X | X | X | | X | X |
+| SQL Server dans les machines virtuelles Azure | X | X | X | | X | X |
+| Système de fichiers local | X | X | X | | X | X |
+| Base de données Oracle locale | X | X | X | | X | X |
+| Base de données MySQL locale| X | X | X | | X | X |
+| Base de données DB2 locale | X | X | X | | X | X |
+| Base de données Teradata locale | X | X | X | | X | X |
+| Base de données Sybase locale | X | X | X | | X | X |
+| Base de données PostgreSQL locale | X | X | X | | X | X |
 
-	<tr>
-		<td><b>Objet blob Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Table Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Base de données SQL Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Serveur SQL local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>SQL&#160;Server dans les machines virtuelles Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Système de fichiers local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données Oracle locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Système de fichiers local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données MySQL locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données DB2 locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données Teradata locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données Sybase locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de données PostgreSQL locale</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 Consultez la rubrique [Sources et récepteurs pris en charge](https://msdn.microsoft.com/library/dn894007.aspx) dans la bibliothèque MSDN pour plus d’informations.
 
@@ -249,57 +115,15 @@ Chaque activité dans la section **Activités** possède la structure générale
 
 Le tableau suivant décrit les balises utilisées par une section de l'activité.
 
-<table border="1">	
-	<tr>
-		<th align="left">Balise</th>
-		<th align="left">Description</th>
-		<th align="left">Requis</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Nom de l'activité.</td>
-		<td>O</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Texte décrivant la façon dont l'activité est utilisée.</td>
-		<td>O</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Spécifie le type de l'activité. <br/><br/>Le <b>type</b> doit être défini sur <b>CopyActivity</b>.</td>
-		<td>O</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Tables d'entrée utilisées par l'activité. Spécifiez une seule table d'entrée pour l'activité de copie.</td>
-		<td>O</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Tables de sortie utilisées par l'activité. Spécifiez une seule table de sortie pour l'activité de copie.</td>
-		<td>O</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Les propriétés de la transformation dépendent du type. L'<b>activité de copie</b> nécessite la spécification d'une section <b>source</b> et d'une section <b>récepteur</b> au sein de la section <b>transformation</b>. Vous trouverez plus d'informations à ce sujet dans la suite de cet article. </td>
-		<td>O</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Stratégies affectant le comportement d'exécution de l'activité. Si aucune valeur n'est spécifiée, les valeurs par défaut seront utilisées.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Balise | Description | Requis |
+|-----|-------------|----------|
+|name|Nom de l'activité.|O|
+|description|Texte décrivant la raison motivant l’activité.|O|
+|type|Spécifie le type de l'activité. Le type doit être défini sur **Copy**. |O|
+|inputs|Tables d'entrée utilisées par l'activité. Spécifiez une seule table d’entrée pour l’activité de copie. | O
+|outputs|Tables de sortie utilisées par l'activité. Spécifiez une seule table de sortie pour l’activité de copie. | O
+|transformation|Les propriétés de la transformation dépendent du type. L’activité de copie nécessite la spécification d’une source et d’une section récepteur au sein de la section transformation. Vous trouverez plus d'informations à ce sujet dans la suite de cet article.|O
+|policy| Stratégies affectant le comportement d'exécution de l'activité. Si aucune valeur n'est spécifiée, les valeurs par défaut seront utilisées. | N
 
 Pour plus d'informations sur les propriétés/balises JSON, consultez [Référence de script JSON][json-script-reference].
 
@@ -475,4 +299,4 @@ Consultez [Utilisation des pipelines avec des données locales][use-onpremises-d
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

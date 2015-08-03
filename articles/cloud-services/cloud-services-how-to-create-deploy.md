@@ -25,20 +25,22 @@
 - [Azure Portal](cloud-services-how-to-create-deploy.md)
 - [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-Le portail Azure vous offre deux manières de créer et de déployer un service cloud : **Création rapide** et **Création personnalisée**.
+Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : **Création rapide** et **Création personnalisée**.
 
-Cette rubrique explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Lorsque vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour compléter les éléments au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de **Custom Create**.
+Cette rubrique explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de **Custom Create**.
 
 > [AZURE.NOTE]Si vous prévoyez de publier votre service cloud depuis Visual Studio Online (VSO), utilisez Création rapide, puis configurez la publication VSO dans **Création rapide** ou dans le tableau de bord. Pour plus d'informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online][TFSTutorialForCloudService] ou **Quick Start**.
 
 ## Concepts
 trois composants sont nécessaires pour déployer une application en tant que service cloud dans Azure :
 
-- **Fichier de définition du service**<br/> Le fichier de définition du service cloud (.csdef) définit le modèle du service, avec le nombre de rôles.
+- **Définition de service** Le fichier de définition de service cloud (.csdef) définit le modèle de service, notamment le nombre de rôles.
 
-- **Fichier de configuration de service**<br/> Le fichier de configuration du service cloud (.cscfg) contient des paramètres de configuration pour le service cloud et les différents rôles, y compris le nombre d’instances de rôle.
+- **Configuration de service** Le fichier de configuration de service cloud (.cscfg) contient les paramètres de configuration du service cloud et des différents rôles, notamment le nombre d’instances de rôle.
 
-- **Package de service**<br/> Le package de service (.cspkg) contient le code d'application, les configurations et le fichier de définition de service.
+- **Package de service** Le package de service (.cspkg) contient le code d’application, les configurations et le fichier de définition de service.
+  
+Pour plus d’informations sur ces composants et sur la création d’un package, cliquez [ici](cloud-services-model-and-package.md).
 
 ## Préparation de votre application
 Avant de déployer un service cloud, vous devez créer le package de service cloud (.cspkg) à partir du code de l'application, ainsi que le fichier de configuration de service cloud (.cscfg). Le Kit de développement logiciel (SDK) Azure fournit les outils nécessaires à la préparation des fichiers de déploiement. Vous pouvez installer le Kit de développement logiciel (SDK) depuis la page des [téléchargements Azure](http://azure.microsoft.com/downloads/), dans le langage souhaité pour le développement de votre code.
@@ -145,4 +147,4 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

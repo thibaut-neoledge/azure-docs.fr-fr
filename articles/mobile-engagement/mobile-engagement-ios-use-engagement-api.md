@@ -285,4 +285,4 @@ Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

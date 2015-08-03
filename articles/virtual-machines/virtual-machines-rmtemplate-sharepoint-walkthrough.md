@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs" 
-	description="Découvrez la structure du modèle Azure Resource Manager pour la batterie de serveurs SharePoint à trois serveurs." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs"
+	description="Découvrez la structure du modèle Azure Resource Manager pour la batterie de serveurs SharePoint à trois serveurs."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs
 
 Cette rubrique vous explique la structure du fichier de modèle azuredeploy.json pour la batterie de serveurs SharePoint à trois serveurs. Vous pouvez également voir le contenu de ce modèle dans votre navigateur à partir d’[ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Si vous souhaitez examiner une copie locale du fichier azuredeploy.json, spécifiez un dossier local comme emplacement du fichier et créez ce dossier (par exemple, C:\\Azure\\Templates\\SharePointFarm). Indiquez le nom du dossier, puis exécutez ces commandes à l’invite de commandes Azure PowerShell.
+Si vous souhaitez examiner une copie locale du fichier azuredeploy.json, spécifiez un dossier local comme emplacement du fichier et créez ce dossier (par exemple, C:\Azure\Templates\SharePointFarm). Indiquez le nom du dossier, puis exécutez ces commandes à l’invite de commandes Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -370,12 +370,10 @@ Pour plus d’informations, consultez [Langage du modèle Azure Resource Manag
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
+[Présentation d’Azure Resource Manager](resource-group-overview.md)
 
-[Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md)
+[Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

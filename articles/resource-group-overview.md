@@ -139,4 +139,4 @@ Gestion et audit de l’accès
 - [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 - [Création d’un nouveau principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

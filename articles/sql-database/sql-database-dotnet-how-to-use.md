@@ -89,7 +89,7 @@ Une fois la base de données créée, cliquez dessus pour ouvrir son tableau de 
 ![Tableau de bord de base de données SQL](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 
-À l’étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre réseau soient autorisées à y accéder.
+À l'étape suivante, vous allez configurer le pare-feu de telle sorte que les connexions des applications exécutées sur votre réseau soient autorisées à y accéder.
 
 **Configuration du pare-feu pour le serveur logique**
 
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Ent
 Maintenant que vous avez appris les principes de base de la connexion à une base de données SQL, consultez [Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

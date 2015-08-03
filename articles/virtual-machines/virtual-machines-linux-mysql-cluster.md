@@ -348,4 +348,4 @@ Les limites suivantes s'appliquent :
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

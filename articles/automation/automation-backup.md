@@ -44,4 +44,4 @@ Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez 
 - [Ressources Automation](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Applets de commande Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

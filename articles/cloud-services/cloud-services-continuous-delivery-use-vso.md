@@ -80,7 +80,7 @@ Suivez les instructions disponibles [ici](http://go.microsoft.com/fwlink/?LinkId
 
 2. Accédez à votre fichier solution et ouvrez-le.<br/> ![][16]
 
-3. Dans l'Explorateur de solutions, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier _Layout.cshtml sous le dossier Views\\Shared dans un rôle Web MVC.<br/> ![][17]
+3. Dans l'Explorateur de solutions, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier _Layout.cshtml sous le dossier Views\Shared dans un rôle Web MVC.<br/> ![][17]
 
 4. Modifiez le logo du site et appuyez sur Ctrl+S pour enregistrer le fichier.<br/> ![][18]
 
@@ -239,4 +239,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

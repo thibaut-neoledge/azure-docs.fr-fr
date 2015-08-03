@@ -18,7 +18,7 @@
 
 # Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
@@ -135,7 +135,7 @@ Lors du développement d’une application, il est utile de visualiser des infor
 
 > [AZURE.NOTE]Certains types de mémoire tampon de journalisation sont écrits dans le fichier journal. Dès lors, il se peut que les événements apparaissent de manière désordonnée dans le flux. Ainsi, il est possible qu'une entrée du journal d'application qui se produit lorsqu'un utilisateur visite une page soit affichée dans le flux avant l'entrée de journal HTTP correspondante pour la demande de page.
 
-> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\\home\\LogFiles\** sont également diffusées.
+> [AZURE.NOTE]Lors de la diffusion de journaux en continu, les informations écrites dans tout fichier texte stocké dans le dossier **D:\home\LogFiles\** sont également diffusées.
 
 ### Diffusion d'informations en continu avec Azure PowerShell
 
@@ -335,4 +335,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -39,4 +39,4 @@ Pour plus d'informations sur Service Bus Relay, consultez les rubriques suivante
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

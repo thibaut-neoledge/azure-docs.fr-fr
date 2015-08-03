@@ -92,4 +92,4 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 - [Utilisation du cloud pour améliorer et surveiller les systèmes d’identité locaux](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Plateforme enrichie basée sur une norme pour les développeurs](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1280,4 +1280,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

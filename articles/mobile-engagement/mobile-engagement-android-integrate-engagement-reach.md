@@ -647,4 +647,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -74,7 +74,7 @@ La date et l’heure sont au format UTC et correspondent au moment où la télé
 
 ## <a name="format"></a> Format de données
 
-* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
+* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \n.
 * Chaque ligne est un document JSON sans mise en forme. Pour consulter ce format, vous pouvez l’ouvrir par exemple dans Notepad++ avec le plug-in JSON :
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
@@ -183,4 +183,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,9 @@
+
 <properties 
     pageTitle="Configuration requise des applications pour RemoteApp"
     description="En savoir plus sur la configuration requise pour les applications que vous souhaitez utiliser dans RemoteApp" 
     services="remoteapp" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -54,4 +56,4 @@ Utilisez les instructions suivantes pour développer des applications pour Remot
 - Pour optimiser les performances, il est recommandé que les applications [détectent](https://msdn.microsoft.com/library/aa380798.aspx) si elles s’exécutent dans une session client. 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

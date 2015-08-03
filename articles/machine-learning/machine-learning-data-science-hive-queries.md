@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Envoyer des requêtes Hive à des clusters Hadoop dans le processus d&#39;analyse avancée | Microsoft Azure" 
+	pageTitle="Envoyer des requêtes Hive à des clusters Hadoop dans le processus d'analyse avancée | Microsoft Azure" 
 	description="Traiter les données de tables Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,54 +14,58 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d'analyse avancée
 
-Ce document décrit plusieurs solutions pour envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Pour envoyer des requêtes Hive, utilisez au choix :
+Ce document décrit différentes manières d’envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. Pour envoyer des requêtes Hive, utilisez au choix :
 
 * la ligne de commande Hadoop sur le nœud principal du cluster ;
 * l’interpréteur IPython Notebook ; 
 * l’éditeur Hive ;
 * des scripts Azure PowerShell. 
 
-Des requêtes Hive génériques permettant d’explorer les données ou de générer des fonctionnalités exploitant des FDU (fonctions définies par l’utilisateur) Hive intégrées sont fournies.
+Des requêtes Hive génériques permettant d'explorer les données ou de générer des fonctionnalités exploitant des FDU (fonctions définies par l'utilisateur) Hive intégrées sont fournies.
 
-Des exemples de requêtes propres au jeu de [données NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l’état.
+Des exemples de requêtes propres au jeu de [données NYC Taxi Trip](http://chriswhong.com/open-data/foil_nyc_taxi/) sont également disponibles dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Le schéma de données de ces requêtes est déjà spécifié et elles sont exécutables en l'état pour ce scénario.
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-## Conditions préalables
+## Composants requis
 Cet article suppose que vous avez :
  
-* Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage). 
+* Créé un compte Azure Storage. Si vous avez besoin d'aide pour cette tâche, consultez [Création d'un compte Azure Storage](../hdinsight-get-started.md#storage). 
 * Approvisionné un cluster Hadoop avec le service HDInsight. Si vous avez besoin d'aide, consultez [Approvisionner un cluster HDInsight](../hdinsight-get-started.md#provision).
-* Chargé les données dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
+* Chargé les données dans les tables Hive des clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure décrite sous [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
 * Activé l’accès à distance au cluster. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
-- [Comment envoyer des requêtes Hive](#submit)
-- [Exploration des données et ingénierie des fonctionnalités](#explore)
-- [Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes](#tuning)
+## <a name="submit"></a>Envoi de requêtes Hive
 
-## <a name="submit"></a>Comment envoyer des requêtes Hive
+1. [Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop](#headnode)
+2. [Envoyer des requêtes Hive avec l'éditeur Hive](#hive-editor)
+3. [Envoyer des requêtes Hive avec les commandes Azure PowerShell](#ps)
+ 
+###<a name="headnode"></a> 1. Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
 
-###1. Avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
-
-Une requête Hive complexe envoyée directement au nœud principal du cluster Hadoop est traitée plus rapidement qu’avec Hive Editor ou des scripts Azure PowerShell.
+Une requête Hive complexe envoyée directement au nœud principal du cluster Hadoop est traitée plus rapidement qu'avec un éditeur Hive ou des scripts Azure PowerShell.
 
 Connectez-vous au nœud principal du cluster Hadoop, ouvrez la ligne de commande Hadoop sur le bureau du nœud principal et saisissez la commande `cd %hive_home%\bin`.
 
-Les utilisateurs disposent de trois possibilités pour envoyer des requêtes Hive dans la ligne de commande Hadoop.
+Les utilisateurs disposent de trois possibilités pour envoyer des requêtes Hive dans la ligne de commande Hadoop :
 
-####Envoyer directement des requêtes Hive dans la ligne de commande Hadoop 
+* directement ;
+* à l’aide de fichiers HQL ;
+* à l’aide de la console de commande Hive.
+
+#### Envoyer directement des requêtes Hive dans la ligne de commande Hadoop 
 
 Les utilisateurs peuvent exécuter une commande du type `hive -e "<your hive query>;` pour envoyer une requête Hive simple directement dans la ligne de commande Hadoop. Voici un exemple, où l’encadré rouge indique la commande qui envoie la requête Hive et l’encadré vert, la sortie de la requête Hive.
 
 ![Create workspace][10]
 
-####Envoyer des requêtes Hive dans des fichiers HQL
+#### Envoyer des requêtes Hive dans des fichiers HQL
 
 Lorsque la requête Hive est plus complexe et comporte plusieurs lignes, la modifier dans la ligne de commande ou la console de commande Hive n’est pas simple. L’alternative consiste à utiliser un éditeur de texte dans le nœud principal du cluster Hadoop pour enregistrer la requête Hive dans un fichier HQL situé dans le répertoire local du nœud principal. Ensuite, celle-ci peut être envoyée à l'aide de l'argument `-f`, comme indiqué ci-dessous :
 	
@@ -69,14 +74,14 @@ Lorsque la requête Hive est plus complexe et comporte plusieurs lignes, la modi
 ![Create workspace][15]
 
 
-####Supprimer l’affichage de l’état d’avancement des requêtes Hive
+**Supprimer l’affichage de l’état d’avancement des requêtes Hive**
 
 Par défaut, après l’envoi d’une requête Hive dans la ligne de commande Hadoop, l’état d’avancement de la tâche Map/Reduce s’affiche à l’écran. Pour supprimer cet affichage, déclarez l'argument `-S` (« S » en majuscule) dans la ligne de commande, comme indiqué ci-dessous :
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Envoyer des requêtes Hive dans la console de commande Hive
+#### Envoyer des requêtes Hive dans la console de commande Hive
 
 Les utilisateurs peuvent également ouvrir la console de commande Hive en exécutant la commande `hive` dans la ligne de commande Hadoop, puis envoyer les requêtes Hive dans la console de commande Hive. Voici un exemple. Ici, les deux encadrés rouges indiquent les commandes utilisées pour ouvrir la console de commande Hive et envoyer la requête Hive dans cette console. L’encadré vert montre la sortie de la requête Hive.
 
@@ -84,7 +89,7 @@ Les utilisateurs peuvent également ouvrir la console de commande Hive en exécu
 
 Les exemples précédents affichent directement les résultats de la requête à l’écran. Les utilisateurs peuvent également consigner la sortie dans un fichier local sur le nœud principal ou dans un blob Azure. Puis, ils peuvent utiliser d’autres outils pour analyser plus finement la sortie de la requête Hive.
 
-####Enregistrer les résultats d’une requête Hive dans un fichier local 
+**Enregistrer les résultats d’une requête Hive dans un fichier local**
 
 Pour enregistrer les résultats d’une requête Hive dans un répertoire local du nœud principal, les utilisateurs doivent envoyer celle-ci dans la ligne de commande Hadoop, comme indiqué ci-dessous :
 
@@ -94,7 +99,7 @@ Dans l'exemple suivant, la sortie de la requête Hive est consignée dans un fic
 
 ![Create workspace][12]
 
-####Enregistrer les résultats d’une requête Hive dans un blob Azure
+**Enregistrer les résultats d’une requête Hive dans un blob Azure**
 
 Les utilisateurs peuvent également enregistrer les résultats d’une requête Hive dans un blob Azure situé dans le conteneur par défaut du cluster Hadoop. La requête Hive doit être similaire à celle-ci :
 
@@ -108,17 +113,20 @@ Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’outils
 
 ![Create workspace][14]
 
-###2. Avec l’éditeur Hive ou des commandes Azure PowerShell
+###<a name="hive-editor"></a> 2. Envoyer des requêtes Hive avec l'éditeur Hive
 
-Les utilisateurs peuvent également utiliser Query Console (Hive Editor) en saisissant l'adresse dans un navigateur Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (saisie obligatoire des identifiants du cluster Hadoop pour se connecter) ou [envoyer des travaux Hive à l'aide de PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Les utilisateurs peuvent également utiliser Query Console (éditeur Hive) en saisissant l'adresse dans un navigateur Web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (saisie obligatoire des identifiants du cluster Hadoop pour se connecter).
+
+###<a name="ps"></a> 3. Envoyer des requêtes Hive avec les commandes Azure PowerShell
+
+Les utilisateurs peuvent également utiliser PowerShell pour envoyer des requêtes Hive. Pour obtenir de l'aide, consultez [Envoi de tâches Hive avec PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 ## <a name="explore"></a>Exploration des données, ingénierie des fonctionnalités et ajustement des paramètres Hive
 
-Cette section décrit les tâches d’exploration des données en utilisant Hive dans des clusters Hadoop Azure HDInsight, puis l’ajustement de certains paramètres Hive pour améliorer les performances des requêtes Hive :
+Dans cette section, nous décrivons les tâches de retraitement des données avec Hive dans des clusters Azure HDInsight Hadoop :
 
 1. [Exploration des données](#hive-dataexploration)
 2. [Génération de fonctionnalités](#hive-featureengineering)
-3. [Rubrique avancée : Ajuster des paramètres Hive pour accélérer le traitement des requêtes](#tune-parameters)
 
 > [AZURE.NOTE]Ces exemples de requête Hive supposent que les données ont été téléchargées dans les tables Hive situées dans les clusters Hadoop Azure HDInsight. Si tel n'est pas le cas, commencez par suivre la procédure [Créer et charger des données dans les tables Hive](machine-learning-data-science-hive-tables.md).
 
@@ -165,16 +173,16 @@ Voici quelques exemples de scripts Hive qui vous permettent d’explorer les don
 ###<a name="hive-featureengineering"></a>Génération de fonctionnalités
 
 Cette section décrit les méthodes permettant de générer des fonctionnalités à l’aide de requêtes Hive :
-
-> [AZURE.NOTE]Lorsque vous générez des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec ces fonctionnalités et la clé principale, que vous pouvez relier à la table d’origine par une jointure.
-
+  
 1. [Génération de fonctionnalités basées sur la fréquence](#hive-frequencyfeature)
 2. [Risques de variables catégorielles en classification binaire](#hive-riskfeature)
-3. [Extraction de fonctionnalités à partir de champs d’horodatage](#hive-datefeatures)
-4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeatures)
+3. [Extraction de fonctionnalités à partir de champs d’horodatage](#hive-datefeature)
+4. [Extraction de fonctionnalités à partir de champs de texte](#hive-textfeature)
 5. [Calcul de la distance entre des coordonnées GPS](#hive-gpsdistance)
 
-####<a name="hive-frequencyfeature"></a>Génération de fonctionnalités basées sur la fréquence
+> [AZURE.NOTE]Lorsque vous générez des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous la forme de colonnes à la table existante, soit créer une table avec ces fonctionnalités et la clé principale, que vous pouvez ensuite relier à la table d'origine par une jointure.
+
+####<a name="hive-frequencyfeature"></a> Génération de fonctionnalités basées sur la fréquence
 
 Parfois, il est intéressant de calculer les fréquences des niveaux d’une variable catégorielle ou des niveaux combinés de plusieurs variables catégorielles. Les utilisateurs peuvent utiliser les scripts suivants pour calculer ces fréquences :
 
@@ -189,7 +197,7 @@ Parfois, il est intéressant de calculer les fréquences des niveaux d’une var
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>Risques de variables catégorielles en classification binaire
+####<a name="hive-riskfeature"></a> Risques de variables catégorielles en classification binaire
 
 En classification binaire, il est parfois nécessaire de convertir des variables catégorielles non numériques en fonctionnalités numériques, en remplaçant les niveaux non numériques par des risques numériques, certains modèles n’acceptant que des fonctionnalités numériques. Cette section présente certaines requêtes Hive génériques qui calculent les valeurs de risque (« log odds ») d’une variable catégorielle.
 
@@ -216,7 +224,7 @@ Dans cet exemple, les variables `smooth_param1` et `smooth_param2` sont configur
 
 Une fois la table de risque calculée, les utilisateurs peuvent attribuer les valeurs de risque à une table en créant une jointure à la table de risque. La requête de jointure Hive est fournie dans la section précédente.
 
-####<a name="hive-datefeature"></a>Extraction de fonctionnalités à partir de champs d'horodatage
+####<a name="hive-datefeature"></a> Extraction de fonctionnalités à partir de champs d'horodatage
 
 Hive est livré avec un ensemble de FDU pour traiter des champs d’horodatage. Dans Hive, le format d’horodatage par défaut est « aaaa-MM-jj 00:00:00 » (comme « 1970-01-01 12:21:32 »). Cette section montre comment extraire le jour et le mois d’un champ d’horodatage, ainsi que des exemples de conversion d’une chaîne d’horodatage d’un format autre que par défaut en une chaîne d’horodatage au format par défaut.
 
@@ -238,14 +246,14 @@ Dans cette requête, si `<datetime field>` a le format `03/26/2015 12:04:39`,
 Dans cette requête, `hivesampletable` est fourni avec tous les clusters Hadoop Azure HDInsight par défaut lorsque les clusters sont approvisionnés.
 
 
-####<a name="hive-textfeature"></a>Extraction de fonctionnalités à partir de champs de texte
+####<a name="hive-textfeature"></a> Extraction de fonctionnalités à partir de champs de texte
 
 En supposant que la table Hive a un champ de texte qui contient plusieurs mots séparés par un espace, la requête suivante extrait la longueur de la chaîne et le nombre de mots de celle-ci.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>Calcul de la distance entre des coordonnées GPS
+####<a name="hive-gpsdistance"></a> Calcul de la distance entre des coordonnées GPS
 
 La requête fournie dans cette section peut être directement appliquée aux données du jeu NYC Taxi Trips. Cette requête montre comment appliquer les fonctions mathématiques intégrées dans Hive pour générer des fonctionnalités.
 
@@ -318,4 +326,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

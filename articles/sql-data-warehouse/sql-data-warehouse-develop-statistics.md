@@ -3,8 +3,8 @@
    description="Conseils relatifs à la gestion de statistiques dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -280,13 +280,13 @@ Pour effectuer cette opération, vous avez différentes possibilités :
 Pour réaliser cette opération, utilisez la syntaxe suivante :
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name]([stat_name]);
+UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Par exemple :
 
 ```
-UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
 En mettant à jour des objets de statistiques spécifiques, vous pouvez réduire les ressources et le temps requis pour gérer les statistiques. Toutefois, la sélection des objets de statistiques les plus appropriés pour une mise à jour prend du temps.
@@ -296,13 +296,13 @@ En mettant à jour des objets de statistiques spécifiques, vous pouvez réduire
 Voici une méthode simple pour mettre à jour tous les objets de statistiques dans une table.
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name];
+UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Par exemple :
 
 ```
-UPDATE STATISTICS ON dbo.table1;
+UPDATE STATISTICS dbo.table1;
 ```
 
 Cette instruction est facile à utiliser. N’oubliez pas que cette action met à jour toutes les statistiques dans la table et, par conséquent, peut effectuer davantage de tâches que nécessaire. Si les performances ne sont pas un problème, il s’agit sans aucun doute de la méthode la plus simple et la plus exhaustive pour garantir que les statistiques sont à jour.
@@ -452,4 +452,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

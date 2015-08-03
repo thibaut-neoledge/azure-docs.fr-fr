@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # Authentification unique web avec PHP et Azure Active Directory
@@ -131,7 +131,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 
 5. Dans la boîte de dialogue **New PHP File**, nommez le projet **secureResource.php**, puis cliquez sur **Finish**.
 
-6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
+6. Dans le nouveau fichier **secureResource.php**, entrez le code suivant, en remplaçant le chemin d'accès **c:\phpLibraries** par celui de l'emplacement racine dans lequel vous avez téléchargé l'exemple de code. L'emplacement racine doit inclure le fichier **simpleSAML.php** et le dossier **federation** :
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

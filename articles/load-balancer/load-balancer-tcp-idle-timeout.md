@@ -63,7 +63,7 @@ Pour modifier le paramètre de délai d’attente pour un point de terminaison
  
 Récupérer votre configuration du délai d'inactivité
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ Mettre à jour la configuration des points de terminaison d'entrée d'équilibra
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

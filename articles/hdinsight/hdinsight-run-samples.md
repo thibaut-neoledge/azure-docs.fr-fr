@@ -3,7 +3,7 @@
 	description="Prise en main du service Azure HDInsight avec les exemples fournis. Utilisez des scripts PowerShell qui exécutent des programmes MapReduce sur des clusters de données."
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 
@@ -89,4 +89,4 @@ Dans cet article et les articles liés à chacun des exemples, vous avez appris 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

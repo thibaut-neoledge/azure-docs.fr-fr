@@ -87,7 +87,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	Lorsque le clone local est créé, accédez à *&lt; racine_référentiel>*\\ARMTemplates, puis exécutez le script deploy.ps1 comme suit :
+4.	Lorsque le clone local est créé, accédez à *&lt; racine_référentiel>*\ARMTemplates, puis exécutez le script deploy.ps1 comme suit :
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Examinez *&lt;racine_référentiel>*\\ARMTemplates\\Deploy.ps1 pour voir comment il génère des ressources avec des ID uniques. Vous pouvez utiliser la même approche pour créer des clones de déploiement sans vous soucier des noms de ressource en conflit.
+	>[AZURE.TIP]Examinez *&lt;racine_référentiel>*\ARMTemplates\Deploy.ps1 pour voir comment il génère des ressources avec des ID uniques. Vous pouvez utiliser la même approche pour créer des clones de déploiement sans vous soucier des noms de ressource en conflit.
  
 6.	De retour dans votre session Git Shell, exécutez :
 
@@ -109,7 +109,7 @@ Dans un scénario classique d’opérations de développement, vous disposez d�
  
 5.	Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com) et observez ce qui est créé.
 
-	Les deux applications web doivent figurer dans le même groupe de ressources, le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine_référentiel>*\\ARMTemplates\\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
+	Les deux applications web doivent figurer dans le même groupe de ressources, le nom de l’une d’elles doit comporter le suffixe `Api`. Si vous examinez l’affichage de groupe de ressources, vous pouvez voir également la base de données et le serveur SQL, le plan App Service et les emplacements intermédiaires pour les applications web. Parcourez les différentes ressources et comparez-les à *&lt;racine_référentiel>*\ARMTemplates\ProdAndStage.json pour voir comment elles sont configurées dans le modèle.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@ Les fichiers de modèle ProdAndStage.json et Dev.json comportent déjà les para
 
 		git checkout Dev
 
-2.	Apportez une modification simple à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine_référentiel>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml et apportez les modifications mises en évidence ci-dessous :
+2.	Apportez une modification simple à la couche d’interface utilisateur de l’application. Pour cela, vous allez éditer le code pour activer l’utilisation des listes [Bootstrap](http://getbootstrap.com/components/). Ouvrez *&lt;racine_référentiel>*\src\MultiChannelToDo.Web\app\index.cshtml et apportez les modifications mises en évidence ci-dessous :
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

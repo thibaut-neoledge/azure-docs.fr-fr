@@ -441,13 +441,13 @@ La première chose à faire ici est d'ajouter une classe qui contient toute la l
 
 Si vous exécutiez l'application maintenant, vous pourriez accéder au **HomeController** et à la vue **Index** de ce contrôleur. Bien qu'il s'agisse du comportement par défaut pour le projet de modèle MVC choisi au début, nous n'en voulons pas. Modifions le routage de cette application MVC pour changer ce comportement.
 
-Ouvrez ***App_Start\\RouteConfig.cs***. Recherchez la ligne commençant par « defaults: », puis modifiez-la à l'image de celle qui suit :
+Ouvrez ***App_Start\RouteConfig.cs***. Recherchez la ligne commençant par « defaults: », puis modifiez-la à l'image de celle qui suit :
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Ce code indique maintenant à ASP.NET MVC que vous n'avez pas spécifié de valeur dans l'URL pour contrôler le comportement de routage qui, au lieu de **Home**, utilise **Item** comme contrôleur et **Index** comme vue.
 
-Maintenant, si vous exécutez l'application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\\**Item**\\**Index**.
+Maintenant, si vous exécutez l'application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
 
 Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
 
@@ -658,4 +658,4 @@ Si vous voulez gagner du temps et souhaitez simplement générer la solution tod
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

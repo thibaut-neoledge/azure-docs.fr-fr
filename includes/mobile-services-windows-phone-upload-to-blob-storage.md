@@ -183,4 +183,4 @@ La dernière étape consiste à tester l'application et à confirmer que les té
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

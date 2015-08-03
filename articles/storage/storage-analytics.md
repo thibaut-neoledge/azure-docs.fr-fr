@@ -206,4 +206,4 @@ Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les 
 - [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx) 
 - [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

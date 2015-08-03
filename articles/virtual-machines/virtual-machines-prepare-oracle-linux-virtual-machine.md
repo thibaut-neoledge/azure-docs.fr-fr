@@ -1,5 +1,19 @@
-<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Préparation d'une machine virtuelle Linux Oracle pour Azure" description="Passez en revue la configuration d’une machine virtuelle Oracle exécutant Linux dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Préparation d'une machine virtuelle Linux Oracle pour Azure" 
+	description="Passez en revue la configuration d’une machine virtuelle Oracle exécutant Linux dans Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Préparation d'une machine virtuelle Linux Oracle pour Azure
 -   [Préparation d’une machine virtuelle Oracle Linux 6.4+ pour Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -202,4 +216,4 @@ La préparation d’une machine virtuelle Oracle Linux 7 pour Azure est trè
 
 15.  Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

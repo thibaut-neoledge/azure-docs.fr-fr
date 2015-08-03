@@ -125,4 +125,4 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

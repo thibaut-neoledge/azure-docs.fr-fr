@@ -52,4 +52,4 @@ Maintenant que vous avez créé votre image de modèle personnalisée ou l’ave
 - Si le fichier de disque dur virtuel est verrouillé pendant le téléchargement, copiez le fichier ou déplacez-le vers un nouvel emplacement et essayez à nouveau. Un processus Windows peut empêcher le téléchargement.  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

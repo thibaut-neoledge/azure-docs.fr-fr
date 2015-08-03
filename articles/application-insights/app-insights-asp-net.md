@@ -23,20 +23,19 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi [découvrir comment votre application est utilisée][knowUsers]. Il peut être utilisé avec de nombreux types d’application. Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure. ([Les applications pour appareils et les serveurs Java sont aussi compris][start].)
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille votre application en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi à [découvrir comment votre application est utilisée][knowUsers]. Il peut être utilisé avec de nombreux types d’application. Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure. ([Les applications pour appareils et les serveurs Java sont aussi compris][start].)
 
 ![Exemples de graphiques d’analyse des performances](./media/app-insights-asp-net/10-perf.png)
 
-Pour de nombreux types d'application, [Visual Studio peut ajouter Application Insights à votre application](#ide) sans que vous remarquiez quoi que ce soit. Mais puisque vous lisez ceci pour mieux comprendre ce que cet ajout entraîne, nous vous proposons de suivre cette procédure, étape par étape.
 
 #### Avant de commencer
 
 Ce dont vous avez besoin :
 
 * Un abonnement à [Microsoft Azure](http://azure.com). Si votre équipe ou votre organisation dispose d’un abonnement Azure, le propriétaire peut vous y ajouter à l’aide de votre [compte Microsoft](http://live.com).
-* Visual Studio 2013 ou une version ultérieure.
+* Visual Studio 2013 Update 3 ou version ultérieure.
 
-## <a name="ide"></a> Ajout de Application Insights à votre projet dans Visual Studio
+## <a name="ide"></a> Ajouter Application Insights à votre projet dans Visual Studio
 
 #### S'il s'agit d'un nouveau projet...
 
@@ -63,12 +62,13 @@ S'il s'agit de votre toute première utilisation, vous êtes invité à vous con
 Si cette application fait partie d'une application plus importante, vous pouvez utiliser **Configurer les paramètres** pour la placer dans le même groupe de ressources que les autres composants.
 
 
-#### Quelle est la fonction de la commande « Ajouter Application Insights » ?
+####<a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
 
-La commande effectue deux opérations (que vous pourriez exécuter manuellement si vous le souhaitez) :
+Cette commande effectue les opérations suivantes (que vous pouvez exécuter manuellement si vous préférez) :
 
-* Crée une ressource Application Insights dans [le portail Azure][portal]. Voici où s’afficheront vos données. Il récupère la *clé d'instrumentation*, qui identifie la ressource.
-* Ajoute le package NuGet du Kit de développement logiciel (SDK) Web Application Insights à votre projet et place la clé dans `ApplicationInsights.config`.
+* Elle crée une ressource Application Insights dans [le portail Azure][portal]. Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
+* Elle ajoute le package NuGet du Kit de développement logiciel (SDK) Web Application Insights à votre projet. Pour le visualiser dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
+* Elle place la clé d’instrumentation dans `ApplicationInsights.config`.
 
 
 ## <a name="run"></a> Exécution de votre projet
@@ -79,9 +79,9 @@ Un décompte des événements envoyés s'affiche dans Visual Studio.
 
 ![](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
-## <a name="monitor"></a> Ouverture d’Application Insights
+## <a name="monitor"></a> Ouvrir Application Insights
 
-Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
+Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
 
 ![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
@@ -109,74 +109,74 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 
-## Ajout d’une surveillance du navigateur
+## Ajouter une surveillance du navigateur
 
 La surveillance côté navigateur ou client vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le navigateur.
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
 
-Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu'au niveau du nombre de clics et de frappes sur les touches.
+Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu’au niveau du nombre de clics et de frappes sur les touches.
 
 #### Si vos clients sont des navigateurs web
 
-Si votre application affiche des pages web, ajoutez un extrait de code JavaScript sur chaque page. Récupérez le code à partir de votre ressource Application Insights :
+Si votre application affiche des pages web, ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
 
-![Dans votre application web, ouvrez Démarrage rapide et cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-asp-net/02-monitor-web-page.png)
+![Dans votre application web, ouvrez Démarrage rapide, puis cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-asp-net/02-monitor-web-page.png)
 
-Notez que le code contient la clé d'instrumentation qui identifie la ressource de votre application.
+Notez que le code contient la clé d’instrumentation qui identifie la ressource de votre application.
 
 [En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
 
-#### Si vos clients sont des applications pour des appareils
+#### Si vos clients sont des applications pour appareil
 
-Si votre application sert des clients tels que des téléphones ou autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
+Si votre application sert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
 
-Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d'instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
+Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d’instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
 
 ## Suivi de l’utilisation
 
-Après avoir proposé une nouvelle solution à un utilisateur, vous souhaitez savoir dans quelle proportion vos clients l’ont adoptée et s’ils ont atteint leurs objectifs ou rencontrent des difficultés. Bénéficiez d’un aperçu détaillé de l'activité des utilisateurs en insérant un élément TrackEvent() et d’autres appels dans votre code, à la fois côté client et côté serveur.
+Après avoir proposé une nouvelle solution à un utilisateur, vous souhaitez savoir dans quelle proportion vos clients l’ont adoptée et s’ils ont atteint leurs objectifs ou rencontrent des difficultés. Bénéficiez d’un aperçu détaillé de l’activité des utilisateurs en insérant un élément TrackEvent() et d’autres appels dans votre code, à la fois côté client et côté serveur.
 
 [Suivi de l’utilisation à l’aide de l’API][api]
 
 
 ## Journaux de diagnostic
 
-[Capturez le suivi du journal][netlogs] dans votre framework de journalisation favori pour faciliter le diagnostic des problèmes. Vos entrées de journal apparaissent dans [Recherche diagnostic][diagnostic] avec les événements de télémétrie Application Insights.
+[Capturez le suivi du journal][netlogs] dans votre framework de journalisation favori pour faciliter le diagnostic des problèmes. Vos entrées de journal apparaissent dans [Recherche de diagnostic][diagnostic] avec les événements de télémétrie Application Insights.
 
 ## Publier votre application
 
-Si vous n'avez pas encore publié votre application (étant donné que vous avez ajouté Application Insights), faites-le maintenant. Observez l’évolution des données dans les graphiques à mesure que les personnes utilisent votre application.
+Si vous n’avez pas encore publié votre application (depuis que vous avez ajouté Application Insights), faites-le maintenant. Observez l’évolution des données dans les graphiques à mesure que les personnes utilisent votre application.
 
-### Séparation des ressources pour le développement, le test et la publication
+### Séparer les ressources pour le développement, le test et la publication
 
-Pour une application majeure, il est conseillé de transmettre des données de télémétrie de débogage, de test et de production dans des [ressources distinctes](app-insights-separate-resources.md).
+Dans le cas d’une application majeure, il est conseillé de transmettre les données de télémétrie de débogage, de test et de production dans des [ressources distinctes](app-insights-separate-resources.md).
 
 
 
-## Ajout d’un suivi des dépendances
+## Ajouter un suivi des dépendances
 
-Les [mesures de dépendance](app-insights-dependencies.md) peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances. Elles comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
+Les [métriques de dépendance](app-insights-dependencies.md) peuvent être très utiles pour vous aider à diagnostiquer les problèmes de performances. Ils comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### Si votre application s'exécute sur votre serveur IIS
+#### Si votre application s’exécute sur votre serveur IIS
 
-Connectez-vous à votre serveur avec des droits d'administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
+Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-Vous pouvez également utiliser Status Monitor pour [instrumentaliser une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n'a pas été créée avec le Kit de développement logiciel (SDK).
+(Vous pouvez également utiliser Status Monitor pour [instrumenter une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md), même si elle n’a pas été générée avec le Kit de développement logiciel.)
 
 #### Si votre application est une application web Azure
 
-Dans le panneau de contrôle de votre application web Azure, ajoutez l'extension Application Insights.
+Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
-![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net/05-extend.png)
+![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(L'extension s’applique uniquement à une application qui créée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumenter une application existante.)
 
 ## Tests web de disponibilité
 
-[Configurez des tests web][availability] pour vérifier depuis l'extérieur que votre application est opérationnelle et réactive.
+[Configurez des tests web][availability] pour vérifier depuis l’extérieur que votre application est opérationnelle et réactive.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -220,4 +220,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,3 @@
 Jeu de données provenant du KDD Cup 1999 Knowledge Discovery and Data Mining Tools Competition (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Le jeu de données a été téléchargé et stocké dans le stockage d’objets blob Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) et il inclut à la fois les jeux de données d’apprentissage et de test. Le jeu de données d’apprentissage comporte environ 126 000 lignes et 43 colonnes, étiquettes comprises ; 3 colonnes font partie des informations d’étiquette et 40 colonnes, constituées de caractéristiques numériques et catégorielles/de chaîne, sont disponibles pour s’entraîner avec le modèle. Les données de test contiennent environ 22 500 exemples avec les mêmes 43 colonnes que les données d’apprentissage.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -117,4 +117,4 @@ L'objectif ultime de la détection de données est de rechercher les données do
  
 > [AZURE.NOTE]Dans la version préliminaire privée d’Azure Data Catalog, seul Microsoft Excel sera directement pris en charge et disponible dans le menu **Se connecter**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

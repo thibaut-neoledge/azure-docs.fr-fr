@@ -27,4 +27,4 @@ Votre application est désormais configurée dans AAD, et les utilisateurs peuv
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Configuration de votre application mobile avec Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

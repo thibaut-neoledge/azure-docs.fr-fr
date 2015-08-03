@@ -72,4 +72,4 @@ Les données de chaque solution sont analysées, indexées et présentées sur l
 ### Où l’application Operational Insights est-elle disponible ?
 Microsoft Azure Operational Insights est hébergée aux États-Unis. Bien que cette application soit en anglais, le service est disponible dans un certain nombre de marchés supplémentaires. Pour plus d’informations, consultez la page [Disponibilité internationale](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

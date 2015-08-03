@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Vue d’ensemble de la requête de Base de données élastique dans la Base de données SQL Azure"
+    pageTitle="Vue d’ensemble de la requête de base de données élastique Azure SQL Database"
     description="Vue d’ensemble de la fonctionnalité de requête élastique"
     services="sql-database"
-    documentationCenter=""  
+    documentationCenter=""
     manager="jeffreyg"
     authors="sidneyh"/>
 
@@ -15,9 +15,9 @@
     ms.date="07/09/2015"
     ms.author="sidneyh" />
 
-# Vue d’ensemble de la requête de Base de données élastique dans la Base de données SQL Azure (en version préliminaire)
+# Vue d’ensemble de la requête de base de données élastique Azure SQL Database (en version préliminaire)
 
-Le **fonctionnalité de requête de base de données élastique**, en version préliminaire, vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données dans la base de données SQL Azure. Elle permet de connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) à des couches Données avec plusieurs bases de données, en particulier lorsque ces bases de données partagent un même schéma (également appelé partitionnement horizontal). Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).
+Le **fonctionnalité de requête de base de données élastique**, en version préliminaire, vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données dans Azure SQL Database. Elle permet de connecter des outils Microsoft et tiers (Excel, PowerBI, Tableau, etc.) à des couches Données avec plusieurs bases de données, en particulier lorsque ces bases de données partagent un même schéma (également appelé partitionnement horizontal). Cette fonctionnalité permet de mettre à l’échelle des requêtes à des couches Données de grande taille dans la base de données SQL et de visualiser les résultats dans les rapports de business intelligence (BI).
 
 Pour créer une application de requête de base de données élastique, consultez [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
 
@@ -33,18 +33,20 @@ La requête de base de données élastique permet également d’accéder facile
 
 La couche Données est répartie sur plusieurs bases de données à l’aide d’un schéma commun. Cette approche est également connue sous le terme « partitionnement horizontal ». Le partitionnement peut être effectué et géré (1) à l’aide de la [bibliothèque de client de base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) ou (2) en utilisant un modèle spécifique à l’application pour la distribution des données entre plusieurs bases de données. Avec cette topologie, les rapports doivent souvent s’étendre sur plusieurs bases de données. Avec une requête de base de données élastique, vous pouvez désormais vous connecter à une seule base de données SQL et les résultats de la requête provenant de bases de données distantes s’affichent comme s’ils étaient générés à partir d’une base de données virtuelle unique.
 
+> [AZURE.NOTE]Une requête de base de données élastique est mieux adaptée aux scénarios de création de rapports occasionnels où la plus grande partie du traitement peut s’effectuer sur la couche données. Pour les charges de travail de création de rapports intensives ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez aussi à utiliser [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Topologie de requête de base de données élastique
 
 Dans le cadre d’une requête de base de données élastique pour effectuer des tâches de création de rapports sur une couche Données partitionnée horizontalement, la carte de partition de l’infrastructure élastique doit représenter les bases de données de la couche Données. En règle générale, une seule carte de partitions est utilisée dans ce scénario et une base de données dotée de capacités de requête de base de données élastique sert de point d’entrée pour les requêtes avec création de rapport. Seule cette base de données dédiée doit être configurée avec des objets de requête de base de données élastique, comme décrit ci-dessous. La figure 2 illustre cette topologie et sa configuration avec la base de données de requête de base de données élastique et la carte de partitions.
 
-**Remarque** la base de données de requête de la base de données élastique dédiée doit être une base de données SQL v12 et seul le niveau Premium est initialement pris en charge. Il n’existe aucune restriction concernant les partitions.
+> [AZURE.NOTE]La base de données de requête de la base de données élastique dédiée doit être une base de données SQL DB v12 et seul le niveau Premium est initialement pris en charge. Il n’existe aucune restriction concernant les partitions.
 
 **Figure 2**
 
 ![Utiliser une requête de base de données élastique pour la création de rapports sur des niveaux partitionnés][2]
 
-(Un **shardlet** est l’ensemble de toutes les données associées à une valeur unique d’une clé de partitionnement sur une partition. Une **clé de partitionnement** est une valeur de colonne qui détermine comment les données sont réparties entre les partitions. Par exemple, la clé de partitionnement des données distribuées par régions peut être des identifiants de région. Pour plus d’informations, consultez le[Glossaire d’infrastructure élastique](sql-database-elastic-scale-glossary.md).)
+(Un **shardlet** est l’ensemble de toutes les données associées à une valeur unique d’une clé de partitionnement sur une partition. Une **clé de partitionnement** est une valeur de colonne qui détermine comment les données sont réparties entre les partitions. Par exemple, la clé de partitionnement des données distribuées par régions peut être des identifiants de région. Pour plus d’informations, consultez le [Glossaire d’infrastructure élastique](sql-database-elastic-scale-glossary.md).)
 
 
 Au fil du temps, des topologies supplémentaires seront prises en charge par la fonctionnalité de requête de base de données élastique. Cet article sera mis à jour de manière à refléter les nouvelles fonctionnalités dès qu’elles seront disponibles.
@@ -83,7 +85,7 @@ La fonctionnalité de requête de base de données élastique repose sur ces qua
 
 ### Clé principale et informations d’identification de la base de données
 
-Les informations d’identification sont constituées de l’ID utilisateur et du mot de passe que la requête de base de données élastique utilise pour se connecter à votre carte de partitions de l’infrastructure élastique et à vos bases de données distantes dans la base de données SQL Azure. Vous pouvez créer la clé principale requise et les informations d’identification à l’aide de la syntaxe suivante :
+Les informations d’identification sont constituées de l’ID utilisateur et du mot de passe que la requête de base de données élastique utilise pour se connecter à votre carte de partitions de l’infrastructure élastique et à vos bases de données distantes dans Azure SQL DB. Vous pouvez créer la clé principale requise et les informations d’identification à l’aide de la syntaxe suivante :
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
     CREATE CREDENTIAL <credential_name> ON DATABASE
@@ -138,7 +140,7 @@ Notez que les mêmes informations d’identification sont utilisées pour lire l
 
 ### Tables externes
 
-Grâce à la requête de base de données élastique, nous étendons la syntaxe de la table externe existante jusqu’à des tables sont partitionnées sur plusieurs bases de données à distance dans la base de données SQL Azure. En utilisant le concept source de données externe susmentionné, la syntaxe permettant la création et la suppression de tables externes se définit comme suit :
+Grâce à la requête de base de données élastique, nous étendons la syntaxe de la table externe existante jusqu’à des tables qui sont partitionnées sur plusieurs bases de données à distance dans Azure SQL DB. En utilisant le concept source de données externe susmentionné, la syntaxe permettant la création et la suppression de tables externes se définit comme suit :
 
     CREATE EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name
         ( { <column_definition> } [ ,...n ])
@@ -153,9 +155,9 @@ La stratégie de partitionnement vérifie si une table est traitée comme une ta
 
     DROP EXTERNAL TABLE [ database_name . [ dbo ] . | dbo. ] table_name[;]
 
-Les permissions **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
+Les autorisations **CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE sont nécessaires. Elles le sont également pour faire référence à la source de données sous-jacente.
 
-**Exemple**: l’exemple suivant montre comment créer une table externe :
+**Exemple** : l’exemple suivant montre comment créer une table externe :
 
     CREATE EXTERNAL TABLE [dbo].[order_line](
         [ol_o_id] [int] NOT NULL,
@@ -185,7 +187,7 @@ L’exemple suivant illustre comment récupérer la liste des tables externes à
 ### Requêtes
 Après avoir défini votre source de données externe et vos tables externes, vous pouvez utiliser les chaînes de connexion familières de la base de données SQL pour vous connecter à la base de données dont la fonction de requête de base de données élastique est activée. Vous pouvez maintenant exécuter des requêtes complètes en lecture seule sur vos tables externes, avec certaines restrictions expliquées dans la [section limitations](#preview-limitations) ci-dessous.
 
-**Exemple**: la requête suivante effectue une jonction tridirectionnelle entre les entrepôts, les commandes et les lignes de commande et utilise plusieurs agrégats et un filtre sélectif. En supposant que les entrepôts, les commandes et les lignes de commande sont partitionnés en fonction de la colonne d’identification des entrepôts, une requête de base de données élastique peut rassembler les jonctions sur les bases de données distantes et monter en charge le traitement de la partie coûteuse de la requête.
+**Exemple** : la requête suivante effectue une jonction tridirectionnelle entre les entrepôts, les commandes et les lignes de commande, et utilise plusieurs agrégats et un filtre sélectif. En supposant que les entrepôts, les commandes et les lignes de commande sont partitionnés en fonction de la colonne d’identification des entrepôts, une requête de base de données élastique peut rassembler les jonctions sur les bases de données distantes et monter en charge le traitement de la partie coûteuse de la requête.
 
     select
         w_id as warehouse,
@@ -207,11 +209,11 @@ Après avoir défini votre source de données externe et vos tables externes, vo
 SP_EXECUTE_FANOUT est une procédure stockée qui fournit l’accès aux bases de données représentées par une carte de partitions. La procédure stockée accepte les paramètres suivants :
 
 -    **Nom du serveur** (nvarchar) : nom qualifié complet du serveur logique hébergeant la carte de partitions.
--    **Nom de la base de données de la carte de partitions** (nvarchar) : le nom de la base de données de la carte de partitions.
--    **Nom d’utilisateur** (nvarchar) : le nom d’utilisateur pour vous connecter à la base de données de la carte de partitions et aux bases de données distantes.
+-    **Nom de la base de données de la carte de partitions** (nvarchar) : nom de la base de données de la carte de partitions.
+-    **Nom d’utilisateur** (nvarchar) : nom d’utilisateur pour vous connecter à la base de données de la carte de partitions et aux bases de données distantes.
 -    **Mot de passe** (nvarchar) : mot de passe de l’utilisateur.
--    **Nom de la carte de partitions** (nvarchar) : le nom de la carte de partitions à utiliser pour la requête.
--    **Requête**: la requête à exécuter sur chaque partition.
+-    **Nom de la carte de partitions** (nvarchar) : nom de la carte de partitions à utiliser pour la requête.
+-    **Requête** : requête à exécuter sur chaque partition.
 
 Les informations de la carte de partitions fournies dans les paramètres d’appel sont utilisées pour exécuter l’instruction donnée sur toutes les partitions enregistrées avec la carte de partitions. Tous les résultats sont fusionnés à l’aide de la sémantique UNION ALL semblable aux requêtes sur plusieurs partitions. Le résultat inclut également la colonne « virtuelle » supplémentaire avec le nom de la base de données distante.
 
@@ -222,22 +224,22 @@ Notez que les mêmes informations d’identification sont utilisées pour se con
     sp_execute_fanout 'myserver.database.windows.net', N'ShardMapDb', N'myuser', N'MyPwd', N'ShardMap', N'select count(w_id) as foo from warehouse'
 
 ## Connectivité des outils
-Vous pouvez utiliser des chaînes de connexion familières de base de données SQL pour votre base de données de requête de base de données élastique pour connecter vos outils d’intégration BI et de données. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Puis utilisez les objets externes dans la base de données de requête la base de données élastique, comme pour n’importe quelle autre base de données SQL Server à laquelle vous vous connecteriez avec votre outil.
+Vous pouvez utiliser des chaînes de connexion SQL DB familières pour votre base de données de requête de base de données élastique qui vous permettront de connecter vos outils d’intégration BI et de données. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Puis utilisez les objets externes dans la base de données de requête la base de données élastique, comme pour n’importe quelle autre base de données SQL Server à laquelle vous vous connecteriez avec votre outil.
 
 ## Meilleures pratiques
-*    Assurez-vous que la base de données du Gestionnaire de cartes de partitions et les bases de données définies dans la carte de partitions permettent l’accès à partir de Microsoft Azure dans leurs règles de pare-feu. Cela est nécessaire pour que la base de données de la requête de base de données élastique puisse s’y connecter. Pour en savoir plus, voir [Pare-feu de base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
-*    Une requête de base de données élastique ne valide pas ni n’applique pas la distribution de données définie par la table externe. Si la distribution réelle des données est différente de la distribution spécifiée dans la définition de votre table, vos requêtes peuvent donner des résultats inattendus.
+*    Assurez-vous que la base de données du Gestionnaire de cartes de partitions et les bases de données définies dans la carte de partitions permettent l’accès à partir de Microsoft Azure dans leurs règles de pare-feu. Cela est nécessaire pour que la base de données de la requête de base de données élastique puisse s’y connecter. Pour en savoir plus, consultez [Pare-feu Azure SQL DB](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+*    Une requête de base de données élastique ne valide ni n’applique la distribution de données définie par la table externe. Si la distribution réelle des données est différente de la distribution spécifiée dans la définition de votre table, vos requêtes peuvent donner des résultats inattendus.
 *    Une requête de base de données élastique est mieux adaptée aux requêtes dont la plus grande partie du calcul peut être effectuée sur les partitions. De manière générale, vous obtenez les meilleures performances de requête avec des prédicats de filtres sélectifs pouvant être évalués sur des partitions ou des jonctions via les clés de partitionnement qui peuvent être effectuées de manière alignée sur toutes les partitions. D’autres modèles de requête peuvent nécessiter le chargement de grandes quantités de données dans le nœud principal, à partir des partitions, ce qui peut nuire aux performances.
 
 ## Coût
 
-La requête de base de données élastique est incluse dans le coût des bases de données de base de données SQL Azure. Notez que les topologies sont prises en charge lorsque les bases de données distantes se trouvent dans un centre de données autre que le point de terminaison de requête de base de données élastique. Cependant, le chargement de sortie des données depuis les bases de données distantes correspond à un taux de sortie Azure régulier.
+La requête de base de données élastique est incluse dans le coût des bases de données Azure SQL Database. Notez que les topologies sont prises en charge lorsque les bases de données distantes se trouvent dans un centre de données autre que le point de terminaison de requête de base de données élastique. Cependant, le chargement de sortie des données depuis les bases de données distantes correspond à un taux de sortie Azure régulier.
 
 ## Limitations de la version préliminaire
 
 La version préliminaire nécessite de tenir compte de certains éléments :
 
-*    La fonctionnalité de requête de base de données élastique n’est initialement disponible que pour le niveau de performances de base de données SQL v12 Premium. Cependant, les bases de données distantes accessibles via une requête de base de données élastique peuvent être de n’importe quel niveau.
+*    La fonctionnalité de requête de base de données élastique n’est initialement disponible que pour le niveau de performances SQL DB v12 Premium. Cependant, les bases de données distantes accessibles via une requête de base de données élastique peuvent être de n’importe quel niveau.
 * Les tables externes référencées par la source de données externe ne prennent en charge que les opérations de lecture sur les bases de données distantes. Vous pouvez toutefois pointer les fonctionnalités Transact-SQL complètes au niveau de la base de données de la requête de base de données élastique où réside la définition de la table externe. Cela peut être utile, par exemple, pour conserver les résultats temporaires à l’aide de SELECT column_list INTO local_table ou pour définir des procédures stockées dans la base de données de requête de la base de données élastique qui font référence à des tables externes.
 *    À l’heure actuelle, les paramètres dans les requêtes ne peuvent pas être distribués aux bases de données distantes. Les requêtes paramétrables doivent placer toutes les données dans le nœud de tête et peuvent pâtir de mauvaises performances en fonction de la taille des données. Une solution temporaire consiste à éviter les paramètres dans vos requêtes ou à utiliser l’option RECOMPILE pour remplacer automatiquement les paramètres par leurs valeurs actuelles.
 * À l’heure actuelle, les statistiques des colonnes via les tables externes ne sont pas prises en charge.
@@ -250,7 +252,7 @@ La version préliminaire nécessite de tenir compte de certains éléments :
 Veuillez nous faire part de vos commentaires et de votre expérience sur Disqus ou Stackoverflow. Nous souhaitons connaître votre avis concernant le service (défauts, améliorations possibles, lacunes).
 
 ## Étapes suivantes
-Pour commencer à explorer une requête élastique, essayez notre didacticiel par étape et découvrez un exemple opérationnel complet en quelques minutes :[Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
+Pour commencer à explorer une requête élastique, essayez notre didacticiel par étape et découvrez un exemple opérationnel complet en quelques minutes : [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -261,4 +263,4 @@ Pour commencer à explorer une requête élastique, essayez notre didacticiel pa
 
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

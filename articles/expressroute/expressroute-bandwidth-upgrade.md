@@ -42,15 +42,15 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 	Vous pouvez obtenir les détails de votre circuit ExpressRoute à l'aide de la cmdlet PowerShell suivante :
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Cette commande renverra une liste de tous les circuits que vous avez créés dans l'abonnement. Vous pouvez utiliser la commande suivante pour obtenir des détails d'un circuit ExpressRoute spécifique si vous disposez de la clé de service :
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Remplacez la valeur <skey> par la clé de service réelle.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 	
 	Consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour connaître les options de bande passante prises en charge par votre fournisseur. Vous pouvez choisir n'importe quelle taille supérieure à la taille de votre circuit existant. Une fois que vous sélectionné la taille dont vous avez besoin, vous pouvez utiliser la commande suivante pour redimensionner votre circuit.
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

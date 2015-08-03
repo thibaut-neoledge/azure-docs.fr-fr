@@ -137,7 +137,7 @@ L'étape finale consiste à ajouter une action qui charge un tweet vers un fichi
 
 	Ceci entre la valeur `@first(body('twitterconnector')).TweetText` dans la zone de texte. Cette valeur générée contient les éléments suivants :
 
-	Partie de contenu | Description
+Partie de contenu | Description
 	------------------------------------------ | ------------
 	 `@` | Indique que vous entrez une fonction plutôt qu'une valeur réelle.
 	`actions('twitterconnector').outputs.body` | Obtient les tweets qui ont été retournés par la requête du connecteur Twitter.
@@ -172,4 +172,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

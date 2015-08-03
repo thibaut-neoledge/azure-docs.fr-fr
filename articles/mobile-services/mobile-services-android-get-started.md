@@ -124,4 +124,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

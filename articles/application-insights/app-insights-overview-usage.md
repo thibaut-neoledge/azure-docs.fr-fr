@@ -259,4 +259,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

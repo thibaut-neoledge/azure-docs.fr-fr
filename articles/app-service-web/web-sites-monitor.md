@@ -132,7 +132,7 @@ Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires
 
 - Emplacement où sont enregistrés les journaux de l'application ; chemin relatif à la racine du serveur Web.
 
-- Valeur par défaut : ..\\..\\LogFiles\\Application
+- Valeur par défaut : ..\..\LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -277,4 +277,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

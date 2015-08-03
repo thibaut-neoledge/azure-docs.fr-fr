@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Création d'une machine virtuelle personnalisée exécutant Linux dans Azure" 
-	description="Découvrez comment créer une machine virtuelle personnalisée exécutant Linux dans Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Création d'une machine virtuelle personnalisée exécutant Linux dans Azure"
+	description="Découvrez comment créer une machine virtuelle personnalisée exécutant Linux dans Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/23/2015"
+	ms.author="dkshir"/>
 
 #Création d’une machine virtuelle personnalisée exécutant Linux dans Azure
 
 Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie** car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
 
 - Connexion de la machine virtuelle à un réseau virtuel
-- Installation de l'agent et des extensions de machine virtuelle, par exemple un logiciel anti-programme malveillant 
+- Installation de l'agent et des extensions de machine virtuelle, par exemple un logiciel anti-programme malveillant
 - Ajout de la machine virtuelle à un service cloud existant
 - Ajout de la machine virtuelle à un compte de stockage existant
 - Ajout de la MV à un groupe à haute disponibilité
@@ -30,7 +30,4 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

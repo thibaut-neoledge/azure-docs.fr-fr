@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure" 
-	description="Vous pouvez déployer SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure en cinq phases." 
+<properties
+	pageTitle="Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure"
+	description="Vous pouvez déployer SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure en cinq phases."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/05/2015"
 	ms.author="josephd"/>
 
 # Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure
@@ -26,11 +26,11 @@ Cette rubrique contient des liens vers des instructions détaillées pour le dé
 - Un serveur de nœud majoritaire du cluster
 - Deux contrôleurs de domaine
 
-Il s'agit de la configuration avec des noms d'espace réservé pour chaque serveur.
+Il s'agit de la configuration avec des noms d'espace réservé pour chaque serveur :
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
- 
-Deux ordinateurs pour chaque rôle assurent une haute disponibilité. Toutes les machines virtuelles se trouvent dans une seule région. Chaque groupe de machines virtuelles pour un rôle spécifique dans leur propre groupe à haute disponibilité.
+
+Deux ordinateurs pour chaque rôle assurent une haute disponibilité. Toutes les machines virtuelles se trouvent dans une seule région. Chaque groupe de machines virtuelles pour un rôle spécifique dans son propre groupe à haute disponibilité.
 
 Vous déployez cette configuration dans les phases suivantes :
 
@@ -46,8 +46,8 @@ Cette configuration est un guide normatif par phase pour une architecture préd�
 
 N'oubliez pas les éléments suivants :
 
-- Si vous êtes un responsable d'implémentation expérimenté de SharePoint, n'hésitez pas à adapter les instructions dans les étapes 3 à 5 et créez la batterie de serveurs qui correspond le mieux à vos besoins. 
-- Si vous avez déjà une implémentation de cloud hybride Azure, n'hésitez pas à adapter ou ignorer les instructions dans les phases 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
+- Si vous êtes un responsable d'implémentation expérimenté de SharePoint, n'hésitez pas à adapter les instructions dans les étapes 3 à 5 et créez la batterie de serveurs qui correspond le mieux à vos besoins.
+- Si vous avez déjà une implémentation de cloud hybride Azure, n'hésitez pas à adapter ou ignorer les instructions des étapes 1 et 2 pour héberger la nouvelle batterie de serveurs SharePoint sur le sous-réseau approprié.
 - Tous les serveurs se situent sur un seul sous-réseau dans le réseau virtuel Azure. Si vous souhaitez une sécurité supplémentaire équivalente à l'isolation de sous-réseaux, vous pouvez utiliser des [Groupes de sécurité réseau](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
 Pour créer un environnement de développement/test ou une preuve de concept de cette configuration, consultez [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
@@ -61,7 +61,7 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 ## Ressources supplémentaires
 
-[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
+[Infographie SharePoint avec SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
@@ -69,4 +69,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

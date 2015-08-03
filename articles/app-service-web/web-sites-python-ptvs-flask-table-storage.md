@@ -210,4 +210,4 @@ Suivez ces liens pour en savoir plus sur Python Tools for Visual Studio, Flask e
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

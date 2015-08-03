@@ -172,4 +172,4 @@ Pour les interfaces réseau de 10 GbE, et les DONNÉES 2 et 3, reportez-vous
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

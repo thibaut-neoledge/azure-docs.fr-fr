@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Configuration de la sécurité de l&#39;infrastructure élastique" 
+    pageTitle="Configuration de la sécurité de l'infrastructure élastique" 
     description="Définissez les certificats x 409 pour le chiffrement" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
@@ -471,4 +471,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

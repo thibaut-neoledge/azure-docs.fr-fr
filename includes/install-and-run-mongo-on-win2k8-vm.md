@@ -10,24 +10,24 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 
 4. Recherchez la **version stable actuelle**, sélectionnez la dernière version **64 bits** dans la colonne de Windows, téléchargez et exécutez le programme d’installation MSI.
 
-5. MongoDB est généralement installé sur C:\\Program Files\\MongoDB. Recherchez des variables d’environnement sur le bureau et ajoutez le chemin d’accès aux fichiers binaires de MongoDB à la variable PATH. Par exemple, vous trouverez les fichiers binaires sous C:\\Program Files\\MongoDB\\Server\\3.0\\bin sur votre ordinateur.
+5. MongoDB est généralement installé sur C:\Program Files\MongoDB. Recherchez des variables d’environnement sur le bureau et ajoutez le chemin d’accès aux fichiers binaires de MongoDB à la variable PATH. Par exemple, vous trouverez les fichiers binaires sous C:\Program Files\MongoDB\Server\3.0\bin sur votre ordinateur.
 
 6. Créez les répertoires de données et du journal MongoDB dans le disque de données (lecteur **F:**, par exemple) créé lors des étapes précédentes. Dans **Démarrer**, sélectionnez **Invite de commandes** pour ouvrir une fenêtre d’invite de commandes. Tapez :
 
-		C:> F:
+		C:\> F:
 		F:> mkdir \MongoData
 		F:> mkdir \MongoLogs
 
 7. Pour exécuter la base de données, entrez :
 
 		F:> C:
-		C:> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
+		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Tous les messages du journal sont dirigés vers le fichier *F:\\MongoLogs\\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
+	Tous les messages du journal sont dirigés vers le fichier *F:\MongoLogs\mongolog.log* lorsque le serveur mongod.exe démarre et préalloue les fichiers journaux. Il se peut que plusieurs minutes soient nécessaires pour que MongaDB préalloue les fichiers journaux et commence à écouter les connexions.
 
 8. Pour lancer l'interpréteur de commandes d'administration de MongoDB, ouvrez une autre fenêtre de commande à partir de **Démarrer** et entrez le type suivant :
 
-		C:> cd \my_mongo_dir\bin  
+		C:\> cd \my_mongo_dir\bin  
 		C:\my_mongo_dir\bin> mongo  
 		>db  
 		test
@@ -108,4 +108,4 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -54,4 +54,4 @@ Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie d
 [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

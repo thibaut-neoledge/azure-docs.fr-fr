@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Azure" 
-	description="Sauvegardez SQL Server et les bases de données SQL dans Azure Storage. Présente les avantages de la sauvegarde des bases de données SQL dans Azure Storage et les composants SQL Server et Azure Storage requis" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server | Azure"
+	description="Sauvegardez SQL Server et les bases de données SQL dans Azure Storage. Présente les avantages de la sauvegarde des bases de données SQL dans Azure Storage et les composants SQL Server et Azure Storage requis"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@ La création d'un compte Azure constitue la première étape de ce processus. SQ
 
 Pour obtenir une procédure pas à pas complète de création d’un compte de stockage et de réalisation d’une simple restauration, consultez la page [Mise en route avec la sauvegarde et la restauration SQL Server dans le service de stockage d’objets blob Azure](http://go.microsoft.com/fwlink/?LinkId=271615)
 
-## Composants du service BLOB Azure 
+## Composants du service BLOB Azure
 
 * Compte de stockage : le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Le nom du compte de stockage et ses propriétés de clés d'accès sont requis pour s'authentifier auprès du service BLOB Azure et de ses composants. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
@@ -69,17 +69,7 @@ Pour obtenir une procédure pas à pas complète de création d’un compte de s
 [Mise en route avec la sauvegarde et la restauration SQL Server dans le service de stockage d’objets blob Azure](http://go.microsoft.com/fwlink/?LinkID=271615 "Didacticiel")
 
 **Meilleures pratiques, dépannage :**
-	
+
 [Pratiques recommandées pour la sauvegarde et la restauration (service de stockage d’objets blob Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

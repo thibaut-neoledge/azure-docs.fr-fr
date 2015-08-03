@@ -55,7 +55,7 @@ Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistreme
 
 Créez un jeu d'enregistrements et assignez-le à une variable $rs :
 
-	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 Le jeu d’enregistrements ayant le nom relatif « www » dans la zone DNS « contoso.com », le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes.
 
@@ -67,8 +67,8 @@ Le jeu d'enregistrements est vide et vous devez ajouter des enregistrements pour
 
 Ajoutez des enregistrements IPv4 A au jeu d’enregistrements « www » à l’aide de la variable $rs attribuée lors de la création du jeu d’enregistrements à l’étape 1 :
 
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 L’ajout d’enregistrements à un jeu d’enregistrements à l’aide de Add-AzureDnsRecordConfig est une opération hors connexion. Seule la variable locale $rs est mise à jour.
 
@@ -81,7 +81,7 @@ Validez les modifications apportées au jeu d’enregistrements. Utilisez Set-Az
 Les modifications sont terminées. Vous pouvez récupérer l’enregistrement à partir d’Azure DNS à l’aide de Get-AzureDnsRecordSet :
 
 
-	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 >[AZURE.NOTE]Comme lors de la création de la zone, si vous n’avez pas encore délégué le domaine aux serveurs de noms Azure DNS, vous devez spécifier l’adresse du serveur de noms de votre zone explicitement.
 
 
-	C:> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

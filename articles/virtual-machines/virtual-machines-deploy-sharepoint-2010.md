@@ -93,7 +93,7 @@ Pour plus d’informations sur la connexion à la machine virtuelle, consultez l
 Créez la machine virtuelle SQL Server à l'aide des options suivantes :
 
 - Créez une machine virtuelle SQL Server 2012 en suivant les étapes 1 à 7 ci-dessus à l’exception de l’étape 3, utilisez l’image SQL Server 2012 au lieu de l’image Windows Server 2008 R2 SP1. Pour plus d'informations, consultez la page [Configuration d'une machine virtuelle SQL Server sur Azure](virtual-machines-provision-sql-server.md).
-	- Lorsque vous sélectionnez cette option, le processus de mise en service conserve une copie des fichiers de configuration SQL Server 2012 dans le répertoire C:\\SQLServer_11.0_Full afin que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.
+	- Lorsque vous sélectionnez cette option, le processus de mise en service conserve une copie des fichiers de configuration SQL Server 2012 dans le répertoire C:\SQLServer_11.0_Full afin que vous puissiez personnaliser l'installation. Par exemple, vous pouvez convertir l'installation d'évaluation de SQL Server 2012 en une version sous licence en utilisant votre clé de licence.
 
 - Utilisez l'outil SQL Server System Preparation (SysPrep) pour installer SQL Server sur la machine virtuelle avec un système d'exploitation de base (comme indiqué ci-dessus aux étapes 1 à 7). Pour plus d'informations, consultez la page [Installation de SQL Server 2012 à l'aide de SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -285,4 +285,4 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

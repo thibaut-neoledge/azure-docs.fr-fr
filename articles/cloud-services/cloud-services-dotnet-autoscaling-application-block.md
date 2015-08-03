@@ -380,4 +380,4 @@ Maintenant que vous avez appris les principes de base de l'utilisation du bloc a
   [Réduction des coûts d’hébergement et de l’impact environnemental de TechNet et MSDN grâce à la mise à l’échelle automatique Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

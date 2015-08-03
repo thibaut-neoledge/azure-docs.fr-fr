@@ -31,4 +31,4 @@
 
 Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services de cloud**. Ces derniers démarrent automatiquement.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

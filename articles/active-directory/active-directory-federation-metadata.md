@@ -149,4 +149,4 @@ De la même façon, les points de terminaison communs du protocole SAML 2.0 son
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

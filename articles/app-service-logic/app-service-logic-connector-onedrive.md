@@ -84,4 +84,4 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur OneDr
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API OneDrive]: https://msdn.microsoft.com/fr-fr/library/dn974227.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

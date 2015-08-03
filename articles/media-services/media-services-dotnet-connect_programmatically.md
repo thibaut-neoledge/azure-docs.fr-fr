@@ -191,4 +191,4 @@ Pour récupérer les valeurs de connexion de configuration, vous pouvez utiliser
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

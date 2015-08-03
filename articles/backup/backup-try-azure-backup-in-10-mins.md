@@ -45,4 +45,4 @@ Passez en revue les étapes présentées dans la vidéo [Prise en main d’Azure
 - Pour en savoir plus sur Azure Backup, consultez la page [Présentation de la Sauvegarde Windows Azure](backup-introduction-to-azure-backup.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

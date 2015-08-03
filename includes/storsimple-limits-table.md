@@ -1,3 +1,4 @@
+
 | Identificateur de la limite | Limite | Commentaires |
 |----------------- | ------|--------- |
 | Nombre maximal d'informations d'identification du compte de stockage | 64 | |
@@ -23,4 +24,4 @@
 
 &#42; Le débit maximal par type d’E/S a été mesuré avec des scénarios de lecture et d’écriture de 100 pour cent. Le débit réel peut être inférieur et varie en fonction du mélange d’E/S et des conditions réseau.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

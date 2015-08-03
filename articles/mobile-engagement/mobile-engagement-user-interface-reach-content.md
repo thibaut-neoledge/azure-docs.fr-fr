@@ -230,4 +230,4 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

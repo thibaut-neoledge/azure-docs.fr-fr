@@ -1,3 +1,4 @@
+
 #### Pour établir une connexion via la console série
 
 1. Connectez votre câble série à l’appareil (directement ou via un adaptateur USB série).
@@ -28,4 +29,4 @@
 7. Cliquez sur **Ouvrir** pour démarrer une session série.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

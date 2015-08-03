@@ -195,4 +195,4 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

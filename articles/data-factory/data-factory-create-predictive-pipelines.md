@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Créer des pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning 
@@ -213,39 +213,11 @@ Pour utiliser un lecteur SQL Azure via un pipeline Azure Data Factory, procédez
 #### Enregistreur SQL Azure
 Comme pour le lecteur SQL Azure, les propriétés de l'enregistreur SQL Azure peuvent également être exposées en tant que paramètres de service web. Un enregistreur SQL Azure utilise les paramètres du service lié associé à la table d'entrée ou à la table de sortie. Le tableau suivant décrit quand le service lié d'entrée est utilisé et quand celui de sortie l'est.
 
-<table>
-<tr>
-<td>Sortie/entrée</td>
-<td><b>L'entrée est Azure SQL.</b></td>
-<td><b>L'entrée est Azure Blob.</b></td>
-</tr>
-<tr>
-<td><b>La sortie est Azure SQL.</b></td>
-<td><p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms «&#160;Database server name&#160;», «&#160;Database name&#160;», «&#160;Server user account name&#160;» et «&#160;Server user account password&#160;». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p>
-<p>Si le lecteur et l'enregistreur SQL Azure de votre modèle Azure ML partagent les mêmes paramètres de service web que ceux mentionnés ci-dessus, vous pouvez continuer. S'ils ne partagent pas les mêmes paramètres de service web, par exemple, si l'enregistreur SQL Azure utilise les noms de paramètres Database server name1, Database name1, Server user account name1, Server user account password1 (avec le chiffre «&#160;1&#160;» à la fin), vous devez transmettre les valeurs de ces paramètres de sortie du service web dans la section webServiceParameters de l'activité JSON.</p>
-<p>
-Vous pouvez transmettre les valeurs d'autres paramètres de service web en utilisant la section webServiceParameters du script JSON de l'activité.  
-</p>
-
-</td>
-<td>
-<p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié de sortie pour générer les paramètres de service web avec les noms «&#160;Database server name&#160;», «&#160;Database name&#160;», «&#160;Server user account name&#160;» et «&#160;Server user account password&#160;». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p>
-<p>Vous pouvez transmettre les valeurs d'autres paramètres de service web en utilisant la section webServiceParameters du script JSON de l'activité. <p>L'objet blob d'entrée sera utilisé comme emplacement d'entrée.</p>
-</td>
-</tr>
-<tr>
-<td><b>La sortie est Azure Blob</b></td>
-<td>Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms «&#160;Database server name&#160;», «&#160;Database name&#160;», «&#160;Server user account name&#160;» et «&#160;Server user account password&#160;». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.
-</td>
-<td>
-<p>Vous devez transmettre les valeurs de tout paramètre de service web en utilisant la section webServiceParameters de l'activité JSON.</p> 
-
-<p>Les objets blob sont utilisés comme emplacements d'entrée et de sortie.</p>
-
-</td>
-<tr>
-
-</table>
+| Sortie/entrée | L'entrée est Azure SQL. | L'entrée est Azure Blob. |
+| ------------ | ------------------ | ------------------- |
+| La sortie est Azure SQL. | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Si le lecteur et l’enregistreur SQL Azure de votre modèle Azure ML partagent les mêmes paramètres de service web que ceux mentionnés ci-dessus, vous pouvez continuer. S’ils ne partagent pas les mêmes paramètres de service web, par exemple, si l’enregistreur SQL Azure utilise les noms de paramètre Database server name1, Database name1, Server user account name1, Server user account password1 (avec le chiffre « 1 » à la fin), vous devez transmettre les valeurs de ces paramètres de sortie du service web dans la section webServiceParameters de l’activité JSON.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web en utilisant la section webServiceParameters de l’activité JSON.</p> | <p>Le service Data Factory utilise les informations de la chaîne de connexion du service lié de sortie pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio.</p><p>Vous pouvez transmettre les valeurs des autres paramètres de service web à l’aide de la section webServiceParameters de l’activité JSON. <p>L’objet blob d’entrée est utilisé comme emplacement d’entrée.</p> |
+|La sortie est Azure Blob | Le service Data Factory utilise les informations de la chaîne de connexion du service lié INPUT pour générer les paramètres de service web avec les noms « Database server name », « Database name », « Server user account name » et « Server user account password ». Notez que vous devez utiliser ces noms par défaut pour les paramètres de service web dans Azure ML Studio. | <p>Vous devez transmettre les valeurs des paramètres de service web en utilisant la section WebServiceParameters de l’activité JSON.</p><p>Les objets blob sont utilisés comme emplacements d’entrée et de sortie.</p> |
+    
 
 > [AZURE.NOTE]Si l'enregistreur SQL Azure écrase une colonne d'identité, sa clé risque de rencontrer des violations. Veillez donc à structurer votre table de sortie de manière à éviter cette situation.
 > 
@@ -328,4 +300,4 @@ Article | Description
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

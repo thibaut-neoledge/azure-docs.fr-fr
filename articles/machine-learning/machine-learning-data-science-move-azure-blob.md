@@ -175,4 +175,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

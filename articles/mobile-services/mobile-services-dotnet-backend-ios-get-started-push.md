@@ -131,4 +131,4 @@ Cette rubrique vous montre comment ajouter des notifications push au [projet qui
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

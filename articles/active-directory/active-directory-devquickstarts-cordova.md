@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="vittorib"/>
 
 # Intégration d’Azure AD avec une application Apache Cordova
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -63,8 +65,8 @@ Chaque plateforme cible a sa propre configuration requise.
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim) : vous permet de lancer des applications iOS sur le simulateur iOS à partir de la ligne de commande (peut être installé facilement via le terminal : `npm install -g ios-sim`)
 
 - Pour générer et exécuter l’application pour Android
-	- Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple C:\\Program Files\\Java\\jdk1.7.0_75).
-	- Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\\tools\\Android\\android-sdk\\tools) pour votre variable d’environnement`PATH`.
+	- Installez le [Kit de développement Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou ultérieur. Assurez-vous que la variable d’environnement `JAVA_HOME` est correctement définie en fonction du chemin d’installation du JDK (par exemple C:\Program Files\Java\jdk1.7.0_75).
+	- Installez le [Kit de développement logiciel (SDK) Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) et ajoutez l’emplacement `<android-sdk-location>\tools` (par exemple, C:\tools\Android\android-sdk\tools) pour votre variable d’environnement`PATH`.
 	- Ouvrez Android SDK Manager (via le terminal, par exemple : `android`) et installez-le.
     - Kit de développement logiciel (SDK) de la plateforme *Android 5.0.1 (API 21)*
     - *Android SDK Build-tools* version 19.1.0 ou supérieure
@@ -252,7 +254,7 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [Sécurisation d’une API web Node.js avec Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Pour obtenir des ressources supplémentaires, consultez : - [AzureADSamples sur GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

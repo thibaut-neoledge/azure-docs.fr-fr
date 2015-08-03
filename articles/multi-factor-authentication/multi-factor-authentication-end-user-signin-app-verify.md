@@ -39,4 +39,4 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <li>Vous devez maintenant être connecté.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

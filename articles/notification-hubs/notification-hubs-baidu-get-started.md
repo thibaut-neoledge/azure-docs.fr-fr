@@ -481,4 +481,4 @@ Pour tester cette application avec l'émulateur :
 [portail Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

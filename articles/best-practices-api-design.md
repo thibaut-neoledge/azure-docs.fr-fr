@@ -523,4 +523,4 @@ Cette approche représente sans doute le mécanisme de contrôle de version le p
 - Le site [RESTful Cookbook](http://restcookbook.com/) (en anglais) offre une introduction à la création d’API RESTful.
 - Le site [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) (en anglais) présente une liste d’éléments à prendre en compte lors de la conception et de l’implémentation d’une API web.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

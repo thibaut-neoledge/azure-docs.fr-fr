@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@ Sur le tableau de bord **Gestion des alertes**, vous pouvez prendre connaissance
 3. Cliquez sur une vignette ou un élément pour afficher les informations détaillées les concernant dans la page **Recherche**.
 4. En utilisant les informations que vous avez trouvées, vous pouvez étudier le niveau de gravité de l'alerte et déterminer les mesures supplémentaires à prendre pour résoudre le problème.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

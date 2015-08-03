@@ -39,4 +39,4 @@ Si vous souhaitez utiliser votre téléphone mobile comme méthode de contact pr
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -87,4 +87,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 6. Générez l'application et testez l'authentification à l'aide d'un compte valide. Exécutez ceci au moins deux fois. À la première exécution, vous devez recevoir une invite vous indiquant de vous connecter et de créer le cache de jeton. Ensuite, chaque exécution tente de charger le cache de jeton à des fins d'authentification et vous n'êtes plus invité à vous connecter.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -116,4 +116,4 @@ Une fois que vous n'avez plus besoin des connexions Bureau à distance aux insta
   [Utilisation du Bureau à distance avec des rôles Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

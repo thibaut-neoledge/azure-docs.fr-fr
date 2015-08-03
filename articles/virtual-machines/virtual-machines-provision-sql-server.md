@@ -200,7 +200,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l’environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_your_VM_name_\\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
+2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_your_VM_name_\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
 	![Se connecter au serveur][Image19]
 
@@ -299,17 +299,6 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 
 [Se préparer à migrer vers SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
-- Procédure de migration des fichiers et du schéma de base de données SQL Server entre des machines virtuelles dans Azure en utilisant les disques de données
-
-[Déploiement de SQL Server dans des machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- Procédure de copie des fichiers de données et d’installation de SQL Server dans un disque de données local vers Azure en utilisant CSUpload
-- Procédure de création d'une machine virtuelle de base locale en utilisant Hyper-V
-- Procédure de création d'une machine virtuelle SQL Server dans Azure à l'aide du disque SQL Server local existant
-- Procédure de création d'une machine virtuelle SQL Server dans Azure à l'aide d'une machine virtuelle SQL Server locale existante 
-- Procédure : utiliser PowerShell pour configurer une machine virtuelle SQL Server dans Azure 
-- Utilisation d’un disque de données attaché pour stocker des fichiers de base de données
-
 [Considérations relatives à la connectivité de SQL Server sur les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
@@ -330,10 +319,6 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 
 [Business Intelligence de SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Utiliser PowerShell pour créer une machine virtuelle Azure avec SQL Server Business Intelligence et SharePoint 2010
-- Utiliser PowerShell pour créer une machine virtuelle Azure avec SQL Server Business Intelligence et SharePoint 2013
-- Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
-
 [SQL Server Data Warehousing dans des machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Articles techniques relatifs aux performances de SQL Server sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
@@ -341,10 +326,6 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 - [Livre blanc : Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Livre blanc : Modèles d’application et stratégies de développement pour SQL Server dans Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [Déployer Business Intelligence de SQL Server dans les machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [Livre blanc : Contrôle de visionneuse de rapports Reporting Services et serveurs de rapports basés sur une machine virtuelle Microsoft Azure](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
@@ -381,4 +362,4 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

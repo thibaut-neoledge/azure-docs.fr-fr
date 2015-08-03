@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Gestion de la capacité de l'infrastructure
@@ -162,4 +162,6 @@ L'outil de projection vous permet d'afficher l'historique des tendances d'utilis
 
 4. Dans l'**outil de projection**, déplacez le curseur de date pour afficher une projection de la capacité qui sera utilisée à la date choisie.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

@@ -19,7 +19,7 @@
 #Transformation BizTalk
 
 
-## Vue d’ensemble
+## Vue d'ensemble
 L'application API Transformation BizTalk convertit des données d'un format vers un autre. Par exemple, vous pourriez prendre les adresses d'expédition et de facturation d'un bon de commande et les insérer dans un document de facturation. Ou vous pourriez avoir un message entrant qui contient la date du jour au format *AnnéeMoisJour*. Vous souhaitez remettre en forme la date au format *AnnéeMoisJour* .
 
 Vous pouvez pour cela utiliser l'application API Transformation BizTalk dans Microsoft Azure App Service. Une transformation ou un mappage est composé d'un schéma XML source (l'entrée) et d'un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
@@ -116,4 +116,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

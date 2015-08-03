@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d&#39;un index Azure Search dans le portail"
-	description="Ajout d&#39;un index au service Azure Search en renseignant les définitions de champ du portail de gestion"
+	pageTitle="Création d'un index Azure Search dans le portail"
+	description="Ajout d'un index au service Azure Search en renseignant les définitions de champ du portail de gestion"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -100,4 +100,4 @@ Une fois que vous êtes familiarisé avec l'index de base, vous pouvez ajouter u
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

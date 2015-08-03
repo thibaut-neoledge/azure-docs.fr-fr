@@ -65,4 +65,4 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -96,4 +96,4 @@ Si votre application prend en charge Azure AD et les comptes Microsoft, vous de
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

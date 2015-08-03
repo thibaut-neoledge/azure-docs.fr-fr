@@ -110,4 +110,4 @@ Toutes les automatisations et tous les scripts que vous avez créés continueron
 Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connecter les réseaux virtuels créés avec les nouvelles API Gestionnaire de ressources Azure à un circuit Express Route. Cette opération sera possible à l’avenir.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -171,4 +171,4 @@ Consultez aussi [Linux et informatique open-source sur Azure] pour apprendre à 
 [Linux et informatique open-source sur Azure]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

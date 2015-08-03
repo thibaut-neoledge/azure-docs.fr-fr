@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #Création d'une pile LAMP avec Microsoft Azure
@@ -32,9 +32,7 @@ Nous partons du principe que le lecteur possède déjà un abonnement Azure. Si 
 
 Outre cette rubrique, si vous possédez déjà une machine virtuelle et recherchez uniquement des instructions de base sur l’installation d’une pile LAMP sur différentes distributions de Linux, consultez la page [Installation de la pile LAMP sur une machine virtuelle Linux dans Azure](virtual-machines-linux-install-lamp-stack.md).
 
-Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d'une durée de 10 minutes, offre une introduction au déploiement d'images LAMP prédéfinies à partir d'Azure Marketplace :
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+Vous pouvez également déployer des images LAMP préconfigurées à partir d'Azure Marketplace. La vidéo suivante, d'une durée de 10 minutes, offre une introduction au déploiement d'images LAMP prédéfinies à partir d'Azure Marketplace : (pile LAMP sur les machines virtuelles Azure](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##Phase 1 : Création d’une image
 Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.
@@ -44,15 +42,15 @@ SSH est un outil important pour les administrateurs système. Toutefois, s'appuy
 
 Pour générer la clé d'authentification SSH, procédez comme suit.
 
--	Téléchargez et installez puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	Téléchargez et installez puttygen à partir de l’emplacement suivant : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/).
 -	Exécutez puttygen.exe.
 -	Cliquez sur **Generate** pour générer les clés. Dans le processus, vous pouvez augmenter le caractère aléatoire en déplaçant la souris sur la zone vide dans la fenêtre. ![][1]
 -	Après le processus de génération, Puttygen.exe affiche votre clé générée. Par exemple : ![][2]
 -	Sélectionnez et copiez la clé publique dans **Key** et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
-###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
-Dans le [Portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
+###Étape 2 : Créer l’image dans le portail Azure.
+Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
 
 ![][3]
 
@@ -74,7 +72,7 @@ Les points de terminaison dans Azure se composent d'un protocole (TCP ou UDP) et
 
 Le port TCP 80 est le numéro de port par défaut sur lequel Apache écoute. L'ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d'autres clients Internet) d'accéder au serveur web Apache.
 
-Dans le Portail Azure en version préliminaire, cliquez sur **Parcourir -> Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.
+Dans le portail Azure, cliquez sur **Parcourir -> Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.
 
 ![][5]
 
@@ -100,7 +98,7 @@ Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuel
 ###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n'importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. Cliquez sur **Parcourir -> Machines virtuelles ->** nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
+Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. Cliquez sur **Parcourir -> Machines virtuelles->** nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple.
 
@@ -454,4 +452,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

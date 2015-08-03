@@ -36,4 +36,4 @@ La stratégie de rétention s’applique à tous les utilisateurs et ne peut act
 ## Articles connexes
 - [Sauvegarde d’Azure Automation](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

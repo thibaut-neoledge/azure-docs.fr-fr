@@ -98,7 +98,7 @@ Pour ajouter Brock au rôle Collaborateur du groupe de ressources Prod, cliquez 
 
 Les affectations de rôles peuvent également être gérées en utilisant le module Microsoft Azure pour Windows PowerShell. Voici un exemple qui montre comment ajouter le compte de Brock en utilisant la cmdlet New-AzureRoleAssignment au lieu du portail :
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Pour plus d'informations sur l'utilisation de Windows PowerShell pour ajouter ou supprimer un accès, voir la section [Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell](role-based-access-control-powershell.md).
 
@@ -110,7 +110,7 @@ Il est également facile de supprimer des affectations. Imaginons que vous souha
 
 Voici un exemple qui montre comment supprimer Brad Adams en utilisant la cmdlet Remove-AzureRoleAssignment :
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### Ajout ou suppression d'accès pour un utilisateur externe
 
@@ -138,9 +138,9 @@ Lorsque vous ajoutez un utilisateur externe, un invité est créé dans l'annuai
 
 Vous pouvez également supprimer un invité de n'importe quel rôle, comme vous le feriez pour n'importe quel utilisateur. Supprimer un invité d'un rôle sur une ressource ne le supprime pas de l'annuaire.
 
-## Comment effectuer le suivi des modifications apportées aux affectations de rôles
+## Effectuer le suivi des modifications apportées aux affectations de rôles
 
-Comme c’est le cas pour les autres événements, les modifications apportées aux affectations de rôles sont enregistrées dans les [journaux d’audit](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/). Le journal des modifications apportées aux affectations de rôles peut être récupéré à l’aide d’[Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) ou de l’[API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn931927.aspx).
+Comme c’est le cas pour les autres événements, les modifications apportées aux affectations de rôles sont enregistrées dans les [journaux d’audit](http://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/). Le journal des modifications de Le journal des modifications apportées aux affectations de rôles peut être récupéré à l’aide d’[Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) ou de l’[API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn931927.aspx).
 
 Par exemple, pour récupérer la liste des modifications apportées aux affectations de rôles au sein d’un abonnement, exécutez les deux applets de commande suivantes avec Azure PowerShell. La première bascule sur le mode Azure Resource Manager.
 
@@ -1293,4 +1293,4 @@ Voici quelques ressources supplémentaires destinées à faciliter votre utilisa
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

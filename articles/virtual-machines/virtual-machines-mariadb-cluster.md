@@ -206,7 +206,7 @@ Le résultat devrait ressembler à `5112500ae3b842c8b9c604889f8753c3__OpenLogic-
 
 	- Modifiez la section **[mariadb]** et ajoutez les éléments ci-dessous
 
-	> [AZURE.NOTE]Il est recommandé que **innodb\\_buffer\\_pool_size** soit égal à 70 % de la mémoire de votre machine virtuelle. Elle a été définie à 2,45 Go ici pour la machine virtuelle Azure de taille moyenne avec 3,5 Go de RAM.
+	> [AZURE.NOTE]Il est recommandé que **innodb\_buffer\_pool_size** soit égal à 70 % de la mémoire de votre machine virtuelle. Elle a été définie à 2,45 Go ici pour la machine virtuelle Azure de taille moyenne avec 3,5 Go de RAM.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -370,4 +370,4 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 [une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

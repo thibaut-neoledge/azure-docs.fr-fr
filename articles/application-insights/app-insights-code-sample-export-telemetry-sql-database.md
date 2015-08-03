@@ -530,4 +530,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

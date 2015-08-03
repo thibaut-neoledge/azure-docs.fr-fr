@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Création d'alertes pour les événements Azure
@@ -109,62 +109,16 @@ Pour récupérer la liste des déploiements de groupes de ressources Azure, util
 
 ## <a name="AvailableOperationsStatuses"></a>Noms d'opération et valeurs d'états disponibles
 
-<table>
-<th align="left">Nom d’opération</th>
-<th align="left">État</th>
-<th align="left">État secondaire</th>
+| Nom d’opération | État | État secondaire |
+| -------------- | ------ | ---------- |
+| RunStarted | Démarré | Starting |
+| RunFinished | Échec/Réussite |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
+| SliceOnTime | In Progress | Ontime |
+| SliceDelayed | In Progress | Late |
+| OnDemandClusterCreateStarted | Démarré | |
+| OnDemandClusterCreateSuccessful | Succeeded | | 
+| OnDemandClusterDeleted | Succeeded | |
 
-<tr>
-<td>RunStarted</td>
-<td>Démarré</td>
-<td>Starting</td>
-</tr>
-
-<tr>
-<td>RunFinished</td>
-<td>Failed / Succeeded</td>
-<td>
-	<p>FailedResourceAllocation </p>
-	<p>Succeeded</p>
-	<p>FailedExecution</p>
-	<p>TimedOut</p>
-	<p>Canceled</p>
-	<p>FailedValidation</p>
-	<p>Abandoned</p>
-</td>
-</tr>
-
-<tr>
-<td>SliceOnTime</td>
-<td>In Progress</td>
-<td>Ontime</td>
-</tr>
-
-<tr>
-<td>SliceDelayed</td>
-<td>In Progress</td>
-<td>Late</td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateStarted</td>
-<td>Démarré</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateSuccessful</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterDeleted</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-</table>
 
 ## Résolution des problèmes des événements utilisateur
 Exécutez la commande suivante pour afficher les événements générés :
@@ -172,4 +126,4 @@ Exécutez la commande suivante pour afficher les événements générés :
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

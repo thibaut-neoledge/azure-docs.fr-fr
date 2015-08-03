@@ -112,4 +112,4 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

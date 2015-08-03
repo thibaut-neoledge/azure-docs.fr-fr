@@ -18,6 +18,8 @@
 
 # Comment configurer votre application pour utiliser une connexion par compte Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Cette rubrique montre comment configurer Azure App Services pour utiliser un compte Microsoft comme fournisseur d'authentification.
 
 ## <a name="register"> </a>Inscrivez votre application avec un compte Microsoft
@@ -66,4 +68,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

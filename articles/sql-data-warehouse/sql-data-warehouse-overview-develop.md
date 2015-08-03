@@ -79,4 +79,4 @@ Une fois que vous avez consulté les articles sur le développement, accédez à
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

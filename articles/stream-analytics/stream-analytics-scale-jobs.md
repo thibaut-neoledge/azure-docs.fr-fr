@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Mise à l’échelle des travaux Azure Stream Analytics pour augmenter le débit #
@@ -151,7 +151,7 @@ Cette requête peut être mise à l'échelle jusqu'à comporter 24 unités de d
 3. Cliquez sur le travail Stream Analytics que vous souhaitez mettre à l'échelle.
 4. Cliquez sur **METTRE À L'ÉCHELLE** en haut de la page.
 
-![Configuration de la mise à l'échelle d'un travail Azure Stream Analytics][img.stream.analytics.configure.scale]
+![Mise à l’échelle des unités de diffusion en continu Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
 
 ## Surveillance des performances du travail ##
@@ -228,7 +228,7 @@ Voici les résultats avec l'augmentation du nombre d'unités de diffusion en con
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes ##
@@ -260,4 +260,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

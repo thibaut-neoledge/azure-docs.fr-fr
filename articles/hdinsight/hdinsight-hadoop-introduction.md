@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Description de Hadoop dans HDInsight : analyse des données volumineuses dans le cloud | Microsoft Azure"
 	description="Introduction aux composants Hadoop dans le cloud dans HDInsight. Découvrez comment HDInsight utilise des clusters Hadoop pour gérer les données volumineuses, les analyser et créer des rapports sur ces données."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -247,4 +246,4 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

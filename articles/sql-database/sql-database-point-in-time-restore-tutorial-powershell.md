@@ -42,7 +42,7 @@ Vous devez utiliser l’authentification par certificat pour exécuter les apple
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.
 	* **DatabaseName**, qui désigne la base de données à restaurer.	
 
-	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Lancez la restauration avec l’applet de commande [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Spécifiez les paramètres suivants :
 	* **SourceDatabase**, qui désigne la base de données à partir de laquelle restaurer.
@@ -51,14 +51,14 @@ Vous devez utiliser l’authentification par certificat pour exécuter les apple
 
 	Stockez les données retournées dans une variable appelée **$RestoreRequest**. Cette variable contient l’ID de demande de restauration qui est utilisé pour surveiller l’état de la restauration.
 
-	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Le processus de restauration peut prendre du temps. Pour surveiller l’état de la restauration, utilisez l’applet de commande [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) et spécifiez les paramètres suivants :
 
 * **ServerName**, qui désigne le serveur où se trouve la base de données dans laquelle vous effectuez la restauration.
 * **OperationGuid** , qui est l’ID de demande de restauration ayant été stocké dans la variable **$RestoreRequest** à l’étape 2.
 
-	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Les champs **State** et **PercentComplete** indiquent l’état de la restauration.
 
@@ -75,4 +75,4 @@ Pour plus d’informations, consultez les liens suivants :
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

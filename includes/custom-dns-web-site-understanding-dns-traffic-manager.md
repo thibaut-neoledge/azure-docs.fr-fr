@@ -18,4 +18,4 @@ Lorsque le trafic parvient à Traffic Manager, il est acheminé vers votre site
 
 > [AZURE.NOTE]Certains bureaux d’enregistrement de domaines n’autorisent le mappage de sous-domaines que si un enregistrement CNAME est utilisé (par exemple, **www.contoso.com**) et non un nom racine (tel que **contoso.com**). Pour plus d’informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d’enregistrement, la <a href="http://en.wikipedia.org/wiki/CNAME_record">page Wikipédia sur l’enregistrement CNAME</a> ou le document <a href="http://tools.ietf.org/html/rfc1035">Noms de domaine IETF - Implémentation et spécification</a>.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -124,4 +124,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -31,4 +31,4 @@ Nous avons identifié les pièges potentiels suivants pour les clients qui se fa
 * Mapper des modèles d'entité à l'aveuglette. Cela concernent les développeurs qui viennent d'un univers relationnel où les problèmes sont modélisés à l'aide d'entités et de leurs relations. Bien que cette approche soit toujours utile pour comprendre le domaine du sujet, elle doit être associée à la pensée orientée service et fusionnée avec le comportement.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

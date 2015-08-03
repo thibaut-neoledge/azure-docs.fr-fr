@@ -254,4 +254,4 @@ Dans le prochain didacticiel, [Contrôle d'accès en fonction du rôle avec AAD 
 [Contrôle d'accès en fonction du rôle avec AAD dans Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

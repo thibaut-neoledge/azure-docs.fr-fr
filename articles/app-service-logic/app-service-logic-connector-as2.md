@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service" 
+   pageTitle="Utilisation du connecteur AS2 dans Microsoft Azure App Service" 
    description="Utilisation du connecteur AS2" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -17,19 +17,19 @@
    ms.author="rajram"/>
 
 # Connecteur Microsoft AS2
-Le connecteur Microsoft Azure AS2 vous permet de recevoir et d’envoyer des messages via le protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
+Le connecteur Microsoft Azure AS2 vous permet de recevoir et d’envoyer des messages par le biais du protocole de transport AS2 (Applicability Statement 2) dans les communications interentreprises. Les données sont transportées de manière fiable et sécurisée sur Internet. Le chiffrement et les certificats numériques garantissent la sécurité.
 
 ## Déclencheurs et actions
-Un déclencheur démarre une nouvelle instance en fonction d’un événement spécifique, comme l’arrivée d’un message AS2 provenant d’un partenaire. Une action correspond au résultat, par exemple, après la réception d’un message AS2, le message est envoyé avec AS2.
+Un déclencheur démarre une nouvelle instance en fonction d’un événement spécifique, comme l’arrivée d’un message AS2 provenant d’un partenaire. Une action correspond au résultat : par exemple, après la réception d’un message AS2, le message est envoyé avec AS2.
 
-Le connecteur AS2 peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Le connecteur AS2 propose les déclencheurs et les actions suivants :
+Le connecteur AS2 peut être utilisé comme un déclencheur ou une action dans une application logique et prend en charge les données aux formats JSON et XML. Le connecteur AS2 comporte les déclencheurs et les actions suivants :
 
 Déclencheurs | Actions
 --- | ---
 Recevoir et décoder | Encoder et envoyer
 
 ## Conditions préalables requises
-Vous devez créer les éléments suivants avant qu’ils puissent être utilisés par le connecteur AS2 :
+Vous devez créer les éléments ci-après pour qu’ils puissent être utilisés par le connecteur AS2 :
 
 Prérequis | Description
 --- | ---
@@ -59,20 +59,22 @@ Les partenaires commerciaux sont des entités impliquées dans des communication
 
 Les étapes de création d’un accord de partenariat commercial sont documentées [ici][2].
 
-## Utiliser le connecteur comme un déclencheur
+## Utiliser le connecteur comme déclencheur
 
-1. Lors de la création ou de la modification d’une application logique, sélectionnez le connecteur AS2 que vous avez créé dans le volet droit : <br/>![Paramètres du déclencheur][3]
+1. Lors de la création ou de la modification d’une application logique, sélectionnez le connecteur AS2 que vous avez créé dans le volet droit : <br/> ![Paramètres du déclencheur][3]
 
 2. Cliquez sur la flèche droite → : <br/> ![Options du déclencheur][4]
 
-3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : <br/> ![Entrée Recevoir et décoder][5]
+3. Le connecteur AS2 expose un seul déclencheur. Sélectionnez *Recevoir et décoder* : <br/> ![Entrée Recevoir et décoder][5]
 
 4. Ce déclencheur ne possède aucune entrée. Cliquez sur la flèche droite → : <br/> ![Recevoir et décoder configuré][6]
 
-Dans le cadre de la sortie, le connecteur renvoie la charge AS2, ainsi que les métadonnées spécifiques AS2.
+Dans le cadre de la sortie, le connecteur renvoie la charge utile AS2, ainsi que les métadonnées propres à AS2.
+
+Le déclencheur est déclenché lorsqu’une charge utile AS2 prend la forme d’une méthode POST vers https://{Host URL}/decode. Vous pouvez rechercher l’URL de l’hôte dans les paramètres de l’application API. Vous devrez peut-être également redéfinir le niveau d’accès de l’application API dans les paramètres de l’application sur Public (authentifié ou anonyme).
 
 ## Utiliser le connecteur comme une action
-1. Après votre déclencheur (ou si vous choisissez d’exécuter cette logique manuellement), ajoutez le connecteur AS2 que vous avez créé à partir du volet droit : <br/> ![Paramètres d'action][7]
+1. Derrière votre déclencheur (ou si vous choisissez d’exécuter cette logique manuellement), ajoutez le connecteur AS2 que vous avez créé à partir du volet droit : <br/> ![Paramètres d'action][7]
 
 2. Cliquez sur la flèche droite → : <br/> ![Liste d'actions][8]
 
@@ -80,24 +82,24 @@ Dans le cadre de la sortie, le connecteur renvoie la charge AS2, ainsi que les m
 
 4. Indiquez les entrées de l’action et configurez celle-ci : <br/> ![Encoder et envoyer configuré][10]
 
-Les paramètres incluent :
+Les paramètres sont les suivants :
 
 Paramètre | Type | Description
 --- | --- | ---
-Payload | objet| Le contenu de la charge utile pour encoder et publier sur le point de terminaison configuré. La charge utile doit être fournie en tant qu’objet JSON.
+Payload | objet| Contenu de la charge utile à encoder et à publier dans le point de terminaison configuré. La charge utile doit être fournie sous la forme d’un objet JSON.
 AS2 à partir de | string | Identité AS2 de l’expéditeur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
-AS2 vers | string | L’identité AS2 du récepteur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
-URL du partenaire | string | Le point de terminaison du partenaire auquel le message doit être envoyé.
+AS2 vers | string | Identité AS2 du récepteur du message AS2. Ce paramètre est utilisé pour rechercher l’accord approprié permettant d’envoyer le message.
+URL du partenaire | string | Point de terminaison du partenaire auquel le message doit être envoyé.
 Activer l'archivage | booléenne | Détermine si le message sortant doit être archivé.
 
 L'action retourne un code de réponse HTTP 200 en cas de réussite.
 
 ## En faire plus avec votre connecteur
-Pour plus d’informations sur les applications logiques, consultez la page [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Pour plus d’informations sur les applications logiques, voir l’article [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
 
-Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Créez les applications API à l’aide des API REST. Pour plus d’informations, voir l’article [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d’informations, voir l’article [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!--References -->
 [1]: app-service-logic-connector-tpm.md
@@ -111,4 +113,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

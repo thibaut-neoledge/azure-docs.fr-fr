@@ -139,7 +139,7 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 
 2. Créez un fichier appelé `_backup.filter` et placez la liste ci-dessus dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Téléchargez ce fichier vers le répertoire `D:\home\site\wwwroot` de votre site en utilisant la méthode [ftp](web-sites-deploy.md#ftp) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement dans `http://{yourapp}.scm.azurewebsites.net/DebugConsole` et y insérer le contenu.
 
@@ -219,4 +219,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

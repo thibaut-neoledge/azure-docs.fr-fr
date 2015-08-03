@@ -260,4 +260,4 @@ Vous devez maintenant voir une notification toast à partir de votre campagne su
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Découvrez-en plus sur les principales instructions de conception et d’implémentation pour le déploiement d’une charge de travail informatique dans des services d’infrastructure Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
 # Instructions d’implémentation des services d’infrastructure Azure
  
@@ -83,7 +83,7 @@ Vous devez définir chaque type de ressource dans la convention d'affectation de
 
 Les noms doivent être aussi descriptifs que possible, afin que le nom puisse fournir suffisamment d'informations pour déterminer la ressource à laquelle il fait référence.
 
-### Noms d'ordinateur
+### Noms des ordinateurs
 
 Lorsque les administrateurs créent une machine virtuelle, ils doivent spécifier un nom de machine virtuelle de 15 caractères maximum dans Microsoft Azure. Microsoft Azure utilise ensuite le nom de la machine virtuelle comme nom de ressource de la machine virtuelle Azure. Azure utilise le même nom comme nom d'ordinateur pour le système d'exploitation installé sur la machine virtuelle. Toutefois, ces noms peuvent ne pas toujours être identiques.
 
@@ -91,7 +91,7 @@ Si une machine virtuelle est créée à partir d’un fichier .VHD qui contient 
 
 Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d'ordinateur du système d'exploitation sous-jacent. Pour cela, suivez les règles d'affectation de noms NetBIOS, comme décrit dans [Conventions d'affectation de noms d'ordinateur NetBIOS de Microsoft](https://support.microsoft.com/kb/188997/).
 
-### Noms de compte de stockage
+### Noms des compte de stockage
 
 Le nom des comptes de stockage sont régis par des règles spécifiques. Vous pouvez uniquement utiliser des minuscules et des chiffres. Le nom concaténé attribué au service (blob, table ou file d'attente) et le domaine par défaut (core.windows.net) restituent alors un nom DNS globalement valide et unique. Par exemple, si le compte de stockage est appelé mystorageaccount, les URL suivantes qui en résultent doivent être des noms DNS valides et uniques :
 
@@ -168,7 +168,7 @@ Les disques de système d’exploitation et les disques de données ont une tail
 ### Disques agrégés par bandes
 Outre la possibilité de créer des disques d'une taille supérieure à 1 023 Go, l'entrelacement de disques améliore les performances dans de nombreux cas en permettant à plusieurs objets blob de sauvegarder le stockage d'un seul volume. Les E/S nécessaires pour écrire et lire des données à partir d'un seul disque sont alors parallélisées.
 
-Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Azure impose des limites quant à la quantité de disques de données et de bande passante disponible, selon la taille de la machine virtuelle. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
 Si vous utilisez l'entrelacement pour les disques de données Azure, respectez les consignes suivantes :
 
@@ -288,7 +288,7 @@ Tâches :
 - Définir l'espace d'adressage du réseau virtuel.
 - Définir l'ensemble de sous-réseaux et l'espace d'adressage pour chacun.
 - Pour les réseaux virtuels intersite, définir l'ensemble des espaces d'adressage de réseau local pour les emplacements locaux auxquels les machines virtuelles doivent accéder dans le réseau virtuel.
-- Créer le réseau virtuel à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure Preview ou le portail de gestion Azure.
+- Créer le réseau virtuel à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure en version préliminaire ou le portail Azure.
 
 ## 6. Groupes à haute disponibilité
 
@@ -312,7 +312,7 @@ Tâche :
 
 Dans le PaaS Azure, Azure gère des machines virtuelles et leurs disques associés. Vous devez créer et nommer des services cloud et des rôles, et Azure créera ensuite des instances associées à ces rôles. Dans le cas de l'IaaS Azure, c'est à vous de donner des noms aux services cloud, aux machines virtuelles et aux disques associés.
 
-Pour réduire la charge administrative, le portail de gestion Azure utilise le nom d'ordinateur comme suggestion pour le nom par défaut du service cloud associé (pour le cas où le client choisit de créer un service cloud dans le cadre de l'Assistant de création de machines virtuelles).
+Pour réduire la charge administrative, le portail Azure utilise le nom d'ordinateur comme suggestion pour le nom par défaut du service cloud associé (pour le cas où le client choisit de créer un service cloud dans le cadre de l'Assistant de création de machines virtuelles).
 
 En outre, les disques de noms Azure et leurs objets blob VHD associés à l'aide d'une combinaison du nom du service cloud, du nom d'ordinateur et la date de création.
 
@@ -430,7 +430,7 @@ Cette configuration comprend :
 
 [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits)
 
-[Tailles de machines virtuelles et services cloud pour Windows Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Tailles de machines virtuelles](virtual-machines-size-specs.md)
 
 [Objectifs de performance et évolutivité d'Azure Storage](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Cette configuration comprend :
 
 [Diagramme d’architecture de référence des extensions de centre de données](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

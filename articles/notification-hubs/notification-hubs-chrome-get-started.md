@@ -495,4 +495,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à votre applicatio
 [Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

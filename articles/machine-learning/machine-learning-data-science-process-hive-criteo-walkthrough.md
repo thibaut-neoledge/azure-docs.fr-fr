@@ -1,7 +1,9 @@
 <properties 
-	pageTitle="Processus et technologie d&#39;analyse avancée en action : utilisation des clusters Hadoop sur le jeu de données Criteo de 1 To | Microsoft Azure" 
-	description="Utilisation du processus d&#39;analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&#39;aide d&#39;un groupe de données volumineux (1 To), disponible publiquement." 
+	pageTitle="Processus d'analyse avancé et technologie en action : utilisation des clusters Hadoop HDInsight sur le groupe de données Criteo de 1 To | Azure" 
+	description="Utilisation du processus d'analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement." 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -13,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" />
 
 # Processus d'analyse avancé et technologie en action : utilisation des clusters Hadoop Azure HDInsight sur un groupe de données de 1 To
 
-Dans cette procédure pas à pas, nous vous indiquons comment utiliser le processus d'analyse avancé et la technologie (ADAPT) de bout en bout avec un [cluster Hadoop Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) pour stocker, explorer, concevoir des fonctionnalités et réduire l’échantillon des données d'un des groupes de données[Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement. Nous utilisons Azure Machine Learning pour créer des modèles de classification binaire et de régression sur ces données. Nous vous expliquons également comment publier un de ces modèles en tant que service Web.
+Dans cette procédure pas à pas, nous vous indiquons comment utiliser le processus d'analyse avancé et la technologie (ADAPT) de bout en bout avec un [cluster Hadoop Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) pour stocker, explorer, concevoir des fonctionnalités et réduire l’échantillon des données d'un des groupes de données[Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/), disponibles publiquement. Nous utilisons Azure Machine Learning pour créer un modèle de classification binaire sur ces données. Nous vous expliquons également comment publier un de ces modèles en tant que service Web.
 
-Il est également possible d'utiliser un interpréteur iPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Il est également possible d'utiliser un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Description du groupe de données Criteo
@@ -62,7 +64,7 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
-1. [Création d’un compte de stockage](../storage-whatis-account.md) : ce compte de stockage est utilisé pour stocker des données dans Azure Blob Storage. Les données utilisées dans les clusters HDInsight sont stockées ici.
+1. [Création d’un compte de stockage](storage-whatis-account.md) : ce compte de stockage est utilisé pour stocker des données dans Azure Blob Storage. Les données utilisées dans les clusters HDInsight sont stockées ici.
 
 2. [Personnalisation des clusters Hadoop Azure HDInsight pour la science des données](machine-learning-data-science-customize-hadoop-cluster.md) : cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
 
@@ -80,7 +82,7 @@ Pour accéder au groupe de données [Criteo](http://labs.criteo.com/downloads/do
 
 Cliquez sur **Poursuivre le téléchargement** pour en savoir plus sur le groupe de données et sa disponibilité.
 
-Les données résident dans un emplacement de [stockage d'objets blob Azure](../storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l'emplacement de stockage d'objets blob Azure.
+Les données résident dans un emplacement de [stockage d'objets blob Azure](storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. « wasb » fait référence à l'emplacement de stockage d'objets blob Azure.
 
 1. Les données de ce stockage public d'objets blob sont constituées de trois sous-dossiers de données décompressées.
 		
@@ -119,9 +121,9 @@ Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplem
 Le code ci-dessous crée une base de données « criteo » et génère ensuite 4 tables :
 
 
-* une *table de comptage* créée du day_00 jours au day_20, 
-* une *table de formation* créée le day_21, 
-* deux *tables de test* respectivement du day_22 et du day_23. 
+* une *table pour la génération de nombres* reposant sur les jours day_00 à day_20 ; 
+* une *table à utiliser comme jeu de données d'apprentissage* reposant sur day_21 ; et 
+* deux *tables à utiliser comme jeux de données de test* reposant sur day_22 et day_23 respectivement. 
 
 Nous séparons notre groupe de données de test en deux tables bien distinctes, car l’une des journées est un jour férié, et nous voulons déterminer si le modèle peut différer un jour férié d’un jour ordinaire à partir du taux de clic.
 
@@ -437,25 +439,28 @@ Notre processus de création de modèles dans Azure Machine Learning se dérou
 5. [Évaluation du modèle](#step5)
 6. [Publication du modèle en tant que service Web à utiliser](#step6)
 
-Nous sommes désormais prêts à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Nous utiliserons le module Lecteur d’Azure Machine Learning pour lire ces données. Les informations d'identification permettant d’accéder au compte de stockage de ce cluster sont indiquées ci-dessous.
+Nous sommes désormais prêts à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Nous utiliserons le module **Lecteur** d'Azure Machine Learning pour lire ces données. Les informations d'identification permettant d'accéder au compte de stockage de ce cluster sont indiquées ci-dessous.
 
 ### <a name="step1"></a> Étape 1 : Récupérer des données des tables Hive dans Azure Machine Learning à l'aide du module Lecteur et l’utiliser pour une expérience d'apprentissage automatique
 
-Pour le module **Lecteur**, les valeurs des paramètres qui sont définies dans le graphique servent uniquement d’exemples. Voici les instructions générales portant sur le « remplissage » du paramètre défini pour le module **Lecteur**.
-
-1. Choisissez « Requête Hive » pour la source de données
-2. Dans la « Requête Hive », un simple SELECT * FROM <nom_de_votre_base_de_données.nom_de_votre_table> - suffit.
-3. URI du serveur Hcatalog : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
-4. Nom du compte utilisateur Hadoop : nom d'utilisateur choisi lors de la mise en service du cluster (et non le nom d'utilisateur de l'accès à distance)
-5. Nom du compte utilisateur Hadoop : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster (et non le mot de passe de l'accès à distance)
-6. Emplacement des données de sortie : choisissez « Azure »
-7. Nom du compte de stockage Azure : le compte de stockage associé au cluster
-8. Clé du compte de stockage Azure : la clé du compte de stockage associé au cluster
-9. Nom du conteneur Azure : si le nom du cluster est « abc », il se nommera tout simplement « abc » 
+Commencez par sélectionner **+NOUVEAU** -> **EXPÉRIENCE** -> **Nouvelle expérience vide**. Ensuite, dans la zone **Recherche** en haut à gauche, recherchez « Reader » (Lecteur). Effectuez un glisser-déplacer du module **Lecteur** sur la zone de dessin d'expérience (partie centrale de l'écran) pour utiliser le module afin d'accéder aux données.
 
 Voici à quoi ressemble le **Lecteur** lors de la récupération des données d’une table Hive :
 
 ![Lecteur récupère les données](http://i.imgur.com/i3zRaoj.png)
+
+Pour le module **Lecteur**, les valeurs des paramètres qui sont fournies dans le graphique servent uniquement d'exemples. Voici quelques instructions générales portant sur le « remplissage » des paramètres pour le module **Lecteur**.
+
+1. Choisissez « Requête Hive » pour la **source de données**.
+2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT * FROM <nom_de_votre_base_de_données.nom_de_votre_table> - suffit.
+3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
+4. **Nom du compte utilisateur Hadoop** : nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
+5. **Nom du compte utilisateur Hadoop** : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
+6. **Emplacement des données de sortie** : choisissez « Azure »
+7. **Nom du compte de stockage Azure** : le compte de stockage associé au cluster.
+8. **Clé du compte de stockage Azure** : la clé du compte de stockage associé au cluster.
+9. **Nom du conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ». 
+
 
 Dès lors que le **Lecteur** a récupéré les données (vous apercevez la coche verte sur le module), enregistrez-les en tant que groupe de données (avec le nom de votre choix). Cela ressemble à :
 
@@ -464,19 +469,21 @@ Dès lors que le **Lecteur** a récupéré les données (vous apercevez la coche
 
 Cliquez avec le bouton droit sur le port de sortie du module **Lecteur**. Ceci fait apparaître une option **Enregistrer en tant que groupe de données** et une option **Visualiser**. L’option **Visualiser**, si vous cliquez dessus, fera apparaître les 100 lignes de données, ainsi qu’un panneau, situé à droite, qui sera très utile pour certaines statistiques de résumé. Pour enregistrer les données, sélectionnez simplement **Enregistrer en tant que groupe de données** et suivez les instructions.
 
-Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d'apprentissage automatique, recherchez les groupes de données à l'aide de la fonction de **recherche** mentionnée ci-dessous. Puis tapez simplement une partie du nom du groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
+Pour sélectionner le groupe de données enregistré et l’utiliser dans une expérience d'apprentissage automatique, recherchez les groupes de données à l'aide de la zone **Recherche** mentionnée ci-dessous. Puis tapez simplement une partie du nom attribué au groupe de données pour accéder à celui-ci et faites-le glisser sur le panneau principal. En le déposant sur le panneau principal, ce groupe de données est sélectionné pour être utilisé dans la modélisation de l’apprentissage automatique.
 
-![Localisation du groupe de données](http://i.imgur.com/rx4nnUH.png)
+![](http://i.imgur.com/cl5tpGw.png)
 
-Réalisez cette opération pour les groupes de données de formation et de test.
-
+***REMARQUE IMPORTANTE :*** **Réalisez cette opération pour les groupes de données d'apprentissage et de test. En outre, n'oubliez pas d'utiliser le nom de la base de données et les noms de tables attribués à cet effet. Les valeurs utilisées dans l'illustration sont uniquement à des fins d'illustration.**
+ 
 ### <a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
 
-Nous présenterons tout d’abord une architecture d’expérience simple, puis nous entrerons ensuite un peu plus dans les détails. Nous commencerons par nettoyer les données, puis nous choisirons un apprenant et nous vous expliquerons comment caractériser des tables de comptage prédéfinies ou créées de toutes pièces par l'utilisateur.
+Notre expérience Azure ML ressemble à ce qui suit :
 
-![Architecture de l'expérience](http://i.imgur.com/R4iTLYi.png)
+![](http://i.imgur.com/xRpVfrY.png)
 
-Découvrons maintenant plus en détail nos groupes de données enregistrés :
+Examinons maintenant les composants clés de cette expérience. En guise de rappel, nous devons d'abord faire glisser nos jeux de données d'apprentissage et de test sur la zone de dessin de l'expérience.
+
+#### Nettoyage des données manquantes
 
 Le module **Nettoyer des données manquantes**, comme son nom l’indique, nettoie les données manquantes via des méthodes qui peuvent être spécifiées par l'utilisateur. Dans ce module, nous pouvons voir ceci :
 
@@ -484,115 +491,120 @@ Le module **Nettoyer des données manquantes**, comme son nom l’indique, netto
 
 Nous avons décidé ici de remplacer toutes les valeurs manquantes par 0. D'autres options, mentionnées dans les listes déroulantes du module, sont également proposées.
 
-Nous devons ensuite choisir un apprenant. Nous utiliserons un arbre de décision optimisé à deux classes comme apprenant. Nous vous indiquerons notamment comment utiliser les fonctionnalités de comptage sur les fonctionnalités catégorielles de grande dimension pour créer des représentations compactes de notre modèle, assurer la formation et effectuer des tests de manière efficace.
+#### Conception de fonctionnalités sur les données
 
-Un segue vous permettant de découvrir ce que sont vraiment les tables de comptage, c’est-à-dire des compteurs conditionnels de classe ( out tout simplement « compteurs conditionnels »). Ils permettent essentiellement de compter les valeurs d'une fonctionnalité pour chaque classe et d’utiliser ces compteurs pour calculer les probabilités de journalisation.
+Certaines fonctionnalités catégorielles de jeux de données volumineux peuvent rassembler des millions de valeurs uniques. L'utilisation des techniques naïves, telles que l'encodage à chaud pour représenter des fonctionnalités catégorielles de grande dimension, est tout bonnement impossible. Dans cette procédure pas à pas, nous démontrons comment utiliser les fonctionnalités de comptage à l'aide de modules Azure Machine Learning intégrés pour générer des représentations compactes de ces variables catégorielles de grande dimension. Le résultat final est un modèle de plus petite taille, un apprentissage plus rapide et des mesures de performances tout à fait comparables à l'utilisation d'autres techniques.
 
+##### Création de transformations de comptage
 
-#### Obtention de l'accès aux tables de comptage prédéfinies pour la modélisation
+Pour créer des fonctionnalités de comptage, nous utilisons le module **Créer une transformation de comptage** qui est disponible dans Azure Machine Learning. Le module se présente ainsi :
 
-Pour accéder à nos tables de comptage prédéfinies, cliquez sur **Galerie**, comme indiqué ci-dessous :
+![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
 
-![Galerie](http://i.imgur.com/TsWkig3.png)
+**Remarque importante** : dans la zone **Nombre de colonnes**, nous entrons les colonnes sur lesquelles nous souhaitons effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Au début, nous avons mentionné que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, nous effectuons un comptage sur chacune d'elles et donnons leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
 
-Cliquer sur **Galerie** redirige l'utilisateur vers une page qui ressemble à celle mentionnée ci-dessous :
+Pour utiliser le module en mode MapReduce (adapté aux grands ensembles de données), nous devons accéder à un cluster HDInsight Hadoop (celui utilisé pour l'exploration de la fonctionnalité ci-dessus peut être réutilisé à cet effet) et ses informations d'identification. Les valeurs renseignées (remplacez les valeurs fournies à titre d'illustration avec celles adaptées à votre propre cas d'utilisation) sont représentées dans les figures ci-dessus.
 
-![Page principale de la galerie](http://i.imgur.com/dmXo0KR.png)
+![](http://i.imgur.com/05IqySf.png)
 
-Recherchez, dans ce cas, l’expression « compteurs criteo » et faites défiler la liste des résultats. Ce qui suit doit s'afficher :
-
-![Compteurs Criteo](http://i.imgur.com/JZ119Jf.png)
-
-Cliquer sur cette expérience redirige l’utilisateur vers une page qui ressemble à celle mentionnée ci-dessous :
-
-![Compteurs](http://i.imgur.com/dxdjMjh.png)
-
-Cliquez ici sur **Ouvrir dans Studio** pour copier l'expérience sur votre espace de travail. Cela permet également de la copier automatiquement sur les groupes de données -- dans ce cas, les deux clés de groupes de données qui s’avèrent intéressantes sont la table de comptage et les métadonnées de comptage, que nous décrivons plus en détail.
-
-#### Fonctionnalités de comptage dans le groupe de données
-
-Les modules suivants de notre expérience impliquent l'utilisation de tables de comptage prédéfinies. Pour utiliser ces tables de comptage prédéfinies, recherchez « cr_count_ » dans l'onglet Recherche d'une nouvelle expérience. En effectuant cette opération, deux groupes de données doivent apparaître : « cr_count_cleanednulls_metadata » et « cr_count_table_cleanednulls ». Glissez-déplacez ces deux groupes vers le volet de l'expérience situé à droite. Cliquer avec le bouton droit sur les ports de sortie nous permet, comme toujours, de découvrir à quoi ils ressemblent.
-
-La visualisation des métadonnées des tables de comptage ressemble à ceci :
-
-![Métadonnées de la table de comptage](http://i.imgur.com/A39PIe7.png)
-
-Notez que les métadonnées contiennent des informations sur les colonnes sur lesquelles nous avons créé les compteurs conditionnels, sur le fait que nous avons utilisé un dictionnaire pour les concevoir (ou un croquis compteurs-minutes), sur la valeur de départ de hachage utilisée, le nombre de bits de hachage utilisés pour hacher les fonctionnalités, le nombre de classes, etc.
-
-La visualisation des tables de comptage ressemble à ceci :
-
-![Table de comptage](http://i.imgur.com/NJn1EQO.png)
-
-Nous constatons que la table de comptage possède des informations sur les compteurs conditionnels de classe. La valeur des fonctionnalités catégorielles se trouve dans « Valeur de hachage », ce qui veut dire que les fonctionnalités sont elles-mêmes hachées.
-
-Comment les fonctionnalités de comptage sont-elles intégrées aux groupes de données ? Pour ce faire, nous utilisons le module du compteur **Caractériseur**, indiqué ci-dessous :
-
-![Module Caractériseur de comptage](http://i.imgur.com/dnMdrR1.png)
-
-Une fois la table de comptage créée (n’oubliez pas que nous produisons ici des compteurs conditionnels de classe de fonctionnalités catégorielles), nous utilisons le module **Caractériseur de comptage** mentionné ci-dessus pour créer ces fonctions de comptage dans notre groupe de données. Comme nous pouvons le voir, le module **Caractériseur** nous permet de choisir les fonctionnalités que nous souhaitons utiliser pour le comptage, si nous n’avons besoin que de probabilités de journalisation ou de compteurs, ainsi que d’autres options avancées.
-
-#### Création d’une table de comptage
-
-Rappelez-vous que nous avons indiqué dans « Une brève discussion sur la table de comptage », qu’en plus d'utiliser des tables de comptage prédéfinies (que nous avons présentées plus en détail dans les rubriques précédentes), les utilisateurs peuvent également créer de toutes pièces leurs propres tables de comptes.
-
-Dans cette rubrique, nous expliquons comment créer de toutes pièces une table de comptage. Pour ce faire, nous utilisons le module **Créer une table de comptage** mentionné ci-dessous avec ses paramètres :
-
-![Création du module de la table de comptage](http://i.imgur.com/r7pP8Qq.png)
-
-Voici la dernière partie des paramètres de ce module :
-
-![Création des paramètres du module de la table de comptage](http://i.imgur.com/PvmSh3C.png)
+Dans la figure ci-dessus, nous montrons comment entrer l'emplacement de l'objet blob en entrée. Cet emplacement comporte les données réservées pour la création de tables de comptage.
 
 
-**Remarque importante :** pour les paramètres du cluster et des comptes de stockage, utilisez VOS valeurs pertinentes !
+Une fois l'exécution de ce module terminée, nous pouvons enregistrer la transformation pour une utilisation ultérieure en cliquant avec le bouton droit sur le module et en sélectionnant l'option **Enregistrer en tant que transformation** :
 
-Cliquer sur **Exécuter** permet de créer les tables de comptage sur le cluster choisi. La sortie est, comme indiqué précédemment, constituée d’une table de comptage et des métadonnées qui lui sont associées. Lorsque ces tables sont prêtes, nous pouvons ensuite créer l'expérience.
+![](http://i.imgur.com/IcVgvHR.png)
 
+Dans notre architecture d'expérience illustrée ci-dessus, le jeu de données « ytransform2 » correspond précisément à une transformation de nombre enregistrée. Pour le reste de cette expérience, nous partons du principe que le lecteur a utilisé un module **Créer une transformation de comptage** sur certaines données pour générer des nombres et peut ensuite utiliser ces nombres pour générer des fonctionnalités de comptage sur les jeux de données d'apprentissage et de test.
 
-### <a name="step3"></a> Étape 3 : Former le modèle
+##### Sélection des fonctionnalités de comptage à inclure dans les jeux de données d'apprentissage et de test
 
-Pour sélectionner cette option, tapez simplement « optimisé à deux classes » dans la zone de recherche et sélectionnez le module. Nous utilisons les valeurs par défaut de l'apprenant de l’arbre de décision optimisé, indiqué ci-dessous :
+Lorsqu'une transformation de nombre est prête, l'utilisateur peut choisir les fonctionnalités à inclure dans les jeux de données d'apprentissage et de test à l'aide du module **Modifier les paramètres de la table de comptage**. Nous montrons ce module ci-dessous par souci d'exhaustivité, mais dans un souci de simplification nous ne l'utilisons pas dans notre expérience.
 
-![Apprenant BDT](http://i.imgur.com/dDk0Jtv.png)
+![](http://i.imgur.com/PfCHkVg.png)
 
-Nous avons besoin des trois derniers composants pour pouvoir exécuter l'expérience ML.
+Dans ce cas, comme vous pouvez le constater, nous avons choisi d'utiliser uniquement les probabilités de journalisation et d'ignorer la colonne d'interruption. Nous pouvons également définir des paramètres, tels que le seuil d'emplacement de la corbeille, le nombre de pseudo-exemples précédents à ajouter pour le lissage et s'il faut utiliser le bruit Laplacien ou non. Il s'agit là de fonctionnalités avancées et il est à noter que les valeurs par défaut sont un bon point de départ pour les utilisateurs qui débutent dans ce type de génération de fonctionnalité.
 
-Le premier est un module Former le modèle ; son premier port définit l'apprenant en tant qu’entrée, et son deuxième port, le groupe de données de formation pour l’apprentissage. Retrouvez ci-dessous à quoi cela ressemble et découvrez les paramètres qui doivent être définis dans le module.
+##### Transformation des données avant la génération des fonctionnalités de comptage
 
-![Connexions au module Former le modèle BDT](http://i.imgur.com/szS2xBb.png)
+Nous nous concentrons maintenant sur un point important de la transformation de nos données d'apprentissage et de test avant de générer réellement les fonctions de comptage. Notez qu'il existe deux modules **Exécuter le script R** utilisés avant que nous appliquions la transformation de nombre à nos données.
 
-![Paramètres du module Former le modèle BDT](http://i.imgur.com/nd7lHBL.png)
+![](http://i.imgur.com/aF59wbc.png)
 
-### <a name="step4"></a> Étape 4 : Noter le modèle sur un groupe de données de test
+Voici le premier script R :
 
-Le deuxième composant permet d’effectuer la notation sur le groupe de données de test. Cette opération peut être effectuée à l’aide du module **Noter le modèle**, qui utilise comme entrée le modèle formé à partir de données de formation et le groupe de données de test sur lequel vous pouvez réaliser des prédictions. Nous vous indiquons ci-dessous à quoi cela ressemble.
+![](http://i.imgur.com/3hkIoMx.png)
 
-![Notation des connexions au modèle BDT](http://i.imgur.com/AwIH1rH.png)
+Dans ce script R, nous renommons nos colonnes « Col1 » à « Col40 ». La transformation de nombre attend des noms dans ce format.
+
+Dans le deuxième script R, nous équilibrons la distribution entre les classes positives et négatives (classes 1 et 0 respectivement) en sous-échantillonnant la classe négative. Le script R ci-dessous montre comment procéder :
+
+![](http://i.imgur.com/91wvcwN.png)
+
+Dans ce script R simple, nous utilisons « pos_neg_ratio » pour définir l'équilibre entre les classes positive et négatives. Ceci est important car l'amélioration du déséquilibre des classes a, en général, des avantages en matière de performances pour les problèmes de classification où la distribution des classes est déséquilibrée (n'oubliez pas que dans notre cas, nous avons 3,3 % de classe positive et 96,7 % de classe négative).
+
+##### Application de la transformation de nombre à nos données
+
+Enfin, nous pouvons utiliser le module **Appliquer la transformation** pour appliquer les transformations de nombre à nos jeux de données d'apprentissage et de test. Ce module prend la transformation de nombre enregistrée comme une entrée et les jeux de données d'apprentissage ou de test comme l'autre entrée, et il renvoie les données avec des fonctionnalités de nombre. Consultez l’illustration ci-dessous :
+
+![](http://i.imgur.com/xnQvsYf.png)
+
+##### Un exemple de l'aspect des fonctionnalités de nombre
+
+Il est intéressant de voir à quoi les fonctionnalités de nombre ressemblent dans notre cas. Vous en trouverez un exemple ci-dessous :
+
+![](http://i.imgur.com/FO1nNfw.png)
+
+Dans cet exemple, nous montrons que pour les colonnes sur lesquelles nous avons exécuté le comptage, nous obtenons les nombres et les probabilités de journalisation, en plus des interruptions pertinentes.
+
+Nous sommes maintenant prêts à construire un modèle Azure Machine Learning à l'aide de ces jeux de données transformés. Dans la section suivante, nous expliquons comment procéder.
+
+#### Création de modèle Azure Machine Learning
+
+##### Choix de l'apprenant
+
+Nous devons tout d'abord choisir un apprenant. Nous utiliserons un arbre de décision optimisé à deux classes comme apprenant. Voici les options par défaut pour cet apprenant :
+
+![](http://i.imgur.com/bH3ST2z.png)
+
+Pour notre expérience, nous allons simplement choisir les valeurs par défaut. Vous constaterez que les valeurs par défaut sont généralement significatives et permettent d'obtenir rapidement des lignes de base pour les performances. Vous pouvez améliorer les performances en balayant les paramètres si vous le souhaitez, une fois que vous avez obtenu une ligne de base.
+
+#### Formation du modèle
+
+Pour l'apprentissage, nous appelons simplement un module **Former le modèle**. Les deux entrées dans celui-ci sont l'apprenant Arbre de décision optimisé à deux classes et notre jeu de données d'apprentissage. Consultez l'illustration ci-dessous :
+
+![](http://i.imgur.com/2bZDZTy.png)
+
+#### Notation du modèle
+
+Une fois que nous avons formé un modèle, nous sommes prêts à noter le jeu de données de test et à évaluer ses performances. Pour cela, nous utilisons le module **Noter le modèle** ci-dessous, ainsi qu'un module **Évaluer le modèle** :
+
+![](http://i.imgur.com/fydcv6u.png)
 
 ### <a name="step5"></a> Étape 5 : Évaluer le modèle
 
-Nous souhaiterions, pour finir, découvrir les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, nous raccordons le module « Noter le modèle » à un module « Évaluer le modèle ». Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique tel que celui mentionné ci-dessous :
+Pour finir, nous souhaiterions analyser les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, nous raccordons le module **Noter le modèle** à un module **Évaluer le modèle**. Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique tel que celui mentionné ci-dessous :
 
 ![Évaluation du modèle du module BDT](http://i.imgur.com/0Tl0cdg.png)
 
-Pour des problèmes de classification binaire (à deux classes), l’ASC est une très bonne mesure de précision des prédictions. Nous présentons ci-dessous nos résultats à l'aide de ce modèle sur notre groupe de données de test. Pour obtenir ceci, cliquez avec le bouton droit sur le port de sortie du module **Évaluer le modèle** et sélectionnez **Visualiser**.
+Pour des problèmes de classification binaire (à deux classes), l'aire sous la courbe (ASC) est une très bonne mesure de précision des prédictions. Nous présentons ci-dessous nos résultats à l'aide de ce modèle sur notre groupe de données de test. Pour obtenir ceci, cliquez avec le bouton droit sur le port de sortie du module **Évaluer le modèle** et sélectionnez **Visualiser**.
 
 ![Visualisation du module Évaluer le modèle](http://i.imgur.com/IRfc7fH.png)
 
 ### <a name="step6"></a> Étape 6 : Publier le modèle en tant que service Web
-La possibilité de publier des modèles d’apprentissage automatique en tant que services Web est très intéressante. Une fois terminé, nous pouvons appeler le service Web à l'aide des données sur lesquelles nous souhaitons effectuer des prédictions et le modèle renvoie, dans l’idéal, une prédiction quelconque.
+La possibilité de publier un modèle Azure Machine Learning en tant que services Web avec un minimum de complications est une fonctionnalité utile qui se doit d'être largement accessible. Une fois cela fait, tout utilisateur peut effectuer des appels vers le service Web avec des données d'entrée pour lesquelles il a besoin de prédictions et le service Web utilise le modèle pour renvoyer ces prédictions.
 
-Pour ce faire, nous enregistrons tout d'abord notre modèle formé en tant qu’ objet de modèle formé. Cette opération s’effectue en cliquant avec le bouton droit sur le module **Former le modèle** et en utilisant l'option « Enregistrer en tant que modèle formé ».
+Pour ce faire, nous enregistrons tout d'abord notre modèle formé en tant qu’ objet de modèle formé. Cette opération s'effectue en cliquant avec le bouton droit sur le module **Former le modèle** et en utilisant l'option **Enregistrer en tant que modèle formé**.
 
-Nous souhaitons ensuite créer un port d’entrée et de sortie pour notre service web : un port d'entrée qui utilise des données de la même manière que les données pour lesquelles nous avons besoin d’effectuer des prédictions et un port de sortie qui renvoie les étiquettes notées et les probabilités qui leurs sont associées.
+Ensuite, nous devons créer des ports d'entrée et de sortie pour notre service Web :
+
+* un port d'entrée prend les données au même format que les données pour lesquelles nous avons besoin de prédictions, 
+* un port de sortie renvoie les Étiquettes notées et les probabilités associées.
 
 #### Sélectionnez quelques lignes de données pour le port d'entrée
 
-Nous vous expliquons à présent comment sélectionner quelques lignes de données pour notre port d'entrée.
+Il est pratique d'utiliser un module **Transformation Apply SQL** pour ne sélectionner que 10 lignes en tant que données de port d'entrée. Sélectionnez uniquement ces lignes de données pour notre port d'entrée à l'aide de la requête SQL indiquée ci-dessous.
 
 ![Données du port d'entrée](http://i.imgur.com/XqVtSxu.png)
-
-Nous pouvons facilement utiliser une transformation Apply SQL pour ne sélectionner que 10 lignes en tant que données de port d’entrée.
 
 #### Service Web
 Nous sommes désormais prêts à exécuter une petite expérience qui peut être utilisée pour publier notre service Web.
@@ -603,19 +615,21 @@ Puisque la table de comptage est volumineuse, nous utilisons, avant toute chose,
 
 ![Création des données d'entrée BDT](http://i.imgur.com/OEJMmst.png)
 
-Remarque : pour le format de données d'entrée, nous utiliserons la SORTIE du module **Caractériseur de comptage**. Une fois l’expérience terminée, enregistrez la sortie du module **Caractériseur de comptage** en tant que groupe de données. **Remarque importante :** ce groupe de données sera utilisé pour les données d'entrée dans le service Web.
+Remarque : pour le format de données d'entrée, nous utiliserons la SORTIE du module **Caractériseur de comptage**. Une fois l’expérience terminée, enregistrez la sortie du module **Caractériseur de comptage** en tant que groupe de données.
+
+**Remarque importante :** ce groupe de données sera utilisé pour les données d'entrée dans le service Web.
 
 #### Expérience d’évaluation de la publication du service Web
 
-Tout d’abord, nous vous indiquons ci-dessous à quoi cela ressemble. La structure essentielle est un module Noter le modèle qui accepte notre objet de modèle formé ainsi que quelques lignes de données d'entrée que nous avons créées lors des étapes précédentes à l'aide du module **Caractériseur de comptage**. Nous utilisons « Colonnes de projet » pour projeter les Étiquettes notées et Probabilités notées
+Tout d’abord, nous vous indiquons ci-dessous à quoi cela ressemble. La structure essentielle est un module **Noter le modèle** qui accepte notre objet de modèle formé ainsi que quelques lignes de données d'entrée que nous avons créées lors des étapes précédentes à l'aide du module **Caractériseur de comptage**. Nous utilisons « Colonnes de projet » pour projeter les Étiquettes notées et Probabilités notées
 
 ![Colonnes de projet](http://i.imgur.com/kRHrIbe.png)
 
-Il est intéressant de voir comment le module Colonnes de projet peut être utilisé pour le « filtrage » des données d'un groupe de données. Nous vous indiquons ci-dessous le contenu :
+Notez comment le module **Colonnes de projet** peut être utilisé pour le « filtrage » des données d'un groupe de données. Nous vous indiquons ci-dessous le contenu :
 
 ![Filtrage du module Colonnes de projet](http://i.imgur.com/oVUJC9K.png)
 
-Pour obtenir les ports d’entrée et de sortie bleus, nous cliquons simplement sur « préparer le service Web », situé en bas à droite. Exécuter cette expérience nous permet également de publier le service Web en cliquant sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite et indiquée ci-dessous.
+Pour obtenir les ports d'entrée et de sortie bleus, vous cliquez simplement sur **préparer le service Web**, situé en bas à droite. Exécuter cette expérience nous permet également de publier le service Web en cliquant sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite et indiquée ci-dessous.
 
 ![Publication du service Web](http://i.imgur.com/WO0nens.png)
 
@@ -626,24 +640,22 @@ Une fois le service Web publié, nous sommes redirigés vers une page similaire 
 Nous apercevons deux liens pour les services Web sur le côté gauche :
 
 * Le service **REQUÊTE/RÉPONSE** (ou RR) est destiné à des prédictions uniques, que nous utiliserons dans cet atelier. 
-* Le service d’**EXÉCUTION DE LOTS** (BES), comme son nom l'indique, est utilisé pour les prédictions de lots et requiert que les données, sur lesquelles sont effectuées des prédictions, résident dans un objet blob Azure.
+* Le service d'**EXÉCUTION DE LOTS** (BES) est utilisé pour les prédictions de lots et requiert que les données en entrée sur lesquelles sont effectuées des prédictions, résident dans un stockage d'objets blob Azure.
 
 Cliquer sur le lien **REQUÊTE/RÉPONSE** nous redirige vers une page qui nous fournit du code prédéfini en C#, python et R. Ce code peut être utilisé pour appeler le service Web. Notez que la clé API doit être utilisée sur cette page pour l'authentification.
 
-Copier ce code python sur une nouvelle cellule dans l’interpréteur iPython notebook s’avère très pratique.
+Copier ce code python sur une nouvelle cellule dans l'interpréteur IPython notebook s'avère très pratique.
 
 Nous vous présentons ci-dessous un segment de code python comportant la clé API appropriée.
 
 ![Code Python](http://i.imgur.com/f8N4L4g.png)
 
-Notez que nous avons remplacé la clé API par défaut par la clé API de nos services Web. Cliquer sur « Exécuter », sur cette cellule dans un interpréteur iPython notebook, génère la réponse suivante: 
+Notez que nous avons remplacé la clé d'API par défaut par la clé d'API de nos services Web. Cliquez sur **Exécuter** sur cette cellule dans un IPython notebook pour générer la réponse suivante :
 
-![Réponse iPython](http://i.imgur.com/KSxmia2.png)
+![Réponse IPython](http://i.imgur.com/KSxmia2.png)
 
-Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes penchés (dans l’infrastructure JSON du script python), nous obtenons des réponses sous forme d’« Étiquettes notées, de probabilités notées ». Notez que dans ce cas, nous choisissons les valeurs par défaut que le code prédéfini fournit (0 pour toutes les colonnes numériques, la chaîne « valeur » pour toutes les colonnes catégorielles).
+Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes penchés (dans l’infrastructure JSON du script python), nous obtenons des réponses sous forme d’« Étiquettes notées, de probabilités notées ». Notez que dans ce cas, nous choisissons les valeurs par défaut que le code prédéfini fournit (0 pour toutes les colonnes numériques et la chaîne « valeur » pour toutes les colonnes catégorielles).
 
-Ceci met fin à notre discussion portant sur la gestion de groupe de données de bout en bout à l'aide d'Azure ML - nous sommes passés d'un téraoctet de données à un modèle de prédiction déployé en tant que service Web dans le cloud.
+Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@ La procédure suivante vous guidera tout au long de la création du coffre utili
 
 4. Pour le paramètre **Région**, sélectionnez la région géographique de l’archivage de sauvegarde. Le choix détermine la zone géographique vers laquelle vos données de sauvegarde sont envoyées. En choisissant une zone géographique proche de votre emplacement, vous pouvez réduire la latence du réseau lors de la sauvegarde dans Azure.
 
-5. Cliquez sur **Créer un archivage** pour terminer le flux de travail. La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l'état d'avancement de l'opération, vous pouvez contrôler les notifications au bas du portail.
+5. Cliquez sur **Créer un archivage** pour terminer le flux de travail. La création du coffre de sauvegarde peut prendre du temps. Pour vérifier l’état d’avancement de l’opération, vous pouvez contrôler les notifications au bas du portail.
 
     ![Création de coffre](./media/backup-create-vault/creatingvault1.png)
 
@@ -39,4 +39,4 @@ Si vous utilisez Azure comme point de terminaison de stockage de sauvegarde tert
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

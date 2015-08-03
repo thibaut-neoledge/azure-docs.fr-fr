@@ -46,4 +46,4 @@ Authentification unique et AD FS| Autorisations d’administrateur de domaine da
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

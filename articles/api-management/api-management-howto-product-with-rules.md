@@ -292,4 +292,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Définir le quota d'utilisation]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

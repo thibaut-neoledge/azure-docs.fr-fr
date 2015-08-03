@@ -59,4 +59,4 @@ Cette API permet d’analyser un texte non structuré pour des tâches comme l�
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

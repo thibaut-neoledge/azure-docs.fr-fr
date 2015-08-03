@@ -129,7 +129,7 @@ Ensuite, connectez-vous à la machine virtuelle DC1.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **DC1**[Nom du compte de l’administrateur local]
+- Nom : **DC1\**[Nom du compte de l’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -158,7 +158,7 @@ Après le redémarrage de DC1, reconnectez-vous à la machine virtuelle DC1.
 3.	Lorsque vous êtes invité à ouvrir DC1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	À l'invite vous demandant des informations d'identification, utilisez ce qui suit :
-- Nom : **CORP**[Nom du compte de l’administrateur local]
+- Nom : **CORP\**[Nom du compte de l’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -238,7 +238,7 @@ Ensuite, vérifiez que vous pouvez accéder au web et aux ressources de partage 
 3.	Dans **Configuration de sécurité renforcée d’Internet Explorer**, cliquez sur **Désactivée** pour **Administrateurs** et **Utilisateurs**, puis cliquez sur **OK**.
 4.	Dans l’écran d’accueil, cliquez sur **Internet Explorer**, puis cliquez sur **OK**.
 5.	Dans la barre d’adresse, tapez **http://app1.corp.contoso.com/**, puis appuyez sur Entrée. Vous devez voir la page web Internet Information Services par défaut pour APP1. 6.	Dans la barre des tâches, cliquez sur l’icône de l’Explorateur de fichiers.
-7.	Dans la barre d’adresse, **\app1\Files**, puis appuyez sur Entrée.
+7.	Dans la barre d’adresse, **\\app1\Files**, puis appuyez sur Entrée.
 8.	Vous devez voir une fenêtre de dossier avec le contenu du dossier partagé Files.
 9.	Dans la fenêtre **Files** partagée, double-cliquez sur le fichier **example.txt**. Vous devez voir le contenu du fichier Example.txt.
 10.	Fermez **Example.txt - Bloc-notes** et la fenêtre du dossier partagé **Files**.
@@ -283,4 +283,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="Création d’une machine virtuelle Oracle Database dans Azure" description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Création d’une machine virtuelle Oracle Database dans Azure" 
+	description="Parcourez un exemple vous indiquant comment créer une machine virtuelle Oracle dans Microsoft Azure, puis comment créer une base de données Oracle au sein de cette machine." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+	
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Création d’une machine virtuelle Oracle Database dans Azure
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle Database fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure. Cet exemple comporte deux étapes : la création de la machine virtuelle, puis la création de la base de données Oracle au sein de la machine virtuelle. L’exemple présenté concerne Oracle Database version 12c, mais les étapes sont presque identiques pour la version 11g.
 
@@ -13,9 +27,9 @@ L’exemple suivant vous indique comment créer une machine virtuelle sur la bas
 
 4.	Spécifiez un **nom d’hôte** pour la machine virtuelle.
 
-5.	Spécifiez un **nom d’utilisateur** pour la machine virtuelle. Remarquez que cet utilisateur convient pour la connexion à distance à la machine virtuelle ; il ne s’agit pas du nom d’utilisateur Oracle Database.
+5.	Spécifiez un **nom d’utilisateur** pour la machine virtuelle. Remarquez que cet utilisateur convient pour la connexion à distance à la machine virtuelle ; il ne s’agit pas du nom d’utilisateur de la base de données Oracle.
 
-6.	Spécifiez et confirmez un mot de passe pour la machine virtuelle ou renseignez une clé publique SSH.
+6.	Spécifiez un mot de passe pour la machine virtuelle et confirmez-le, ou fournissez une clé publique SSH.
 
 7.	Sélectionnez un **niveau de tarification**. Remarquez que les niveaux de tarification recommandés sont affichés par défaut ; pour afficher toutes les options de configuration, cliquez sur **Afficher tout** dans le coin supérieur droit.
 
@@ -179,4 +193,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm) (en anglais)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

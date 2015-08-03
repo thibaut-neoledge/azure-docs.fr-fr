@@ -60,7 +60,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Avant de créer un circuit, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante pour chaque emplacement. L'applet de commande PowerShell suivante renvoie ces informations. Vous les utiliserez dans les étapes ultérieures.
 
-    	PS C:> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 
 
@@ -117,7 +117,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande Get-AzureCircuit. L'appel sans paramètre répertorie tous les circuits. Votre clé de Service apparaît dans le champ ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -136,7 +136,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Cela vous permettra de savoir quand votre fournisseur aura activé votre circuit. Une fois le circuit activé, *ServiceProviderProvisioningState* s'affiche avec l’état *Provisioned* comme indiqué dans l'exemple ci-dessous.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -170,7 +170,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	La réponse ci-dessous vous fournira les informations dont vous aurez besoin pour les étapes suivantes. Utilisez le pair ASN pour la configuration BGP sur les VRF de votre routeur.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -205,7 +205,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	La réponse ci-dessous vous fournira les informations dont vous aurez besoin pour les étapes suivantes. Utilisez le pair ASN pour la configuration BGP sur les VRF de votre routeur.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -224,8 +224,8 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -74,7 +74,7 @@ Une fois le connecteur d’objet blob de stockage Azure créé, il peut être aj
 
 	Entrée | Description
 --- | ---
-Chemin d’accès d’objet blob | Détermine le chemin d’accès de l’objet blob à télécharger. Le chemin est interprété par rapport au chemin du conteneur configuré.
+Chemin d'accès d'objet blob | Détermine le chemin d’accès de l’objet blob à télécharger. Le chemin est interprété par rapport au chemin du conteneur configuré.
 Contenu en écriture de l’objet blob | Entrez le contenu et les propriétés de l’objet blob à télécharger.
 Encodage de transfert de contenu | Tapez aucun ou Base64.
 Remplacer | Lorsque la valeur est true, l’objet blob existant est remplacé. Lorsque la valeur est false, elle retourne une erreur si un objet blob existe déjà sur le même chemin d’accès.
@@ -91,7 +91,7 @@ Vous pouvez définir n'importe quelle valeur souhaitée. L'expression prend la s
 	@actions('transformservice').outputs.body.OutputXML
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -110,4 +110,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

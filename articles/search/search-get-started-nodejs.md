@@ -148,4 +148,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

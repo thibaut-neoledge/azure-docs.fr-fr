@@ -87,4 +87,4 @@ Le portail Microsoft Azure en version préliminaire simplifie grandement la cré
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -382,4 +382,4 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

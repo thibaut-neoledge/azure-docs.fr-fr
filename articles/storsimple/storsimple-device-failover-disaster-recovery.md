@@ -140,4 +140,4 @@ Pour plus d’informations sur la gestion de votre appareil à l’aide du servi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

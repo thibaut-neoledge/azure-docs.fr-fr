@@ -42,7 +42,7 @@ Pour configurer... | Au niveau local | Azure Virtual Network
 ------------- | -------------  | ------------
 **Adresse IP pour le contrôleur de domaine** | Attribuez une adresse IP statique aux propriétés d'adaptateur réseau | Exécutez la cmdlet Set-AzureStaticVNetIP pour attribuer une adresse IP statique
 **Programme de résolution du client DNS** | Définissez l'adresse des serveurs DNS préféré et auxiliaire dans les propriétés d'adaptateur réseau des membres du domaine | Définissez l'adresse du serveur DNS dans les propriétés du réseau virtuel
-**Stockage de base de données Active Directory** | (Facultatif) Définissez l'emplacement de stockage par défaut sur un autre lecteur que le lecteur C:\\ | Vous devez définir l'emplacement de stockage par défaut avec un autre lecteur que le lecteur C:\\
+**Stockage de base de données Active Directory** | (Facultatif) Définissez l'emplacement de stockage par défaut sur un autre lecteur que le lecteur C:\ | Vous devez définir l'emplacement de stockage par défaut avec un autre lecteur que le lecteur C:\
 
 
 
@@ -79,7 +79,7 @@ Pour créer les machines virtuelles à l’aide de Windows PowerShell au lieu d
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 Set-AzureStaticVNetIP -IPAddress 10.0.0.4 Update-AzureVM
 
-Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## installation de Windows Server Active Directory
 
@@ -139,4 +139,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

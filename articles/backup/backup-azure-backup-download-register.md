@@ -55,4 +55,4 @@ Après avoir créé l’archivage Azure Backup, un agent doit être installé su
 ## Étapes suivantes
 - Consultez la rubrique [Planification des sauvegardes](backup-azure-backup-and-recover.md) pour plus d'informations sur la sauvegarde des données et des applications vers Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

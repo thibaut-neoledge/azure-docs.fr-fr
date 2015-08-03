@@ -87,9 +87,9 @@ Téléchargez et décompressez l’appender approprié, puis ajoutez la biblioth
 
 Enregistreur | Télécharger | Bibliothèque
 ----|----|----
-Logback|[Kit de développement logiciel (SDK) avec appender Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Logback|[Kit de développement logiciel (SDK) avec appender Logback](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[Kit de développement logiciel (SDK) avec appender Log4J v2](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[Kit de développement logiciel (SDK) avec appender Log4J v1.2](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -149,4 +149,4 @@ Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="07/20/2015" 
 	ms.author="andrela"/>
 
 
@@ -30,7 +30,6 @@ Ouvrez votre terminal et installez FreeTDS si vous ne l’avez pas sur votre or
 	
     sudo apt-get --assume-yes update 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
-
 
 Une fois votre ordinateur configuré avec FreeTDS, installez Ruby si vous ne l’avez pas déjà sur votre ordinateur.
     
@@ -65,7 +64,9 @@ Cette rubrique explique également comment récupérer la chaîne de connexion d
 La fonction [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) permet de se connecter à la base de données SQL.
 
     require 'tiny_tds' 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
 
 ## Exécuter une instruction SELECT et récupérer le jeu de résultats
 
@@ -73,7 +74,9 @@ La fonction [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) perme
 
     require 'tiny_tds'  
     print 'test'     
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
     results = client.execute("select * from SalesLT.Product") 
     results.each do |row| 
     puts row 
@@ -94,10 +97,9 @@ Pour utiliser TinyTDS avec Azure, il est recommandé d’exécuter plusieurs ins
 Pour être en harmonie avec le format [DateHeure](http://msdn.microsoft.com/library/ms187819.aspx) de Microsoft SQL Server, utilisez la fonction [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) pour effectuer une conversion au format DateHeure correspondant.
 
     require 'tiny_tds' 
-    require 'date'
-    t = Time.now
-    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
-    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', host: 'yourserver.database.windows.net', port: 1433, database: 'AdventureWorks', azure:true 
+    client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword', 
+    host: 'yourserver.database.windows.net', port: 1433, 
+    database: 'AdventureWorks', azure:true 
     results = client.execute("SET ANSI_NULLS ON")
     results = client.execute("SET CURSOR_CLOSE_ON_COMMIT OFF")
     results = client.execute("SET ANSI_NULL_DFLT_ON ON")
@@ -106,9 +108,13 @@ Pour être en harmonie avec le format [DateHeure](http://msdn.microsoft.com/libr
     results = client.execute("SET QUOTED_IDENTIFIER ON")
     results = client.execute("SET ANSI_WARNINGS ON")
     results = client.execute("SET CONCAT_NULL_YIELDS_NULL ON")
-    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
+    require 'date'
+    t = Time.now
+    curr_date = t.strftime("%Y-%m-%d %H:%M:%S.%L") 
+    results = client.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+    OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, '#{curr_date}' )")
     results.each do |row| 
     puts row
     end 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -61,7 +61,7 @@
 
 	Vérifiez que vous disposez d'au moins un réseau virtuel Azure avec une passerelle créée. Notez que le sous-réseau de la passerelle doit être d’au-moins /28 pour pouvoir fonctionner avec une connexion ExpressRoute et qu’il doit être opérationnel.
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -74,4 +74,4 @@ Si vous souhaitez en savoir plus sur les réseaux virtuels, consultez la [FAQ su
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

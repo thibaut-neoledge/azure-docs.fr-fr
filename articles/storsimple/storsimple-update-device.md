@@ -121,4 +121,4 @@ Si un appareil est réinitialisé aux paramètres d’usine, toutes les mises à
 Pour en savoir plus sur [Windows PowerShell pour StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

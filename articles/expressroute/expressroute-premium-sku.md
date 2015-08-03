@@ -63,7 +63,7 @@ Vous pouvez créer un circuit ExpressRoute avec le module complémentaire Premiu
 ### 3. Vérifier que le module complémentaire ExpressRoute Premium est activé
 Vous pouvez vérifier si le module complémentaire ExpressRoute Premium est activé pour votre circuit. Dans l'exemple ci-dessous, les fonctionnalités du module complémentaire ExpressRoute Premium n’ont pas été activées sur le circuit ExpressRoute. Le SKU apparaîtra comme ***Premium*** si le module complémentaire est activé.
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Vous pouvez activer les fonctionnalités du modèle complémentaire ExpressRoute
 	Vous pouvez obtenir les détails de votre circuit ExpressRoute à l'aide de la cmdlet PowerShell suivante :
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Cette commande renverra une liste de tous les circuits que vous avez créés dans l'abonnement. Vous pouvez utiliser la commande suivante pour obtenir des détails d'un circuit ExpressRoute spécifique si vous disposez de la clé de service
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Remplacez la valeur <skey> par la clé de service réelle.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Vous pouvez activer les fonctionnalités du modèle complémentaire ExpressRoute
 
 	Vous pouvez activer le module complémentaire ExpressRoute Premium pour votre circuit existant à l'aide de la cmdlet PowerShell suivante :
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour un c
 	Vous pouvez obtenir les détails de votre circuit ExpressRoute à l'aide de la cmdlet PowerShell suivante :
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Cette commande renverra une liste de tous les circuits que vous avez créés dans l'abonnement. Vous pouvez utiliser la commande suivante pour obtenir des détails d'un circuit ExpressRoute spécifique si vous disposez de la clé de service
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Remplacez la valeur <skey> par la clé de service réelle.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour un c
 
 	Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour votre circuit existant à l'aide de la cmdlet PowerShell suivante :
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Vous pouvez désactiver le module complémentaire ExpressRoute Premium pour un c
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -289,4 +289,4 @@ Création d’index de l’API REST du services Azure Search (API d’Azure S
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

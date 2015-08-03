@@ -171,4 +171,4 @@ Revenez au [portail Azure][portal] et accédez à votre ressource Application In
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

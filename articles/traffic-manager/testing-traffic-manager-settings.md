@@ -57,4 +57,4 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 [À propos des méthodes d’équilibrage de charge de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Tâches de configuration de Traffic Manager](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

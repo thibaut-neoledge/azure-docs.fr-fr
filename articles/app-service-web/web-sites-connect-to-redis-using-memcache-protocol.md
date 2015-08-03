@@ -41,27 +41,27 @@ Pour configurer le shim Memcache, vous devez créer trois paramètres d’applic
 
 ### Ajouter le paramètre d’application REDIS_HOST
 
-**REDIS\\_HOST** est le premier paramètre d’application que vous devez créer. Il définit la destination vers laquelle le shim transfère les informations du cache. La valeur requise pour le paramètre d’application REDIS_HOST peut être récupérée à partir du panneau **Propriétés** de votre instance de Cache Redis.
+**REDIS\_HOST** est le premier paramètre d’application que vous devez créer. Il définit la destination vers laquelle le shim transfère les informations du cache. La valeur requise pour le paramètre d’application REDIS_HOST peut être récupérée à partir du panneau **Propriétés** de votre instance de Cache Redis.
 
 ![Nom d’hôte du Cache Redis Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Définissez la clé du paramètre d’application sur **REDIS\\_HOST** et la valeur du paramètre d’application selon le **nom d’hôte** de l’instance de Cache Redis.
+Définissez la clé du paramètre d’application sur **REDIS\_HOST** et la valeur du paramètre d’application selon le **nom d’hôte** de l’instance de Cache Redis.
 
 ![Paramètre d’application Web App REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
 ### Ajouter un paramètre d’application REDIS_KEY
 
-**REDIS\\_KEY** est le deuxième paramètre d’application que vous devez créer. Il fournit le jeton d’authentification requis pour accéder à l’instance de Cache Redis de façon sécurisée. La valeur requise pour le paramètre d’application REDIS_KEY peut être récupérée à partir du panneau **Touches d’accès rapides** de l’instance de Cache Redis.
+**REDIS\_KEY** est le deuxième paramètre d’application que vous devez créer. Il fournit le jeton d’authentification requis pour accéder à l’instance de Cache Redis de façon sécurisée. La valeur requise pour le paramètre d’application REDIS_KEY peut être récupérée à partir du panneau **Touches d’accès rapides** de l’instance de Cache Redis.
 
 ![Clé primaire du Cache Redis Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-Définissez la clé du paramètre d’application sur **REDIS\\_KEY** et la valeur du paramètre d’application selon la **clé primaire** de l’instance de Cache Redis.
+Définissez la clé du paramètre d’application sur **REDIS\_KEY** et la valeur du paramètre d’application selon la **clé primaire** de l’instance de Cache Redis.
 
 ![Paramètre d’application de site Web Azure REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
 ### Ajouter un paramètre d’application MEMCACHESHIM_REDIS_ENABLE
 
-Le dernier paramètre d’application est utilisé pour activer le shim Memcache dans Web Apps, lequel utilisera REDIS_HOST et REDIS_KEY pour se connecter au Cache Redis Azure et transférer les appels du cache. Définissez la clé du paramètre d’application sur **MEMCACHESHIM\\_REDIS\\_ENABLE** et la valeur sur **true**.
+Le dernier paramètre d’application est utilisé pour activer le shim Memcache dans Web Apps, lequel utilisera REDIS_HOST et REDIS_KEY pour se connecter au Cache Redis Azure et transférer les appels du cache. Définissez la clé du paramètre d’application sur **MEMCACHESHIM\_REDIS\_ENABLE** et la valeur sur **true**.
 
 ![Paramètre d’application Web App MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
@@ -83,7 +83,7 @@ Téléchargez le lien Non-Thread Safe (NTS) x86 pour la version de PHP activée 
 
 ### Activer l’extension php_memcache
 
-Après avoir téléchargé le fichier, décompressez le fichier **php\\_memcache.dll** et chargez-le dans le répertoire **d:\\\\home\\\\site\\\\wwwroot\\\\bin\\\\ext\\\**. Une fois le fichier php_memcache.dll chargé dans l’application web, l’extension doit être activée au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\\_EXTENSIONS** et la valeur **bin\\\\ext\\\\php_memcache.dll**.
+Après avoir téléchargé le fichier, décompressez le fichier **php\_memcache.dll** et chargez-le dans le répertoire **d:\\home\\site\\wwwroot\\bin\\ext\\**. Une fois le fichier php_memcache.dll chargé dans l’application web, l’extension doit être activée au niveau du runtime PHP. Pour activer l’extension Memcache dans le portail Azure, ouvrez le panneau **Paramètres d’application** pour l’application web, puis ajoutez un nouveau paramètre d’application avec la clé de **PHP\_EXTENSIONS** et la valeur **bin\\ext\\php_memcache.dll**.
 
 
 > Si l’application web doit charger plusieurs extensions PHP, la valeur de PHP_EXTENSIONS doit être une liste de chemins d’accès relatifs aux fichiers DLL séparés par des virgules.
@@ -197,4 +197,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

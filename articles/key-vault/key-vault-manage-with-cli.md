@@ -4,8 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez les pages [API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx) et [Référence de l’API cliente C# du coffre de clés](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

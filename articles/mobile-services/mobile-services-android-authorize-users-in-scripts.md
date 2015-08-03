@@ -110,4 +110,4 @@ Cela met fin à la série de didacticiels établissant les principes de base de 
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -449,4 +449,4 @@ Maintenant que vous connaissez les bases du stockage de tables, consultez les li
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

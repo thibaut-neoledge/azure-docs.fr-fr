@@ -100,7 +100,7 @@ Si vous connaissez les outils d’analyse de performances Windows, vous pouvez c
 
 Vous pouvez sélectionner les métriques horaires à afficher dans le portail Azure et configurer les règles de notification par e-mail des administrateurs quand une métrique horaire dépasse un seuil spécifique (pour plus d’informations, voir la page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Procédure : réception de notifications d’alerte et gestion de règles d’alerte dans Azure</a>). Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
 
-La figure 2 ci-dessous illustre la page Monitor du portail, où vous pouvez afficher des métriques telles que la disponibilité, le nombre total de demandes et les valeurs de latence moyennes pour un compte de stockage. Une règle de notification a également été configurée afin d'alerter l'administrateur lorsque la disponibilité chute en dessous d'un certain niveau. Lorsque ces données sont affichées, l'un des possibles éléments d'enquête est la présence d'un pourcentage inférieur à 100 % dans le service de table (pour plus d'informations, voir la section « [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors] »).
+La figure2 ci-dessous illustre la page Monitor du portail, où vous pouvez afficher des métriques telles que la disponibilité, le nombre total de demandes et les valeurs de latence moyennes pour un compte de stockage. Une règle de notification a également été configurée afin d'alerter l'administrateur lorsque la disponibilité chute en dessous d'un certain niveau. Lorsque ces données sont affichées, l'un des possibles éléments d'enquête est la présence d'un pourcentage inférieur à 100 % dans le service de table (pour plus d'informations, voir la section « [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors] »).
 
 ![][2]
 
@@ -113,7 +113,7 @@ Vous devez surveiller en permanence vos applications Azure afin de vous assurer 
 - Enregistrant les métriques horaires et en les utilisant pour analyser les valeurs moyennes telles que le nombre d'erreurs et le taux de demandes moyens. 
 - Enquêtant sur les problèmes potentiels à l'aide des outils de diagnostic abordés plus bas dans la section « [Diagnostic des problèmes de stockage] ».
 
-Les graphiques de la Figure 3 ci-dessous illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d'activité. Les métriques horaires s’affichent pour indiquer un taux de demandes stable ; les métriques par minute révèlent les fluctuations réelles.
+Les graphiques de la Figure3 ci-dessous illustrent comment la moyenne établie pour les métriques horaires peut cacher certains pics d'activité. Les métriques horaires s’affichent pour indiquer un taux de demandes stable ; les métriques par minute révèlent les fluctuations réelles.
 
 ![][3]
 
@@ -292,7 +292,7 @@ L'exemple de code ci-dessous montre comment définir une valeur **ClientRequestI
 
 ### <a name="timestamps"></a>Horodatages
 
-Vous pouvez également utiliser les horodatages pour trouver des entrées de journal associées, mais sans oublier les éventuelles variations d’horloges entre le client et le serveur. Votre recherche des entrées côté serveur correspondantes doit s'appliquer dans une plage de plus ou moins 15 minutes par rapport à l'horodatage sur le client. N’oubliez pas que les métadonnées des objets blob contenant des métriques indiquent la plage de temps pour les métriques stockées dans l’objet blob ; ce qui est utile lorsque vous avez plusieurs objets blob de métriques pour la même minute ou heure.
+Vous pouvez également utiliser les horodatages pour trouver des entrées de journal associées, mais sans oublier les éventuelles variations d’horloges entre le client et le serveur. Votre recherche des entrées côté serveur correspondantes doit s'appliquer dans une plage de plus ou moins 15minutes par rapport à l'horodatage sur le client. N’oubliez pas que les métadonnées des objets blob contenant des métriques indiquent la plage de temps pour les métriques stockées dans l’objet blob ; ce qui est utile lorsque vous avez plusieurs objets blob de métriques pour la même minute ou heure.
 
 ## <a name="troubleshooting-guidance"></a>Instructions pour la résolution des problèmes
 
@@ -1220,4 +1220,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -46,4 +46,4 @@ Les éléments ont été créés avec la clé et la chaîne de connexion du comp
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

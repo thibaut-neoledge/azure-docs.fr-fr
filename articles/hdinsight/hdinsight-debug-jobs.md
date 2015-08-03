@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/08/2015" 
+	ms.author="jgao"/>
 
 # Débogage de Hadoop dans HDInsight : interprétation des messages d’erreur
 
-## Introduction
 Les messages d'erreur répertoriés dans cette rubrique visent à aider les utilisateurs de Hadoop dans Azure HDInsight à comprendre les conditions d'erreur auxquelles ils sont susceptibles d'être confrontés lorsqu'ils administrent le service avec Azure PowerShell et à les conseiller sur les mesures à prendre pour la récupération à la suite d'une erreur.
 
 Certains de ces messages d'erreur peuvent également apparaître dans le portail Azure lorsqu'il sert à gérer les clusters HDinsight. Mais d'autres messages d'erreur que vous pouvez rencontrer ici sont moins granulaires, en raison des contraintes qui s'appliquent aux mesures correctives possibles dans ce contexte. D'autres encore sont fournis dans les contextes où l'atténuation est évidente. Si les contraintes sur les paramètres sont violées, par exemple, le message s'affiche à droite de la zone dans laquelle la valeur a été entrée. Dans le cas suivant, un trop grand nombre de nœuds de données a été demandé. La solution consiste à réduire ce nombre à une valeur autorisée, c'est-à-dire 22 ou moins.
@@ -233,4 +232,4 @@ Les erreurs auxquelles un utilisateur peut être confronté dans Azure PowerShel
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

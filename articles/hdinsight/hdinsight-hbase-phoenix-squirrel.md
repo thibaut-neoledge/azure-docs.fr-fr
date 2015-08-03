@@ -108,7 +108,7 @@ La configuration d'une connexion VPN de point à site comprend 3 étapes :
 2. [Créer vos certificats](#Create-your-certificates)
 3. [Configurer votre client VPN](#Configure-your-VPN-client)
 
-Consultez [Configurer une connexion VPN de point à site à un réseau virtuel Azure](https://msdn.microsoft.com/library/azure/dn133792.aspx) pour plus d'informations
+Consultez [Configurer une connexion VPN de point à site à un réseau virtuel Azure](../vpn-gateway/vpn-gateway-point-to-site-create.md) pour plus d'informations
 
 #### Configurer un réseau virtuel et une passerelle de routage dynamique
 
@@ -216,7 +216,7 @@ L'une des méthodes pour créer un certificat X.509 consiste à utiliser l'outil
 2. Ouvrez/exécutez le fichier jar. Pour cela, vous avez besoin de l'[environnement d'exécution Java](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Cliquez sur **Suivant** deux fois.
 4. Spécifiez un chemin d'accès pour lequel vous disposez de l'autorisation d'écriture, puis cliquez sur **Suivant**.
-	>[AZURE.NOTE]Le dossier d'installation par défaut se trouve dans le dossier C:\\Program Files\\squirrel-sql-3.6. Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu'administrateur, accéder au dossier bin de Java et puis exécuter
+	>[AZURE.NOTE]Le dossier d'installation par défaut se trouve dans le dossier C:\Program Files\squirrel-sql-3.6. Pour pouvoir écrire dans ce chemin d'accès, le programme d'installation doit disposer des privilèges d'administrateur. Vous pouvez ouvrir une invite de commandes en tant qu'administrateur, accéder au dossier bin de Java et puis exécuter
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. Cliquez sur **OK** pour confirmer la création du répertoire cible.
@@ -306,4 +306,4 @@ Dans cet article, vous avez appris comment utiliser Apache Phoenix dans HDInsigh
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

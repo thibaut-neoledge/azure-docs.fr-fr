@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Exécution d’une tâche Hadoop avec DocumentDB et HDInsight
 
-Ce didacticiel vous montre comment exécuter des tâches [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de DocumentDB. Le connecteur Hadoop de DocumentDB permet à DocumentDB d'agir en tant que source et récepteur pour les tâches Hive, Pig et MapReduce. Ce didacticiel utilise DocumentDB en tant que source de données et destination pour les tâches Hadoop.
+Ce didacticiel vous montre comment exécuter des tâches [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de DocumentDB. Le connecteur Hadoop de DocumentDB permet à DocumentDB d’agir en tant que source et récepteur pour les tâches Hive, Pig et MapReduce. Ce didacticiel utilise DocumentDB en tant que source de données et destination pour les tâches Hadoop.
 
 Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux questions suivantes :
 
@@ -40,17 +40,20 @@ Vous n'avez pas le temps de suivre le didacticiel et vous souhaitez seulement ob
 
 <table border='1'>
 	<tr><th>Version du connecteur Hadoop</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>URI du script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Date de modification</th>
-		<td>11/06/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>Versions de HDInsight prises en charge</th>
 		<td>3.1, 3.2.</td></tr>
 	<tr><th>Journal des modifications</th>
-		<td>Compatibilité du connecteur corrigée avec le <a href="https://www.microsoft.com/download/details.aspx?id=40886">pilote&#160;ODBC Microsoft Hive</a></br>
+		<td>Kit de développement logiciel (SDK) Java de DocumentDB mis à jour vers la version&#160;1.1.0</br>
+			Paramètre de sortie supplémentaire supprimé pour les chemins d’accès d’indexation personnalisés</br>
+			Paramètre facultatif ajouté pour la précision de chaîne personnalisée (-1 par défaut)</br>
+			6/11/2015</br>
+			Compatibilité du connecteur corrigée avec le <a href="https://www.microsoft.com/download/details.aspx?id=40886">pilote&#160;ODBC Microsoft Hive</a></br>
 			Ajout de la possibilité de modifier le type d’offre de collection de sortie (S3 par défaut)</br>
-			Résolution des bogues mineurs</br>
 		</td></tr>
 </table>
 
@@ -467,4 +470,4 @@ Pour en savoir plus, consultez les articles suivants :
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

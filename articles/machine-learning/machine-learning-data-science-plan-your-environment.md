@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Planifier un environnement d&#39;analyse avancée Machine Learning | Microsoft Azure" 
-	description="Planifier votre environnement d&#39;analyse avancée en tenant compte des questions clés." 
+	pageTitle="Planifier un environnement d'analyse avancée Machine Learning | Microsoft Azure" 
+	description="Planifier votre environnement d'analyse avancée en tenant compte des questions clés." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -78,4 +79,4 @@ Pour obtenir des exemples basés sur le volume de données, l'emplacement source
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -128,4 +128,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (`extra-inf
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

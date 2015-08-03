@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article" 
-   ms.date="03/31/2015"
+   ms.date="07/09/2015"
    ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight
@@ -64,4 +64,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

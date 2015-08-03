@@ -117,7 +117,7 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 
 	![Passerelle - Panneau Configurer][image-data-factory-gateway-configure-blade]
 
-	Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+	Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
 
 	Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de ce panneau et l’enregistrer à l’aide de la clé indiquée dans la zone de texte **ENREGISTRER AVEC LA CLÉ**.
 	
@@ -166,7 +166,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 4.	Dans le volet JSON, procédez comme suit :
 	1.	Pour la propriété **gatewayName**, saisissez **adftutorialgateway** afin de remplacer l’ensemble du texte à l’intérieur des guillemets doubles.  
 	2.	Si vous utilisez l’**authentification SQL**, procédez comme suit : 
-		1.	Pour la propriété **connectionString**, remplacez **<nom_serveur>**, **<nom_BD>**, **<utilisateur>** et **<mot_de_passe>** par le nom de votre système SQL Server local, le nom de la base de données, le nom du compte d’utilisateur et le mot de passe. Pour spécifier un nom d'instance, utilisez le caractère d'échappement : . Par exemple :**server\\instancename**. 	
+		1.	Pour la propriété **connectionString**, remplacez **<nom_serveur>**, **<nom_BD>**, **<utilisateur>** et **<mot_de_passe>** par le nom de votre système SQL Server local, le nom de la base de données, le nom du compte d’utilisateur et le mot de passe. Pour spécifier un nom d'instance, utilisez le caractère d'échappement : . Par exemple :**server\instancename**. 	
 		2.	Supprimez les deux dernières propriétés (**username** et **password**) du fichier JSON et supprimez la **virgule (,)** à la fin de la dernière ligne du script JSON restant.
 		
 				{
@@ -487,7 +487,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 	**Exemple de commande et de sortie** :
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 	**Exemple de sortie de commande** :
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, accédez au dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScrip** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, accédez au dossier suivant : **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScrip** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -225,4 +225,4 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

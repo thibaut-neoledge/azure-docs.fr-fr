@@ -120,4 +120,4 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

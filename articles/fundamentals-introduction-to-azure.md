@@ -29,7 +29,7 @@ Azure est en évolution constante, il est donc facile de perdre le fil. Les serv
 Vos commentaires sont très importants pour nous. Cet article a été rédigé pour vous offrir un aperçu complet d'Azure. Si vous n'êtes pas satisfait de son contenu, n'hésitez pas à nous en informer via la section des commentaires située en bas de page. Faites-nous part de ce que vous attendez, ainsi que des améliorations que nous pouvons apporter à cet article.
    
 
-## Composants d'Azure
+## Composants d’Azure
 
 Azure regroupe les services en catégories sur le portail de gestion et sur différentes aides visuelles telles que cette [infographie sur Microsoft Azure](http://azure.microsoft.com/documentation/infographics/azure/). Le portail de gestion vous permet de gérer la plupart des services dans Azure (mais pas tous).
 
@@ -53,7 +53,7 @@ Vous pouvez utiliser ces technologies de façon séparée ou les combiner en fon
 
 ### Azure Virtual Machines
 
-![Azure Virtual Machines](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
+![Machines virtuelles ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Figure : Azure Virtual Machines offre un contrôle total des instances de machine virtuelle dans le cloud.*
 
 Il peut s’avérer très utile de créer une machine virtuelle à la demande, à partir d’une image standard comme depuis une image que vous fournissez. Cette approche, communément appelée « Infrastructure as a Service » (IaaS) est celle adoptée par les machines virtuelles Azure. La figure 2 présente le fonctionnement d'une machine virtuelle ainsi que la création d'une machine virtuelle depuis un disque dur virtuel.
 
@@ -75,18 +75,18 @@ Cette approche générique du cloud computing peut être utilisée pour gérer d
 
 ### Web Apps
 
-![Azure Web Apps](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
+![ROBBCSIART_TEST d’applications Web Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Figure : Azure Web Apps exécute une application de site web dans le cloud sans gestion du serveur web sous-jacent.*
 
 Dans bien des cas, le cloud est utilisé pour exécuter les sites et applications web. Azure Virtual Machines permet ceci, mais vous conservez la charge d'administrer une ou plusieurs machines virtuelles et les systèmes d'exploitation sous-jacents. Les rôles web Cloud Services peuvent s'en charger, mais leur déploiement et leur gestion nécessitent malgré tout des tâches d'administration. Pourquoi ne pas simplement opter pour un site web où vous n'avez pas à vous soucier des tâches d'administration ?
 
-C’est exactement ce que fournit Web Apps. Ce modèle de calcul offre un environnement web géré et utilise le portail de gestion Azure ainsi que des API. Vous pouvez transférer une application de site web existante vers Web Apps sans la modifier ou en créer une directement dans le cloud. Une fois que le site web fonctionne, vous pouvez ajouter ou supprimer des instances de façon dynamique sur Azure Web Apps pour équilibrer les demandes. Azure Web Apps propose une option partagée, grâce à laquelle votre site est exécuté sur une machine virtuelle avec d’autres sites, et une option standard qui permet au site de fonctionner sur sa propre machine virtuelle. L’option standard vous permet également d’augmenter la taille (la puissance informatique) de vos instances si nécessaire.
+C’est exactement ce que fournit Web Apps. Ce modèle de calcul offre un environnement web géré et utilise le portail de gestion Azure ainsi que des API. Vous pouvez transférer une application de site web existante vers Web Apps sans la modifier ou en créer une directement dans le cloud. Une fois que le site web fonctionne, vous pouvez ajouter ou supprimer des instances de façon dynamique sur Azure Web Apps pour équilibrer les demandes. Azure Apps propose une option partagée, grâce à laquelle votre site est exécuté sur une machine virtuelle avec d’autres sites, et une option standard qui permet au site de fonctionner sur sa propre machine virtuelle. L’option standard vous permet également d’augmenter la taille (la puissance informatique) de vos instances si nécessaire.
 
 Pour le développement, Web Apps prend en charge .NET, PHP, Node.js, Java et Python, de même que la base de données SQL et MySQL (de ClearDB, un partenaire Microsoft) pour le stockage relationnel. La prise en charge de plusieurs applications populaires, notamment WordPress, Joomla et Drupal est également intégrée. L'objectif est de fournir une plateforme économique, évolutive et utile au plus grand nombre pour la création de sites et d'applications web dans le cloud public.
 
 
 **Scénarios Web Apps**
 
-Azure Web Apps a été conçu pour répondre aux besoins des entreprises, des développeurs et des agences de design web. Les entreprises bénéficient d'une solution simple à gérer, évolutive, hautement sécurisée et très disponible pour leurs sites web. Pour configurer un site web, nous vous recommandons de commencer avec Azure Web Apps, puis de passer à Azure Cloud Services lorsque vous avez besoin d’une fonctionnalité qui n’est pas disponible. Reportez-vous à la section « Compute » pour accéder à différents liens qui vous aideront à faire votre choix parmi les options disponibles.
+Azure Web Apps a été conçu pour répondre aux besoins des entreprises, des développeurs et des agences de design web. Les entreprises bénéficient d'une solution simple à gérer, évolutive, hautement sécurisée et très disponible pour leurs sites web. Pour configurer un site web, nous vous recommandons de commencer avec Azure Web Apps, puis de passer à Cloud Services lorsque vous avez besoin d’une fonctionnalité qui n’est pas disponible. Reportez-vous à la section « Compute » pour accéder à différents liens qui vous aideront à faire votre choix parmi les options disponibles.
 
 ### Services cloud
 ![Azure Cloud Services](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) *Figure : Azure Cloud Services permet d’exécuter un code personnalisé hautement évolutif dans un environnement PaaS (Platform as a Service).*
@@ -179,9 +179,9 @@ Vous serez peut-être amené à transférer de gros volumes de données dans Azu
 
 
 ### Service de fichiers
-![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\\\serveur\\partage aux applications exécutées dans le cloud.*
+![Azure File Services](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Figure : Azure File Services fournit des chemins SMB \\serveur\partage aux applications exécutées dans le cloud.*
 
-Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\\\Serveur\\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
+Localement, les gros volumes de stockage de fichiers sont généralement accessibles grâce au protocole Server Message Block (SMB) via un format \\Serveur\partage. Azure propose désormais un service qui vous permet d'utiliser ce protocole dans le cloud. Les applications exécutées sous Azure peuvent utiliser ce service pour partager des fichiers entre les machines virtuelles à l'aide d'API de systèmes de fichiers connus, comme ReadFile et WriteFile. En outre, les fichiers sont accessibles simultanément via une interface REST, ce qui vous permet d'accéder aux partages en local lorsque vous configurez un réseau virtuel. Azure Files se trouve au sommet du service d'objets blob, ce qui lui permet d'hériter des mêmes caractéristiques de disponibilité, de durabilité, d'extensibilité et de géo-redondance qu'Azure Storage.
 
 **Scénarios relatifs à Azure Files Services**
 
@@ -431,7 +431,7 @@ Qu’elles soient exécutées sur le cloud, dans votre centre de données, sur u
 
 En plus des files d'attente (un à un) décrites précédemment, Service Bus propose d'autres méthodes de communication.
 
-#### Relais Service Bus
+#### Service Bus Relay
 ![Azure Service Bus Relay](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
 *Figure : Service Bus Relay permet la communication entre des applications situées de chaque côté d’un pare-feu.*
@@ -592,4 +592,4 @@ Maintenant que vous connaissez les grandes lignes, la prochaine étape est de cr
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

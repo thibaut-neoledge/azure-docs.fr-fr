@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Envoyer des requêtes Hive à des clusters Hadoop dans le processus et la technologie d&#39;analyse avancée (ADAPT) | Microsoft Azure"
+	pageTitle="Envoyer des requêtes Hive à des clusters Hadoop dans le processus et la technologie d'analyse avancée (ADAPT) | Microsoft Azure"
 	description="Traiter les données des tables Hive avec des requêtes Hive"
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -322,4 +323,4 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

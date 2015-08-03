@@ -47,7 +47,7 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 * Questions et problèmes :
  * [Résolution des problèmes][qna]
- * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/fr-fr/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Bogues :
  * [Connect](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -73,4 +73,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

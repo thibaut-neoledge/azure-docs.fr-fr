@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Prise en main d’Azure Search | Microsoft Azure" 
-	description="Prise en main d&#39;Azure Search" 
+	description="Prise en main d'Azure Search" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

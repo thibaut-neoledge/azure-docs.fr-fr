@@ -97,7 +97,7 @@ La première étape du téléchargement d’un fichier consiste à obtenir une r
 Maintenant que vous avez une référence au répertoire racine du partage, vous pouvez télécharger un fichier vers ce répertoire à l’aide du code ci-après.
 
 	// Define the path to a local file.
-	final String filePath = "C:\\temp\\Readme.txt";
+	final String filePath = "C:\temp\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -222,4 +222,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -76,4 +76,4 @@ Si vous avez des serveurs proxy ou un pare-feu qui limitent l’accès à Intern
 
 - [Configuration des paramètres de pare-feu et de proxy (facultatif)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

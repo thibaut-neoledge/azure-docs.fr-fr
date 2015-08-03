@@ -57,8 +57,8 @@ Pour plus d'informations sur la raison pour laquelle vous devez utiliser Azure M
 
 **Ressources supplémentaires**
 
-* [Quelles sont les implications de l’application Multi-Factor Authentication pour moi ?](multi-factor-authentication-end-user.md)
 * [Configurer l’authentification multifacteur pour Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [Quelles sont les implications de l’application Multi-Factor Authentication pour moi ?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

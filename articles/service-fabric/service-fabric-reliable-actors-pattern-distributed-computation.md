@@ -204,4 +204,4 @@ Nous n'affirmons aucunement qu'Azure Service Fabric est la solution de remplacem
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

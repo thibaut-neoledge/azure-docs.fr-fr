@@ -84,7 +84,7 @@ Mettez une ligne à jour dans une table de données. Dans cet exemple, c'est l'�
 
 Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur l'objet [Promise]() renvoyé pour obtenir une copie de l'objet inséré et gérer les éventuelles erreurs.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@ Supprimez une ligne dans une table de données. Appelez la méthode [done]() sur
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

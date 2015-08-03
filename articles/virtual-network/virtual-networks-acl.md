@@ -19,7 +19,7 @@
 
 Une liste de contrôle d’accès réseau est une amélioration de sécurité disponible pour votre déploiement Azure. Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective pour un point de terminaison de machine virtuelle. Cette capacité de filtrage des paquets offre une couche de sécurité supplémentaire. Vous ne pouvez spécifier des listes de contrôle d’accès réseau que pour les points de terminaison. Vous ne pouvez pas spécifier de liste ACL pour un réseau virtuel ou un sous-réseau spécifique contenu dans un réseau virtuel.
 
-> [AZURE.IMPORTANT]Il est recommandé d’utiliser autant que possible les groupes de sécurité réseau (NSG) au lieu des listes de contrôle d’accès. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](../virtual-network-nsg).
+> [AZURE.IMPORTANT]Il est recommandé d’utiliser autant que possible les groupes de sécurité réseau (NSG) au lieu des listes de contrôle d’accès. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Qu’est-ce qu’un groupe de sécurité réseau ?](../virtual-networks-nsg).
 
 Les listes ACL peuvent être configurées à l’aide de PowerShell ou du portail de gestion. Pour configurer une liste de contrôle d’accès réseau à l’aide de PowerShell, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx). Pour configurer une liste de contrôle d’accès réseau à l’aide du portail de gestion, consultez [Configuration des points de terminaison sur une machine virtuelle](../virtual-machines-set-up-endpoints/).
 
@@ -99,4 +99,4 @@ Les liste de contrôle d’accès réseau peuvent être spécifiées sur un poin
 
 [Comment gérer les listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

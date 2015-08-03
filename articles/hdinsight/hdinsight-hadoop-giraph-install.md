@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
@@ -71,11 +71,11 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 
 	Téléchargez le fichier tiny_graph.txt dans le stockage principal pour votre cluster HDInsight. Pour plus d’informations sur le téléchargement de données, consultez la rubrique [Téléchargement de données pour les tâches Hadoop dans HDInsight](hdinsight-upload-data.md).
 
-	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge\\_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
+	Ces données décrivent une relation entre les objets d’un graphique dirigé, en utilisant le format [source_id, source_value,[[dest_id], [edge_value],...]]. Chaque ligne représente une relation entre un objet **source_id** et un ou plusieurs objets **dest_id**. La valeur **edge\_value** (ou pondération) peut être considérée comme l’intensité ou la distance de la connexion entre **source_id** et **dest_id**.
 
 	Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données ci-dessus peuvent ressembler à cela :
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
@@ -145,7 +145,7 @@ L’exemple SimpleShortestPathsComputation indique l’implémentation basique d
 	
 	En visualisant cela, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l'ID 1 et tous les autres objets. Notez que le chemin le plus court entre ID 1 et ID 4 est 5. Il s’agit de la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
 
-	![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png)
+	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 
 ## <a name="usingPS"></a>Installation de Giraph sur des clusters HDInsight Hadoop à l’aide d’Azure PowerShell
@@ -329,7 +329,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 **Pour exécuter l’application**
 
-Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
+Ouvrez une console Azure PowerShell, naviguez jusqu'à l'emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Entrez un nom de cluster, puis appuyez sur ENTRÉE pour approvisionner un cluste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

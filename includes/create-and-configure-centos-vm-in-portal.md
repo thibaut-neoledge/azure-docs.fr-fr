@@ -1,3 +1,4 @@
+
 **Remarque** : cet article permet de créer une machine virtuelle qui n’est pas connectée à un réseau virtuel. Si vous voulez que votre machine virtuelle utilise un réseau virtuel pour pouvoir vous connecter directement à vos machines virtuelles par nom d’hôte ou en configurant des connexions entre différents locaux, utilisez plutôt la méthode **From Gallery** et indiquez le réseau virtuel lorsque vous créez la machine virtuelle. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 1. Connectez-vous au portail de gestion Azure en utilisant votre compte Azure.
@@ -68,4 +69,4 @@ Entrez de nouveau le mot de passe. Patientez pendant l’installation des mises 
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

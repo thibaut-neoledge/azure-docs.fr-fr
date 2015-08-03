@@ -58,4 +58,4 @@ Une fois le test terminé, l’application peut être répertoriée dans la gale
 > Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

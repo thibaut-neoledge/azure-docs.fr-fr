@@ -104,7 +104,7 @@ Dans PowerShell, remplacez les éléments entre « < > » par vos informations
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:>"
+	$OutputPathForSettingsFile = "<C:\>"
 
 ```
 
@@ -125,7 +125,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:>"
+		$OutputPathForSettingsFile = "<C:\>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -307,7 +307,7 @@ L'applet de commande finale crée un mappage entre le réseau principal et le r�
 
 ```
 
-PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -354,7 +354,7 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 
 ### Créer un plan de récupération
 
-1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\\RPTemplatePath.xml ».
+1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\RPTemplatePath.xml ».
 2. Modifiez l'Id, Name, PrimaryServerId et SecondaryServerId du nœud RecoveryPlan.
 3. Modifiez le PrimaryProtectionEntityId du nœud ProtectionEntity (vmid pour VMM).
 4. Vous pouvez ajouter davantage de machines virtuelles en ajoutant des nœuds ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

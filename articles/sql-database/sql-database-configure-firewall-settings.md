@@ -144,4 +144,4 @@ Pour consulter un didacticiel sur la création d’une base de données, reporte
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

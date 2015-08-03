@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser Apache Spark dans Azure HDInsight pour effectuer l
 Vous devez disposer des éléments suivants :
 
 - Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Un cluster Apache Spark. Pour obtenir les instructions, consultez [Approvisionner les clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- Un cluster Apache Spark. Pour obtenir les instructions, consultez [Approvisionner les clusters Apache Spark dans Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - Un ordinateur équipé du pilote ODBC de Microsoft Spark. Vous pouvez l’installer en cliquant [ici](http://go.microsoft.com/fwlink/?LinkId=616229).
 - Des outils décisionnels tels que [Power BI](http://www.powerbi.com/) ou [Tableau Desktop](http://www.tableau.com/products/desktop). Vous pouvez obtenir un abonnement gratuit à la version d’évaluation de Power BI à l’adresse [http://www.powerbi.com/](http://www.powerbi.com/).
 
@@ -41,7 +41,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 1. Lancez le bloc-notes Jupyter. Sélectionnez votre cluster Spark dans le portail Azure, puis, dans la barre des tâches du portail située dans la partie inférieure, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
-2. Créez un bloc-notes. Cliquez sur **Nouveau**, puis sur **Python2**.
+2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
 	![Créer un bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Créer un bloc-notes Jupyter")
 
@@ -63,7 +63,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 	 ![État d’un travail de bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "État d’un travail de bloc-notes Jupyter")
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\HdiSamples\SensorSampleData\hvac**.
 
 	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table Hive appelée **hvac**.
 
@@ -145,9 +145,9 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 
 	Vous pouvez ajouter autant de visualisations que vous le souhaitez pour un même jeu de données et les épingler au tableau de bord pour obtenir un instantané de vos données. En outre, les clusters Spark sur HDInsight sont connectés directement à Power BI. En d’autres termes, Power BI dispose toujours des données les plus récentes de votre cluster. Vous n’avez donc pas besoin de planifier des actualisations du jeu de données.
 
-##<a name="tableau"></a>Utiliser Tableau Desktop pour analyser les données de la table Hive
+##<a name="tableau"></a>Utiliser Tableau Desktop pour analyser les données de la table Hive
 	
-1. Lancez Tableau Desktop. Dans le volet gauche, dans la liste de serveurs auxquels se connecter, cliquez sur **Spark SQL**.
+1. Lancez Tableau Desktop. Dans le volet gauche, dans la liste de serveurs auxquels se connecter, cliquez sur **Spark SQL**.
 
 2. Dans la boîte de dialogue de connexion à Spark SQL, entrez les valeurs indiquées ci-dessous, puis cliquez sur **OK**.
 
@@ -205,4 +205,4 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -138,7 +138,7 @@ Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénari
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|PAS D’INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|REFUSER| 
+|PAS D’INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
 
 Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
 
@@ -146,8 +146,8 @@ Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle auto
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|VERS INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|AUTORISER|
-|À PARTIR D’INTERNET|110| INTERNET|&\#42;|VIRTUAL_NETWORK|&\#42;|TCP|REFUSER| 
+|VERS INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
+|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|REFUSER| 
 
 
 ## Planification : flux de travail du groupe de sécurité réseau
@@ -248,4 +248,4 @@ Voici les étapes de flux de travail de base pour l'utilisation de groupes de s�
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/09/2015"
+	ms.date="07/16/2015"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Vue d'ensemble
 
-Un compte de stockage Azure est un compte sécurisé qui vous donne accès à des services dans Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos objets de données Azure Storage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
+Un compte de stockage Azure est un compte sécurisé qui vous donne accès aux services BLOB, File d’attente, Table et Fichier d’Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos objets de données Azure Storage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
 Il existe deux types de comptes de stockage :
 
@@ -53,7 +53,7 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 3. Dans **URL**, entrez le nom de votre compte de stockage.
 	
-	> [AZURE.NOTE]Ce nom doit comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des chiffres.
+	> [AZURE.NOTE]Ce nom doit comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
 	>  
 	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail indique si le nom du compte de stockage sélectionné est déjà utilisé.
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 	Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage ; vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités. Pour plus d’informations sur les groupes d’affinités, consultez [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
 
-5. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage. Vous pouvez créer jusqu'à cinq comptes de stockage par abonnement.
+5. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage.
 
 6. Dans **Réplication**, sélectionnez le niveau de réplication souhaité pour votre compte de stockage. L’option de réplication recommandée est la réplication géo-redondante qui offre une durabilité maximale pour vos données. Pour en savoir plus sur les options de réplication d’Azure Storage, consultez [Options de réplication des comptes de stockage](storage-redundancy.md).
 
@@ -167,4 +167,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

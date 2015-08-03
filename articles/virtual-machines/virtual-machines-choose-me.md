@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Les machines virtuelles Azure correspondent-elles à l’option de calcul que je souhaite ?" 
-	description="Découvrez les options d&#39;hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
+	description="Découvrez les options d'hébergement de calcul Azure et leur fonctionnement : App Service, Cloud Services et Virtual Machines" 
 	services="virtual-machines"
 	authors="KBDAzure" 
 	documentationCenter=""
 	manager="timlt"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags=azure-resource-manager, azure-service-management/>
 
 <tags 
 	ms.service="multiple" 
@@ -29,4 +29,4 @@ En savoir plus sur les [Machines virtuelles](https://msdn.microsoft.com/library/
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

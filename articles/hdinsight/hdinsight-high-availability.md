@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,34 +13,56 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/10/2015" 
+	ms.author="jgao"/>
 
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
 
 
-Un second nœud principal a été ajouté aux clusters Hadoop déployés par Azure HDInsight pour améliorer la disponibilité et la fiabilité du service requis pour gérer les charges de travail. Les implémentations standard des clusters Hadoop ont normalement un seul nœud principal. Ces clusters sont conçus pour gérer en douceur la défaillance des nœuds de travail, mais toute interruption des services principaux exécutés sur le nœud principal provoquera l’arrêt du fonctionnement du cluster.
+HDInsight permet aux clients de déployer de nombreux types de cluster pour différentes charges de travail d’analyse des données. Les types de cluster proposés actuellement sont les clusters Hadoop pour les charges de travail de requête et d’analyse, les clusters HBase pour les charges de travail NoSQL, et les clusters Storm pour les charges de travail de traitement des événements en temps réel. Un type de cluster donné comprend différent rôles correspondant aux différents nœuds. Par exemple :
+
+
+
+- Les clusters Hadoop pour HDInsight sont déployés avec deux rôles :
+	- Nœud principal (2 nœuds)
+	- Nœud de données (au moins 1 nœud)
+
+- Les clusters HBase pour HDInsight sont déployés avec trois rôles :
+	- Serveurs principaux (2 nœuds)
+	- Serveurs Region (au moins 1 nœud)
+	- Nœuds Master/Zookeeper (3 nœuds)
+
+- Les clusters Storm pour HDInsight sont déployés avec trois rôles :
+	- Nœuds Nimbus (2 nœuds)
+	- Serveurs Supervisor (au moins 1 nœud)
+	- Nœuds Zookeeper (3 nœuds)
+ 
+Les implémentations standard des clusters Hadoop ont normalement un seul nœud principal. HDInsight supprime ce point de défaillance unique avec l’ajout d’un nœud principal/serveur principal/nœud Nimbus secondaire pour augmenter la disponibilité et la fiabilité du service nécessaire à la gestion des charges de travail. Ces nœuds principaux/serveurs principaux/nœuds Nimbus sont conçus pour gérer en douceur la défaillance des nœuds de travail, mais toute interruption des services principaux exécutés sur le nœud principal provoquera l’arrêt du fonctionnement du cluster.
+
+
+Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et sont utilisés pour le choix de l’instance responsable des nœuds principaux et pour s’assurer que les nœuds de travail et les passerelles (GW) savent à quel moment doit se faire le basculement vers le nœud principal secondaire (Head Node1) lorsque le nœud principal actif (Node0) devient inactif.
 
 ![Diagramme des nœuds principaux hautement fiables dans l’implémentation HDInsight Hadoop.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight élimine ce point de défaillance unique avec l’ajout d’un nœud principal secondaire (Head Node1). Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZK) ont été ajoutés et sont utilisés pour le choix de l’instance responsable des nœuds principaux et pour s’assurer que les nœuds de travail et les passerelles (GW) savent à quel moment doit se faire le basculement vers le nœud principal secondaire (Head Node1) lorsque le nœud principal actif (Node0) devient inactif.
 
 
-## Vérification du statut du service sur le nœud principal actif ##
-Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). La possibilité de se connecter à distance au cluster étant désactivée par défaut dans Azure, elle doit d’abord être activée. Pour plus d’informations sur la procédure à suivre dans le portail, consultez la rubrique [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp). Une fois que vous vous êtes connecté à distance au cluster, double-cliquez sur l’icône **Statut disponible du service Hadoop** située sur le Bureau pour obtenir le statut concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
 
-![](http://i.imgur.com/MYTkCHW.png)
+## Vérifier l’état des services du nœud principal actif
+Pour déterminer quel est le nœud principal actif et vérifier le statut des services en cours d’exécution sur ce nœud principal, vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol). Pour obtenir des instructions sur le protocole RDP, consultez la page [Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Service Available ** située sur le Bureau pour obtenir l’état concernant le nœud principal sur lequel les services Namenode, Jobtracker, Templeton, Oozieservice, Metastore et Hiveserver2 s’exécutent ou, pour HDI 3.0, les services Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore et Hiveserver2.
+
+![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
+
+Dans la capture d’écran, le nœud principal actif est *headnode0*.
+
+## Accéder aux fichiers journaux sur le nœud principal secondaire
+
+Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Hadoop Name Node Status** située sur le Bureau, puis cliquez sur les **NameNode logs** pour accéder au répertoire des journaux sur le nœud principal secondaire.
+
+![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## Accès aux fichiers journaux sur le nœud principal secondaire \\
-
-Pour accéder aux fichiers journaux sur le nœud principal secondaire dans le cas où il est devenu le nœud principal actif, la navigation dans l’interface utilisateur du service JobTracker de suivi des tâches fonctionne de la même manière que pour le nœud primaire (actif). Pour accéder au dispositif de suivi des tâches (Job Tracker), vous devez vous connecter au cluster Hadoop avec le protocole RDP (Remote Desktop Protocol), comme décrit dans la section précédente. Une fois que vous avez accédé à distance au cluster, double-cliquez sur l’icône **Nœud de nom Hadoop** située sur le bureau, puis cliquez sur **Journal du nœud de nom** pour accéder au répertoire des journaux sur le nœud principal secondaire.
-
-![](http://i.imgur.com/eL6jzgB.png)
-
-
-## Configuration de la taille du nœud principal ##
+## Configurer la taille du nœud principal
 Par défaut, les nœuds principaux sont alloués en tant que machines virtuelles de taille importante. Cette taille est appropriée pour la gestion de la plupart des tâches Hadoop exécutées sur le cluster. Mais dans certains scénarios, des machines virtuelles de taille très importante peuvent être nécessaires pour les nœuds principaux. C'est le cas, par exemple, lorsque le cluster doit gérer un nombre important de petites tâches Oozie.
 
 Les machines virtuelles de taille très importante peuvent être configurées soit avec des cmdlets Azure PowerShell soit avec le Kit de développement logiciel (SDK) HDInsight.
@@ -83,4 +105,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -196,4 +196,4 @@ Pour plus d’informations sur les limites de Base de données SQL, consultez le
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

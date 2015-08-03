@@ -36,6 +36,10 @@ Ce didacticiel requiert les éléments suivants :
 * Visual Studio 2013
 * [Extension Xamarin] ** Visual Studio ou ** [Xamarin Studio] sur OS X
 
+##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## Examen du code de synchronisation Mobile App
 
 La synchronisation hors connexion Mobile App permet aux utilisateurs d'interagir avec une base de données locale quand le réseau n'est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous initialisez `MobileServiceClient.SyncContext` dans un magasin local. Ensuite, vous référencez votre table par le biais de l’interface `IMobileServiceSyncTable`. Cette section décrit le code associé à la synchronisation hors connexion dans `QSTodoService.cs`.
@@ -166,4 +170,4 @@ Dans cette section, vous allez reconnecter l'application au backend mobile, ce q
 [Extension Xamarin]: http://xamarin.com/visual-studio
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -84,4 +84,4 @@ Une fois l’application API codée, il est temps de tester le code.
 
 5. Appuyez sur **Entrée** pour fermer la fenêtre de la console.
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO4-->

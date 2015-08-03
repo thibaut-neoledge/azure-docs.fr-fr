@@ -189,4 +189,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

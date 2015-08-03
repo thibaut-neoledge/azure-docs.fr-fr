@@ -17,4 +17,4 @@ Les instructions et les captures d’écran ci-dessous s’appliquent au test d�
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

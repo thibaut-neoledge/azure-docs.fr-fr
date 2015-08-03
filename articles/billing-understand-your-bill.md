@@ -262,4 +262,4 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 <!--Image references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

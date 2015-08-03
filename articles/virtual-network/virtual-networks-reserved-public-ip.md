@@ -123,4 +123,4 @@ Vous pouvez aussi associer une adresse réservée à un service cloud à l’ai
 
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

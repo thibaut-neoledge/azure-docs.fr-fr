@@ -98,4 +98,4 @@ Pour effectuer cette configuration avec une applet de commande Azure PowerShell,
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

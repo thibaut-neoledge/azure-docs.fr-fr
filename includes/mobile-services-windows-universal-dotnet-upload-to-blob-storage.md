@@ -12,7 +12,7 @@ Avant de pouvoir utiliser une signature d'accès partagé en vue de télécharge
 
 Dans la prochaine étape, vous allez mettre à jour l'application de démarrage rapide pour capturer et télécharger des images.
 
-##Mise à jour de l’application cliente de démarrage rapide pour capturer et télécharger des images
+##Mise à jour de l'application cliente de démarrage rapide pour capturer et télécharger des images
 
 1. Dans Visual Studio, ouvrez le fichier Package.appxmanifest pour le projet d’application Windows et dans l’onglet **Capacités**, activez les capacités **Webcam** et **Microphone**.
 
@@ -298,4 +298,4 @@ La dernière étape consiste à tester les deux versions de l’application et �
 
 Vous avez terminé le didacticiel sur le téléchargement des images.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

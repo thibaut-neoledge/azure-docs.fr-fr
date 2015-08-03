@@ -107,4 +107,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

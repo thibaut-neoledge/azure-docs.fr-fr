@@ -208,4 +208,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

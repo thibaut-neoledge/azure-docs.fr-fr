@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="Phase 1 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration d'Azure" 
-	description="Au cours de cette première phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous créez le réseau virtuel Azure et d'autres éléments d'infrastructure Azure." 
+<properties
+	pageTitle="Phase 1 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration d'Azure"
+	description="Au cours de cette première phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous créez le réseau virtuel Azure et d'autres éléments d'infrastructure Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Phase 1 de la charge de travail de la batterie de serveurs SharePoint intranet : configuration d'Azure
 
-Au cours de cette phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
+Au cours de cette phase de déploiement d'une batterie de serveurs SharePoint 2013 intranet avec des groupes de disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure, vous créez l'infrastructure de réseau et de stockage Azure dans la gestion des services Azure. Vous devez terminer cette opération avant de passer à la [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
 
 Azure doit être configuré avec les composants réseau de base suivants :
 
 - un réseau virtuel intersite avec un sous-réseau ;
 - trois services cloud Azure ;
-- Un compte de stockage Azure pour stocker des images de disque VHD et des disques de données supplémentaires
+- un compte de stockage Azure pour stocker des images de disque VHD et des disques de données supplémentaires.
 
 ## Avant de commencer
 
@@ -32,8 +33,8 @@ Avant de commencer la configuration de composants Azure, remplissez les tables s
 
 Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 
-Élément | Élément de configuration | Description | Valeur 
---- | --- | --- | --- 
+Élément | Élément de configuration | Description | Valeur
+--- | --- | --- | ---
 1. | Nom du réseau virtuel | Le nom à attribuer au réseau virtuel Azure (par exemple, SPFarmNet). | __________________
 2. | Emplacement du réseau virtuel | Le centre de données Azure qui contiendra le réseau virtuel. | __________________
 3. | Nom du réseau local | Un nom à attribuer au réseau de votre organisation. | __________________
@@ -46,8 +47,8 @@ Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 
 Remplissez la Table S pour le sous-réseau de cette solution. Donnez au sous-réseau un nom convivial, un seul d'adressage IP unique en fonction de l'espace d'adressage du réseau virtuel et un but descriptif. L'espace d'adressage doit être au format de routage CIDR (Classless Interdomain Routing), également connu comme format de préfixe réseau. 10.24.64.0/20 est un exemple. Consultez votre service informatique afin de déterminer cet espace d'adressage à partir de l'espace d'adressage de réseau virtuel.
 
-Élément | Nom du sous-réseau | Espace d'adressage du sous-réseau | Objectif 
---- | --- | --- | --- 
+Élément | Nom du sous-réseau | Espace d'adressage du sous-réseau | Objectif
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **Table S : sous-réseaux du réseau virtuel**
@@ -56,10 +57,10 @@ Remplissez la Table S pour le sous-réseau de cette solution. Donnez au sous-ré
 
 Pour les deux serveurs DNS locaux que vous souhaitez utiliser lors de la configuration initiale des contrôleurs de domaine de votre réseau virtuel, remplissez la table D. Donnez à chaque serveur DNS un nom convivial et une adresse IP unique. Ce nom convivial ne doit pas nécessairement correspondre au nom d'hôte ou au nom d'ordinateur du serveur DNS. Notez que deux entrées vides sont répertoriées, mais vous pouvez en ajouter d'autres. Consultez votre service informatique pour déterminer cette liste.
 
-Élément | Nom convivial du serveur DNS | Adresse IP du serveur DNS 
+Élément | Nom convivial du serveur DNS | Adresse IP du serveur DNS
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **Table D : serveurs DNS locaux**
 
@@ -67,7 +68,7 @@ Pour router des paquets du réseau intersite vers le réseau de votre organisati
 
 Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L. Notez que trois entrées vides sont répertoriées, mais que vous en avez généralement besoin de plus. Consultez votre service informatique pour déterminer la liste des espaces d'adressage.
 
-Élément | Espace d'adressage du réseau local 
+Élément | Espace d'adressage du réseau local
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -82,7 +83,7 @@ Pour créer le réseau virtuel avec les paramètres des tables V, S, D et L, sui
 Après la création du réseau virtuel Azure, le portail de gestion Azure détermine les éléments suivants :
 
 - l'adresse IPv4 publique de la passerelle VPN Azure pour votre réseau virtuel ;
-- La clé Internet Protocol security (IPsec) prépartagée pour la connexion VPN de site à site.
+- la clé Internet Protocol security (IPsec) prépartagée pour la connexion VPN de site à site.
 
 Pour afficher ces éléments dans le portail de gestion Azure une fois le réseau virtuel créé, cliquez sur **Réseaux**, puis sur le nom du réseau virtuel, et enfin sur l'option de menu **Tableau de bord**.
 
@@ -103,7 +104,7 @@ Le nom de l'abonnement apparaît dans la propriété **SubscriptionName** du ré
 
 Créez ensuite les trois services cloud nécessaires pour cette batterie de serveurs SharePoint. Remplissez la table C.
 
-Élément | Objectif | Nom du service cloud 
+Élément | Objectif | Nom du service cloud
 --- | --- | ---
 1. | Contrôleurs de domaine | ___________________________
 2. | Serveurs SQL | ___________________________
@@ -137,8 +138,8 @@ Si cette commande renvoie « False », le nom proposé est unique. Ensuite, cr
 
 Définissez enfin les noms des quatre groupes à haute disponibilité. Remplissez la table A.
 
-Élément | Objectif | Nom du groupe à haute disponibilité 
---- | --- | --- 
+Élément | Objectif | Nom du groupe à haute disponibilité
+--- | --- | ---
 1. | Contrôleurs de domaine | ___________________________
 2. | Serveurs SQL | ___________________________
 3. | Serveurs d'applications SharePoint | ___________________________
@@ -167,6 +168,5 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

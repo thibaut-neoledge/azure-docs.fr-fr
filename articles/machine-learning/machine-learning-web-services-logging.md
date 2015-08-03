@@ -38,4 +38,4 @@ Ce document fournit des informations sur la fonctionnalité de journalisation de
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

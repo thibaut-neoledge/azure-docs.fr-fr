@@ -80,7 +80,7 @@ Lorsque la fenêtre de ligne de commande est fermée, l'émulateur de stockage c
 
 La première fois que vous exécutez l'émulateur de stockage, l'environnement de stockage local est initialisé pour vous. Le processus d'initialisation crée une base de données dans LocalDB et réserve des ports HTTP pour chaque service de stockage local.
 
-L’émulateur de stockage est installé par défaut dans le répertoire C:\\Program Files(x86)\\Microsoft SDKs\\Windows Azure\\Storage Emulator\.
+L’émulateur de stockage est installé par défaut dans le répertoire C:\Program Files(x86)\Microsoft SDKs\Windows Azure\Storage Emulator\.
 
 ### Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL
 
@@ -93,7 +93,7 @@ Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockag
     
 	Vous pouvez également exécuter la commande suivante, qui indique à l'émulateur d'utiliser l'instance SQL Server par défaut :
 
-    	AzureStorageEmulator init /server .\\ 
+    	AzureStorageEmulator init /server .\ 
 
 	En guise d’alternative, vous pouvez exécuter la commande suivante, qui réinitialise la base de données en rétablissant l’instance LocalDB par défaut :
 
@@ -127,15 +127,13 @@ Les points de terminaison de service de l’émulateur de stockage sont :
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE]Vous ne pouvez pas utiliser HTTPS avec l’émulateur de stockage, même si HTTPS est le protocole recommandé pour l’accès aux ressources dans le stockage Azure.
- 
 ### Adressage du compte secondaire avec RA-GRS
 
 À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Pour les ressources de stockage dans le cloud et dans l'émulateur local, vous pouvez accéder à l'emplacement secondaire en ajoutant -secondary au nom du compte. Par exemple, vous pouvez utiliser l'adresse suivante pour accéder à un objet blob en utilisant l'emplacement secondaire en lecture seule dans l'émulateur de stockage :
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
 
-> [AZURE.NOTE]Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez la page [Référence de la bibliothèque cliente de stockage](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+> [AZURE.NOTE]Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d'informations, consultez la page [Référence de la bibliothèque cliente Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 ## Référence de l’outil en ligne de commande de l’émulateur de stockage
 
@@ -153,9 +151,9 @@ Pour afficher la liste des options, tapez `/help` dans l’invite de commandes.
 
 | Option | Description | Commande | Arguments |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
+| **Start** | Permet de démarrer l’émulateur de stockage. | `AzureStorageEmulator start [-inprocess]` | *-inprocess* : démarrez l’émulateur dans le processus actuel au lieu de créer un nouveau processus. |
 | **Stop** | Permet d’arrêter l’émulateur de stockage. | `AzureStorageEmulator stop` | |
-| **État** | Permet d’imprimer l’état de l’émulateur de stockage. | `AzureStorageEmulator status` | |
+| **Status** | Permet d’imprimer l’état de l’émulateur de stockage. | `AzureStorageEmulator status` | |
 | **Clear** | Permet d’effacer les données de tous les services spécifiés sur la ligne de commande. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob* : efface les données d’objet blob. <br/>*queue* : efface les données de file d’attente. <br/>*table* : efface les données de table. <br/>*all* : efface toutes les données de tous les services. |
 | **Init** | Permet d’effectuer une initialisation ponctuelle pour configurer l’émulateur. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName* : spécifie le serveur hébergeant l’instance SQL. <br/>*-sqlinstance instanceName* : spécifie le nom de l’instance SQL à utiliser. <br/>*-forcecreate* : force la création de la base de données SQL, même si celle-ci existe déjà. <br/>*-inprocess* : effectue l’initialisation dans le processus actuel au lieu de générer un nouveau processus. Pour permettre l’utilisation de cette commande, le processus actuel doit avoir été lancé avec des autorisations élevées. |
                                                                                                                   
@@ -169,9 +167,9 @@ L’émulateur de stockage étant un environnement émulé exécuté dans une in
 
 - Comme décrit dans [Adressage des ressources dans l’émulateur de stockage](#addressing-resources-in-the-storage-emulator), les ressources ne sont pas adressées de la même manière dans l’émulateur de stockage et dans un compte de stockage Azure. Cette différence est due au fait que la résolution de noms de domaine est disponible dans le cloud, mais pas sur l’ordinateur local.
 
-- À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et renvoient la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
+- À partir de la version 3.1, le compte d'émulateur de stockage prend en charge la réplication géo-redondante avec accès en lecture. Dans l’émulateur, RA-GRS est activé pour tous les comptes et il n’y a jamais de latence entre le réplica principal et le réplica secondaire. Les opérations Get Blob Service Stats, Get Queue Service Stats et Get Table Service Stats sont prises en charge sur le compte secondaire et retournent toujours la valeur de l’élément de réponse `LastSyncTime` comme heure actuelle en fonction de la base de données SQL sous-jacente.
 
-	Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d’informations, consultez la page [Référence de la bibliothèque cliente de stockage](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+	Pour un accès par programmation au stockage secondaire avec l'émulateur de stockage, utilisez la bibliothèque cliente de stockage pour .NET version 3.2 ou ultérieure. Pour plus d'informations, consultez la page [Référence de la bibliothèque cliente Storage](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 - Les points de terminaison du service de fichiers et de protocole SMB ne sont pas pris en charge dans l’émulateur de stockage pour le moment.
 
@@ -193,7 +191,7 @@ Les différences suivantes s’appliquent au stockage de tables dans l’émulat
 
 - La taille totale d’une ligne de table dans l’émulateur de stockage est limitée à moins de 1 Mo.
 
-- Dans l’émulateur de stockage, les propriétés de type de données `Edm.Guid` ou `Edm.Binary` prennent uniquement en charge les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre d’exécution de la requête.
+- Dans l’émulateur de stockage, les propriétés du type de données `Edm.Guid` ou `Edm.Binary` prennent uniquement en charge les opérateurs de comparaison `Equal (eq)` et `NotEqual (ne)` dans les chaînes de filtre de requête.
 
 ### Différences pour le stockage de files d’attente
 
@@ -222,4 +220,4 @@ L’exécutable de l’émulateur de stockage a été renommé *AzureStorageEmul
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

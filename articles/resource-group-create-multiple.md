@@ -1,7 +1,7 @@
 <properties
    pageTitle="Création de plusieurs instances de ressources"
    description="Ce didacticiel explique comment utiliser l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -114,4 +114,4 @@ Utilisez le modèle suivant :
 - [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
 - [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Processus et technologie d’analyse avancée en action : utilisation des clusters Hadoop | Microsoft Azure" 
-	description="Utilisation du processus et de la technologie d&#39;analyse avancée (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l&#39;aide d&#39;un jeu de données disponible publiquement."  
+	description="Utilisation du processus et de la technologie d'analyse avancée (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un jeu de données disponible publiquement."  
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -23,7 +24,7 @@ Dans cette procédure pas à pas, vous allez utiliser le processus et la technol
 
 Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l'aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus et technologie d’analyse avancée en action : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
-Il est également possible d'avoir recours à un interpréteur iPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas au moyen du jeu de données de 1 To. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Il est également possible d'avoir recours à un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas au moyen du jeu de données de 1 To. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
@@ -809,4 +810,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

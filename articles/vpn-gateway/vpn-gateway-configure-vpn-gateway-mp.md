@@ -17,7 +17,7 @@
 
 # Configuration d'une passerelle VPN dans le portail de gestion
 
-Si vous voulez créer une connexion intersite sécurisée entre Azure et votre emplacement local, vous devrez configurer une passerelle VPN. Il existe différents types de passerelles et le type de passerelle que vous allez créer dépend à la fois de votre plan de conception de réseau et du périphérique VPN local que vous souhaitez utiliser. Par exemple, certaines options de connectivité, telles qu'une connexion de point à site, nécessitent une passerelle de routage dynamique. Si vous souhaitez configurer votre passerelle pour prendre en charge les connexions de point à site (P2S) et une connexion de site à site (S2S), vous devrez configurer une passerelle de routage dynamique, même si le site à site peut être configuré avec un type de routage de passerelle. De plus, vous devrez vous assurer que le périphérique que vous souhaitez utiliser pour votre connexion de site à site prendra en charge le type de passerelle que vous souhaitez créer. Consultez la rubrique [À propos des passerelles](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Si vous voulez créer une connexion intersite sécurisée entre Azure et votre emplacement local, vous devrez configurer une passerelle VPN. Il existe différents types de passerelles et le type de passerelle que vous allez créer dépend à la fois de votre plan de conception de réseau et du périphérique VPN local que vous souhaitez utiliser. Par exemple, certaines options de connectivité, telles qu'une connexion de point à site, nécessitent une passerelle de routage dynamique. Si vous souhaitez configurer votre passerelle pour prendre en charge les connexions de point à site (P2S) et une connexion de site à site (S2S), vous devrez configurer une passerelle de routage dynamique, même si le site à site peut être configuré avec un type de routage de passerelle. De plus, vous devrez vous assurer que le périphérique que vous souhaitez utiliser pour votre connexion de site à site prendra en charge le type de passerelle que vous souhaitez créer. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Présentation de la configuration
 
@@ -149,4 +149,4 @@ Si vous souhaitez configurer une connexion VPN de point à site, consultez la ru
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

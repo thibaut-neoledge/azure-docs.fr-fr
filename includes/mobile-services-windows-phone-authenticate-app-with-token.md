@@ -93,4 +93,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

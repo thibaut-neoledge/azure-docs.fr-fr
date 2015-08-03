@@ -1,7 +1,9 @@
 <properties
 	pageTitle="Configurer une machine virtuelle comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
 	description="Configurez une machine virtuelle Azure pour l’utiliser dans un environnement de science des données avec un serveur IPython à des fins d’analyse avancée."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -145,4 +147,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

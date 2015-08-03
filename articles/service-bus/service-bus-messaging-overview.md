@@ -38,4 +38,4 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 - [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

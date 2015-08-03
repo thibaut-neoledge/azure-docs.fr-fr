@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2015"
+   ms.date="07/21/2015"
    ms.author="jgao"/>
 
 # Approvisionnement de clusters HBase sur Azure Virtual Network
@@ -123,15 +123,13 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 	![Fournir des détails pour le cluster HBase](./media/hdinsight-hbase-provision-vnet/hbasewizard2.png)
 
 	<table border='1'>
-		<tr><th>Propriété</th><th>Valeur</th></tr>
-		<tr><td>Nœuds de données</td><td>Sélectionnez le nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
-		<tr><td>Région/Réseau virtuel</td><td><p>Sélectionnez une région ou un réseau virtuel Azure, si vous en avez déjà créé un. Pour ce didacticiel, sélectionnez le réseau que vous avez créé précédemment, puis un sous-réseau correspondant. Le nom par défaut est <b>Sous-réseau-1</b>.</p></td></tr>
-		<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
-		<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
-		<tr><td>Taille du nœud Zookeeper</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud Zookeeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
+	<tr><th>Propriété</th><th>Valeur</th></tr>
+	<tr><td>Nœuds de données</td><td>Sélectionnez le nombre de nœuds de données que vous souhaitez déployer. À des fins de test, créez un cluster à nœud unique. <br />La limite de taille de cluster varie pour les abonnements Azure. Contactez le support de facturation Azure pour augmenter la limite.</td></tr>
+	<tr><td>Région/Réseau virtuel</td><td><p>Sélectionnez une région ou un réseau virtuel Azure, si vous en avez déjà créé un. Pour ce didacticiel, sélectionnez le réseau que vous avez créé précédemment, puis un sous-réseau correspondant. Le nom par défaut est <b>Sous-réseau-1</b>.</p></td></tr>
+	<tr><td>Taille du nœud principal</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud principal.</p></td></tr>
+	<tr><td>Taille du nœud de données</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud de données.</p></td></tr>
+	<tr><td>Taille du nœud Zookeeper</td><td><p>Sélectionnez une taille de machine virtuelle pour le nœud Zookeeper.</p></td></tr>
+</table>>[AZURE.NOTE]Selon votre choix de machines virtuelles, les coûts peuvent varier. HDInsight utilise toutes les machines virtuelles de niveau standard pour les nœuds de cluster. Pour plus d’informations sur les répercussions de la taille des machines virtuelles sur les prix, consultez <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Tarification HDInsight</a>.
 
 	Cliquez avec le bouton droit.
 
@@ -147,7 +145,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
 		<td>Spécifiez le mot de passe de cluster HDInsight.</td></tr>
 	<tr><td>Activation du Bureau à distance pour le cluster</td>
 		<td>Cochez cette case pour spécifier une date d’expiration, un nom d’utilisateur et un mot de passe pour un utilisateur de bureau à distance pouvant se connecter aux nœuds de cluster à distance, après configuration. Vous pouvez également activer le Bureau à distance ultérieurement, une fois le cluster configuré. Pour la marche à suivre, consultez <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.</td></tr>
-	</table>
+</table>
 
 6. Sur la page **Compte de stockage**, entrez les valeurs suivantes :
 
@@ -176,9 +174,7 @@ Un serveur DNS est facultatif, mais il est nécessaire dans certains cas. La pro
     </td></tr>
 	<tr><td>Comptes de stockage supplémentaires</td>
 		<td>Si nécessaire, spécifiez les comptes de stockage supplémentaires pour le cluster. HDInsight prend en charge plusieurs comptes de stockage. Le nombre de comptes de stockage supplémentaires pouvant être utilisés par un cluster n’est pas limité. Toutefois, si vous créez un cluster au moyen du portail Azure, la limite est établie à sept en raison de contraintes liées à l’interface utilisateur. Chaque compte de stockage supplémentaire que vous spécifiez dans ce champ ajoute une page <strong>Compte de stockage</strong> supplémentaire vers l’Assistant vous permettant de spécifier les informations de compte. Par exemple, dans la capture d’écran suivante, 1&#160;compte de stockage supplémentaire est sélectionné, une page est donc ajoutée à l’assistant.</td></tr>
-	</table>
-
-	Cliquez sur la flèche droite.
+</table>Cliquez sur la flèche droite.
 
 7. Sur la page **Actions de script**, activez la case à cocher dans le coin inférieur droit. Ne cliquez pas sur le bouton **Ajouter une action de script**, étant donné que ce didacticiel ne nécessite pas une configuration de cluster personnalisée.
 	
@@ -431,4 +427,4 @@ Dans ce didacticiel, vous avez appris à approvisionner un cluster HBase. Pour p
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Utilisation de l’action de script pour personnaliser un cluster HBase"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

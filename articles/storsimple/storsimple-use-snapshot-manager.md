@@ -17,7 +17,7 @@
 
 # Interface utilisateur du gestionnaire d’instantanés StorSimple
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Le Gestionnaire d’instantanés StorSimple est doté d’une interface utilisateur graphique intuitive (GUI) que vous pouvez utiliser pour gérer les copies de sauvegarde des groupes de volumes, notamment ceux qui sont stockés localement et dans le cloud. Ce didacticiel offre une présentation de l’interface, puis explique comment utiliser chacun des composants. (Pour obtenir une description détaillée du Gestionnaire d’instantanés StorSimple, consultez [Nouveautés du Gestionnaire d’instantanés StorSimple?](storsimple-what-is-snapshot-manager.md).
 
@@ -441,7 +441,7 @@ Le tableau suivant décrit les combinaisons de touches de raccourci de la barre 
 | ALT + F | Permet d’ouvrir le menu **Fichier**. | N | Ouvre une nouvelle instance de console. |
 | | | O | Ouvre la page **Outils d’administration**. |
 | | | S | Enregistre la console du Gestionnaire d’instantanés StorSimple.|
-| | | Une | Ouvre la page **Enregistrer sous**. |
+| | | A | Ouvre la page **Enregistrer sous**. |
 | | | M | Ouvre la page **Ajouter/Supprimer un composant logiciel enfichable**.|
 | | | P | Ouvre la page **Options**. |
 | | | H | Ouvre l’aide en ligne.|
@@ -450,9 +450,9 @@ Le tableau suivant décrit les combinaisons de touches de raccourci de la barre 
 | | | F | Met à jour la console du Gestionnaire d’instantanés StorSimple.|
 | | | L | Ouvre la page **Exporter la liste**. 
 | | | H | Ouvre l’aide en ligne.|
-| ALT + V | Ouvre le menu **Affichage**. | Une | Ouvre la page **Ajout/Suppression de colonnes**. |
+| ALT + V | Ouvre le menu **Affichage**. | A | Ouvre la page **Ajout/Suppression de colonnes**. |
 | | | U | Ouvre la page **Personnalisation de l’affichage**. |
-| ALT + O | Ouvre le menu **Favoris**. | Une | Ouvre la **Ajouter aux favoris**. |
+| ALT + O | Ouvre le menu **Favoris**. | A | Ouvre la **Ajouter aux favoris**. |
 | | | O | Ouvre la page **Organiser les favoris**.|
 | ALT + W | Ouvre le menu **Fenêtre**.| N | Ouvre une autre fenêtre de Gestionnaire d’instantanés StorSimple.|
 | | | C | Affiche toutes les fenêtres de console ouvertes en cascade.|
@@ -460,7 +460,7 @@ Le tableau suivant décrit les combinaisons de touches de raccourci de la barre 
 | | | I | Réorganise les icônes sur une rangée horizontale en bas de votre écran.|
 | ALT + H | Ouvre le menu **Aide**. | H | Ouvre l’aide en ligne.|
 | | | T | Ouvre la page web Microsoft TechNet Tech Center.|
-| | | Une | Ouvre la page **À propos de Microsoft Management Console**. |
+| | | A | Ouvre la page **À propos de Microsoft Management Console**. |
  
 ### Touches de raccourci du volet Étendue
 
@@ -540,4 +540,4 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 
 Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter aux appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

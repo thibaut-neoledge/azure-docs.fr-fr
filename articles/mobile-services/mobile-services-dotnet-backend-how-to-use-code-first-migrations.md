@@ -170,4 +170,4 @@ Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajout
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

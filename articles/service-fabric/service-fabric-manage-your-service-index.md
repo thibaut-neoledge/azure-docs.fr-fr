@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Gérer un service Service Fabric
@@ -30,6 +30,7 @@ Les rubriques suivantes décrivent le modèle d'application Service Fabric ainsi
 - [Ressources du manifeste de service](service-fabric-service-manifest-resources.md)
 - [Empaqueter une application](service-fabric-application-model.md)
 - [Déployer et supprimer une application](service-fabric-deploy-remove-applications.md)
+- [Déployer une application existante](service-fabric-deploy-existing-app.md)
 - [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Mettre à niveau une application
@@ -49,4 +50,4 @@ Les articles suivants décrivent la mise à l'échelle et le partitionnement :
 - [Mise à l'échelle des applications Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

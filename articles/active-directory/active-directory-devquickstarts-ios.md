@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Intégration d’Azure AD dans une application iOS
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -221,10 +223,6 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) est f
 
 [Sécurisation d’une API web Node.JS avec Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
-##Pour obtenir des ressources supplémentaires, consultez :
-- [Exemples Azure AD sur GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Documentation Azure AD sur [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

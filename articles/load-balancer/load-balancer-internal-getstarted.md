@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration d’un équilibrage de charge interne
@@ -102,7 +102,7 @@ Pour utiliser ces commandes, renseignez les valeurs et supprimez les < and >. Vo
 
 À partir de l'affichage de la commande Get-AzureInternalLoadBalancer, notez l'adresse IP et apportez les modifications nécessaires à vos serveurs ou à vos enregistrements DNS pour vous assurer que le trafic est envoyé à l'adresse IP virtuelle.
 
->[AZURE.IMPORTANT]La plateforme Microsoft Azure utilise une adresse IPv4 statique routable publiquement pour divers scénarios d’administration. L’adresse IP est 168.63.129.16. Cette adresse IP ne doit pas être bloquée par les pare-feu, car cela peut entraîner un comportement inattendu. En ce qui concerne l’équilibrage de charge Azure, cette adresse IP est utilisée par l’analyse des sondes d’équilibrage de charge, pour déterminer l’état d'intégrité pour les machines virtuelles dans un jeu d’équilibrage de charge interne. Si un groupe de sécurité réseau est utilisé pour limiter le trafic vers les machines virtuelles Azure dans un jeu d’équilibrage de charge interne, ou est appliqué à un sous-réseau de réseau virtuel, vérifiez qu’une règle de sécurité de réseau est ajoutée pour autoriser le trafic à partir de 168.63.129.16.
+>[AZURE.NOTE]La plateforme Microsoft Azure utilise une adresse IPv4 statique routable publiquement pour divers scénarios d’administration. L’adresse IP est 168.63.129.16. Cette adresse IP ne doit pas être bloquée par les pare-feu, car cela peut entraîner un comportement inattendu. En ce qui concerne l’équilibrage de charge Azure, cette adresse IP est utilisée par l’analyse des sondes d’équilibrage de charge, pour déterminer l’état d'intégrité pour les machines virtuelles dans un jeu d’équilibrage de charge interne. Si un groupe de sécurité réseau est utilisé pour limiter le trafic vers les machines virtuelles Azure dans un jeu d’équilibrage de charge interne, ou est appliqué à un sous-réseau de réseau virtuel, vérifiez qu’une règle de sécurité de réseau est ajoutée pour autoriser le trafic à partir de 168.63.129.16.
 
 
 
@@ -224,15 +224,59 @@ Voici un exemple :
 
 L’ILB est pris en charge pour les machines virtuelles et le service cloud. Un point de terminaison ILB créé dans un service cloud en dehors d'un réseau virtuel régional sera accessible uniquement dans le service cloud.
 
-La configuration de l'équilibrage de charge interne doit être définie lors de la création du premier déploiement dans le service cloud, comme illustré dans l'exemple de cmdlet ci-dessous.
+La configuration de l'ILB doit être définie lors de la création du premier déploiement dans le service cloud, comme illustré dans l'exemple ci-dessous.
 
-### Création d’un objet d’ILB local
-	$myilbconfig = New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName "MyILB"
+>[AZURE.IMPORTANT]Un réseau virtuel déjà créé pour le déploiement de cloud est requis pour exécuter les étapes ci-dessous. Pour créer l'ILB, vous aurez besoin du nom du sous-réseau et du nom du réseau virtuel.
 
-### Ajout d’un équilibrage de charge interne pour un nouveau service
+### Étape 1
 
-	New-AzureVMConfig -Name "Instance1" -InstanceSize Small -ImageName <imagename> | Add-AzureProvisioningConfig -Windows -AdminUsername <username> -Password <password> | New-AzureVM -ServiceName "Website2" -InternalLoadBalancerConfig $myilbconfig -Location "West US"
+Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l'ILB sous le dernier élément « </Role> » pour la configuration du réseau.
 
+
+
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="name of the load balancer">
+	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+ 
+
+À titre d'exemple, nous allons ajouter les valeurs pour le fichier de configuration du réseau. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test_vnet » avec un sous-réseau 10.0.0.0/24 appelé test_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
+
+	<NetworkConfiguration>
+	  <LoadBalancers>
+	    <LoadBalancer name="testLB">
+	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+	    </LoadBalancer>
+	  </LoadBalancers>
+	</NetworkConfiguration>
+
+Vous trouverez plus d'informations sur le schéma d'équilibrage de charge sous [Ajouter un équilibrage de charge](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+
+### Étape 2
+
+
+Modifiez le fichier de définition de service (.csdef) pour ajouter des points de terminaison à l'ILB. Au moment où une instance de rôle est créée, le fichier de définition de service ajoute les instances de rôle à l'ILB.
+
+
+	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+	  </Endpoints>
+	</WorkerRole>
+
+En conservant les valeurs de l'exemple ci-dessus, ajoutons les valeurs au fichier de définition de service
+
+	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+	  <Endpoints>
+	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+	  </Endpoints>
+	</WorkerRole>
+
+Le trafic réseau est équilibré à l'aide de l'équilibrage de charge testLB utilisant le port 80 pour les requêtes entrantes, avec envoi aux instances de rôle de travail sur le port 80 également.
 
 
 ## Suppression de la configuration de l’ILB
@@ -266,6 +310,7 @@ Voici un exemple :
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
+
 ## Plus d'informations sur les cmdlets ILB
 
 
@@ -286,4 +331,4 @@ Pour obtenir plus d'informations sur les cmdlets ILB, exécutez les commandes su
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

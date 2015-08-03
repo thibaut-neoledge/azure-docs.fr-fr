@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Après avoir créé la solution, procédez comme suit pour exécuter l'application :
 
-1. À partir d'une invite de commande, exécutez le service (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. À partir d'une invite de commande, exécutez le service (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copiez et collez l'adresse à partir de l'invite de commande dans un navigateur pour afficher l'image.
 
@@ -580,4 +580,4 @@ Maintenant que vous avez créé une application qui utilise le service de relais
 
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

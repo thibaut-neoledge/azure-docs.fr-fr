@@ -41,20 +41,20 @@ Lorsque vous démarrez un Runbook sur un Runbook Worker hybride, vous spécifiez
 
 Exécutez la procédure suivante pour préparer votre environnement Azure Automation pour les Runbooks Workers hybrides.
 
-#### 1\. Créer un espace de travail Azure Operational Insights
+#### 1. Créer un espace de travail Azure Operational Insights
 Si vous ne disposez pas déjà d'un espace de travail Operational Insights dans votre compte Azure, créez-en un à l'aide des instructions mentionnées dans la section [Configuration de votre espace de travail Operational Insights](../operational-insights-setup-workspace). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
 
-#### 2\. Déployer la solution Automation
+#### 2. Déployer la solution Automation
 Dans Operational Insights, la solution Automation lance les composants requis pour configurer et prendre en charge l'environnement du Runbook. Suivez les instructions fournies dans la section [Solutions Operational Insights](../operational-insights-add-solution) pour installer le pack **Azure Automation**.
 
 ### Configuration de machines locales
 Exécutez la procédure suivante pour chacune des machines locales qui jouera le rôle de Runbook Worker hybride.
 
 
-#### 1\. Installer Microsoft Management Agent
+#### 1. Installer Microsoft Management Agent
 Microsoft Management Agent connecte l'ordinateur à Operational Insights et lui permet d'exécuter la logique de solutions. Suivez les instructions fournies dans la section [Connexion directe des ordinateurs à Operational Insights](../operational-insights-direct-agent) pour installer l'agent sur la machine locale et le connecter à Operational Insights.
 
-#### 2\. Installer l'environnement de Runbook et se connecter à Azure Automation
+#### 2. Installer l'environnement de Runbook et se connecter à Azure Automation
 Lorsque vous ajoutez un ordinateur à Operational Insights, la solution Automation lance le module PowerShell **HybridRegistration** qui contient l'applet de commande **Add-HybridRunbookWorker**. Vous utilisez cette applet de commande pour installer l'environnement de Runbook sur la machine et l'inscrire auprès d'Azure Automation.
 
 Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante pour importer le module.
@@ -75,7 +75,7 @@ Exécutez ensuite l'applet de commande **Add-HybridRunbookWorker** en utilisant 
 - **Token** est la **clé d'accès primaire** dans le panneau **Gérer les clés**. Vous pouvez ouvrir le panneau Gérer les clés en cliquant sur l'icône de clé dans le panneau Éléments du compte Automation.<br><br>![Vue d'ensemble des Runbooks Workers hybrides](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3\. Installer des modules PowerShell
+#### 3. Installer des modules PowerShell
 Les Runbooks peuvent utiliser toutes les activités et applets de commande définies dans les modules installés dans votre environnement Azure Automation. Toutefois, comme ces modules ne sont pas automatiquement déployés sur les machines locales, vous devez les installer manuellement. L'exception est le module Azure qui est installé par défaut et qui permet d'accéder aux applets de commande pour l'ensemble des services et activités Azure pour Azure Automation.
 
 Étant donné que l'objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Vous pouvez vous reporter à la section [Installation de modules](http://msdn.microsoft.com/library/dd878350.aspx) pour obtenir des informations sur l'installation de modules Windows PowerShell.
@@ -136,4 +136,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -44,7 +44,7 @@ Voici une liste d’articles relatifs au travail avec les machines virtuelles da
 
 ## Planification
 
-
+[Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 [À propos des paramètres de configuration des machines virtuelles](https://msdn.microsoft.com/library/azure/dn763935.aspx)
 
@@ -136,4 +136,4 @@ Voici une liste d’articles relatifs au travail avec les machines virtuelles da
 
 [Commandes de l’interface de ligne de commande Azure pour la gestion des services](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

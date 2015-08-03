@@ -1,7 +1,9 @@
+
 <properties 
     pageTitle="Informations sur la taille des réseaux virtuels dans RemoteApp"
     description="Découvrez le nombre d’adresses IP requises pour l’exécution de RemoteApp avec un réseau virtuel" 
     services="remoteapp" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -23,4 +25,4 @@ Lorsque vous utilisez RemoteApp avec un réseau virtuel (VNET), RemoteApp utilis
 Pour chaque collection RemoteApp que vous souhaitez exécuter à capacité maximale, vous devez disposer de 100 adresses IP disponibles. Par exemple, si vous possédez une collection RemoteApp dans le plan Standard et que vous souhaitez atteindre le nombre maximal de 500 utilisateurs, vous devez disposer de 100 adresses IP pour cette collection. De même, vous devez disposer de 100 adresses IP pour une collection RemoteApp dans le plan de base, qui comprend 800 utilisateurs. Si vous pensez que le nombre d’utilisateurs sera inférieur au nombre maximal, vous pouvez réduire le nombre d’adresses IP requises par collection. La taille minimale requise du sous-réseau est de 30 adresses IP (/ 27).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

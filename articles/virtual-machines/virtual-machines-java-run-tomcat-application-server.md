@@ -159,4 +159,4 @@ Pour en savoir plus sur les autres services (stockage Azure, Service Bus, base d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

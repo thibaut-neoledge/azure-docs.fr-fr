@@ -1,3 +1,4 @@
+
 #### Pour installer des mises à jour périodiques via le portail de gestion
 
 1. À la page **Appareils**, sélectionnez l’appareil sur lequel vous souhaitez installer les mises à jour.
@@ -10,4 +11,4 @@
 
     Un message s’affiche lorsque la mise à jour est correctement installée.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

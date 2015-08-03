@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="Configuration d'Active Directory pour Azure RemoteApp" 
     description="Découvrez comment configurer Active Directory pour l'utiliser avec Azure RemoteApp." 
@@ -107,4 +108,4 @@ Dans ce cas, vérifiez les points suivants :
 Démarrez maintenant l'outil de synchronisation d'annuaires Azure et utilisez les informations d'identification **myAzureSyncUser@mydomain.com** pour la première invite (Informations d'identification d'administrateur Microsoft Azure Active Directory), puis **myDomainSyncUser@mydomain.com** pour la seconde invite.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

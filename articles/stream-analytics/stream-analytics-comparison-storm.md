@@ -589,4 +589,4 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
     </tbody>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

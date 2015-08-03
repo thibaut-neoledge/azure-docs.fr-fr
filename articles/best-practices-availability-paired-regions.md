@@ -51,35 +51,46 @@ Tableau 1 - Mise en correspondance des paires régionales Azure
 Nous vous recommandons de répliquer les charges de travail sur les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité d’Azure. Par exemple, les mises à jour planifiées du système Azure sont déployées séquentiellement (pas en même temps) entre les régions jumelées. Cela signifie que même dans les rares cas de mise à jour défectueuse, les deux régions ne sont pas affectées simultanément. En outre, dans l’éventualité d’une défaillance générale, la récupération d’au moins une région de chaque paire est prioritaire.
 
 ## Exemple de paire régionale
-La figure 2 ci-dessous illustre une paire régionale hypothétique. Les numéros verts mettent en surbrillance les activités entre les régions de trois services Azure (de stockage, de calcul et de base de données) et comment ils sont configurés pour répliquer les régions. Les avantages uniques du déploiement entre les régions jumelées sont mis en surbrillance par les nombres en orange.
+La Figure 2 ci-dessous montre une application hypothétique qui utilise les régions jumelées pour la récupération d’urgence. Les numéros verts mettent en surbrillance les activités entre les régions de trois services Azure (de stockage, de calcul et de base de données) et comment ils sont configurés pour répliquer les régions. Les avantages uniques du déploiement entre les régions jumelées sont mis en surbrillance par les nombres en orange.
 
 
 ![Vue d’ensemble des avantages des région jumelées](./media/best-practices-availability-paired-regions/PairedRegionsOverview2.png)
 
 Figure 2 – Paire régionale Azure hypothétique
 
-![1Vert](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Nous vous recommandons de déployer ces ressources dans une région jumelée pour la récupération d’urgence.
-
-![2Vert](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. GRS autorise uniquement la réplication dans la région jumelée et ne peut pas être configuré différemment. Pour plus d'informations, consultez [Options de redondance du stockage Azure](../storage/storage-redundancy.md).
-
-
-![3Vert](./media/best-practices-availability-paired-regions/3Green.png) **Bases de données SQL Azure** – Avec la géo-réplication SQL Azure, vous pouvez configurer la réplication asynchrone des transactions vers d’autres serveurs de base de données Microsoft Azure. La géo-réplication standard permet uniquement la réplication asynchrone avec la région jumelée. Avec la géo-réplication Premium, vous pouvez configurer la réplication pour n’importe quelle région du monde ; toutefois, nous vous recommandons de déployer ces ressources dans une région jumelée pour la récupération d’urgence. Pour plus d’informations, consultez la rubrique [Géo-réplication dans la base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx).
-
-![4Vert](./media/best-practices-availability-paired-regions/4Green.png) **Services de gestion indépendante** – Azure Resource Manager (ARM) fournit par nature une isolation logique des composants de gestion de service entre les régions : aucune configuration n’est requise. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
-
-## Avantages d’une région jumelée
-
+## Activités entre régions
 Conformément à la figure 2.
 
-![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) **Isolation physique** – Quand cela est possible, Azure préfère une séparation de 483 kilomètres au moins entre les centres de données d’une paire régionale, même si ce n’est pas pratique, voire impossible dans toutes les régions géographiques. La séparation physique du centre de données réduit la probabilité de catastrophes naturelles, de troubles civils, de coupures de courant ou de pannes de réseau physique affectant les deux régions en même temps. L’isolation est soumise aux contraintes géographiques (étendue, disponibilité de l’infrastructure réseau et de l’alimentation, réglementations, etc.).
+![1Vert](./media/best-practices-availability-paired-regions/1Green.png) 
+**Calcul Windows Azure (PaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez [Guide technique Azure Business Continuity](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
-![6Orange](./media/best-practices-availability-paired-regions/6Orange.png) **État cohérent de l’application ** – Si vous utilisez un service qui autorise uniquement la réplication sur une région jumelée (tel que le stockage géo-redondant), vous devez vous assurer que tous les autres services ciblent également la région jumelée pour la réplication. Cela garantit un état cohérent de l’application pendant le basculement.
-
-![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) **Ordre de récupération de la région** – En cas de panne étendue, la récupération d’une région est hiérarchisée pour chaque paire. Les applications déployées dans des régions jumelées ont la garantie que l’une des régions est récupérée en priorité. Si une application est déployée dans des régions qui ne sont pas jumelées, la récupération peut être retardée. Dans le pire des cas, les régions choisies peuvent être les deux dernières à être récupérées.
-
-![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) **Mises à jour séquentielles** – Les mises à jour planifiées du système Azure sont déployées vers les régions jumelées séquentiellement (pas en même temps) pour limiter les interruptions de service, l’effet des bogues et les échecs logiques dans les rares cas d’échec de mise à jour.
+![2Vert](./media/best-practices-availability-paired-regions/2Green.png) 
+**Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](../storage/storage-redundancy.md).
 
 
-![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
+![3Vert](./media/best-practices-availability-paired-regions/3Green.png)
+**Bases de données SQL ** – avec Azure SQL géo-réplication Standard, vous pouvez configurer la réplication asynchrone des transactions vers une région jumelée. Avec la géo-réplication Premium, vous pouvez configurer la réplication pour n’importe quelle région du monde ; toutefois, nous vous recommandons de déployer ces ressources dans une région jumelée pour la récupération d’urgence. Pour plus d’informations, consultez la rubrique [Géo-réplication dans la base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn783447.aspx).
 
-<!---HONumber=July15_HO2-->
+![4Vert](./media/best-practices-availability-paired-regions/4Green.png)
+**Azure Resource Manager (ARM)** - ARM offre par nature une isolation logique des composants de gestion de service entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
+
+## Avantages d’une région jumelée
+Conformément à la figure 2.
+
+![5Orange](./media/best-practices-availability-paired-regions/5Orange.png) 
+**Isolation physique** – Quand cela est possible, Azure préfère une séparation de 483 kilomètres (300 miles) au moins entre les centres de données d’une paire régionale, même si ce n’est pas pratique, voire impossible dans toutes les régions géographiques. La séparation physique du centre de données réduit la probabilité de catastrophes naturelles, de troubles civils, de coupures de courant ou de pannes de réseau physique affectant les deux régions en même temps. L’isolation est soumise aux contraintes géographiques (étendue, disponibilité de l’infrastructure réseau et de l’alimentation, réglementations, etc.).
+
+![6Orange](./media/best-practices-availability-paired-regions/6Orange.png)
+**Réplication fournie par plate-forme** - Certains services de stockage géo-redondant fournissent la réplication automatique à la région jumelée.
+
+![7Orange](./media/best-practices-availability-paired-regions/7Orange.png) 
+**Ordre de récupération de la région** – En cas de panne étendue, la récupération d’une région est hiérarchisée pour chaque paire. Les applications déployées dans des régions jumelées ont la garantie que l’une des régions est récupérée en priorité. Si une application est déployée dans des régions qui ne sont pas jumelées, la récupération peut être retardée. Dans le pire des cas, les régions choisies peuvent être les deux dernières à être récupérées.
+
+![8Orange](./media/best-practices-availability-paired-regions/8Orange.png) 
+**Mises à jour séquentielles** – Les mises à jour planifiées du système Azure sont déployées vers les régions jumelées séquentiellement (pas en même temps) pour limiter les interruptions de service, l’effet des bogues et les échecs logiques dans les rares cas d’échec de mise à jour.
+
+
+![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) 
+**Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
+
+<!---HONumber=July15_HO4-->

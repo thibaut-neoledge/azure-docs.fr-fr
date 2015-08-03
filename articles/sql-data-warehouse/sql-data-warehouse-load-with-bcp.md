@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -71,13 +71,15 @@ Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau 
 20150101,1,3
 ```
 
-Enregistrez-les dans votre répertoire temporaire local, C:\\Temp\\DimDate2.txt.
+Enregistrez-les dans votre répertoire temporaire local, C:\Temp\DimDate2.txt.
+
+> [AZURE.NOTE]Il est important de se souvenir que bcp.exe ne prend pas en charge le codage de fichier UTF-8. Utilisez les fichiers ASCII codés ou le codage UTF-16 pour vos fichiers lors de l’utilisation de bcp.exe.
 
 ### Étape 3 : Connecter et importer les données
 Grâce à bcp, vous pouvez connecter et importer les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Pour vérifier que les données ont été chargées, établissez préalablement une connexion avec sqlcmd, puis exécutez la commande TSQL suivante :
@@ -112,7 +114,7 @@ Dans ce didacticiel, vous allez créer un fichier de données à partir d’une 
 L’utilitaire bcp vous permet de connecter et d’exporter les données à l’aide de la commande suivante, qui remplace de manière appropriée les valeurs :
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier. Les données du fichier doivent correspondre au texte ci-dessus :
 
@@ -150,4 +152,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

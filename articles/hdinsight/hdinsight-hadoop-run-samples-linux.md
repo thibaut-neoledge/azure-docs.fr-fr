@@ -241,4 +241,4 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

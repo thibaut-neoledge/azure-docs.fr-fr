@@ -179,4 +179,4 @@ Une fois que vous avez lu attentivement ces consignes de sécurité, les étapes
 
 - Pour un appareil 8600, accédez à la page [Déballage, montage en rack et branchement des câbles de votre appareil 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

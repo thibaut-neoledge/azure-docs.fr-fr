@@ -251,4 +251,4 @@ Utilisez les commandes suivantes pour mettre à jour des données dans une table
 ##Plus d’informations sur PostgreSQL
 Vous venez de terminer l’installation de PostgreSQL dans la machine virtuelle Linux Microsoft Azure et vous pouvez maintenant l’utiliser dans Microsoft Azure. Plus d’informations sur PostgreSQL, cliquez [ici](http://www.postgresql.org/).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

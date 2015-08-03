@@ -43,11 +43,11 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |Taille de machine virtuelle (références SKU Standard)|NIC (nombre maximal autorisé par machine virtuelle)|
 |---|---|
 |Toutes les tailles de base|1|
-|A0\\très petite|1|
-|A1\\petite|1|
-|A2\\moyenne|1|
-|A3\\grande|2|
-|A4\\très grande|4|
+|A0\très petite|1|
+|A1\petite|1|
+|A2\moyenne|1|
+|A3\grande|2|
+|A4\très grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -252,4 +252,4 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 
 - Élargissez vos connaissances sur l’utilisation de [multiples cartes réseau de machines virtuelles et appliances de réseau virtuel dans Microsoft Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

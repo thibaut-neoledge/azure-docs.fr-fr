@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/08/2015"
+   ms.date="07/20/2015"
    ms.author="telmos" />
 
 # FAQ Virtual Network
@@ -23,4 +23,4 @@
 
 Pour les dernières questions sur les VPN du réseau virtuel, voir [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

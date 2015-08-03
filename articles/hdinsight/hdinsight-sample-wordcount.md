@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 #Exécution d’un exemple de comptage de mots MapReduce écrit en Java sur un cluster Hadoop dans HDinsight
 
@@ -98,7 +98,7 @@ Ce didacticiel vous explique comment exécuter un exemple de comptage de mots Ma
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	Le dossier */example/data/WordCountOutput* est le dossier de résultat spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour le résultat de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers dans le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actif est le dossier racine C. Le fichier est donc téléchargé dans le dossier *C:\\example\\data\\WordCountOutput\*.
+	Le dossier */example/data/WordCountOutput* est le dossier de résultat spécifié lors de l'exécution de la tâche MapReduce. *part-r-00000* est le nom de fichier par défaut pour le résultat de la tâche MapReduce. Le fichier est téléchargé dans la même structure de dossiers dans le dossier local. Par exemple, dans la capture d'écran suivante, le dossier actif est le dossier racine C. Le fichier est donc téléchargé dans le dossier *C:\example\data\WordCountOutput\*.
 
 5. Exécutez la commande suivante pour imprimer le fichier de sortie de la tâche MapReduce :
 
@@ -218,4 +218,4 @@ Pour suivre des didacticiels exécutant d'autres exemples et fournissant des ins
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

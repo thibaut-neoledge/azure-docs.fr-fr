@@ -28,4 +28,4 @@ La testabilité est une suite d’outils conçus pour tester vos services dével
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

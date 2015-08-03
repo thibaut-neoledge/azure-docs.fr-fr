@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # Configurer la géo-réplication HBase dans HDInsigtht
@@ -311,4 +311,4 @@ Dans ce didacticiel, vous avez vu comment configurer la réplication de HBase en
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

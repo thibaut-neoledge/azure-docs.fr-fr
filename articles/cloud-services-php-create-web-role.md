@@ -37,7 +37,7 @@ La première étape de la création d'un rôle web ou de travail PHP consiste à
 
 Pour créer un nouveau projet de service Azure, exécutez Azure PowerShell en tant qu'administrateur et exécutez la commande suivante :
 
-	PS C:>New-AzureServiceProject myProject
+	PS C:\>New-AzureServiceProject myProject
 
 Cette commande crée un répertoire (`myProject`) dans lequel vous pouvez ajouter des rôles web et de travail.
 
@@ -212,4 +212,4 @@ Pour publier votre application, vous devez d'abord importer vos paramètres de p
 [Importation de paramètres de publication]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Déploiement d'un service cloud sur Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Recherche de données dans Operational Insights
@@ -50,9 +50,9 @@ Les filtres les plus simples que vous pouvez utiliser sont des *mots clés* tels
 
 ### Pour effectuer une recherche simple
 1. Dans le portail Operational Insights, cliquez sur l’**Explorateur de données de recherche**. ![Recherche de vignette](./media/operational-insights-search/overview-search.png)
-2. Dans le champ de requête, tapez `error` puis cliquez sur **Rechercher**. ![Recherche d’erreur](./media/operational-insights-search/search-error.png) Par exemple, la requête pour `error` dans l'image suivante a retourné 100 000 enregistrements d’**événements** (collectés par la gestion du journal), 18 enregistrements d’**alertes** (générés par l'évaluation de la configuration) et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications). ![Recherche de résultats](./media/operational-insights-search/results01.png)
+2. Dans le champ de requête, tapez `error` puis cliquez sur **Rechercher**. ![Recherche d’erreur](./media/operational-insights-search/search-error.png) Par exemple, la requête pour `error` dans l'image suivante a retourné 100 000 enregistrements **Événement** (collectés par la gestion du journal), 18 enregistrements **ConfigurationAlert** (générés par l'évaluation de la configuration) et 12 enregistrements **ConfigurationChange** (capturés par le suivi des modifications). ![Recherche de résultats](./media/operational-insights-search/results01.png)
 
-Ces filtres ne sont pas vraiment des classes/types d'objet. Le *type* est simplement une balise, une propriété ou une chaîne/un nom/une catégorie, qui est attachée à un élément de données. Certains documents dans le système sont marqués en tant que **Type:Alert**, d’autres en tant que **Type:PerfHourly** ou **Type:Event** et ainsi de suite. Chaque résultat de recherche, document, enregistrement ou entrée affiche toutes les propriétés brutes et leurs valeurs pour chacun de ces éléments de données. Vous pouvez utiliser ces noms de champs pour préciser dans le filtre lorsque vous souhaitez récupérer uniquement les enregistrements dont le champ a cette valeur donnée.
+Ces filtres ne sont pas vraiment des classes/types d'objet. Le *type* est simplement une balise, une propriété ou une chaîne/un nom/une catégorie, qui est attachée à un élément de données. Certains documents dans le système sont marqués en tant que **Type:ConfigurationAlert**, d’autres en tant que **Type:PerfHourly** ou **Type:Event** et ainsi de suite. Chaque résultat de recherche, document, enregistrement ou entrée affiche toutes les propriétés brutes et leurs valeurs pour chacun de ces éléments de données. Vous pouvez utiliser ces noms de champs pour préciser dans le filtre lorsque vous souhaitez récupérer uniquement les enregistrements dont le champ a cette valeur donnée.
 
 Le *type* est simplement un champ que tous les enregistrements ont. Il n'est pas différent des autres champs. Cela a été établi suivant la valeur du champ Type. Cet enregistrement aura une autre forme. De plus, **Type=PerfHourly** ou **Type=Event** constitue également la syntaxe dont vous avez besoin pour apprendre à interroger toutes les heures des événements ou des agrégats de données de performances
 
@@ -251,6 +251,8 @@ La commande SELECT agit comme Select-Object dans PowerShell. Elle retourne des r
 
 Il s'agit d’une commande particulièrement utile lorsque vous souhaitez contrôler les résultats de recherche et choisir uniquement des portions de données qui importent vraiment pour votre exploration et qui, bien souvent, ne sont pas l’enregistrement complet. Cela est également utile lorsque des enregistrements de différents types présentent *certaines* propriétés communes, mais *toutes* leurs propriétés ne sont pas communes. Vous pouvez générer des résultats qui ressemblent plus naturellement à une table ou fonctionnent bien lorsqu’ils sont exportés vers un fichier CSV puis envoyés dans Excel.
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## Utilisation de la commande measure
 
 MEASURE est une des commandes les plus polyvalentes dans les recherches d’Operational Insights. Elle vous permet d'appliquer des *fonctions* statistiques à vos données et de regrouper des résultats par champ donné. Il existe plusieurs fonctions statistiques qui prennent en charge Measure.
@@ -274,13 +276,13 @@ C'est ce que la commande Measure permet de faire avec la fonction count(). Cette
 
 ![Recherche measure count](./media/operational-insights-search/search-measure-count-computer.png)
 
-Toutefois, le champ **Ordinateur** est simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée et il n'existe aucun objet distinct **Ordinateur** en aucun emplacement. Seules les valeurs *dans* les données peuvent décrire quelle entité les a générée, ainsi que plusieurs autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d'origine des près de 3 millions d’événements transmis dans la commande Measure ont également un champ appelé **EventID**, vous pouvez appliquer la même technique pour les regrouper par ce champ et obtenir le nombre d'événements par ID d'événement :
+Toutefois, le champ **Ordinateur** est simplement un champ utilisé *dans* chaque élément de données : aucune base de données relationnelle n’est impliquée et il n'existe aucun objet distinct **Ordinateur** en aucun emplacement. Seules les valeurs *dans* les données peuvent décrire quelle entité les a générées, ainsi que plusieurs autres caractéristiques et aspects des données, d’où le terme *facette*. Toutefois, vous pouvez également les regrouper par d'autres champs. Étant donné que les résultats d'origine des près de 3 millions d’événements transmis dans la commande Measure ont également un champ appelé **EventID**, vous pouvez appliquer la même technique pour les regrouper par ce champ et obtenir le nombre d'événements par ID d'événement :
 
 ```
 Type=Event | Measure count() by EventID
 ```
 
-Si vous n'êtes pas intéressé par le nombre d'enregistrements réels qui contiennent une valeur spécifique, mais que vous souhaitez seulement une liste de valeurs elles-mêmes, vous pouvez ajouter une commande *Sélect*à la fin de celle-ci et simplement sélectionner la première colonne :
+Si vous n'êtes pas intéressé par le nombre d'enregistrements réels qui contiennent une valeur spécifique, mais que vous souhaitez seulement une liste de valeurs elles-mêmes, vous pouvez ajouter une commande *Sélect* à la fin de celle-ci et simplement sélectionner la première colonne :
 
 ```
 Type=Event | Measure count() by EventID | Select EventID
@@ -309,10 +311,10 @@ Ensuite, la fonction **Measure count** ne retourne pour le moment que les 100 p
 
 Il existe plusieurs scénarios pour lesquels **Measure Max()** et **Measure Min()** sont utiles. Toutefois, étant donné que chaque fonction est l'opposé de l'autre, nous démontrerons la fonction Max() et vous pourrez ensuite tester vous-même la fonction Min().
 
-Si vous interrogez des alertes de l'évaluation de la configuration, celles-ci ont une propriété **Severity** qui peut être de 0, 1 ou 2 et qui indiquent une information, un avertissement ou un état critique. Par exemple :
+Si vous interrogez des alertes de l'évaluation de la configuration, celles-ci ont une propriété **Severity** qui peut être de 0, 1 ou 2 et qui indique une information, un avertissement ou un état critique. Par exemple :
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![Recherche du début de la fonction measure count](./media/operational-insights-search/search-measure-max01.png)
@@ -320,7 +322,7 @@ Type=Alert
 Si vous souhaitez afficher la valeur la plus élevée pour toutes les alertes pour un même ordinateur, puis les grouper par champ, vous pouvez utiliser :
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![Recherche l’ordinateur de la fonction measure max](./media/operational-insights-search/search-measure-max02.png)
@@ -328,7 +330,7 @@ Type=Alert | Measure Max(Severity) by Computer
 Il affichera que, pour les ordinateurs ayant des enregistrements d’**alerte**, la plupart d'entre eux ont au moins une alerte critique, et que l'ordinateur Bacc indique un avertissement comme niveau de gravité le plus élevé.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![Recherche l’ordinateur qui génère la valeur horaire measure max](./media/operational-insights-search/search-measure-max03.png)
@@ -364,7 +366,7 @@ Dans l'image ci-dessus, il existe deux ensembles de champs marqués qui indiquen
 - dans la requête, **Type=PerfHourly** est un agrégat de toutes les heures
 - **TimeGenerated** est défini à 21:00, au format 24 heures. Il s’agit de l'agrégation pour cette période horaire de 20:00 à 21:00.
 - **SampleCount** est l'agrégation, calculée à l'aide de 12 échantillons (un toutes les 5 minutes)
-- les valeurs **min**, **max**, et **Percentile95** pour la période horaire était, pour cet exemple de mémoire sur une machine virtuelle, de 6144 (mégaoctets)
+- les valeurs **min**, **max**, et **Percentile95** pour la période horaire étaient, pour cet exemple de mémoire sur une machine virtuelle, de 6144 (mégaoctets)
 - **SampleValue** est un agrégat de toutes les heures et il est rempli avec la *moyenne* pour la période horaire et correspond à ce qui est utilisé pour tracer les graphiques de performances
 
 Après avoir lu ce qui concerne la forme d'enregistrement PerfHourly et ce qui concerne d'autres techniques de recherche, vous pouvez utiliser measure Avg() pour agréger ce type de données numériques.
@@ -612,7 +614,7 @@ Vous pouvez chaîner les opérateurs mathématiques Date/Heure, par exemple :
 
 Le tableau suivant répertorie les unités Date/Heure prises en charge.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unité Date/Heure </th> <th>Description </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arrondit à l'année en cours ou décale du nombre d’années spécifié.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arrondit au mois en cours ou décale du nombre de mois spécifié.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE </p></td> <td> <p>Arrondit au jour du mois en cours ou décale du nombre de jours spécifié.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arrondit à l’heure en cours ou décale du nombre de d’heures spécifié.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arrondit à la minute en cours ou décale du nombre de minutes spécifié.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Arrondit à la seconde en cours ou décale du nombre de secondes spécifié.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS</p> </td> <td> <p>Arrondit à la milliseconde en cours ou décale du nombre de millisecondes spécifié.</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unité Date/Heure </th> <th>Description </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arrondit à l'année en cours ou décale du nombre d’années spécifié.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arrondit au mois en cours ou décale du nombre de mois spécifié.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE </p></td> <td> <p>Arrondit au jour du mois en cours ou décale du nombre de jours spécifié.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arrondit à l’heure en cours ou décale du nombre d’heures spécifié.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arrondit à la minute en cours ou décale du nombre de minutes spécifié.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Arrondit à la seconde en cours ou décale du nombre de secondes spécifié.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Arrondit à la milliseconde en cours ou décale du nombre de millisecondes spécifié.</p> </td> </tr> </table>
 
 
 #### Facettes de champ
@@ -688,7 +690,7 @@ Exemples :
 Vous pouvez omettre l'opérateur logique pour les arguments de filtre de niveau supérieur. Dans ce cas, l'opérateur AND est supposé.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expression de filtre</th> <th>Équivaut à</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system &quot; Windows Server&quot; OR Severity:1</p> </td> <td> <p>system AND (&quot;Windows Server&quot; OR Severity:1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expression de filtre</th> <th>Équivaut à</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -764,7 +766,7 @@ Syntaxe :
 Agrège les résultats par valeur de **groupField** et calcule les valeurs de mesure agrégées à l'aide de **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d'agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ en cours d’agrégation. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S’il n’est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l'intervalle</p> <p>Les noms d’intervalle pris en charge sont les suivants (respectent la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOURE[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d’agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ en cours d’agrégation. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S’il n’est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l’intervalle</p> <p>Les noms d’intervalle pris en charge sont les suivants (respectent la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
@@ -860,7 +862,7 @@ Syntaxe :
 
 **where** AggregatedValue>20
 
-Peut être utilisée uniquement après une commande **Measure** pour filtrer davantage les résultats agrégés que la fonction d’agrégation **Measure** a produit.
+Peut être utilisée uniquement après une commande **Measure** pour filtrer davantage les résultats agrégés que la fonction d’agrégation **Measure** a produits.
 
 Exemples :
 
@@ -2028,7 +2030,7 @@ Lorsque vous utilisez la fonction de recherche pour rechercher des données, les
 </table>
 
 ## Billets de blog - Cas d’utilisation de Recherche
-- [Recherche de journaux IIS W3C dans Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
+- [Recherche de journaux IIS W3C dans Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
 - [Surveillance des échecs de sauvegarde de SQL avec la Recherche et les tableaux de bord Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
 - [Équivalents de recherches OpInsights des règles d’alertes d’événements de pack d’administration IIS](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Collection de requêtes de recherche Operational Insights utiles](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
@@ -2036,4 +2038,4 @@ Lorsque vous utilisez la fonction de recherche pour rechercher des données, les
 ## Autres ressources
 Stefan Roth a créé un aide-mémoire de recherche pratique. Découvrez son [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) pour en savoir plus et télécharger son aide-mémoire.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

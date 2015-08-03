@@ -115,4 +115,4 @@ Une fois que vos clients ont eu l'occasion de recevoir ces mises à jour, vous p
 [tâche web]: ../app-service-web/websites-webjobs-resources.md
 [Envoi de notifications push interplateformes]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

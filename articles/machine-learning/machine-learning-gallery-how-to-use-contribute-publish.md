@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -58,7 +58,9 @@ Procédez comme suit :
 
 - Connectez-vous au studio à l'aide de votre compte Microsoft (veillez à ce que votre image de profil et votre nom dans les paramètres de profil de votre compte Microsoft s'affichent comme vous le souhaitez)
 - Créez votre expérience et exécutez-la
-- Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur Publier dans la galerie dans la barre noire inférieure de Studio. ![Publier](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) Vous n'avez plus qu'à l'utiliser !
+- Lorsque vous êtes prêt à publier votre expérience dans la galerie, cliquez sur « Publier dans la galerie » dans la barre noire inférieure de Studio. ![Publier](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
+Vous n’avez plus qu’à l’utiliser !
 
 ## Nous attendons votre avis ! 
 Nous souhaitons que la galerie soit gérée par nos utilisateurs, pour nos utilisateurs. Utilisez l'émoticône sur la droite pour nous dire ce que vous adorez ou ce que vous détestez à propos de la galerie.
@@ -111,4 +113,4 @@ Le rendu de la description complète n'est pas disponible de façon étendue à 
 **[ALLER À LA GALERIE >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

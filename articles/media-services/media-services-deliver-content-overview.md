@@ -205,4 +205,4 @@ Publiez des ressources (en créant des localisateurs) à l’aide du **portail d
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

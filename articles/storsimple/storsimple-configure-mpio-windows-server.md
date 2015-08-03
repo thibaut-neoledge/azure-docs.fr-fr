@@ -168,4 +168,4 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

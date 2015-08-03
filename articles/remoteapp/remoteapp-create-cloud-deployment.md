@@ -93,4 +93,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection cl
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -35,32 +35,39 @@ Nous devons créer une expérience dans ML Studio, qui utilise le jeu de donnée
 
 1.	Dans ML Studio, cliquez sur **+NOUVEAU** en bas de la fenêtre.
 2.	Sélectionnez **EXPÉRIENCE**, puis sélectionnez « Expérience vide ». Sélectionnez le nom d’expérience par défaut, situé en haut de la zone de dessin, et remplacez-le par un nom significatif.
+
+	> [AZURE.TIP]Il est conseillé de compléter le **Résumé** et la **Description** relatifs à l'expérience dans le panneau **Propriétés**. Ces propriétés vous donnent la possibilité de documenter l'expérience afin que toute personne la consultant ultérieurement comprenne vos objectifs et votre méthodologie.
+
 3.	Dans la palette des modules à gauche du canevas d'expérience, développez **Jeux de données enregistrés**.
-4.	Recherchez le jeu de données que vous avez créé et faites-le glisser sur le canevas. Vous pouvez également le rechercher en entrant son nom dans la zone **Rechercher** au-dessus de la palette.  
+4.	Recherchez le jeu de données que vous avez créé sous **My Datasets** (Mes jeux de données) et faites-le glisser sur la zone de dessin. Vous pouvez également le rechercher en entrant son nom dans la zone **Rechercher** au-dessus de la palette.  
 
 ##Préparation des données
-Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données en cliquant avec le bouton droit sur le port de sortie du jeu de données et en sélectionnant **Visualiser**. Notez que ML Studio a déjà identifié le type de données pour chaque colonne. Il a également donné des en-têtes génériques aux colonnes, car le fichier de données n'en avait pas.
+Vous pouvez voir les 100 premières lignes de données et quelques informations statistiques concernant tout le jeu de données en cliquant sur le port de sortie du jeu de données et en sélectionnant **Afficher les résultats**. Notez que ML Studio a déjà identifié le type de données pour chaque colonne. Il a également donné des en-têtes génériques aux colonnes, car le fichier de données n'en avait pas.
 
 Les en-têtes de colonne ne sont pas essentiels, mais ils facilitent l'utilisation des données dans le modèle. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l'utilisateur du service d'identifier les colonnes.
 
-Nous pouvons ajouter des en-têtes de colonne en utilisant le module [Éditeur de métadonnées][metadata-editor]. Le module [Éditeur de métadonnées][metadata-editor] est utilisé pour modifier les métadonnées associées à un groupe de données. Dans ce cas, il peut fournir plus de noms conviviaux pour les en-têtes de colonne. Pour ce faire, nous allons indiquer à l’[Éditeur de métadonnées][metadata-editor] d’agir sur toutes les colonnes et de fournir une liste de noms à ajouter aux colonnes.
+Nous pouvons ajouter des en-têtes de colonne en utilisant le module [Éditeur de métadonnées][metadata-editor]. Le module [Éditeur de métadonnées][metadata-editor] est utilisé pour modifier les métadonnées associées à un jeu de données. Dans ce cas, il peut fournir plus de noms conviviaux pour les en-têtes de colonne. Pour ce faire, nous allons indiquer à l'[Éditeur de métadonnées][metadata-editor] d'agir sur toutes les colonnes et de fournir une liste de noms à ajouter aux colonnes.
 
 1.	Dans la palette des modules, tapez « métadonnées » dans la zone **Rechercher**. L'[Éditeur de métadonnées][metadata-editor] est affiché dans la liste des modules.
 2.	Cliquez sur le module [Éditeur de métadonnées][metadata-editor] et faites-le glisser sur le canevas avant de le déposer sous le jeu de données.
-3.	Connectez le jeu de données à l’[Éditeur de métadonnées][metadata-editor] : cliquez sur le port de sortie du jeu de données, faites-le glisser sur le port d’entrée de l’[Éditeur de métadonnées][metadata-editor], puis relâchez le bouton de la souris. Le jeu de données et le module restent connectés même si vous opérez des déplacements sur le canevas.
-4.	L’[Éditeur de métadonnées][metadata-editor] étant toujours sélectionné, dans le volet **Propriétés** à droite du canevas, cliquez sur **Lancer le sélecteur de colonne**.
+3.	Connectez le jeu de données à l'[Éditeur de métadonnées][metadata-editor] : cliquez sur le port de sortie du jeu de données, faites-le glisser sur le port d’entrée de l'[Éditeur de métadonnées][metadata-editor], puis relâchez le bouton de la souris. Le jeu de données et le module restent connectés même si vous opérez des déplacements sur le canevas.
+4.	L'[Éditeur de métadonnées][metadata-editor] étant toujours sélectionné, dans le panneau **Propriétés** à droite de la zone de dessin, cliquez sur **Lancer le sélecteur de colonne**.
 5.	Dans la boîte de dialogue **Sélection des colonnes**, définissez le champ **Commencer par** sur « Toutes les colonnes ».
-6.	La ligne en dessous de **Commencer par** vous permet d’inclure ou d’exclure des colonnes spécifiques que l’[Éditeur de métadonnées][metadata-editor] doit modifier. Étant donné que nous voulons modifier toutes les colonnes, supprimez cette ligne en cliquant sur le signe moins (« - ») à droite de la ligne. La boîte de dialogue doit ressembler à ceci : ![Sélecteur de colonnes avec toutes les colonnes sélectionnées][4]
+6.	La ligne en dessous de **Commencer par** vous permet d'inclure ou d'exclure des colonnes spécifiques que l'[Éditeur de métadonnées][metadata-editor] doit modifier. Étant donné que nous voulons modifier toutes les colonnes, supprimez cette ligne en cliquant sur le signe moins (« - ») à droite de la ligne. La boîte de dialogue doit ressembler à ceci : ![Sélecteur de colonnes avec toutes les colonnes sélectionnées][4]
 7.	Cliquez sur la coche **OK**. 
-8.	Dans le panneau **Propriétés**, recherchez le paramètre **Nouveau nom de colonne**. Dans ce champ, entrez une liste de noms pour les 21 colonnes du jeu de données, séparés par des virgules et dans l’ordre de la colonne. Vous pouvez obtenir le nom des colonnes dans la documentation du jeu de données sur le site web UCI ou, par commodité, vous pouvez copier et coller ce qui suit :  
+8.	Dans le panneau **Propriétés**, recherchez le paramètre **Nouveaux noms de colonne**. Dans ce champ, entrez une liste de noms pour les 21 colonnes du jeu de données, séparés par des virgules et dans l’ordre de la colonne. Vous pouvez obtenir le nom des colonnes dans la documentation du jeu de données sur le site web UCI ou, par commodité, vous pouvez copier et coller ce qui suit :  
 
+<!-- try the same thing without upper-case 
 		Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+-->
+
+	status of checking account, duration in months, credit history, purpose, credit amount, savings account/bond, present employment since, installment rate in percentage of disposable income, personal status and sex, other debtors, present residence since, property, age in years, other installment plans, housing, number of existing credits, job, number of people providing maintenance for, telephone, foreign worker, credit risk  
 
 Le volet Propriétés ressemble à ceci :
 
 ![Properties for Metadata Editor][1]
 
-> [AZURE.TIP]Pour vérifier les en-têtes de colonne, lancez l’expérience (cliquez sur **EXÉCUTER** sous le canevas de l’expérience), cliquez avec le bouton droit sur le port de sortie du module [Éditeur de métadonnées][metadata-editor] et sélectionnez **Visualiser**. Vous pouvez voir la sortie de tous les modules en procédant de même pour afficher la progression des données dans l'expérience.
+> [AZURE.TIP]Pour vérifier les en-têtes de colonne, lancez l'expérience (cliquez sur **EXÉCUTER** sous la zone de dessin de l'expérience), cliquez sur le port de sortie du module [Éditeur de métadonnées][metadata-editor] et sélectionnez **Afficher les résultats**. Vous pouvez voir la sortie de tous les modules en procédant de même pour afficher la progression des données dans l'expérience.
 
 L'expérience doit ressembler à ceci :
 
@@ -71,7 +78,7 @@ L'étape suivante de l'expérience consiste à générer des jeux de données s�
 
 1.	Recherchez le module [Fractionner][split], faites-le glisser sur le canevas, et connectez-le au dernier module [Éditeur de métadonnées][metadata-editor].
 2.	Par défaut, le rapport de division est 0,5 et le paramètre **Fractionnement aléatoire** est défini. Cela signifie qu'une moitié aléatoire des données est sortie par un port du module [Fractionner][split], et l'autre moitié par l'autre port. Vous pouvez ajuster ces paramètres, de même que le paramètre **Valeur de départ aléatoire**, pour changer la répartition entre les données d'apprentissage et de notation. Pour cet exemple, nous ne changeons rien.
-	> [AZURE.TIP] le rapport de division détermine essentiellement la quantité de données sortie par le port de sortie gauche.Par exemple, si vous définissez le rapport sur 0,7, 70 % des données sont sorties par le port gauche et 30 % par le port droit.
+	> [AZURE.TIP]  
 	
 Nous pouvons utiliser les sorties du module [Fractionner][split] à notre gré, mais choisissons la sortie gauche pour les données d'apprentissage et la sortie droite pour les données de notation.
 
@@ -79,8 +86,8 @@ Comme indiqué sur le site web UCI, le coût d'une erreur consistant à classer 
 
 Nous pouvons procéder à la réplication en utilisant le code R :
 
-1.	Recherchez et faites glisser le module [Exécuter un script R][execute-r-script] vers le canevas d'expérience et connectez-le au port de sortie gauche du module [Fractionner][split].
-2.	Dans le volet **Propriétés**, supprimez le texte par défaut du paramètre **Script** et entrez le script suivant : 
+1.	Recherchez et faites glisser le module [Exécuter un script R][execute-r-script] vers la zone de dessin de l'expérience et connectez le port de sortie gauche du module [Fractionner][split] au premier port d'entrée (« Dataset1 ») du module [Exécuter un script R][execute-r-script].
+2.	Dans le panneau **Propriétés**, supprimez le texte par défaut du paramètre **Script R** et entrez le script suivant : 
 
 		dataset1 <- maml.mapInputPort(1)
 		data.set<-dataset1[dataset1[,21]==1,]
@@ -93,7 +100,7 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
 
 1.	Cliquez avec le bouton droit sur le module [Exécuter un script R][execute-r-script] et sélectionnez **Copier**.
 2.	Cliquez avec le bouton droit sur le canevas d'expérience et sélectionnez **Coller**.
-3.	Connectez ce module [Exécuter un script R][execute-r-script] au port de sortie droit du module [Fractionner][split].  
+3.	Connectez le premier port d'entrée de ce module [Exécuter un script R][execute-r-script] au port de sortie droit du module [Fractionner][split].  
 
 > [AZURE.TIP]La copie du Module d’exécution de script R contient le même script que le module d’origine. Lorsque vous copiez-collez un module sur le canevas, la copie conserve toutes les propriétés de l'original.
 >
@@ -101,9 +108,9 @@ Nous devons répéter cette opération de réplication pour chaque sortie du mod
  
 ![Adding Split module and R scripts][3]
 
-Pour plus d’informations sur l’utilisation de scripts R dans vos expériences, consultez la page [Prolonger votre expérience avec R](machine-learning-extend-your-experiment-with-r.md).
+Pour plus d’informations sur l'utilisation de scripts R dans vos expériences, consultez la page [Prolonger votre expérience avec R](machine-learning-extend-your-experiment-with-r.md).
 
-**Suite : [Former et évaluer les modèles](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
+**Suite : [Formation et évaluation des modèles](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
 
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png
@@ -118,4 +125,4 @@ Pour plus d’informations sur l’utilisation de scripts R dans vos expérience
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

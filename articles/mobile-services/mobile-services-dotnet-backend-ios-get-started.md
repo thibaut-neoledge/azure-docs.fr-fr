@@ -101,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

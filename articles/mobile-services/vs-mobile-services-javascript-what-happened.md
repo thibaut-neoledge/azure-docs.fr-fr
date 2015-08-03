@@ -46,4 +46,4 @@ Dans le dossier des services, les fichiers de configuration des services connect
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

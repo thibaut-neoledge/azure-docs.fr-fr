@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Migration effectuée à l’aide de Visual Studio et SSDT" 
-   description="Base de données SQL Microsoft Azure, migration de base de données, importer une base de données, exporter une base de données, assistant de migration" 
+   description="Microsoft Azure SQL Database, migration de base de données, importer une base de données, exporter une base de données, assistant de migration" 
    services="sql-database" 
    documentationCenter="" 
    authors="pehteh" 
@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-#Mettre à jour la base de données existante et la déployer dans la base de données SQL Microsoft Azure
+#Mettre à jour la base de données existante et la déployer dans Azure SQL Database
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-L’utilisation de cette option lors de la migration d’une base de données vers la base de données SQL Microsoft Azure version 12 nécessite l’apport de diverses modifications au schéma, qui ne peuvent pas être gérées via l’Assistant Migration SQL Azure (SAMW). Cela se produit si la base de données utilise les fonctionnalités de SQL Server qui ne sont pas (ou pas encore) prises en charge par la base de données SQL Microsoft Azure. Dans le cadre de cette option, vous utilisez tout d’abord Visual Studio pour créer un projet de base de données à partir de la base de données source. La plateforme du projet cible est alors définie sur la base de données SQL Microsoft Azure version 12 et le projet est généré pour identifier tous les problèmes de compatibilité. L’outil SAMW peut résoudre nombre d’entre eux, mais pas tous. Il est donc utilisé pour traiter tous les scripts des projets lors d’un premier passage. Le recours à cet outil n’est pas obligatoire, mais il est fortement recommandé. En générant le projet une fois le traitement des fichiers de script par SAMW terminé, vous pouvez identifier les problèmes restants, qui doivent ensuite être traités manuellement par le biais des outils de modification du code T-SQL dans Visual Studio. Une fois le projet correctement généré, le schéma est publié vers une copie (opération recommandée) de la base de données source, afin de mettre à jour son schéma et ses données in situ. La base de données mise à jour est ensuite déployée sur Microsoft Azure, de manière directe ou via l’importation d’un fichier BACPAC, au moyen des techniques décrites dans l’option n° 1.
+Utilisez cette option lorsque la migration d’une base de données V12 vers Azure SQL Database nécessite des modifications de schéma qui ne peuvent pas être résolues à l’aide de l’Assistant Migration SQL Azure, car la base de données utilise les fonctionnalités de SQL Server qui ne sont pas prises en charge dans Azure SQL Database. Dans le cadre de cette option, vous utilisez tout d’abord Visual Studio pour créer un projet de base de données à partir de la base de données source. La plateforme du projet cible est alors définie sur Azure SQL Database V12 et le projet est généré pour identifier tous les problèmes de compatibilité. L’Assistant Migration SQL Azure peut résoudre de nombreux problèmes de compatibilité, mais pas tous. Il est donc utilisé pour traiter tous les scripts des projets lors d’un premier passage. Le recours à cet outil n’est pas obligatoire, mais il est fortement recommandé. En générant le projet une fois le traitement des fichiers de script par l’Assistant Migration SQL Azure terminé, vous pouvez identifier les problèmes restants, qui doivent ensuite être traités manuellement par le biais des outils de modification du code Transact-SQL dans Visual Studio. Une fois le projet correctement généré, le schéma est publié vers une copie (opération recommandée) de la base de données source, afin de mettre à jour son schéma et ses données in situ. La base de données mise à jour est ensuite déployée sur Microsoft Azure, de manière directe ou via l’importation d’un fichier BACPAC, au moyen des techniques décrites dans l’option n° 1.
  
 Comme cette option implique la mise à jour du schéma de la base de données in situ avant tout déploiement sur Microsoft Azure, nous vous recommandons vivement d’effectuer cette opération sur une copie de la base de données. L’outil de comparaison de schémas de Visual Studio permet de vérifier l’ensemble des modifications qui seront appliquées à la base de données avant de publier le projet.
 
-Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, mais il est fortement recommandé. L’outil SAMW détecte les problèmes de compatibilité présents dans le corps des fonctions, des procédures stockées et des déclencheurs. Sans cet outil, ces problèmes passeraient inaperçus jusqu’au déploiement. Si le déploiement d’un schéma uniquement est requis, le schéma mis à jour peut être directement publié depuis Visual Studio vers la base de données SQL Microsoft Azure.
+Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, mais il est fortement recommandé. L’outil SAMW détecte les problèmes de compatibilité présents dans le corps des fonctions, des procédures stockées et des déclencheurs. Sans cet outil, ces problèmes passeraient inaperçus jusqu’au déploiement.
+
+Si le déploiement d’un schéma uniquement est requis, le schéma mis à jour peut être directement publié depuis Visual Studio vers Azure SQL Database.
 
 ## Étapes de la migration
 
@@ -32,7 +34,7 @@ Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
-2.	Configurez les paramètres d’importation sur la valeur **Importer uniquement les objets de portée application**. Présélectionnez les options d’importation des connexions référencées, des autorisations et des paramètres de base de données.
+2.	Configurez les paramètres d’importation sur la valeur **Importer uniquement les objets de portée application**. Décochez les options d’importation des connexions référencées, des autorisations et des paramètres de base de données.
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
@@ -40,7 +42,7 @@ Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/04MigrateSSDT.png)
 
-4.	Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit de la souris sur le projet de base de données, puis sélectionnez Propriétés. La page **Paramètres du projet** s’ouvre, vous permettant de définir le champ Plateforme cible sur la base de données SQL Microsoft Azure version 12.
+4.	Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit de la souris sur le projet de base de données, puis sélectionnez Propriétés. La page **Paramètres du projet** s’ouvre, vous permettant de définir le champ Plateforme cible sur Microsoft Azure SQL Database V12.
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/05MigrateSSDT.png)
 
@@ -59,10 +61,10 @@ Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->Vous pouvez constater que des copies temporaires des fichiers d’origine (avant traitement) et des fichiers affectés par la transformation sont créées aux emplacements signalés sur la partie supérieure de la page.
+> [AZURE.NOTE]Les copies temporaires des fichiers d’origine (avant traitement) et des fichiers affectés par la transformation sont créées aux emplacements signalés sur la partie supérieure de la page.
 
-10.	Cliquez sur Remplacer, puis sur OK (dans la boîte de dialogue de confirmation) pour remplacer les fichiers d’origine par les fichiers modifiés. Remarque : seuls les fichiers modifiés seront remplacés.
-11.	Facultatif. Utilisez l’outil de comparaison de schémas pour comparer le projet avec un instantané antérieur ou avec la base de données d’origine, afin de savoir quelles modifications ont été apportées par l’Assistant. Il peut également être souhaitable de créer un autre instantané à ce stade. 
+10.	Cliquez sur **Remplacer**, puis sur **OK** (dans la boîte de dialogue de confirmation) pour remplacer les fichiers d’origine par les fichiers modifiés. Seuls les fichiers réellement modifiés seront remplacés.
+11.	facultatif. Utilisez l’outil de comparaison de schémas pour comparer le projet avec un instantané antérieur ou avec la base de données d’origine, afin de savoir quelles modifications ont été apportées par l’Assistant. Il peut également être souhaitable de créer un autre instantané à ce stade. 
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
 
@@ -79,20 +81,18 @@ Le recours à l’Assistant Migration SQL Azure (SAMW) n’est pas obligatoire, 
 
 ## Validation de la migration
 
-Une fois que vous avez terminé la migration, il est conseillé de comparer le schéma figurant au sein de la base de données migrée avec celui de la base de données source, afin de vous familiariser avec toutes les modifications qui ont été apportées. Vous pouvez ainsi vous assurer qu’elles se présentent comme il convient et n’entraîneront aucun problème lors de la migration des applications vers la nouvelle base de données. Pour effectuer cette comparaison, vous pouvez utiliser l’outil de comparaison de schémas inclus avec les outils SQL Server dans Visual Studio. Vous pouvez comparer la base de données, dans la base de données SQL Microsoft Azure, avec la base de données SQL Server d’origine ou avec un instantané créé lors de la première importation de la base de données dans le projet.
+Une fois que vous avez terminé la migration, il est conseillé de comparer le schéma figurant au sein de la base de données migrée avec celui de la base de données source, afin de vous familiariser avec toutes les modifications qui ont été apportées. Vous pouvez ainsi vous assurer qu’elles se présentent comme il convient et n’entraîneront aucun problème lors de la migration des applications vers la nouvelle base de données. Pour effectuer cette comparaison, vous pouvez utiliser l’outil de comparaison de schémas inclus avec les outils SQL Server dans Visual Studio. Vous pouvez comparer la base de données dans Azure SQL Database avec la base de données SQL Server d’origine ou avec un instantané créé lors de la première importation de la base de données dans le projet.
 
-1.	Connectez-vous au serveur de la base de données SQL Microsoft Azure qui contient la base de données migrée, puis recherchez la base de données. 
+1.	Connectez-vous au serveur dans la base de données SQL Azure qui contient la base de données migrée, puis recherchez la base de données. 
 
 2.	Cliquez avec le bouton droit de la souris sur la base de données et sélectionnez **Comparaison de schémas...** Une nouvelle fenêtre de comparaison de schémas s’affiche, la base de données Microsoft Azure étant sélectionnée en tant que source sur le côté gauche. Dans la liste déroulante Sélectionner cible affichée sur le côté droit, sélectionnez la base de données cible ou le fichier d’instantané avec lesquels effectuer la comparaison.
 
-3.	Une fois les systèmes source et cible sélectionnés, cliquez sur Comparer pour démarrer la comparaison. Le chargement d’un schéma depuis une base de données complexe dans la base de données SQL Microsoft Azure peut prendre un certain temps. Or, le chargement du schéma et l’exécution d’autres tâches sur les métadonnées au sein d’une base de données SQL Microsoft Azure peuvent s’avérer plus rapides et présenter un niveau de tarification plus élevé.
+3.	Une fois les systèmes source et cible sélectionnés, cliquez sur Comparer pour démarrer la comparaison. Le chargement d’un schéma depuis une base de données complexe vers Azure SQL Database peut prendre un certain temps. Or, le chargement du schéma et l’exécution d’autres tâches sur les métadonnées au sein d’une base de données SQL Azure peuvent s’avérer plus rapides et présenter un niveau de tarification plus élevé.
 
 4.	Une fois que la comparaison terminée, examinez les différences. En général, nous vous recommandons d’éviter d’apporter des modifications à l’un ou l’autre des schémas, sauf en cas de doute sérieux.
 
-Dans la comparaison de schémas ci-dessous, la base de données « Adventure Works 2014 », dans la base de données SQL Microsoft Azure version 12, sur la gauche, a été transformée et migrée par l’Assistant Migration SQL Azure ; elle est comparée à la base de données source dans SQL Server, sur la droite.
+Dans la comparaison de schémas ci-dessous, la base de données « Adventure Works 2014 » dans Azure SQL Database V12, sur la gauche, a été transformée et migrée par l’Assistant Migration SQL Azure ; elle est comparée à la base de données source dans SQL Server, sur la droite.
 
 ![alt text](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -11,7 +11,7 @@
 
 Azure Backup est profondément intégré au service Azure Import/Export qui vous permet de transférer rapidement les données de sauvegarde initiales. Si vous devez transférer des téraoctets de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le service Azure Import/Export pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. Cet article fournit une vue d’ensemble des étapes requises pour effectuer ce flux de travail.
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Avec Azure Backup et Azure Import/Export, vous téléchargez simplement et directement les données dans Azure en mode hors connexion par le biais de disques. Au lieu de transférer la copie initiale complète sur le réseau, les données de sauvegarde sont écrites dans un *emplacement intermédiaire*. L’emplacement intermédiaire peut être un dispositif de stockage attaché ou un partage réseau. Une fois la copie initiale terminée, l’*outil Azure Import/Export* écrit ces données sur un disque SATA qui est expédié au centre de données Azure. Selon la taille de la sauvegarde initiale, un ou plusieurs disques SATA peuvent être requis pour effectuer cette opération. L’outil Azure Import/Export prend en charge ces scénarios. Une fois les sauvegardes écrites sur le disque, celui-ci peut être envoyé au centre de données le plus proche pour le téléchargement sur Azure. Azure Backup copie ensuite les données de sauvegarde dans l’archivage de sauvegarde et des sauvegardes incrémentielles sont planifiées.
 
@@ -63,7 +63,7 @@ Les informations fournies dans cette section concernent la fin du flux de travai
 
 2. Décompressez le fichier *WAImportExport.zip*. Exécutez l’outil *WAImportExport* pour formater le disque SATA, écrire les données de sauvegarde sur le disque SATA et les chiffrer. Avant d’exécuter la commande suivante, assurez-vous que BitLocker est activé sur l’ordinateur. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | Paramètre | Description
@@ -107,4 +107,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -413,4 +413,4 @@ Il s'agit d'un exemple de jeton web JSON (JWT) classique utilisé dans un flux w
 [Protocoles d’authentification d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

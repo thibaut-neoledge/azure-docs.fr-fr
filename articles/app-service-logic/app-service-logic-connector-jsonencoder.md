@@ -61,7 +61,7 @@ Suivez les étapes de [Création d’une application logique]. L'encodeur JSON B
 L'action retourne une représentation JSON du contenu d'entrée.
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -76,4 +76,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

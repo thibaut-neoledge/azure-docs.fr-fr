@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Acteurs fiables : scénario canonique HelloWorld étape par étape
@@ -36,14 +36,17 @@ Pour prendre en main les acteurs fiables, il vous suffit de comprendre 4 concep
 Après avoir installé Service Fabric Tools pour Visual Studio, vous pouvez créer des types de projet. Les nouveaux types de projet se trouvent sous la catégorie « Cloud » de la boîte de dialogue Nouveau projet
 
 
-![][1]
+![Outils Service Fabric pour VS - Nouveau projet][1]
 
+Dans la boîte de dialogue suivante, vous pouvez choisir le type de projet que vous souhaitez créer.
+
+![Modèles de projets Service Fabric][5]
 
 Pour le projet HelloWorld, nous allons utiliser le service Service Fabric Actor.
 
 Une fois la solution créée, la structure suivante doit s'afficher :
 
-![][2]
+![Structure d’un projet Service Fabric][2]
 
 ## Blocs de construction de base des acteurs fiables
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordinateur local. Vous pouvez démarrer une session de débogage en appuyant sur F5. Visual Studio génère (si nécessaire) des packages, déploie l'application sur le cluster Service Fabric local et attache le débogueur. Le processus est le même que pour déboguer une application ASP.NET. Pendant le processus de déploiement, vous pouvez afficher la progression dans la fenêtre Sortie
 
-![][3]
+![Fenêtre de sortie de débogage Service Fabric][3]
 
 ## Déploiement des applications
 À partir de Visual Studio, vous pouvez également empaqueter et déployer l'application dans le cluster local sans avoir à lancer le débogueur. Pour ce faire, sélectionnez le projet d'application Service Fabric et cliquez avec le bouton droit.
 
-![][4]
+![Service Fabric - menu du projet de déploiement et d'empaquetage d'applications][4]
 
 * **Déployer** : assemble l'application en package et démarre le processus de déploiement
 * **Supprimer le déploiement** : peut être utilisé pour supprimer une application du cluster local
@@ -151,8 +154,7 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 
 ## Étapes suivantes
 
-[Introduction à Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
-
+[Introduction à Service Fabric Actors](service-fabric-reliable-actors-introduction.md) [Documentation de référence sur les API avec acteurs](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Exemple de code](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

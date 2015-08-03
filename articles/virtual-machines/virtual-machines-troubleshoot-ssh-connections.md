@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux" 
 	description="Si vous ne pouvez pas connecter votre machine virtuelle Azure, utilisez les étapes qui suivent pour isoler la source du problème."
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
-# 
+# Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux
 
 Cet article décrit une approche méthodique pour isoler et corriger le problème dans le cas où vous ne parvenez pas à vous connecter aux machines virtuelles Azure Linux.
 
@@ -166,4 +166,4 @@ Pour plus d’informations sur l’utilisation du support Azure, consultez le [F
 [Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

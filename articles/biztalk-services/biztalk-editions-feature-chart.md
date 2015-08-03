@@ -257,4 +257,4 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
 - [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335) <br/>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

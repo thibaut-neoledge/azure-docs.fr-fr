@@ -19,4 +19,4 @@ Suivez cette procédure pour créer un service mobile.
 
 Vous avez créé un service mobile pouvant être utilisé par vos applications mobiles.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

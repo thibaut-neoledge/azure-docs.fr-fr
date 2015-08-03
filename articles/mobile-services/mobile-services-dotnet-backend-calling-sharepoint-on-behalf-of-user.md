@@ -219,4 +219,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

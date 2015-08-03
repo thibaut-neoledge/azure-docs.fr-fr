@@ -43,4 +43,4 @@ Dossier `src`
 > Contrôleurs d'affichage Engagement et code source du Kit de développement logiciel (SDK) Reach (pour les utilisateurs avec pouvoir qui veulent adapter les classes Engagement à leurs besoins).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

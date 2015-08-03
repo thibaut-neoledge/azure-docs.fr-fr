@@ -37,4 +37,4 @@
 
 <sup>3</sup>La liste de contrôle d'accès est prise en charge sur les points de terminaison d'entrée pour les machines virtuelles. Pour les rôles de travail/web, elle est prise en charge sur les points de terminaison d'entrée et d'entrée d'instance.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

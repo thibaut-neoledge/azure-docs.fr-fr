@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Changement de niveau de tarification dans Azure App Service" 
-	description="Apprenez à mettre à l’échelle les applications logiques, API, web et mobiles dans Azure App Service, et notamment la mise à l’échelle automatique." 
+	description="Apprenez à effectuer la mise à l’échelle des applications logiques, API, web et mobiles dans Azure App Service, et notamment la mise à l’échelle automatique." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # Changement de niveau de tarification dans Azure App Service
@@ -25,6 +25,8 @@ Le niveau de service de votre plan App Service est basé sur le [*niveau de tari
 Outre la montée en puissance du niveau de tarification, vous pouvez augmenter le nombre d’instances du service. On parle alors d’*augmentation* ou de *diminution de la taille des instances*. Consultez l’article sur la [mise à l’échelle manuelle ou automatique du nombre d’instances](../insights-how-to-scale.md) pour en savoir plus sur la *diminution* et *l’augmentation de la taille des instances*.
 
 Pour plus d’informations sur les plans App Service, consultez les pages [Présentation des plans App Service](../web-sites-web-hosting-plan-overview.md) et [Présentation détaillée des plans d’Azure App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md). Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, consultez la page [Détails de la tarification – App Service](/pricing/details/app-service/).
+
+Pour finir, la mise à l’échelle fonctionne différemment si vous souhaitez utiliser un [environnement App Service](app-service-app-service-environment-intro.md) dédié. Pour plus d’informations, voir l’article [Mise à l’échelle des applications web dans un environnement App Service](app-service-web-scale-a-web-app-in-an-app-service-environment.md).
 
 > [AZURE.NOTE]Avant de passer du mode **Gratuit** au mode **De base**, **Standard** ou **Premium**, commencez par supprimer le plafond de dépenses mis en place pour votre abonnement Azure App Service. Pour voir ou modifier les options de votre abonnement Azure App Service, consultez la page [Abonnements Microsoft Azure][azuresubscriptions].
 
@@ -43,7 +45,9 @@ Pour plus d’informations sur les plans App Service, consultez les pages [Prés
 4. Une fois que vous avez choisi votre niveau, cliquez sur **Sélectionner**.
 	
 	Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
-		
+ 
+Vous pouvez également en savoir plus sur les différents niveaux de calcul dans Azure en cliquant [ici](http://go.microsoft.com/fwlink/?LinkId=309169).
+	
 <a name="ScalingSQLServer"></a>
 ##Mise à l’échelle des ressources associées
 Si votre application dépend d’autres services, tels que SQL ou Storage, vous pouvez également mettre à l’échelle ces derniers selon vos besoins.
@@ -127,4 +131,4 @@ Selon le niveau de tarification, les fonctionnalités orientées développeur di
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

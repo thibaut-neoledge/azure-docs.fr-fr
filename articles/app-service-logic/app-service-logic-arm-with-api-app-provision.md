@@ -133,7 +133,7 @@ Crée l'application Web pour héberger la passerelle.
                     },
                     {
                         "name": "EmaStorage",
-                        "value": "D:\\home\\data\\apiapps"
+                        "value": "D:\home\data\apiapps"
                     },
                     {
                         "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -394,4 +394,4 @@ Notez que l'application logique utilise le jeton pour appeler la passerelle.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

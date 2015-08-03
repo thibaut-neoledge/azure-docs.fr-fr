@@ -73,4 +73,4 @@
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

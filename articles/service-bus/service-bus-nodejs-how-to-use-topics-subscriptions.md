@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # Utilisation des rubriques et abonnements Service Bus
 
 Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements, création de filtres d'abonnement, envoi de messages** à une rubrique, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d'informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
@@ -99,7 +95,7 @@ En appelant **createTopicIfNotExists** dans l'objet **ServiceBusService**, la ru
 
 ### Filtres
 
-Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées par le biais de **ServiceBusService**. Il peut s'agir d'opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
+Des opérations facultatives de filtrage peuvent être appliquées aux opérations exécutées par le biais de **ServiceBusService**. Il peut s'agir d'opérations de journalisation, de relance automatique, etc. Les filtres sont des objets qui implémentent une méthode avec la signature :
 
 		function handle (requestOptions, next)
 
@@ -140,7 +136,7 @@ Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode 
 
 > [AZURE.NOTE]
 
-> Étant donné que le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord supprimer le filtre par défaut ou le filtre <strong>MatchAll</strong> remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode <strong>deleteRule</strong> de l'objet <strong>ServiceBusService</strong>.
+> Étant donné que le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord supprimer le filtre par défaut ou le filtre **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode **deleteRule** de l'objet **ServiceBusService**.
 
 Dans l'exemple ci-dessous, l'abonnement « HighMessages » est créé avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
@@ -309,4 +305,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Application web Node.js avec stockage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

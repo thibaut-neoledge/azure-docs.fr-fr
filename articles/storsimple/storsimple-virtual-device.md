@@ -370,4 +370,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 - Cliquez sur **Supprimer**, puis choisissez de supprimer tous les disques de la machine virtuelle.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

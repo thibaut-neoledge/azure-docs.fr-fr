@@ -72,14 +72,14 @@ Dans cette étape, vous créez d’abord la base de données et la table requise
 
 Pour commencer, vous devez créer la base de données SQL Server, la table, les types définis par l’utilisateur et les procédures stockées. Cela permettra de passer les résultats **MarketingCampaignEffectiveness** de l’objet blob Azure dans la base de données SQL Server.
 
-1.	Dans l’**Explorateur Windows**, accédez au sous-dossier **OnPremises** dans le dossier **C:\\ADFWalkthrough** (ou à l’emplacement où vous avez extrait les exemples).
+1.	Dans l’**Explorateur Windows**, accédez au sous-dossier **OnPremises** dans le dossier **C:\ADFWalkthrough** (ou à l’emplacement où vous avez extrait les exemples).
 2.	Ouvrez **prepareOnPremDatabase&Table.ps1** dans votre éditeur favori, remplacez l’élément en surbrillance par vos informations SQL Server et enregistrez le fichier (fournissez les informations d’**authentification SQL**). Dans le cadre du didacticiel, activez l’authentification SQL pour votre base de données. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**.
+3. Dans **Azure PowerShell**, accédez au dossier **C:\ADFWalkthrough\OnPremises**.
 4.	Exécutez **prepareOnPremDatabase&Table.ps1** **(soit & entre guillemets doubles soit comme illustré ci-dessous)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 
 ### Création de la table logique locale
 
-1.	Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**. 
+1.	Dans **Azure PowerShell**, accédez au dossier **C:\ADFWalkthrough\OnPremises**. 
 2.	Utilisez l’applet de commande **New-AzureDataFactoryTable** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
 
 			
@@ -170,4 +170,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

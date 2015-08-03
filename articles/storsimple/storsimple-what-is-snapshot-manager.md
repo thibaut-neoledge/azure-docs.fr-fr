@@ -17,7 +17,7 @@
 
 # Qu’est-ce que le Gestionnaire d’instantanés StorSimple ?
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple présentes dans le centre de données et dans le cloud comme avec une solution de stockage intégrée unique, ce qui simplifie les processus de sauvegarde et contribue à réduire les coûts.
 
@@ -148,4 +148,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 [Télécharger le gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

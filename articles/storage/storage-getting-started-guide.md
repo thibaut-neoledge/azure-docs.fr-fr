@@ -45,9 +45,9 @@ Pour l’essayer, nous allons créer une application Azure Storage simple à l�
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**.
-	- 3\.a. Choisissez l’un des modèles suivants : Stockage d’objets blob Azure, de tables Azure Storage ou de files d’attente Azure Storage. 
-	- 3\.b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.	
-	- 3\.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
+	- 3.a. Choisissez l’un des modèles suivants : Stockage d’objets blob Azure, de tables Azure Storage ou de files d’attente Azure Storage. 
+	- 3.b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.	
+	- 3.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio, comme indiqué :
 	
 	![Démarrages rapides Azure][Image1]
 
@@ -71,9 +71,9 @@ Une fois votre compte créé, vous pouvez créer une application Azure Storage s
 1. Démarrez Visual Studio.
 2. Dans le menu **Fichier**, cliquez sur **Nouveau projet**.
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Installé** > **Modèles** > **Visual C#** > **Cloud** > **Démarrages rapides** > **Services de données**.
-	- 3\.a. Choisissez l’un des modèles suivants : Stockage d’objets blob Azure, de tables Azure Storage ou de files d’attente Azure Storage.
-	- 3\.b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
-	- 3\.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio. 
+	- 3.a. Choisissez l’un des modèles suivants : Stockage d’objets blob Azure, de tables Azure Storage ou de files d’attente Azure Storage.
+	- 3.b. Vérifiez que la version cible sélectionnée est **.NET Framework 4.5**.
+	- 3.c. Donnez un nom à votre projet et créez la nouvelle solution Visual Studio. 
 
 Il peut être utile d’examiner le code source avant d'exécuter l'application. Pour ce faire, dans le menu **Affichage** de Visual Studio, sélectionnez **Explorateur de solutions**. Ensuite, double-cliquez sur le fichier Program.cs.
 
@@ -107,4 +107,4 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

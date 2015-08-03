@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -175,7 +175,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec l’
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord « publier » votre élément multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
 
-Lorsque vous utilisez le portail de gestion Azure pour publier vos éléments multimédias, les localisateurs sont créés pour vous et une URL basée sur le localisateur OnDemandOrigin (si votre élément multimédia contient un fichier .ism) ou une URL SAP vous est fournie.
+Lorsque vous utilisez le portail de gestion Azure pour publier vos éléments multimédias, les localisateurs sont créés pour vous et une URL basée sur le localisateur OnDemand (si votre élément multimédia contient un fichier .ism) ou une URL SAP vous est fournie.
 
 Une URL SAS a le format suivant :
 
@@ -255,4 +255,4 @@ Pour en savoir plus sur la création d’applications de vidéo à la demande, c
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

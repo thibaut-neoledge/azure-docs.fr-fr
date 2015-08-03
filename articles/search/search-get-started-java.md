@@ -145,7 +145,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 	![][7]
 
-6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s'agit très probablement du répertoire C:\\Program Files\\Apache Software Foundation\\Tomcat *version*.
+6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s'agit très probablement du répertoire C:\Program Files\Apache Software Foundation\Tomcat *version*.
 
 6. Cliquez sur **Terminer**.
 
@@ -232,4 +232,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -192,4 +192,4 @@ Pour plus d'informations : [Architecture de l'équilibreur de ressources](servi
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

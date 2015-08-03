@@ -293,4 +293,4 @@ Une vue web est une fenêtre contextuelle avec du contenu web. Cette fenêtre co
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

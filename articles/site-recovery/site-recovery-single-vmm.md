@@ -100,4 +100,4 @@ En cas de sinistre, vous pouvez récupérer les charges de travail en procédant
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

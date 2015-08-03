@@ -94,7 +94,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 L'action Hive dans le workflow appelle un fichier de script HiveQL. Le fichier de script contient trois instructions HiveQL :
 
 1. **L'instruction DROP TABLE** supprime la table Hive log4j si elle existe.
-2. **L'instruction CREATE TABLE** crée une table externe Hive log4j pointant vers l'emplacement du fichier journal log4j. Le séparateur de champ est « , ». Le séparateur de ligne par défaut est « \\n ». Une table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine si vous souhaitez exécuter à plusieurs reprises le workflow Oozie.
+2. **L'instruction CREATE TABLE** crée une table externe Hive log4j pointant vers l'emplacement du fichier journal log4j. Le séparateur de champ est « , ». Le séparateur de ligne par défaut est « \n ». Une table externe Hive est utilisée pour éviter que le fichier de données soit supprimé de son emplacement d'origine si vous souhaitez exécuter à plusieurs reprises le workflow Oozie.
 3. **L'instruction INSERT OVERWRITE** compte les occurrences de chaque type de niveau de journalisation à partir de la table Hive log4j et enregistre la sortie vers un objet blob dans Azure Storage.
 
 Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lors de l’envoi d’une tâche Oozie. Les instructions permettant d'y remédier sont disponibles dans le Wiki TechNet : [Erreur Hive HDInsight : impossible de renommer][technetwiki-hive-error].
@@ -115,7 +115,7 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 
 	Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l'exécution.
 
-2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\useooziewf.hql** en utilisant l’encodage **ANSI (ASCII)**. (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.) Le fichier de script est déployé sur le cluster HDInsight plus loin dans ce didacticiel.
+2. Enregistrez le fichier sous **C:\Tutorials\UseOozie\useooziewf.hql** en utilisant l’encodage **ANSI (ASCII)**. (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.) Le fichier de script est déployé sur le cluster HDInsight plus loin dans ce didacticiel.
 
 
 
@@ -199,7 +199,7 @@ Il existe un problème connu de chemin d'accès à Hive. Vous le rencontrerez lo
 <tr><td>${hiveOutputFolder}</td><td>Spécifie le dossier de sortie pour l'instruction INSERT OVERWRITE de Hive. Il s'agit du même dossier pour Sqoop Export (export-dir).</td></tr>
 </table>Pour plus d'informations sur le workflow Oozie et l'utilisation des actions de workflow, consultez la rubrique [Documentation sur Apache Oozie 4.0][apache-oozie-400] (pour la version 3.0 de HDInsight) ou [Documentation sur Apache Oozie 3.3.2][apache-oozie-332] (pour la version 2.1 de HDInsight).
 
-2. Enregistrez le fichier sous **C:\\Tutorials\\UseOozie\\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
+2. Enregistrez le fichier sous **C:\Tutorials\UseOozie\workflow.xml** en utilisant l'encodage ANSI (ASCII). (Utilisez le Bloc-notes si votre éditeur de texte ne dispose pas de cette option.)
 
 ##Déploiement du projet Oozie et préparation du didacticiel
 
@@ -511,7 +511,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 
 **Vérification du journal des erreurs de la tâche**
 
-Pour résoudre les problèmes d'un workflow, le fichier journal Oozie se trouve à l'emplacement *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* ou *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* à partir du nœud principal du cluster. Pour plus d’informations, consultez la rubrique [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
+Pour résoudre les problèmes d'un workflow, le fichier journal Oozie se trouve à l'emplacement *C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* ou *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* à partir du nœud principal du cluster. Pour plus d’informations, consultez la rubrique [Gestion des clusters Hadoop dans HDInsight au moyen du portail de gestion Azure][hdinsight-admin-portal].
 
 **Réexécution du didacticiel**
 
@@ -614,4 +614,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et à exécu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

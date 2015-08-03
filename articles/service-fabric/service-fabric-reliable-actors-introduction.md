@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Présentation d'Azure Service Fabric Actors
-Azure Service Fabric Actors est un modèle de programmation d'acteur pour [Service Fabric](service-fabric-technical-overview.md). Service Fabric est une plateforme permettant de créer, à la fois pour le cloud et localement, des applications évolutives, extrêmement fiables et faciles à développer et à gérer.
+L’API avec acteurs fiables constitue l’une des deux infrastructures générales fournies par [Service Fabric](service-fabric-technical-overview.md), en plus de l’[API avec services fiables](service-fabric-reliable-services-introduction.md).
 
-Fabric Actors fournit un modèle d'acteur asynchrone, monothread. Un acteur représente une unité d'état et de calcul. Les acteurs sont distribués sur le cluster pour obtenir une extensibilité élevée. Quand un processus qui héberge l'acteur échoue, le système recrée l'acteur dans un autre processus. De même, quand le nœud sur lequel s'exécute le processus hôte de l'acteur échoue, le système recrée l'acteur dans un processus hôte sur un autre nœud. Le runtime Actors s'appuie sur le magasin distribué fourni par la plateforme Service Fabric sous-jacente pour permettre une gestion d'état hautement disponible et cohérente pour les acteurs. De cette façon, le développement et la maintenance des applications cloud distribuées basées sur les acteurs devient extrêmement simple.
+Selon le modèle d'acteur, l'API avec acteurs fiables fournit un modèle de programmation monothread asynchrone qui simplifie votre code tout en bénéficiant des garanties de fiabilité et d’évolutivité offertes par Service Fabric.
 
 ## Acteurs
-Les acteurs sont des composants isolés monothread qui encapsulent l'état et le comportement. Ils sont semblables aux objets .NET et, par conséquent, fournissent un modèle de programmation naturel aux développeurs. Chaque acteur est une instance d'un type d'acteur, de la même façon qu'un objet .NET est une instance d'un type .NET. Par exemple, un type d'acteur peut implémenter les fonctionnalités d'une calculatrice, et plusieurs acteurs de ce type peuvent être distribués sur différents nœuds d'un cluster. Chaque acteur de ce type est identifié de façon unique par un ID d'acteur.
+Les acteurs sont des composants monothread isolés qui encapsulent l'état et le comportement. Ils sont semblables aux objets .NET et, par conséquent, fournissent un modèle de programmation naturel. Chaque acteur est une instance d'un type d'acteur, de la même façon qu'un objet .NET est une instance d'un type .NET. Par exemple, un type d'acteur peut implémenter les fonctionnalités d'une calculatrice, et plusieurs acteurs de ce type peuvent être distribués sur différents nœuds d'un cluster. Chaque acteur de ce type est identifié de façon unique par un ID d'acteur.
 
-Les acteurs interagissent avec le reste du système, y compris les autres acteurs, en transmettant des messages asynchrones sur le modèle demande-réponse. Ces interactions sont définies dans une interface en tant que méthodes asynchrones. Par exemple, l'interface pour un type d'acteur qui implémente les fonctionnalités d'une calculatrice peut être défini comme suit.
+## Définition et implémentation d'interfaces d’acteur
+
+Les acteurs interagissent avec le reste du système, y compris les autres acteurs, en transmettant des messages asynchrones sur le modèle demande-réponse. Ces interactions sont définies dans une interface en tant que méthodes asynchrones. Par exemple, l'interface pour un type d'acteur qui implémente les fonctionnalités d'une calculatrice peut être défini comme suit :
 
 ```csharp
 public interface ICalculatorActor : IActor
@@ -51,15 +53,14 @@ public class CalculatorActor : Actor, ICalculatorActor
 }
 ```
 
-Pour chaque méthode d'interface, les arguments et le type de résultat de la tâche qu'elle retourne doivent être [sérialisables en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
-
-L'implémentation de ces méthodes n'implique pas de gérer le verrouillage ou d'autres problèmes d'accès concurrentiel, car le runtime Actors fournit un accès concurrentiel en alternance pour les méthodes d'acteur. Pour plus d'informations, consultez la section [Accès concurrentiel](#concurrency).
+Comme les appels de méthode et leurs réponses aboutissent à des demandes réseau sur le cluster, les arguments et le type de résultat de la tâche renvoyés doivent être sérialisables par la plateforme. En particulier, ils doivent être [sérialisables en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 > [AZURE.TIP]Le runtime Fabric Actors émet des [événements et compteurs de performances liés aux méthodes d'acteur](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Ces derniers sont utiles dans les diagnostics et la surveillance des performances.
 
 Voici les règles importantes en matière de méthodes d'interface d’acteur : -Les méthodes d'interface d’acteur ne peuvent pas être surchargées. - Les méthodes d’interface d’acteur ne doivent pas avoir de paramètres de sortie, de référence ou facultatifs.
 
 ## Communication d'acteur
+### Le proxy d'acteur
 L'API du client Actors assure la communication entre une instance d'acteur et un client d'acteur. Pour communiquer avec un acteur, un client crée un objet proxy d'acteur qui implémente l'interface d'acteur. Le client interagit avec l'acteur en appelant des méthodes sur l'objet proxy. Le proxy d'acteur peut être utilisé aussi bien pour la communication client-acteur que la communication acteur-acteur. Dans le cadre de notre exemple de calculatrice, le code client pour un acteur calculatrice peut être écrit comme ci-dessous :
 
 ```csharp
@@ -69,13 +70,19 @@ ICalculatorActor calculatorActor = ActorProxy.Create<ICalculatorActor>(actorId, 
 double result = calculatorActor.AddAsync(2, 3).Result;
 ```
 
-Comme indiqué dans l'exemple ci-dessus, deux informations ont été utilisées pour créer l'objet proxy d'acteur : l'ID d'acteur et le nom d'application. L'ID d'acteur est un identificateur qui identifie l'acteur de façon unique. Le nom d'application est le nom de l'[application Service Fabric](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors), qui est la forme sous laquelle l'acteur est déployé.
+Notez les deux informations utilisées pour créer l'objet proxy d'acteur : l'ID d'acteur et le nom d'application. L'ID d'acteur est un identificateur qui identifie de façon unique l'acteur, tandis que le nom d'application identifie l’[application Fabric Service](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors) dans laquelle l'acteur est déployé.
 
-Les acteurs sont virtuels, ce qui signifie qu'ils existent toujours. Vous n'avez pas besoin de les créer ou les détruire explicitement. Le runtime Actors active automatiquement un acteur la première fois qu'il reçoit une demande pour cet acteur. Si un acteur n'est pas utilisé pendant un certain temps, le runtime Actors le soumet à un Garbage Collection et l'active ultérieurement si nécessaire. Pour plus d'informations, consultez la section [Cycle de vide des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
+### Durée de vie de l’acteur
 
-L'API du client Actors fournit également la transparence de l'emplacement et le basculement. La classe `ActorProxy` côté client effectue la résolution nécessaire et localise la [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) du service d'acteur où l'acteur avec l'ID spécifié est hébergé, puis ouvre une communication de canal avec elle. La classe `ActorProxy` retente la communication en cas d'échec et pendant les basculements. Cela signifie qu'il est possible pour une implémentation d'acteur d'obtenir des messages en double du même client.
+Les acteurs Service Fabric sont virtuels, ce qui signifie que leur durée de vie n'est pas liée à leur représentation en mémoire. En conséquence, ils n’ont pas besoin d’être explicitement créés ou détruits. Le runtime Actors active automatiquement un acteur la première fois qu'il reçoit une demande pour cet acteur. Si un acteur n'est pas utilisé pendant un certain temps, le runtime Actors nettoiera l'objet en mémoire en tenant compte de l'existence de l'acteur si celui-ci doit être réactivé ultérieurement. Pour plus de détails, consultez la rubrique [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
+
+### Transparence des emplacements et basculement automatique
+
+Pour garantir une fiabilité et une évolutivité élevées, Service Fabric distribue les acteurs dans l'ensemble du cluster et les migre automatiquement à partir des nœuds ayant échoué vers des nœuds sains selon les besoins. La classe `ActorProxy` côté client effectue la résolution nécessaire pour localiser l'acteur par ID [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) et ouvrir un canal de communication avec lui. La classe `ActorProxy` retente également la communication en cas d'échec et pendant les basculements. Cela garantit que les messages seront remis correctement malgré la présence d'erreurs, mais cela signifie également qu’une implémentation de l'acteur peut recevoir des messages en double du même client.
 
 ## Accès concurrentiel
+### Accès concurrentiel en alternance
+
 Le runtime Actors fournit un simple accès concurrentiel en alternance pour les méthodes d'acteur. Cela signifie qu'un seul thread peut être actif à l'intérieur du code d'acteur à tout moment.
 
 Un tour consiste en l'exécution complète d'une méthode d'acteur en réponse à la demande d'autres acteurs ou clients, ou l'exécution complète d'un rappel de [minuterie/rappel](service-fabric-reliable-actors-timers-reminders.md). Bien que ces méthodes et ces rappels soient asynchrones, le runtime Actors ne les entremêle pas. Un tour doit être totalement terminé avant qu'un nouveau tour soit autorisé. En d'autres termes, une méthode d'acteur ou un rappel de minuterie/rappel en cours d'exécution doit être totalement terminé avant qu'un nouvel appel à une méthode ou qu'un rappel soit autorisé. Une méthode ou un rappel est considéré terminé si l'exécution a été retournée depuis la méthode ou le rappel et que la tâche retournée par la méthode ou le rappel est terminée. Il est important de souligner que cet accès concurrentiel en alternance est respecté même dans les différents rappels, minuteries et méthodes.
@@ -100,7 +107,11 @@ Voici les points importants du diagramme ci-dessus :
 - L'exécution de *Method1* pour le compte d'*ActorId1* se chevauche avec son exécution pour le compte d'*ActorId2*. En effet, l'accès concurrentiel en alternance est appliqué uniquement au sein d'un acteur et non entre les acteurs.
 - Dans certaines exécutions de méthode/rappel, le `Task` retourné par la méthode/le rappel se termine après le retour de la méthode. Dans d'autres exécutions, le `Task` est déjà terminé au moment du retour de la méthode/du rappel. Dans les deux cas, le verrou par acteur n'est relâché qu'après le retour de la méthode/du rappel et la fin de `Task`.
 
+### Réentrance
+
 Le runtime Actors autorise la réentrance par défaut. Cela signifie que si une méthode de l'acteur A appelle une méthode sur l'acteur B, qui appelle à son tour une autre méthode sur l'acteur A, cette méthode peut s'exécuter, car elle fait partie du même contexte de chaîne d'appel logique. Tous les appels du minuteur et du rappel démarrent avec le nouveau contexte d'appel logique. Pour plus d'informations, consultez la section [Réentrance](service-fabric-reliable-actors-reentrancy.md).
+
+### Étendue des garanties d'accès concurrentiel
 
 Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situations où il contrôle l'appel de ces méthodes. Par exemple, il fournit ces garanties pour les appels de méthode effectués en réponse à la réception d'une demande du client et pour les rappels de minuterie et de rappel. Toutefois, si le code de l'acteur appelle directement ces méthodes en dehors des mécanismes fournis par le runtime Actors, celui-ci ne peut pas fournir de garanties d'accès concurrentiel. Par exemple, si la méthode est appelée dans le contexte d'une tâche qui n'est pas associée à la tâche retournée par les méthodes d'acteur, ou si elle est appelée à partir d'un thread créé par l'acteur de son côté, le runtime ne peut pas fournir de garantie d'accès concurrentiel. Par conséquent, pour effectuer des opérations d'arrière-plan, les acteurs doivent utiliser les [minuteurs d'acteur ou les rappels d'acteur](service-fabric-reliable-actors-timers-reminders.md), qui respectent l'accès concurrentiel en alternance.
 
@@ -110,7 +121,7 @@ Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situatio
 Fabric Actors vous permet de créer des acteurs avec ou sans état.
 
 ### Acteurs sans état
-Les acteurs sans état, comme leur nom l'indique, n'ont pas d'état et sont gérés par le runtime Actors. Les acteurs sans état dérivent de la classe de base Actor. Ils peuvent avoir des variables membres, qui sont conservées pendant toute la durée de vie de l'acteur, comme tous les autres types .NET. Toutefois, si cette instance d'acteur fait l'objet d'un Garbage Collection après avoir été inactive pendant un certain temps, elle perd l'état stocké dans ses variables membres. De même, l'état peut être perdu en cas de basculement, ce qui peut se produire dans les situations telles que les mises à niveau, les opérations d'équilibrage des ressources, ou l'échec d'un processus d'acteur ou du nœud hébergeant le processus d'acteur.
+Les acteurs sans état, dérivés de la classe de base ``Actor``, n'ont pas d'état et sont gérés par le runtime Actors. Leurs variables de membres sont conservées tout au long de leur durée de vie en mémoire, comme tout autre type .NET. Toutefois, lorsqu'elles sont nettoyées après une période d'inactivité, leur état est perdu. De même, un état peut être perdu en raison des basculements qui se produisent pendant les mises à niveau, les opérations d'équilibrage des ressources ou à la suite d'erreurs dans le processus de l'acteur ou de son nœud hôte.
 
 Voici un exemple d'acteur sans état :
 
@@ -125,7 +136,9 @@ class HelloActor : Actor, IHello
 ```
 
 ### Acteurs avec état
-Les acteurs avec état ont un état qui doit être conservé dans les opérations de basculement et de Garbage Collection d'acteur. Les acteurs avec état dérivent de la classe de base `Actor<TState>`, où `TState` est le type de l'état qui doit être conservé dans les opérations de Garbage Collection et de basculement. L'état est accessible dans les méthodes d'acteur via la propriété `State` sur la classe de base `Actor<TState>`. Voici un exemple d'un acteur avec état accédant à l'état.
+Les acteurs avec état ont un état qui doit être conservé dans les opérations de basculement et de Garbage Collection. Ils dérivent de la classe de base `Actor<TState>`, où `TState` est le type de l'état qui doit être conservé. L'état est accessible dans les méthodes d'acteur via la propriété `State` sur la classe de base.
+
+Voici un exemple d'un acteur avec état accédant à l'état :
 
 ```csharp
 class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
@@ -138,19 +151,19 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 }
 ```
 
-Le type d'état de l'acteur doit être [sérialisable en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+L’état de l'acteur est conservé entre les opérations Garbage Collection et les basculements en le gardant persistant sur le disque et en le répliquant entre plusieurs nœuds du cluster. Cela signifie que, comme les arguments de méthode et les valeurs de retour, le type de l'état de l'acteur doit être [sérialisable en contrat de données](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-> [Remarque] : reportez-vous à l'article [Remarques des acteurs fiables sur la sérialisation](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) pour plus d'informations sur la façon dont les interfaces et les types d'état d'acteur doivent être définis.
+> [AZURE.NOTE]Reportez-vous à l'article [Remarques des acteurs fiables sur la sérialisation](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) pour plus d'informations sur la façon dont les interfaces et les types d'état d'acteur doivent être définis.
 
 #### Fournisseurs d'état d'acteur
-Le stockage et la récupération de l'état sont proposés par un fournisseur d'état d'acteur. Le fournisseur d'état peut être configuré par acteur ou pour tous les acteurs au sein d'un assembly par l'attribut spécifique du fournisseur d'état. Certains fournisseurs d'état d'acteur par défaut sont inclus dans le runtime Actors. La durabilité et la fiabilité de l'état sont déterminées par les garanties offertes par le fournisseur d'état. Quand un acteur est activé, son état est chargé en mémoire. Quand une méthode d'acteur se termine, l'état modifié est automatiquement enregistré par le runtime Actors en appelant une méthode sur le fournisseur d'état. En cas d'erreur pendant l'enregistrement de l'état, le runtime Actors recycle cette instance d'acteur. Une nouvelle instance d'acteur est créée et chargée avec le dernier état cohérent du fournisseur d'état.
+Le stockage et la récupération de l'état sont proposés par un fournisseur d'état d'acteur. Les fournisseurs d'état peuvent être configurés par acteur ou pour tous les acteurs au sein d'un assembly par l'attribut spécifique du fournisseur d'état. Quand un acteur est activé, son état est chargé en mémoire. Quand une méthode d'acteur se termine, l'état modifié est automatiquement enregistré par le runtime Actors en appelant une méthode sur le fournisseur d'état. Si une erreur se produit pendant l'opération d’enregistrement, le runtime Actors crée une instance de l'acteur et charge le dernier état cohérent à partir du fournisseur d'état.
 
-Par défaut, un acteur avec état utilise un fournisseur d'état d'acteur du stockage clé-valeur. Ce fournisseur d'état repose sur le stockage clé-valeur distribué fourni par la plateforme Service Fabric. Pour plus d'informations, consultez la rubrique sur [le choix du fournisseur d'état](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
+Par défaut, les acteurs avec état utilisent le fournisseur d'état de l’acteur du stockage clé-valeur, qui repose sur le stockage clé-valeur distribué fourni par la plateforme Service Fabric. Pour plus d'informations, consultez la rubrique sur [le choix du fournisseur d'état](service-fabric-reliable-actors-platform.md#actor-state-provider-choices).
 
-> [AZURE.TIP]Le runtime Fabric Actors émet des [événements et compteurs de performances liés à la gestion des états d'acteur](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters). Ces derniers sont utiles dans les diagnostics et la surveillance des performances.
+> [AZURE.TIP]Le runtime Actors émet des [événements et compteurs de performances liés à la gestion des états d'acteur](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
 
 #### Méthodes en lecture seule
-Par défaut, le runtime Actors enregistre l'état d'acteur à la fin de l'appel d'une méthode d'acteur, d'un rappel de rappel et d'un rappel de minuterie. Aucun autre appel d'acteur n'est autorisé tant que l'enregistrement de l'état n'est pas terminé. Selon le fournisseur d'état, l'enregistrement de l'état peut prendre un certain temps et aucun autre appel d'acteur n'est autorisé dans l'acteur pendant cette période.
+Par défaut, le runtime Actors enregistre l'état d'acteur à la fin de l'appel d'une méthode d'acteur, d'un rappel de rappel ou d'un rappel de minuterie. Aucun autre appel d'acteur n'est autorisé tant que l'enregistrement de l'état n'est pas terminé.
 
 Certaines méthodes d'acteur peuvent ne pas modifier l'état, dans ce cas, la durée d'enregistrement de l'état supplémentaire peut affecter le débit général du système. Pour éviter ce problème, vous pouvez marquer en lecture seule les méthodes et les rappels de minuterie qui ne modifient pas l'état.
 
@@ -184,6 +197,5 @@ Les rappels de minuterie peuvent être marqués avec l'attribut `Readonly` de la
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -286,4 +286,4 @@ La procédure suivante montre comment déployer un contrôle d'accès en fonctio
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Accès aux informations Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

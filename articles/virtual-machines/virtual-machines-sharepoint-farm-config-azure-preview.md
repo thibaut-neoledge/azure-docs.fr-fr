@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Informations de configuration de la batterie de serveurs SharePoint" 
 	description="Décrit la configuration par défaut des batteries de serveurs SharePoint" 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="josephd"/>
 
 
-# 
+# Informations de configuration de la batterie de serveurs SharePoint
 
 Avec la batterie de serveurs SharePoint, la version préliminaire du portail Microsoft Azure crée automatiquement une batterie SharePoint Server 2013 préconfigurée. Deux configurations de batterie sont disponibles :
 
@@ -56,7 +56,7 @@ Voici les informations de configuration :
 	-	Nom de compte administrateur de domaine : défini lors de la configuration initiale.
 	-	Mot de passe de compte administrateur de domaine : défini lors de la configuration initiale.
 
-- 
+- SQL Server
 	-	Image de machine virtuelle : SQL Server 2014 RTM Enterprise sur Windows Server 2012 R2.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
 	-	Taille : A5 (par défaut).
@@ -133,11 +133,11 @@ La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version p
 
 ## Ressources supplémentaires
 
-
+[Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [SharePoint Server sur les services d’infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

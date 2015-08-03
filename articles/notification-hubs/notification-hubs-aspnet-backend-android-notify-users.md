@@ -434,4 +434,4 @@ L'étape suivante consiste à créer l'application Android.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

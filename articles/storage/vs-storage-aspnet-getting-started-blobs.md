@@ -27,62 +27,70 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
+>[AZURE.NOTE]Cet article explique comment prendre en main le stockage d’objets blob Azure une fois que vous avez créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez la page [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
+
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 
-Pour commencer, vous devez créer un compte de stockage Azure, puis un ou plusieurs conteneurs pour le stockage. Par exemple, vous pouvez créer un compte de stockage appelé « Scrapbook », puis créer des conteneurs pour ce compte de stockage, un que vous appellerez « images » pour stocker les images et un autre nommé « audio » pour vos fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob. Pour plus d’informations sur la manipulation par programme des objets blob, voir l’article [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md/ "Utilisation du stockage d’objets blob à partir de .NET").
+De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un compte de stockage, créez un ou plusieurs conteneurs dans le stockage. Par exemple, dans un stockage appelé « Scrapbook », vous pouvez créer des conteneurs d’objets blob dans le stockage appelé « images » pour stocker des photos et un autre appelé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob.
+
 
 Cet article explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent le **chargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d’une source)** et la **suppression** d’objets blob.
 
 Pour plus d’informations sur les projets ASP.NET, consultez le site [ASP.NET](http://www.asp.net).
 
-## Accès au stockage d’objets blob par programme
+##Création de conteneurs d’objets blob dans l’Explorateur de serveurs Visual Studio
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+[AZURE.INCLUDE [vs-create-blob-container-in-server-explorer](../../includes/vs-create-blob-container-in-server-explorer.md)]
 
-### Déclarations d’espace de noms
-Ajoutez les déclarations d’espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
+##Accès aux conteneurs d'objets blob dans le code 
 
-    using Microsoft.Azure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez ajouter les éléments suivants, s'ils ne sont pas déjà présents.
 
-Prenez soin de bien référencer l’assembly `Microsoft.WindowsAzure.Storage.dll`.
+1. Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# pour lequel vous souhaitez accéder à Azure Storage par programmation :
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+		using Microsoft.Framework.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Auth;
+		using Microsoft.WindowsAzure.Storage.Blob;
 
-Un type **CloudBlobClient** vous permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d’objets blob. Le code suivant crée un objet **CloudBlobClient** en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
+2. Obtenez un objet **CloudStorageAccount** qui représente les informations de votre compte de stockage. Le code suivant permet d'obtenir la chaîne de connexion de stockage et les informations de compte de stockage à partir de la configuration du service Azure.
+
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
+
+    **REMARQUE** : utilisez tout le code ci-dessus avant le code des sections suivantes.
+
+
+3. Obtenez un objet **CloudBlobClient** pour faire référence à un conteneur existant dans votre compte de stockage.
+
+		// Create a blob client.
+		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Get a reference to a container named “mycontainer.”
+        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+
+**REMARQUE** : parmi les API qui effectuent des appels vers le stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx).
+
+
+## Création d’un conteneur d’objets blob dans le code
+
+Vous pouvez aussi utiliser **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Il vous suffit pour cela d’ajouter un appel à`CreateIfNotExistsAsync()` comme dans le code suivant :
+
+	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../../includes/storage-dotnet-odatalib-dependencies.md)]
+    // Get a reference to a container named “myNewContainer”.
+    CloudBlobContainer container = blobClient.GetContainerReference("myNewContainer");
 
-## Création d'un conteneur
+    // If “myNewContainer” doesn’t exist, create it.
+    await container.CreateIfNotExistsAsync();    
 
-Chaque objet blob du stockage Azure doit résider dans un conteneur. Cet exemple montre comment créer un conteneur, si celui-ci n’existe pas encore :
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the blob client.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-    // Create the container if it doesn't already exist.
-    container.CreateIfNotExists();
-
-Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous voulez que les fichiers du conteneur soient publics, vous pouvez configurer le conteneur en utilisant le code suivant :
-
-    container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess = 
- 	    BlobContainerPublicAccessType.Blob }); 
-
-Tous les utilisateurs d’Internet peuvent afficher les objets blob d’un conteneur public, mais seuls ceux possédant la clé d’accès adéquate peuvent les modifier ou les supprimer.
-
-## Charger un objet blob dans un conteneur
+## Chargement un objet blob dans un conteneur
 
 Le service de stockage d’objets blob Azure prend en charge les objets blob de blocs et de page. Dans la plupart des cas, il est recommandé d’utiliser le type d’objet blob de blocs.
 
@@ -90,7 +98,7 @@ Pour télécharger un fichier vers un objet blob de blocs, obtenez une référen
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -113,7 +121,7 @@ Pour créer une liste d’objets blob dans un conteneur, commencez par obtenir u
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client. 
 	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -191,7 +199,7 @@ Pour télécharger des objets blob, commencez par récupérer une référence d�
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -290,7 +298,9 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
 
 ## Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage d’objets blob, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes. <ul> <li>Pour plus d’informations sur les API disponibles, consultez la documentation de référence des services d’objets blob : <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Référence de la bibliothèque cliente de stockage pour .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li> </ul> </li> <li>Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Stockage et accessibilité des données dans Azure</a>.</li> <li>Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l’aide du <a href="../websites-dotnet-webjobs-sdk/">￼Kit de développement logiciel (SDK) Azure WebJobs</li>. <li>Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités. <ul> <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">stockage de table</a> pour stocker des données structurées.</li> <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">stockage de files d’attente</a> pour stocker des données non structurées.</li> <li>Utilisez une <a href="/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li> </ul> </li> </ul>
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -308,4 +318,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

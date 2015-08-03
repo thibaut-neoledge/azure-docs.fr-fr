@@ -130,4 +130,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

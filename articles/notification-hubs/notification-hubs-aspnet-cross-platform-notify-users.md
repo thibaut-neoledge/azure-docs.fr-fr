@@ -112,4 +112,4 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 [Procédures Notification Hubs pour Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

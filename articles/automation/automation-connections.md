@@ -120,4 +120,4 @@ L’image ci-dessous montre le même exemple que plus haut, mais utilise le jeu 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

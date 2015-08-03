@@ -218,7 +218,7 @@ Au cours de cette étape, vous allez modifier la chaîne de connexion qui indiqu
 	
 	Lors de la composition de la chaîne de connexion, gardez à l'esprit ce qui suit :
 	
-	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
+	- Si vous vous connectez à une instance nommée plutôt qu'à une instance par défaut (par exemple, VotreServeur\SQLEXPRESS), vous devez configurer votre instance SQL Server de manière à ce qu'elle utilise des ports statiques. Pour des informations sur la configuration des ports statiques, consultez la page [Configuration de SQL Server pour qu'il écoute sur un port spécifique](http://support.microsoft.com/kb/823938). Par défaut, les instances nommées utilisent UDP et des ports dynamiques, qui ne sont pas pris en charge par Connexions hybrides. 
 	
 	- Il est recommandé de spécifier le port (1433 par défaut, comme indiqué dans l'exemple) dans la chaîne de connexion pour pouvoir être sûr que TCP est activé sur votre instance SQL Server locale et que cette dernière utilise le port correct.
 	
@@ -378,4 +378,4 @@ Vous venez de créer et déployer une application web ASP.NET qui utilise une co
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

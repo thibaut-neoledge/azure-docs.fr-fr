@@ -204,4 +204,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

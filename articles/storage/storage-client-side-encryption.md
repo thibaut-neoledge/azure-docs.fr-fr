@@ -234,4 +234,4 @@ Comme mentionné ci-dessus, si l’entité implémente TableEntity, les proprié
 
 [Chiffrement côté client de Microsoft Azure Storage - Version préliminaire](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Télécharger la [bibliothèque cliente de stockage Azure pour le package NuGet .NET](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Télécharger la [bibliothèque cliente de stockage Azure pour le code source .NET](https://github.com/Azure/azure-storage-net/tree/preview) à partir de GitHub Télécharger les packages NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) et [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) de Azure Key Vault Consultez la [documentation Azure Key Vault](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

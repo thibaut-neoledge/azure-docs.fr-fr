@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Python
@@ -350,4 +350,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows dans Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="josephd"/>
+	ms.author="kathydav"/>
 
 # Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows
 
@@ -173,8 +173,8 @@ Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
-- Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1)
-- Enregistrer ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du Portail de gestion Azure
+- Enregistrez ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
+- Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du Portail de gestion Azure.
 
 ## <a id="examples"></a>Exemples
 
@@ -190,7 +190,7 @@ J'ai besoin d'un jeu de commandes PowerShell permettant de créer la machine vir
 - comporte un disque de données supplémentaire de 20 Go
 - possède l'adresse IP statique 192.168.244.4
 - se trouve dans le sous-réseau BackEnd du réseau virtuel AZDatacenter
-- se trouve dans le service cloud Azure-TailspinToys
+- se trouve dans le service cloud Azure-TailspinToys.
 
 Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer cette machine virtuelle. Les lignes vides entre chaque bloc offrent une meilleure lisibilité.
 
@@ -226,7 +226,7 @@ J'ai besoin d'un jeu de commandes PowerShell permettant de créer une machine vi
 - appartient au domaine corp.contoso.com
 - comporte un disque de données supplémentaire de 200 Go
 - se trouve dans le sous-réseau FrontEnd du réseau virtuel AZDatacenter
-- se trouve dans le service cloud Azure-TailspinToys
+- se trouve dans le service cloud Azure-TailspinToys.
 
 Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer cette machine virtuelle.
 
@@ -256,7 +256,7 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 
 ## Ressources supplémentaires
-
+<!-- For section headings, use sentence-case caps -->
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [FAQ sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -268,6 +268,5 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

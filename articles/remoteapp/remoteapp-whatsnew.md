@@ -51,4 +51,4 @@ Vous avez besoin de voir Azure RemoteApp en action ? Découvrez le didacticiel 
 
 Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’autres mises à jour.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

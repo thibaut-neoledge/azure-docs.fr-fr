@@ -181,7 +181,7 @@ Voici les paramètres généraux d'un travail Stream Analytics que vous pouvez r
 - **Démarrer la sortie** : utilisez ce paramètre pour spécifier quand ce travail commence à produire la sortie obtenue. Si la requête associée est comprise dans un intervalle de temps, le travail commence à récupérer des données d'entrée à partir des sources d'entrée au début de cet intervalle, afin de produire le premier événement de sortie au moment défini. Il existe deux options : **Heure de début du travail** et **Personnalisé**. Le paramètre par défaut est **Heure de début du travail**. Pour l'option **Personnalisé**, vous devez indiquer une date et une heure. Ce paramètre est utile pour indiquer la quantité de données d'historique des sources d'entrée à traiter ou pour récupérer des données de traitement à un moment précis, comme par exemple, lors du dernier arrêt d'un travail. 
 - **Stratégie d'arrivée en désordre** : paramètres permettant de gérer des événements qui n'arrivent pas jusqu'au travail Stream Analytics les uns à la suite des autres. Vous pouvez désigner un seuil pour réorganiser les événements en spécifiant une fenêtre de tolérance et en déterminant une action à effectuer sur les événements en dehors de cette fenêtre : **Annuler** ou **Régler**. **Annuler** supprime l’ensemble des événements reçus en désordre, tandis que **Régler** modifie le système. Horodatage des événements en désordre suivant l’horodatage de l’événement le plus récent reçu dans l’ordre. 
 - **Stratégie d'arrivée en désordre** : en cas de lecture à partir de sources d'entrée qui ont plusieurs partitions et quand une ou plusieurs partitions sont à la traîne ou ne comportent pas de données, le travail de diffusion en continu doit déterminer comment gérer cette situation pour que les événements continuent de circuler dans le système. Le paramètre d'entrée « Retard d'arrivée maximal autorisé » contrôle ce comportement. Par défaut, il est défini de sorte à attendre les données indéfiniment, ce qui signifie que les horodatages des événements ne sont pas modifiés, mais également que les événements circulent en fonction de la partition d'entrée la plus lente. Ils cessent de circuler si une ou plusieurs partitions d'entrée ne comportent pas de données. Cette définition s'avère utile si les données sont réparties uniformément sur les partitions d'entrée et que la cohérence temporelle entre les événements est essentielle. L'utilisateur peut également décider d'attendre uniquement pendant une période limitée. Le paramètre « Retard d'arrivée maximal autorisé » détermine le délai après lequel le travail décide d'avancer, en laissant les partitions d'entrée à la traîne et en agissant sur les événements en fonction du paramètre « Action pour les événements en retard », c'est-à-dire en les annulant ou en réglant leurs horodatages si des données arrivent plus tard. Cette définition s'avère utile si la latence est essentielle et le décalage d'horodatage toléré, mais les entrées risquent de ne pas être distribuées uniformément.
-- **Paramètres régionaux** : utilisez ce paramètre pour indiquer les préférences internationales pour le travail Stream Analytics. Si les horodatages des données sont des paramètres régionaux neutre, ces paramètres-ci peuvent affecter l'analyser, la comparaison et les données de tri du travail. Pour la version préliminaire, seul le paramètre **en-US** est pris en charge.
+- **Paramètres régionaux** : utilisez ce paramètre pour indiquer les préférences internationales pour le travail Stream Analytics. Si les horodatages des données sont des paramètres régionaux neutre, ces paramètres-ci peuvent affecter l'analyser, la comparaison et les données de tri du travail. Pour la version préliminaire, seul le paramètre **fr-fr** est pris en charge.
 
 ### État
 
@@ -192,7 +192,7 @@ L'état des travaux Stream Analytics peut être examiné dans le portail Azure. 
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -206,4 +206,4 @@ Maintenant que vous connaissez les concepts clés de Stream Analytics, consulte
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

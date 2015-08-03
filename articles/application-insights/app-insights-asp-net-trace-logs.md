@@ -124,4 +124,4 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

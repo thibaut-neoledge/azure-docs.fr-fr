@@ -128,7 +128,7 @@ Notre Runbook démarre actuellement la machine virtuelle que nous avons spécifi
 11.  Fermez le volet de test.
 12.  Cliquez sur **Publier** pour publier la nouvelle version du Runbook.
 13.  Arrêtez la machine virtuelle que vous avez démarrée à l'étape précédente.
-13.  Cliquez sur **Démarrer** pour démarrer le Runbook. Entrez les valeurs **VMName** et **VMServiceName** pour la machine virtuelle que vous allez démarrer.<br> ![Démarrage du Runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
+13.  Cliquez sur **Démarrer** pour démarrer le Runbook. Entrez les valeurs **VMName** et **VMServiceName** pour la machine virtuelle que vous allez démarrer.<br> ![Démarrage du runbook](media/automation-first-runbook-graphical/start-runbook-input-params.png) 
 14.  Une fois le Runbook terminé, vérifiez que la machine virtuelle a démarré.
 
 ## Étape 8 : Création d’un lien conditionnel
@@ -165,4 +165,4 @@ Nous allons maintenant modifier le Runbook afin qu'il tente de démarrer uniquem
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

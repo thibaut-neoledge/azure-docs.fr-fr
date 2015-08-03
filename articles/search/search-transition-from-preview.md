@@ -144,4 +144,4 @@ La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de s
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

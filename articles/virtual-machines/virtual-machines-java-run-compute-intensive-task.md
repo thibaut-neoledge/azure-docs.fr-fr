@@ -265,7 +265,7 @@ Pour pouvoir effectuer des opérations de gestion telles que la création d’un
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\\TSP\\cities.txt", numCities);
+	            buildDistances("c:\TSP\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 ### Exécution de l'application nécessitant beaucoup de ressources
 
 1. Connectez-vous à votre machine virtuelle.
-2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\\TSP**.
-3. Copiez **TSPSolver.jar** sous **c:\\TSP**.
-4. Créez un fichier intitulé **c:\\TSP\\cities.txt** avec le contenu suivant :
+2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
+3. Copiez **TSPSolver.jar** sous **c:\TSP**.
+4. Créez un fichier intitulé **c:\TSP\cities.txt** avec le contenu suivant :
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. Depuis une invite de commandes, accédez au répertoire c:\\TSP.
+5. Depuis une invite de commandes, accédez au répertoire c:\TSP.
 6. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
 7. Vous devez créer la file d'attente Service Bus avant d'exécuter les permutations de solveur TSP. Exécutez la commande suivante pour créer la file d'attente Service Bus :
 
@@ -484,10 +484,10 @@ Exécutez l'application nécessitant beaucoup de ressources pour créer la file 
  
 ### Exécution de la surveillance de l'application cliente
 1. Connectez-vous à l'ordinateur où vous exécuterez l'application cliente. Il ne doit pas nécessairement s'agir de l'ordinateur qui exécute l'application **TSPSolver**.
-2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\\TSP**.
-3. Copiez **TSPClient.jar** sous **c:\\TSP**,
+2. Créez un dossier où vous exécuterez votre application. Par exemple, **c:\TSP**.
+3. Copiez **TSPClient.jar** sous **c:\TSP**,
 4. Vérifiez que le dossier Bin de JRE se trouve dans la variable d'environnement PATH.
-5. Depuis une invite de commandes, accédez au répertoire c:\\TSP.
+5. Depuis une invite de commandes, accédez au répertoire c:\TSP.
 6. Exécutez la commande suivante :
 
         java -jar TSPClient.jar
@@ -519,4 +519,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

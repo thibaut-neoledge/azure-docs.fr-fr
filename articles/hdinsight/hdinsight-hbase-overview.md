@@ -104,4 +104,4 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

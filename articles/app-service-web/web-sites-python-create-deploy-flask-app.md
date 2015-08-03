@@ -401,4 +401,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

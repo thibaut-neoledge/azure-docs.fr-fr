@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ La configuration de l’équilibrage de charge Azure prend en charge le NAT « 
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Notez que pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l’équilibrage de charge Azure. L’hôte externe voit le trafic entrant comme un port alloué d’adresse IP virtuelle. Si vous avez besoin d’un grand nombre de connexions sortantes, il est recommandé que les machines virtuelles utilisent des adresses IP publiques de niveau d’instance, afin de disposer d’une adresse IP sortante dédiée pour SNAT (Source Network Address Translation). Cela réduit le risque d’épuisement du port.
+
+>[AZURE.NOTE]Notez que pour chaque nouvelle connexion sortante initiée par une machine virtuelle, un port sortant est également alloué par l’équilibrage de charge Azure. L’hôte externe voit le trafic entrant comme un port alloué d’adresse IP virtuelle. Si vous avez besoin d’un grand nombre de connexions sortantes, il est recommandé que les machines virtuelles utilisent des adresses IP publiques de niveau d’instance, afin de disposer d’une adresse IP sortante dédiée pour SNAT (Source Network Address Translation). Cela réduit le risque d’épuisement du port.
+>
+>Le nombre maximal de ports pouvant être utilisés par l'adresse IP virtuelle ou ILPIP est 64K. Il s'agit d'une limite TCP standard.
+
 
 **Prise en charge de plusieurs adresses IP à équilibrage de charge pour les machines virtuelles**
 
@@ -95,4 +99,4 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

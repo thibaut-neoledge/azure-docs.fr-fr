@@ -188,7 +188,7 @@ Le schéma suivant montre comment les machines virtuelles Azure sont hébergées
 
 ![Schéma technique Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** crée le lecteur dans le stockage d'objets blob (en l'occurrence, e:\\ dans le schéma) ; **attach** attache un disque déjà créé mais non attaché à une machine virtuelle.
+**create-new** crée le lecteur dans le stockage d'objets blob (en l'occurrence, e:\ dans le schéma) ; **attach** attache un disque déjà créé mais non attaché à une machine virtuelle.
 
 **vm create [options] &lt;nom-dns> &lt;image> &lt;nomUtilisateur> [motdepasse]**
 
@@ -2346,4 +2346,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

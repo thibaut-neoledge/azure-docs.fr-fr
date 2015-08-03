@@ -279,22 +279,29 @@ Pour résoudre ce scénario, consultez les ressources suivantes :
 -   [Shared Access Signatures Are Easy These Days](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Scénarios d’identité et d’accès pour la base de données SQL Azure
+## Scénarios d’identité et d’accès pour la base de données SQL Azure
+
 
 La base de données SQL prend uniquement en charge l’authentification SQL Server. L’authentification Windows (sécurité intégrée) n’est pas prise en charge. Les utilisateurs doivent fournir leurs informations d’identification (nom d’utilisateur et mot de passe) chaque fois qu’ils se connectent à la base de données SQL. Pour éviter toute divulgation d’informations, montrez-vous particulièrement vigilant lors de la gestion de vos nom d’utilisateur et mot de passe.
 
+
 ![][15]
 
-Pour résoudre ce scénario, consultez les ressources suivantes :
 
--   [Instructions de sécurité et limitations (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [Connexion à SQL Database à l'aide de sqlcmd](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [Procédure : connexion à SQL Database à l'aide d'ADO.NET](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [Connexion à SQL Database au moyen d'ASP.NET](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [Procédure : connexion à SQL Database au moyen de WCF Data Services](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [Connexion à SQL Database à l'aide de PHP](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [Connexion à SQL Database à l'aide de JDBC](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [Connexion à SQL Database à l'aide d'ADO.NET Entity Framework](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+Pour résoudre ce scénario, reportez-vous à la rubrique d'aide suivante : <br/>[Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+Ou reportez-vous à l’une de ses nombreuses rubriques filles, comme :
+
+
+- [Connexion à SQL Database à l'aide de sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [Procédure : Connexion à la base de données SQL Azure à l'aide d'ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Connexion à une base de données SQL à l’aide de PHP](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [Connexion à SQL Database à l'aide de JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+Ou consultez : <br/> [Consignes et limitations de sécurité de base de données Azure SQL](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
+
 
 ##Scénarios d'identité et d'accès pour Azure Service Bus
 
@@ -444,4 +451,4 @@ L’ensemble des scénarios et des solutions décrits dans cette rubrique sont v
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

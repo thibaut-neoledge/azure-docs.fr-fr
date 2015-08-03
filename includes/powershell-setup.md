@@ -1,5 +1,4 @@
 
-
 ## Configuration de PowerShell
 
 Avant d’utiliser Azure PowerShell, effectuez les opérations ci-après.
@@ -69,4 +68,4 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
 
 Pour plus d’informations sur les comptes et les abonnements Azure, consultez [Procédure : Connexion à votre abonnement](powershell-install-configure.md#Connect).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

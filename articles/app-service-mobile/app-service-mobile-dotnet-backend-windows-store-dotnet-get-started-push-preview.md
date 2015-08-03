@@ -37,6 +37,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Un [compte Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045) actif.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
+##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ##<a id="register"></a>Inscription de votre application pour les notifications Push
 
 Pour envoyer des notifications push vers des applications universelles Windows à l'aide d'Azure App Service, vous devez soumettre votre application au Windows Store. Vous devez ensuite configurer les informations d'identification du service de notifications push de votre application mobile pour les intégrer à WNS.
@@ -191,4 +195,4 @@ Votre application est maintenant prête à recevoir des notifications toast.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

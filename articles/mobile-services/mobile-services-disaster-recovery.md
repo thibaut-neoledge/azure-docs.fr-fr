@@ -104,4 +104,4 @@ Votre service mobile a maintenant été récupéré pour une nouvelle région Az
 [Automatisation des services mobiles avec l'interface CLI Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

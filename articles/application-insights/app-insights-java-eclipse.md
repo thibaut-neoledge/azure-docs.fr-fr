@@ -39,7 +39,7 @@ Vous ne devez effectuer cette opération qu’une seule fois par machine. Cette 
 
     ![Aide, installation de nouveaux logiciels](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. Le Kit de développement logiciel (SDK) se trouve dans http://dl.msopentech.com/eclipse, sous Azure Toolkit.
+2. Le Kit de développement logiciel (SDK) se trouve dans http://dl.windowsazure.com/eclipse, sous Azure Toolkit.
 3. Désactivez l’option **Contacter tous les sites de mise à jour...**.
 
     ![Pour le Kit de développement logiciel (SDK) Application Insights, désactivez Contacter tous les sites de mise à jour.](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -77,7 +77,7 @@ Installez également le correctif fourni ici sur le serveur vContinuum, disponib
 
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-3.  Spécifiez la phrase secrète du serveur de configuration. Vous devez avoir noté la phrase secrète lors de l’inscription du serveur de configuration. Vous auriez également eu recours à la phrase secrète lors des déploiements du serveur maître cible et du serveur de traitement. Si vous ne vous souvenez pas de la phrase secrète, accédez au serveur de configuration sur Microsoft Azure et recherchez-la à l’emplacement « C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase ».
+3.  Spécifiez la phrase secrète du serveur de configuration. Vous devez avoir noté la phrase secrète lors de l’inscription du serveur de configuration. Vous auriez également eu recours à la phrase secrète lors des déploiements du serveur maître cible et du serveur de traitement. Si vous ne vous souvenez pas de la phrase secrète, accédez au serveur de configuration sur Microsoft Azure et recherchez-la à l’emplacement « C:\Program Files (x86)\InMage Systems\private\connection.passphrase ».
 
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
@@ -365,7 +365,7 @@ Remarque : durant le basculement de Microsoft Azure vers le système local, la
 
     e. Une fois que vous avez identifié les machines virtuelles que vous souhaitez protéger, sélectionnez-les une par une.
 
-4.  Lorsque vous sélectionnez une machine virtuelle à protéger (et qu’elle est déjà basculée vers Microsoft Azure), une fenêtre contextuelle indiquant deux entrées associées s’affiche. Ceci est dû au fait que le serveur de configuration a détecté deux instances de machines virtuelles inscrites. Vous devez supprimer l’entrée de machine virtuelle sur site, de manière à pouvoir protéger la machine virtuelle appropriée. Notez que les entrées s’affichent en fonction du nom d’hôte d’ordinateur. Pour identifier l’entrée appropriée de machine virtuelle Microsoft Azure, connectez-vous à la machine virtuelle Microsoft Azure, puis accédez à C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. Dans le fichier drscout.conf, identifiez l’ID d’hôte. Dans la boîte de dialogue vContinuum, conservez l’entrée associée à l’ID d’hôte dans la machine virtuelle. Supprimez toutes les autres entrées.
+4.  Lorsque vous sélectionnez une machine virtuelle à protéger (et qu’elle est déjà basculée vers Microsoft Azure), une fenêtre contextuelle indiquant deux entrées associées s’affiche. Ceci est dû au fait que le serveur de configuration a détecté deux instances de machines virtuelles inscrites. Vous devez supprimer l’entrée de machine virtuelle sur site, de manière à pouvoir protéger la machine virtuelle appropriée. Notez que les entrées s’affichent en fonction du nom d’hôte d’ordinateur. Pour identifier l’entrée appropriée de machine virtuelle Microsoft Azure, connectez-vous à la machine virtuelle Microsoft Azure, puis accédez à C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc. Dans le fichier drscout.conf, identifiez l’ID d’hôte. Dans la boîte de dialogue vContinuum, conservez l’entrée associée à l’ID d’hôte dans la machine virtuelle. Supprimez toutes les autres entrées.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -604,4 +604,4 @@ Une fois que la restauration rapide a été effectuée, vous pouvez souhaiter r�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

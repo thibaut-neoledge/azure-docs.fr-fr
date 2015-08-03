@@ -1,7 +1,9 @@
+
 <properties 
     pageTitle="Essai d’Azure RemoteApp sur votre périphérique en 3 minutes ou moins"
     description="Testez les fonctionnalités d’Azure RemoteApp sans installer le service." 
     services="remoteapp" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -35,4 +37,4 @@ Votre opinion est importante. À la fin de chaque session, vous verrez une boît
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

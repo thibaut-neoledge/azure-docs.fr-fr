@@ -147,4 +147,4 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

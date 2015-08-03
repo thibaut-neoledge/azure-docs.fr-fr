@@ -2,4 +2,4 @@
 > 
 > Bien qu’elles soient utilisées par les classes de stockage de Table Azure, ces bibliothèques sont des dépendances requises pour la programmation avec la bibliothèque cliente de stockage.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

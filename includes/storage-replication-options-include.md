@@ -26,4 +26,4 @@ Pour plus d’informations sur la tarification relative à la réplication du co
 
 Pour plus d’informations sur la durabilité avec Azure Storage, consultez la page [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

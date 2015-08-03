@@ -45,4 +45,4 @@ Pour obtenir des informations détaillées sur les concentrateurs d'événements
 [didacticiel des concentrateurs d'événements]: service-bus-event-hubs-csharp-ephcs-getstarted.md
 [exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -55,4 +55,4 @@ Créer une passerelle Application Gateway. Voir [Création d'une passerelle Appl
 
 Configurer le déchargement SSL. Voir [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

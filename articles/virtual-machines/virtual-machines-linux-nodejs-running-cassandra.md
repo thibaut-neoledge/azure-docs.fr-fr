@@ -250,7 +250,7 @@ Connectez-vous à la machine virtuelle, créez la structure de répertoires et e
 	echo "installation is complete"
 
 
-Si vous collez ce script dans la fenêtre vim, veillez à supprimer le retour chariot (‘\\r”) à l'aide de la commande suivante :
+Si vous collez ce script dans la fenêtre vim, veillez à supprimer le retour chariot (‘\r”) à l'aide de la commande suivante :
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -700,4 +700,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

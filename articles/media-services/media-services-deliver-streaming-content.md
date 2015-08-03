@@ -152,4 +152,4 @@ Le code suivant appelle les méthodes des extensions du Kit de développement lo
 	Console.WriteLine(mpegDashUri);
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -180,4 +180,4 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 
 3. Cliquez sur **Fermer l’espace de travail**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

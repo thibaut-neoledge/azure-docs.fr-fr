@@ -66,4 +66,4 @@ Un conteneur de volumes comporte plusieurs volumes. Il peut être supprimé uniq
 Élargissez vos connaissances en matière de [gestion des volumes StorSimple](storsimple-manage-volumes.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

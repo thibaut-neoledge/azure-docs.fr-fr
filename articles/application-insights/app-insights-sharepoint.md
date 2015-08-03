@@ -41,7 +41,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous placeriez le script dans View\\Shared_Layout.cshtml
+Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple, dans un projet ASP.NET MVC, vous placeriez le script dans View\Shared_Layout.cshtml
 
 Le script contient la clé d'instrumentation qui dirige la télémétrie vers votre ressource Application Insights.
 
@@ -108,4 +108,4 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

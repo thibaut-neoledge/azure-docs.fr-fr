@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2015"
+   ms.date="07/13/2015"
    ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
@@ -97,19 +97,19 @@ Prenez quelques instants pour lire le code et comprendre à quoi il sert.
 Créez un fichier nommé **reducer.py** et utilisez le code suivant comme contenu :
 
 	#!/usr/bin/env python
-	
+
 	# import modules
 	from itertools import groupby
 	from operator import itemgetter
 	import sys
-	
+
 	# 'file' in this case is STDIN
 	def read_mapper_output(file, separator='\t'):
 		# Go through each line
 	    for line in file:
 			# Strip out the separator character
 	        yield line.rstrip().split(separator, 1)
-	
+
 	def main(separator='\t'):
 	    # Read the data using read_mapper_output
 	    data = read_mapper_output(sys.stdin, separator=separator)
@@ -127,7 +127,7 @@ Créez un fichier nommé **reducer.py** et utilisez le code suivant comme conten
 	        except ValueError:
 	            # Count was not a number, so do nothing
 	            pass
-	
+
 	if __name__ == "__main__":
 	    main()
 
@@ -153,12 +153,12 @@ De cette façon, les fichiers du système local sont copiés dans le nœud princ
 
 2. Exécutez la commande suivante pour démarrer la tâche MapReduce :
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/davinci.txt -output wasb:///example/wordcountout
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	Cette commande dispose des éléments suivants :
 
 	* **hadoop-streaming.jar** : utilisé lors de l’exécution d’opérations de diffusion en contenu MapReduce. Il établit un lien entre Hadoop et le code externe MapReduce que vous fournissez
-	
+
 	* **-files** : indique à Hadoop que les fichiers spécifiés sont nécessaires pour effectuer cette tâche MapReduce, et qu’ils doivent être copiés sur tous les nœuds de travail.
 
 	* **-mapper** : indique à Hadoop quel fichier doit être utilisé comme mappeur.
@@ -201,6 +201,5 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

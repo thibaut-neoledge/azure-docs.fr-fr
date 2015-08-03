@@ -303,4 +303,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

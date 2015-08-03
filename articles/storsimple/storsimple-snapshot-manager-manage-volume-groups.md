@@ -17,7 +17,7 @@
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Vous pouvez utiliser le nœud **Groupes de volumes** du volet **Étendue** pour attribuer des volumes aux groupes de volumes, afficher des informations relatives à un groupe de volumes, planifier des sauvegardes et modifier des groupes de volumes.
 
@@ -142,4 +142,4 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -334,7 +334,7 @@ L'URL du serveur web sera définie ici. Pour cela, vous avez besoin de quelques 
 
 Avant de sélectionner un port pour le serveur web, il est important de comprendre que Service Fabric fournit une couche d'application qui agit comme un tampon entre votre application et le système d'exploitation sous-jacent sur lequel il s'exécute. Par conséquent, Service Fabric permet de configurer des *points de terminaison* pour vos services. Service Fabric s'assure que le système d'extrémité est disponible pour votre service, ce qui vous évite de le configurer vous-même avec l'environnement de système d'exploitation sous-jacent. Cela vous permet d'héberger facilement votre application Service Fabric dans différents environnements sans avoir à la modifier (par exemple, vous pouvez héberger la même application dans Azure ou dans votre propre centre de données).
 
-Configurer un point de terminaison HTTP dans PackageRoot\\ServiceManifest.xml :
+Configurer un point de terminaison HTTP dans PackageRoot\ServiceManifest.xml :
 
 ```xml
 
@@ -613,4 +613,4 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

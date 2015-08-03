@@ -120,7 +120,7 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 	![Paramètres d’application web][settings-button]
 
 5. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis accédez à la section **Paramètres de l’application**.
-6. Dans la section **Paramètres de l’application**, créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\\your-ext-file**.
+6. Dans la section **Paramètres de l’application**, créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
 
 	![Activer une extension dans les paramètres d'application][php-extensions]
 
@@ -177,4 +177,4 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

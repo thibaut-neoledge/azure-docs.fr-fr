@@ -76,4 +76,4 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 [processus d'approvisionnement de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [toutes les API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -168,7 +168,7 @@ Dans ce document, découvrez comment utiliser Maven pour créer une tâche de co
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Maintenant que vous avez vu comment utiliser Scalding pour créer des tâches Ma
 
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

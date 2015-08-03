@@ -87,4 +87,4 @@ Cliquez sur le lien en dessous de **Ports**, puis cliquez sur **Non** pour l'opt
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

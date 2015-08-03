@@ -1,13 +1,3 @@
-<properties services="virtual-machines" title="Using Azure CLI with Azure Resource Manager" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
 
 ## Utilisation de l’interface de ligne de commande Azure (CLI) avec Azure Resource Manager (ARM)
 
@@ -64,4 +54,4 @@ Pour utiliser le mode ARM (Azure Resource Management) avec l’interface de lign
 
 > [AZURE.NOTE]Vous pouvez revenir en arrière pour utiliser les commandes de gestion des services Azure en tapant `azure config mode asm`.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO4-->

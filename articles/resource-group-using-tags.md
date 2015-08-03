@@ -121,4 +121,4 @@ Gestion et audit de l’accès
 - [Création d'un nouveau principal du service Azure à l’aide du portail Azure classique](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

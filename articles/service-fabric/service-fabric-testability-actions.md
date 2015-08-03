@@ -233,4 +233,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Échecs de communication de service à service](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

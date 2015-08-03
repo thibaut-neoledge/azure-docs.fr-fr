@@ -98,4 +98,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Files d'attente, rubriques et abonnements]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

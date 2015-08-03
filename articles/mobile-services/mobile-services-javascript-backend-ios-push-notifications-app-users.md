@@ -71,7 +71,6 @@ function insert(item, user, request) {
 [Prise en main des notifications Push]: mobile-services-javascript-backend-ios-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[portail de gestion Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

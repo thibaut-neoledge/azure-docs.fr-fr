@@ -113,4 +113,4 @@ Vous pouvez maintenant sélectionner l'option À tout moment lors de la créatio
 [cette procédure]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

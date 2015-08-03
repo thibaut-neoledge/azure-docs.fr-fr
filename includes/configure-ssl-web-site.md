@@ -164,7 +164,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 
 5. À partir de la ligne de commande, d’un interpréteur de commandes ou d’une session terminal, utilisez la commande suivante pour convertir **myserver.key** et **myserver.crt** en **myserver.pfx**, le format requis par Azure App Service :
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
@@ -541,4 +541,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

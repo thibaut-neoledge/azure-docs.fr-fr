@@ -55,7 +55,7 @@ Par exemple, vous pouvez rassembler toutes les machines virtuelles utilisant II
 
 
 ### Combinaison de l'équilibrage de charge et des groupes à haute disponibilité
-Combinez l'équilibrage de charge Azure avec un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machines virtuelles de niveau Standard. Notez que tous les niveaux de machines virtuelles n’intègrent pas l’équilibreur de charge Azure. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la section [Équilibrage de charge des machines virtuelles](../load-balance-virtual-machines.md).
+Combinez l'équilibrage de charge Azure avec un groupe à haute disponibilité pour une meilleure résilience de votre application. L'équilibrage de charge Azure répartit le trafic entre plusieurs machines virtuelles. L'équilibrage de charge Azure est compris pour nos machine virtuelles de niveau Standard. Notez que tous les niveaux de machines virtuelles n’intègrent pas l’équilibreur de charge Azure. Pour plus d’informations sur l’équilibrage de charge des machines virtuelles, consultez la section [Équilibrage de charge des machines virtuelles](../load-balance-virtual-machines.md).
 
 Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entre plusieurs machines virtuelles, tout événement de maintenance planifié aura un effet sur l'unique machine virtuelle en charge du trafic, ce qui entraînera une panne de votre couche application. Placer plusieurs machines virtuelles de la même couche dans le même équilibrage de charge et groupe à haute disponibilité permet de toujours avoir au moins une instance disponible pour le trafic.
 
@@ -69,4 +69,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuration d’un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

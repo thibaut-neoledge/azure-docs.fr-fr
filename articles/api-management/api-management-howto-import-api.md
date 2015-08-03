@@ -95,4 +95,4 @@ Une fois l'API créée et les opérations importées, vous pouvez vérifier et c
 [Création d'API]: api-management-howto-create-apis.md
 [Configuration des paramètres de l’API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

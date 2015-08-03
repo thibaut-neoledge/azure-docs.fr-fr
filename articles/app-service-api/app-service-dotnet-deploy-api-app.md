@@ -20,7 +20,7 @@
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez déployer le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous allez utiliser Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) et déployer votre code d’API web vers l’application API Azure.
+Dans ce didacticiel, vous allez déployer le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous allez utiliser Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) et déployer votre code d’API web avec vers l’application API Azure.
 
 ### Autres options de déploiement
 
@@ -92,4 +92,4 @@ Dans cette section, vous consultez les paramètres de base disponibles pour les 
 Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent l'itération et le déploiement rapide de votre API ainsi que le test permettant de vérifier qu'elle fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

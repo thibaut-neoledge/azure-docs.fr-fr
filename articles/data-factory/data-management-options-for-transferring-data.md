@@ -3,8 +3,8 @@
 	description="Conseils pour choisir la meilleure option de transfert de données depuis d'autres cloud locaux vers Microsoft Azure afin de réaliser des analyses de données avancées." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
-	authors="cjgronlund" 
-	manager="paulettm" 
+	authors="spelluru" 
+	manager="jeffgoll" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
 	ms.date="01/07/2014" 
-	ms.author="cgronlun"/>
+	ms.author="spelluru"/>
 
 # Options de transfert de données stockées vers le cloud Azure
 
@@ -270,4 +270,4 @@ Remarques à propos de l'arbre de décision :
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

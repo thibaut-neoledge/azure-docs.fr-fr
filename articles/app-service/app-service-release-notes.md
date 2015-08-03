@@ -25,7 +25,7 @@ Ce document contient les notes de publication du Kit de développement logiciel 
 
 Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de développement logiciel (SDK) Azure pour .NET 2.5.1 sont présentées ci-dessous.
 
-- Nouvelles fonctionnalités\\nouveaux scénarios associés aux **extensions d’outils web**. 
+- Nouvelles fonctionnalités\nouveaux scénarios associés aux **extensions d’outils web**. 
 
 	- Azure Web Sites a été renommé Azure App Service. Pour plus d’informations, consultez [Azure App Service et services Azure existants](app-service-changes-existing-services.md).
 	- La prise en charge des applications API Azure (version préliminaire) a été ajoutée afin que les clients puissent publier des projets ASP.NET en tant qu'applications API, puis utiliser le mouvement Ajouter > Azure API App Client dans les projets C# pour générer du code basé sur la structure de l'application API déployée. 
@@ -38,7 +38,7 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 	Pour les problèmes connus et les limites actuelles dans le Kit de développement logiciel (SDK) Azure pour .NET 2.5.1, consultez la [section](app-service-release-notes.md#known_issues_2_5_1) ci-dessous.
 
 
-- De nouvelles fonctionnalités\\nouveaux scénarios associés aux **outils HDInsight** dans Visual Studio sont activés dans cette version.
+- De nouvelles fonctionnalités\nouveaux scénarios associés aux **outils HDInsight** dans Visual Studio sont activés dans cette version.
 	- Validation locale des scripts Hive. Cliquez sur le bouton Valider le script dans la barre d'outils pour voir si votre script contient des erreurs. 
 	- Débogage amélioré des tâches Hive. Vous pouvez maintenant déboguer les tâches Hive en accédant aux journaux Yarn dans Visual Studio. Si votre application présente des problèmes de performances, l'examen des journaux Yarn fournit des informations utiles.
 	- (Version préliminaire publique) Prise en charge d'IntelliSense et de la saisie semi-automatique des mots clés pour Hive. Pour vous aider à créer des scripts Hive, HDInsight Tools pour Visual Studio a ajouté la prise en charge d'IntelliSense et de la saisie semi-automatique des mots clés pour Hive.
@@ -68,4 +68,4 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

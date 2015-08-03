@@ -245,4 +245,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

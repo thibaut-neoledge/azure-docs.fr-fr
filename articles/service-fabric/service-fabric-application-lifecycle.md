@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/17/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
 # Cycle de vie des applications Service Fabric
-Comme pour les autres plateformes, une application sur Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à plusieurs rôles différents de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.
+Comme pour les autres plateformes, une application sur Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à plusieurs rôles différents de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.
 
 ## Rôles de modèle de service
 Les rôles de modèle de service sont les suivants :
@@ -118,4 +118,4 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 - [Exemple de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

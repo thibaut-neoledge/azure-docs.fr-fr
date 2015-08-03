@@ -418,4 +418,4 @@ Ce modèle est très courant dans les scénarios où des développeurs doivent t
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

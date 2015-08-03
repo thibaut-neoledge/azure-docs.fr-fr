@@ -3,7 +3,7 @@
     pageTitle="Résolution des problèmes de création de collections hybrides RemoteApp"
     description="Apprenez comment dépanner les échecs de création de collections hybrides RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Vous n’avez pas encore créé votre collection ? Pour plus d’informations, 
 Si vous rencontrez des problèmes lors de la création de votre collection, ou si la collection ne fonctionne pas comme elle devrait, vérifiez les informations suivantes.
 
 ## Votre réseau virtuel utilise-t-il le tunneling forcé ? ##
-RemoteApp ne prend actuellement pas en charge les réseaux virtuels sur lesquels le tunneling forcé est activé. Si vous avez besoin de cette fonction, contactez l’équipe RemoteApp.
+RemoteApp ne prend actuellement pas en charge les réseaux virtuels sur lesquels le tunneling forcé est activé. Si vous avez besoin de cette fonction, contactez l’[équipe RemoteApp](mailto:remoteappforum@microsoft.com).
 
 Une fois votre demande approuvée, assurez-vous que les ports suivants sont ouverts sur le sous-réseau que vous avez choisi pour Azure RemoteApp et les machines virtuelles du sous-réseau. Les machines virtuelles sur vos sous-réseaux doivent également pouvoir accéder aux URL mentionnées dans la section sur les groupes de sécurité réseau.
 
@@ -70,8 +70,6 @@ Par exemple :
 
 ![Définition de votre serveur DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-Pour plus d’informations, consultez la page [Résolution de noms à l’aide de votre propre serveur DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## Utilisez-vous un contrôleur de domaine Active Directory dans votre collection ? ##
 Actuellement, un seul domaine Active Directory peut être associé à Azure RemoteApp. La collection hybride prend en charge uniquement les comptes Azure Active Directory synchronisés à l’aide de l’outil DirSync à partir d’un déploiement de Windows Server Active Directory. Plus précisément, ils doivent être synchronisés avec l’option de synchronisation de mot de passe ou la fédération des services ADFS doit être configurée. Vous devez créer un domaine personnalisé qui correspond au suffixe de votre domaine local et configurer l'intégration d'annuaire.
 
@@ -83,4 +81,4 @@ Vérifiez que les détails du domaine fournis sont valides et que le contrôleur
 
 Le nom de domaine que vous avez créé ou ajouté doit être un nom de domaine interne (et non pas votre nom de domaine Azure AD) et doit être au format DNS pouvant être résolu (contoso.local). Par exemple, vous avez un nom interne Active Directory (contoso.local) et un UPN Active Directory (contoso.com) : vous devez utiliser le nom interne lorsque vous créez votre collection.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

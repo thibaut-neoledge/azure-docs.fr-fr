@@ -252,4 +252,4 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -31,29 +31,7 @@ En outre, nous vous recommandons de ne pas utiliser les groupes d’affinités e
 
 ### À propos des réseaux virtuels actuellement associés à des groupes d’affinités
 
-Les réseaux virtuels qui sont actuellement associés à des groupes d’affinités pourront être migrés vers des réseaux virtuels régionaux très prochainement. Nous mettrons à jour cette page pour vous tenir informé du processus en cours et de la date à laquelle vous pourrez commencer les étapes de migration.
-
-Notez que les groupes d’affinités existeront toujours, même si nous ne recommandons plus leur utilisation pour les réseaux virtuels. Pour cette raison, vous pouvez choisir de ne pas migrer votre réseau virtuel ou de retarder la migration. Votre réseau virtuel fonctionnera toujours. Toutefois, vous pourrez rencontrer des limitations et vous ne pourrez pas tirer parti des nombreuses nouvelles fonctionnalités liées aux réseaux virtuels régionaux. Nous vous encourageons vivement à migrer votre réseau virtuel du groupe d’affinités vers un réseau virtuel régional dès que votre réseau virtuel sera activé.
-
-### Migration anticipée
-
-La migration anticipée est disponible pour les clients disposant d’un contrat de support. Pour choisir la migration anticipée, procédez comme suit :
-
-1. Dans le **portail de gestion**, dans votre page de réseau virtuel, en haut à droite, cliquez sur **Contacter le support Microsoft**.
-
-	![Demande de migration vers un réseau virtuel régional](./media/virtual-networks-migrate-to-regional-vnet/IC790447.png)
-
-1. Dans la page **Contacter le support Microsoft**, sélectionnez les éléments suivants : Abonnement : si vous avez plusieurs abonnements, sélectionnez l’abonnement qui correspond au réseau virtuel que vous voulez migrer. Type de support : technique Type de produit : réseaux virtuels Type de problème : migration d’un réseau virtuel vers un réseau virtuel régional
-
-	- **Abonnement :** si vous avez plusieurs abonnements, sélectionnez l’abonnement qui correspond au réseau virtuel que vous voulez migrer.
-
-	- **Type de support :** *technique*
-
-	- **Type de produit :** *réseaux virtuels*
-
-	- **Type de problème :** *migration d’un réseau virtuel vers un réseau virtuel régional*
-
-1. Prérequis : votre réseau virtuel doit être déjà activé pour la migration pour effectuer les étapes suivantes. Vous saurez que votre réseau virtuel a été activé quand vous recevrez une confirmation (dans le cas d’une demande de migration anticipée), ou que cette page a été mise à jour pour vous informer que tous les réseaux virtuels sont activés pour la migration.
+Les réseaux virtuels qui sont actuellement associés à des groupes d’affinités peuvent être migrés vers des réseaux virtuels régionaux. Pour la migration vers un réseau virtuel régional, procédez comme suit :
 
 1. Exportez le fichier de configuration réseau. Vous pouvez utiliser PowerShell ou le portail de gestion. Pour obtenir des instructions sur l’utilisation du portail de gestion, consultez [Configuration de votre réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-networks-using-network-configuration-file/).
 
@@ -63,9 +41,9 @@ La migration anticipée est disponible pour les clients disposant d’un contrat
 	
 	Modifiez les lignes suivantes dans votre fichier de configuration réseau, en remplaçant les valeurs avec les vôtres :
 
-	**Ancienne valeur :** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Ancienne valeur :** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nouvelle valeur :** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nouvelle valeur :** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Enregistrez vos modifications et [importez](../virtual-networks-using-network-configuration-file/) la configuration réseau dans Azure.
 
@@ -86,4 +64,4 @@ Les machines virtuelles qui sont actuellement dans un groupe d’affinités n’
 Une fois qu’une machine virtuelle est déployée, elle l’est sur une seule unité d’échelle. Les groupes d’affinités peuvent restreindre la taille disponible de l’ensemble des machines virtuelles pour un nouveau déploiement de machines virtuelles, mais les machines virtuelles existantes déployées sont déjà limitées à la taille disponible de l’ensemble des machines virtuelles dans l’unité d’échelle où elles sont déployées. Pour cette raison, la suppression d’une machine virtuelle du groupe d’affinités n’a aucun effet.
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

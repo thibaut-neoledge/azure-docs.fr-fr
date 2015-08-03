@@ -353,4 +353,4 @@ Une fois que cette requête est envoyée, la réponse est la suivante :
  
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

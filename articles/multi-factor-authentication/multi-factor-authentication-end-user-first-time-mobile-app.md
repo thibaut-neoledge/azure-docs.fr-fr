@@ -51,4 +51,4 @@ L’application Azure Authenticator pour [Windows Phone](http://www.windowsphone
 <li>Si vous utilisez ces applications, copiez le mot de passe d’application fourni et collez-le dans votre application sans navigateur. Pour connaître les étapes relatives aux applications individuelles, comme Outlook et Lync, consultez la rubrique Modification du mot de passe dans votre messagerie électronique par le mot de passe d’application et Modification du mot de passe dans votre application par le mot de passe d’application.</li>
 <li>Cliquez sur Done.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

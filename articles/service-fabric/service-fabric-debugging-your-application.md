@@ -66,4 +66,4 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

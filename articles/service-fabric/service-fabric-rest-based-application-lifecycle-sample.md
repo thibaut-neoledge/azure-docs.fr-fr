@@ -49,9 +49,9 @@ Cet exemple utilise l’[échantillon WordCount](https://github.com/azure/servi
 
 Pour créer les packages d’application et les copier dans le magasin d’images, procédez comme suit :
 
-1. Copiez l’élément C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug vers C:\\Temp\\WordCount. Cette opération permet de créer le package de l’application WordCount. 
-2. Copiez l’élément C:\\Temp\\WordCount vers C:\\Temp\\WordCountUpgrade. Cette opération permet de créer le package de l’application WordCountUpgrade.
-3. Ouvrez le fichier C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml dans un éditeur de texte.
+1. Copiez l’élément C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug vers C:\Temp\WordCount. Cette opération permet de créer le package de l’application WordCount. 
+2. Copiez l’élément C:\Temp\WordCount vers C:\Temp\WordCountUpgrade. Cette opération permet de créer le package de l’application WordCountUpgrade.
+3. Ouvrez le fichier C:\Temp\WordCountUpgrade\ApplicationManifest.xml dans un éditeur de texte.
 4. Dans l’élément ApplicationManifest, modifiez l’attribut ApplicationTypeVersion et affectez-lui la valeur « 1.1.0.0 ». Cette opération permet de mettre à jour le numéro de version de l’application.
 5. Enregistrez le fichier ApplicationManifest.xml modifié.
 6. Exécutez le script PowerShell suivant en tant qu’administrateur afin de copier les applications dans le magasin d’images :
@@ -712,4 +712,4 @@ namespace ServiceFabricRestCaller
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

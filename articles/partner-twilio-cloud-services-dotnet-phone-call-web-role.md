@@ -192,4 +192,4 @@ Ce code vous est fourni afin de vous présenter les fonctions de base de l'utili
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

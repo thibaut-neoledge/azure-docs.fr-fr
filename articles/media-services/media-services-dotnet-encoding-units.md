@@ -70,4 +70,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

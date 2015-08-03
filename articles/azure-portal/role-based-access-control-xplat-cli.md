@@ -118,7 +118,7 @@ Ensuite, utilisez `azure role assignment create` pour créer une affectation de 
 
 - Cela créera une affectation de rôle au niveau d’un groupe de ressources :
 
-    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - Cela créera une affectation de rôle au niveau d’une ressource :
 
@@ -128,8 +128,8 @@ Ensuite, utilisez `azure role assignment create` pour créer une affectation de 
 
 Après avoir contrôlé que votre abonnement inclut des affectations de rôles, vous pouvez afficher les autorisations que ces affectations de rôles vous octroient en exécutant :
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 Ces deux applets de commande renverront uniquement les groupes de ressources ou ressources pour lesquels vous disposez d'une autorisation en lecture. Elles affichent également les autorisations dont vous disposez.
 
@@ -148,4 +148,4 @@ Pour en savoir plus sur le contrôle d’accès en fonction du rôle à l’aide
 - [Résolution des problèmes de contrôle d’accès en fonction du rôle](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

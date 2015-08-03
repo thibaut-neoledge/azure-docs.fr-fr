@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Stratégies d'indexation de DocumentDB | Azure" 
-    description="Découvrez le fonctionnement de l'indexation dans DocumentDB et apprenez à configurer une stratégie d'indexation." 
+    description="Découvrez le fonctionnement de l’indexation dans DocumentDB et apprenez à configurer et à modifier une stratégie d’indexation." 
     services="documentdb" 
     documentationCenter="" 
     authors="mimig1" 
@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/06/2015" 
+    ms.date="07/19/2015" 
     ms.author="mimig"/>
 
 
@@ -41,14 +41,13 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 - Comment puis-je configurer l'index pour des mises à jour éventuelles ?
 - Comment puis-je configurer l'indexation afin d'effectuer des requêtes Order By ou de plage ?
 
-
 ## Fonctionnement de l'indexation dans DocumentDB
 
 L’indexation dans DocumentDB tire parti du fait que la grammaire JSON permet que les documents soient **représentés sous forme d’arborescences**. Pour qu'un document JSON soit représenté sous forme d'arborescence, il est nécessaire de créer un nœud racine factice qui comporte le reste des nœuds réels du document en dessous. Chaque étiquette incluant les index de tableau d'un document JSON devient un nœud de l'arborescence. La figure ci-dessous illustre un exemple de document JSON et sa représentation correspondante sous forme d'arborescence.
 
 ![Stratégies d’indexation](media/documentdb-indexing-policies/image001.png)
 
-Par exemple, la propriété JSON {"headquarters": "Belgium"} de l’exemple ci-dessus correspond au chemin d’accès /"headquarters"/"Belgium". Le tableau JSON {"exports": [{"city": “Moscow"}, {"city": Athens"}]} correspond aux chemins d’accès /"exports"/0/"city"/"Moscow" et /"exports"/1/"city"/"Athens".
+Par exemple, la propriété JSON `{"headquarters": "Belgium"}` dans l’exemple ci-dessus correspond au chemin d’accès `/headquarters/Belgium`. Le tableau JSON `{"exports": [{"city": “Moscow"}, {"city": Athens"}]}` correspond aux chemins d’accès `/exports/[]/city/Moscow` et `/exports/[]/city/Athens`.
 
 >[AZURE.NOTE]La représentation sous forme de chemin d’accès atténue la frontière entre la structure/le schéma et les valeurs d’instance des documents, ce qui permet que DocumentDB soit véritablement sans schéma.
 
@@ -56,64 +55,39 @@ Dans DocumentDB, les documents sont organisés en collections qui peuvent être 
 
 ## Configuration de la stratégie d'indexation d'une collection
 
-L’exemple suivant montre comment définir une stratégie d’indexation personnalisée lors de la création d’une collection, à l’aide de l’API REST de DocumentDB. L’exemple illustre la stratégie d’indexation exprimée en termes de chemins d’accès, les types d’index et les précisions.
+Pour chaque collection DocumentDB, vous pouvez configurer les options suivantes :
 
-    POST https://<REST URI>/colls HTTP/1.1
-    Accept: application/json 
+- Mode d’indexation : **Cohérent**, **Différent** (pour les mises à jour asynchrones) ou **Aucun** (seulement accès basé sur l’ID).
+- Chemins d’accès inclus et exclus : choisissez les chemins d’accès dans JSON qui sont inclus et exclus.
+- Type d’index :**hachage** (pour les requêtes d’égalité), **Plage** (pour les requêtes d’égalité, de plage de données et Trier par avec un espace de stockage plus élevé).
+- Précision d’index : 1 à 8 ou maximale (-1) pour un compromis entre les performances et le stockage.
+- Automatique : **true** ou **false** pour activer, ou **manuel** (à choisir à chaque insertion).
 
-    {
-       "id":"customIndexCollection",
-       "indexingPolicy":{
-          "automatic":true,
-          "indexingMode":"Consistent",
-          "includedPaths":[
-             {
-                "path":"/*",
-                "indexes":[
+L’extrait de code .NET suivant montre comment définir une stratégie d’indexation personnalisée lors de la création d’une collection. Ici, nous définissons la stratégie avec un index de plage pour les chaînes et les chiffres à la précision maximale. Cette stratégie nous permet d’exécuter des requêtes Trier par sur les chaînes.
+
+    var collection = new DocumentCollection { Id = "myCollection" };
     
-                ]
-             }
-          ],
-          "excludedPaths":[
-             {
-                "path":"/nonIndexedContent/*"
-             }
-          ]
-       }
-    }
-     ...
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+    
+    collection.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, collection);   
 
 
-     HTTP/1.1 201 Created
-
->[AZURE.NOTE]Le schéma JSON pour la stratégie d'indexation a été modifié avec la version de l'API REST 2015-06-03 pour prendre en charge les index de plage par rapport à des chaînes. Le Kit de développement logiciel (SDK) .NET 1.2.0 et les Kit de développement logiciel (SDK) Java, Python et Node.js 1.1.0 prennent en charge le nouveau schéma de stratégie. Des Kits de développement (SDK) plus anciens utilisent la version 2015-04-08 de l'API REST et prennent en charge le schéma de stratégie d'indexation plus ancien.
+>[AZURE.NOTE]Le schéma JSON de la stratégie d’indexation a été modifié avec la version de l’API REST 2015-06-03 pour prendre en charge les index de plage dans des chaînes. Le Kit de développement logiciel (SDK) .NET 1.2.0 et les Kits de développement logiciel (SDK) Java, Python et Node.js 1.1.0 prennent en charge le nouveau schéma de stratégie. Des Kits de développement (SDK) plus anciens utilisent la version 2015-04-08 de l'API REST et prennent en charge le schéma de stratégie d'indexation plus ancien.
 >
->La stratégie d’indexation d’une collection doit être spécifiée lors de la création. La modification de cette stratégie d’indexation après la création de la collection n’est pas autorisée, mais elle sera prise en charge dans une future version de DocumentDB.
->
->Par défaut, DocumentDB indexe régulièrement tous les chemins d’accès au sein des documents avec un index de hachage. Le chemin d’accès interne Timestamp (_ts) est stocké avec un index de plage.
-
-### Indexation automatique
-
-Vous pouvez choisir si vous souhaitez que la collection indexe tous les documents automatiquement ou non. Par défaut, tous les documents sont indexés automatiquement, mais vous pouvez choisir de désactiver cette option. Lorsque l’indexation est désactivée, les documents sont accessibles uniquement par le biais de leurs liens réflexifs ou de requêtes avec l’ID.
-
-Si l'indexation automatique est désactivée, vous ne pouvez continuer à ajouter des documents spécifiques à l'index que de façon sélective. À l'inverse, vous pouvez laisser l'indexation automatique activée et choisir ne d'exclure de façon sélective que des documents spécifiques. Les configurations d'indexation activée/désactivée sont utiles lorsque vous n'avez qu'un sous-ensemble de documents à interroger.
-
-Vous pouvez configurer la stratégie par défaut en spécifiant la valeur de la propriété automatique comme true ou false. Pour remplacer un document unique, vous pouvez définir l’en-tête de demande x-ms-indexingdirective pendant l’insertion ou le remplacement d’un document.
-
-Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET DocumentDB](https://github.com/Azure/azure-documentdb-java) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
-
-    // If you want to override the default collection behavior to either
-    // exclude (or include) a Document from indexing,
-    // use the RequestOptions.IndexingDirective property.
-    client.CreateDocumentAsync(defaultCollection.SelfLink,
-        new { id = "AndersenFamily", isRegistered = true },
-        new RequestOptions { IndexingDirective = IndexingDirective.Include });
-        
-
+>Par défaut, DocumentDB indexe régulièrement toutes les propriétés de chaîne au sein des documents avec un index de hachage, et les propriétés numériques avec un index de plage.
 
 ### Modes d’indexation
 
-Vous avez le choix entre les mises à jour d’index synchrones (**cohérentes**) et asynchrones (**différées**). Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un document au niveau de la collection. Ainsi, les requêtes peuvent honorer le même niveau de cohérence que les lectures de document sans que l’index ne soit soumis à un quelconque délai de rattrapage.
+Vous pouvez choisir des mises à jour d’index synchrones (**cohérentes**), asynchrones (**différées**), ou vous pouvez ne pas en choisir (**Aucune**). Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un document au niveau de la collection. Ainsi, les requêtes peuvent honorer le même niveau de cohérence que les lectures de document sans que l’index ne soit soumis à un quelconque délai de rattrapage.
 
 Alors que DocumentDB est optimisé pour les écritures et prend en charge les volumes soutenus d'écritures de documents, ainsi que la maintenance synchrone des index, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l'index soit effectuée en différé. L'indexation différée est très utile pour les scénarios où les données sont écrites en rafales et que vous souhaitez amortir le travail requis pour indexer le contenu sur une longue période de temps. Cela vous permet d'utiliser efficacement le débit configuré et de répondre aux demandes d'écriture aux heures de pointe avec une latence minimale. Si l’indexation différée est activée, les résultats des requêtes seront cohérents, indépendamment du niveau de cohérence configuré pour le compte de base de données.
 
@@ -134,36 +108,6 @@ L'exemple suivant montre comment utiliser le Kit de développement logiciel (SDK
      collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
      
      collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
-
-### Types d’index et précision
-
-Le type ou le schéma utilisé pour les entrées d'index a un impact direct sur les performances et le stockage des index. Pour un schéma utilisant une précision plus élevée, les requêtes sont généralement plus rapides. Toutefois, la surcharge de stockage de l'index est plus élevée. Le choix d'une précision inférieure signifie qu'un plus grand nombre de documents doit être traité pendant l'exécution des requêtes, mais que la surcharge de stockage sera inférieure.
-
-La précision de l’index pour les valeurs d’un chemin d’accès peut être comprise entre 1 et 8, ou définie sur -1 pour indiquer que le chemin d’accès doit utiliser la précision requise maximale. Chaque chemin d'accès peut être configuré avec un tableau d'index, un pour chaque type de données (chaîne et numéro) et en spécifiant la précision pour chacun.
-
-Deux types d’index sont également pris en charge : la plage et le hachage. Le choix du type d’index **hachage** permet des requêtes d’efficacité égale. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets.
-
-Le choix du type d’index **plage** permet les requêtes de plage (à l’aide de >, <, >=, <=, !=) et les requêtes **Trier par**. Les requêtes Trier par nécessitent également par défaut que l’index de plage soit créé avec la précision maximale (-1) afin d’assurer le tri total des résultats.
-
-Pour les chemins qui ont de grandes plages de valeurs, il est recommandé d'utiliser une précision plus élevée telle que 6 octets. Un cas courant d'utilisation qui requiert un index de plage de précision plus élevée est celui des horodateurs stockés comme heure d'époque.
-
-Si votre cas d'utilisation ne nécessite pas des requêtes Order By et/ou des requêtes de plage efficaces, la valeur par défaut des index de hachage offre le meilleur compromis entre le stockage et les performances. Notez que pour prendre en charge des requêtes order by ou des requêtes de plage, vous devez spécifier une stratégie d’index personnalisée qui n’est pas par défaut.
-
-L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez que l’exemple utilise un chemin d’accès spécial « / », qui est décrit dans la section suivante.
-
-    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
-    
-    rangeDefault.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
-
 
 ### Chemins d’accès de l’index
 
@@ -217,6 +161,9 @@ Voici les modèles courants de spécification des chemins d'index :
                 <p>
                     SELECT * FROM collection c WHERE c.prop > 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>                
             </td>
         </tr>
         <tr>
@@ -238,7 +185,9 @@ Voici les modèles courants de spécification des chemins d'index :
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value"
                 </p>
-
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop
+                </p>
             </td>
         </tr>
         <tr>
@@ -293,6 +242,9 @@ Voici les modèles courants de spécification des chemins d'index :
                 <p>
                     SELECT * FROM collection c WHERE c.prop.subprop > 5
                 </p>
+                <p>
+                    SELECT * FROM collection c ORDER BY c.prop.subprop
+                </p>                
             </td>
         </tr>
     </tbody>
@@ -311,17 +263,62 @@ L’exemple suivant configure un chemin d’accès spécifique avec l’indexati
                 new RangeIndex(DataType.String) { Precision = 20 } } 
             });
 
+    // Default for everything else
     collection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
-            Path = "/*" 
+            Path = "/*" ,
+            Indexes = new Collection<Index> {
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 } 
+            }
         });
         
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);
 
+### Types de données d’index, types d’index et précisions d’index
 
-DocumentDB retourne une erreur lorsqu'une requête utilise Order By, mais n'a pas d’index de plage par rapport au chemin d'accès de requête avec la précision maximale. Une erreur est retournée pour des requêtes avec des opérateurs de plage comme >= s'il n'existe aucun index de plage (de toute précision), mais celles-ci peuvent être traitées s’il existe d'autres filtres pouvant être traités par l'index. Les requêtes peuvent être effectuées sans un index de plage à l'aide de l'en-tête x-ms-documentdb-enable-scans header dans l'API REST ou l'option de requête EnableScanInQuery à l'aide du Kit de développement logiciel (SDLK) .NET.
+Maintenant que nous avons vu comment spécifier des chemins d’accès, examinons les options que nous pouvons utiliser pour configurer la stratégie d’indexation pour un chemin d’accès. Vous pouvez spécifier une ou plusieurs définitions d’indexation pour chaque chemin d’accès :
 
-Des chemins d'accès similaires peuvent être exclus complètement de l'indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
+- Type de données : **chaîne** ou **nombre** (ne pouvant contenir qu’une seule entrée par type de données par chemin d’accès)
+- Type d’index : **hachage** (requêtes d’égalité) ou **plage** (requêtes d’égalité, de plage ou requêtes Trier par)
+- Précision : 1 à 8 ou -1 (précision maximale) pour les nombres, 1 à 100 (précision maximale) pour les chaînes
+
+#### Type d’index
+
+DocumentDB prend en charge deux types d’index pour chaque paire de type de données et de chemin d’accès.
+
+- **Hachage** prend en charge les requêtes d’égalité efficaces. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets.
+- **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <>, =, < =,! =) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1).
+
+#### Précision d’index
+
+La précision d’index vous permet trouver un compromis entre le traitement du stockage de l’index et les performances des requêtes. Pour les nombres, nous recommandons d’utiliser la configuration de précision par défaut définie sur -1. Comme les nombres correspondent à 8 octets dans JSON, cela équivaut à une configuration de 8 octets. Si vous choisissez une valeur inférieure pour la précision, par exemple 1 à 7, les valeurs de certaines plages sont mappées à la même entrée d’index. Ce faisant, vous réduisez l’espace de stockage des index, mais l’exécution des requêtes peut devoir traiter plus de documents et, par conséquent, consommer davantage de débit, c’est-à-dire d’unités de demande.
+
+La configuration de la précision d’index est plus pratique avec les plages de chaînes. Comme les chaînes peuvent avoir n’importe quelle longueur arbitraire, le choix de la précision d’index peut avoir des conséquences sur les performances des requêtes de plage de chaînes et sur l’espace de stockage requis pour les index. Les index de plage de chaînes peuvent être configurés avec une valeur comprise entre 1 et 100, ou la valeur de précision maximale (-1). Si vous devez exécuter une requête Trier par sur des chaînes, vous devez préciser le chemin d’accès spécifié (-1).
+
+L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /* ».
+
+    var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
+    
+    rangeDefault.IndexingPolicy.IncludedPaths.Add(
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
+
+    await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+
+
+> [AZURE.NOTE]DocumentDB retourne une erreur lorsqu’une requête utilise Trier par, mais n’a pas d’index de plage par rapport au chemin d’accès de requête avec la précision maximale.
+>
+> Une erreur est retournée pour des requêtes avec des opérateurs de plage comme >= s’il n’existe aucun index de plage (de toute précision), mais celles-ci peuvent être traitées s’il existe d’autres filtres pouvant être traités par l’index.
+> 
+> Les requêtes peuvent être effectuées sans un index de plage à l'aide de l'en-tête x-ms-documentdb-enable-scans header dans l'API REST ou l'option de requête EnableScanInQuery à l'aide du Kit de développement logiciel (SDLK) .NET.
+
+De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -330,9 +327,24 @@ Des chemins d'accès similaires peuvent être exclus complètement de l'indexati
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
+### Indexation automatique
+
+Vous pouvez choisir si vous souhaitez que la collection indexe automatiquement tous les documents. Par défaut, tous les documents sont indexés automatiquement, mais vous pouvez choisir de désactiver cette option. Lorsque l’indexation est désactivée, les documents sont accessibles uniquement par le biais de leurs liens réflexifs ou de requêtes avec l’ID.
+
+Si l'indexation automatique est désactivée, vous ne pouvez continuer à ajouter des documents spécifiques à l'index que de façon sélective. À l'inverse, vous pouvez laisser l'indexation automatique activée et choisir ne d'exclure de façon sélective que des documents spécifiques. Les configurations d'indexation activée/désactivée sont utiles lorsque vous n'avez qu'un sous-ensemble de documents à interroger.
+
+Ainsi, l’exemple suivant montre comment inclure un document explicitement à l’aide du [Kit de développement logiciel (SDK) .NET DocumentDB](https://github.com/Azure/azure-documentdb-java) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+
+    // If you want to override the default collection behavior to either
+    // exclude (or include) a Document from indexing,
+    // use the RequestOptions.IndexingDirective property.
+    client.CreateDocumentAsync(defaultCollection.SelfLink,
+        new { id = "AndersenFamily", isRegistered = true },
+        new RequestOptions { IndexingDirective = IndexingDirective.Include });
+
 ## Réglage des performances
 
-Lorsque vous évaluez différentes configurations de stratégie d’indexation, il convient de mesurer les implications de débit et de stockage de la stratégie via les API DocumentDB.
+Les API DocumentDB fournissent des informations sur les mesures des performances telles que le stockage d’index utilisé et le coût du débit (unités de demande) pour chaque opération. Ces informations peuvent être utilisées pour comparer différentes stratégies d’indexation et pour le réglage des performances.
 
 Pour vérifier le quota de stockage et l’utilisation d’une collection, exécutez une demande HEAD ou GET sur la ressource de collection et examinez les en-têtes x-ms-request-quota et x-ms-request-usage. Dans le Kit de développement (SDK) .NET, les propriétés [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) et [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contiennent ces valeurs correspondantes.
 
@@ -373,9 +385,9 @@ Les modifications suivantes ont été implémentées dans la spécification JSON
 
 Si votre code approvisionne des collections avec une stratégie d'indexation personnalisée écrite avec la version 1.1.0 du Kit de développement logiciel (SDK) .NET ou une version antérieure, vous devrez modifier le code de votre application pour gérer ces modifications afin de les déplacer vers la version 1.2.0 du Kit de développement logiciel (SDK). Si vous n’avez pas le code qui configure la stratégie d'indexation, ou si vous envisagez de continuer à l'aide d'une version du Kit de développement logiciel (SDK) plus ancienne, aucune modification n'est requise.
 
-Voici quelques exemples illustrant la différence entre la version 2015-06-03 de l'API et la version précédente 2015-04-08.
+À titre de comparaison pratique, voici un exemple de stratégie d’indexation personnalisée écrite à l’aide de l’API REST version 2015-06-03 et de la version précédente 2015-04-08.
 
-**Stratégie d'indexation précédente JSON**
+**Stratégie d’indexation JSON précédente**
 
     {
        "automatic":true,
@@ -393,7 +405,7 @@ Voici quelques exemples illustrant la différence entre la version 2015-06-03 d
        ]
     }
 
-**Stratégie d'indexation actuelle JSON**
+**Stratégie d’indexation JSON actuelle**
 
     {
        "automatic":true,
@@ -432,4 +444,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Key Vault | Vue d’ensemble"
+	pageTitle="Prise en main du coffre de clés Azure | Vue d’ensemble"
 	description="Ce didacticiel va vous aider à démarrer avec Azure Key Vault pour créer un conteneur renforcé dans Azure afin de stocker et gérer des clés de chiffrement et les secrets dans Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
-# Prise en main d’Azure Key Vault #
+# Prise en main du coffre de clés Azure #
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](../../../../pricing/details/key-vault/).
 
 ## Introduction  
@@ -211,7 +211,7 @@ La commande suivante importe un package BYOK (Bring Your Own Key, Apporter votre
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Pour plus d’instructions sur la génération de ce package BYOK, consultez la page [Génération et transfert de clés protégées par HSM pour le coffre de clés Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Pour plus d’instructions sur la génération de ce package BYOK, consultez [Génération et transfert de clés protégées par HSM pour le coffre de clés Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Suppression du coffre de clés et des clés/secrets associés ##
 
@@ -248,4 +248,4 @@ Pour obtenir la liste des applets de commande Windows PowerShell pour Azure Key 
 Pour les références de programmation, consultez la page [Coffre de clés](https://msdn.microsoft.com/library/azure/dn903625.aspx) dans la bibliothèque de documentation Microsoft Azure sur MSDN.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -77,7 +77,7 @@ Chaque cluster Storm sur HDInsight permet également d’accéder à un tableau 
 
 Pour plus d‘informations sur l‘utilisation du tableau de bord Storm, consultez la rubrique [Déploiement et gestion des topologies Apache Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d‘utilisation de ce spout dans une topologie Storm, consultez les rubriques [Prise en main de Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) et [Analyse des données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d‘utilisation de ce spout dans une topologie Storm, consultez les rubriques [Prise en main de Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) et [Analyse des données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Fiabilité
 
@@ -156,7 +156,7 @@ La plupart des exemples Java que vous allez rencontrer sont entièrement rédig�
 
 Pour plus d‘informations sur Trident, consultez le [didacticiel Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) sur le site apache.org.
 
-Pour obtenir des exemples de topologies Java et Trident brutes, consultez le répertoire **%storm_home%\\contrib\\storm-starter** situé sur votre cluster Storm HDInsight.
+Pour obtenir des exemples de topologies Java et Trident brutes, consultez le répertoire **%storm_home%\contrib\storm-starter** situé sur votre cluster Storm HDInsight.
 
 ##Quels sont les modèles de développement courants ?
 
@@ -209,4 +209,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

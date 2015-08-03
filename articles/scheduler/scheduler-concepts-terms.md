@@ -208,4 +208,4 @@ L'intervalle de nouvelle tentative, spécifié avec l'objet **retryInterval**, e
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

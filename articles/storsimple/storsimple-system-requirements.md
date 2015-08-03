@@ -192,4 +192,4 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 - [Déployer votre solution StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

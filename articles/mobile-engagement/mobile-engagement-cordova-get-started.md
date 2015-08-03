@@ -233,7 +233,7 @@ Modifiez **www/js/index.js** pour ajouter l'appel de Mobile Engagement afin de d
 
 **[iOS]**
 
-1. Nous allons utiliser XCode pour créer et déployer l'application sur l’appareil afin de tester les notifications Push, car iOS autorise uniquement ces notifications sur un appareil réel. Accédez à l'emplacement où votre projet Cordova a été créé et accédez à l’emplacement **...\\platforms\\ios**. Ouvrez le fichier .xcodeproj natif dans XCode. 
+1. Nous allons utiliser XCode pour créer et déployer l'application sur l’appareil afin de tester les notifications Push, car iOS autorise uniquement ces notifications sur un appareil réel. Accédez à l'emplacement où votre projet Cordova a été créé et accédez à l’emplacement **...\platforms\ios**. Ouvrez le fichier .xcodeproj natif dans XCode. 
 	
 2. Générez et déployez l'application Cordova sur l’appareil iOS en utilisant le compte ayant le profil d’approvisionnement contenant le certificat que vous avez téléchargé vers le portail Mobile Engagement et l'ID d'application correspondant à celui fourni lors de la création de l'application Cordova. Vous pouvez consulter l’*identificateur de faisceau* dans votre fichier **Resources*-info.plist** dans XCode pour qu’il corresponde.
 
@@ -312,4 +312,4 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

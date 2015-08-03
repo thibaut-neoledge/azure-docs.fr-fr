@@ -259,4 +259,4 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

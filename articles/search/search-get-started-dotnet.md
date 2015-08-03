@@ -798,4 +798,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

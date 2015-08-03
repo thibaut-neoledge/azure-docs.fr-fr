@@ -243,4 +243,4 @@ La section **Analyse** comporte les quatre onglets suivants.
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

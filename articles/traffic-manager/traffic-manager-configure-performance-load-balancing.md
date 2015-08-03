@@ -48,4 +48,4 @@ Pour équilibrer la charge des services cloud et des sites web (points de termin
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -234,7 +234,7 @@ Puis, dans l'application logique enfant, vous utiliserez la fonction [`triggerBo
 }
 ```
 
-Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
+Vous pouvez en savoir plus sur l'[action de type application logique sur MSDN](https://msdn.microsoft.com/fr-fr/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]Le concepteur d'applications logiques ne prend pas en charge les actions de type application logique, donc vous devrez modifier la définition manuellement.
 
@@ -688,4 +688,4 @@ Ensuite, dans la requête `PUT` réelle pour l'application logique, vous pouvez 
 
 Dans chaque environnement, vous pouvez ensuite fournir une valeur différente pour le paramètre `connection`. Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

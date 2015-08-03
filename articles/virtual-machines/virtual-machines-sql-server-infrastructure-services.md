@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="04/17/2015"
+	ms.date="07/17/2015"
 	ms.author="jroth"/>
 
 # SQL Server sur les machines virtuelles Azure
@@ -26,7 +26,9 @@ Vous pouvez héberger [SQL Server sur des Machines virtuelles Azure][sqlvmlandin
 ## Déploiement d’une instance de SQL Server sur une seule machine virtuelle
 Une fois que vous avez [créé une machine virtuelle Azure via le portail Azure][createvmportal] ou par un processus automatisé, vous pouvez installer n’importe quelle instance de SQL Server pour lequel vous disposez d’une licence. Toutefois, vous devez prendre des mesures supplémentaires pour [configurer la connectivité][setupconnectivity] entre la machine SQL Server et les autres machines clientes.
  
-Vous pouvez également installer une des nombreuses différentes images de machine virtuelle SQL Server à partir de la galerie. Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle. Pour plus d’informations, consultez la page [Configuration d’une machine virtuelle SQL Server sur Azure][provisionsqlvm].
+Vous pouvez également installer une des nombreuses différentes images de machine virtuelle SQL Server à partir de la galerie. Ces images comprennent les frais de licence de SQL Server dans la tarification relative à la machine virtuelle. Pour plus d’informations et une connectivité étape par étape, consultez la page [Configuration d’une machine virtuelle SQL Server sur Azure][provisionsqlvm].
+
+Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous pouvez souhaiter migrer des bases de données existantes vers la machine. Pour plus d'informations sur la migration de base de données, consultez [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 
 ## Déploiement d’une configuration hautement disponible avec plusieurs machines virtuelles
 Vous pouvez rendre SQL Server hautement disponible à l’aide de groupes de disponibilité AlwaysOn SQL Server. Cela implique la présence de plusieurs machines virtuelles Azure dans un réseau virtuel. Le portail Azure en version préliminaire dispose d’un modèle qui définit cette configuration pour vous. Pour plus d’informations, consultez [Offre AlwaysOn SQL Server dans la galerie du portail Microsoft Azure][sqlalwaysonportal]. Vous avez également la possibilité de [configurer manuellement un groupe de disponibilité AlwaysOn][sqlalwaysonmanual]. Pour plus d’informations sur la haute disponibilité, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure][sqlhadr].
@@ -35,21 +37,23 @@ Vous pouvez rendre SQL Server hautement disponible à l’aide de groupes de di
 Vous pouvez exécuter des charges de travail SQL Server courantes sur des Machines virtuelles Azure. SQL Server possède plusieurs images de machines virtuelles optimisées dans la galerie. Il s’agit notamment d’images relatives à [Business Intelligence][sqlbi], à l’[entreposage de données][sqldw] et à [OLTP][sqloltp].
 
 ## Migration de vos données
-Il existe plusieurs façons de migrer vos données vers des machines virtuelles Azure exécutant SQL Server. Commencez par configurer une machine virtuelle SQL Server à l’aide du portail Azure, de l’automatisation PowerShell ou de l’assistant de déploiement dans SQL Server Management Studio. Les images SQL Server optimisées comprennent les frais liés à la licence dans leur modèle de tarification. Toutefois, vous pouvez aussi installer SQL Server en utilisant votre propre licence. Pour migrer vos données, il existe plusieurs options,telles que l’assistant de déploiement ou la migration d’un disque de données vers la machine virtuelle cible. Pour plus d’informations, consultez [Se préparer à migrer vers SQL Server dans les machines virtuelles Azure][migratesql].
+Une fois que votre machine virtuelle SQL Server est en cours d'exécution, vous pouvez souhaiter migrer des bases de données existantes vers la machine. Il existe plusieurs techniques, mais l'Assistant de déploiement dans SQL Server Management Studio fonctionne bien pour la plupart des scénarios. Pour en savoir plus sur les scénarios et obtenir un didacticiel de l'Assistant, consultez [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 
 ## Sauvegarde et restauration
 Pour les bases de données sur site, Azure peut agir comme un centre de données secondaire pour stocker les fichiers de sauvegarde SQL Server. La [sauvegarde SQL Server dans l’URL][backupurl] stocke les fichiers de sauvegarde Azure dans le stockage d’objets blob Azure. La [sauvegarde gérée par SQL Server][managedbackup] vous permet de planifier la sauvegarde et la conservation dans Azure. Ces services peuvent être utilisés avec des instances de SQL Server sur site ou avec SQL Server s’exécutant sur des machines virtuelles Azure. Les machines virtuelles Azure peuvent également tirer parti de la [sauvegarde automatisée][autobackup] et de la [mise à jour corrective automatisée][autopatching] pour SQL Server. Pour plus d’informations, consultez [Tâches de gestion relatives à SQL Server sur les machines virtuelles Azure][managementtasks].
 
-## Ressources supplémentaires :
+## Ressources :
 [SQL Server sur les machines virtuelles Azure][sqlmsdnlanding]
 
+[Configuration d'une machine virtuelle SQL Server sur Azure][provisionsqlvm]
+
 [Mise en route de SQL Server sur les machines virtuelles Azure][sqlvmgetstarted]
+
+[Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md)
 
 [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure][sqlperf]
 
 [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure][sqlsecurity]
-
-[Articles techniques relatifs aux performances de SQL Server sur les machines virtuelles Azure][technicalarticles]
 
   [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
   [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
@@ -74,4 +78,4 @@ Pour les bases de données sur site, Azure peut agir comme un centre de données
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

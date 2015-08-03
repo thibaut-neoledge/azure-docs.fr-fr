@@ -1151,4 +1151,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -18,14 +18,6 @@
 
 # Finaliser la base de données SQL Microsoft Azure restaurée
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Vue d’ensemble
 
 Cet article fournit une liste de contrôle des tâches que vous devez effectuer avant de remettre une base de données SQL Azure récemment restaurée en production. Cette liste s’applique aux bases de données restaurées suite à un basculement de géo-réplication, à la restauration d’une base de données supprimée, à une restauration à un moment donné ou à une géo-restauration.
@@ -64,4 +56,4 @@ Pour en savoir plus, voir [Procédure : recevoir des notifications d’alerte e
 Si la fonction d’audit doit accéder à votre base de données, vous devez l’activer après la restauration de la base de données. Un bon indicateur de la nécessité d’activer l’audit est l’utilisation, par les applicatives clientes, de chaînes de connexion sécurisées dans un modèle *. database.secure.windows.net. Pour en savoir plus, voir [Prise en main de l’audit de base de données SQL](sql-database-auditing-get-started.md). 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

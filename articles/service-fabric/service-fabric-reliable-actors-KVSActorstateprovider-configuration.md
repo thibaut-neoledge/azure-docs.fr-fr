@@ -84,4 +84,4 @@ Les configurations de magasin permettent de configurer le magasin local utilisé
 BatchAcknowledgementInterval contrôle la latence de réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception). Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

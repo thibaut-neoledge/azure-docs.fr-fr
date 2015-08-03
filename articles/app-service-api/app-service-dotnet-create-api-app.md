@@ -50,4 +50,4 @@ Lorsque les instructions vous invitent à entrer un nom pour le projet, entrez *
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

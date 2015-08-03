@@ -157,7 +157,7 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 
 Remarque : si vous souhaitez installer le fournisseur sur Server Core pour Windows Server 2012 R2 ou la version autonome du logiciel Hyper-V Server 2012 R2, procédez comme décrit ci-après.
 
-1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée vers un dossier, par exemple C:\\ASR.
+1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription associée vers un dossier, par exemple C:\ASR.
 2. Extrayez le programme d’installation du fournisseur en saisissant la chaîne suivante :
 
 	    C:\Windows\System32> CD C:\ASR
@@ -296,4 +296,4 @@ Pour exécuter le test de basculement, procédez comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

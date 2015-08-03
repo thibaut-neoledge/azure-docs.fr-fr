@@ -44,4 +44,4 @@ Les informations suivantes peuvent vous aider à configurer et utiliser efficace
 	- Désactivez les mises à jour logicielles automatiques pour les applications publiées. Appliquez-les plutôt manuellement à l'image de modèle et testez-les avant d'effectuer le déploiement à partir du modèle.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

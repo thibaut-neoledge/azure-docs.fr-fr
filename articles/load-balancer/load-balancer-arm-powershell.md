@@ -51,14 +51,14 @@ Les étapes suivantes montrent comment configurer un équilibrage de charge à c
 Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Étape 2
 
 Connectez-vous à votre compte Azure.
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 Vous devez indiquer vos informations d’identification.
 
@@ -67,7 +67,7 @@ Vous devez indiquer vos informations d’identification.
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Pour afficher la liste des abonnements disponibles, utilisez l'applet de commande « Get-AzureSubscription ».
 
@@ -76,7 +76,7 @@ Pour afficher la liste des abonnements disponibles, utilisez l'applet de command
 
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour créer un équilibrage de charge utiliseront le même groupe de ressources.
 
@@ -184,7 +184,7 @@ Dans cette étape, nous créons une deuxième interface réseau, définissons un
 On obtient alors le résultat suivant :
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

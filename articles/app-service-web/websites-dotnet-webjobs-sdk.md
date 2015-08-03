@@ -105,4 +105,4 @@ Le Kit de développement logiciel (SDK) WebJobs offre plusieurs avantages même 
 Pour en savoir plus sur le Kit de développement logiciel (SDK) WebJobs, consultez la rubrique [Tâches web Azure - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

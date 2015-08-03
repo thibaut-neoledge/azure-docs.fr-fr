@@ -114,7 +114,7 @@ Vous disposez maintenant des chaînes de connexion requises pour inscrire votre 
 
 	>[AZURE.NOTE]Ce didacticiel permet d'envoyer une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal. Pour la prise en charge des notifications toast ainsi que des notifications par vignette, appelez **BindToShellTile** et **BindToShellToast**.
 
-6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID___CAP___PUSH_NOTIFICATION** soit activée.
+6. Dans l’Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l’onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID_CAP_PUSH_NOTIFICATION** soit activée.
 
    	![][14]
 
@@ -215,4 +215,4 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
 [Notification Hubs - Didacticiel WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

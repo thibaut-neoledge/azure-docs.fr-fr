@@ -77,4 +77,4 @@
 
 <sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d'accès par utilisateur. Pour accorder différents droits d'accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

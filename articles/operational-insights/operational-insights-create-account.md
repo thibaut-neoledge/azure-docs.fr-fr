@@ -40,4 +40,4 @@ Pour plus d’informations sur la prise en main d’Operational Insights, consul
 
 - [Installation et configuration de votre espace de travail](operational-insights-setup-workspace.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

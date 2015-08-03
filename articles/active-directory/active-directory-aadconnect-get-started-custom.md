@@ -161,7 +161,7 @@ Des informations supplémentaires sont disponibles [ici](http://blogs.office.com
 
 > [AZURE.WARNING]Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
 
-La fonctionnalité d'écriture différée d’appareil vous permet de récupérer un appareil inscrit dans le cloud (par exemple, dans Intune) et d’y accéder de façon conditionnelle dans AD DS. Vous devez préparer AD DS avant d’activer la fonctionnalité. Si vous installez AD FS et le service d’inscription pour appareil (DRS), ce dernier fournit des applets de commande PowerShell pour préparer AD à l’écriture différée d’appareil. Si vous n’avez pas encore installé le service d’inscription pour appareil, vous pouvez exécuter C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 en tant qu’administrateur d’entreprise.
+La fonctionnalité d'écriture différée d’appareil vous permet de récupérer un appareil inscrit dans le cloud (par exemple, dans Intune) et d’y accéder de façon conditionnelle dans AD DS. Vous devez préparer AD DS avant d’activer la fonctionnalité. Si vous installez AD FS et le service d’inscription pour appareil (DRS), ce dernier fournit des applets de commande PowerShell pour préparer AD à l’écriture différée d’appareil. Si vous n’avez pas encore installé le service d’inscription pour appareil, vous pouvez exécuter C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 en tant qu’administrateur d’entreprise.
 
 Pour pouvoir utiliser l’applet PowerShell, vous devez préalablement l’importer.
 
@@ -273,4 +273,4 @@ Vous pouvez personnaliser l’illustration et l’image de logo de vos pages de 
 * [En savoir plus](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect sur MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

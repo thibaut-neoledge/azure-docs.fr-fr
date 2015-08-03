@@ -512,4 +512,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -39,7 +39,6 @@ Pour obtenir des informations de tarification, consultez la [page New Relic dan
 Les clients d'Azure reçoivent un abonnement de 2 semaines gratuit à New Relic Pro lorsqu'ils déploient l'agent New Relic.
 
 Inscription à New Relic à l'aide d'Azure Marketplace
---
 
 New Relic s'intègre en toute transparence aux rôles Web Azure, aux rôles de travail ainsi qu'à Azure App Service.
 
@@ -176,4 +175,4 @@ Pour plus d'informations, consultez les ressources supplémentaires suivantes :
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

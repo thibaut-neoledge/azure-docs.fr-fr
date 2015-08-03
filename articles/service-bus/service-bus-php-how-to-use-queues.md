@@ -213,4 +213,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

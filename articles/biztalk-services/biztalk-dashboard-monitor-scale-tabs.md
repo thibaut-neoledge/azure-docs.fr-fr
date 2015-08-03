@@ -356,4 +356,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

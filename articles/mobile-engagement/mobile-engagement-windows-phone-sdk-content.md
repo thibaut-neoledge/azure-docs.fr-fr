@@ -37,4 +37,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 - `EngagementConfiguration.xml` : fichier de configuration de Mobile Engagement. C'est dans ce fichier que vous pouvez personnaliser les paramètres d'Engagement (chaîne de connexion Engagement, rapport sur les incidents, etc.).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

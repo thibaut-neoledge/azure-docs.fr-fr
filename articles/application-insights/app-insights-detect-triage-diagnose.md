@@ -260,4 +260,4 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

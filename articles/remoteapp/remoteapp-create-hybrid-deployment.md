@@ -136,4 +136,4 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

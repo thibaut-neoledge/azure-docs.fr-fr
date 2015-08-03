@@ -237,4 +237,4 @@ Pour obtenir les dernières informations sur Microsoft Azure Storage, consulte
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

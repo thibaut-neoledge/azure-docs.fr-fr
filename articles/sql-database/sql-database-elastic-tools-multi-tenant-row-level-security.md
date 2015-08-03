@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes" 
-	description="Découvrez comment utiliser les outils de base de données élastique avec la fonction de sécurité au niveau des lignes (RLS) pour générer une application présentant une couche Données hautement évolutive sur la base de données SQL Microsoft Azure qui prend en charge les partitions multi-locataires."
+	description="Découvrez comment utiliser les outils de base de données élastique avec la fonction de sécurité au niveau des lignes (RLS) pour générer une application présentant une couche Données hautement évolutive sur la base de données SQL Microsoft Azure qui prend en charge les partitions multi-locataires." 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
@@ -339,4 +339,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

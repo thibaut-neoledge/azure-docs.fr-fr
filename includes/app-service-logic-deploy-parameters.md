@@ -53,4 +53,4 @@ La taille d'instance de l'application.
 
 Le modèle définit les valeurs autorisées pour ce paramètre (0, 1 ou 2) et affecte une valeur par défaut (0) si aucune valeur n'est spécifiée. Les valeurs correspondent à une taille petite, moyenne et grande.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -40,4 +40,4 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 ## Étapes suivantes
 [Téléchargement, inscription et installation de l’agent Azure Backup](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

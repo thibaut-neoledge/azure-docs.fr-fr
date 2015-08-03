@@ -103,4 +103,4 @@ L'événement d'audit « Mettre à jour l'utilisateur » inclut des informatio
 Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d'audit d'Azure Active Directory Azure puissent respecter les réglementations de conformité, il leur est recommandé d'envoyer une copie de cette rubrique d'aide avec la copie de leur rapport d'audit exporté afin d'expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

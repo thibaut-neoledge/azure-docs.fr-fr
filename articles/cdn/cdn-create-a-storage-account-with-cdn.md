@@ -120,4 +120,4 @@ La capacité à purger immédiatement le contenu n’est actuellement pas prise 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

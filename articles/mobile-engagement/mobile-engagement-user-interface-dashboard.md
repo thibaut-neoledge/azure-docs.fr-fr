@@ -129,4 +129,4 @@ La section Tableau de bord de l'interface utilisateur permet aux clients de cré
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

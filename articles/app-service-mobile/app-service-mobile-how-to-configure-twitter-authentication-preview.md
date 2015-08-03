@@ -18,6 +18,8 @@
 
 # Comment configurer votre application pour utiliser une connexion Twitter
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Cette rubrique montre comment configurer Azure App Services pour utiliser Twitter comme fournisseur d'authentification.
 
 Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d'un compte Twitter avec une adresse électronique vérifiée. Pour créer un compte Twitter, consultez la page <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
@@ -67,4 +69,4 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

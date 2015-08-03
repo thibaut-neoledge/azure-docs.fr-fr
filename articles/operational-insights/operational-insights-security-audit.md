@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Explorer les données de sécurité et d'audit d'Operational Insights
@@ -39,6 +39,8 @@ Cet article vous apprendra les éléments suivants :
 7. Dans la zone de requête de la recherche, supprimez tous les éléments sauf le nom du processus et les guillemets. Cliquez ensuite sur l'icône de recherche. ![Image des informations détaillées de la recherche](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. La recherche affiche des informations détaillées concernant le processus, dont les ordinateurs sur lesquels il s'exécute, le compte d'utilisateur qu'il utilise, ainsi que la date et l'heure auxquelles un événement a été créé pour le processus.
 9. À l'aide des informations que vous trouvez, vous pouvez prendre des mesures correctives, si nécessaire. Par exemple, si vous déterminez que l'exécutable est un programme malveillant, alors vous souhaitez sans doute prendre des mesures pour le supprimer de tous les ordinateurs qu'il affecte. Lorsque le fichier exécutable est supprimé et qu'Operational Insights reçoit le journal des mises à jour et les événements d'audit de vos ordinateurs, les valeurs du panneau PROBLÈMES IMPORTANTS seront modifiées le lendemain.
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
 ## Meilleures pratiques relatives à l'analyse d'investigation
 
@@ -98,4 +100,4 @@ Toutes les données d'audit que vous pourriez souhaiter collecter et envoyer ver
 
 En plus des paramètres de stratégie locale, si vous utilisez AppLocker pour collecter des données d'audit, Operational Insights les rassemble pour que vous puissiez ensuite les afficher.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

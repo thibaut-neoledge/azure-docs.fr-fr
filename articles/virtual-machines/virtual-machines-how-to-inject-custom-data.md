@@ -28,7 +28,7 @@ L'injection d'un script ou d'autres données dans une machine virtuelle Azure lo
 
 - utiliser les outils spéciaux disponibles sur certains systèmes pour détecter et gérer les données personnalisées automatiquement.
 
-> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec la pile de calcul Azure Service Management. Pour savoir comment utiliser la pile de calcul de gestion des ressources Azure, consultez [l’exemple de modèle ici](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE]Cet article explique comment des données personnalisées peuvent être injectées à l’aide d’une machine virtuelle créée avec la pile de calcul Azure Service Management. Pour savoir comment utiliser la pile de calcul de gestion des ressources Azure, consultez [l'exemple de modèle ici](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 ## Injection de données personnalisées dans votre machine virtuelle Microsoft Azure
 
@@ -80,4 +80,4 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

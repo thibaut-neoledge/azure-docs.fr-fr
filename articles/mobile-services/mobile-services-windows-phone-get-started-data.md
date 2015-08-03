@@ -194,4 +194,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

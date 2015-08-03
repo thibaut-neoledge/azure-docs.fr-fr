@@ -12,14 +12,14 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/29/2015"
+    ms.date="07/15/2015"
     ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 1  
 
 ## Vue d'ensemble
 
-Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 1. Elles contiennent également la liste des mises à jour logicielles et de microprogramme incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014.
+Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple série 8000 Update 1. Elles contiennent également une liste des mises à jour du logiciel et du microprogramme StorSimple incluses dans cette version. Il s’agit de la première version importante postérieure à la mise à disposition générale de la version StorSimple série 8000, en juillet 2014.
 
 Cette mise à jour implique un changement de nom du logiciel de l’appareil, qui devient StorSimple série 8000 Update 1. Lisez les informations contenues dans les notes de publication avant de déployer la mise à jour dans votre solution StorSimple. Pour en savoir plus, consultez la section relative à l’[installation d’Update 1 sur votre appareil StorSimple](storsimple-install-update-1.md).
 
@@ -28,6 +28,7 @@ Lisez les informations contenues dans les notes de publication avant de déploye
 >[AZURE.IMPORTANT]
 > 
 - Un correctif critique, Update 1.1, a été publié le 23 juin. Ce correctif résout un problème lié au moteur de sauvegarde. Si vous avez appliqué Update 1 avant le 23 juin et que vous utilisez actuellement la version logicielle **6.3.9600.17491**, veillez à appliquer cette mise à jour critique pour éviter tout problème lié aux sauvegardes. Après avoir installé la mise à jour, la version logicielle devient **6.3.9600.17521**.
+- Si vous avez créé un appareil virtuel entre le 27 mai et le 10 juillet, c’est-à-dire dans la version logicielle 6.3.9600.17481, créez un nouvel appareil virtuel et basculez tous les volumes de l'ancien appareil virtuel vers le nouveau. (Pour la raison que l’ancien appareil virtuel ne peut pas être mis à jour). Si vous ne créez pas un nouvel appareil virtuel, les sauvegardes risquent d’échouer. Pour connaître les procédures de basculement et de récupération d’urgence, accédez à la page [Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
 - Pour installer Update 1, utilisez le service StorSimple Manager, et non Windows PowerShell pour StorSimple.
 - Cette version comporte également des mises à jour de microprogramme du disque, qui peuvent être appliquées uniquement lorsque l’appareil est en mode Maintenance. Il s’agit des mises à jour entraînant des temps d’arrêt de votre appareil. Vous pouvez appliquer ces mises à jour durant les activités de maintenance planifiée.
 - L’installation de cette mise à jour prend entre 5 et 10 heures (en comptant les mises à jour Windows). 
@@ -84,7 +85,7 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 | 6 | Proxy web | Si HTTPS est défini comme protocole dans la configuration du proxy web, la communication appareil-service est altérée et l’appareil se met hors connexion. Des packages de prise en charge sont également générés, ce qui consomme de nombreuses ressources de l’appareil. | Vérifiez que le protocole défini pour l’URL du proxy web est bien HTTP. Pour plus d’informations, consultez la section [Configuration du proxy web pour votre appareil](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Oui | Non |
 | 7 | Proxy web | Si vous configurez et activez le proxy web sur un appareil inscrit, vous devez redémarrer le contrôleur actif sur votre appareil. | | Oui | Non |
 | 8 | Latence de cloud élevée et charge de travail d’E/S élevée | Lorsque l’appareil StorSimple doit gérer à la fois des latences de cloud très élevées (de l’ordre de quelques secondes) et une charge de travail d’E/S élevée, ses volumes se détériorent et une défaillance peut se produire au niveau des E/S, avec l’erreur « appareil non prêt ». | Vous devez redémarrer les contrôleurs de l’appareil manuellement ou effectuer un basculement d’appareil pour résoudre ce problème. | Oui | Non |
-| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Oui | Oui |
+| 9 | Azure PowerShell | Lorsque vous utilisez l’applet de commande StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** pour sélectionner le premier objet afin de créer un objet **contrôleur de volumes**, l’applet de commande renvoie l’ensemble des objets. | Encapsulez l’applet de commande entre parenthèses comme suit : **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Oui | Oui |
 | 10| Migration | Lorsque plusieurs conteneurs de volumes sont transmis pour migration, l’heure prévue de la dernière sauvegarde est exacte uniquement pour le premier conteneur de volumes. Par ailleurs, la migration parallèle démarre après la migration des quatre premières sauvegardes du premier conteneur de volumes. | Nous vous recommandons de migrer un seul conteneur de volumes à la fois. | Oui | Non |
 | 11| Migration | Après la restauration, les volumes ne sont pas ajoutés à la stratégie de sauvegarde ni au groupe de disques virtuels. | Pour créer les sauvegardes, il vous faudra ajouter ces volumes à une stratégie de sauvegarde. | Oui | Oui |
 | 12| Migration | Une fois la migration terminée, l’appareil de série 5000/7000 ne doit pas accéder aux conteneurs de données migrées. | Nous vous recommandons de supprimer les conteneurs de données migrées une fois que la migration est terminée et validée. | Oui | Non |
@@ -103,15 +104,15 @@ Cette version met à jour le pilote et le microprogramme du contrôleur SAS de v
 
 - Pour en savoir plus sur la mise à jour du microprogramme, consultez la section [Mise à jour Update 1 du microprogramme pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063414).
 
-- Pour en savoir plus sur la mise à jour du microprogramme de disque, consultez la section [Mise à jour Update 1 du microprogramme de disque pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/fr-fr/kb/3063416).
+- Pour en savoir plus sur la mise à jour du microprogramme de disque, consultez la section [Mise à jour Update 1 du microprogramme de disque pour Microsoft Azure StorSimple Appliance](https://support.microsoft.com/kb/3063416).
  
 ## Mises à jour des appareils virtuels dans Update 1
 
-Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
+Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. Toutefois, les appareils virtuels créés après le 10 juillet seront automatiquement dans cette version.
 
 ## Étapes suivantes
 
 - [Installer Update 1 sur votre appareil](storsimple-install-update-1.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

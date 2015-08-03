@@ -228,4 +228,4 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 Si vous souhaitez analyser des données à partir de serveurs dans divers emplacements géographiques, envisagez de disposer d'un groupe d'administration par emplacement. Cela peut améliorer les performances de transfert de données de l'agent au groupe d'administration.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

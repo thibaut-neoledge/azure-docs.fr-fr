@@ -167,4 +167,4 @@ Maintenant que vous avez créé une notification périodique, vous pouvez consul
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

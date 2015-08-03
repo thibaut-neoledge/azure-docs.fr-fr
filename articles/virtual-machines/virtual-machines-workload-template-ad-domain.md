@@ -1,43 +1,43 @@
-<properties 
-	pageTitle="Déployer un domaine Active Directory hautement disponible avec un modèle Azure Resource Manager" 
-	description="Déployez facilement deux serveurs utilisés comme contrôleurs de domaine Active Directory à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Déployer un domaine Active Directory Domain Services hautement disponible avec un modèle Azure Resource Manager"
+	description="Déployez facilement deux serveurs utilisés comme contrôleurs de domaine Active Directory Domain Services à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/29/2015"
+	ms.author="davidmu"/>
 
 
-# Déployer un domaine Active Directory hautement disponible avec un modèle Azure Resource Manager
+# Déployer un domaine Active Directory Domain Services hautement disponible avec un modèle Azure Resource Manager
 
 Suivez les instructions de cet article afin de déployer un domaine Active Directory hautement disponible à l’aide d’un modèle Resource Manager. Ce modèle crée deux machines virtuelles dans un nouveau réseau virtuel sur le même sous-réseau.
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
 Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire, Azure PowerShell ou l’interface de ligne de commande Azure.
- 
-## Version préliminaire du portail Azure
+
+## Portail Azure en version préliminaire
 
 Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
- 
+
 1.	Pour le volet **Modèle**, cliquez sur **Enregistrer**.
 2.	Cliquez sur **Paramètres**. Dans le volet **Paramètres**, saisissez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 3.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
 4.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 5.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
-6.	Si nécessaire, cliquez sur Mentions légales afin de passer en revue les conditions d’utilisation de ce modèle.
+6.	Si nécessaire, cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation de ce modèle.
 7.	Cliquez sur **Create**.
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque l’exécution du modèle est terminée, vous disposez d’un nouveau domaine Active Directory à deux serveurs dans votre nouveau groupe de ressources ou votre groupe de ressources existant.
@@ -87,18 +87,18 @@ Voici un exemple.
 	azure group create adtestbed eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/active-directory-new-domain-ha-2-dc/azuredeploy.json adtestbed wldevtest
 
-Lorsque vous exécutez la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **New-AzureResourceGroupDeployment**, vous serez invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
-Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration de domaine Active Directory à deux serveurs dans votre nouveau groupe de ressources.
+Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration de domaine Active Directory Domain Services à deux serveurs dans votre nouveau groupe de ressources.
 
 
 ## Ressources supplémentaires
 
-[Déployer et gérer des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Déployer et gérer des machines virtuelles à l’aide de modèles Azure Resource Manager et d’Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
-[Présentation d’Azure Resource Manager](../resource-group-overview.md)
+[Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
 [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -106,4 +106,4 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

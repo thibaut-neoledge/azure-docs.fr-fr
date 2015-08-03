@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Exemples de services web Machine Learning développés avec R | Microsoft Azure" 
 	description="Recherchez un ensemble pratique d’exemples de services web créés avec du code R et Machine Learning et publié sur Azure Marketplace." 
+	keywords="csharp,r code,web services examples"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -73,4 +74,4 @@ Pour les Questions fréquemment posées relatives à l’utilisation du service 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

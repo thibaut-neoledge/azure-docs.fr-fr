@@ -1,12 +1,12 @@
-<properties 
-	pageTitle="Déploiement de votre propre registre Docker privé sur Azure"
-	description="Décrit comment vous pouvez utiliser Docker Registry pour héberger vos images de conteneur sur le service Azure Blob Storage."
-	services="virtual-machines"
-	documentationCenter="virtual-machines"
-	authors="ahmetalpbalkan"
-	editor="squillace"
-	manager=""
-    tags="" />
+<properties
+  pageTitle="Déploiement de votre propre registre Docker privé sur Azure"
+  description="Décrit comment vous pouvez utiliser Docker Registry pour héberger vos images de conteneur sur le service Azure Blob Storage."
+  services="virtual-machines"
+  documentationCenter="virtual-machines"
+  authors="ahmetalpbalkan"
+  editor="squillace"
+  manager="" 
+  tags="" />
 
 <tags
   ms.service="virtual-machines"
@@ -92,4 +92,4 @@ Une fois le registre configuré, vous pouvez l’utiliser. Démarrez avec le doc
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

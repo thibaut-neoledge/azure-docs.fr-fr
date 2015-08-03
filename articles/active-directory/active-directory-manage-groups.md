@@ -29,19 +29,19 @@ Azure Active Directory est une solution complète de gestion des identités et d
 Dans Azure Active Directory, une des principales fonctionnalités est la possibilité de gérer l’accès aux ressources. Ces ressources peuvent faire partie de l’annuaire, comme dans le cas des autorisations de gestion des objets via des rôles dans l’annuaire ou les ressources externes à l’annuaire, comme les applications SaaS, les services Azure et les sites SharePoint ou les ressources locales. Il existe quatre méthodes selon lesquelles un utilisateur peut obtenir les droits d’accès à une ressource :
 
 
-1\. Affectation directe
+1. Affectation directe
 
 Les utilisateurs peuvent être directement affectés à une ressource par le propriétaire de la ressource.
 
-2\. Appartenance au groupe
+2. Appartenance au groupe
 
 Un groupe peut être affecté à une ressource par le propriétaire de la ressource. Ce faisant, il octroie aux membres de ce groupe l’accès à la ressource. L’appartenance au groupe peut être gérée par le propriétaire du groupe. Le propriétaire de la ressource délègue l’autorisation d’affecter des utilisateurs à ses ressources au propriétaire du groupe.
 
-3\. Basé sur des règles
+3. Basé sur des règles
 
 Le propriétaire de la ressource peut utiliser une règle pour définir les utilisateurs qui peuvent avoir accès à une ressource. Le résultat de cette règle dépend des attributs utilisés dans la règle et leur valeur pour chaque utilisateur. En procédant ainsi, le propriétaire de la ressource délègue le droit de gérer l’accès à sa ressource à la source faisant autorité pour les attributs utilisés dans la règle. Notez que le propriétaire de la ressource gère toujours la règle lui-même et détermine quels attributs et quelles valeurs offrent l’accès à la ressource.
 
-4\. Autorité externe
+4. Autorité externe
 
 L’accès à une ressource est dérivé d’une source externe, par exemple, un groupe synchronisé à partir d’une source faisant autorité comme un annuaire local ou une application SaaS, par exemple WorkDay. Le propriétaire de la ressource affecte au groupe l’accès à la ressource et la source externe gère les membres du groupe.
 
@@ -92,4 +92,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration des identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

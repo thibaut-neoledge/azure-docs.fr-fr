@@ -65,4 +65,4 @@ Azure Fabric Actors est une implémentation du modèle d'acteur qui reprend cert
 * *Comportement asynchrone explicite.* Le modèle de programmation Azure Fabric Actors rend explicite la nature asynchrone d'une application distribuée et incite les programmeurs à écrire un code asynchrone non bloquant. Cela garantit un grand degré de parallélisme distribué et un débit global sans utilisation explicite de plusieurs threads.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

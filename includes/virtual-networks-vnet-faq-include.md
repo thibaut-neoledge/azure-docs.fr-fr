@@ -40,9 +40,9 @@ Oui. Vous pouvez utiliser un réseau virtuel sans connectivité de site à site.
 
 Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau virtuel :
 
-- Vous pouvez utiliser le portail de gestion Azure. Voir [Gestion des propriétés du réseau virtuel](./virtual-networks-settings).
+- Vous pouvez utiliser le portail de gestion Azure. Voir [Gestion des propriétés du réseau virtuel](virtual-networks-settings.md).
 
-- Vous pouvez utiliser un fichier de configuration réseau (netcfg). Voir [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](./virtual-networks-using-network-configuration-file).
+- Vous pouvez utiliser un fichier de configuration réseau (netcfg). Voir [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
 
@@ -50,7 +50,7 @@ Vous pouvez utiliser des plages d’adresses IP publiques et toute plage d’adr
 
 ### Puis-je avoir des adresses IP publiques dans mes réseaux virtuels ?
 
-Oui. Pour plus d’informations sur les plages d’adresses IP publiques, voir [Espace d’adressage IP Public dans un réseau virtuel (VNet)](./virtual-networks-public-ip-within-vnet). N’oubliez pas que vos adresses IP publiques ne seront pas directement accessibles à partir d’Internet.
+Oui. Pour plus d’informations sur les plages d’adresses IP publiques, voir [Espace d’adressage IP Public dans un réseau virtuel (VNet)](virtual-networks-public-ip-within-vnet.md). N’oubliez pas que vos adresses IP publiques ne seront pas directement accessibles à partir d’Internet.
 
 ### Y a-t-il une limite au nombre de sous-réseaux dans mon réseau virtuel ?
 
@@ -70,7 +70,7 @@ Non. Les réseaux virtuels sont des superpositions de couche 3. Azure ne prend 
 
 ### Puis-je spécifier des stratégies de routage personnalisées sur des réseaux virtuels et des sous-réseaux ?
 
-Oui. Vous pouvez utiliser le routage défini par utilisateur (UDR, User Defined Routing). Pour plus d’informations sur l’UDR, voir [Itinéraires définis d’utilisateur et transfert IP](./virtual-networks-udr-overview).
+Oui. Vous pouvez utiliser le routage défini par utilisateur (UDR, User Defined Routing). Pour plus d’informations sur l’UDR, voir [Itinéraires définis d’utilisateur et transfert IP](virtual-networks-udr-overview.md).
 
 ### Les réseaux virtuels prennent-ils en charge la multidiffusion ou la diffusion ?
 
@@ -118,7 +118,7 @@ Non. Un réseau virtuel est limité à une seule région.
 
 ### Puis-je connecter un réseau virtuel à un autre réseau virtuel dans Azure ?
 
-Oui. Vous pouvez créer une communication de réseau virtuel à réseau virtuel à l’aide des API REST ou de Windows PowerShell. Voir [Configuration d’une connexion de réseau virtuel à réseau virtuel](./virtual-networks-configure-vnet-to-vnet-connection).
+Oui. Vous pouvez créer une communication de réseau virtuel à réseau virtuel à l’aide des API REST ou de Windows PowerShell. Voir [Configuration d’une connexion de réseau virtuel à réseau virtuel](virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Résolution de noms pour les machines virtuelles et les instances de rôle
 
@@ -171,11 +171,11 @@ Oui. Vous pouvez déployer n’importe quel distributeur Linux pris en charge pa
 
 ### Quelle adresse IP ma machine virtuelle recevra-t-elle ?
 
-- **Adresse IP interne** : si vous déployez une machine virtuelle sur un réseau virtuel, celle-ci reçoit une adresse IP interne issue d’un pool d’adresses IP internes que vous avez spécifiées. Les machines virtuelles communiquent au sein des réseaux virtuels à l’aide des adresses IP internes. Bien qu’Azure affecte une adresse IP interne dynamique, vous pouvez demander une adresse statique pour votre machine virtuelle. Pour en savoir plus sur les adresses IP internes statiques, voir [Comment définir une adresse IP interne statique](./virtual-networks-reserved-private-ip).
+- **Adresse IP interne** : si vous déployez une machine virtuelle sur un réseau virtuel, celle-ci reçoit une adresse IP interne issue d’un pool d’adresses IP internes que vous avez spécifiées. Les machines virtuelles communiquent au sein des réseaux virtuels à l’aide des adresses IP internes. Bien qu’Azure affecte une adresse IP interne dynamique, vous pouvez demander une adresse statique pour votre machine virtuelle. Pour en savoir plus sur les adresses IP internes statiques, voir [Comment définir une adresse IP interne statique](virtual-networks-reserved-private-ip.md).
 
-- **Adresse IP virtuelle** : votre machine virtuelle est également associée à une adresse IP virtuelle, même si une adresse IP virtuelle n’est jamais directement affectée à la machine virtuelle. Une adresse IP virtuelle est une adresse IP publique qui peut être affectée à votre service cloud. Vous pouvez, si vous le souhaitez, réserver une adresse IP virtuelle pour votre service cloud. Voir [Adresses IP publiques réservées](./virtual-networks-reserved-public-ip).
+- **Adresse IP virtuelle** : votre machine virtuelle est également associée à une adresse IP virtuelle, même si une adresse IP virtuelle n’est jamais directement affectée à la machine virtuelle. Une adresse IP virtuelle est une adresse IP publique qui peut être affectée à votre service cloud. Vous pouvez, si vous le souhaitez, réserver une adresse IP virtuelle pour votre service cloud. Voir [Adresses IP publiques réservées](virtual-networks-reserved-public-ip.md).
 
-- **Adresse IP publique de niveau d’instance** : vous pouvez également configurer une adresse IP publique de niveau d’instance (ILPIP). Les ILPIPs sont directement associées à la machine virtuelle, plutôt qu’au service cloud. Pour en savoir plus sur les ILPIPs, voir [Vue d’ensemble des adresses IP publiques de niveau d’instance](./virtual-networks-instance-level-public-ip).
+- **Adresse IP publique de niveau d’instance** : vous pouvez également configurer une adresse IP publique de niveau d’instance (ILPIP). Les ILPIPs sont directement associées à la machine virtuelle, plutôt qu’au service cloud. Pour en savoir plus sur les ILPIPs, voir [Vue d’ensemble des adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
 
 ### Puis-je réserver une adresse IP interne pour une machine virtuelle que je créerai ultérieurement ?
 
@@ -197,7 +197,7 @@ Rien. Les adresses IP (adresse virtuelle publique et adresse IP interne) sont co
 
 ### Puis-je déplacer des machines virtuelles d’un sous-réseau vers un autre sous-réseau dans un réseau virtuel sans redéploiement ?
 
-Oui. Vous trouverez plus informations [ici](./virtual-networks-move-vm-role-to-subnet).
+Oui. Pour plus d’informations, consultez la [page suivante](virtual-networks-move-vm-role-to-subnet.md) :
 
 ### Puis-je configurer une adresse MAC statique pour ma machine virtuelle ?
 
@@ -225,7 +225,7 @@ Non. Une application web Azure ne peut pas être déployée dans un réseau virt
 
 - [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
-- [Intégrer une application web à un réseau virtuel Azure](./web-sites-integrate-with-vnet)
+- [Intégrer une application web à un réseau virtuel Azure](web-sites-integrate-with-vnet.md)
 
 
 ### Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
@@ -264,4 +264,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -110,4 +110,4 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

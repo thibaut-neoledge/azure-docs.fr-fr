@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques | Microsoft Azure"
 	description="Fractionnement et fusion avec les outils de bases de données élastiques"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -22,7 +21,7 @@
 2. Ouvrez une invite de commandes et accédez au répertoire où vous avez téléchargé nuget.exe.
 3. Télécharger le dernier package de fractionnement/fusion dans le répertoire actif à l’aide de la commande ci-dessous : `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans le répertoire actif. Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\\splitmerge\\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les .dll clients requis) dans le sous-répertoire **content\\splitmerge\\powershell**.
+Les étapes ci-dessus téléchargent les fichiers de fractionnement/fusion dans le répertoire actif. Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les .dll clients requis) dans le sous-répertoire **content\splitmerge\powershell**.
 
 ## Composants requis
 
@@ -329,4 +328,4 @@ Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre p
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

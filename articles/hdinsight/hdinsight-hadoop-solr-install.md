@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Installation et utilisation de Solr sur des clusters HDInsight Hadoop
@@ -62,7 +62,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 
 1. **Utilisez le protocole RDP (Remote Desktop) pour vous connecter à distance au cluster HDInsight avec Solr installé**. À partir du portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Solr installé, puis accédez à distance au cluster. Pour consulter des instructions à ce sujet, consultez la page <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
 
-2. **Indexez Solr en téléchargeant des fichiers de données**. Lorsque vous indexez Solr, vous y placez des documents sur lesquels vous devrez peut-être effectuer des recherches. Pour indexer Solr, utilisez le protocole RDP pour vous connecter à distance au cluster, accédez au Bureau, ouvrez la ligne de commande Hadoop et accédez à **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Exécutez la commande suivante :
+2. **Indexez Solr en téléchargeant des fichiers de données**. Lorsque vous indexez Solr, vous y placez des documents sur lesquels vous devrez peut-être effectuer des recherches. Pour indexer Solr, utilisez le protocole RDP pour vous connecter à distance au cluster, accédez au Bureau, ouvrez la ligne de commande Hadoop et accédez à **C:\apps\dist\solr-4.7.2\example\exampledocs**. Exécutez la commande suivante :
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -154,7 +154,7 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 			  <str name="status">OK</str>
 			</response>
 
-	2. Dans la session à distance, accédez à {SOLR_HOME}{Collection}\\data. Pour le cluster créé à l’aide de l’exemple de script, il doit s’agir de **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. Un dossier d’instantanés créé avec un nom semblable à **snapshot.*timestamp*** doit normalement figurer à cet emplacement.
+	2. Dans la session à distance, accédez à {SOLR_HOME}{Collection}\data. Pour le cluster créé à l’aide de l’exemple de script, il doit s’agir de **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. Un dossier d’instantanés créé avec un nom semblable à **snapshot.*timestamp*** doit normalement figurer à cet emplacement.
 	
 	3. Compressez le dossier d’instantanés et téléchargez-le vers le stockage d’objets blob Azure. À partir de la ligne de commande Hadoop, accédez à l’emplacement du dossier d’instantanés à l’aide de la commande suivante :
 
@@ -344,7 +344,7 @@ Créez un certificat auto-signé, installez-le sur votre poste de travail et té
 
 **Pour exécuter l’application**
 
-Ouvrez une console Windows PowerShell ou Azure PowerShell, naviguez jusqu’à l’emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
+Ouvrez une console Windows PowerShell ou Azure PowerShell, naviguez jusqu’à l’emplacement où vous avez enregistré le projet Visual Studio, accédez au répertoire \bin\debug du projet, puis exécutez la commande suivante :
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -365,4 +365,4 @@ Entrez un nom de cluster, puis appuyez sur ENTRÉE pour approvisionner un cluste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

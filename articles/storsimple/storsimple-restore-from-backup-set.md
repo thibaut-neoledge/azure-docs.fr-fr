@@ -1,12 +1,4 @@
-<properties
-   pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" 
-   description="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
+<properties pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -41,9 +33,9 @@ Les jeux de sauvegarde filtrés sont ensuite affichés sous forme de tableau sur
 - **Type** : les jeux de sauvegarde peuvent être des instantanés locaux ou des instantanés cloud. Un instantané local est une sauvegarde de toutes les données de volume stockées localement sur l’appareil, tandis qu’un instantané cloud correspond à la sauvegarde des données de volume résidant dans le cloud. Les instantanés locaux offrent un accès plus rapide, alors que les instantanés cloud sont choisis pour la résilience des données.
 - **Initié par** : les sauvegardes peuvent être lancées automatiquement suivant une planification ou manuellement par un utilisateur. (Vous pouvez utiliser une stratégie de sauvegarde pour planifier des sauvegardes. Vous pouvez également utiliser l’option **Effectuer une sauvegarde** pour effectuer une sauvegarde interactive.)
 
-## Restauration de l’appareil à partir d’une sauvegarde
+## Comment restaurer votre volume StorSimple à partir d’une sauvegarde
 
-Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer l’appareil à partir d’un jeu de sauvegarde. N’oubliez pas cependant que la restauration d’un volume rétablit l’état dans lequel il se trouvait au moment de la sauvegarde. Toutes les données qui ont été ajoutées après l’opération de sauvegarde seront perdues.
+Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre volume StorSimple à partir d’une sauvegarde spécifique. N’oubliez pas cependant que la restauration d’un volume rétablit l’état dans lequel il se trouvait au moment de la sauvegarde. Toutes les données qui ont été ajoutées après l’opération de sauvegarde seront perdues.
 
 > [AZURE.WARNING]La restauration à partir d’une sauvegarde remplace les volumes existants à partir de la sauvegarde. Cela peut entraîner la perte des données qui ont été écrites après la sauvegarde.
 
@@ -64,7 +56,7 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer l’appa
 
 3. Développez le jeu de sauvegarde pour afficher les volumes associés. Ces volumes doivent être mis hors connexion sur l’hôte et l’appareil avant leur restauration. Accédez aux volumes à la page **Conteneurs de volumes**, puis suivez les étapes de la rubrique [Mise hors connexion d’un volume](storsimple-manage-volumes.md#take-a-volume-offline) pour les mettre hors connexion.
 
-    >  [AZURE.IMPORTANT]Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Si vous ne mettez pas les volumes hors connexion sur l’ordinateur hôte, le service StorSimple Manager les met automatiquement hors connexion sur l’ordinateur hôte. Cette opération peut entraîner une corruption de données.
+    >  [AZURE.IMPORTANT]Veillez à mettre les volumes hors connexion sur l’ordinateur hôte avant de les mettre hors connexion sur l’appareil. Sans quoi, vous vous exposez à un risque d’altération des données.
 
 4. Revenez à l’onglet **Catalogue de sauvegarde** et sélectionnez un jeu de sauvegarde.
 
@@ -82,4 +74,4 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer l’appa
 
 En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

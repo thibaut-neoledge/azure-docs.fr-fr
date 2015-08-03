@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com) est une base de données SQL open source connue. À l’aide du [Portail de gestion Azure](http://manage.windowsazure.com), vous pouvez créer une machine virtuelle exécutant Windows Server 2012 R2 à partir de la galerie d’images. Vous pouvez ensuite l'installer et la configurer en tant que serveur MySQL Server.
 
+Pour obtenir des instructions sur l'installation de MySQL sur Linux, reportez-vous à : [Installation de MySQL sur Azure](virtual-machines-linux-install-mysql.md).
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -83,7 +84,7 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	Vous pouvez également configurer les paramètres par défaut de la configuration serveur, tels que les lecteurs et les répertoires de base et de données, avec les entrées du fichier **C:\\Program Files (x86) \\MySQL\\MySQL Server 5.6\\my-default.ini**. Pour plus d’informations, consultez la section [5.1.2 Paramètres par défaut de la configuration serveur](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html) (en anglais).
+19.	Vous pouvez également configurer les paramètres par défaut de la configuration serveur, tels que les lecteurs et les répertoires de base et de données, avec les entrées du fichier **C:\Program Files (x86) \MySQL\MySQL Server 5.6\my-default.ini**. Pour plus d’informations, consultez la section [5.1.2 Paramètres par défaut de la configuration serveur](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html) (en anglais).
 
 
 Si vous souhaitez que le service MySQL Server soit disponible pour les ordinateurs du client MySQL sur Internet, vous devez configurer un point de terminaison pour le port TCP sur lequel le service MySQL Server écoute et créer une nouvelle règle de pare-feu Windows. Il s'agit du port TCP 3306, sauf si vous en spécifiez un autre sur la page Type et réseau (étape 10 de la procédure précédente).
@@ -127,4 +128,4 @@ Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http:/
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

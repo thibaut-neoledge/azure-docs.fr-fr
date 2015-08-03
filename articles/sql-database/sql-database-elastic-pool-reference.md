@@ -23,7 +23,7 @@ Pour les développeurs SaaS chargés d’administrer des dizaines, des centaine
 
 Ce document de référence fournit des liens et des informations sur les articles relatifs aux pools de bases de données élastiques, ainsi que sur la programmabilité.
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Un pool de base de données élastique est une collection d’unités de débit de base de données (DTU) et d’unités de stockage (Go) qui sont partagées par plusieurs bases de données. Vous pouvez à tout moment ajouter des éléments dans les bases de données élastiques, et supprimer des bases de données dans le pool. Les bases de données élastiques du pool utilisent uniquement les ressources qu’il leur faut dans le pool, libérant les ressources disponibles à l’attention des bases de données qui les requièrent, exclusivement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de base de données élastique, consultez [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md).
 
@@ -191,4 +191,4 @@ Le prix unitaire des DTU d’un pool élastique est supérieur au prix unitaire 
 | 40891 | EX_USER | Le nombre minimal de DTU par base de données (%d) ne peut pas dépasser le nombre maximal de DTU par base de données (%d). | Nombre minimal de DTU par base de données ; nombre maximal de DTU par base de données | Tentative de définition d’un nombre minimal de DTU par base de données supérieur au nombre maximal de DTU par base de données. | Vérifiez que le nombre minimal de DTU par base de données ne dépasse pas le nombre maximal de DTU par base de données. |
 | TBD | EX_USER | La taille de l’espace de stockage d’une base de données individuelle dans un pool élastique ne peut pas dépasser la taille maximale autorisée par le pool élastique de niveau de service '%.*ls'. | Niveau de service du pool élastique | La taille maximale de la base de données dépasse la taille maximale autorisée par le niveau de service du pool élastique. | Définissez la taille maximale de la base de données dans les limites de la taille maximale autorisée par le niveau de service du pool élastique. |
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

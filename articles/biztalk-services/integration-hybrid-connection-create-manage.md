@@ -124,8 +124,8 @@ Pour gérer vos connexions hybrides, vous pouvez :
 2. Procédez à l’extraction des fichiers.
 3. Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit : 
 
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions*.
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions\\fr-fr*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions\fr-fr*.
 
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 
@@ -146,4 +146,4 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

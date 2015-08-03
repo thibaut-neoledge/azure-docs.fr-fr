@@ -58,11 +58,11 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Avant de créer un circuit, vous aurez besoin d’une liste des fournisseurs de services, des emplacements pris en charge et des options de bande passante pour chaque emplacement. L'applet de commande PowerShell suivante renvoie ces informations. Vous les utiliserez dans les étapes ultérieures.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	Les informations renvoyées ressembleront à l'exemple ci-dessous :
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande Get-AzureCircuit. L'appel sans paramètre répertorie tous les circuits. Votre clé de Service apparaît dans le champ ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 	Vérifiez que vous disposez d'au moins un réseau virtuel Azure avec une passerelle créée. La passerelle doit être en cours d'exécution.
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

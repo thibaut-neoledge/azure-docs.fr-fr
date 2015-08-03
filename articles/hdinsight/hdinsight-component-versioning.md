@@ -4,7 +4,7 @@
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
-	authors="bradsev"
+	authors="mumian"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 #Nouveautés des versions de cluster Hadoop fournies par HDInsight
@@ -37,12 +37,13 @@ Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent
 <tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
 <tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
+<tr><td>Spark</td><td>1.3.1</td><td></td><td></td><td></td></tr>
 </table>
 
 
 **Obtention d’informations sur les versions actuelles des composants**
 
-Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour des détails, consultez la [documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire « C:\\apps\\dist ».
+Les versions de composant associées aux versions de cluster HDInsight sont susceptibles de changer dans les futures mises à jour de HDInsight. Pour déterminer quels sont les composants disponibles et vérifier quelles versions sont utilisées pour un cluster, vous pouvez utiliser l’API REST Ambari. La commande **GetComponentInformation** permet de récupérer des informations sur un composant du service. Pour des détails, consultez la [documentation Ambari][ambari-docs]. Vous pouvez également obtenir ces informations en vous connectant à un cluster à l’aide du Bureau à distance et en examinant directement le contenu du répertoire « C:\apps\dist ».
 
 
 **Notes de publication**
@@ -58,6 +59,13 @@ Si vous utilisez l’option **Création rapide**, vous obtenez la version 3.1 d
 ##Présentation des fonctionnalités
 Les caractéristiques principales de la plateforme HDInsight sont notamment les suivantes :
 
+- **Spark** : Apache Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. De par ses capacités de calcul en mémoire, Spark constitue le choix idéal pour les algorithmes itératifs utilisés dans les calculs d'apprentissage machine et de graphiques.
+
+	Spark permet également d'effectuer des opérations standard de traitement des données sur disque. En évitant les écritures sur disque lors des étapes intermédiaires, Spark améliore l’infrastructure MapReduce traditionnelle. En outre, Spark est compatible avec le système HDFS (Hadoop Distributed File System) et le stockage d’objets blob Azure ; les données existantes peuvent dont être traitées facilement via Spark.
+
+	Spark peut également être ajouté à l’aide d’une action de script. Une action de script ajoute Spark 1.2.0 au cluster HDInsight 3.2 ou Spark 1.0.2 au cluster HDInsight 3.1. Pour plus d’informations, consultez [Installer et utiliser Spark sur des clusters HDInsight Hadoop](hdinsight-hadoop-spark-install.md).
+
+ 
 - **Storm** - Storm sur Azure HDInsight est désormais disponible. Cette fonction permet de déployer rapidement et simplement des analyses en temps réel en quelques clics et en quelques minutes. Apache Storm sur Azure HDInsight est un projet open source dans l’écosystème Apache Hadoop qui permet d’accéder à une plateforme d’analyse capable de traiter de manière fiable des millions d’événements. Dorénavant, les utilisateurs de Hadoop peuvent interpréter les données en temps réel, tout en disposant des analyses d’événements passés. Microsoft a également ajouté une intégration avec Visual Studio, facilitant ainsi l’interaction des développeurs avec Storm. Vous pouvez maintenant développer, déployer et déboguer les topologies Storm à partir de Visual Studio.
 
 - **HDInsight sur Linux (version préliminaire)** - Azure HDInsight fournit l’option d’approvisionnement des clusters Hadoop qui s’exécutent sur les machines virtuelles Linux (Ubuntu). Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, si vous effectuez une migration à partir d’une solution Hadoop Linux existante, ou si vous souhaitez intégrer facilement des composants de l’écosystème Hadoop conçus pour Linux. Vous pouvez approvisionner un cluster HDInsight sur Linux à partir d’un ordinateur client fonctionnant sous Windows ou Linux à l’aide du portail Azure, de l’interface de ligne de commande Azure (CLI) ou du Kit de développement logiciel (SDK) .NET HDInsight (Windows uniquement).
@@ -153,4 +161,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

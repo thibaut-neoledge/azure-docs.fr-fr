@@ -50,4 +50,4 @@ Vous désirez en savoir plus sur la gestion d'Azure AD ? Comment bénéficier d
 * [Identité Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

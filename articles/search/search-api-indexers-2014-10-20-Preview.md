@@ -1,19 +1,6 @@
-<properties 
-	pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" 
-	description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" />
+<properties pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" description="Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article"  
-	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
-	ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2014-10-20-Preview)
 
@@ -148,7 +135,7 @@ Cette stratégie peut être spécifiée comme suit :
 
 ***Stratégie SQL de détection des modifications intégrée***
 
-Si votre base de données SQL prend en charge le [suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462.aspx), nous vous recommandons d’utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d’identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
+Si votre base de données SQL prend en charge le [suivi intégré des modifications SQL](http://technet.microsoft.com/library/cc280462.aspx), nous vous recommandons d’utiliser la stratégie intégrée SQL de suivi des modifications. Cette stratégie assure le suivi des modifications le plus efficace et permet à Azure Search d'identifier les lignes supprimées sans que le schéma doive contenir une colonne « suppression réversible » explicite.
 
 Le suivi intégré des modifications SQL est pris en charge à partir des versions de base de données SQL suivantes : - SQL Server 2008 R2, si vous utilisez des machines virtuelles SQL IaaS ; - Base de données SQL Azure V12, si vous utilisez SQL Azure.
 
@@ -670,4 +657,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

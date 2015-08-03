@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Groupes de ressources</a> par abonnement</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Lectures API&#160;Resource&#160;Manager</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

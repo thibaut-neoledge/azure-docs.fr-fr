@@ -53,7 +53,7 @@ Cette configuration nécessite un sous-réseau de test comportant jusqu’à qua
 
 Suivez les instructions de la section décrivant la procédure de configuration du sous-réseau d’entreprise dans le [Guide de laboratoire de test : configuration de base pour Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) (en anglais) pour configurer les ordinateurs DC1, APP1 et CLIENT1 sur un sous-réseau nommé Corpnet. **Ce sous-réseau doit être isolé de votre réseau d’entreprise, car il est connecté directement à Internet par le biais de l’ordinateur RRAS1.**
 
-Ensuite, connectez-vous à DC1 avec les informations d'identification CORP\\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
+Ensuite, connectez-vous à DC1 avec les informations d'identification CORP\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -268,7 +268,7 @@ Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine co
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Notez que vous serez invité à fournir le mot de passe CORP\\User1 et un mot de passe du Mode restauration des services d'annuaire (DSRM) et à redémarrer DC2.
+Notez que vous serez invité à fournir le mot de passe CORP\User1 et un mot de passe du Mode restauration des services d'annuaire (DSRM) et à redémarrer DC2.
 
 Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
 
@@ -326,4 +326,4 @@ Ensuite, connectez-vous à RRAS1 en tant qu'administrateur local et exécutez le
 Ensuite, accédez au portail de gestion Azure sur votre ordinateur local et attendez que le réseau virtuel TestVNET affiche un état connecté.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

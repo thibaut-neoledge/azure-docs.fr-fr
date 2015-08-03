@@ -52,20 +52,15 @@ Une fois votre collection créée, il est temps pour vous de publier Access et d
 Si vous avez quitté le nœud Azure RemoteApp pendant la création de la collection, retournez-y depuis la page d’accueil Azure avant de commencer.
 
 1. Cliquez sur **RemoteApp** dans le volet de navigation de gauche.
-2. Cliquez sur la collection que vous avez créée précédemment pour accéder à des options supplémentaires et configurer la collection.
-![Une nouvelle collection cloud RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
-3. Dans l’onglet **Publication**, cliquez sur **Publier** en bas de l’écran, puis cliquez sur **Publier des programmes du menu Démarrer**.
-![Publication d’un programme RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
-4. Sélectionnez les applications que vous souhaitez publier dans la liste. Dans notre cas, nous avons choisi Access. Cliquez sur **Terminé**. Attendez que les applications finissent d’être publiées.
-![Publication d’Access dans RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
+2. Cliquez sur la collection que vous avez créée précédemment pour accéder à des options supplémentaires et configurer la collection. ![Une nouvelle collection cloud RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
+3. Dans l’onglet **Publication**, cliquez sur **Publier** en bas de l’écran, puis cliquez sur **Publier des programmes du menu Démarrer**. ![Publication d’un programme RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
+4. Sélectionnez les applications que vous souhaitez publier dans la liste. Dans notre cas, nous avons choisi Access. Cliquez sur **Terminé**. Attendez que les applications finissent d’être publiées. ![Publication d’Access dans RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 
 
-1. Une fois l’application publiée, rendez-vous sur l’onglet **Accès utilisateur** afin d’y ajouter tous les utilisateurs devant accéder à vos applications. Entrez les noms d’utilisateur (adresse e-mail) de vos utilisateurs, puis cliquez sur **Enregistrer**.
-![Ajouter des utilisateurs à RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
+1. Une fois l’application publiée, rendez-vous sur l’onglet **Accès utilisateur** afin d’y ajouter tous les utilisateurs devant accéder à vos applications. Entrez les noms d’utilisateur (adresse e-mail) de vos utilisateurs, puis cliquez sur **Enregistrer**. ![Ajouter des utilisateurs à RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
-1. À présent, il est temps d’informer vos utilisateurs sur la publication de ces nouvelles applications et sur la manière d’y accéder. Pour ce faire, envoyez à vos utilisateurs un e-mail contenant l’URL de téléchargement du client Bureau à distance.
-![URL de téléchargement du client pour RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
+1. À présent, il est temps d’informer vos utilisateurs sur la publication de ces nouvelles applications et sur la manière d’y accéder. Pour ce faire, envoyez à vos utilisateurs un e-mail contenant l’URL de téléchargement du client Bureau à distance. ![URL de téléchargement du client pour RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
 
 ## Configuration de l’accès à Access
 
@@ -74,15 +69,11 @@ Certaines applications nécessitent une configuration supplémentaire après leu
 Dans un premier temps, vous allez être mis à contribution en tant qu’administrateur. Dans un second temps, nous allons demander à vos utilisateurs de procéder à quelques étapes.
 
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
-2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès.
-![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Vous devez à présent créer un [compte de stockage](../storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous (il peut n’y avoir qu’un seul « accessstorage »).
-![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\windows\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
+3. Vous devez à présent créer un [compte de stockage](../storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous (il peut n’y avoir qu’un seul « accessstorage »). ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part.
 
-![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire. 
-6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
+![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png) 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire. 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -101,10 +92,8 @@ C’est maintenant au tour des utilisateurs de poursuivre les opérations. Tout 
 		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
 
 	Si vous définissez le paramètre **/ persistent** sur Oui, le lecteur mappé persistera entre les sessions.
-1. À présent, lancez l’application Explorateur de fichiers depuis RemoteApp. Copiez les fichiers Access que vous souhaitez utiliser dans l’application partagée dans le partage de fichiers.
-![Ajout de fichiers Access dans un partage Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
-1. Enfin, ouvrez Access, puis la base de données que vous venez de partager. Vous devriez voir vos données d’Access s’exécuter directement sur le cloud.
-![Une véritable base de données Access exécutée sur le cloud](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
+1. À présent, lancez l’application Explorateur de fichiers depuis RemoteApp. Copiez les fichiers Access que vous souhaitez utiliser dans l’application partagée dans le partage de fichiers. ![Ajout de fichiers Access dans un partage Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
+1. Enfin, ouvrez Access, puis la base de données que vous venez de partager. Vous devriez voir vos données d’Access s’exécuter directement sur le cloud. ![Une véritable base de données Access exécutée sur le cloud](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
 Vous pouvez désormais utiliser Access sur n’importe lequel de vos appareils. Veillez simplement à installer un client RemoteApp.
 
@@ -115,4 +104,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!-----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jgao"/>
 
 
@@ -149,8 +149,8 @@ La solution de comptage de mots contient deux projets d’application console :
 
 Les exécutables mappeur et raccord de réduction sont situés sur :
 
-- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
-- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
+- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
+- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
 
 
 ##<a name="test"></a>Test du programme sur l’émulateur
@@ -167,7 +167,7 @@ Par défaut, l’émulateur HDInsight utilise un HDFS (Hadoop Distributed File S
 
 Ce didacticiel utilise la structure de dossiers suivante :
 
-<table border="1"> <tr><td>Dossier</td><td>Remarque</td></tr> <tr><td>\\WordCount</td><td>Dossier racine du projet de comptage des mots. </td></tr> <tr><td>\\WordCount\\Apps</td><td>Dossier des exécutables du mappeur et du raccord de réduction.</td></tr> <tr><td>\\WordCount\\Input</td><td>Dossier du fichier source MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>Dossier du fichier de sortie MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>Dossier de sortie du travail.</td></tr> </table></br>
+<table border="1"> <tr><td>Dossier</td><td>Remarque</td></tr> <tr><td>\WordCount</td><td>Dossier racine du projet de comptage des mots. </td></tr> <tr><td>\WordCount\Apps</td><td>Dossier des exécutables du mappeur et du raccord de réduction.</td></tr> <tr><td>\WordCount\Input</td><td>Dossier du fichier source MapReduce.</td></tr> <tr><td>\WordCount\Output</td><td>Dossier du fichier de sortie MapReduce.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>Dossier de sortie du travail.</td></tr> </table></br>
 
 Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop_home%.
 
@@ -278,7 +278,7 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop_hom
 	Pour afficher la page, ajoutez « |more » à la fin de la commande.
 
 ##<a id="upload"></a>Téléchargement de données vers le stockage d’objets blob Azure
-Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichiers par défaut. Vous pouvez configurer un cluster HDInsight pour utiliser un autre stockage d'objets blob pour les fichiers de données. Dans cette section, vous allez créer un compte de stockage Azure, puis télécharger les fichiers de données vers le stockage d’objets blob. Les fichiers de données sont des fichiers .txt dans le répertoire %hadoop_home%\\share\\doc\\hadoop\\common.
+Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichiers par défaut. Vous pouvez configurer un cluster HDInsight pour utiliser un autre stockage d'objets blob pour les fichiers de données. Dans cette section, vous allez créer un compte de stockage Azure, puis télécharger les fichiers de données vers le stockage d’objets blob. Les fichiers de données sont des fichiers .txt dans le répertoire %hadoop_home%\share\doc\hadoop\common.
 
 
 **Pour créer un compte de stockage et un conteneur**
@@ -316,7 +316,7 @@ Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichie
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Notez que le dossier des fichiers sources locaux est **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** et que le dossier de destination est **WordCount/Input**. L'emplacement source correspond à l'emplacement des fichiers .txt sur l'émulateur HDInsight. La destination est la structure de dossiers qui sera reflétée sous le conteneur d'objets blob Azure.
+	Notez que le dossier des fichiers sources locaux est **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** et que le dossier de destination est **WordCount/Input**. L'emplacement source correspond à l'emplacement des fichiers .txt sur l'émulateur HDInsight. La destination est la structure de dossiers qui sera reflétée sous le conteneur d'objets blob Azure.
 
 3. Exécutez les commandes suivantes pour obtenir une liste des fichiers .txt contenus dans le dossier des fichiers sources :
 
@@ -551,4 +551,4 @@ Dans ce didacticiel, vous avez appris à développer un travail MapReduce en Had
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

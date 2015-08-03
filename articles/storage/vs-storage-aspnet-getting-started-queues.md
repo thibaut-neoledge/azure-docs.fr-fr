@@ -275,4 +275,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

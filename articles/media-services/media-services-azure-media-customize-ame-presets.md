@@ -458,9 +458,9 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 
 1. Enregistrez le fichier de présélection modifié sur votre disque dur local et utilisez un code comme celui qui suit pour encoder avec la présélection personnalisée :
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Pour empêcher l’amplification du bruit de fond, procédez comme suit :
 
 [Schéma XML de l’Encodeur multimédia Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

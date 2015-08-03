@@ -92,4 +92,4 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -152,4 +152,4 @@ Examinez les [Notes de publication de StorSimple](https://msdn.microsoft.com/lib
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

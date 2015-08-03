@@ -10,13 +10,13 @@ Il existe également plusieurs types d’enregistrements, chacun avec ses foncti
 
 ###Enregistrement d'adresse (enregistrement A)
 
-Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : **\*.contoso.com**) à une adresse IP. Dans le cas d’une application web dans App Service, il s’agit de l’adresse IP virtuelle du service ou d’une adresse IP spécifique que vous avez achetée pour votre application web.
+Un enregistrement A associe un domaine, tel que **contoso.com** ou **www.contoso.com**, *ou un nom de domaine générique* (par exemple : ***.contoso.com**) à une adresse IP. Dans le cas d’une application web dans App Service, il s’agit de l’adresse IP virtuelle du service ou d’une adresse IP spécifique que vous avez achetée pour votre application web.
 
 Les principaux avantages d'un enregistrement A par rapport à un enregistrement CNAME sont les suivants :
 
 * Vous pouvez mapper un domaine racine tel que **contoso.com** vers une adresse IP. De nombreux bureaux d'enregistrement autorisent cette action uniquement avec des enregistrements A.
 
-* Vous pouvez avoir une entrée avec un caractère générique (**\*.contoso.com**, par exemple) qui gère les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
+* Vous pouvez avoir une entrée avec un caractère générique (***.contoso.com**, par exemple) qui gère les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
 
 > [AZURE.NOTE]L’enregistrement A étant mappé à une adresse IP statique, les changements d’adresse IP de votre application web ne sont donc pas pris en compte automatiquement. Une adresse IP à utiliser avec les enregistrements A est fournie lorsque vous configurez les paramètres de nom de domaine personnalisé pour votre application web. Cette valeur est toutefois susceptible d’être modifiée si vous supprimez et recréez votre application web ou que vous faites de nouveau passer le mode de plan App Service en mode **Gratuit**.
 
@@ -50,4 +50,4 @@ Pour connaître l’adresse IP ainsi que les noms **awverify** et **.azurewebsi
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

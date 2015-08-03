@@ -76,7 +76,7 @@ Opérateurs autorisés
 * -ne
 
 
-| Propriétés | Valeurs autorisées | Utilisation |
+| Propriétés | Valeurs autorisées | Usage |
 |----------------|-----------------|--------------------------------|
 | accountEnabled | true false | user.accountEnabled -eq true) |
 | dirSyncEnabled | true false null | (user.dirSyncEnabled -eq true) |
@@ -108,7 +108,7 @@ Opérateurs autorisés
 
 * -notMatch
 
-| Propriétés | Valeurs autorisées | Utilisation |
+| Propriétés | Valeurs autorisées | Usage |
 |----------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 | city | Toute valeur de chaîne ou $null. | (user.city -eq "value") |
 | country | Toute valeur de chaîne ou $null. | (user.country -eq "value") |
@@ -124,7 +124,7 @@ Opérateurs autorisés
 | passwordPolicies | Aucune DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Toute valeur de chaîne ou $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Toute valeur de chaîne ou $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Code ISO 639-1 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | Code ISO 639-1 | (user.preferredLanguage -eq "fr-fr") |
 | sipProxyAddress | Toute valeur de chaîne ou $null. | (user.sipProxyAddress -eq "value") |
 | state | Toute valeur de chaîne ou $null. | (user.state -eq "value") |
 | streetAddress | Toute valeur de chaîne ou $null. | (user.streetAddress -eq "value") |
@@ -143,7 +143,7 @@ Opérateurs autorisés
 
 * -notContains
 
-| Propriétés | Valeurs autorisées | Utilisation |
+| Propriétés | Valeurs autorisées | Usage |
 |----------------|---------------------------------------|------------------------------------------------------|
 | otherMails | Toute valeur de chaîne. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -158,4 +158,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

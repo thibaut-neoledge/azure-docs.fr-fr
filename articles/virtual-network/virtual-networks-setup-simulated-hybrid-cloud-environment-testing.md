@@ -51,7 +51,7 @@ Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour 
 
 Suivez les instructions de la section [Environnement de test de la configuration de base](../virtual-machines/virtual-machines-base-configuration-test-environment.md) afin de configurer les ordinateurs DC1, APP1 et CLIENT1 dans un réseau virtuel Azure nommé TestLab.
 
-Dans le portail de gestion Azure sur votre ordinateur local, connectez-vous à DC1 avec les informations d’identification CORP\\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
+Dans le portail de gestion Azure sur votre ordinateur local, connectez-vous à DC1 avec les informations d’identification CORP\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -200,7 +200,7 @@ Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine co
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Notez que vous êtes invité à fournir le mot de passe CORP\\User1 et un mot de passe du Mode restauration des Services annuaire (DSRM), puis à redémarrer DC2.
+Notez que vous êtes invité à fournir le mot de passe CORP\User1 et un mot de passe du Mode restauration des Services annuaire (DSRM), puis à redémarrer DC2.
 
 Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
 
@@ -273,4 +273,4 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis cliquez sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

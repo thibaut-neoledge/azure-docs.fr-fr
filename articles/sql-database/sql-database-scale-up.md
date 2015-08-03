@@ -232,7 +232,8 @@ Créez un contexte de serveur en utilisant le paramètre **New-AzureSqlDatabaseS
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Références relatives à Microsoft Azure PowerShell** Pour afficher des informations détaillées sur les applets de commande de Microsoft Azure PowerShell utilisées dans la présente rubrique, voir [Applets de commande de base de données SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx).
+**Références relatives à Microsoft Azure PowerShell**
+Pour afficher des informations détaillées sur les applets de commande de Microsoft Azure PowerShell utilisées dans la présente rubrique, voir [Applets de commande de base de données SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx).
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -241,4 +242,4 @@ Créez un contexte de serveur en utilisant le paramètre **New-AzureSqlDatabaseS
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

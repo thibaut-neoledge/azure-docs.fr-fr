@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Nouveautés de Base de données SQL V12 | Microsoft Azure" 
-	description="Explique pourquoi les systèmes d’entreprise qui utilisent Base de données SQL Azure dans le cloud profitent de la mise à niveau vers la version 12 (V12)." 
+	pageTitle="Nouveautés de SQL Database V12 | Microsoft Azure" 
+	description="Explique pourquoi les systèmes d’entreprise qui utilisent Azure SQL Database dans le cloud profitent de la mise à niveau vers la version 12 (V12)." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,27 +14,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
-# Nouveautés de la base de données SQL V12
+# Nouveautés de SQL Database V12
 
 
-Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) de Base de données SQL Azure par rapport à la version 11.
+Cette rubrique décrit les nombreux avantages de la nouvelle version 12 (V12) d’Azure SQL Database par rapport à la version 11.
 
 
 Nous continuons d’ajouter des fonctionnalités à la version 12 (V12). Par conséquent, nous vous encourageons à consulter notre page web sur les mises à jour des services pour Azure et à utiliser ses filtres :
 
 
-- Filtrez sur [Service Base de données SQL](http://azure.microsoft.com/updates/?service=sql-database).
-- Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités Base de données SQL.
+- Filtrez sur [Service SQL Database](http://azure.microsoft.com/updates/?service=sql-database).
+- Filtrez sur [annonces](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de disponibilité générale pour les fonctionnalités SQL Database.
 
 
 ## Compatibilité améliorée des applications avec SQL Server
 
 
-Un objectif important de la version 12 (V12) de Base de données SQL était d’améliorer la compatibilité avec Microsoft SQL Server 2014. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
+Un objectif important de la version 12 (V12) de SQL Database était d’améliorer la compatibilité avec Microsoft SQL Server 2014. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
 
 
 - [Assemblys Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
@@ -45,7 +45,7 @@ Un objectif important de la version 12 (V12) de Base de données SQL était d�
 - [Recherche en texte intégral](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Consultez [cette page](http://msdn.microsoft.com/library/azure/ee336281.aspx) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
+Consultez [cette page](http://msdn.microsoft.com/library/azure/ee336281.aspx) pour découvrir les quelques fonctionnalités non prises en charge par SQL Database.
 
 
 ## Plus de performances pour le niveau Premium, nouveaux niveaux de performances
@@ -95,24 +95,35 @@ La version 12 (V12) offre des valeurs sensiblement améliorées pour les object
 | Géo-réplication active | • RPO < 5 minutes.<br/>• ERT < 1 heure. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
 
 
-Pour plus d’informations, consultez la rubrique [Continuité de l’activité Base de données SQL Azure](https://msdn.microsoft.com/library/azure/hh852669.aspx).
+Pour plus d’informations, consultez la rubrique [Continuité de l’activité SQL Database](https://msdn.microsoft.com/library/azure/hh852669.aspx).
 
 
 ## Autres raisons pour effectuer la mise à niveau maintenant
 
 
-Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer de la version 11 à la version 12 (V12) de Base de données SQL Azure :
+Il y a de nombreuses bonnes raisons pour lesquelles les clients doivent passer de la version 11 à la version 12 (V12) d’Azure SQL Database :
 
 
-- Base de données SQL version 12 (V12) possède une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
+- SQL Database V12 présente une longue liste de fonctionnalités, bien plus longue que celle de la version 11.
 - Nous continuons à ajouter de nouvelles fonctionnalités à la version 12 (V12), mais aucune nouvelle fonctionnalité ne sera ajoutée à la 11.
-- La plupart des nouvelles fonctionnalités sont publiées dans la version 12 (V12) de Base de données SQL avant qu’elles ne soient intégrées à Microsoft SQL Server.
+- La plupart des nouvelles fonctionnalités sont publiées dans la version 12 (V12) de SQL Database avant qu’elles ne soient intégrées à Microsoft SQL Server.
+
+
+## La passerelle ne fournit plus de logique de nouvelle tentative dans V12
+
+
+Avant la version V12, Azure SQL Database avait une passerelle qui agissait en tant que proxy pour mettre en mémoire tampon toutes les interactions entre la base de données et votre programme client. La passerelle fournissait une *logique de nouvelle tentative* automatisée pour certaines *erreurs temporaires*.
+
+ V12 a supprimé la passerelle. Désormais, votre programme doit gérer plus en détail les erreurs temporaires. Pour plus d'informations, consultez :
+
+
+- [Connexion à SQL Database : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 
 ## Vous utilisez déjà la version 12 (V12) ?
 
 
-Un bon moyen de voir si vous avez une base de données ou un serveur logique en cours qui s’exécute sur une version antérieure du service Base de données SQL est d’effectuer les opérations suivantes :
+Un bon moyen de voir si vous avez une base de données ou un serveur logique en cours qui s’exécute sur une version antérieure du service SQL Database est d’effectuer les opérations suivantes :
 
 
 1. Ouvrez le [portail Azure en version préliminaire](http://portal.azure.com/).
@@ -145,11 +156,11 @@ La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l�
 La version 12 (V12) est disponible en version préliminaire dans les régions suivantes :
 
 
-| Région Azure | État de lancement actuel<br/>pour la version 12 | Date du passage<br/>vers l’état de disponibilité générale |
+| Région Azure | État de lancement actuel<br/>pour la version 12 | Date de la promotion de <br/> vers l’état de disponibilité générale, estimation |
 | :--- | :--- | :--- |
-| Est de l’Australie | **Version préliminaire** | Deuxième trimestre 2015, estimation |
-| Sud-est de l’Australie | **Version préliminaire** | Deuxième trimestre 2015, estimation |
+| Est de l’Australie | **Version préliminaire** | Troisième trimestre du calendrier 2015, estimation |
+| Sud-est de l’Australie | **Version préliminaire** | Troisième trimestre du calendrier 2015, estimation |
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

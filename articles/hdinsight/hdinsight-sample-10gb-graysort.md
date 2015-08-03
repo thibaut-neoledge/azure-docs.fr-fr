@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Exemple MapReduce Hadoop GraySort 10 Go | Microsoft Azure"
 	description="Découvrez comment exécuter un programme GraySort généraliste pour de très gros volumes de données, au minimum 100 To, sur Hadoop avec HDInsight et Azure PowerShell."
@@ -5,7 +6,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 # Exemple MapReduce Hadoop GraySort 10 Go dans HDInsight
 
@@ -432,4 +433,4 @@ Pour suivre des didacticiels vous présentant l’exécution d’autres exemples
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET
@@ -43,7 +43,6 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 3.	Dans la fenêtre <b>Console du gestionnaire de package</b>, exécutez les commandes suivantes une par une.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Ajoutez la section **appSettings** suivante au fichier **App.config**. Ces valeurs sont utilisées par la méthode d'assistance **GetAuthorizationHeader**. 
 
@@ -57,24 +56,26 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
-    		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
+		    <add key="SubscriptionId" value="<subscription ID>" />
+    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
 		</appSettings>
 6. Ajoutez les instructions **using** suivantes au fichier source (Program.cs) dans le projet.
 
 		using System.Threading;
 		using System.Configuration;
 		using System.Collections.ObjectModel;
-				
+		
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
+		using Microsoft.Azure.Management.DataFactories.Common.Models;
+		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure; 
+		using Microsoft.Azure;
 6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les tables d'entrée et de sortie, ainsi qu'un pipeline. Cet objet vous permet également d'analyser les tranches d'une table au moment de l'exécution.    
 
-        // create data pipeline management client
+        // create data factory management client
         string resourceGroupName = "ADF";
-        string dataFactoryName = "APITutorialFactory";
+        string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -83,7 +84,8 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-        DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
+        DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
 7. Ajoutez à la méthode **Main** le code suivant, qui crée une **fabrique de données**.
 
         // create a data factory
@@ -99,10 +101,11 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 }
             }
         );
-8. Ajoutez à la méthode **Main** le code suivant, qui crée un **service lié**.
-	> [AZURE.NOTE]**nom du compte****clé du compte****ConnectionString** 
 
-		// create a linked service
+8. Ajoutez à la méthode **Main** le code suivant, qui crée un **service lié**.
+	> [AZURE.NOTE]Utilisez le **nom de compte** et la **clé de compte** de votre compte de stockage Azure pour **ConnectionString**.
+
+        // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new LinkedServiceCreateOrUpdateParameters()
@@ -110,10 +113,10 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 LinkedService = new LinkedService()
                 {
                     Name = "LinkedService-AzureStorage",
-                    Properties = new AzureStorageLinkedService()
-                    {
-                        ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=account key",
-                    }
+                    Properties = new LinkedServiceProperties
+                    (
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                    )
                 }
             }
         );
@@ -137,17 +140,17 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                     Name = Table_Source,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/",
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            FileName = "emp.txt"
                         },
-
+                        External = true,
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
-                            WaitOnExternal = new WaitOnExternal()
                         },
 
                         Policy = new Policy()
@@ -169,7 +172,9 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                     Name = Table_Destination,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/apifactoryoutput/{Slice}",
                             PartitionedBy = new Collection<Partition>()
@@ -183,8 +188,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                                         Format = "yyyyMMdd-HH"
                                     }
                                 }
-                            },
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            }
                         },
 
                         Availability = new Availability()
@@ -195,9 +199,10 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                     }
                 }
             });
-10. Ajoutez à la méthode **Main** le code suivant, qui **crée et active un pipeline**. Ce pipeline dispose d'une fonction **CopyActivity** qui accepte **BlobSource** en tant que source et **BlobSink** en tant que récepteur. 
 
-        // create a pipeline
+11. Ajoutez à la méthode **Main** le code suivant, qui **crée et active un pipeline**. Ce pipeline dispose d'une fonction **CopyActivity** qui accepte **BlobSource** en tant que source et **BlobSink** en tant que récepteur.
+
+            // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
@@ -217,48 +222,36 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
 
-                        Activities = new List<BaseActivity>()
-                        {
-                            new CopyActivity()
-                            {
+                        Activities = new List<Activity>()
+                        {                                
+                            new Activity()
+                            {   
                                 Name = "BlobToBlob",
                                 Inputs = new List<ActivityInput>()
                                 {
-                                    new ActivityInput()
-                                    {
-                                        Name = Table_Source,
+                                    new ActivityInput() {
+                                        Name = Table_Source
                                     }
                                 },
-                        
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination, 
+                                        Name = Table_Destination
                                     }
                                 },
-                     
-                                Transformation = new CopyActivityProperties()
+                                TypeProperties = new CopyActivity()
                                 {
                                     Source = new BlobSource()
                                     {
                                         BlobColumnSeparators = ",",
                                     },
-                            
+                        
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
                                         WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                    },
-
-                                },
-
-                                Policy = new ActivityPolicy()
-                                {
-                                    ExecutionPriorityOrder = ExecutionPriorityOrder.NewestFirst,
-                                    Concurrency = 1,
-                                    Retry = 2,
-                                    Timeout = TimeSpan.FromMinutes(10),
+                                    }
                                 }
                             }
 
@@ -267,7 +260,9 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 }
             });
 
-11. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d'utilisateur** et un **mot de passe** de connexion au portail Azure.
+	
+
+12. Ajoutez à la classe **Program** la méthode d'assistance suivante utilisée par la méthode **Main**. Cette méthode affiche une boîte de dialogue qui vous permet de fournir un **nom d'utilisateur** et un **mot de passe** de connexion au portail Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -334,13 +329,23 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
             }
         }
 
-14. Ajoutez à la méthode **Main** le code suivant pour obtenir les détails d'exécution d'une tranche de données.
+14. **(Facultatif)** Ajoutez à la méthode **Main** le code suivant pour obtenir les détails d’exécution d’une tranche de données.
 
         Console.WriteLine("Getting run details of a data slice");
 
-        var datasliceRunListResponse = client.DataSliceRuns.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString());
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
 
+        var datasliceRunListResponse = client.DataSliceRuns.List(
+                resourceGroupName,
+                dataFactoryName,
+                Table_Destination,
+                new DataSliceRunListParameters()
+                {
+                    DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+                }
+            );
+        
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -354,15 +359,14 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-    }
 
-15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**.
+15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. Si vous obtenez une erreur sur la classe **ConfigurationManager**, ajoutez une référence à l’assembly **System.Configuration** et réessayez de générer.
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**.
+17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **ENTRÉE**.
 18. Utilisez le portail Azure en version préliminaire pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
 	- Service lié : **LinkedService_AzureStorage** 
 	- Tables : **TableBlobSource** et **TableBlobDestination**
@@ -388,4 +392,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

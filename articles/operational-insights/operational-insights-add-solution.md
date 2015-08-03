@@ -90,4 +90,4 @@ La collecte de journaux IIS est prise en charge sur les ordinateurs équipés de
 
 3. Dans la page de confirmation, cliquez sur **Oui** pour supprimer la solution.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

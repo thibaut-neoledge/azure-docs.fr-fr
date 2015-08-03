@@ -242,4 +242,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -78,7 +78,7 @@ Répétez les étapes suivantes pour créer des machines virtuelles pour héberg
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 Set-AzureStaticVNetIP -IPAddress 10.0.0.4 Update-AzureVM
 
-Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Pour plus d’informations sur la configuration d’une adresse IP, consultez [Configuration d’une adresse IP interne statique pour une machine virtuelle](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## installation des services AD DS sur des machines virtuelles Azure
 
@@ -123,4 +123,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

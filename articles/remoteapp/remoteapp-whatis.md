@@ -94,4 +94,4 @@ OK Faites un essai. Ces articles vous aident à prendre en main RemoteApp :
 - [FAQ Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

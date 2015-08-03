@@ -49,4 +49,4 @@
 
 <sup>2</sup>Si la transaction verrouille une ressource requise par une tâche système sous-jacente, la durée maximale est de 20 secondes.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

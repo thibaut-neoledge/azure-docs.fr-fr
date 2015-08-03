@@ -185,7 +185,7 @@ Cela signifie que nous pouvons modifier la requête d’origine :
 
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes ##
 
@@ -208,4 +208,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

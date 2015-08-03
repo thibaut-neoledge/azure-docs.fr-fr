@@ -38,10 +38,10 @@ Tout d’abord, vous devez installer Azure PowerShell. Pour obtenir des instruct
 
 Ensuite, ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer `ACCOUNT_NAME` et `ACCOUNT_KEY== ` par les informations d’identification de votre compte de stockage. Remplacez `CONTAINER_NAME` par un nom de votre choix.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 L’URI de la signature d’accès partagé du nouveau conteneur doit être semblable à ce qui suit :
 
@@ -176,4 +176,4 @@ Pour en savoir plus sur les objets blob, les tables et les files d’attente, su
 [Introduction à Microsoft Azure Storage](storage-introduction.md) [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md) [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

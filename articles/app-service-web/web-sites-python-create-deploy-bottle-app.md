@@ -400,4 +400,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

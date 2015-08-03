@@ -52,4 +52,4 @@ Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique
 <!--Other Web references-->
 [documentation relative à ce logiciel]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

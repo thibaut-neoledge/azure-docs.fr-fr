@@ -91,4 +91,4 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

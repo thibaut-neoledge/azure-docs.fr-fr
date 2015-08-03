@@ -152,4 +152,4 @@ Dans certains scénarios tels que l’utilisation de la fonctionnalité de base 
 
 [Recommandations liées à Base de données SQL Azure pour empêcher les refus de demande ou l’arrêt des connexions](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

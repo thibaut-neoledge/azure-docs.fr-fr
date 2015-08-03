@@ -57,4 +57,4 @@ Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

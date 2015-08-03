@@ -143,4 +143,4 @@ L’exemple suivant utilise la propriété **parametersLink** pour créer un lie
 - [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
 - [Présentation du gestionnaire des ressources Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

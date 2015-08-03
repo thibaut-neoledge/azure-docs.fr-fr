@@ -47,4 +47,4 @@ L’interface utilisateur de gestion permet de basculer le niveau de limitation.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

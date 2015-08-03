@@ -3,19 +3,19 @@
    description="Découvrez l’architecture de Resource Manager et les relations entre les fournisseurs de ressources relatives au calcul, au réseau et au stockage."
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Architecture d’Azure Resource Manager
 
@@ -32,8 +32,8 @@ Avant d’aborder l’architecture d’Azure Resource Manager et des différen
 Voici les composants et leurs relations concernant Azure Service Management.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## Architecture de Resource Manager 
+
+## Architecture de Resource Manager
 
 Concernant Azure Resource Manager, les fournisseurs de ressources prennent en charge des ressources individuelles permettant de créer des machines virtuelles fonctionnelles, configurées selon vos besoins. Concernant les machines virtuelles, il existe trois principaux fournisseurs de ressources :
 
@@ -50,13 +50,13 @@ Il existe également des relations entre les ressources présentes au sein des f
 - Une instance d’équilibreur de charge fait référence au pool principal d’adresses IP qui comporte la carte d’interface réseau d’une machine virtuelle (facultatif) et fait référence à l’adresse IP publique ou privée d’un équilibreur de charge (facultative).
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 La modularité des ressources permet une plus grande flexibilité lors de la configuration de l’infrastructure d’une charge de travail informatique hébergée dans Azure. Les modèles Azure Resource Manager tirent parti de cette flexibilité pour créer le jeu de ressources dépendantes requises pour une configuration spécifique. Lors de l’exécution d’un modèle, Resource Manager s’assure que les ressources relatives à une configuration sont créées dans l’ordre approprié afin de préserver les dépendances et les références. Par exemple, Resource Manager ne crée pas la carte d’interface réseau d’une machine virtuelle avant d’avoir créé le réseau virtuel présentant un sous-réseau et une adresse IP (un groupe de sécurité réseau est facultatif).
 
 Un groupe de ressources correspond à un conteneur logique qui comporte les ressources associées à une application ; il peut être composé de plusieurs machines virtuelles, cartes réseau, adresses IP, équilibreurs de charge, sous-réseaux et groupes de sécurité réseau. Par exemple, vous pouvez gérer toutes les ressources de l’application en tant qu’unité de gestion unique. Vous pouvez créer, mettre à jour et supprimer toutes les ressources conjointement. Voici un exemple d’application déployée au sein d’un groupe de ressources unique.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 L’application comporte les éléments suivants :
 
 - deux machines virtuelles qui utilisent le même compte de stockage et sont présentes au sein du même groupe à haute disponibilité et au sein du même sous-réseau d’un réseau virtuel ;
@@ -79,4 +79,4 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Présentation d’Azure Resource Manager](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

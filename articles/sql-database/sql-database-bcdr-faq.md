@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # FAQ sur la continuité des activités
@@ -65,4 +65,4 @@ La géo-réplication utilise la copie continue. Par conséquent, utilisez la vue
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

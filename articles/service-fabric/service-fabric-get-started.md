@@ -93,4 +93,4 @@ Si aucun élément n'est vert ou qu'un message d'erreur s'affiche, attendez quel
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

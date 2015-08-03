@@ -37,4 +37,4 @@ Publiez votre contenu. Pour plus d'informations, consultez [Procédure : encoda
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

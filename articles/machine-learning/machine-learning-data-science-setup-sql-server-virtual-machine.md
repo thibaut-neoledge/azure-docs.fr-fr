@@ -137,7 +137,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
     Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l’environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2.  Lorsque vous l’ouvrez, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez ***your_VM_name*\\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
+2.  Lorsque vous l’ouvrez, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez ***your_VM_name*\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
     ![Se connecter au serveur][6]
 
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

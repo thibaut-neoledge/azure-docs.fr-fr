@@ -62,4 +62,4 @@ Maintenant que vous avez créé une API personnalisée et que vous l'avez appel�
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

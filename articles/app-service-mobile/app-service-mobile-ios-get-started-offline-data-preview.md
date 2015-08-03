@@ -31,6 +31,10 @@ La synchronisation hors connexion possède plusieurs utilisations potentielles 
 
 Si vous n’avez aucune expérience de Mobile Apps, commencez par suivre le didacticiel [Création d’une application iOS].
 
+##<a name="review"></a>Examiner la configuration de votre projet de serveur (facultatif)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>Obtenir l’exemple d’application ToDo hors connexion
 
 Dans le [référentiel d’exemples Mobile Apps sur GitHub], clonez le référentiel et ouvrez le projet [Exemple iOS hors connexion] dans Xcode.
@@ -278,4 +282,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday : applications prenant en charge le mode hors connexion dans Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

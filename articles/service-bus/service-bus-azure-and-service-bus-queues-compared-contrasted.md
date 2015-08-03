@@ -318,4 +318,4 @@ Les articles suivants fournissent davantage de conseils et d'informations sur l'
 - [Présentation de la facturation du stockage Azure - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

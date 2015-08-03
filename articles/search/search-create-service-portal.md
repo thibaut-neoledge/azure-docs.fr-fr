@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d&#39;un service Azure Search dans le portail"
-	description="Ajout d&#39;un service Azure Search gratuit ou standard à un abonnement existant à l&#39;aide du portail de gestion"
+	pageTitle="Création d'un service Azure Search dans le portail"
+	description="Ajout d'un service Azure Search gratuit ou standard à un abonnement existant à l'aide du portail de gestion"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -120,4 +120,4 @@ Les informations supplémentaires suivantes vous expliquent comment créer et g�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

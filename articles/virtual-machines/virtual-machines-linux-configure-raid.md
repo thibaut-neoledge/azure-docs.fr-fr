@@ -178,4 +178,4 @@ Dans cet exemple, après l'exécution de cette commande, un nouveau périphériq
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

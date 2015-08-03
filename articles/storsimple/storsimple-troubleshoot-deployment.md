@@ -3,7 +3,7 @@
    description="Décrit comment diagnostiquer et corriger les erreurs qui se produisent lorsque vous déployez StorSimple pour la première fois."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Résolution des problèmes de déploiement d’un appareil StorSimple
 
@@ -64,7 +64,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 - configurez les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ; 
 - inscrivez l’appareil. 
 
-### Erreurs qui se produisent lorsque vous configurez les paramètres réseau requis
+## Erreurs pendant la configuration des paramètres réseau requis
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 6. | Invoke-HcsSetupWizard : adresse IPv6 non valide. | L’adresse IP est fournie dans un format incorrect.| Vérifiez le format et fournissez à nouveau votre adresse IP. Pour plus d’informations, consultez la page [Adressage IPv6][2].|
 | 7. | Invoke-HcsSetupWizard : il n’y a plus de points de terminaison disponibles auprès du mappeur de point de terminaison (exception de HRESULT : 0x800706D9). | La fonctionnalité de cluster ne fonctionne pas. | Pour les étapes suivantes, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-### Erreurs qui se produisent lorsque vous configurez les paramètres du proxy web en option
+## Erreurs pendant la configuration des paramètres de proxy web facultatifs
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@ Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencon
 | 4 | Invoke-HcsSetupWizard : ressource de cluster introuvable (exception de HRESULT : 0x8007138f). | Impossible de trouver la ressource de cluster. Cela peut se produire lorsque l’installation ne s’est pas déroulée correctement. | Vous devrez peut-être rétablir les paramètres par défaut d’origine de l’appareil. [Contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) pour créer une ressource de cluster.|
 | 5. | Invoke-HcsSetupWizard : ressource de cluster pas en ligne (exception de HRESULT : 0x8007138c).| Les ressources de cluster ne sont pas en ligne. | Pour les étapes suivantes, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).|
 
-### Erreurs qui se produisent lorsque vous configurez les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple
+## Erreurs liées aux mots de passe d’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple
 
 Le mot de passe par défaut de l’appareil est **Password1**. Ce mot de passe expire après la première session ; par conséquent, vous devez utiliser l’Assistant Installation pour le modifier. Vous devez fournir un nouveau mot de passe Administrateur de l’appareil lorsque vous inscrivez l’appareil pour la première fois.
 
@@ -124,14 +124,15 @@ Vous pouvez réinitialiser les mots de passe à partir du portail de gestion de 
 - [Configuration du mot de passe Administrateur de l’appareil](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configuration du mot de passe du gestionnaire d’instantanés StorSimple](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Erreurs qui se produisent lors de l’inscription de l’appareil
+## Erreurs pendant l'inscription d’un appareil
 
 Vous utilisez le service StorSimple Manager en cours d’exécution dans Microsoft Azure pour inscrire l’appareil. Vous pouvez rencontrer un ou plusieurs des problèmes suivants lors de l’inscription de l’appareil.
 
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
 | 1 | Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Manager. | | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).|
-| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [Obtenir la clé d’inscription de service.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) |
+| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [
+Obtenir la clé d’inscription de service.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) |
 | 3 | Erreur 350063 : l’authentification auprès du service StorSimple Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. | Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. | Si le problème persiste, contactez le [support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). |
 | 4 | Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. | Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu avec une nouvelle tentative ultérieure de l’opération. | Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). | 
 | 5. | Erreur 350031 : L’appareil a déjà été inscrit. | | Aucune action requise. |
@@ -577,4 +578,4 @@ L’erreur peut provenir des éléments suivants :
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

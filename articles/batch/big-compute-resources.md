@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Big Compute : ressources techniques pour Batch et HPC (calculs complexes) | Microsoft Azure"
+   pageTitle="Big Compute : ressources techniques pour Batch et HPC (calculs complexes) | Microsoft Azure"
    description="Répertorie des ressources techniques pour vous aider à exécuter vos charges de travail à grande échelle en parallèle, par lots et HPC (calculs complexes) dans Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute dans Azure : ressources techniques pour Batch et HPC (calculs complexes)
@@ -79,7 +79,9 @@ Ces modèles Azure Resource Manager permettent de déployer des clusters HPC Lin
 
 ## Instances de calcul intensif
 
-Azure offre une [variété de tailles](../virtual-machines/virtual-machines-size-specs.md), y compris des [instances A8, A9, A10 et A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système pour exécuter vos charges de travail HPC Linux et Windows.
+Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-specs.md), y compris des [instances A8, A9, A10 et A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) nécessitant beaucoup de ressources système pour exécuter vos charges de travail HPC Linux et Windows.
+
+* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
 * [Instances A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -116,4 +118,4 @@ Azure offre une [variété de tailles](../virtual-machines/virtual-machines-size
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](http://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

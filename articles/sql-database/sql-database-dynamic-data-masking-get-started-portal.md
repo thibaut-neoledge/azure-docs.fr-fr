@@ -116,4 +116,4 @@ Consultez la page [Opérations pour les bases de données SQL Azure](https://msd
 [Image5]: ./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

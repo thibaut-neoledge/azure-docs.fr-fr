@@ -39,9 +39,9 @@ La taille de la machine virtuelle a une incidence sur la tarification. La taille
 
 Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
-*   La taille A0\\Basic_A0 est uniquement disponible avec le Kit de développement logiciel (SDK) Azure version 1.3 ou ultérieure.  
+*   La taille A0\Basic_A0 est uniquement disponible avec le Kit de développement logiciel (SDK) Azure version 1.3 ou ultérieure.  
 
-*   La taille A1\\Basic_A1 est la taille minimale recommandée pour les charges de travail de production.
+*   La taille A1\Basic_A1 est la taille minimale recommandée pour les charges de travail de production.
 
 *   Quand vous utilisez SQL Server Enterprise Edition, sélectionnez une machine virtuelle avec 4 ou 8 cœurs d’unité centrale.
 
@@ -68,24 +68,24 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 
 ## Niveau de base
 
-|Taille – Portail de gestion\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
+|Taille – Portail de gestion\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
 |---|---|---|---|---|---|
-|0A0\\Basic_A0|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 300|
-|A1\\Basic_A1|1|1,75 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 40 Go</p>|2|2 x 300|
-|A2\\Basic_A2|2|3,5 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 60 Go</p>|4|4 x 300|
-|A3\\Basic_A3|4|7 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 120 Go</p>|8|8 x 300|
-|A4\\Basic_A4|8|14 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 240 Go</p>|16|16 x 300|
+|0A0\Basic_A0|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 300|
+|A1\Basic_A1|1|1,75 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 40 Go</p>|2|2 x 300|
+|A2\Basic_A2|2|3,5 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 60 Go</p>|4|4 x 300|
+|A3\Basic_A3|4|7 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 120 Go</p>|8|8 x 300|
+|A4\Basic_A4|8|14 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 240 Go</p>|16|16 x 300|
 
 ## Niveau standard
 ### Série A et série D
 
-|Taille – Portail de gestion\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail de gestion\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|
-|A0\\ très petite|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 500|
-|A1\\petite|1|1,75 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 70 Go</p>|2|2 x 500|
-|A2\\moyenne|2|3,5 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 135 Go</p>|4|4 x 500|
-|A3\\grande|4|7 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 285 Go</p>|8|8 x 500|
-|A4\\très grande|8|14 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 605 Go</p>|16|16 x 500|
+|A0\ très petite|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 500|
+|A1\petite|1|1,75 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 70 Go</p>|2|2 x 500|
+|A2\moyenne|2|3,5 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 135 Go</p>|4|4 x 500|
+|A3\grande|4|7 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 285 Go</p>|8|8 x 500|
+|A4\très grande|8|14 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 605 Go</p>|16|16 x 500|
 |A5(identique)|2|14 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 135 Go</p>|4|4 x 500|
 |A6(identique)|4|28 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 285 Go</p>|8|8 x 500|
 |A7(identique)|8|56 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 605 Go</p>|16|16 x 500|
@@ -105,7 +105,7 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 
 ### Niveau standard – Série DS*
 
-|Taille – Portail de gestion\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
+|Taille – Portail de gestion\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
 |---|---|---|---|---|---|---|
 |Standard_DS1(identique)|1|3,5|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 7 Go</p>|2|43|<p>3 200</p><p>32 Mo par seconde</p>|
 |Standard_DS2(identique)|2|7|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 14 Go</p>|4|86|<p>6 400</p><p>64 Mo par seconde</p>|
@@ -120,7 +120,7 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 
 ### Niveau standard – Série G
 
-|Taille – Portail de gestion\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
+|Taille – Portail de gestion\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|
 |Standard_G1(identique)|2|28 Go|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 384 Go</p>|4|4 x 500|
 |Standard_G2(identique)|4|56 Go|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 768 Go</p>|8|8 x 500|
@@ -134,4 +134,4 @@ Les tableaux ci-après indiquent les tailles et les capacités offertes par chaq
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

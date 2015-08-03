@@ -54,7 +54,7 @@ Le code suivant représente l’événement System.FM avec un état d’intégri
 
 ```powershell
 
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
 HealthEvents          :
@@ -100,7 +100,7 @@ System.CM consigne la valeur Ok lorsque l’application est créée ou mise à j
 Le code suivant représente l’événement State sur la structure : c:/WordCount application.
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -132,7 +132,7 @@ System.FM consigne la valeur Ok lorsque le service est créé. Il supprime l’e
 Le code suivant représente l’événement State sur la structure de services : /WordCount/WordCountService.
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Ok
@@ -174,7 +174,7 @@ System.FM consigne la valeur Ok lorsque la partition est créée et intègre. Il
 Le code suivant représente une partition saine.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
@@ -195,7 +195,7 @@ HealthEvents          :
 Le code suivant représente l’intégrité d’une partition qui présente un nombre de réplicas inférieur à la valeur cible. Étapes suivantes : obtenez la description de partition, qui représente la méthode de configuration : MinReplicaSetSize est 2, TargetReplicaSetSize est 7. Obtenez ensuite le nombre de nœuds dans le cluster : 5. Par conséquent, dans ce cas, deux réplicas ne peuvent pas être placés.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -216,7 +216,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
 
 PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 PartitionKind          : Int64Range
@@ -231,7 +231,7 @@ DataLossNumber         : 130743727710830900
 ConfigurationNumber    : 8589934592
 
 
-PS C:> @(Get-ServiceFabricNode).Count
+PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
 
@@ -253,7 +253,7 @@ System.RA consigne la valeur Ok lorsque le réplica est créé.
 Le code suivant représente un réplica sain :
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
 AggregatedHealthState : Ok
@@ -288,7 +288,7 @@ System.RAP et System.Replicator consignent la valeur Warning si un appel de code
 L’exemple suivant représente une partition affichant une perte de quorum et la procédure d’investigation exécutée pour identifier la raison. Un des réplicas présente l’état d’intégrité Warning, nous sommes ainsi renseignés sur sa condition. Le code montre que le service prend plus de temps que prévu ; événement signalé par System.RAP. Une fois cette information transmise, il est maintenant question d’examiner le code de service et d’effectuer les recherches qui s’imposent. Dans ce cas, l’implémentation RunAsync du service avec état renvoie une exception non traitée. Notez que les réplicas sont en recyclage. Aussi, il est possible qu’aucun d’entre eux n’affiche l’état Warning. Réessayez d’obtenir l’intégrité et identifiez les éventuelles différences d’ID de réplica ; cela est parfois utile.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
@@ -321,7 +321,7 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
 
-PS C:> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
 
 PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 PartitionKind          : Int64Range
@@ -335,7 +335,7 @@ HealthState            : Error
 DataLossNumber         : 130743746152927699
 ConfigurationNumber    : 227633266688
 
-PS C:> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 ReplicaId           : 130743746195428808
 ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
@@ -345,7 +345,7 @@ ReplicaStatus       : Ready
 LastInBuildDuration : 00:00:01
 HealthState         : Warning
 
-PS C:> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 ReplicaId             : 130743746195428808
@@ -407,7 +407,7 @@ System.Hosting consigne la valeur Ok lorsqu’une application est activée de ma
 Le code suivant représente une activation réussie :
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
 
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
@@ -463,7 +463,7 @@ System.Hosting consigne la valeur Ok si le type de service a été correctement
 Le code suivant représente un package de service déployé sain.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 
 ApplicationName       : fabric:/WordCount
@@ -530,4 +530,4 @@ System.Hosting consigne la valeur Error si la validation de la mise à niveau é
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

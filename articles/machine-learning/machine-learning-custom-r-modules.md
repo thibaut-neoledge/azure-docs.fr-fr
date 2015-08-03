@@ -363,4 +363,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

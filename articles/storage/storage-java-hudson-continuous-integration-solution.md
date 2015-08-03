@@ -168,4 +168,4 @@ La section suivante présente les composants du service BLOB.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

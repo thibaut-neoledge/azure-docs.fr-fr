@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Convertir une expérience d’apprentissage Machine Learning en expérience de notation
@@ -54,11 +54,11 @@ Lorsque vous convertissez cette expérience d’apprentissage en expérience de 
 
 - **Prep** : selon les données qui seront soumises pour le calcul de la notation, il se peut que ces modules soient ou non requis pour le traitement des données entrantes.
 
-	Par exemple, l’exemple de jeu de données indiqué ici peut présenter des valeurs manquantes ; il inclut des colonnes qui ne sont pas nécessaires pour former le modèle. Par conséquent, un module **Clean Missing Data** a été inclus pour gérer les valeurs manquantes et un autre module, [Project Columns][project-columns], permet d’exclure ces colonnes supplémentaires du flux de données. Si vous savez que les données qui seront soumises à des fins de calcul de la notation via le service web ne présentent aucune valeur manquante, vous pouvez retirer le module **Clean Missing Data**. Toutefois, étant donné qu’il permet de définir l’ensemble de fonctionnalités qui sont notées, le module [Project Columns][project-columns] doit être conservé.
+	Par exemple, l’exemple de jeu de données indiqué ici peut présenter des valeurs manquantes ; il inclut des colonnes qui ne sont pas nécessaires pour former le modèle. Par conséquent, un module [Clean Missing Data][clean-missing-data] a été inclus pour gérer les valeurs manquantes et un autre module, [Project Columns][project-columns], permet d'exclure ces colonnes supplémentaires du flux de données. Si vous savez que les données qui seront soumises à des fins de calcul de la notation via le service web ne présentent aucune valeur manquante, vous pouvez retirer le module [Clean Missing Data][clean-missing-data]. Toutefois, étant donné qu'il permet de définir l'ensemble de fonctionnalités qui sont notées, le module [Project Columns][project-columns] doit être conservé.
 
-- **Train** : une fois le modèle formé, vous pouvez l’enregistrer en tant que module unique de modèle formé. Vous devez ensuite remplacer ces modules individuels par le modèle formé enregistré.
+- **Train** : une fois le modèle formé, vous pouvez l'enregistrer en tant que module unique de modèle formé. Vous devez ensuite remplacer ces modules individuels par le modèle formé enregistré.
 
-- **Score** : dans cet exemple, le module Split est utilisé pour diviser le flux de données en un ensemble de données de test, d’une part, et un ensemble de données d’apprentissage, d’autre part. Dans l’expérience de notation, ce module n’est pas nécessaire et peut être supprimé. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas requis pour l’expérience de notation. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation via le service web.
+- **Score** : dans cet exemple, le module Split est utilisé pour diviser le flux de données en un ensemble de données de test, d'une part, et un ensemble de données d'apprentissage, d'autre part. Dans l’expérience de notation, ce module n’est pas nécessaire et peut être supprimé. De même, le deuxième module [Score Model][score-model] et le module [Evaluate Model][evaluate-model] sont utilisés pour comparer les résultats à partir des données de test. Ils ne sont donc pas requis pour l'expérience de notation. Le module [Score Model][score-model] restant est cependant requis pour renvoyer le résultat de la notation par le biais du service web.
 
 Voici comment notre exemple apparaît une fois que vous avez cliqué sur **Créer une expérience de notation** :
 
@@ -68,23 +68,23 @@ Cela peut être suffisant pour préparer votre expérience à être publiée en 
 
 ###Ajuster des modules d’entrée et de sortie
 
-Dans votre expérience d’apprentissage, vous avez utilisé un ensemble de données d’apprentissage, puis effectué un certain traitement pour obtenir les données au format requis par l’algorithme ML. Si les données que vous vous attendez à recevoir via le service web n’ont pas besoin d’être soumises à ce traitement, vous pouvez déplacer le module **Web service input** vers un autre nœud dans votre expérience.
+Dans votre expérience d’apprentissage, vous avez utilisé un ensemble de données d’apprentissage, puis effectué un certain traitement pour obtenir les données au format requis par l’algorithme ML. Si les données que vous vous attendez à recevoir via le service web n'ont pas besoin d'être soumises à ce traitement, vous pouvez déplacer le module **Web service input** vers un autre nœud dans votre expérience.
 
-Par exemple, le bouton **Créer une expérience de notation** place par défaut le module **Web service input** en haut de votre flux de données, comme indiqué dans la figure ci-dessus. Toutefois, si les données d’entrée n’ont pas besoin d’être soumises à ce traitement, vous pouvez placer manuellement le module **Web service input** après les modules de traitement des données :
+Par exemple, le bouton **Créer une expérience de notation** place par défaut le module **Web service input** en haut de votre flux de données, comme indiqué dans la figure ci-dessus. Toutefois, si les données d'entrée n'ont pas besoin d'être soumises à ce traitement, vous pouvez placer manuellement le module **Web service input** après les modules de traitement des données :
 
 ![Déplacement de l’entrée du service web][figure4]
 
 Les données d’entrée fournies via le service web accéderont directement au module Score Model, sans être soumises à un traitement préalable.
 
-De même, le bouton **Créer une expérience de notation** place par défaut le module Web service output au bas du flux de données. Dans cet exemple, le service web renvoie à l’utilisateur la sortie du module [Score Model][score-model], qui inclut le vecteur de données d’entrée complet, ainsi que les résultats de la notation.
+De même, le bouton **Créer une expérience de notation** place par défaut le module Web service output au bas du flux de données. Dans cet exemple, le service web renvoie à l'utilisateur la sortie du module [Score Model][score-model], qui inclut le vecteur de données d'entrée complet, ainsi que les résultats de la notation.
 
-Toutefois, si vous souhaitez renvoyer d’autres données (par exemple, les résultats de la notation sans le vecteur de données d’entrée complet), vous pouvez insérer un module [Project Columns][project-columns] pour exclure toutes les colonnes, sauf celle des résultats de la notation. Ensuite, déplacez le module **Web service output** vers la sortie du module [Project Columns][project-columns] :
+Toutefois, si vous souhaitez renvoyer d'autres données (par exemple, les résultats de la notation sans le vecteur de données d'entrée complet), vous pouvez insérer un module [Project Columns][project-columns] pour exclure toutes les colonnes, sauf celle des résultats de la notation. Ensuite, déplacez le module **Web service output** vers la sortie du module [Project Columns][project-columns] :
 
 ![Déplacement de la sortie du service web][figure5]
 
 ###Ajouter ou supprimer des modules de traitement des données supplémentaires
 
-Si votre expérience inclut un plus grand nombre de modules que nécessaire pour le calcul de la notation, vous pouvez en supprimer. Par exemple, étant donné que nous avons déplacé le module **Web service input** vers un point situé après les modules de traitement des données, nous pouvons supprimer le module [Clean Missing Data][clean-missing-data] de l’expérience de notation.
+Si votre expérience inclut un plus grand nombre de modules que nécessaire pour le calcul de la notation, vous pouvez en supprimer. Par exemple, étant donné que nous avons déplacé le module **Web service input** vers un point situé après les modules de traitement des données, nous pouvons supprimer le module [Clean Missing Data][clean-missing-data] de l'expérience de notation.
 
 Notre expérience de notation ressemble à présent à ce qui suit :
 
@@ -98,7 +98,7 @@ Un exemple courant consiste à configurer le module [Reader][reader], afin que l
 
 Vous pouvez définir des paramètres de service web et les associer à un ou plusieurs paramètres de module, en spécifiant s’ils sont obligatoires ou facultatifs. L’utilisateur du service web peut ensuite fournir des valeurs pour ces paramètres lors de l’accès au service ; les actions de module seront modifiées en conséquence.
 
-Pour en savoir plus sur les paramètres de service web, consultez la page [Utilisation des paramètres de service web de Microsoft Azure Machine Learning][webserviceparameters].
+Pour en savoir plus sur les paramètres de service web, consultez la page [Utilisation des paramètres de service web de Microsoft Azure Machine Learning][webserviceparameters].
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
@@ -107,7 +107,7 @@ Pour en savoir plus sur les paramètres de service web, consultez la page [Util
 
 Maintenant que l’expérience de notation est correctement préparée, vous pouvez la publier en tant que service web Microsoft Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
-Pour en savoir plus sur le processus de publication complet, consultez la page [Publication d’un service web Microsoft Azure Machine Learning][publish]
+Pour en savoir plus sur le processus de publication complet, consultez la page [Publication d'un service web Azure Machine Learning][publish]
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
@@ -132,4 +132,4 @@ Pour en savoir plus sur le processus de publication complet, consultez la page [
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

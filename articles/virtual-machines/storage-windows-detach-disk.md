@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Détachement d’un disque d’une machine virtuelle Windows | Azure" 
+	pageTitle="Détachement d'un disque d'une machine virtuelle Windows | Azure"
 	description="Apprenez à détacher un disque d’une machine virtuelle dans Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,17 +14,19 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 
 
-# Détachement d’un disque d’une machine virtuelle Windows
+# Comment détacher un disque d’une machine virtuelle Windows
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Ressources supplémentaires
 
+[À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md)
+
 [Attachement d'un disque de données à une machine virtuelle Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -129,7 +129,7 @@ La solution alternative consiste à déterminer au cas par cas le contenu à tra
 
 Avec l'intégration d'Azure CDN à votre application web Azure, vous pouvez spécifier comment vous voulez que le contenu statique soit mis en cache dans le point de terminaison CDN. Pour ce faire, ouvrez *Web.config* à partir de votre projet ASP.NET (par exemple **cdnwebapp**) et ajoutez un élément `<staticContent>` à `<system.webServer>`. Le code XML ci-dessous configure le cache pour expirer dans les 3 jours. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
-Quand vous faites cela, tous les fichiers statiques de votre application web Azure respectent la même règle dans le cache de votre CDN. Pour un contrôle plus granulaire des paramètres du cache, ajoutez un fichier *Web.config* dans un dossier et ajoutez-lui vos paramètres. Exemple : ajoutez un fichier *Web.config* au dossier *\\Content* et remplacez son contenu par le code XML suivant :
+Quand vous faites cela, tous les fichiers statiques de votre application web Azure respectent la même règle dans le cache de votre CDN. Pour un contrôle plus granulaire des paramètres du cache, ajoutez un fichier *Web.config* dans un dossier et ajoutez-lui vos paramètres. Exemple : ajoutez un fichier *Web.config* au dossier *\Content* et remplacez son contenu par le code XML suivant :
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -140,7 +140,7 @@ Quand vous faites cela, tous les fichiers statiques de votre application web Azu
 	  </system.webServer>
 	</configuration>
 
-Ce paramètre entraîne la mise en cache de tous les fichiers statiques du dossier *\\Content* pendant 15 jours.
+Ce paramètre entraîne la mise en cache de tous les fichiers statiques du dossier *\Content* pendant 15 jours.
 
 Pour plus d’informations sur la configuration de l’élément `<clientCache>`, consultez la page [Cache du client &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
@@ -159,7 +159,7 @@ Une simple action `Index` permet aux clients de spécifier les superlatifs dans 
 
 Procédez comme ci-dessus pour configurer cette action de contrôleur :
 
-1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. N'oubliez pas de remplacer la partie en surbrillance par le chemin d'accès de votre fichier et le nom de votre CDN.
+1. Dans le dossier *\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. N'oubliez pas de remplacer la partie en surbrillance par le chemin d'accès de votre fichier et le nom de votre CDN.
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -266,7 +266,7 @@ namespace cdnwebapp.Controllers
 
 	![](media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 
-4. Ouvrez le nouveau fichier *Views\\MemeGenerator\\Index.cshtml* et remplacez son contenu par le simple code HTML suivant pour envoyer les superlatifs :
+4. Ouvrez le nouveau fichier *Views\MemeGenerator\Index.cshtml* et remplacez son contenu par le simple code HTML suivant pour envoyer les superlatifs :
 
 		<h2>Meme Generator</h2>
 		
@@ -323,7 +323,7 @@ Les scripts et les feuilles de style CSS, qui ne changent pas fréquemment, son
 -	Mécanisme de secours en cas de défaillance de votre point de terminaison CDN
 -	Modifications minimales du code
 
-Dans le projet ASP.NET que vous avez créé dans [Intégration d’un point de terminaison Azure CDN à votre site web Azure et traitement du contenu statique dans vos pages web depuis Azure CDN](#deploy), ouvrez *App_Start\\BundleConfig.cs* et observez les appels de la méthode `bundles.Add()`.
+Dans le projet ASP.NET que vous avez créé dans [Intégration d’un point de terminaison Azure CDN à votre site web Azure et traitement du contenu statique dans vos pages web depuis Azure CDN](#deploy), ouvrez *App_Start\BundleConfig.cs* et observez les appels de la méthode `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -332,7 +332,7 @@ Dans le projet ASP.NET que vous avez créé dans [Intégration d’un point de t
 		...
     }
 
-La première instruction `bundles.Add()` ajoute un regroupement de script dans le répertoire virtuel `~/bundles/jquery`. Ouvrez ensuite le fichier *Views\\Shared_Layout.cshtml* pour voir comment la balise de regroupement de script est rendue. Vous devez trouver la ligne de code Razor suivante :
+La première instruction `bundles.Add()` ajoute un regroupement de script dans le répertoire virtuel `~/bundles/jquery`. Ouvrez ensuite le fichier *Views\Shared_Layout.cshtml* pour voir comment la balise de regroupement de script est rendue. Vous devez trouver la ligne de code Razor suivante :
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -348,7 +348,7 @@ Cela permet de déboguer le code JavaScript dans votre environnement de dévelo
 
 Procédez comme suit pour l'intégration du regroupement et de la minimisation ASP.NET à votre point de terminaison CDN.
 
-1. De retour dans *App_Start\\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx) qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :  
+1. De retour dans *App_Start\BundleConfig.cs*, modifiez les méthodes `bundles.Add()` pour utiliser un autre [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx) qui spécifie une adresse CDN. Pour cela, remplacez la définition de la méthode `RegisterBundles` par le code suivant :  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -390,7 +390,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	-	L’origine de cette URL CDN est `http://<yourSiteName>.azurewebsites.net/bundles/jquery?v=<W.X.Y.Z>`, qui est en vérité le répertoire virtuel du regroupement de script dans votre application web.
 	-	Comme vous utilisez un constructeur CDN, la balise du script CDN pour le regroupement ne contient plus la chaîne de caractères de la version automatiquement générée dans l'URL restituée. Vous devez créer manuellement une chaîne de version unique à chaque modification du regroupement de script pour forcer une erreur dans le cache de votre réseau de distribution de contenu (CDN) Azure. En même temps, cette chaîne de version unique doit rester constante tout au long du déploiement pour un accès maximal au cache de votre réseau de distribution de contenu (CDN) Azure après le déploiement du regroupement.
-	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\\AssemblyInfo.cs* dans votre projet ASP.NET. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
+	-	La chaîne de requête v=<W.X.Y.Z> est extraite de *Properties\AssemblyInfo.cs* dans votre projet ASP.NET. Vous pouvez avoir un flux de travail de déploiement qui inclut l'incrémentation de la version de l'assembly chaque fois que vous publiez dans Azure. Vous pouvez également modifier *Properties\AssemblyInfo.cs* dans votre projet pour incrémenter automatiquement la chaîne de caractères de la version à chaque génération en utilisant le caractère générique '*'. Par exemple :
 	
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -442,7 +442,7 @@ Lorsque le point de terminaison de votre réseau de distribution de contenu (CDN
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contient la propriété [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) qui vous permet de configurer le mécanisme de secours en cas de défaillance CDN. Pour utiliser cette propriété, procédez comme suit :
 
-1. Dans votre projet ASP.NET, ouvrez *App_Start\\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :  
+1. Dans votre projet ASP.NET, ouvrez *App_Start\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx), puis apportez les modifications en surbrillance pour ajouter un mécanisme de secours aux regroupements par défaut :  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -487,7 +487,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 2. Pour utiliser cette solution pour le CSS, créez un fichier .cs dans le répertoire *App_Start* de votre projet ASP.NET, en le nommant *StyleBundleExtensions.cs*, puis remplacez son contenu par du [code issu de GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs).
 
-4. Dans *App_Start\\StyleFundleExtensions.cs*, remplacez l’espace de noms par celui de votre application ASP.NET (par exemple **cdnwebapp**).
+4. Dans *App_Start\StyleFundleExtensions.cs*, remplacez l’espace de noms par celui de votre application ASP.NET (par exemple **cdnwebapp**).
 
 3. Revenez à `App_Start\BundleConfig.cs` et remplacez la dernière instruction `bundles.Add` par le code suivant en surbrillance :
 	<pre class="prettyprint">
@@ -558,4 +558,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

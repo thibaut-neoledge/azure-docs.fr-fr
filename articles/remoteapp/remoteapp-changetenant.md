@@ -48,4 +48,4 @@ Si vous souhaitez utiliser un autre locataire, suivez ces étapes pour modifier 
 
 Vous pouvez à présent utiliser le client Azure AD pour contrôler l’accès à l’abonnement Azure et configurer l’accès utilisateur dans Azure RemoteApp.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

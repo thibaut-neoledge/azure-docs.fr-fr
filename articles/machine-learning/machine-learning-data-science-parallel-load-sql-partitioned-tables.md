@@ -184,4 +184,4 @@ ou
 Pour obtenir un exemple de procédure pas à pas de bout en bout utilisant le processus de science des données avec un jeu de données public, consultez la page [Processus de science des données Azure en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

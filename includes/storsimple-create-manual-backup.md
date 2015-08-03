@@ -21,4 +21,4 @@
 
   La sauvegarde doit apparaître dans la liste des jeux de sauvegarde qui s’affiche dans le catalogue.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

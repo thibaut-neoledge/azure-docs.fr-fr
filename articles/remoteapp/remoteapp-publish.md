@@ -27,4 +27,4 @@ Sous l'onglet **Publication ** du portail, cliquez sur **Publier**. Vous pouvez 
 > [AZURE.NOTE]Si vous voulez ajouter votre application à partir du menu Démarrer, vous devez avoir *ajouté cette application au menu Démarrer sur votre image de modèle.* Sinon, RemoteApp ne voit que ce qui *figure* dans le menu Démarrer et cela peut prêter à confusion. Si vous avez oublié d'ajouter l'application au menu **Démarrer** au moment de la création du modèle, choisissez d'ajouter le chemin d'accès à l'application. (Ou recréez votre image de modèle, mais c'est un peu plus de travail.)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

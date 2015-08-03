@@ -18,7 +18,7 @@
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Le nœud **Tâches** dans le volet **Étendue** présente les tâches de sauvegarde **planifiées**, des **dernières 24 heures** et **en cours** que vous avez lancées de façon interactive ou à l’aide d’une stratégie configurée.
 
@@ -129,4 +129,4 @@ Pour afficher les tâches en cours d’exécution, procédez comme suit.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -27,12 +27,12 @@ Il est important de bien comprendre la différence entre les codecs et les forma
 Ce document contient une liste des formats de fichiers d'importation et d'exportation les plus courants que vous pouvez utiliser avec Azure Media Encoder.
 
 
-[Formats d’importation Media Encoder](#import_formats)
+[Formats d'importation Azure Media Encoder ](#import_formats)
 
-[Formats d’exportation Media Encoder](#export_formats)
+[Formats d'exportation Azure Media Encoder](#export_formats)
 
 
-##<a id="import_formats"></a>Formats d’importation Media Encoder 
+##<a id="import_formats"></a>Formats d'importation Azure Media Encoder 
 
 La section suivante répertorie les codecs et les formats de fichiers pris en charge pour l'importation.
 
@@ -102,7 +102,7 @@ Certains formats non compressés sont pris en charge. Pour plus d’informations
 </table>
 
 
-##<a id="export_formats"></a>Formats d’exportation Media Encoder
+##<a id="export_formats"></a>Formats d'exportation Azure Media Encoder
 
 Le tableau suivant répertorie les codecs et les formats de fichiers pris en charge pour l'exportation.
 
@@ -137,4 +137,4 @@ Voici une liste non exhaustive des formats non compressés pris en charge.
 <tr><td>Format Indeo-produced YVU9</td><td>Format Indeo-produced YVU9 avec informations supplémentaires sur les différences par rapport au dernier frame. 9,5&#160;bits par pixel mais déclaré comme 9.</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -58,7 +58,7 @@ Le paramètre IdleTimeoutInMinutes est facultatif. S'il n'est pas défini, le d�
 
 ### Récupérer votre configuration du délai d'inactivité
 
-    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -152,4 +152,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

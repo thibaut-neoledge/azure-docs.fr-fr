@@ -59,4 +59,4 @@ Remplacez *&lt;name&gt;* par le nom de votre cache, et *&lt;key&gt;* par votre c
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

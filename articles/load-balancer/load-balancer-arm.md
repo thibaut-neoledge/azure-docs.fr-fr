@@ -35,7 +35,7 @@ Avec ARM, l’équilibrage de charge Azure contient les ressources enfants suiva
 - Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l'adresse IP frontale et est distribué à l'adresse IP principale.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](./media/load-balancer-arm/load-balancer-arm.png)
 
 
 
@@ -77,4 +77,4 @@ Les [cmdlets de mise en réseau Azure](https://msdn.microsoft.com/library/azure/
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

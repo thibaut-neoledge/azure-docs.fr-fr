@@ -36,4 +36,4 @@ Pour fournir un fichier de définition d’API [Swagger](http://swagger.io/) 2.
 
 Laissez `endpoints.apiDefinition` en dehors du fichier *apiapp.json* ou définissez sa valeur à null. Si vous incluez à la fois une URL `endpoints.apiDefinition` et un fichier *apiDefinition.swagger.json*, l’URL sera prioritaire et le fichier sera ignoré.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

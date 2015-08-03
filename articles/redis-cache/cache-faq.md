@@ -226,4 +226,4 @@ Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis
 
 Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

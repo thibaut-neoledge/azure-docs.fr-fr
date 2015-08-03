@@ -18,6 +18,8 @@
 
 # Comment configurer votre application pour utiliser une connexion Google
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 Cette rubrique montre comment configurer Azure App Services pour utiliser Google comme fournisseur d'authentification.
 
 Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Google avec une adresse de messagerie vérifiée. Pour créer un compte Google, accédez à <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
@@ -71,4 +73,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

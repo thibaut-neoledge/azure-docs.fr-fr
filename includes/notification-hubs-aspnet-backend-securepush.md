@@ -84,4 +84,4 @@ Notez que la méthode `Post` n'envoie pas de notification toast. Elle envoie une
 
 24. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -53,4 +53,4 @@ Consultez [plus d'informations](remoteapp-ad.md) sur la configuration d'Active D
 Si vous utilisez l'image de modèle Office 365 ProPlus dans votre collection *ou* si vous avez créé une image personnalisée qui utilise Office 365, vous êtes uniquement autorisé à ajouter des utilisateurs Azure Active Directory disposant d'abonnements Office 365 pour le domaine par défaut de votre abonnement. Consultez [Utilisation d'Office 365 avec Azure RemoteApp](remoteapp-o365.md) pour plus d'informations.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

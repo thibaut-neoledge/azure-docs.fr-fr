@@ -58,7 +58,7 @@ Ceci est votre configuration actuelle.
 
 Dans le portail de gestion Azure, démarrez l'ordinateur DC2 si nécessaire.
 
-Tout d'abord, créez une connexion Bureau à distance à DC2 avec les informations d'identification CORP\\User1.
+Tout d'abord, créez une connexion Bureau à distance à DC2 avec les informations d'identification CORP\User1.
 
 Ensuite, créez un compte d'administrateur de batterie de serveurs SharePoint. Ouvrez une invite de commandes Windows PowerShell de niveau administrateur sur DC2 et exécutez cette commande.
 
@@ -126,17 +126,17 @@ Ensuite, configurez SQL Server 2014 pour qu'il utilise le lecteur F: pour les no
 3.	Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **SQL1**, puis cliquez sur **Propriétés**.
 4.	Dans la fenêtre **Propriétés du serveur**, cliquez sur **Paramètres de base de données**.
 5.	Recherchez les **Emplacements de la base de données par défaut** et définissez les valeurs suivantes : 
-	- Pour**Data**, tapez le chemin **f:\\Data**.
-	- Pour **Log**, tapez le chemin **f:\\Log**.
-	- Pour **Backup**, tapez le chemin **f:\\Backup**.
+	- Pour**Data**, tapez le chemin **f:\Data**.
+	- Pour **Log**, tapez le chemin **f:\Log**.
+	- Pour **Backup**, tapez le chemin **f:\Backup**.
 	- Notez que seules les nouvelles bases de données utilisent ces emplacements.
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans l’**Explorateur d’objets**, ouvrez **Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-9.	Dans **Nom de connexion**, tapez **CORP\\User1**.
+9.	Dans **Nom de connexion**, tapez **CORP\User1**.
 10.	Dans la page **Rôles serveur**, cliquez sur **sysadmin**, puis cliquez sur **OK**.
 11.	Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **Connexions**, puis cliquez sur **Nouvelle connexion**.
-12.	Dans la page **Général**, dans **Nom de connexion**, tapez **CORP\\SPFarmAdmin**.
+12.	Dans la page **Général**, dans **Nom de connexion**, tapez **CORP\SPFarmAdmin**.
 13.	Dans la page **Rôles serveur**, sélectionnez **dbcreator**, puis cliquez sur **OK**.
 14.	Fermez Microsoft SQL Server Management Studio.
 
@@ -158,7 +158,7 @@ Commencez par créer une machine virtuelle Azure pour SP1 avec ces commandes à 
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Ensuite, connectez-vous à la machine virtuelle SP1 avec les informations d'identification CORP\\User1.
+Ensuite, connectez-vous à la machine virtuelle SP1 avec les informations d'identification CORP\User1.
 
 Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes Windows PowerShell de niveau administrateur sur SP1, exécutez ces commandes.
 
@@ -173,18 +173,16 @@ Ensuite, configurez le SP1 pour la nouvelle batterie de serveurs SharePoint et u
 2.	Sur la page d’accueil des produits SharePoint, cliquez sur **Suivant**. 
 3.	Dans la boîte de dialogue qui vous informe que certains services peuvent avoir besoin d’être redémarrés pendant la configuration, cliquez sur **Oui**.
 4.	Dans la page Se connecter à une batterie de serveurs, cliquez sur **Créer une batterie de serveurs**, puis sur **Suivant**.
-5.	Dans la page Spécifier les paramètres de la base de données de configuration, tapez **sql1.corp.contoso.com** dans **Serveur de base de données**, tapez **CORP\\SPFarmAdmin** dans **Nom d’utilisateur**, tapez le mot de passe du compte SPFarmAdmin dans **Mot de passe**, puis cliquez sur **Suivant**.
-6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez **P@ssphrase** dans les **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**.
-7.	Sur la page Configurer l’application Web de l’Administration centrale de SharePoint, cliquez sur **Suivant**.
+5.	Dans la page Spécifier les paramètres de la base de données de configuration, tapez **sql1.corp.contoso.com** dans **Serveur de base de données**, tapez **CORP\SPFarmAdmin** dans **Nom d’utilisateur**, tapez le mot de passe du compte SPFarmAdmin dans **Mot de passe**, puis cliquez sur **Suivant**.
+6.	Dans la page Spécifier les paramètres de sécurité de la batterie de serveurs, tapez **P@ssphrase** dans les **Phrase secrète** et **Confirmer la phrase secrète**, puis cliquez sur **Suivant**. 7.	Sur la page Configurer l’application Web de l’Administration centrale de SharePoint, cliquez sur **Suivant**.
 8.	Dans la page Fin de l’Assistant Configuration des produits SharePoint, cliquez sur **Suivant**. L'exécution de l'Assistant Configuration des produits SharePoint peut prendre quelques minutes.
 9.	Sur la page Configuration réussie, cliquez sur **Terminer**. Internet Explorer s'ouvre ensuite avec un onglet appelé Assistant Configuration de batterie de serveurs initiale.
 10.	Dans la boîte de dialogue **Contribuer à l’amélioration de SharePoint**, cliquez sur **Non, je ne souhaite pas participer**, puis cliquez sur **OK**.
 11.	Dans **Comment voulez-vous configurer votre batterie SharePoint**, cliquez sur **Démarrer l’Assistant**.
 12.	Dans la page Configuration de votre batterie SharePoint, dans **Compte de service**, cliquez sur **Utiliser un compte géré existant**.
 13.	Dans **Services**, désactivez toutes les cases à cocher, sauf la case **Service d’états**, puis cliquez sur **Suivant**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine.
-14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL **http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1.
-15.	Dans la page Cette page est la dernière de l’Assistant Configuration de batterie de serveurs, cliquez sur **Terminer**. L'onglet Internet Explorer affiche le site Administration centrale de SharePoint 2013.
-16.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
+14.	Dans la page Créer une collection de sites, dans **Titre et description**, tapez **Contoso Corporation** dans **Titre**, spécifiez l’URL **http://sp1**/, puis cliquez sur **OK**. La page Opération en cours peut rester affichée un moment le temps que l'opération se termine. Cette étape crée un site d’équipe dont l’URL est http://sp1. 15.	Dans la page Cette page est la dernière de l’Assistant Configuration de batterie de serveurs, cliquez sur **Terminer**. L'onglet Internet Explorer affiche le site Administration centrale de SharePoint 2013.
+16.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\User1, puis démarrez Internet Explorer.
 17.	Dans la barre d’adresse, tapez **http://sp1/**, puis appuyez sur ENTRÉE. Vous devriez voir le site d'équipe SharePoint de la société Contoso Corporation. L’affichage du site peut prendre un certain temps. 
 Ceci est votre configuration actuelle.
 
@@ -211,4 +209,4 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # À propos des passerelles VPN
@@ -71,12 +71,12 @@ Configurez votre réseau virtuel. Pour les connexions entre différents locaux, 
 - [Configuration d’une connexion VPN de point à site à un réseau virtuel Azure](vpn-gateway-point-to-site-create.md)
 - [Configurer un VPN de site à site à l’aide du service de routage et d’accès à distance (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
-Si vous souhaitez configurer une passerelle VPN, consultez l’article [Configurer une passerelle VPN](http://go.microsoft.com/fwlink/p/?LinkId=615106).
+Si vous souhaitez configurer une passerelle VPN, consultez l’article [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md).
 
-Si vous souhaitez modifier le type de passerelle VPN, consultez l’article [Modification du type d’une passerelle VPN de réseau virtuel](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+Si vous souhaitez modifier le type de passerelle VPN, consultez l’article [Modification du type de routage d’une passerelle VPN de réseau virtuel](vpn-gateway-configure-vpn-gateway-mp.md).
 
 Si vous souhaitez connecter plusieurs sites sur un réseau virtuel, consultez l’article [Connexion de plusieurs sites locaux à un réseau virtuel](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

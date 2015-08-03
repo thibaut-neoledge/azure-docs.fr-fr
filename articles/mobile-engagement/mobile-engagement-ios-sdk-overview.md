@@ -50,4 +50,4 @@ Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abo
 Aucun.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

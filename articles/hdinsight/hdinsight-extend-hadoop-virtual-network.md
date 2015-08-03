@@ -173,4 +173,4 @@ L’exemple suivant montre comment utiliser HDInsight avec Azure Virtual Network
 
 Pour en savoir plus sur les réseaux virtuels Azure, consultez la page [Vue d’ensemble d’Azure Virtual Network](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

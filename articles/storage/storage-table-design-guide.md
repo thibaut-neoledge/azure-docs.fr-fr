@@ -536,7 +536,7 @@ Les EGT activent les transactions atomiques de plusieurs entités qui partagent 
 
 ![][12]
 
-Un client lance l'opération d'archivage en plaçant un message dans une file d'attente Azure, dans cet exemple pour archiver l'employé \#456. Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current**, insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.
+Un client lance l'opération d'archivage en plaçant un message dans une file d'attente Azure, dans cet exemple pour archiver l'employé #456. Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current**, insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.
 
 Dans cet exemple, l’étape 4 permet d’insérer l’employé dans la table **Archive**. L'employé peut être ajouté à un objet blob dans le service d'objets blob ou à un fichier dans un système de fichiers.
 
@@ -965,7 +965,7 @@ Prenez en compte les points suivants lorsque vous décidez de la manière de sto
 
 ### Considérations relatives à l'implémentation  
 
-Cette section décrit certaines des considérations à prendre en compte lorsque vous implémentez les modèles décrits dans les sections précédentes. La plupart de cette section utilise des exemples rédigés en C\#, ainsi que la bibliothèque cliente de stockage (version 4.3.0 au moment de la rédaction).
+Cette section décrit certaines des considérations à prendre en compte lorsque vous implémentez les modèles décrits dans les sections précédentes. La plupart de cette section utilise des exemples rédigés en C#, ainsi que la bibliothèque cliente de stockage (version 4.3.0 au moment de la rédaction).
 
 ### Récupération des entités  
 
@@ -1548,4 +1548,4 @@ Nous aimerions également remercier les MVP Microsoft suivants pour leurs préci
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

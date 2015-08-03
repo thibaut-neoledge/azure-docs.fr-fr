@@ -60,16 +60,16 @@ Il existe deux niveaux d'isolement pris en charge dans les Collections fiables 
 Le Dictionnaire fiable et la File d'attente fiable prennent en charge le protocole Read Your Writes. En d'autres termes, toute écriture dans une transaction sera visible pour une lecture suivante appartenant à la même transaction.
 
 ### Dictionnaire fiable
-| Fonctionnement \\ Rôle | Primaire | Secondaire |
+| Fonctionnement \ Rôle | Primaire | Secondaire |
 | --------------------- | :--------------- | :--------------- |
 | Lecture d'une seule entité | Lecture renouvelée | Instantané |
-| Énumération \\ Décompte | Instantané | Instantané |
+| Énumération \ Décompte | Instantané | Instantané |
 
 ### File d'attente fiable
-| Fonctionnement \\ Rôle | Primaire | Secondaire |
+| Fonctionnement \ Rôle | Primaire | Secondaire |
 | --------------------- | :--------------- | :--------------- |
 | Lecture d'une seule entité | Instantané | Instantané |
-| Énumération \\ Décompte | Instantané | Instantané |
+| Énumération \ Décompte | Instantané | Instantané |
 
 ## Modèle de persistance
 Le Gestionnaire d'état fiable et les Collections fiables suivent un modèle de persistance appelé Journal et Point de contrôle. Il s'agit d'un modèle où chaque changement d'état est enregistré sur le disque et appliqué uniquement en mémoire. L'état complet lui-même n'est conservé qu'occasionnellement (également appelé Point de contrôle). L'avantage qu'il fournit est le suivant :
@@ -87,7 +87,7 @@ Les Collections fiables prennent toujours des verrous exclusifs. Pour les lectur
 
 Vous trouverez ci-dessous la matrice de compatibilité de verrouillage :
 
-| Requête \\ Accordé | Aucun | Partagé | Mettre à jour | Exclusif |
+| Requête \ Accordé | Aucun | Partagé | Mettre à jour | Exclusif |
 | ----------------- | :----------- | :----------- | :---------- | :----------- |
 | Partagé | Aucun conflit | Aucun conflit | Conflit | Conflit |
 | Mettre à jour | Aucun conflit | Aucun conflit | Conflit | Conflit |
@@ -119,4 +119,4 @@ Voici quelques points à retenir :
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

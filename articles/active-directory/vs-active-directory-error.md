@@ -97,4 +97,4 @@ Pour modifier le type d’authentification, supprimez le type d’authentificati
 Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

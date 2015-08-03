@@ -1,5 +1,4 @@
 
-
 #### Pour supprimer une stratégie de sauvegarde StorSimple
 
 1. Dans la page **Démarrage rapide**, cliquez sur l’onglet **Stratégies de sauvegarde**. La page **Stratégies de sauvegarde** s’affiche.
@@ -11,4 +10,4 @@
 La page **Stratégies de sauvegarde** affiche la nouvelle liste des stratégies.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

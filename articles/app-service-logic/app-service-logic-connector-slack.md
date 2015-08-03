@@ -56,7 +56,7 @@ Une fois le connecteur Slack créé, vous pouvez l’ajouter en tant qu’action
 5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible : <br/> ![][7]
 
 
-Testons l'action « Publier un message ». Vous pouvez utiliser cette action pour publier un message vers n’importe quel canal Slack :
+Testons l'action « Publier le message ». Vous pouvez utiliser cette action pour publier un message vers n’importe quel canal Slack :
  
 ![][8]
 
@@ -74,7 +74,7 @@ Le connecteur Slack dispose d’API REST afin que vous puissiez l’utiliser en 
 
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Qu’est-ce qu’une application logique ?](app-service-logic-what-are-logic-apps.md).
+Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 Créez les applications API à l’aide des API REST. Consultez la page [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -92,4 +92,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

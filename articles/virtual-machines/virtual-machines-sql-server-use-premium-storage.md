@@ -1112,7 +1112,7 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 
 ## Ressources supplémentaires
 - [Stockage Premium Azure](../storage-premium-storage-preview-portal.md)
-- 
+- [Machines virtuelles](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md)
 
 <!-- IMAGES -->
@@ -1143,4 +1143,4 @@ Pour ajouter l'adresse IP, consultez l'étape 14 de l'[annexe](#appendix-migrati
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

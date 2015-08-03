@@ -238,7 +238,7 @@ L’exemple suivant montre comment les messages peuvent être reçus et traités
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {
@@ -301,4 +301,4 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

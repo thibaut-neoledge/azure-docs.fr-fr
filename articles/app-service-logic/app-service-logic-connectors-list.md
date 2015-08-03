@@ -94,4 +94,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions au sein de votre applic
 
 [Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Utilisation du Gestionnaire des connexions hybrides dans Azure App Service](app-service-logic-hybrid-connection-manager.md)<br/> [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

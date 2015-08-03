@@ -402,4 +402,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

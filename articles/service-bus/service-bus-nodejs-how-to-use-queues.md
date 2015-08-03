@@ -32,7 +32,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 
 ### Utilisation de Node Package Manager (NPM) pour obtenir le package
 
-1.  Utilisez la fenêtre de commande **Windows PowerShell pour Node.js** pour accéder au dossier **c:\\node\\sbqueues\\WebRole1** dans lequel vous avez créé votre exemple d’application.
+1.  Utilisez la fenêtre de commande **Windows PowerShell pour Node.js** pour accéder au dossier **c:\node\sbqueues\WebRole1** dans lequel vous avez créé votre exemple d’application.
 
 2.  Tapez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat similaire à ce qui suit :
 
@@ -190,4 +190,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
   [Application web Node.js avec stockage]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

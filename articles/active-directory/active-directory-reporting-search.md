@@ -38,7 +38,7 @@ Tous les rapports ne sont pas encore inclus dans les résultats de la recherche.
 |	Activité de connexion anormale |	Non |
 |	Utilisateurs ayant une activité de connexion anormale |	Non |
 |	Utilisateurs avec des informations d’identification volées |	Non |
-|	Rapport d'audit |	Oui |
+|	Rapport d’audit |	Oui |
 |	Activité de réinitialisation de mot de passe |	Oui |
 |	Activité de l’enregistrement de la réinitialisation de mot de passe |	Oui |
 |	Activité de groupes en libre-service |	Oui |
@@ -55,4 +55,4 @@ Tous les rapports ne sont pas encore inclus dans les résultats de la recherche.
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

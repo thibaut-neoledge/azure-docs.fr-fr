@@ -107,7 +107,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 1. La dernière étape pour activer CORS consiste à délimiter les méthodes d'action individuelles que vous voulez activer. Ajoutez l'attribut **EnableCors** à chacune des méthodes ou sur la totalité du contrôleur, comme illustré dans le code ci-dessous.
 
-	> **Remarque** : l'utilisation des caractères génériques pour tous les paramètres avec l'attribut EnableCors est réservée à des fins de démonstration. Elle ouvre votre API à toutes les origines et à toutes les requêtes HTTP. Utilisez cet attribut avec précaution et assurez-vous d'en comprendre les implications.
+	> **Remarque** : l'utilisation des caractères génériques pour tous les paramètres avec l'attribut EnableCors est destiné uniquement à des fins de démonstration. Elle ouvre votre API à toutes les origines et à toutes les requêtes HTTP. Utilisez cet attribut avec précaution et assurez-vous d'en comprendre les implications.
 
 		using ContactList.Models;
 		using System.Collections.Generic;
@@ -371,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

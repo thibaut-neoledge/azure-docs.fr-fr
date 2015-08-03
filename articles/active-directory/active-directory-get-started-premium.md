@@ -124,4 +124,4 @@ La disponibilité des services et des fonctionnalités du service cloud Microsof
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

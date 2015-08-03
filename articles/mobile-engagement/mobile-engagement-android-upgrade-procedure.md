@@ -363,4 +363,4 @@ La configuration de Proguard peut être affectée par le changement de nom, les 
 			}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

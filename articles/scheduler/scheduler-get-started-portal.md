@@ -264,4 +264,4 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

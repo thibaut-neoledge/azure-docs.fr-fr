@@ -202,4 +202,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

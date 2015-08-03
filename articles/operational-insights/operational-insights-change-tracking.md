@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Identification des différences avec le suivi des modifications
@@ -51,6 +51,7 @@ Vous pouvez afficher les modifications apportées à votre infrastructure, puis 
 
 3. Sur l’une des pages de recherche de journaux, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherche de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
-4. Depuis n’importe quelle page de la section Recherche de journaux, vous pouvez **Exporter** les résultats détaillés dans un fichier CSV que vous pouvez ouvrir avec Excel ou une autre application, afin de l’afficher ou de le modifier.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

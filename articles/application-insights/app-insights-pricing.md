@@ -81,4 +81,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

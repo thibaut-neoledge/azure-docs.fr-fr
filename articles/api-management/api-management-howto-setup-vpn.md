@@ -67,4 +67,4 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

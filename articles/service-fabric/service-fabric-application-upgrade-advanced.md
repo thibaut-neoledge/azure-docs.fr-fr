@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 # Mise à niveau d'une application Service Fabric : rubriques avancées
@@ -51,4 +51,4 @@ Situations qui se prêtent à l'utilisation d'un package différentiel :
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

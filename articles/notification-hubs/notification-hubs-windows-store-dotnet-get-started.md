@@ -274,4 +274,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

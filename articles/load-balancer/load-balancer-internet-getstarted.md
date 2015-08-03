@@ -115,6 +115,17 @@ La définition de la sonde en contrôle également la fréquence. Dans le cas ci
 
 Vérifiez le schéma de définition de service de la [sonde d’intégrité](https://msdn.microsoft.com/library/azure/jj151530.aspx) pour plus d’informations.
 
+## Configuration de l'équilibrage de charge à l'aide de PowerShell
+
+Après avoir créé une machine virtuelle, vous pouvez utiliser les applets de commande PowerShell pour ajouter un équilibrage de charge à une machine virtuelle dans le même service cloud.
+
+Dans l'exemple ci-dessous, vous allez ajouter un équilibrage de charge appelé « webfarm » au point de terminaison du service cloud « mycloudservice » (ou mycloudservice.cloudapp.net) et la machine virtuelle avec le nom « myVM ». L'équilibrage de charge reçoit le trafic sur le port 80 et effectue l'équilibrage de charge du trafic réseau entre les machines virtuelles sur le port 8080 avec HTTP.
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## Étapes suivantes
 
 [Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Utiliser le gestionnaire de ressources pour allouer des ressources au cluster Apache Spark dans HDInsight | Azure" 
-	description="Découvrez comment utiliser le gestionnaire de ressources des clusters Spark sur HDInsight pour obtenir de meilleures performances." 
+	description="Découvrez comment utiliser le gestionnaire de ressources pour les clusters Spark sur HDInsight pour obtenir de meilleures performances." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -36,7 +36,7 @@ Voici quelques scénarios courants que vous pouvez rencontrer avec le cluster Sp
 Le cluster Apache Spark dans HDInsight est conçu pour une architecture mutualisée. Les ressources sont donc réparties entre plusieurs composants (blocs-notes, serveur de travaux, etc.). Cela vous permet d’utiliser simultanément tous les composants Spark sans vous soucier d’un composant qui n’est pas en mesure d’obtenir des ressources pour l’exécution, mais chacun d’entre eux est plus lent, puisque les ressources sont fragmentées. Cela peut être ajusté en fonction de vos besoins.
 
 
-### J’utilise uniquement IPython avec le cluster Spark. Comment puis-je lui allouer toutes les ressources ?
+### J’utilise uniquement le bloc-notes Jupyter avec le cluster Spark. Comment puis-je lui allouer toutes les ressources ?
 
 1. Dans le **Tableau de bord Spark**, cliquez sur l’onglet **Interface utilisateur Spark** pour découvrir le nombre maximal de cœurs et la mémoire RAM maximale que vous pouvez allouer aux applications.
 
@@ -79,4 +79,4 @@ Indiquez 0 pour le nombre de cœurs et la mémoire d’exécution du serveur Th
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

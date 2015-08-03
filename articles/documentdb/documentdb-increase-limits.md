@@ -91,4 +91,4 @@ Une fois le ticket de support créé, vous recevrez le numéro de demande de sup
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

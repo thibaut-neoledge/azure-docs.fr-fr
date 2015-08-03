@@ -110,4 +110,4 @@ Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez bes
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

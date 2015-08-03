@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="07/16/2015" 
 	ms.author="mimig"/>
 
 #Interrogation de DocumentDB
@@ -615,6 +615,14 @@ Vous pouvez utiliser l'opérateur Coalesce (?) pour vérifier la présence d'une
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
+###Accesseur de propriété entre guillemets
+Vous pouvez également accéder aux propriétés à l’aide de l’opérateur de propriété entre guillemets `[]`. Par exemple, `SELECT c.grade` et `SELECT c["grade"]` sont équivalentes. Cette syntaxe est utile si vous devez placer dans une séquence d’échappement une propriété qui contient des espaces, des caractères spéciaux, ou qui partage le même nom qu’un mot clé SQL ou un mot réservé.
+
+    SELECT f["lastName"]
+    FROM Families f
+    WHERE f["id"] = "AndersenFamily"
+
+
 ##Clause SELECT
 La clause SELECT (**`SELECT <select_list>`**) est obligatoire et indique les valeurs qui seront récupérées à partir de la requête, comme dans ANSI-SQL. Le sous-ensemble filtré au début des documents source est transmis à la phase de projection, où les valeurs JSON spécifiées sont récupérées et un nouvel objet JSON est construit, pour chaque entrée qui lui est transmise.
 
@@ -873,7 +881,7 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
 	}]
 
 ##Clause ORDER BY
-Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour des informations plus détaillées sur Order By, reportez-vous à la [Procédure pas à pas relative à Order By de DocumentDB ](documentdb-orderby.md).
+Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur Trier par, consultez la [Procédure pas à pas relative à Trier par de DocumentDB ](documentdb-orderby.md).
 
 Par exemple, voici une requête qui récupère les familles dans l'ordre de la ville de résidence.
 
@@ -2269,4 +2277,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

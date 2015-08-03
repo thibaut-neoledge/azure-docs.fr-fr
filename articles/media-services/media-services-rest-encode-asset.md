@@ -262,4 +262,4 @@ Maintenant que vous savez comment créer une tâche pour encoder un élément mu
 
 [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

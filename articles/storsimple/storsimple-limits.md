@@ -27,4 +27,4 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 
 Relisez les [Conditions requises pour le système StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

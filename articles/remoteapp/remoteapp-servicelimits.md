@@ -22,4 +22,4 @@ Les informations sur les limites et les valeurs par défaut du service Azure Rem
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

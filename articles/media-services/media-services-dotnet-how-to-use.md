@@ -98,4 +98,4 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

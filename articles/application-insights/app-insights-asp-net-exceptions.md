@@ -32,7 +32,7 @@ Cliquez sur l’un des types de demande défaillante dans la liste pour obtenir 
 ![Sélectionnez l’instance d'une demande ayant échoué et, sous Détails de l'exception, accédez aux instances de l'exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
 
-**Autrement**, vous pouvez commencer depuis la liste des exceptions que vous trouverez plus bas dans le panneau Défaillances. Cliquez jusqu'à arriver aux exceptions individuelles.
+**Autrement**, vous pouvez commencer à partir de la liste des exceptions que vous trouverez plus bas dans le panneau Défaillances. Cliquez jusqu'à arriver aux exceptions individuelles.
 
 
 ![Extraire](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -60,16 +60,16 @@ Les appels vers les dépendances ayant échoué sont répertoriés dans le panne
 
 ## Suivi personnalisé et données du journal
 
-Pour obtenir des données de diagnostic spécifiques à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Ces informations apparaissent dans Recherche de diagnostic avec la demande, une vue de la page et d'autres données automatiquement collectées.
+Pour obtenir des données de diagnostic propres à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Ces informations apparaissent dans Recherche de diagnostic avec la demande, une vue de la page et d’autres données automatiquement collectées.
 
-Vous disposez de plusieurs options :
+Vous disposez de plusieurs options :
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d'utilisation, mais les données qu'il envoie apparaissent également sous Événements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des mesures numériques métriques à partir desquelles vous pouvez [filtrer votre recherche diagnostic][diagnostic].
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) vous permet d'envoyer des données plus longues telles que des informations POST.
-* [TrackException()](#exceptions) envoie des arborescences d’appels de procédure. [Plus d'informations sur les exceptions](#exceptions).
-* Si vous utilisez déjà un framework de journalisation tel que Log4Net ou NLog, vous pouvez [capturer ces journaux][netlogs] et les afficher dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Evénements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic][diagnostic].
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) vous permet d’envoyer des données plus longues telles que des informations POST.
+* [TrackException()](#exceptions) envoie des arborescences des appels de procédure. [Plus d’informations sur les exceptions](#exceptions).
+* Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux][netlogs] et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
 
-Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Événement personnalisé, Trace ou Exception.
+Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Evénement personnalisé, Trace ou Exception.
 
 
 ![Extraire](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
@@ -441,4 +441,4 @@ Ajoutez l'attribut aux implémentations de service :
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

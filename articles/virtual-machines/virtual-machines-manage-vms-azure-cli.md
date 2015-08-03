@@ -81,4 +81,4 @@ Bien sûr, si vous disposez déjà de ces valeurs, vous pouvez trouver des moyen
 Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

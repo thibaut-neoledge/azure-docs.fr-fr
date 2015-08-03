@@ -113,4 +113,4 @@ En savoir plus sur [la gestion de votre compte de stockage StorSimple](../storsi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

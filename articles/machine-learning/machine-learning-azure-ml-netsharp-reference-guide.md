@@ -401,4 +401,4 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,5 +1,19 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Configuration de GoldenGate Oracle pour Azure" description="Suivez un didacticiel vous permettant de configurer et mettre en œuvre Oracle GoldenGate sur Azure Virtual Machines pour disposer d’une haute disponibilité et d’une récupération d’urgence." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Configuration de GoldenGate Oracle pour Azure" 
+	description="Suivez un didacticiel vous permettant de configurer et mettre en œuvre Oracle GoldenGate sur Azure Virtual Machines pour disposer d’une haute disponibilité et d’une récupération d’urgence." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Configuration de GoldenGate Oracle pour Azure
 Ce didacticiel décrit comment configurer et mettre en œuvre Oracle GoldenGate dans un environnement Azure Virtual Machines pour disposer d’une haute disponibilité et d’une récupération d’urgence. Il se concentre sur la [réplication bidirectionnelle](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) pour les bases de données Oracle non-RAC et requiert que les deux sites soient actifs.
 
@@ -116,7 +130,7 @@ Exécutez ensuite la commande suivante :
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-Localisez ensuite le fichier INIT<SID_de_la_base_de_données>.ORA dans le dossier %ORACLE_HOME%\\database sur les sites A et B, puis ajoutez les paramètres de base de données suivants au fichier INITTEST.ora :
+Localisez ensuite le fichier INIT<SID_de_la_base_de_données>.ORA dans le dossier %ORACLE_HOME%\database sur les sites A et B, puis ajoutez les paramètres de base de données suivants au fichier INITTEST.ora :
 
 	UNDO_MANAGEMENT=AUTO
 	UNDO_RETENTION=86400
@@ -189,7 +203,7 @@ Puis, arrêtez et redémarrez la base de données :
 ##3. Créer tous les objets nécessaires pour prendre en charge la réplication DDL
 Cette section répertorie les scripts que vous devez utiliser pour créer tous les objets nécessaires à la prise en charge de la réplication DDL. Vous devez exécuter les scripts spécifiés dans cette section sur les sites A et B.
 
-Ouvrez une invite de commandes Windows et accédez au dossier GoldenGate Oracle, par exemple C:\\OracleGG. Démarrez l’invite de commandes SQL*Plus avec des privilèges d’administrateur de base de données, en utilisant par exemple **SYSDBA** sur les sites A et B.
+Ouvrez une invite de commandes Windows et accédez au dossier GoldenGate Oracle, par exemple C:\OracleGG. Démarrez l’invite de commandes SQL*Plus avec des privilèges d’administrateur de base de données, en utilisant par exemple **SYSDBA** sur les sites A et B.
 
 Exécutez ensuite les scripts suivants :
 	
@@ -277,7 +291,7 @@ Vous devez créer les processus d’extraction et Data Pump sur les sites A et
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-Ouvrez le fichier de paramètres à l’aide de la commande EDIT PARAMS, puis ajoutez les informations suivantes : GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+Ouvrez le fichier de paramètres à l’aide de la commande EDIT PARAMS, puis ajoutez les informations suivantes : GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
 
 Ouvrez le fichier de paramètres à l’aide de la commande EDIT PARAMS, puis ajoutez les informations suivantes :
 
@@ -583,4 +597,4 @@ Connectez-vous à distance au site A et vérifiez la bonne réplication :
 ##Ressources supplémentaires
 [Oracle Virtual Machine images for Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md) (en anglais)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

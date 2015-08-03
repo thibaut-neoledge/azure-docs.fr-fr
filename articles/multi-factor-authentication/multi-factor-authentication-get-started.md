@@ -87,4 +87,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 * [Pour les utilisateurs](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

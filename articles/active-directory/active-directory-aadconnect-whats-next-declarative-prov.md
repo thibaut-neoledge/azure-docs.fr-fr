@@ -28,4 +28,4 @@ Le langage d’expression utilisé dans le flux d’attributs constitue une part
 
 Pour plus d’informations sur le langage d’expression, consultez [Présentation des expressions de l’approvisionnement déclaratif](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

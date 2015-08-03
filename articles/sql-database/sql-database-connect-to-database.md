@@ -1,10 +1,11 @@
 <properties
-	pageTitle="Connexion à une base de données SQL Azure avec SSMS" metaKeywords=""
-	description="Découvrez comment vous connecter à une base de données SQL Azure à l&#39;aide de SSMS"
+	pageTitle="Connexion à une base de données SQL Azure avec SSMS"
+	description="Découvrez comment vous connecter à une base de données SQL Azure à l'aide de SSMS"
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -12,53 +13,68 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
+	ms.date="07/15/2015"
 	ms.author="sidneyh" />
 
-# Connexion à une base de données SQL Azure avec SQL Server Management Studio
+# Se connecter avec SQL Server Management Studio
 
-Voici la procédure à suivre pour vous connecter à une base de données SQL Microsoft Azure à l’aide de SQL Server Management Studio (SSMS).
+Voici les étapes pour installer SQL Server Management Studio (SSMS) et l’utiliser pour vous connecter à votre base de données SQL et l’interroger.
 
-## Conditions préalables
-* Une base de données SQL Azure configurée et en cours d'exécution. Pour créer une base de données SQL, consultez [Prise en main de Base de données SQL Microsoft Azure](sql-database-get-started.md).
-* Le nom et le mot de passe de l'administrateur pour la base de données SQL.
-* SQL Server Management Studio 2014. Pour obtenir l'outil, consultez [Télécharger SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
-* Configurer les paramètres de pare-feu pour la base de données. Voir la rubrique [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md)
+## Composants requis
+* Un exemple de base de données SQL AdventureWorks, comme décrit dans [Prise en main de Microsoft Azure SQL Database](sql-database-get-started.md).
 
-## Connexion à une instance de base de données SQL
-1. Connectez-vous au [portail de gestion Azure](https://portal.azure.com).
-2. Cliquez sur le bouton **Parcourir**, puis cliquez sur **Bases de données SQL** (b).
+## Installer et lancer SQL Server Management Studio (SSMS)
+1. Accédez à la page de téléchargement de [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299), cliquez sur **Télécharger**, puis choisissez la version 32 bits (x86) ou 64 bits (x64) du téléchargement MgmtStudio.
 
-	![Cliquez sur Parcourir et la base de données SQL][1]
-3. Avec l’option **Bases de données SQL** sélectionnée (a), cliquez sur le nom de la base de données sur le serveur à laquelle vous souhaitez vous connecter (b).
+	![MgtmtStudio32BIT ou MgmtStudio64BIT][1]
+2.	Suivez les invites lorsque vous installez SSMS en utilisant les paramètres par défaut.
+3.	Une fois le téléchargement terminé, recherchez SQL Server 2014 Management Studio sur votre ordinateur, puis démarrez SSMS.
 
-	![Cliquez sur le nom d'une base de données][2]
-4. Une fois le nom sélectionné (a), cliquez sur Propriétés (b). Copiez le nom du serveur (c) et le nom de l'administrateur (d). Le nom et le mot de passe de l’administrateur sont créés lors de la création de la base de données SQL. Vous devez avoir le mot de passe pour passer à l'étape suivante.
 
-	![Cliquez sur SQL Server, Paramètres et Propriété][3]
-5. Ouvrez SQL Server Management Studio 2014.
-6. Dans la boîte de dialogue Se connecter au serveur, collez le nom du serveur dans la zone **Nom du serveur** (a). Définissez l'authentification sur **Authentification SQL Server** (b). Collez le nom de l'administrateur du serveur dans la zone **Connexion** (c), puis entrez son mot de passe (d). Ensuite, cliquez sur **Options** (e).
+## Se connecter à la base de données SQL
+1. Ouvrez SSMS.
+2. Dans la fenêtre **Connexion au serveur**, dans la zone **Nom du serveur**, entrez le nom du serveur au format *&lt;nomserveur>*.**database.windows.net**
+3. Dans la liste déroulante **Authentification**, sélectionnez **Authentification SQL Server**.
+4. Entrez les identifiants de **connexion** et le **mot de passe** que vous avez spécifiés lors de la création de votre serveur de base de données SQL.
 
-	![Boîte de dialogue de connexion SSMS][4]
-7. Dans l'onglet Propriétés de connexion, définissez la zone **Connexion à une base de données** sur **master** (ou toute autre base de données à laquelle vous souhaitez vous connecter). Ensuite, cliquez sur **Connecter**.
+	![Boîte de dialogue Se connecter au serveur][2]
+5. Cliquez sur le bouton **Options**.
+6. Dans la zone **Se connecter à la base de données**, entrez **AdventureWorks** et cliquez sur **Se connecter**.
 
-	![Valeur maître sélectionnée et cliquez sur Connecter][5]
+	![Se connecter à la base de données.][3]
 
-## Résolution des problèmes de connexion
+### Si la connexion échoue
+Assurez-vous que le pare-feu du serveur logique que vous avez créé autorise les connexions à partir de votre ordinateur local. Consultez [Configuration des paramètres du pare-feu (Azure SQL Database)](https://msdn.microsoft.com/library/azure/jj553530.aspx).
 
-En cas de problème, consultez [Résolution des problèmes de connexion à la base de données SQL Azure](https://support.microsoft.com/kb/2980233/). Pour obtenir la liste des problèmes possibles et des réponses associées, consultez [Dépannage de la connectivité de la base de données SQL Microsoft Azure](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+## Exécuter les exemples de requêtes
+
+1. Dans l’**Explorateur d’objets**, accédez à la base de données **AdventureWorks**.
+2. Cliquez avec le bouton droit sur la base de données, puis cliquez sur **Nouvelle requête**.
+
+	![Nouvelle requête][4]
+3. Dans la fenêtre de requête récemment ouvert, copiez et collez le code suivant :
+
+		SELECT 
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. Puis, cliquez sur le bouton **Exécuter**. Une opération réussie se présente comme suit : ![Succès][5]
 
 
 ## Étapes suivantes
-Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bases de données. Consultez [CREATE DATABASE (base de données SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) et [Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio](sql-database-manage-azure-ssms.md). Vous pouvez également enregistrer les événements dans le stockage Azure. Consultez [Prise en main de l'audit de base de données SQL](sql-database-auditing-get-started.md).
+Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bases de données. Consultez [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) et [Gestion d’Azure SQL Database au moyen de SQL Server Management Studio](sql-database-manage-azure-ssms.md). Vous pouvez également enregistrer les événements dans le stockage Azure. Consultez [Prise en main de l'audit de base de données SQL](sql-database-auditing-get-started.md).
 
 <!--Image references-->
 
-[1]: ./media/sql-database-connect-to-database/browse-vms.png
-[2]: ./media/sql-database-connect-to-database/sql-databases.png
-[3]: ./media/sql-database-connect-to-database/blades.png
-[4]: ./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]: ./media/sql-database-connect-to-database/ssms-master.png
+[1]: ./media/sql-database-connect-to-database/1-download.png
+[2]: ./media/sql-database-connect-to-database/2-connect.png
+[3]: ./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]: ./media/sql-database-connect-to-database/4-run-query.png
+[5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

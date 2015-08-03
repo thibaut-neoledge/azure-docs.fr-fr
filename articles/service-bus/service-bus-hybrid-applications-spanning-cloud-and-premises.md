@@ -45,4 +45,4 @@ Les applications hybrides locales et dans le cloud sont une réalité des enviro
 - [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

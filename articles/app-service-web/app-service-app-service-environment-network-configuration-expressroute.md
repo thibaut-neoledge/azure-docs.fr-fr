@@ -18,7 +18,7 @@
 
 # Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
 
-## Vue d’ensemble ##
+## Vue d'ensemble ##
 Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à leur infrastructure de réseau virtuel pour étendre leur réseau local à Azure. Vous pouvez créer un environnement App Service dans un sous-réseau de cette infrastructure de [réseau virtuel][virtualnetwork]. Les applications exécutées dans l'environnement App Service peuvent alors établir des connexions sécurisées à des ressources principales accessibles uniquement par le biais de la connexion ExpressRoute.
 
 ## Connectivité réseau requise ##
@@ -120,4 +120,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -204,4 +204,4 @@ Vous devez avoir un cluster CoreOS exécutant trois nœuds sur Azure. À ce st
 [Prise en main de fleet avec CoreOS sur Azure]: virtual-machines-linux-coreos-fleet-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

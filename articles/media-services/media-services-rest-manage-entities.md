@@ -144,4 +144,4 @@ L’exemple suivant montre comment supprimer un localisateur qui était utilisé
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1121,4 +1121,4 @@ Le bloc applicatif de gestion des erreurs temporaires comporte les stratégies p
 | **Linéaire (intervalle fixe)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 seconde<br />true | Nombre de nouvelles tentatives.<br />Délai entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erreurs temporaires, consultez les sections Exemples plus haut dans ce guide pour une base de données SQL Azure utilisant ADO.NET et Azure Active Directory.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

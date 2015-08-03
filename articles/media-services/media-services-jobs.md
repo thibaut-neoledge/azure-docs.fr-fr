@@ -60,4 +60,4 @@ Vous pouvez surveiller la progression des travaux à l’aide du **portail de ge
 [Quotas et limitations](media-services-quotas-and-limitations.md) : décrit les quotas utilisés et les limitations de l’Encodeur de Media Services
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

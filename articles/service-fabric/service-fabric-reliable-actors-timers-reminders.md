@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 # Minuteries des acteurs
-Les minuteries des acteurs fournissent un wrapper simple autour de la minuterie .NET de sorte que les méthodes de rappel respectent les garanties d’un accès concurrentiel en alternance fournies par le runtime Actors.
+Les minuteries des acteurs fournissent un wrapper simple autour de minuteries .NET de sorte que les méthodes de rappel respectent les garanties d’un accès concurrentiel en alternance fournies par le runtime Actors.
 
 Les acteurs peuvent utiliser les méthodes `RegisterTimer` et `UnregisterTimer` sur leur classe de base pour inscrire et désinscrire leurs minuteries. L'exemple ci-dessous montre l'utilisation des API de minuterie. Les API sont très similaires à la minuterie .NET. Dans l'exemple ci-dessous, lorsque la minuterie arrive à son terme, la méthode `MoveObject` sera appelée par le runtime Actors pour garantir l’accès concurrentiel en alternance, ce qui signifie qu'aucune autre méthode d’acteur ou rappels de minuterie ne sera en cours avant que ce rappel ne soit terminé.
 
@@ -113,6 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 Comme indiqué ci-dessus, la méthode `UnregisterReminder` accepte une interface `IActorReminder`. La classe de base de l'acteur prend en charge une méthode `GetReminder` qui peut être utilisée pour récupérer l'interface `IActorReminder` en passant le nom du rappel. C'est pratique car l'acteur n'a pas besoin de conserver l'interface `IActorReminder` renvoyée par l'appel de la méthode `RegisterReminder`.
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

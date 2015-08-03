@@ -18,7 +18,7 @@
 
 # Connexion à une plateforme SaaS à partir d’une application API ASP.NET dans Azure App Service
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel explique comment coder et configurer une [application API](app-service-api-apps-why-best-platform.md) qui se connecte à une [plateforme SaaS (Software-as-a-Service)](../app-service/app-service-authentication-overview.md#obotosaas) à l’aide du [Kit de développement logiciel (SDK) d’application API App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/). Il indique également comment appeler l’application API à partir d’un client .NET à l’aide du [Kit de développement d’application (SDK) App Service pour .NET](http://www.nuget.org/packages/Microsoft.Azure.AppService). Lorsque vous l’aurez terminé, vous aurez donc un client d’application console .NET appelant une application API .NET s’exécutant dans Azure App Service. L’application API appelle l’API Dropbox et renvoie une liste de fichiers et de dossiers dans le compte Dropbox de l’utilisateur.
 
@@ -36,7 +36,7 @@ Ce didacticiel vous familiarise avec les procédures suivantes :
 * Création d’un client de test
 * Exécution du client de test
 
-## Conditions préalables
+## Composants requis
 
 Ce didacticiel part des principes suivants :
 
@@ -86,7 +86,7 @@ La plateforme SaaS recevant les appels émis par l’application API doit être 
 		    ]
 		}
 
-2. Enregistrez le fichier.
+2. Enregistrez le fichier .
 
 Le fait de configurer la propriété `authentication` a deux effets :
 
@@ -121,7 +121,7 @@ Les étendues sont disponibles en fonction de chaque fournisseur SaaS et se trou
 	 
 			install-package DropboxRestAPI  
 
-1. Ouvrez *Controllers\\ValuesController.cs*, puis remplacez tout le code du fichier par le code suivant.
+1. Ouvrez *Controllers\ValuesController.cs*, puis remplacez tout le code du fichier par le code suivant.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -406,7 +406,7 @@ Informations complémentaires :
 
 	![](./media/app-service-api-dotnet-connect-to-saas/testclient.png)
 
-## Résolution des problèmes
+## Résolution de problèmes
 
 Cette section traite des sujets suivants :
 
@@ -447,4 +447,4 @@ Vous avez appris à coder et à configurer une application API se connectant à 
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

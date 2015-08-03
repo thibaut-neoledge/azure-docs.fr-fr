@@ -80,4 +80,4 @@ Nous ajouterons bientôt des cas d'utilisation et des exemples de script personn
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -212,4 +212,4 @@ Si vous souhaitez arrêter la protection d'une machine virtuelle VMware ou d’u
 	- **Désactiver la protection** : si vous activez cette option et l’enregistrez, la machine n’est plus protégée par Site Recovery. Les paramètres de protection de la machine seront automatiquement nettoyés.
 	- **Supprimer du coffre** : si vous sélectionnez cette option, la machine est supprimée du coffre Site Recovery uniquement. Les paramètres de protection locale de la machine ne seront pas affectés. Pour supprimer les paramètres de la machine et supprimer la machine virtuelle de l’abonnement Azure, vous devrez nettoyer les paramètres en désinstallant le service de mobilité. ![Supprimer les options](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

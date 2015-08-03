@@ -142,4 +142,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -95,4 +95,4 @@ Maintenant que vous avez configuré la stratégie d'autorisation de la clé de c
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

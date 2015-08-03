@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Utilisation de Hive avec HDInsight pour analyser les journaux de site web
@@ -29,9 +29,9 @@ Dans cet exemple, vous allez utiliser un cluster HDInsight pour analyser des fic
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
-##Configuration requise
+##Composants requis
 
-- Vous devez avoir configuré un **cluster HDInsight**. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. 
+- Vous devez avoir approvisionné un cluster Hadoop sur Azure HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight][hdinsight-provision]. 
 - Microsoft Excel 2013 ou Microsoft Excel 2010 doivent être installés.
 - Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
 
@@ -58,4 +58,4 @@ Essayez l’exemple suivant : [Analyse des données de capteur au moyen de Hive
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

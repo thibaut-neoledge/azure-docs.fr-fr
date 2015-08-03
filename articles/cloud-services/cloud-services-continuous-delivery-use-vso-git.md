@@ -84,7 +84,7 @@ La prochaine fois que vous placerez une validation dans votre référentiel, Vis
 
 ## <a name="step4"> </a>Étape 4 : déclenchement d’une régénération et d’un redéploiement de votre projet
 
-1. Dans Visual Studio, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier _Layout.cshtml sous le dossier Views\\Shared dans un rôle Web MVC.<br/> ![][17] 
+1. Dans Visual Studio, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier _Layout.cshtml sous le dossier Views\Shared dans un rôle Web MVC.<br/> ![][17] 
 2. Modifiez le texte du pied de page du site et enregistrez le fichier.<br/> ![][18]
 
 3. Dans l'Explorateur de solutions, ouvrez le menu contextuel du nœud de la solution, du nœud du projet ou du fichier que vous avez modifié et sélectionnez **Valider**.<br/>
@@ -209,4 +209,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

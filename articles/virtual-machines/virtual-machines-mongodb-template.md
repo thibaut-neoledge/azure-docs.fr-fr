@@ -42,7 +42,7 @@ Procédez comme suit pour créer un cluster MongoDB en utilisant un modèle Reso
 
 ### Étape 1-a : télécharger les fichiers de modèle à l'aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\\Azure\\Templates\\MongoDB).
+Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\Templates\MongoDB).
 
 Incluez le nom de votre dossier local et exécutez ces commandes :
 
@@ -103,7 +103,7 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier **mongodb-high-availability** dans votre répertoire C:\\Azure\\Templates.
+Lorsque vous avez terminé, recherchez le dossier **mongodb-high-availability** dans votre répertoire C:\Azure\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -655,7 +655,7 @@ Les disques liés sont formatés durant les activités de préparation du nœud 
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** appartient au dossier **shared_scripts\\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque qui peuvent être réutilisées lorsque que vous devez exécuter des tâches similaires lors de la création de votre modèle.
+**vm-disk-utils-0.1.sh** appartient au dossier **shared_scripts\ubuntu**, dans le référentiel github azure-quickstart-tempates et contient des fonctions très utiles pour le montage, la mise en forme et la troncation de disque qui peuvent être réutilisées lorsque que vous devez exécuter des tâches similaires lors de la création de votre modèle.
 
 Le fragment associé aux extensions de machines virtuelles CustomScriptForLinux est également intéressant à étudier. Celles-ci sont installées en tant que type distinct de ressources, avec une dépendance sur chaque modèle de déploiement de nœud du cluster. Consultez ce fragment à la fin de chaque fichier **member-resources-Dx.json** :
 
@@ -692,4 +692,4 @@ Pour résumer, cette approche suggère de :
 Pour plus d'informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

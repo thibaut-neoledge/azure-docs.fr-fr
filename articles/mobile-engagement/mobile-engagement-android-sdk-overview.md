@@ -118,4 +118,4 @@ Il se peut désormais qu’un écran de chargement s’affiche lorsque vous cliq
 
 Incorporez le nouveau fichier `res/layout/engagement_loading.xml` dans votre projet.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

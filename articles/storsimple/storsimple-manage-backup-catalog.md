@@ -117,4 +117,4 @@ Supprimez une sauvegarde quand vous ne souhaitez plus conserver les données qui
 
 Découvrez comment utiliser le catalogue de sauvegarde pour [restaurer l’appareil à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

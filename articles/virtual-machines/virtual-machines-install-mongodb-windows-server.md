@@ -48,4 +48,4 @@ Ce didacticiel vous a montré comment créer une machine virtuelle Windows Serv
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -232,4 +232,4 @@ En supposant que le nom d'utilisateur des informations d'identification soit *js
 
 - [Démarrage d'un Runbook à partir d'un autre Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -33,7 +33,7 @@ L'agent DPM doit être installé sur le serveur SharePoint, les serveurs SQL et 
 Pour chaque 10 millions d'éléments dans la batterie de serveurs, il doit y avoir au moins 2 Go d'espace sur le volume où figure le dossier DPM. Cet espace est nécessaire pour la génération du catalogue. Pour permettre à DPM de restaurer des éléments spécifiques (collections de sites, sites, listes, bibliothèques de documents, dossiers, documents et éléments de liste), la génération du catalogue crée une liste de toutes les URL contenues dans chaque base de données de contenu. Vous pouvez afficher la liste des URL dans le volet des éléments récupérables de la zone de tâches de récupération de la console administrateur DPM.
 
 ### SQL Server
-DPM s'exécute comme un système local, et pour sauvegarder les bases de données SQL Server, il nécessite les droits d’administrateur système sur ce compte pour le serveur SQL. Définissez NT AUTHORITY\\SYSTEM sur *sysadmin* sur le serveur SQL à sauvegarder.
+DPM s'exécute comme un système local, et pour sauvegarder les bases de données SQL Server, il nécessite les droits d’administrateur système sur ce compte pour le serveur SQL. Définissez NT AUTHORITY\SYSTEM sur *sysadmin* sur le serveur SQL à sauvegarder.
 
 Dans la batterie de serveurs SharePoint, si vous disposez de bases de données SQL Server configurées avec des alias SQL Server, installez les composants clients SQL Server sur le serveur Web frontal que DPM protégera.
 
@@ -50,14 +50,14 @@ Pour commencer la protection d'une batterie de serveurs SharePoint sur Azure, vo
 ## Configuration de la protection SharePoint
 Vous devez configurer le service SharePoint VSS Writer (service WSS Writer) à l’aide de **ConfigureSharePoint.exe** avant de pouvoir protéger SharePoint avec DPM.
 
-Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d'installation de DPM]\\bin sur le serveur Web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
+Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d'installation de DPM]\bin sur le serveur Web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
 
 ### Configuration du service SharePoint VSS Writer
-1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\\bin\\
+1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\bin\
 2. Exécutez ConfigureSharePoint -EnableSharePointProtection
 3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
-  - Accordez le contrôle total du groupe WSS_Admin_WPG au dossier DPM (%Program Files%\\Microsoft Data Protection Manager\\DPM).
-  - Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
+  - Accordez le contrôle total du groupe WSS_Admin_WPG au dossier DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
+  - Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque fois modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
 
@@ -226,4 +226,4 @@ Q : Puis-je restaurer une base de données SharePoint sur l'emplacement d'origin
 - Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

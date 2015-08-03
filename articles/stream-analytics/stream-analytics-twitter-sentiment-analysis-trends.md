@@ -71,7 +71,7 @@ Procédez comme suit pour configurer l’application :
 
 Maintenant que nous avons un flux d’événements Tweet diffusé en temps réel depuis Twitter, nous pouvons configurer un travail Stream Analytics pour analyser ces événements en temps réel.
 
-### Configuration d'un travail Stream Analytics
+### Configuration d’un travail Stream Analytics
 
 1.	Dans le portail [Azure](https://manage.windowsazure.com/), cliquez sur **NOUVEAU** > **SERVICES DE DONNÉES** > **DIFFUSER LES ANALYSES EN CONTINU** > **CRÉATION RAPIDE**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **CRÉER UN TRAVAIL STREAM ANALYTICS** :
@@ -223,7 +223,7 @@ Une fois que votre travail en cours d’exécution traite le flux Twitter en tem
 ![Analyse des médias sociaux : sortie de l’analyse de sentiments Stream Analytics (exploration d’opinions) dans un tableau de bord Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -235,4 +235,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

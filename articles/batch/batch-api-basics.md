@@ -238,17 +238,17 @@ Une tâche du gestionnaire de travaux associée à un travail n'a pas la priorit
 
 Vous avez besoin d'un compte Batch pour utiliser le service Batch et vous utilisez plusieurs ressources du service pour planifier le calcul. Utilisez le flux de travail de base suivant lorsque vous créez un scénario de calcul distribué avec le service Batch :
 
-1\. Téléchargez les fichiers que vous souhaitez utiliser dans votre scénario de calcul distribué dans un compte de stockage Azure. Ils doivent être situés dans le compte de stockage afin que le service Batch puisse y accéder. Ce dernier les charge sur une machine virtuelle de tâche quand la tâche s'exécute.
+1. Téléchargez les fichiers que vous souhaitez utiliser dans votre scénario de calcul distribué dans un compte de stockage Azure. Ils doivent être situés dans le compte de stockage afin que le service Batch puisse y accéder. Ce dernier les charge sur une machine virtuelle de tâche quand la tâche s'exécute.
 
-2\. Téléchargez les fichiers binaires dépendants dans le compte de stockage. notamment le programme exécuté par la tâche et les assemblys dépendants. Ces fichiers doivent également être accessibles à partir du stockage et sont chargés dans la machine virtuelle de tâche.
+2. Téléchargez les fichiers binaires dépendants dans le compte de stockage. notamment le programme exécuté par la tâche et les assemblys dépendants. Ces fichiers doivent également être accessibles à partir du stockage et sont chargés dans la machine virtuelle de tâche.
 
-3\. Créez un pool de machines virtuelles de tâche. Vous pouvez attribuer la taille de la machine virtuelle de tâche à utiliser lors de la création du pool. Quand une tâche s'exécute, elle reçoit une machine virtuelle de tâche à partir de ce pool.
+3. Créez un pool de machines virtuelles de tâche. Vous pouvez attribuer la taille de la machine virtuelle de tâche à utiliser lors de la création du pool. Quand une tâche s'exécute, elle reçoit une machine virtuelle de tâche à partir de ce pool.
 
-4\. Créez un élément de travail. Un travail est créé automatiquement lorsque vous créez un élément de travail. Un élément de travail vous permet de gérer un travail constitué de tâches.
+4. Créez un élément de travail. Un travail est créé automatiquement lorsque vous créez un élément de travail. Un élément de travail vous permet de gérer un travail constitué de tâches.
 
-5\. Ajoutez des tâches à l'élément de travail. Chaque tâche utilise le programme téléchargé pour traiter les informations à partir d'un fichier téléchargé.
+5. Ajoutez des tâches à l'élément de travail. Chaque tâche utilise le programme téléchargé pour traiter les informations à partir d'un fichier téléchargé.
 
-6\. Analysez les résultats de la sortie.
+6. Analysez les résultats de la sortie.
 
 ## <a name="files"></a>Fichiers et répertoires
 
@@ -430,4 +430,4 @@ Chaque machine virtuelle du pool se voit attribuer un nom unique et la machine v
 
 [vue d'ensemble d’Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

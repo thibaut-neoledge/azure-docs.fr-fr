@@ -126,7 +126,7 @@ Par exemple, l’enregistrement A suivant transfère tout le trafic de **contos
 
 | Nom d’hôte/Sous domaine | Adresse IP |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 Cet exemple montre comment créer un enregistrement A pour le domaine racine. Pour créer une entrée avec des caractères génériques qui couvre l'ensemble des sous-domaines, entrez « __*__ » comme sous-domaine.
@@ -148,4 +148,4 @@ Cet exemple montre comment créer un enregistrement A pour le domaine racine. P
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

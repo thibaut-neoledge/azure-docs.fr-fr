@@ -188,7 +188,6 @@ Cet exemple part des principes suivants :
 
 - **Hôte** : le nom du serveur qui héberge le système de fichiers est : **\contoso**.
 - **Dossier** : le nom du dossier qui contient les fichiers d’entrée est : **marketingcampaign\regionaldata\{tranche}, où les fichiers sont partitionnés dans un dossier nommé {tranche}, comme 2014121112 (année 2014, 12ème mois, 11ème jour, midi). 
-
 ### Création d’un service lié du système de fichiers local
 L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **FolderDataStore** de type **OnPremisesFileSystemLinkedService**.
 
@@ -196,7 +195,7 @@ L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
+	        "host": "\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
@@ -462,7 +461,7 @@ L'activité de copie de l’exemple de pipeline suivant copie les données à pa
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -492,4 +491,4 @@ Consultez la rubrique [Référence JSON du pipeline](https://msdn.microsoft.com/
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

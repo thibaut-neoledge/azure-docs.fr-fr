@@ -30,7 +30,7 @@ Avant d’aller plus loin dans le partitionnement, nous allons revoir certains c
 - Les transactions ACID, c’est-à-dire les procédures stockées et les déclencheurs, sont limitées aux collections.
 - Les collections n'appliquent pas de schéma, ce qui permet de les utiliser pour les documents JSON de même type ou d’autres types.
 
-Depuis la version [1\.1.0 du Kit de développement logiciel (SDK) .NET Azure DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), vous pouvez effectuer les opérations de document directement dans une base de données. En interne, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utilise la classe PartitionResolver que vous avez spécifiée pour la base de données pour acheminer les demandes vers la collection appropriée.
+Depuis la version [1.1.0 du Kit de développement logiciel (SDK) .NET Azure DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), vous pouvez effectuer les opérations de document directement dans une base de données. En interne, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utilise la classe PartitionResolver que vous avez spécifiée pour la base de données pour acheminer les demandes vers la collection appropriée.
 
 Chaque classe PartitionResolver est une implémentation concrète d'une interface [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) disposant de trois méthodes : [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) et [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). Les requêtes LINQ et les itérateurs ReadFeed utilisent la méthode ResolveForRead en interne pour effectuer une itération sur toutes les collections qui correspondent à la clé de partition de la demande. De même, la création d’opérations nécessite la méthode ResolveForCreate pour acheminer les créations dans la partition appropriée. Aucune modification n’est requise pour les méthodes Replace, Delete et Read puisqu’elles utilisent des documents contenant déjà la référence à la collection correspondante.
 
@@ -167,4 +167,4 @@ Vous pouvez associer PartitionResolvers en implémentant votre propre IPartition
 * [Blog de DocumentDB avec des conseils relatifs aux performances](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

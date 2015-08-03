@@ -3,7 +3,7 @@
    description="Explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/20/2015"
+   ms.author="alkohli" />
 
 # Installation de votre appareil StorSimple 8100
 
@@ -297,4 +297,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

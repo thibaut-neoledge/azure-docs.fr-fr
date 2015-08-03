@@ -55,4 +55,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 - `EngagementPageOverlay.cs` : le code d'affichage de la superposition des annonces et des notifications `Overlay`.
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

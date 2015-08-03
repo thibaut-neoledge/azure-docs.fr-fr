@@ -259,4 +259,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

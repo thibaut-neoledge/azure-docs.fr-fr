@@ -159,4 +159,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

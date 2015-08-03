@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 # Surveillance des performances d'application web Azure
@@ -27,7 +27,9 @@ Application Insights et New Relic sont deux des extensions de surveillance des p
 
 1. Cliquez sur **Parcourir** et sélectionnez l’application web ou la machine virtuelle que vous souhaitez instrumenter.
 
-2. Ajoutez l’extension Application Insights ou New Relic. Si vous instrumentez une application web :
+2. Ajoutez l’extension Application Insights ou New Relic.
+
+    Si vous instrumentez une application web :
 
 ![Paramètres, Extensions, Ajouter, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
@@ -81,4 +83,4 @@ Une fois que vous arrivez sur le panneau, pour Application Insights par exemple,
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

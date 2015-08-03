@@ -98,4 +98,4 @@ Oui. DocumentDB étant un service RESTful, les liens de ressource sont immuables
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

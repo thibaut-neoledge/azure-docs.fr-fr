@@ -49,7 +49,7 @@ Le diagramme suivant illustre le flux d'informations à partir de votre entrepri
 
 ![Image de la sécurité et de la collecte des données avec Operational Insights](./media/operational-insights-security/security.png)
 
-### 1\. S'inscrire à Operational Insights et collecter des données
+### 1. S'inscrire à Operational Insights et collecter des données
 
 Pour que votre organisation puisse envoyer des données au service Operational Insights, vous devez configurer des agents Microsoft Monitoring Agent quand vous vous connectez directement au service web ou utiliser un Assistant de configuration dans la console Opérateur d'Operations Manager. Les utilisateurs (vous-même, d'autres utilisateurs ou un groupe de personnes) doivent créer un ou plusieurs comptes Operational Insights et inscrire chaque agent directement connecté ou leur environnement Operations Manager à l'aide d'un des comptes suivants :
 
@@ -140,20 +140,20 @@ Le tableau suivant répertorie des exemples de types de données :
     </table>
 
 
-### 2\. Envoyer des données à partir d'agents
+### 2. Envoyer des données à partir d'agents
 
 Dans le cas d'un agent qui se connecte directement au service web, enregistrez-le avec une clé, puis une connexion sécurisée est établie entre l'agent et le service Operational Insights via le port 443.
 
 Avec Operations Manager, vous enregistrez un compte auprès du service Operational Insights, puis une connexion HTTPS sécurisée est établie entre le serveur d'administration Operations Manager et le service Operational Insights via le port 443. Si Operations Manager ne peut pas communiquer avec le service pour une raison quelconque, les données collectées sont stockées dans un cache temporaire et le serveur d'administration essaie de renvoyer les données toutes les 8 minutes pendant 2 heures. Comme les données collectées sont compressées et envoyées au service Operational Insights en ignorant les bases de données locales, celles-ci ne subissent aucune charge supplémentaire. Une fois que les données collectées sont envoyées, elles sont supprimées du cache.
 
-### 3\. Le service Operational Insights reçoit et traite les données
+### 3. Le service Operational Insights reçoit et traite les données
 
 Le service Operational Insights s'assure que les données entrantes proviennent d'une source approuvée en validant des certificats et l'intégrité des données. Les données brutes non traitées sont ensuite stockées sous la forme d'un objet blob dans [Microsoft Azure Storage](http://azure.microsoft.com/documentation/services/storage/). Chaque utilisateur Operational Insights dispose d'un objet blob Azure dédié, auquel lui seul a accès. Le type de données stockées dépend des types de solutions qui ont été importés et utilisés pour collecter des données.
 
 Le service Operational Insights traite les données brutes, puis les données traitées agrégées sont stockées dans une base de données SQL. La communication entre le service Operational Insights et la base de données SQL s'appuie sur l'authentification de base de données SQL.
 
-### 4\. Utiliser Operational Insights pour accéder aux données
+### 4. Utiliser Operational Insights pour accéder aux données
 
 Vous pouvez vous connecter à Operational Insights en utilisant le compte que vous avez défini précédemment. Tout le trafic entre Operational Insights et le service Operational Insights transite par un canal HTTPS sécurisé.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

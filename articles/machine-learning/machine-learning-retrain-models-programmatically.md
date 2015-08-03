@@ -69,7 +69,7 @@ Diagramme 1 : Présentation du processus de reformation
 
 	Notez que l’exemple de code comporte des commentaires indiquant les parties du code nécessitant des mises à jour. En outre, si vous indiquez l’emplacement « output1 » dans la charge utile de demande, l’extension du fichier « RelativeLocation » doit être modifiée en « .ileaner » comme dans « Outputs » : {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
-	1. Fournir des informations Azure Storage L’exemple de code pour BES télécharge un fichier à partir d’un lecteur local (par exemple « C:\\temp\\CensusIpnput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
+	1. Fournir des informations Azure Storage L’exemple de code pour BES télécharge un fichier à partir d’un lecteur local (par exemple « C:\temp\CensusIpnput.csv ») vers Azure Storage, le traite et réécrit les résultats dans Azure Storage.  
 
 		Pour cela, vous devez récupérer les informations de nom de compte, de clé et de conteneur de stockage à partir du portail de gestion Azure pour votre compte de stockage et mettre le code à jour ici. Vous devez également vous assurer que le fichier d’entrée est disponible à l’emplacement spécifié dans le code.
 
@@ -107,4 +107,4 @@ Diagramme 1 : Présentation du processus de reformation
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,22 +1,23 @@
-<properties 
-	pageTitle="Association d'un disque à une machine virtuelle | Azure" 
-	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Association d'un disque à une machine virtuelle | Azure"
+	description="Découvrez comment attacher un disque à une machine virtuelle Azure et à l'initialiser pour le rendre opérationnel."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
-# Attachement d'un disque de données à une machine virtuelle Windows
+# Comment attacher un disque de données à une machine virtuelle Windows
 
 Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
@@ -24,9 +25,9 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-## <a id="initializeinWS"></a>Initialisation d’un nouveau disque de données dans Windows Server
+## <a id="initializeinWS"></a>Procédure : initialisation d’un nouveau disque de données dans Windows Server
 
-1. Connexion à la machine virtuelle. Pour connaître les instructions à suivre, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
+1. Connectez-vous à la machine virtuelle. Pour connaître les instructions à suivre, consultez [Connexion à une machine virtuelle exécutant Windows Server][logon].
 
 2. Une fois que vous êtes connecté à la machine virtuelle, ouvrez **Server Manager**. Dans le volet gauche, sélectionnez **Services de fichiers et de stockage**.
 
@@ -42,8 +43,14 @@ Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux ca
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus d’informations, consultez [Tailles des services cloud et des machines virtuelles](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
+
+## Ressources supplémentaires
+
+[Détachement d’un disque d’une machine virtuelle Windows](storage-windows-detach-disk.md)
+
+[À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

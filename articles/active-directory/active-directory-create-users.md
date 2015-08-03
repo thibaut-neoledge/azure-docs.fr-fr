@@ -112,4 +112,4 @@ La capacité des invités à n'accéder qu'à certaines informations limitées d
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

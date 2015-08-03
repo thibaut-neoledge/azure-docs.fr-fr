@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Gestion des serveurs et des données d'utilisation
@@ -57,4 +57,6 @@ Le tableau de bord **Utilisation** affiche les informations suivantes :
 
 3. Si un groupe d’administration n’envoie pas de données, vous pouvez cliquer sur **Dépannage** pour obtenir des informations de dépannage détaillées. Si vous ne souhaitez plus conserver un groupe d’administration ni les agents liés à ce dernier, cliquez sur **Supprimer**.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

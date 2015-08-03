@@ -475,4 +475,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -41,7 +41,7 @@ Numéro de port | Description
 9090 | Active l’enregistrement du connecteur (obligatoire uniquement pour le processus d’inscription du connecteur).
 9091 | Active le renouvellement automatique de certificat de confiance du connecteur.
  
-Si votre pare-feu régule le trafic en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau. Assurez-vous également d’activer le port 8080 pour NT Authority\\System.
+Si votre pare-feu régule le trafic en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau. Assurez-vous également d’activer le port 8080 pour NT Authority\System.
 
 
 ##Étape 1 : activer le proxy d’application dans Azure AD
@@ -70,4 +70,4 @@ Si vous souhaitez désinstaller le connecteur, après avoir désinstallé le ser
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

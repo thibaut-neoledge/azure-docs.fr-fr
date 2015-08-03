@@ -43,7 +43,7 @@ Mises en garde relatives aux mots de passe d'application pour les utilisateurs f
 
 Pour plus d'informations sur la configuration d’Azure Multi-Factor Authentication ou du serveur Azure Multi-Factor Authentication avec AD FS, consultez les rubriques suivantes :
 
-- [Sécuriser les ressources de cloud à l’aide d’Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud)
+- [Sécuriser les ressources cloud à l’aide d’Azure Multi-Factor Authentication et AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 - [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [Sécuriser les ressources de cloud et locales à l'aide du serveur Azure Multi-Factor Authentication avec AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 
@@ -55,4 +55,4 @@ Pour plus d'informations sur la configuration d’Azure Multi-Factor Authenticat
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -48,4 +48,4 @@ Les règles d'entreprise englobent les stratégies et les décisions qui contrô
 Consultez la page [Liste des connecteurs et applications API](app-service-logic-connectors-list.md) pour obtenir la liste complète des connecteurs et des applications API inclus dans chaque catégorie, y compris les connecteurs standard, IAE BizTalk, les connecteurs Premium et ainsi de suite.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

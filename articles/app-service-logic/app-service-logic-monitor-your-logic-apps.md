@@ -56,4 +56,4 @@ Notez que pour les déclencheurs *d’émission*, vous ne pourrez *pas* voir les
 Il existe une fonctionnalité supplémentaire qui n’est actuellement pas possible dans l’interface utilisateur (elle le sera prochainement), mais est cependant disponible via [l’api REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Quand vous mettez à jour la définition d’une application logique, la version précédente de la définition est stockée. En effet, si une exécution est déjà en cours, elle fait référence à la version de l'application logique qui existait lors du démarrage de l'exécution. Les définitions d'exécutions ne peuvent pas changer quand elles sont en cours. L'API REST d'historique des versions vous donne accès à ces informations.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

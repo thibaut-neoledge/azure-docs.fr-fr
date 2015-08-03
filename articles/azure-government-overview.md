@@ -31,7 +31,7 @@ Voici un récapitulatif de l'infrastructure, la structure et des services Azure 
 
 ![][2]
 
-Azure Government inclut les principaux composants d'IaaS (Infrastructure-as-a-Service) et PaaS (Platform-as-a-Service). Cela inclut l'infrastructure, le réseau, le stockage, la gestion des données, la gestion des identités et beaucoup d'autres services. Azure Government prend en charge les mêmes fonctionnalités exceptionnelles que celles exploitées par les clients Azure publics comme la réplication de données géosynchrone et la mise à l'échelle automatique. Microsoft a été identifié comme premier fournisseur d’offres <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> et <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> par les principaux analystes du secteur.
+Azure Government inclut les principaux composants d'IaaS (Infrastructure-as-a-Service) et PaaS (Platform-as-a-Service). Cela inclut l'infrastructure, le réseau, le stockage, la gestion des données, la gestion des identités et beaucoup d'autres services. Azure Government prend en charge les mêmes fonctionnalités exceptionnelles que celles exploitées par les clients Azure publics comme la réplication de données géosynchrone et la mise à l'échelle automatique. Microsoft a été identifié comme premier fournisseur d’offres <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> et <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> par les principaux analystes du secteur.
 
 En plus de fournir les services et fonctionnalités robustes d'Azure public, Azure Government fournit plusieurs fonctionnalités pour garantir la sécurisation de leurs données aux entités gouvernementales américaines en leur fournissant ce qui suit :
 
@@ -103,4 +103,4 @@ Si vous souhaitez en savoir plus sur Azure Governement, consultez certains des l
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

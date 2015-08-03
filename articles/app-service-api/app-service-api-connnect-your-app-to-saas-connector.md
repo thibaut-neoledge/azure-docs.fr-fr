@@ -236,4 +236,4 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 [portail Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

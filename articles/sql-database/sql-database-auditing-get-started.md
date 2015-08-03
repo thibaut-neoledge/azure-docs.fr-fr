@@ -182,4 +182,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

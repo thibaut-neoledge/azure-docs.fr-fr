@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Verrouiller des ressources avec Azure Resource Manager" 
+	pageTitle="Verrouillez des ressources avec Azure Resource Manager" 
 	description="Verrouillez des ressources afin d’empêcher les utilisateurs de mettre à jour ou de supprimer certaines ressources." 
 	services="azure-resource-manager" 
 	documentationCenter="" 
@@ -85,13 +85,13 @@ Pour consulter des exemples, accédez à la section [API REST pour les verrous d
 
 Pour verrouiller avec Azure PowerShell des ressources déployées, utilisez l’élément **New-AzureResourceLock**, comme indiqué ci-dessous.
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 PowerShell fournit d’autres commandes d’utilisation des verrous, comme **Set-AzureResourceLock** pour mettre à jour un verrou et **Remove-AzureResourceLock** pour supprimer un verrou.
 
 ## Étapes suivantes
 
 - [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md)
-- [Déplacer des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
+- [Déplacez des ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -352,7 +352,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 
 > [AZURE.NOTE]En dehors des informations de la chaîne de connexion, les étapes décrites dans cette section doivent fonctionner pour une base de données SQL Azure ou pour SQL Server. Elles ont été testées avec la configuration suivante :
 >
-> * **Configuration de point à site du réseau virtuel Azure** : un réseau virtuel connectant le cluster HDInsight à un serveur SQL Server dans un centre de données privé. Pour plus d'informations, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](http://msdn.microsoft.com/library/azure/dn133792.aspx).
+> * **Configuration de point à site du réseau virtuel Azure** : un réseau virtuel connectant le cluster HDInsight à un serveur SQL Server dans un centre de données privé. Pour plus d'informations, consultez la page [Configuration d'un réseau privé virtuel (VPN) de point à site dans le portail de gestion](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 > * **Azure HDInsight 3.1** : pour plus d'informations sur la création d'un cluster sur un réseau virtuel, consultez la rubrique [Approvisionnement de clusters HDInsight à l’aide d'options personnalisées](hdinsight-provision-clusters.md).
 > * **SQL Server 2014** : configuré de manière à autoriser l'authentification et à exécuter le package de configuration du client VPN pour établir une connexion sécurisée au réseau virtuel.
 
@@ -405,7 +405,7 @@ Dans cette section, vous allez utiliser Azure PowerShell pour exécuter la comm
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Notez que le délimiteur de champ est **\\0x20**, qui est un espace. Le délimiteur est défini dans le fichier sample.log du script Azure PowerShell. Pour plus d'informations sur **-m 1**, consultez le [Guide d'utilisation de Sqoop][sqoop-user-guide-1.4.4].
+	Notez que le délimiteur de champ est **\0x20**, qui est un espace. Le délimiteur est défini dans le fichier sample.log du script Azure PowerShell. Pour plus d'informations sur **-m 1**, consultez le [Guide d'utilisation de Sqoop][sqoop-user-guide-1.4.4].
 
 5. Cliquez sur **Exécuter le script** ou appuyez sur **F5** pour exécuter le script.
 6. Examinez les données exportées dans le [portail Azure][azure-management-portal].
@@ -645,4 +645,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 
@@ -80,7 +80,7 @@ UpgradeTimeout = 3000
 
 ## Étape 4 : Préparer l'application pour la mise à niveau
 
-À présent, l'application est créée et prête à être mise à niveau. Si vous ouvrez une fenêtre PowerShell en tant qu'administrateur et tapez **Get-ServiceFabricApplication**, la commande doit vous informer que le Type d'application 1.0.0.0 de **VisualObjects** est en cours de déploiement. Le package d'application est stocké sous le chemin d'accès relatif suivant où vous avez décompressé le Kit de développement logiciel (SDK) Fabric Service : *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. Un dossier « Package » doit figurer dans ce répertoire. Il contient le package d'application. Vérifiez les horodatages pour vous assurer qu'il s'agit de la dernière version (et vous devrez peut-être également modifier les chemins d'accès en conséquence).
+À présent, l'application est créée et prête à être mise à niveau. Si vous ouvrez une fenêtre PowerShell en tant qu'administrateur et tapez **Get-ServiceFabricApplication**, la commande doit vous informer que le Type d'application 1.0.0.0 de **VisualObjects** est en cours de déploiement. Le package d'application est stocké sous le chemin d'accès relatif suivant où vous avez décompressé le Kit de développement logiciel (SDK) Fabric Service : *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Un dossier « Package » doit figurer dans ce répertoire. Il contient le package d'application. Vérifiez les horodatages pour vous assurer qu'il s'agit de la dernière version (et vous devrez peut-être également modifier les chemins d'accès en conséquence).
 
 À présent, nous allons copier le package d'application mis à jour dans le magasin d'images de Service Fabric (où les packages d'application sont stockés par Service Fabric). Le paramètre *ApplicationPackagePathInImageStore* indique à Service Fabric où il peut trouver le package d'application. Nous avons placé l'application mise à jour dans « VisualObjects_V2 » à l'aide de la commande suivante (vous devrez peut-être modifier de nouveau les chemins d'accès en conséquence).
 
@@ -126,4 +126,4 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -51,7 +51,7 @@ Ce didacticiel est une procédure pas à pas expliquant comment l'[Exemple TODO 
 
 2. Si vous n'avez pas déjà installé SQLite pour Windows 8.1 et Windows Phone 8.1 comme indiqué dans le didacticiel [Prise en main des données hors connexion], installez les deux runtimes.
 
-3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
+3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
 
     >[AZURE.NOTE]Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
 
@@ -166,4 +166,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

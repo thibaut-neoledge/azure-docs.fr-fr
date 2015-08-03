@@ -1,3 +1,4 @@
+
 #### Pour installer Update 1 à partir du Portail de gestion Azure
 
 1. Dans le portail de gestion, accédez à la page **Appareils** et sélectionnez votre appareil.
@@ -14,4 +15,4 @@
 
 7. Vous pouvez maintenant [utiliser le portail de gestion pour installer Update 1](#use-the-management-portal-to-install-update-1).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# Vue d’ensemble de Traffic Manager
+# Qu’est-ce que Traffic Manager ?
 
 Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic utilisateur vers les points de terminaison que vous spécifiez, par exemple des sites web ou des services cloud Azure. Traffic Manager utilise un moteur de stratégie intelligent pour les requêtes DNS des noms de domaine de vos ressources Internet. Vos sites web ou services cloud Azure peuvent être exécutés dans différents centres de données à travers le monde.
 
@@ -65,7 +65,7 @@ La *figure 2* illustre les étapes nécessaires à l’implémentation de Traff
 
    - **Configurer les paramètres de surveillance** : les paramètres de surveillance ne sont pas configurés à l’aide de l’option Création rapide. Après avoir créé votre profil et spécifié votre méthode d’équilibrage de charge, vous devez indiquer à Traffic Manager les éléments à surveiller. Pour connaître la procédure de configuration de la surveillance, voir [Surveillance avec Traffic Manager](traffic-manager-monitoring.md).
 6. **Testez votre profil Traffic Manager**. Vérifiez que votre profil et votre domaine fonctionnent comme prévu. Pour savoir comment procéder, voir [Test des paramètres de Traffic Manager](traffic-manager-testing-settings.md).
-7. **Redirigez l’enregistrement de ressource DNS du nom de domaine d’entreprise vers le profil pour le rendre actif**. Pour en savoir plus, voir [Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager)](traffic-manager-point-internet-domain.md).
+7. **Redirigez l’enregistrement de ressource DNS du nom de domaine d’entreprise vers le profil pour le rendre actif**. Pour en savoir plus, voir [Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md).
 
 À l’aide de l’exemple de la figure 1, vous devez remplacer l’enregistrement de ressource DNS sur vos serveurs par la ligne suivante, afin de rediriger le nom de domaine d’entreprise vers le nom de domaine Traffic Manager : www.contoso.com IN CNAME contoso.trafficmanager.net.
 
@@ -160,7 +160,7 @@ Pour ajouter un profil Traffic Manager en tant que point de terminaison et conf
 
 Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapositives PowerPoint pour votre propre présentation de Traffic Manager ou pour les modifier, consultez la page [Traffic Manager figures in MSDN documentation](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Voir aussi
+## Étapes suivantes
 
 [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

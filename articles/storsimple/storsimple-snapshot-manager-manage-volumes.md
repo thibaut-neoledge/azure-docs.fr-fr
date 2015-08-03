@@ -17,7 +17,7 @@
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Pour sélectionner des volumes et afficher des détails les concernant, vous pouvez accéder au nœud **Volumes** (sur le volet **Étendue**) du Gestionnaire d’instantanés StorSimple. Les volumes sont présentés en tant que lecteurs correspondant aux volumes montés par l’hôte. Le nœud **Volumes** répertorie les volumes et les types de volumes locaux qui sont pris en charge par Azure Simple, notamment les volumes découverts via l’utilisation d’iSCSI et d’un appareil.
 
@@ -149,7 +149,7 @@ Appliquer la procédure suivante pour relancer l’analyse des volumes connecté
 
 Appliquez la procédure suivante pour configurer la sauvegarde d’un volume de base, puis démarrer immédiatement la sauvegarde ou créer une stratégie de planification des sauvegardes.
 
-### Conditions préalables
+### Composants requis
 
 Avant de commencer :
 
@@ -270,4 +270,4 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

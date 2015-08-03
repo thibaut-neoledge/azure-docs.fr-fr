@@ -1,6 +1,6 @@
 <properties
-	pageTitle="PHP sur Windows pour la base de données SQL | Microsoft Azure"
-	description="Présente un exemple de programme PHP qui se connecte à la base de données SQL Azure à partir d'un client Windows et fournit des liens vers les composants logiciels nécessaires requis par le client."
+	pageTitle="Connexion de PHP sur Windows à SQL DB | Microsoft Azure"
+	description="Présente un exemple de programme PHP qui se connecte à Azure SQL Database à partir d'un client Windows et fournit des liens vers les composants logiciels nécessaires requis par le client."
 	services="sql-database"
 	documentationCenter=""
 	authors="meet-bhagdev"
@@ -14,32 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
-# Connexion à la base de données SQL à l'aide de PHP sous Windows
+# Connexion à SQL Database à l'aide de PHP sur Windows
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Cette rubrique illustre comment vous pouvez vous connecter à la base de données SQL Azure à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
+Cette rubrique montre comment vous connecter à Azure SQL Database à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
 
 
-## Conditions préalables
-
-
-Pour exécuter l'exemple de code PHP fourni dans cette rubrique, les éléments logiciels suivants doivent être installés sur votre ordinateur :
-
-
-- [Pilotes Microsoft pour PHP pour Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contient les derniers bits)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Pilote Microsoft ODBC](https://www.microsoft.com/fr-fr/download/details.aspx?id=36434)
-- IIS Express
-- [PHP 5.6 for IIS Express](http://www.microsoft.com/web/downloads/platform.aspx) : téléchargez-le à partir du programme d'installation de la plateforme. Assurez-vous d'utiliser Internet Explorer pour télécharger le programme d'installation de la plateforme
-
-Consultez notre [blog de l'équipe](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) et notre [vidéo](https://www.youtube.com/watch?v=0oCjiRK_tUk) pour découvrir comment installer et configurer les exigences mentionnées précédemment.
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Créer une base de données et récupérer la chaîne de connexion
@@ -48,7 +36,7 @@ Consultez notre [blog de l'équipe](http://blogs.msdn.com/b/sqlphp/archive/2015/
 Consultez la [rubrique Prise en main](sql-database-get-started.md) pour découvrir comment créer un exemple de base de données et obtenir votre chaîne de connexion. Il est important que vous suiviez le guide pour créer un **modèle de base de données AdventureWorks**. Les exemples ci-dessous fonctionnent uniquement avec le **schéma AdventureWorks**.
 
 
-## Se connecter à la base de données SQL
+## Se connecter à la base de données SQL Database
 
 
 La fonction **OpenConnection** est appelée presque en premier dans toutes les fonctions qui suivent.
@@ -74,7 +62,7 @@ La fonction **OpenConnection** est appelée presque en premier dans toutes les f
 
 ## Exécution d'une requête et récupération du jeu de résultats
 
-La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -105,7 +93,7 @@ La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 ## Insérer une ligne, transmettre des paramètres et récupérer la clé primaire générée
 
 
-Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l'objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
+Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -192,4 +180,4 @@ Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -413,4 +413,4 @@ Consultez la rubrique [Liaison d’un élément multimédia à la stratégie de 
     }
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

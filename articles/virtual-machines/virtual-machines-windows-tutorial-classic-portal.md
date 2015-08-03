@@ -50,4 +50,4 @@ Ce didacticiel vous montre comment utiliser l’option **À partir de la galerie
 Pour en savoir plus sur ce que vous pouvez configurer pour une machine virtuelle et le moment où vous pouvez le faire, consultez [À propos des paramètres de configuration de la machine virtuelle Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

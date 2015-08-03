@@ -2,7 +2,7 @@
     pageTitle="Nouveautés à venir sur RemoteApp"
     description="Découvrez les nouvelles fonctionnalités de RemoteApp"
     services="remoteapp"
-    documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -39,4 +39,4 @@ Autres améliorations apportées au cours de l’année :
 - Disponibilité dans les centres de données australiens
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

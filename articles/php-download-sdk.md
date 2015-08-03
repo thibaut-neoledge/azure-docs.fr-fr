@@ -136,4 +136,4 @@ Pour plus d’informations sur la procédure d’utilisation de l’interface de
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

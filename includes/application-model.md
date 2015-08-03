@@ -120,7 +120,7 @@ Le déploiement d’un service hébergé sur Azure requiert un fichier de défin
 
 ## <a id="def"> </a>Fichier de définition de service
 
-Comme mentionné précédemment, le fichier de définition de service (CSDEF) est un fichier XML décrivant les différents rôles constituant votre application. Le schéma complet pour le fichier XML se trouve ici : [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][]. Le fichier CSDEF contient un élément WebRole ou WorkerRole pour chaque rôle de votre application. Le fait de déployer un rôle en tant que rôle Web (en utilisant l’élément WebRole) signifie que le code sera exécuté sur une instance de rôle contenant Windows Server 2008 et Internet Information Server (IIS). Le fait de déployer un rôle en tant que rôle de travail (en utilisant l’élément WorkerRole) signifie que l’instance de rôle contiendra Windows Server 2008 (IIS ne sera pas installé).
+Comme mentionné précédemment, le fichier de définition de service (CSDEF) est un fichier XML décrivant les différents rôles constituant votre application. Le schéma complet de ce fichier XML se trouve ici : [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][]. Le fichier CSDEF contient un élément WebRole ou WorkerRole pour chaque rôle de votre application. Le fait de déployer un rôle en tant que rôle Web (en utilisant l’élément WebRole) signifie que le code sera exécuté sur une instance de rôle contenant Windows Server 2008 et Internet Information Server (IIS). Le fait de déployer un rôle en tant que rôle de travail (en utilisant l’élément WorkerRole) signifie que l’instance de rôle contiendra Windows Server 2008 (IIS ne sera pas installé).
 
 Vous pouvez tout à fait créer et déployer un rôle de travail qui utilise d’autres mécanismes pour écouter les demandes Web entrantes (par exemple, votre code pourrait créer et utiliser un élément HttpListener .NET). Comme les instances de rôle exécutent toutes Windows Server 2008, votre code peut effectuer toutes les opérations disponibles pour une application exécutée sur Windows Server 2008.
 
@@ -316,33 +316,34 @@ Pour plus d'informations sur le déploiement, la mise à niveau et la reconfigur
 
 </div>
 
-[Avantages du modèle d'application Azure]: #benefits
-[Principaux concepts des services hébergés]: #concepts
-[Considérations relatives à la conception des services hébergés]: #considerations
-[Conception de votre application pour l'extensibilité]: #scale
-[Définition et configuration des services hébergés]: #defandcfg
-[Fichier de définition de service]: #def
-[Fichier de configuration de service]: #cfg
-[Création et déploiement d'un service hébergé]: #hostedservices
-[Informations de référence]: #references
-[0]: ./media/application-model/application-model-3.jpg
-[1]: ./media/application-model/application-model-4.jpg
-[2]: ./media/application-model/application-model-5.jpg
-[Configuration d’un nom de domaine personnalisé dans Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
-[Offres de stockage de données dans Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
-[3]: ./media/application-model/application-model-6.jpg
-[4]: ./media/application-model/application-model-7.jpg
-[tarifs Azure]: http://www.windowsazure.com/pricing/calculator/
-[Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
-[portail de gestion Azure]: http://manage.windowsazure.com/
-[5]: ./media/application-model/application-model-8.jpg
-[Déploiement et mise à niveau des applications Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
-[Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/library/gg432967.aspx
-[Gestion des services hébergés dans Azure]: http://msdn.microsoft.com/library/gg433038.aspx
-[Migration des applications vers Azure]: http://msdn.microsoft.com/library/gg186051.aspx
-[Configuration d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Avantages du modèle d'application Azure]: #benefits
+  [Principaux concepts des services hébergés]: #concepts
+  [Considérations relatives à la conception des services hébergés]: #considerations
+  [Conception de votre application pour l'extensibilité]: #scale
+  [Définition et configuration des services hébergés]: #defandcfg
+  [Fichier de définition de service]: #def
+  [Fichier de configuration de service]: #cfg
+  [Création et déploiement d'un service hébergé]: #hostedservices
+  [Informations de référence]: #references
+  [0]: ./media/application-model/application-model-3.jpg
+  [1]: ./media/application-model/application-model-4.jpg
+  [2]: ./media/application-model/application-model-5.jpg
+  [Configuration d’un nom de domaine personnalisé dans Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Offres de stockage de données dans Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
+  [3]: ./media/application-model/application-model-6.jpg
+  [4]: ./media/application-model/application-model-7.jpg
+  
+  [tarifs Azure]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [portail de gestion Azure]: http://manage.windowsazure.com/
+  [5]: ./media/application-model/application-model-8.jpg
+  [Déploiement et mise à niveau des applications Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Création d'un service hébergé pour Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Gestion des services hébergés dans Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migration des applications vers Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuration d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO4-->

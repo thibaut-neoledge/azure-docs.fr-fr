@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -51,7 +51,6 @@ Vous pouvez également utiliser un des Kits de développement logiciel (SDK) sui
 - [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/) 
 - [Documentation de l’infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Infrastructure de lecteur multimédia pour iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](https://www.microsoft.com/mediaplatform/sspk.aspx) 
 - [Développement d’applications vidéo pour XBOX](http://xbox.create.msdn.com/) 
  
@@ -66,15 +65,15 @@ Non linéaire : publicité superposée qui s’affiche pendant la lecture de la
 
 Compagnon : publicité d’accompagnement qui s’affiche hors du cadre du lecteur
 
-Les publicités peuvent être placées à n’importe quel point dans la chronologie de la vidéo principale. Vous devez indiquer au lecteur les publicités à diffuser, ainsi que le moment auquel le faire. Cela s’effectue via un ensemble de fichiers XML standard : Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) et Digital Video Player Ad Interface Definition (VPAID). Les fichiers VAST spécifient les publicités à afficher. Les fichiers VMAP indiquent quand diffuser les différentes publicités ; ils contiennent le code XML VAST. Les fichiers MAST permettent également de séquencer des publicités contenant aussi du code XML VAST. Les fichiers VPAID définissent une interface entre le lecteur vidéo et la publicité ou le serveur publicitaire. Pour plus d’informations, consultez la page [Insertion de publicités](https://msdn.microsoft.com/library/dn387398.aspx).
+Les publicités peuvent être placées à n’importe quel point dans la chronologie de la vidéo principale. Vous devez indiquer au lecteur les publicités à diffuser, ainsi que le moment auquel le faire. Cela s’effectue via un ensemble de fichiers XML standard : Video Ad Service Template (VAST), Digital Video Multiple Ad Playlist (VMAP), Media Abstract Sequencing Template (MAST) et Digital Video Player Ad Interface Definition (VPAID). Les fichiers VAST spécifient les publicités à afficher. Les fichiers VMAP indiquent quand diffuser les différentes publicités ; ils contiennent le code XML VAST. Les fichiers MAST permettent également de séquencer des publicités contenant aussi du code XML VAST. Les fichiers VPAID définissent une interface entre le lecteur vidéo et la publicité ou le serveur publicitaire. Pour plus d'informations, consultez la page [Insertion de publicités](https://msdn.microsoft.com/library/dn387398.aspx).
 
-Pour en savoir plus sur la prise en charge du sous-titrage et des publicités dans les vidéos en flux continu, consultez la page [Normes de sous-titrage et d’insertion de publicités prises en charge](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
+Pour en savoir plus sur la prise en charge du sous-titrage et des publicités dans les vidéos en flux continu, consultez la page [Normes de sous-titrage et d'insertion de publicités prises en charge](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
 ##Voir aussi
 
-[Incorporation d’une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+[Incorporation d'une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

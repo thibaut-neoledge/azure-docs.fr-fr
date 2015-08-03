@@ -112,4 +112,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vousÂ
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

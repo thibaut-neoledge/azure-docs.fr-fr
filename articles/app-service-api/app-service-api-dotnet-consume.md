@@ -25,7 +25,7 @@ Ce didacticiel montre comment utiliser le Kit de développement logiciel (SDK) A
 - Appeler une application API **Publique (anonyme)** à partir d'une application console
 - Appeler une application API **Publique (authentifiée)** à partir d'une application de bureau Windows 
 
-Chacune de ces sections du didacticiel est indépendante : vous pouvez suivre les instructions pour le deuxième scénario sans avoir effectué les étapes du premier.
+Chacune de ces sections du didacticiel sont indépendantes : vous pouvez suivre les instructions pour le deuxième scénario sans avoir effectué les étapes du premier.
 
 Pour en savoir plus sur l’appel d’une application API **interne**, voir [Utiliser une application API interne à partir d’un client .NET](app-service-api-dotnet-consume-internal.md).
 
@@ -205,4 +205,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’utilisation de l’authentification dans les applications API, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

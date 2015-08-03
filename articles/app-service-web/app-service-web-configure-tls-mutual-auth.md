@@ -18,7 +18,7 @@
 
 # Configuration de l'authentification mutuelle TLS pour une application Web
 
-## Vue d’ensemble ##
+## Vue d'ensemble ##
 Vous pouvez restreindre l'accès à votre application Web Azure en activant différents types d'authentification. Une méthode consiste à authentifier à l'aide d'un certificat client lorsque la requête est exécutée sur TLS/SSL. Ce mécanisme est appelé authentification mutuelle TLS ou authentification par certificat client. Cet article décrit en détail comment configurer votre application Web pour utiliser l'authentification par certificat client.
 
 ## Configuration d'une application Web pour l'authentification par certificat client ##
@@ -177,4 +177,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

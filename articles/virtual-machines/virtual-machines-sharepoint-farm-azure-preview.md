@@ -95,4 +95,4 @@ La fonctionnalité Batterie de serveurs SharePoint du Portail Azure en version p
 
 [Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

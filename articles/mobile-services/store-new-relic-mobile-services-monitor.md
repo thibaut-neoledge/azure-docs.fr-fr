@@ -154,4 +154,4 @@ Ensuite, vous allez activer la surveillance New Relic de votre service mobile d
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

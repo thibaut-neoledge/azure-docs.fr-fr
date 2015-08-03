@@ -45,4 +45,4 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

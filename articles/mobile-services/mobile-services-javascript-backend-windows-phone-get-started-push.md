@@ -180,4 +180,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

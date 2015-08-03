@@ -57,4 +57,4 @@ Pour plus d'informations sur Azure Backup, consultez la rubrique
 - [Présentation d’Azure Backup](backup-introduction-to-azure-backup.md)
 - [Test d’Azure Backup](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

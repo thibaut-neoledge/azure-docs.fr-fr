@@ -80,4 +80,4 @@ Téléchargez l'[application iOS GetStartedWithData]. Dans Xcode, ouvrez le proj
 [Démarrage rapide]: ../mobile-services-javascript-backend-ios-get-started.md
 [application iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

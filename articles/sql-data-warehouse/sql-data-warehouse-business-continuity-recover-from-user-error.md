@@ -108,8 +108,8 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 <!--Image references-->
 
 <!--Article references-->
-[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database/sql-database-business-continuity/,d
-[Finaliser une base de données récupérée]: sql-database/sql-database-recovered-finalize/
+[Vue d’ensemble de la continuité des activités de la base de données SQL Azure]: sql-database/sql-database-business-continuity.md
+[Finaliser une base de données récupérée]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Création d’une demande de restauration de base de données]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -120,4 +120,4 @@ Pour plus d’informations sur les fonctionnalités de continuité d’activité
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

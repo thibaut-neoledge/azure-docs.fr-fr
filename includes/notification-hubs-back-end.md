@@ -100,4 +100,4 @@ Ignorez les étapes 1 à 3 si vous avez créé une application de console lors
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

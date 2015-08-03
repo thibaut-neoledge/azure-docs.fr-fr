@@ -467,10 +467,10 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 
 3. Dans le projet ContosoAdsWeb, ajoutez les fichiers suivants du projet téléchargé.
 	- *Global.asax.cs*  
-	- Dans le dossier *Views\\Shared* : <em>_Layout.cshtml</em>.
-	- Dans le dossier *Views\\Home* : *Index.cshtml*.
+	- Dans le dossier *Views\Shared* : <em>_Layout.cshtml</em>.
+	- Dans le dossier *Views\Home* : *Index.cshtml*.
 	- Dans le dossier *Controllers* : *AdController.cs*.
-	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*.
+	- Dans le dossier *Views\Ad* (à créer) : cinq fichiers *.cshtml*.
 
 3. Dans le projet ContosoAdsWorker, ajoutez le fichier *WorkerRole.cs* du projet téléchargé.
 
@@ -575,9 +575,9 @@ Du code similaire obtient une référence à la file d'attente *images* et crée
 
 Le fichier *_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, et crée une entrée de menu « Ads ».
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Le fichier *Views\\Home\\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
+Le fichier *Views\Home\Index.cshtml* affiche les liens de catégorie sur la page d'accueil. Les liens transmettent la valeur entière de l’énumération `Category` d’une variable querystring à la page Ads Index.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -666,7 +666,7 @@ Voici le code qui supprime les objets blob lorsque vous supprimez une publicité
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml et Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml et Details.cshtml
 
 Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
 
@@ -676,7 +676,7 @@ Le fichier *Details.cshtml* affiche l'image intégrale :
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml et Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml et Edit.cshtml
 
 Les fichiers *Create.cshtml* et *Edit.cshtml* spécifient l’encodage de formulaire qui permet au contrôleur d’obtenir l’objet `HttpPostedFileBase`.
 
@@ -812,4 +812,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Azure Storage](/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

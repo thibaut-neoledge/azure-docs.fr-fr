@@ -24,4 +24,4 @@ Ce document décrit la procédure pas à pas permettant de préparer les donnée
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -98,4 +98,4 @@ Vous pouvez télécharger l’Assistant Migration SQL Azure à partir de CodePl
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

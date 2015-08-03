@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ La figure ci-dessous montre un exemple de déploiement dans lequel des clients J
 
 Les bibliothèques clientes suivantes fonctionnent actuellement avec Service Bus :
 
-<table>
-  <tr>
-    <th>Langage</th>
-    <th>Bibliothèque</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Client Apache Qpid Java Message Service (JMS)<br/>
-        Client IIT Software SwiftMQ Java</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Langage | Bibliothèque |
+|----------|-------------------------------------------------------------------------------|
+| Java | Client JMS (Java Message Service) Apache Qpid<br/>Client Java IIT Software SwiftMQ |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **Figure 2 : tableau des bibliothèques clientes d’AMQP 1.0**
@@ -117,4 +99,4 @@ Pour plus d’informations sur l’obtention et l’utilisation de ces biblioth�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

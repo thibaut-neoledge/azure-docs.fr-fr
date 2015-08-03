@@ -164,7 +164,7 @@ Dans la mesure où vous utilisez l'authentification personnalisée et ne dépend
 
 ## Création du LoginProvider
 
-**LoginProvider** est l'une des constructions fondamentales dans le pipeline d'authentification Mobile Services. Dans cette section, vous allez créer votre propre `CustomLoginProvider`. Il ne sera pas branché sur le pipeline comme les fournisseurs intégrés, mais vous offrira une fonctionnalité pratique.
+**LoginProvider** est l'une des constructions fondamentales dans le pipeline d'authentification Mobile Services. Dans cette section, vous allez créer votre propre `CustomLoginProvider`. Il ne sera pas branché sur le pipeline comme les fournisseurs intégrés, mais vous offrira une fonctionnalité pratique. Si vous utilisez Visual Studio 2013, vous devrez peut-être installer le package NuGet `WindowsAzure.MobileServices.Backend.Security` pour ajouter les références à la classe `LoginProvider`.
 
 1. Créez une classe, `CustomLoginProvider`, qui dérive de **LoginProvider**, et ajoutez les instructions `using` suivantes :
 
@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

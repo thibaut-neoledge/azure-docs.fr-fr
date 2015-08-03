@@ -226,4 +226,4 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Les nœuds DSC intégrés à Azure Automation DSC affichent initialement un état « Conforme », même s’ils ne sont pas réellement conformes à la configuration du nœud DSC à laquelle ils sont mappés. Lorsqu’un nœud effectue sa première extraction et envoie son premier rapport DSC à Azure Automation DSC, l'état du nœud doit être correct.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

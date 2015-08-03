@@ -81,4 +81,4 @@ L’idéal est de commencer en utilisant [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

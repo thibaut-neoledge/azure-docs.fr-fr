@@ -96,7 +96,7 @@ Vous pouvez définir des scripts serveur qui sont enregistrés pour une opérati
 	
 	Pour plus d'informations, consultez la page [Validation et modification des données dans Mobile Services à l'aide des scripts serveur].
 
-+ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<table>`</em>.<em>`<operation>`</em>.js dans le sous-dossier .\\service\\table de votre référentiel git, où <em>`<table>`</em> est le nom de la table et où <em>`<operation>`</em> est l'opération de table enregistrée. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
++ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<table>`</em>.<em>`<operation>`</em>.js dans le sous-dossier .\service\table de votre référentiel git, où <em>`<table>`</em> est le nom de la table et où <em>`<operation>`</em> est l'opération de table enregistrée. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
@@ -343,7 +343,7 @@ Vous pouvez définir des scripts serveur qui sont enregistrés pour des méthode
 	
 	Les autorisations d'accès aux méthodes de l'API personnalisée sont attribuées dans l'onglet Autorisations. Pour plus d'informations sur la création de cette API personnalisée, consultez la page [Appel d'une API personnalisée à partir du client].
 
-+ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<custom_api>`</em>.js dans le sous-dossier .\\service\\api de votre référentiel git, où <em>`<custom_api>`</em> est le nom de l'API personnalisée qui est enregistrée. Ce fichier de script contient une fonction _exportée_ pour chaque méthode HTTP exposée par l'API personnalisée. Les autorisations sont définies dans un fichier complément .json. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
++ À l'aide du contrôle de code source Quand le contrôle de code source est activé, créez simplement un fichier nommé <em>`<custom_api>`</em>.js dans le sous-dossier .\service\api de votre référentiel git, où <em>`<custom_api>`</em> est le nom de l'API personnalisée qui est enregistrée. Ce fichier de script contient une fonction _exportée_ pour chaque méthode HTTP exposée par l'API personnalisée. Les autorisations sont définies dans un fichier complément .json. Pour plus d'informations, consultez la section [Contrôle du code source et code partagé][Source control, shared code, and helper functions].
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
@@ -462,7 +462,7 @@ Vous définissez des travaux planifiés de l'une des façons suivantes :
 
 + À partir de l'invite de commandes de l'outil en ligne de commande Azure. Pour plus d'informations, consultez la section [Utilisation de l'outil en ligne de commande].
 
->[AZURE.NOTE]Lorsque le contrôle du code source est activé, vous pouvez modifier les fichiers de script du travail planifié directement dans le sous-dossier .\\service\\scheduler de votre référentiel git. Pour plus d'informations, consultez [Procédure : partage de code à l'aide du contrôle du code source].
+>[AZURE.NOTE]Lorsque le contrôle du code source est activé, vous pouvez modifier les fichiers de script du travail planifié directement dans le sous-dossier .\service\scheduler de votre référentiel git. Pour plus d'informations, consultez [Procédure : partage de code à l'aide du contrôle du code source].
 
 ##<a name="shared-code"></a>Contrôle du code source, code partagé et fonctions d'assistance
 
@@ -1075,4 +1075,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

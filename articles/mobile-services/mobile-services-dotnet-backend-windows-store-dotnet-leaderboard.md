@@ -762,4 +762,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

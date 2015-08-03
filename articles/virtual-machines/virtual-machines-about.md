@@ -6,15 +6,15 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/19/2015"
+	ms.topic="get-started-article"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #À propos de Machines virtuelles Azure
@@ -26,7 +26,7 @@ Une autre approche consiste à utiliser une machine virtuelle sur votre propre m
 Ce tableau vous permet de comparer les choix proposés par Azure.
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
- 
+
 ## Étapes suivantes
 
 Essayez une machine virtuelle en en créant rapidement une simple. Pour plus d’informations, consultez l’un des didacticiels suivants :
@@ -41,7 +41,7 @@ Comme ces didacticiels vous aident à créer rapidement une machine virtuelle, i
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-Si vous découvrez tout juste Machines virtuelles Azure, veillez à consulter également le Forum Aux Questions.
+Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulter aussi le [Forum Aux Questions](virtual-machines-questions.md).
 
 
 <!--links-->
@@ -49,4 +49,4 @@ Si vous découvrez tout juste Machines virtuelles Azure, veillez à consulter é
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

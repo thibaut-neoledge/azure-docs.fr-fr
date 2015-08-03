@@ -95,12 +95,12 @@ Une fois l'applet de commande PowerShell appelée, la création du cache peut pr
 
 Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure PowerShell. Une fois que le cache est prêt à l'emploi, l'applet de commande [New-AzureManagedCache][] affiche les informations relatives à ce dernier, comme le montre l'exemple suivant.
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 	VERBOSE: Account "user@domain.com" has been added.
 	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
 	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
 	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 	VERBOSE: Intializing parameters...
 	VERBOSE: Creating prerequisites...
 	VERBOSE: Verify cache service name...
@@ -116,7 +116,7 @@ Vous pouvez surveiller l'avancement de la création dans la fenêtre Azure Power
 
 
 
-	PS C:>
+	PS C:\>
 
 
 
@@ -486,4 +486,4 @@ Pour plus d'informations sur l'utilisation du fournisseur de caches de sortie d'
 [Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

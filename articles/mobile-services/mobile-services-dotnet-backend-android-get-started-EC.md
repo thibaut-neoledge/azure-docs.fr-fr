@@ -151,4 +151,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [portail de gestion]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

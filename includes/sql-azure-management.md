@@ -166,4 +166,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

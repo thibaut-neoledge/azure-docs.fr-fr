@@ -1,5 +1,5 @@
 
-Pour plus d’informations sur les disques, consultez la page [À propos des disques de machine virtuelle dans Azure](../articles/virtual-machines-disks-vhds.md).
+Pour en savoir plus sur les disques, consultez la section [À propos des disques et VHD pour machines virtuelles](../articles/virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Association d’un disque vide
 Pour ajouter un disque de données, le plus simple consiste à attacher un disque vide, car Azure crée le fichier de disque dur virtuel (.vhd) pour vous et le stocke dans le compte de stockage.
@@ -57,4 +57,4 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 
 > [AZURE.NOTE]Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

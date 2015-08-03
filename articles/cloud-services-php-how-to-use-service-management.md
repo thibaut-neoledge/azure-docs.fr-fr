@@ -111,7 +111,7 @@ Lorsque vous créez un service cloud, un service de stockage ou un groupe d'affi
 - Ouest des États-Unis
 - Est des États-Unis
 
-Dans les exemples de code suivants, les emplacements sont transmis aux méthodes sous forme de chaînes. Cependant, vous avez également la possibilité de les transmettre sous forme d’énumérations au moyen de la classe <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Par exemple, au lieu de transmettre « West US » (Ouest des États-Unis) à une méthode acceptant un emplacement, vous pouvez transmettre <code>Locations::WEST_US</code>.
+Dans les exemples de code suivants, les emplacements sont transmis aux méthodes sous forme de chaînes. Cependant, vous avez également la possibilité de les transmettre sous forme d’énumérations au moyen de la classe <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Par exemple, au lieu de transmettre « West US » (Ouest des États-Unis) à une méthode acceptant un emplacement, vous pouvez transmettre <code>Locations::WEST_US</code>.
 
 ## Création d'un service cloud
 
@@ -555,4 +555,4 @@ Vous pouvez supprimer un groupe d'affinités en transmettant son nom à la méth
 
 [Schéma de configuration de service Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

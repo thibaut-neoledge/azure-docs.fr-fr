@@ -17,7 +17,7 @@
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Une stratégie de sauvegarde permet de créer une planification de sauvegarde des données de volume localement ou dans le cloud. Lorsque vous créez une stratégie de sauvegarde, vous pouvez également spécifier une stratégie de rétention. (Vous pouvez conserver un maximum de 64 instantanés). Pour plus d’informations sur les stratégies de sauvegarde, consultez la rubrique [Types de sauvegarde et stratégies de sauvegarde](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies).
 
@@ -118,4 +118,4 @@ Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

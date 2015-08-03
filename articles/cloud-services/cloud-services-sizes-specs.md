@@ -66,4 +66,4 @@ Les points ci-dessous peuvent vous aider à choisir une taille :
 
 [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/hh124108) [Configurer les tailles pour les services cloud](https://msdn.microsoft.com/library/ee814754)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

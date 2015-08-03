@@ -54,4 +54,4 @@ Pour en savoir plus sur Service Fabric, consultez les pages suivantes :
 - [Scénarios d’application](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

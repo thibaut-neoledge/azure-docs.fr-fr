@@ -40,4 +40,4 @@ Les objets intelligents et connectés prolifèrent de plus en plus dans les éco
 - [Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

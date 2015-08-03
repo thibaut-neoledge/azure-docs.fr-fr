@@ -145,4 +145,4 @@ Voici un exemple de code qui montre comment utiliser la version synchrone de cet
 Pour plus d’informations sur l’utilisation du Kit de développement logiciel (SDK) HDInsight .NET, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight à l’aide d’options personnalisées](hdinsight-provision-clusters.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

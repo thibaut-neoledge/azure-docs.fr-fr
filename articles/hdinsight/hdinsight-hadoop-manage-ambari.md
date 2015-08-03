@@ -252,4 +252,4 @@ Ambari Web utilise une API REST sous-jacente, que vous pouvez exploiter pour cr
 
 Pour obtenir une référence complète de l'API REST, consultez la page [Référence V1 de l'API d'Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -104,4 +104,4 @@ Pour la prise en main d'Azure DocumentDB, explorez les ressources suivantes :
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

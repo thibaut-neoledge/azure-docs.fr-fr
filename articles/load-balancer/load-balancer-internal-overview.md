@@ -92,4 +92,4 @@ Un autre scénario pour le système cœur de métier est d'avoir un VPN de site 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

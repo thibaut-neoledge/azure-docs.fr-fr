@@ -100,4 +100,4 @@ Pour plus d’informations sur Azure Linux Agent, consultez le fichier [Lisezm
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -48,7 +48,7 @@ Suivez la procédure ci-dessous pour mettre à niveau vos applications, la base 
 
 4. Téléchargez le scriptlet de la mise à niveau du client de la base de données élastique à partir du [centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9) et enregistrez-le dans le dossier contenant la DLL.
 
-5. Dans ce dossier, exécutez « PowerShell .\\upgrade.ps1 » à partir de l’invite de commandes et suivez les invites.
+5. Dans ce dossier, exécutez « PowerShell .\upgrade.ps1 » à partir de l’invite de commandes et suivez les invites.
  
 ***Option 2 : mise à niveau des métadonnées à l’aide de C#***
 
@@ -94,4 +94,4 @@ Version préliminaire initiale
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -50,4 +50,4 @@ Mis en file d'attente.|Répertorie les rapports en file d'attente de traitement 
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

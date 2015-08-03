@@ -476,4 +476,4 @@ Pour analyser le plan de requête dans le **portail de gestion de base de donné
 [Combien coûte cette clé ?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Récupérer une base de données SQL Azure en cas de défaillance
@@ -101,4 +101,4 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 Une fois la base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

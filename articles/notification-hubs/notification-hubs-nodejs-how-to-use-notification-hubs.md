@@ -216,4 +216,4 @@ Maintenant que vous avez appris les principes de base de l’utilisation de Noti
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

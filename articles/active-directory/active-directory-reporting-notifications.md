@@ -67,4 +67,4 @@ Oui, pour désactiver les notifications liées à des connexions anormales dans 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

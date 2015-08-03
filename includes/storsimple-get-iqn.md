@@ -1,5 +1,4 @@
 
-
 #### Pour obtenir le nom qualifié d’un hôte Windows
 
 1. Démarrez l’initiateur Microsoft iSCSI sur l’hôte Windows.
@@ -10,4 +9,4 @@
 
 3. Enregistrez cette chaîne.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -5,20 +5,23 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Environnements de test de cloud hybride Azure
 
 Pour le développement, le test ou une validation technique, les environnements de test de cloud hybride utilisent votre connexion Internet locale ainsi que l’une de vos adresses IP publiques et vous guident pour configurer un réseau virtuel Azure (VNet) opérationnel entre différents locaux. Lorsque vous avez terminé, vous pouvez développer et tester des applications, faire des essais avec des charges de travail informatique simplifiées et évaluer les performances d’une connexion de réseau privé virtuel (VPN) de site à site relative à votre emplacement sur Internet.
+
+> [AZURE.NOTE]Ces articles créent actuellement des ordinateurs virtuels, des réseaux virtuels et d’autres ressources dans la gestion de service.
 
 ## Configuration de base de cloud hybride
 
@@ -58,4 +61,4 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

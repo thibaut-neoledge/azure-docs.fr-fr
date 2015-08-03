@@ -23,4 +23,4 @@ Découvrez comment utiliser le stockage de tables via Mobile Services en consult
 [Mobile Services et Microsoft Azure Storage]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

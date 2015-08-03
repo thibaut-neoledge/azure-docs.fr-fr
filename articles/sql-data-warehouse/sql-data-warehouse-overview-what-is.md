@@ -63,15 +63,15 @@ SQL Data Warehouse se déploie facilement, en quelques secondes. Ce service est 
 
 
 ## Étapes suivantes
-En savoir plus sur la [charge de travail de l’entrepôt de données]
+En savoir plus sur la [charge de travail de l’entrepôt de données].
 
 <!--Image references-->
 
 <!--Article references-->
-[charge de travail de l’entrepôt de données] sql-data-warehouse-overview-workload.md
+[charge de travail de l’entrepôt de données]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

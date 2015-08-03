@@ -43,4 +43,4 @@ Pour obtenir des instructions, téléchargez le « Guide de prise en main » s
 [Connexion à une machine virtuelle exécutant Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

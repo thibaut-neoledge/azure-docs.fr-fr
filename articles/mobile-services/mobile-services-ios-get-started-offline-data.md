@@ -124,8 +124,8 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     #### MS_TableOperations
 
     | Attribut | Type |
-    |----------- |   ------    |
-    | id | Integer 64 |
+    |-------------- |   ------    |
+    | ID (obligatoire) | Integer 64 |
     | itemId | String |
     | properties | Binary Data |
     | table | String |
@@ -134,8 +134,8 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     #### MS_TableOperationErrors
 
     | Attribut | Type |
-    |------------ | ----------  |
-    | id | String |
+    |-------------- | ----------  |
+    | ID (obligatoire) | Chaîne |
     | operationId | Integer 64 |
     | properties | Binary Data |
     | tableKind | Integer 16 |
@@ -144,8 +144,8 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
 
     | Attribut | Type |
-    |----------- | ----------  |
-    | id | String |
+    |-------------- | ----------  |
+    | ID (obligatoire) | Chaîne |
     | key | String |
     | keyType | Integer 64 |
     | table | String |
@@ -155,14 +155,13 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     #### TodoItem
 
-    | Attribut | Type |
-    |-----------   |  ------ |
-    | id | String |
-    | terminé | Boolean |
-    | texte | String |
-    | ms_createdAt | Date |
-    | ms_updatedAt | Date |
-    | ms_version | String |
+    | Attribut | Type | Remarque | 
+    |-------------- |  ------ | -------------------------------------------------------|
+    | ID (obligatoire) | Chaîne | clé primaire dans le magasin distant (obligatoire) |
+    | terminé | Boolean | champ d'élément todo |
+    | texte | String | champ d'élément todo |
+    | ms_createdAt | Date | (facultatif) mappe vers __createdAt system property | | ms_updatedAt | Date | (facultatif) mappe vers __updatedAt system property | | ms_version | String | (facultatif) permet de détecter les conflits, mappe vers __version |
+
 
 
 ## <a name="setup-sync"></a>Modification du comportement de la synchronisation d'une application
@@ -191,7 +190,7 @@ Dans cette section, vous modifiez l'application afin qu'elle ne se synchronise p
 
 Dans cette section, vous allez désactiver le Wi-Fi dans le simulateur pour créer un scénario hors connexion. Lorsque vous ajoutez des éléments de données, ils sont placés dans le magasin local des données de base, mais ne sont pas synchronisés vers le service mobile.
 
-1. Désactivez le Wi-Fi dans le simulateur iOS. Cela simule un scénario hors connexion.
+1. Désactivez la connexion Internet sur votre Mac. La désactivation du Wi-Fi uniquement dans le simulateur iOS peut ne pas avoir d'effet, puisque le simulateur peut toujours utiliser la connexion Internet de l'ordinateur Mac hôte. Donc, désactivez Internet directement sur l'ordinateur. Ceci simule un scénario hors connexion.
 
 2. Ajoutez des tâches ou marquez-en certaines comme terminées. Fermez le simulateur (ou forcez la fermeture de l'application) et redémarrez. Vérifiez que vos modifications ont bien été rendues persistantes. Notez que les éléments de données sont toujours affichés, car ils sont stockés dans le magasin local des données de base.
 
@@ -272,4 +271,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

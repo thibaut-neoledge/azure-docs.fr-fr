@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Vue d’ensemble de la testabilité
@@ -94,4 +94,4 @@ Pour créer de véritables services de mise à l’échelle du cloud, vous devez
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

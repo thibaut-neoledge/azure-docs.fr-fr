@@ -5,15 +5,16 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint intranet
@@ -121,4 +122,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Instructions pour l’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

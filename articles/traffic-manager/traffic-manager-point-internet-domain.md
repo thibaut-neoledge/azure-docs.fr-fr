@@ -36,4 +36,4 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

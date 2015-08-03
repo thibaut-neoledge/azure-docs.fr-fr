@@ -279,4 +279,4 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

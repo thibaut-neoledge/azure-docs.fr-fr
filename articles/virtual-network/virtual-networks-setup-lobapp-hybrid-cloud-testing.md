@@ -118,14 +118,14 @@ Ensuite, configurez SQL Server 2014 pour qu'il utilise le lecteur F: pour les no
 3.	Dans l’Explorateur d’objets, cliquez avec le bouton droit sur **SQL1**, puis cliquez sur **Propriétés**.
 4.	Dans la fenêtre **Propriétés du serveur**, cliquez sur **Paramètres de base de données**.
 5.	Recherchez les **Emplacements de la base de données par défaut** et définissez les valeurs suivantes : 
-	- Pour **Data**, tapez le chemin **f:\\Data**.
-	- Pour **Log**, tapez le chemin **f:\\Log**.
-	- Pour **Backup**, tapez le chemin **f:\\Backup**.
+	- Pour **Data**, tapez le chemin **f:\Data**.
+	- Pour **Log**, tapez le chemin **f:\Log**.
+	- Pour **Backup**, tapez le chemin **f:\Backup**.
 	- Remarque : seules les nouvelles bases de données utilisent ces emplacements.
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans l’**Explorateur d’objets**, ouvrez **Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-9.	Dans **Nom de connexion**, tapez **CORP\\User1**.
+9.	Dans **Nom de connexion**, tapez **CORP\User1**.
 10.	Dans la page **Rôles serveur**, cliquez sur **sysadmin**, puis cliquez sur **OK**.
 11.	Fermez Microsoft SQL Server Management Studio.
 
@@ -146,7 +146,7 @@ Commencez par créer une machine virtuelle Azure pour LOB1 avec les commandes su
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-Ensuite, connectez-vous à la machine virtuelle LOB1 avec les informations d'identification du compte CORP\\User1.
+Ensuite, connectez-vous à la machine virtuelle LOB1 avec les informations d'identification du compte CORP\User1.
 
 Ensuite, configurez une règle de pare-feu Windows pour autoriser le trafic pour le test de la connectivité de base. À partir d'une invite de commandes de Windows PowerShell de niveau administrateur sur LOB1, exécutez les commandes suivantes.
 
@@ -168,7 +168,7 @@ Ensuite, configurez LOB1 pour IIS et testez l'accès à partir de CLIENT1.
 9.	Sur la page Sélectionner des services de rôle, activez ou désactivez les cases à cocher pour les services requis pour tester votre application métier, puis cliquez sur **Suivant**.
 10.	Sur la page Confirmer les sélections pour l’installation, cliquez sur **Installer**.
 11.	Attendez la fin de l’installation des composants, puis cliquez sur **Fermer**.
-12.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\\User1, puis démarrez Internet Explorer.
+12.	Ouvrez une session sur l'ordinateur CLIENT1 avec les informations d'identification du compte CORP\User1, puis démarrez Internet Explorer.
 13.	Dans la barre d’adresse, tapez **http://lob1/**, puis appuyez sur ENTRÉE. Vous devez voir la page web IIS 8 par défaut. 
 Ceci est votre configuration actuelle.
 
@@ -195,4 +195,4 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

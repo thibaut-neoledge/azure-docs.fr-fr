@@ -240,7 +240,7 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 
 Si vous avez besoin de collaborer sur un projet, envisagez d'alterner les commandes push vers GitHub et les commandes push vers Azure.
 
-## Exécution de l'application dans Azure
+## Exécuter l’application dans Microsoft Azure
 Maintenant que vous avez déployé votre application Web, exécutez l'application lorsque celle-ci est hébergée dans Azure.
 
 Cette opération peut être réalisée de deux manières :
@@ -256,4 +256,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi VS Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

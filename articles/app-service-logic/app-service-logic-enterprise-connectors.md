@@ -71,7 +71,7 @@ Les étapes suivantes permettent de créer un connecteur d'entreprise à l'aide 
 2. Sélectionnez le connecteur. Dans le nouveau panneau, sélectionnez **Créer**. 
 3. Entrez les propriétés : 
 
-	Propriété | Description
+Propriété | Description
 --- | ---
 Nom | Entrez un nom pour le connecteur. Par exemple, vous pouvez le nommer *SAPConnector*, *SalesForceGetAccounts* ou *QuickBooksGetItems*.
 Paramètres du package | Entrez les paramètres du système d’entreprise, comme le *nom d’utilisateur SAP* ou l’*URL du serveur SugarCRM*. Consultez [Propriétés spécifiques au système d’entreprise](#AddProperties) dans cette rubrique. 
@@ -87,7 +87,7 @@ Ajouter au Tableau d'accueil | Sélectionnez cette option pour ajouter le connec
 
 > [AZURE.IMPORTANT]Chaque connecteur possède des propriétés qui sont spécifiques à ce système d'entreprise. Lors de la connexion à SAP, vous entrez des propriétés spécifiques à SAP. Lors de la connexion à Salesforce, vous entrez des propriétés spécifiques à Salesforce, et ainsi de suite. Le tableau suivant répertorie les propriétés de système d'entreprise obligatoires.
 	
-	Enterprise System | Required Properties
+Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>Point de terminaison</li><li>Nom du fournisseur</li></ul>
 MongoDB| <ul><li>Chaîne de connexion</li><li>Hôte</li><li>Port</li><li>Nom d’utilisateur</li><li>Mot de passe</li><li>Base de données</li><li>Utiliser le chiffrement SSL</li><li>Local : entrez False si elle est basée dans le cloud. Si le système MongoDb est local, entrez True et entrez les propriétés suivantes :<ul><li>Nom de clé d’accès partagé</li><li>Espace de noms Service Bus</li><li>Chemin d’accès de relais</li><li>Envoyer la clé</li></ul></li></ul>
@@ -158,4 +158,4 @@ Certains connecteurs d'entreprise utilisent la sécurité OAuth. Quand vous ajou
 
 [Liste des connecteurs et applications API](app-service-logic-connectors-list.md)<br/><br/> [Qu’est-ce qu’un connecteur et une application API BizTalk ?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

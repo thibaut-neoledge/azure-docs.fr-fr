@@ -139,4 +139,4 @@ Les scripts serveur sont également utilisés dans le cadre du processus d'autor
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -345,4 +345,4 @@ Pour obtenir plus de détails sur les paramètres de configuration d’optimisat
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

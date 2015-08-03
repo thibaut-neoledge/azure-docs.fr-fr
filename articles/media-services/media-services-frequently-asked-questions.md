@@ -45,4 +45,4 @@ Q : comment puis-je copier des éléments multimédias d’un compte Media Serv
 
 R : pour copier des éléments multimédias d’un compte Media Services vers un autre, utilisez la méthode d’extension [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible dans le référentiel [Extensions du Kit de développement logiciel (SDK) Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Pour plus d’informations, consultez [cette publication de forum](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

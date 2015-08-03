@@ -928,4 +928,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

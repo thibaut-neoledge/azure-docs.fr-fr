@@ -103,4 +103,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

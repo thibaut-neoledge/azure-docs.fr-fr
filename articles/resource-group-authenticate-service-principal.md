@@ -34,7 +34,7 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
 1. Créez une application AAD à l’aide de la commande **New-AzureADApplication**. Indiquez le nom d’affichage de votre application, l’URI vers une page décrivant votre application (le lien n’est pas vérifié), les URI identifiant votre application et le mot de passe correspondant à l’identité de votre application.
 
-        PS C:> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
      L’application Azure AD est renvoyée. La propriété **ApplicationId** est nécessaire pour la création de principaux du service, l’attribution de rôles et l’acquisition de jetons JWT. Enregistrez la sortie ou capturez-la dans une variable.
 
@@ -68,23 +68,23 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
 2. Créez un principal du service pour votre application.
 
-        PS C:> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
      Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
 3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
 
-        PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 4. Récupérez l’abonnement dans lequel l’attribution de rôle a été créée. Cet abonnement sera utilisé ultérieurement pour récupérer le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service.
 
-        PS C:> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
 
      Si vous avez créé l’attribution de rôle dans un abonnement autre que l’abonnement sélectionné, vous pouvez spécifier le paramètre **SubscriptoinId** ou **SubscriptionName** afin de récupérer un autre abonnement.
 
 5. Créez un objet **PSCredential** contenant vos informations d’identification à l’aide de la commande **Get-Credential**.
 
-        PS C:> $creds = Get-Credential
+        PS C:\> $creds = Get-Credential
 
      Vous serez invité à entrer vos informations d’identification.
 
@@ -94,7 +94,7 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
 6. Utilisez les informations d’identification que vous avez saisies comme entrée pour l’applet de commande **Add-AzureAccount** afin de connecter le principal du service :
 
-        PS C:> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
 
      Vous devriez maintenant être authentifié en tant que principal du service pour l’application AAD que vous avez créée.
 
@@ -180,4 +180,4 @@ Gestion et audit de l’accès
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

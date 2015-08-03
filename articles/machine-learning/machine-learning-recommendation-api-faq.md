@@ -130,4 +130,4 @@ Une assistance technique est disponible sur le site de [Support Microsoft Azure]
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -41,7 +41,7 @@ Pour configurer le déchargement SSL sur une passerelle Application Gateway, pro
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -56,7 +56,7 @@ Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramè
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -78,7 +78,7 @@ Utilisez `Add-AzureApplicationGatewaySslCertificate` pour télécharger le certi
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie. Remplacez les valeurs de l'exemple par les vôtres.
 
-	PS C:> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -90,7 +90,7 @@ Ensuite, validez le téléchargement du certificat. Utilisez le `Get-AzureApplic
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
-	PS C:> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -177,7 +177,7 @@ Vous pouvez construire votre configuration en créant un objet de configuration 
 Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez utiliser l'applet de commande `Set-AzureApplicationGatewayConfig` avec un objet de configuration ou avec un fichier XML de configuration.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -193,7 +193,7 @@ Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureAp
 **Remarque :** l'applet de commande `Start-AzureApplicationGateway` peut prendre jusqu'à 15 à 20 minutes pour se terminer.
 
    
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -208,7 +208,7 @@ Utilisez l'applet de commande `Get-AzureApplicationGateway` pour vérifier l'ét
 
 Cet exemple montre une passerelle Application Gateway en cours d'exécution et est prête à prendre le trafic.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	Name          : AppGwTest2
 	Description   : 
@@ -229,4 +229,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

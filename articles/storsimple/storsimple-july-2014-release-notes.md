@@ -42,4 +42,4 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

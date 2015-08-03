@@ -93,4 +93,4 @@ Pour créer une nouvelle machine virtuelle Windows dans Azure, consultez [Utilis
 - une appartenance à un jeu d’équilibrage de la charge ;
 - une adresse IP statique.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

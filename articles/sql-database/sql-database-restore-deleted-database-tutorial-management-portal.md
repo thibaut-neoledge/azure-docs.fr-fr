@@ -73,4 +73,4 @@ Pour plus d’informations, consultez les liens suivants :
 
 [Sauvegarde et restauration de base de données SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -50,7 +50,7 @@ Microsoft Azure fournit un catalogue étendu de technologies d’analyse compat
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-fr/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -62,4 +62,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

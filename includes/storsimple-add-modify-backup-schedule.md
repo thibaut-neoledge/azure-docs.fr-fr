@@ -28,4 +28,4 @@
 La page **Stratégies de sauvegarde** affiche la stratégie mise à jour.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

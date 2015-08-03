@@ -132,4 +132,4 @@ Ensuite, essayez ces autres didacticiels Android :
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

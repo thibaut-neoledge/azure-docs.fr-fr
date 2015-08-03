@@ -42,7 +42,7 @@ Si vous souhaitez supprimer une passerelle Application Gateway, accédez à [Sup
 
 Cet exemple montre l'applet de commande sur la première ligne, suivi de la sortie.
     
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -57,7 +57,7 @@ Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramè
 
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   : 
 	VnetName      : testvnet1
@@ -73,7 +73,7 @@ Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramè
 
 La configuration d'une passerelle Application Gateway se compose de plusieurs valeurs. Les valeurs peuvent être liées ensemble pour construire la configuration.
 
-Les valeurs sont :
+Les valeurs sont :
 
 - **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
 - **Paramètres du pool de serveurs principaux :** chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
@@ -133,7 +133,7 @@ Vous pouvez construire votre configuration en créant un objet de configuration 
 Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez utiliser l'applet de commande `Set-AzureApplicationGatewayConfig` avec un objet de configuration ou avec un fichier XML de configuration.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -150,7 +150,7 @@ Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureAp
 
 
 
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -164,7 +164,7 @@ Utilisez l'applet de commande `Get-AzureApplicationGateway` pour vérifier l'ét
 
 Cet exemple montre une passerelle Application Gateway en cours d'exécution et est prête à prendre le trafic destiné à `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -189,7 +189,7 @@ Pour supprimer une passerelle Application Gateway, vous devez effectuer les opé
 
 Cet exemple montre l'applet de commande `Stop-AzureApplicationGateway` sur la première ligne, suivie de la sortie.
 
-	PS C:> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -200,7 +200,7 @@ Cet exemple montre l'applet de commande `Stop-AzureApplicationGateway` sur la pr
 Une fois la passerelle Application Gateway dans un état arrêté, utilisez l'applet de commande `Remove-AzureApplicationGateway` pour supprimer le service.
 
 
-	PS C:> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -211,7 +211,7 @@ Une fois la passerelle Application Gateway dans un état arrêté, utilisez l'ap
 Pour vérifier que le service a été supprimé, vous pouvez utiliser l'applet de commande `Get-AzureApplicationGateway`. Cette étape n'est pas requise.
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -229,4 +229,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

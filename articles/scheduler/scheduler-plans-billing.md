@@ -87,4 +87,4 @@ Pour plus d'informations sur la tarification, consultez [Tarification d'Azure Sc
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -20,7 +20,7 @@
 
 Ce didacticiel explique comment connecter votre environnement NetSuite à Azure Active Directory (Azure AD). Il présente les méthodes à suivre pour configurer l’authentification unique à NetSuite, activer l’approvisionnement automatique des utilisateurs et affecter des utilisateurs pour qu’ils puissent accéder à NetSuite.
 
-##Conditions préalables
+##Composants requis
 
 1. Pour accéder à Active Directory Azure via le [portail de gestion Azure](https://manage.windowsazure.com), vous devez d’abord avoir un abonnement Azure valide.
 
@@ -258,4 +258,4 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

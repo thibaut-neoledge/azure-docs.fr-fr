@@ -73,12 +73,12 @@ Les sections suivantes vous aideront à vous préparer à utiliser l’appareil 
 Avant d’approvisionner l’appareil virtuel, vous devez effectuer les préparatifs suivants dans votre environnement Azure :
 
 - Pour l’appareil virtuel, [configurez un réseau virtuel sur Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- Vous pouvez utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. 
+- Il est recommandé d’utiliser le serveur DNS par défaut fourni par Azure au lieu de spécifier le nom de votre propre serveur DNS. Si le nom de votre serveur DNS n'est pas valide, la création de l’appareil virtuel échoue.
 - Les options de point à site et de site à site sont facultatives (non obligatoires). Si vous le souhaitez, vous pouvez configurer ces options pour des scénarios plus avancés. 
 
 >[AZURE.IMPORTANT]**Assurez-vous que le réseau virtuel est situé dans la même région que les comptes de stockage cloud que vous allez utiliser avec l’appareil virtuel.**
 
-- Créez des [machines virtuelles Azure ](https://msdn.microsoft.com/library/azure/jj156003.aspx) (serveurs hôtes) dans le réseau virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
+- Vous pouvez créer des [machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (serveurs hôtes) dans le réseau virtuel qui peut utiliser les volumes exposés par l’appareil virtuel. Ces serveurs doivent répondre aux exigences suivantes : 							
 	- Il doit s’agir de machines virtuelles Windows ou Linux sur lesquelles l’initiateur iSCSI est installé
 	- Ils doivent être en cours d’exécution dans le même réseau virtuel que l’appareil virtuel
 	- Ils doivent être en mesure de se connecter à la cible iSCSI de l’appareil virtuel via l’adresse IP interne de ce dernier
@@ -131,10 +131,10 @@ Procédez comme suit pour créer l’appareil virtuel StorSimple :
 	a. **Nom** : nom unique de votre appareil virtuel.
 
 
-	b. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques avec Update 1 auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et d’Update 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
+	b. **Version** : sélectionnez la version de l’appareil virtuel. Cette option est absente si vous n’avez inscrit que les appareils physiques de version Update 1 (ou ultérieure) auprès de ce service. Ce champ n’apparaît que si vous avez une combinaison d’appareils physiques de la mise à jour préliminaire 1 et d’Update 1 inscrits auprès du service. Comme la version de l’appareil virtuel détermine l’appareil physique à partir duquel vous pouvez basculer ou cloner, il est important de créer une version appropriée de l’appareil virtuel. Sélectionnez :
 
 	- la version Update 0.3 en cas de basculement ou de récupération d’urgence à partir d’un appareil physique avec version GA ou version Update 0.1 à 0.3. 
-	- la version Update 1 en cas de basculement ou de clonage à partir d’un appareil physique avec Update 1. 
+	- la version Update 1 en cas de basculement ou de clonage à partir d’un appareil physique avec Update 1 (ou version ultérieure). 
 
  
 	b. **Réseau virtuel** – Nom du réseau virtuel que vous souhaitez utiliser avec cet appareil virtuel.
@@ -155,27 +155,29 @@ Avant de commencer cette procédure, assurez-vous que vous disposez d’une copi
 Procédez comme suit pour configurer et inscrire l’appareil virtuel StorSimple.
 
 
-1. Sélectionnez l’**appareil virtuel StorSimple** en tant qu’appareil et double-cliquez dessus pour accéder à la zone de démarrage rapide.
+1. Sélectionnez l’**appareil virtuel StorSimple** que vous venez de créer dans la page Appareils. 
 
 - Cliquez sur **Terminer la configuration de l’appareil**. L’Assistant Configurer l’appareil démarre.
 
 - Entrez la **clé de chiffrement des données de service** dans l’espace fourni.
 
-- Cliquez sur la coche pour terminer la configuration initiale et l’inscription de l’appareil virtuel. Le mot de passe de l’administrateur de l’appareil est préconfiguré avec les valeurs par défaut et doit être modifié une fois l’appareil inscrit.
+- Entrez les mots de passe d’administrateur de l’appareil et du Gestionnaire d'instantanés conformes à la longueur et aux paramètres spécifiés.
+
+- Cliquez sur la coche pour terminer la configuration initiale et l’inscription de l’appareil virtuel.
 
 ### Modification des paramètres de configuration de l’appareil
 
-La section suivante décrit les paramètres de configuration d’appareil que vous devez configurer pour l’appareil virtuel StorSimple.
+La section suivante décrit les paramètres de configuration d’appareil que vous pouvez configurer pour l’appareil virtuel StorSimple si vous envisagez d’utiliser CHAP, le Gestionnaire d'instantanés StorSimple ou de modifier le mot de passe d’administrateur de l’appareil.
 
-#### Configuration de l’initiateur CHAP
+#### Configuration de l’initiateur CHAP (facultatif)
 
 Ce paramètre contient les informations d’identification que votre appareil virtuel (cible) attend des initiateurs (serveurs) qui tentent d’accéder aux volumes. Les initiateurs fournissent un nom d’utilisateur et un mot de passe CHAP pour s’identifier auprès de votre appareil au cours de cette authentification.
 
-#### Configuration de la cible CHAP
+#### Configuration de la cible CHAP (facultatif)
 
-Ce paramètre contient les informations d’identification que votre appareil virtuel utilise lorsqu’un initiateur CHAP demande une authentification mutuelle ou bidirectionnelle. Votre appareil virtuel utilise un nom d’utilisateur et un mot de passe CHAP inversés pour s’identifier auprès de l’initiateur pendant le processus d’authentification. Notez que les paramètres CHAP cibles sont des paramètres globaux. Lorsqu’ils sont appliqués, tous les volumes connectés à l’appareil virtuel de stockage utilisent l’authentification CHAP.
+Ce paramètre contient les informations d’identification que votre appareil virtuel utilise lorsqu’un initiateur CHAP demande une authentification mutuelle ou bidirectionnelle. Votre appareil virtuel utilise un nom d’utilisateur et un mot de passe CHAP inversés pour s’identifier auprès de l’initiateur pendant le processus d’authentification. Notez que les paramètres CHAP cibles sont des paramètres globaux. Lorsqu’ils sont appliqués, tous les volumes connectés à l’appareil virtuel de stockage utilisent l’authentification CHAP. Sélectionnez votre appareil dans la page Appareils. Accédez à la page Configurer à l’intérieur de la page Appareils et faites défiler la page vers le bas jusqu’à la section CHAP.
 
-#### Configuration du Gestionnaire d’instantanés StorSimple
+#### Configuration du Gestionnaire d’instantanés StorSimple (facultatif)
 
 Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Windows et permet aux administrateurs de gérer les sauvegardes de votre appareil StorSimple sous la forme d’instantanés cloud ou locaux.
 
@@ -183,7 +185,7 @@ Le Gestionnaire d’instantanés StorSimple réside sur l’ordinateur hôte Win
 
 Lorsque vous configurez un appareil dans le Gestionnaire d’instantanés StorSimple, vous devez fournir l’adresse IP et le mot de passe de l’appareil StorSimple pour authentifier votre appareil de stockage.
 
-Procédez comme suit pour configurer le Gestionnaire d’instantanés StorSimple lors de l’utilisation avec votre appareil virtuel StorSimple.
+Pour modifier le mot de passe du Gestionnaire d’instantanés StorSimple, procédez comme suit.
 
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
 
@@ -195,11 +197,11 @@ Procédez comme suit pour configurer le Gestionnaire d’instantanés StorSimple
 
 Le mot de passe du Gestionnaire d’instantanés StorSimple est maintenant mis à jour et peut être utilisé lorsque vous authentifiez vos ordinateurs hôtes Windows.
 
-#### Configuration du mot de passe Administrateur de l’appareil
+#### Modification du mot de passe d’administrateur de l’appareil
 
 Lorsque vous utilisez l’interface Windows PowerShell pour accéder à l’appareil virtuel, vous devez entrer un mot de passe Administrateur d’appareil. Pour la sécurité de vos données, vous êtes obligé de changer ce mot de passe avant de pouvoir utiliser l’appareil virtuel.
 
-Procédez comme suit pour configurer le mot de passe Administrateur pour votre appareil virtuel StorSimple.
+Pour modifier le mot de passe d’administrateur de votre appareil virtuel StorSimple, procédez comme suit.
 
 1. Sur votre appareil virtuel, accédez à **Appareils > Configurer**.
  
@@ -211,7 +213,7 @@ Procédez comme suit pour configurer le mot de passe Administrateur pour votre a
 
 Le mot de passe Administrateur d’appareil doit maintenant être à jour. Vous allez utiliser le mot de passe modifié pour accéder à l’interface Windows PowerShell sur votre appareil virtuel.
 
-#### Configuration de la gestion à distance 
+#### Configuration de l’administration à distance (facultatif)
 
 L’accès à distance à votre appareil virtuel via l’interface Windows PowerShell n’est pas activé par défaut. Vous devez tout d’abord activer la gestion à distance sur l’appareil virtuel, puis sur le client qui sera utilisé pour accéder à votre appareil virtuel.
 
@@ -385,4 +387,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Apprendre à [restaurer à partir d’un jeu de sauvegardes](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

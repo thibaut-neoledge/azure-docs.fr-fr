@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # Configurer des connexions ExpressRoute et VPN de site à site coexistantes
@@ -45,10 +45,11 @@ Vous avez le choix entre deux procédures de configuration distinctes. La proc�
 
 ### Remarques et limitations
 
+- Vous ne pouvez pas créer d’itinéraire (via Azure) entre votre réseau local connecté via le réseau privé virtuel de site à site et votre réseau local connecté via ExpressRoute.
+- Vous ne pouvez pas activer de connexions VPN point à site avec le même réseau virtuel connecté à ExpressRoute. Des connexions VPN points à site et ExpressRoute ne peuvent pas coexister pour un même réseau virtuel.
 - La passerelle ExpressRoute et la passerelle VPN de site à site doivent être une référence (SKU) de passerelle Standard ou HighPerformance. Pour plus d’informations sur les références de passerelle, consultez la rubrique [Références (SKU) de passerelle](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Si votre réseau local est connecté à ExpressRoute et à un réseau privé virtuel de site à site (scénario 1), vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public. 
 - Vous devez commencer par créer la passerelle ExpressRoute avant d’ajouter la passerelle VPN de site à site.
-- Vous ne pouvez pas créer d’itinéraire (via Azure) entre votre réseau local connecté via le réseau privé virtuel de site à site et votre réseau local connecté via ExpressRoute.
 - Les deux procédures partent du principe que vous disposez déjà d’un circuit ExpressRoute configuré. Si ce n’est pas le cas, consultez les articles suivants : 
 
 	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md) 
@@ -151,7 +152,7 @@ Vous avez le choix entre deux procédures de configuration distinctes. La proc�
 		OperationStatus      : Succeeded
 
 	
-8. Configurez votre périphérique VPN local à connecter à la nouvelle passerelle. Utilisez les informations que vous avez récupérées à l’étape 6 lors de la configuration de votre périphérique VPN. Pour plus d’informations sur la configuration du périphérique VPN, consultez la rubrique [Configuration de périphérique VPN](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration).
+8. Configurez votre périphérique VPN local à connecter à la nouvelle passerelle. Utilisez les informations que vous avez récupérées à l’étape 6 lors de la configuration de votre périphérique VPN. Pour plus d’informations sur la configuration du périphérique VPN, consultez la rubrique [Configuration de périphérique VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 	
 
 9. Liez la passerelle VPN de site à site dans Azure à la passerelle locale.
@@ -203,4 +204,4 @@ En savoir plus sur ExpressRoute. Consultez la rubrique [Présentation d’Expre
 
 En savoir plus sur les passerelles VPN. Consultez la rubrique [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -384,4 +384,4 @@ Maintenant que vous connaissez les principes de base du service de File d'attent
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

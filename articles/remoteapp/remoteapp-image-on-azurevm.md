@@ -59,4 +59,4 @@ Utilisez ces étapes pour importer la nouvelle image dans RemoteApp :
 Vous êtes maintenant prêt à créer votre collection, [cloud](remoteapp-create-cloud-deployment.md) ou [hybride](remoteapp-create-hybrid-deployment.md), selon vos besoins.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

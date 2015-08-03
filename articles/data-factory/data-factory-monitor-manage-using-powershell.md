@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Création et surveillance d’une fabrique de données à l’aide d’Azure PowerShell
@@ -21,6 +21,8 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
+
 
 Le didacticiel [Prise en main d’Azure Data Factory][adf-get-started] vous montre comment créer et surveiller une fabrique de données Azure à l’aide du [portail Azure en version préliminaire][azure-preview-portal]. Dans ce didacticiel, vous allez créer et surveiller une fabrique de données Azure à l’aide d’applets de commande Azure PowerShell. Le pipeline de la fabrique de données que vous créez dans ce didacticiel copie les données à partir d’un objet blob Azure vers une base de données SQL Azure.
 
@@ -68,7 +70,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. Le service lié StorageLinkedService relie un compte de stockage Azure Storage et AzureSqlLinkedService relie une base de données Azure SQL à la fabrique de données : **ADFTutorialDataFactoryPSH**. Vous allez créer un pipeline plus loin dans ce didacticiel pour copier les données d’un conteneur d’objets blob dans StorageLinkedService vers une table SQL dans AzureSqlLinkedService.
 
 ### Créer un service lié pour un compte de stockage Azure
-1.	Créez un fichier JSON nommé **StorageLinkedService.json** dans **C:\\ADFGetStartedPSH** avec le contenu suivant. Créez le dossier ADFGetStartedPSH s’il n’existe pas déjà.
+1.	Créez un fichier JSON nommé **StorageLinkedService.json** dans **C:\ADFGetStartedPSH** avec le contenu suivant. Créez le dossier ADFGetStartedPSH s’il n’existe pas déjà.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,7 +135,7 @@ Vous devez effectuer les étapes suivantes pour préparer le stockage d’objets
 * Créez une table nommée **emp** dans la base de données SQL Azure vers laquelle pointe **AzureSqlLinkedService**.
 
 
-1. Lancez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\\ADFGetStartedPSH** sur votre disque dur. 
+1. Lancez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStartedPSH** sur votre disque dur. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +163,7 @@ Vous devez effectuer les étapes suivantes pour préparer le stockage d’objets
 ### Créer une table d'entrée 
 Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans cette étape, vous allez créer une table nommée **EmpBlobTable** qui pointe vers un conteneur d’objets blob dans l’emplacement Azure Storage représenté par le service lié **StorageLinkedService**. Ce conteneur d’objets blob (**adftutorial**) contient les données d’entrée dans le fichier : **emp.txt**.
 
-1.	Créez un fichier JSON nommé **EmpBlobTable.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant :
+1.	Créez un fichier JSON nommé **EmpBlobTable.json** dans le dossier **C:\ADFGetStartedPSH** avec le contenu suivant :
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +228,7 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 ### Créer la table de sortie
 Dans cette partie de l’étape, vous allez créer une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL (**emp**) de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
 
-1.	Créez un fichier JSON nommé **EmpSQLTable.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant.
+1.	Créez un fichier JSON nommé **EmpSQLTable.json** dans le dossier **C:\ADFGetStartedPSH** avec le contenu suivant.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -239,7 +241,7 @@ Dans cette partie de l’étape, vous allez créer une table de sortie nommée *
 		        ],
 		        "location":
 		        {
-		            "type": "AzureSQLTableLocation",
+		            "type": "AzureSqlTableLocation",
 		            "tableName": "emp",
 		            "linkedServiceName": "AzureSqlLinkedService"
 		        },
@@ -253,7 +255,7 @@ Dans cette partie de l’étape, vous allez créer une table de sortie nommée *
 
      Notez les points suivants :
 	
-	* Le **type** d’emplacement est défini sur **AzureSQLTableLocation**.
+	* Le **type** d’emplacement est défini sur **AzureSqlTableLocation**.
 	* **linkedServiceName** est défini sur **AzureSqlLinkedService**.
 	* **tablename** est défini sur **emp**.
 	* Il existe trois colonnes (**ID**, **FirstName** et **LastName**) dans la table emp de la base de données. Toutefois, ID étant une colonne d'identité, vous devez donc spécifier uniquement **FirstName** et **LastName**.
@@ -267,7 +269,7 @@ Dans cette partie de l’étape, vous allez créer une table de sortie nommée *
 ## <a name="CreateAndRunAPipeline"></a>Étape 4 : créer et exécuter un pipeline
 Dans cette étape, vous créez un pipeline avec une **activité de copie** qui utilise **EmpTableFromBlob** en entrée et **EmpSQLTable** en sortie.
 
-1.	Créez un fichier JSON nommé **ADFTutorialPipeline.json** dans le dossier **C:\\ADFGetStartedPSH** avec le contenu suivant : 
+1.	Créez un fichier JSON nommé **ADFTutorialPipeline.json** dans le dossier **C:\ADFGetStartedPSH** avec le contenu suivant : 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +430,4 @@ Article | Description
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

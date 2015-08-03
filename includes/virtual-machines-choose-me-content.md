@@ -42,4 +42,4 @@ D’autres avantages à prendre en compte pour les machines virtuelles :
 
 **Résilience** : Azure analyse le matériel physique qui héberge chaque machine virtuelle en cours d'exécution. Si un serveur physique exécutant une machine virtuelle échoue, Azure s’en aperçoit, transfère la machine virtuelle vers un nouveau matériel et la redémarre. Ce processus est parfois appelé service de réparation. Azure protège également les données d'une machine virtuelle, en conservant des copies redondantes des disques durs virtuels dans le stockage d’objets blob.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->
