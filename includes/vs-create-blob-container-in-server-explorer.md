@@ -10,6 +10,6 @@ Vous pouvez créer des conteneurs d’objets blob à l’aide l’**Explorateur 
 Le nouveau conteneur est privé par défaut et vous devez indiquer votre clé d’accès de stockage pour télécharger des objets blob depuis ce conteneur. Si vous souhaitez que les fichiers du conteneur soient publics, sélectionnez le conteneur dans l’**Explorateur de serveurs**, puis appuyez sur `F4` pour afficher la fenêtre des **Propriétés**. Configurez la propriété **Accès public en lecture** sur **Objet blob**. Tous les utilisateurs d’Internet peuvent afficher les objets blob d’un conteneur public, mais seuls ceux possédant la clé d’accès adéquate peuvent les modifier ou les supprimer.
 
 
-[Image1]: ./media/vs-storage-getting-started-blobs-include/vs-storage-create-blob-containers-in-Server-Explorer.png
+[Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
