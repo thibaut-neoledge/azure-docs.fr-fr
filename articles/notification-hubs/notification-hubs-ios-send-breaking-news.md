@@ -346,7 +346,8 @@ Normalement, les notifications doivent être envoyées par un service principal 
 
 3. Chaque appareil abonné aux dernières nouvelles reçoit les notifications de dernières nouvelles que vous venez d’envoyer.
 
-	![][4] ![][5]
+	![][4]
+	![][5]
 
 
 ## Étapes suivantes
@@ -387,4 +388,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

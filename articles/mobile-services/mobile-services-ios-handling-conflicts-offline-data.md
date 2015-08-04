@@ -171,7 +171,8 @@ Les fonctions de synchronisation hors connexion du Kit de développement logicie
 
 7. Vérifiez que l'application fonctionne avec toutes les modifications que vous avez apportées jusqu'ici. Exécutez à présent l'application dans le simulateur. Ajoutez des éléments à la liste des tâches, puis cliquez sur ces éléments. Le contrôleur d'affichage des éléments (actuellement vide) apparaît.
 
-      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4]
+      ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Ajout des détails des éléments au contrôleur d'affichage des tâches
 

@@ -1,4 +1,12 @@
-<properties pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
+<properties 
+   pageTitle="Restauration d’un volume StorSimple à partir d’un jeu de sauvegarde" | Description de Microsoft Azure"
+   description="Décrit l’utilisation du catalogue de sauvegarde pour restaurer un volume StorSimple à partir d’un jeu de sauvegarde."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -50,7 +58,9 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
   1. Sélectionnez l’appareil approprié.
   2. Dans la liste déroulante, choisissez la stratégie de sauvegarde ou le volume pour la sauvegarde à sélectionner.
   3. Indiquez l’intervalle de temps.
-  4. Cliquez sur l’icône en forme de coche ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) pour exécuter cette requête.
+  4. Cliquez sur l’icône en forme de coche
+
+    ![icône en forme de coche](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) pour exécuter cette requête.
  
     Les sauvegardes associées au volume ou à la stratégie de sauvegarde sélectionné doivent figurer dans la liste des jeux de sauvegarde.
 
@@ -74,4 +84,4 @@ Vous pouvez utiliser la page **Catalogue de sauvegarde** pour restaurer votre vo
 
 En savoir plus sur la [gestion des volumes StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
