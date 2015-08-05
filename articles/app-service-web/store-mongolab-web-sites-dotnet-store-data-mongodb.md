@@ -40,13 +40,18 @@ Si vous disposez déjà d'une application web dans Azure App Service que vous vo
 1. Ouvrez Azure Marketplace en cliquant sur **Nouveau** > **Markeplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Achetez le module MongoLab. ![MongoLab][entry-mongolab]
+1. Achetez le module MongoLab.  
+	![MongoLab][entry-mongolab]
 
-1. Cliquez sur le module MongoLab dans la liste des modules complémentaires, puis cliquez sur **Connection Info**. ![ConnectionInfoButton][button-connectioninfo]
+1. Cliquez sur le module MongoLab dans la liste des modules complémentaires, puis cliquez sur **Connection Info**.  
+	![ConnectionInfoButton][button-connectioninfo]
 
-1. Copiez le MONGOLAB_URI dans votre presse-papiers. ![ÉcranInformationsDeConnexion][screen-connectioninfo] **Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.**
+1. Copiez le MONGOLAB_URI dans votre presse-papiers. 
+	![ÉcranInformationsDeConnexion][screen-connectioninfo] 
+	**Cet URI contient votre nom d’utilisateur et votre mot de passe pour la base de données. Considérez ces informations comme étant sensibles, ne les partagez pas.**
 
-1. Ajoutez la valeur à la liste Connection Strings dans le menu Configuration de votre application Azure Web : ![ChaînesConnexionSiteWeb][focus-website-connectinfo]
+1. Ajoutez la valeur à la liste Connection Strings dans le menu Configuration de votre application Azure Web :  
+	![ChaînesConnexionSiteWeb][focus-website-connectinfo]
 
 1. Dans **Name**, entrez MONGOLAB_URI.
 
@@ -84,7 +89,8 @@ Vous effectuerez ce développement dans Visual Studio Express 2013 pour le web.
 ### Création du projet
 Votre exemple d'application utilisera un modèle Visual Studio pour démarrer. Assurez-vous d'utiliser .NET Framework 4.5.
 
-1. Sélectionnez **Fichier > Nouveau projet**. La boîte de dialogue Nouveau projet s'affiche : ![NewProject][dialog-mongolab-csharp-newproject]
+1. Sélectionnez **Fichier > Nouveau projet**. La boîte de dialogue Nouveau projet s'affiche :    
+	![NewProject][dialog-mongolab-csharp-newproject]
 
 1. Sélectionnez **Installé > Modèles > Visual C# > Web**.
 
@@ -94,7 +100,9 @@ Votre exemple d'application utilisera un modèle Visual Studio pour démarrer. A
 
 1. Saisissez _mongoNotes_ comme **Nom du projet**. Si vous choisissez un nom différent, vous devrez modifier le code fourni dans l'ensemble du didacticiel.
 
-1. Sélectionnez **Outils > Gestionnaire de package de bibliothèques > Console du Gestionnaire de package**. Dans la console PM, tapez **Install-Package mongocsharpdriver** et appuyez sur **Entrée**. ![PMConsole][focus-mongolab-csharp-pmconsole] Le pilote MongoDB C# est intégré au projet et la ligne suivante est automatiquement ajoutée au fichier _packages.config_ :
+1. Sélectionnez **Outils > Gestionnaire de package de bibliothèques > Console du Gestionnaire de package**. Dans la console PM, tapez **Install-Package mongocsharpdriver** et appuyez sur **Entrée**.  
+	![PMConsole][focus-mongolab-csharp-pmconsole] 
+	Le pilote MongoDB C# est intégré au projet et la ligne suivante est automatiquement ajoutée au fichier _packages.config_ :
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -488,4 +496,4 @@ Félicitations ! Vous venez de lancer une application C# ASP.NET utilisant une
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

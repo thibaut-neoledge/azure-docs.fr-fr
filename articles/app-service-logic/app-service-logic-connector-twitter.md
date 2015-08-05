@@ -54,27 +54,27 @@ Un connecteur peut être créé dans une application logique ou directement à p
 Une fois votre application API créée, vous pouvez utiliser le connecteur Twitter comme déclencheur/action pour votre application logique. Pour ce faire :
 
 1.	Créez une application logique ou ouvrez une application logique existante :
-	
+
 	![][2]
 2.	Ouvrez **Déclencheurs et actions** pour ouvrir le concepteur d’applications logiques :
-	
+
 	![][3]
 3.	Le connecteur Twitter est répertorié sur le côté droit. Sélectionnez-le pour l’ajouter automatiquement à votre application logique :
-	
+
 	![][4]
 4.	Sélectionnez **Autoriser**, entrez vos informations d’identification Twitter, puis sélectionnez **Autoriser l’application** :
-	
+
 	![][5]
 
 
 Vous pouvez maintenant configurer le connecteur Twitter pour créer votre flux de travail. Vous pouvez utiliser les tweets récupérés par le déclencheur Twitter dans d’autres actions du flux :
 
-	![][6]
+![][6]
 
 De la même façon, vous pouvez utiliser les actions Twitter dans votre flux. Sélectionnez une action Twitter et configurez les entrées de cette action :
 
-	![][7]
-	![][8]
+![][7]
+![][8]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
@@ -93,4 +93,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

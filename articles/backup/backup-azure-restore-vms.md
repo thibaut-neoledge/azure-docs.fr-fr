@@ -50,7 +50,7 @@ Vous pouvez restaurer une machine virtuelle sur une nouvelle machine virtuelle �
 
         Quel que soit le nom du service cloud choisi, il doit être globalement unique. En règle générale, le nom du service cloud est associé à une URL destinée au public au format [cloudservice].cloudapp.net. Azure ne vous autorise pas à créer un nouveau service cloud si le nom a déjà été utilisé. Si vous choisissez de créer un nouveau service cloud, le nom de la machine virtuelle lui sera attribué. Dans ce cas, le nom de la machine virtuelle choisi doit être suffisamment particulier pour être appliqué au service cloud associé.
 
-         Nous affichons uniquement les services cloud et les réseaux virtuels qui ne sont associés à aucun groupe d’affinités dans les informations de l’instance à restaurer. [En savoir plus](https://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
+        Nous affichons uniquement les services cloud et les réseaux virtuels qui ne sont associés à aucun groupe d’affinités dans les informations de l’instance à restaurer. [En savoir plus](https://msdn.microsoft.com/fr-fr/library/azure/jj156085.aspx).
 
 2. Sélectionnez un compte de stockage pour la machine virtuelle : ce champ est obligatoire pour la création de la machine virtuelle. Vous pouvez sélectionner un compte de stockage existant dans la même région que l’archivage de sauvegarde Azure. Nous ne prenons pas en charge les comptes de stockage redondants dans une zone ou de type Premium.
 
@@ -95,4 +95,6 @@ Pour la plupart des erreurs, vous pouvez suivre l’action recommandée suggér�
 ## Étapes suivantes
 - [Gestion des machines virtuelles](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+ 
+
+<!----HONumber=July15_HO4-->

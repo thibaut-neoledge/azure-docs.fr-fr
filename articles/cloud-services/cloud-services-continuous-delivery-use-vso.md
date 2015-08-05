@@ -133,7 +133,8 @@ Spécifiez des valeurs pour les propriétés si vous souhaitez d’autres valeur
 <tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d’accès à votre fichier .pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
 <tr><td>Environnement de déploiement SharePoint</td><td>Identique au nom du service</td></tr>
 <tr><td>Environnement de déploiement Azure</td><td>Nom de l’application Web ou du service cloud</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 Si vous utilisez plusieurs configurations de service (fichiers .cscfg), vous pouvez spécifier la configuration du service désiré dans le paramètre **Build, Advanced, MSBuild arguments**. Par exemple, pour utiliser ServiceConfiguration.Test.cscfg, définissez l’option de ligne d’argument MSBuild /p:TargetProfile=Test.<br/>
 ![][38]
@@ -297,4 +298,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

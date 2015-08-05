@@ -55,11 +55,11 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 10. Maintenant que MongoDB est installé et en cours d’exécution, vous devez ouvrir un port dans le Pare-feu Windows pour vous connecter à distance à MongoDB. À partir du menu **Démarrer**, sélectionnez **Outils d'administration**, puis **Pare-feu Windows avec fonctions avancées de sécurité**.
 
 11. Dans le volet gauche, sélectionnez **Règles de trafic entrant**. Dans le volet **Actions** situé à droite, sélectionnez **Nouvelle règle...**.
-
+	
 	![Pare-feu Windows][Image1]
 
 	Dans l’**Assistant Nouvelle règle de trafic entrant**, sélectionnez **Port**, puis cliquez sur **Suivant**.
-
+	
 	![Pare-feu Windows][Image2]
 
 	Sélectionnez **TCP**, puis **Ports locaux spécifiques**. Spécifiez le numéro de port « 27017 » (port par défaut sur lequel MongoDB écoute), puis cliquez sur **Suivant**.
@@ -71,13 +71,13 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 	![Pare-feu Windows][Image4]
 
 	Cliquez à nouveau sur **Suivant**.
-
+	
 	![Pare-feu Windows][Image5]
 
 	Spécifiez un nom pour la règle, comme « MongoPort », puis cliquez sur **Terminer**
 
 	![Pare-feu Windows][Image6]
-
+	
 12. Si vous n’avez configuré aucun point de terminaison pour la base de données MongoDB lors de la création de la machine virtuelle, vous pouvez le faire maintenant. La règle de pare-feu et le point de terminaison sont tous deux nécessaires pour vous connecter à distance à la base de données MongoDB. Dans le portail de gestion, cliquez sur **Machines virtuelles**, sur le nom de la nouvelle machine virtuelle, puis sur **Points de terminaison**.
 
 	![Points de terminaison][Image7]
@@ -108,4 +108,4 @@ Suivez cette procédure pour installer et exécuter MongoDB sur une machine virt
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

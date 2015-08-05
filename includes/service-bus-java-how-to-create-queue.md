@@ -23,9 +23,11 @@ Pour créer un espace de noms de service :
 
 2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. 
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. 
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  Après vous être assuré que le nom de l'espace de noms est disponible, choisissez le pays ou la région où votre espace de noms doit être hébergé (veillez à utiliser le même pays ou la même région que celui ou celle où vous déployez vos ressources de calcul).
 
@@ -43,11 +45,13 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 ###Pour obtenir les informations de gestion du portail
 
-1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  Dans le volet de navigation gauche, cliquez sur le nœud **Service Bus** pour afficher la liste des espaces de noms disponibles : 
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Cliquez sur l’espace de noms que vous venez de créer dans la liste affichée.
 
-3.  Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour votre espace de noms. ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour votre espace de noms.
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
@@ -56,4 +60,4 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

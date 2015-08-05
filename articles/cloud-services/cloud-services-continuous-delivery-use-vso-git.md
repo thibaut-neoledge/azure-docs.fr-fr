@@ -96,6 +96,7 @@ La prochaine fois que vous placerez une validation dans votre référentiel, Vis
 
 1. Dans Visual Studio, ouvrez un fichier et modifiez-le. Par exemple, modifiez le fichier _Layout.cshtml sous le dossier Views\Shared dans un rôle Web MVC.<br/>
 ![][17]
+
 2. Modifiez le texte du pied de page du site et enregistrez le fichier.<br/>
 ![][18]
 
@@ -135,10 +136,11 @@ Spécifiez des valeurs pour les propriétés si vous souhaitez d’autres valeur
 <tr><td><b>Propriété</b></td><td><b>Valeur par défaut</b></td></tr>
 ><tr><td>Autoriser les certificats non approuvés</td><td>Si cette propriété a la valeur false, des certificats&#160;SSL doivent être signés par une autorité racine.</td></tr>
 <tr><td>Autoriser la mise à niveau</td><td>Permet au déploiement de mettre à jour un déploiement existant au lieu d'en créer un. Conserve l'adresse&#160;IP.</td></tr><tr><td>Ne pas supprimer</td><td>Si cette propriété a la valeur true, ne remplacez pas un déploiement sans rapport (la mise à niveau est autorisée).</td></tr>
-<tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d'accès à votre fichier&#160;.pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
+<tr><td>Chemin d'accès des paramètres de déploiement</td><td>Chemin d’accès à votre fichier .pubxml pour un site Web, relatif au dossier racine du référentiel. Ignorée pour les services cloud.</td></tr>
 <tr><td>Environnement de déploiement SharePoint</td><td>Identique au nom du service</td></tr>
 <tr><td>Environnement de déploiement Azure</td><td>Nom de l’application Web ou du service cloud</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 11. À ce stade, la création de la build doit être terminée.<br/>
 ![][28]
@@ -146,7 +148,8 @@ Spécifiez des valeurs pour les propriétés si vous souhaitez d’autres valeur
 12. Si vous double-cliquez sur le nom de la build, Visual Studio affiche un **Résumé de la build**, y compris tous les résultats de test provenant de projets de test unitaires associés.<br/>
 ![][29]
 
-13. Dans le [portail Azure](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet Déploiements quand l’environnement intermédiaire est sélectionné.<br/> ![][30]
+13. Dans le [portail Azure](http://manage.windowsazure.com), vous pouvez afficher le déploiement associé sous l’onglet Déploiements quand l’environnement intermédiaire est sélectionné.<br/>
+![][30]
 
 14.	Accédez à l'URL de votre site. Pour une application Web, sélectionnez simplement le bouton **Parcourir** dans le portail. Dans le cas d'un service cloud, choisissez l'URL dans la section **Aperçu rapide** de la page **Tableau de bord** représentant l'environnement intermédiaire. Les déploiements résultant de l'intégration continue de services cloud sont publiés dans l'environnement intermédiaire par défaut. Vous pouvez changer cela en définissant la propriété Environnement du service cloud de substitution sur Production. Cette capture d’écran montre où se situe l’URL du site sur la page de tableau de bord du service cloud : <br/>
 ![][31]
@@ -255,4 +258,4 @@ Pour plus d'informations, consultez la page [Visual Studio Online](http://go.mic
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

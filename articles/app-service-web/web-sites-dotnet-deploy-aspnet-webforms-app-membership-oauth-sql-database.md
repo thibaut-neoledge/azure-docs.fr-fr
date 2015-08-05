@@ -300,21 +300,21 @@ L'étape suivante consiste à activer la fonctionnalité Migrations Code First p
 	![Boîte de dialogue Ajouter des pages Web Forms](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. Dans la fenêtre Console du Gestionnaire de package, entrez la commande suivante :  
 	<pre class="prettyprint">
-enable-migrations
-</pre>La commande enable-migration crée un dossier *Migrations*, dans lequel elle place un fichier *Configuration.cs* que vous pouvez modifier pour amorcer la base de données et configurer les migrations de données.  
+	enable-migrations
+	</pre>La commande enable-migration crée un dossier *Migrations*, dans lequel elle place un fichier *Configuration.cs* que vous pouvez modifier pour amorcer la base de données et configurer les migrations de données.  
 3. Dans la fenêtre **Console du Gestionnaire de package**, entrez la commande suivante :  
 	<pre class="prettyprint">
-add-migration Initial
-</pre>La commande `add-migration Initial` génère un fichier nommé <date_stamp>Initial dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (Initial) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l’**Explorateur de solutions**. Dans la classe `Initial`, la méthode `Up` crée la table `Contact`, et la méthode `Down` (utilisée lorsque vous voulez revenir à l’état précédent) annule cette table.  
+	add-migration Initial
+	</pre>La commande `add-migration Initial` génère un fichier nommé <date_stamp>Initial dans le dossier *Migrations* qui crée la base de données. Le premier paramètre (Initial) est arbitraire et permet de créer le nom du fichier. Les nouveaux fichiers de classe sont affichés dans l’**Explorateur de solutions**. Dans la classe `Initial`, la méthode `Up` crée la table `Contact`, et la méthode `Down` (utilisée lorsque vous voulez revenir à l’état précédent) annule cette table.  
 4. Ouvrez le fichier *Migrations\Configuration.cs*. 
 5. Ajoutez l’espace de noms suivant :  
 	<pre class="prettyprint">
 using ContactManager.Models;
-</pre>
+	</pre>
 6. Remplacez la méthode `Seed` par le code suivant :  
 	<pre class="prettyprint">
-protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-{
+	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+	{
     context.Contacts.AddOrUpdate(p => p.Name,
        new Contacts
        {
@@ -367,13 +367,13 @@ protected override void Seed(ContactManager.Models.ApplicationDbContext context)
             Email = "inesb@wideworldimporters.com",
         }
         );
-}
-</pre>
+	}
+	</pre>
 Ce code initialise (amorce) la base de données avec les informations de contact. Pour plus d’informations sur l’amorçage de la base de données, consultez la page [Amorçage et débogage des bases de données Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. Dans la **Console du Gestionnaire de package**, entrez la commande suivante :  
 	<pre class="prettyprint">
-update-database
-</pre>
+	update-database
+	</pre>
 La commande `update-database` exécute la première migration qui crée la base de données. Par défaut, la base de données est créée en tant que base de données SQL Server Express LocalDB. 
 	![Console du gestionnaire de package](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
 
@@ -390,7 +390,8 @@ SSL (Secure Sockets Layer) est un protocole défini pour autoriser les serveurs 
 
 1. Dans l'**Explorateur de solutions**, cliquez sur le projet **ContactManager**, puis appuyez sur **F4** pour afficher la fenêtre **Propriétés**. 
 2. Définissez **SSL activé** sur `true`. 
-3. Copiez l’**URL SSL** afin de pouvoir l’utiliser ultérieurement. L’URL SSL est `https://localhost:44300/` sauf si vous avez déjà créé des applications Web SSL (comme indiqué ci-dessous). 
+3. Copiez l’**URL SSL** afin de pouvoir l’utiliser ultérieurement.  
+	L’URL SSL est `https://localhost:44300/` sauf si vous avez déjà créé des applications Web SSL (comme indiqué ci-dessous). 
 	![Propriétés du projet](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms18.png)  
 4. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **Contact Manager**, puis sur **Propriétés**.
 5. Dans l’onglet de gauche, cliquez sur **Web**.
@@ -425,7 +426,7 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
                 ClientId = "",
                 ClientSecret = ""
             });
-</pre>
+	</pre>
 3. Accédez à la [Console développeur de Google](https://console.developers.google.com/). Vous devez également vous connecter avec votre compte de messagerie de développeur Google (gmail.com). Si vous n’avez pas de compte Google, sélectionnez le lien **Créer un compte**.  
 	Vous accédez alors à **Google Developers Console**.
 	![Console développeur de Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -508,8 +509,8 @@ Les étapes suivantes vous permettent d'ajouter un fournisseur d'authentificatio
             });
         }
     }
-}
-</pre>
+	}
+	</pre>
 12. Appuyez sur **Ctrl+F5** pour générer et exécuter l’application. Cliquez sur le lien **Ouvrir une session**.
 13. Sous **Utiliser un autre service pour ouvrir une session**, cliquez sur le bouton **Google**.  
 	![Connexion](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -532,9 +533,9 @@ ASP.NET Identity vous permet d'ajouter un rôle d'administrateur et d'affecter u
 1. Dans l’**Explorateur de solutions**, ouvrez le fichier *Configuration.cs* dans le dossier *Migrations*.
 2. Ajoutez les instructions `using` suivantes dans l’espace de noms `ContactManger.Migrations` :  
 	<pre class="prettyprint">
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-</pre>
+	using Microsoft.AspNet.Identity;
+	using Microsoft.AspNet.Identity.EntityFramework;
+	</pre>
 3. Ajoutez la méthode `AddUserAndRole` suivante dans la classe `Configuration` après la méthode `Seed` :  
 	<pre class="prettyprint">
     public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
@@ -567,17 +568,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
             IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
         }
     }
-</pre>
+	</pre>
 4. Ajoutez un appel à la méthode `AddUserAndRole` au début de la méthode `Seed`. Notez que seul le début de la méthode `Seed` est affiché.  
 	<pre class="prettyprint">
     protected override void Seed(ContactManager.Models.ApplicationDbContext context)
     {
         <mark>AddUserAndRole(context);</mark>
-</pre>
+	</pre>
 5. Après avoir enregistré vos modifications, dans la **Console du Gestionnaire de package**, exécutez la commande suivante :  
 	<pre class="prettyprint">
-Update-Database
-</pre>Ce code crée un rôle nommé `canEdit` et un utilisateur local grâce à l’e-mail de canEditUser@wideworldimporters.com. Ensuite, le code ajoute canEditUser@wideworldimporters.com au rôle `canEdit`. Pour plus d’informations, consultez la page de ressources [ASP.NET Identity](http://www.asp.net/identity).
+	Update-Database
+	</pre>Ce code crée un rôle nommé `canEdit` et un utilisateur local grâce à l’e-mail de canEditUser@wideworldimporters.com. Ensuite, le code ajoute canEditUser@wideworldimporters.com au rôle `canEdit`. Pour plus d’informations, consultez la page de ressources [ASP.NET Identity](http://www.asp.net/identity).
 
 ###Limitation de l’accès au dossier d’administration 
 L'exemple d'application **ContactManager** permet aux utilisateurs anonymes et aux utilisateurs connectés d'afficher les contacts. Une fois cette section terminée, cependant, les utilisateurs connectés qui sont affectés au rôle « canEdit » seront les seuls utilisateurs en mesure de modifier les contacts.
@@ -666,17 +667,18 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
 6. Dans la liste des modèles web Visual C#, sélectionnez **Fichier de configuration Web** dans la liste du milieu, acceptez le nom par défaut *Web.config*, puis sélectionnez **Ajouter**.
 7. Remplacez le contenu XML existant dans le fichier *Web.config* par le code suivant :
 	<pre class="prettyprint">
-&lt;?xml version="1.0"?>
-&lt;configuration>
-  &lt;system.web>
-    &lt;authorization>
-      &lt;allow roles="canEdit"/>
-      &lt;deny users="*"/>
-    &lt;/authorization>
-  &lt;/system.web>
-&lt;/configuration>
-</pre>
-8. Enregistrez le fichier *Web.config*. Le fichier *Web.config* spécifie que seuls les utilisateurs affectés au rôle « canEdit » peuvent accéder aux pages du dossier *Admin*. 
+	&lt;?xml version=&quot;1.0&quot;?&gt;
+	&lt;configuration&gt;
+	  &lt;system.web&gt;
+	    &lt;authorization&gt;
+	      &lt;allow roles=&quot;canEdit&quot;/&gt;
+	      &lt;deny users=&quot;*&quot;/&gt;
+	    &lt;/authorization&gt;
+	  &lt;/system.web&gt;
+	&lt;/configuration&gt;
+	</pre>
+8. Enregistrez le fichier *Web.config*.
+	Le fichier *Web.config* spécifie que seuls les utilisateurs affectés au rôle « canEdit » peuvent accéder aux pages du dossier *Admin*. 
 
 Lorsqu'un utilisateur qui n'est pas affecté au rôle « canEdit » essaie de modifier les données, il est redirigé vers la page *Ouvrir une session*.
 
@@ -747,9 +749,11 @@ Il est important de savoir comment afficher et modifier directement la base de d
 1. Dans Visual Studio, ouvrez l'**Explorateur de serveurs** et accédez à **ContactDB**.
 2. Cliquez avec le bouton droit sur **ContactDB**, puis sélectionnez **Ouvrir dans l’Explorateur d’objets SQL Server**.  
 	![Élément de menu Ouvrir dans l’Explorateur d’objets SQL Server](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
-3. Si la boîte de dialogue **Ajouter une règle de pare-feu** est affichée, sélectionnez **Ajouter une règle de pare-feu**. Si vous ne pouvez pas développer **Bases de données SQL** et afficher la base de données **ContactDB** dans Visual Studio, suivez les instructions pour ouvrir un ou plusieurs ports de pare-feu. À cet effet, suivez les instructions de la rubrique **Configuration des règles de pare-feu Azure** vers la fin du [didacticiel sur MVC](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Une autre méthode consiste à réviser les données de la base de données locale en créant, exécutant et ajoutant des données à l’application localement (**Ctrl+F5** dans Visual Studio).  
+3. Si la boîte de dialogue **Ajouter une règle de pare-feu** est affichée, sélectionnez **Ajouter une règle de pare-feu**.
+      Si vous ne pouvez pas développer **Bases de données SQL** et afficher la base de données **ContactDB** dans Visual Studio, suivez les instructions pour ouvrir un ou plusieurs ports de pare-feu. À cet effet, suivez les instructions de la rubrique **Configuration des règles de pare-feu Azure** vers la fin du [didacticiel sur MVC](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Une autre méthode consiste à réviser les données de la base de données locale en créant, exécutant et ajoutant des données à l’application localement (**Ctrl+F5** dans Visual Studio).  
 
-4. Si la boîte de dialogue **Se connecter au serveur** est affichée, entrez le **mot de passe** que vous avez créé au début de ce didacticiel et appuyez sur le bouton **Se connecter**. Si vous avez oublié le mot de passe, vous pouvez le retrouver dans votre fichier de projet local. Dans l'**Explorateur de solutions**, développez le dossier *Properties*, puis le dossier *PublishProfiles*. Ouvrez le fichier *contactmanager.pubxml* (votre fichier peut avoir un nom différent). Recherchez votre mot de passe de publication dans le fichier.
+4. Si la boîte de dialogue **Se connecter au serveur** est affichée, entrez le **mot de passe** que vous avez créé au début de ce didacticiel et appuyez sur le bouton **Se connecter**.
+      Si vous avez oublié le mot de passe, vous pouvez le retrouver dans votre fichier de projet local. Dans l'**Explorateur de solutions**, développez le dossier *Properties*, puis le dossier *PublishProfiles*. Ouvrez le fichier *contactmanager.pubxml* (votre fichier peut avoir un nom différent). Recherchez votre mot de passe de publication dans le fichier.
 
 5. Développez la base de données **contactDB**, puis développez **Tables**.
 6. Cliquez avec le bouton droit sur la table **dbo.AspNetUsers**, puis sélectionnez **Afficher les données**.  

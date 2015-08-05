@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Activation du proxy d’application Azure AD
-> [AZURE.NOTE]Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 Le proxy d’application Microsoft Azure AD vous permet de publier des applications, telles que les sites SharePoint, Outlook Web Access et les applications IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau. Les employés peuvent se connecter à vos applications depuis leur domicile, sur leurs propres appareils et s’authentifier via ce proxy cloud.
 
@@ -56,7 +56,10 @@ Si votre pare-feu régule le trafic en fonction des utilisateurs d’origine, ou
 1. Exécutez AADApplicationProxyConnectorInstaller.exe sur le serveur que vous avez préparé (consultez Conditions préalables pour le proxy d’application).
 2. Suivez les instructions de l’Assistant pour effectuer l’installation.
 3. Au cours de l’installation, vous êtes invité à inscrire le connecteur en utilisant votre compte Proxy d’application actif.
-<p>Fournissez vos informations d’identification d’administrateur général Azure AD. Assurez-vous que l’administrateur qui inscrit le connecteur se trouve bien dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du client est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias de ce domaine. De plus, vous devez être un administrateur général du client Azure AD. Votre client d’administrateur général peut être différent de vos informations d’identification Microsoft Azure. Si l’option Configuration de sécurité renforcée d’Internet Explorer a la valeur Activé sur le serveur sur lequel vous installez le connecteur Azure AD, l’écran d’inscription risque d’être bloqué. Si cela se produit, suivez les instructions du message d’erreur pour autoriser l’accès. Assurez-vous que la sécurité renforcée d’Internet Explorer est désactivée. En cas d’échec de l’inscription du connecteur, consultez Résolution des problèmes du proxy d’application.
+<p>Fournissez vos informations d’identification d’administrateur général Azure AD.
+- Assurez-vous que l’administrateur qui inscrit le connecteur se trouve bien dans l’annuaire dans lequel vous avez activé le service Proxy d’application. Par exemple, si le domaine du client est contoso.com, l’administrateur doit être admin@contoso.com ou tout autre alias de ce domaine. De plus, vous devez être un administrateur général du client Azure AD. Votre client d’administrateur général peut être différent de vos informations d’identification Microsoft Azure.
+- Si l’option Configuration de sécurité renforcée d’Internet Explorer a la valeur Activé sur le serveur sur lequel vous installez le connecteur Azure AD, l’écran d’inscription risque d’être bloqué. Si cela se produit, suivez les instructions du message d’erreur pour autoriser l’accès. Assurez-vous que la sécurité renforcée d’Internet Explorer est désactivée.
+- En cas d’échec de l’inscription du connecteur, consultez Résolution des problèmes du proxy d’application.
 
 4. À l’issue de l’installation, deux nouveaux services sont ajoutés à votre serveur, comme dans l’illustration ci-dessous. Il s’agit du service Connecteur, qui est chargé d’activer la connectivité, et d’un service de mise à jour automatisé, qui recherche périodiquement l’existence de nouvelles versions du connecteur et procède éventuellement à sa mise à jour. Cliquez sur Terminer dans la fenêtre d’installation pour terminer l’installation.![Service Connecteur Proxy d’application](http://i.imgur.com/zsVJKOz.png)<p>
 5. Vous êtes maintenant prêt à publier des applications avec le proxy d’application.
@@ -70,4 +73,4 @@ Si vous souhaitez désinstaller le connecteur, après avoir désinstallé le ser
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

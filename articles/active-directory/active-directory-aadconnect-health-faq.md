@@ -43,7 +43,8 @@ Les valeurs ci-dessous sont des approximations.
 - Consommation du processeur : environ 1 % d’augmentation
 - Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système
 - Utilisation de la bande passante réseau : environ 1 Mo/1 000 requêtes AD FS
->[AZURE.NOTE]
+>[AZURE.NOTE]Si un agent est dans l’impossibilité de communiquer à Azure, l’agent va stocker localement les données, jusqu’à une limite maximale de 10 % de la mémoire totale du système. Une fois que l’agent atteint 10 % de la mémoire physique totale, si l’agent n’a pas pu télécharger les données vers le service, les nouvelles transactions AD FS remplaceront toute transaction mise en cache, en commençant par celle qui a été traitée le moins récemment.
+
 
 - Stockage de mémoire tampon locale pour l’agent AD Health : environ 20 Mo
 - Stockage de données requis pour le canal d’audit
@@ -84,7 +85,7 @@ Ajoutez l’entrée suivante sous l’élément <configuration></configuration> 
 
  
 
-Vous trouverez des informations supplémentaire sur <defaultProxy> [ici](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)).
+Vous trouverez des informations supplémentaire sur <defaultProxy> [ici](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
 
 Ces paramètres configurent les applications .NET au sein du système afin d’utiliser votre proxy défini de manière explicite lors de la transmission de requêtes http .NET. Il n’est pas recommandé de modifier chaque fichier app.config, car les changements seront annulés lors de la mise à jour automatique. Il vous suffit de modifier un seul fichier ; les changements survivront aux mises à jour si vous modifiez uniquement machine.config.
 

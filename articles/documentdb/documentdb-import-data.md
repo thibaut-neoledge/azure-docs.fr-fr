@@ -137,7 +137,20 @@ Cette requête retourne les résultats (partiels) suivants :
 
 Notez les alias tels que Address.AddressType et Address.Location.StateProvinceName. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents Address et Address.Location lors de l'importation. Voici un exemple de document qui en résulte dans DocumentDB :
 
-*{« ID » : « 956 », « Nom » : « Service et vente au détail », « Adresse »: {« AddressType »: « Siège », « AddressLine1 »: « #500-75 o ' Connor Street », « Lieu »: {« Ville »: « Ottawa », « StateProvinceName »: « Ontario »}, « Code postal »: « K4B 1S2 », « CountryRegionName »: « Canada »}}*
+*{
+  « ID » : « 956 »,
+  « Nom » : « Service et vente au détail »,
+  « Adresse »: {
+    « AddressType »: « Siège »,
+    « AddressLine1 »: « #500-75 o ' Connor Street »,
+    « Lieu »: {
+      « Ville »: « Ottawa »,
+      « StateProvinceName »: « Ontario »
+    },
+    « Code postal »: « K4B 1S2 »,
+    « CountryRegionName »: « Canada »
+  }
+}*
  
 Voici quelques exemples de lignes de commande pour l’importation depuis SQL Server :
 
@@ -159,7 +172,18 @@ De même que pour la source SQL, la propriété du séparateur d'imbrication peu
 
 Notez les alias tels que DomainInfo.Domain_Name et RedirectInfo.Redirecting. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents DomainInfo et RedirectInfo lors de l'importation. Voici un exemple de document qui en résulte dans DocumentDB :
 
-*{« DomainInfo » : {« Domain_name » : « ACUS.GOV », « Domain_Name_Address » : « http://www.ACUS.GOV »}, « Agence fédérale » : « Conférence administrative des États-Unis », « RedirectInfo » : {« Redirection » : « 0 », « Redirect_Destination » : « »}, « ID » : « 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d »}*
+*{
+  « DomainInfo » : {
+    « Domain_name » : « ACUS.GOV »,
+    « Domain_Name_Address » : « http://www.ACUS.GOV »
+  },
+  « Agence fédérale » : « Conférence administrative des États-Unis »,
+  « RedirectInfo » : {
+    « Redirection » : « 0 »,
+    « Redirect_Destination » : « »
+  },
+  « ID » : « 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d »
+}*
 
 L'outil d'importation va tenter de déduire les informations de type pour les valeurs sans guillemets dans les fichiers CSV (les valeurs entre guillemets sont toujours traitées comme des chaînes). Les types sont identifiés dans l'ordre suivant : nombre, date et heure, valeur booléenne.
 
@@ -247,7 +271,8 @@ Pour importer à partir d'une seule collection DocumentDB, entrez le nom de la c
 
 L'option d'importateur source DocumentDB dispose des options avancées suivantes :
 
-1. Inclusion des champs internes : cette option précise les propriétés système du document DocumentDB à inclure ou non dans l'exportation (par exemple, _rid, _ts). 2. Nombre de nouvelles tentatives en cas de défaillance : cette option précise le nombre de nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
+1. Inclusion des champs internes : cette option précise les propriétés système du document DocumentDB à inclure ou non dans l'exportation (par exemple, _rid, _ts).
+2. Nombre de nouvelles tentatives en cas de défaillance : cette option précise le nombre de nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
 3. Intervalle avant nouvelle tentative : cette option indique le temps à attendre entre les nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
 4. Mode de connexion : cette option indique le mode de connexion à utiliser avec DocumentDB. Les choix disponibles sont DirectTcp, DirectHttps et la passerelle. Les modes de connexion directs sont plus rapides, tandis que le mode passerelle est mieux adapté au pare-feu car il utilise uniquement le port 443.
 
@@ -476,4 +501,4 @@ Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journa
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

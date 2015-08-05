@@ -90,7 +90,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
 5. Cliquez sur **Add**.
-6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case à cocher **Ajouter un point de terminaison autononome ** est activée, puis cliquez sur **Suivant**.
+6. Dans la boîte de dialogue **Ajouter un point de terminaison**, vérifiez que la case à cocher **Ajouter un point de terminaison autononome** est activée, puis cliquez sur **Suivant**.
 7. Dans la boîte de dialogue <strong>Détails du nouveau point de terminaison</strong> :
     1. Entrez un nom pour le point de terminaison, par exemple **HttpIn**.
     2. Indiquez **TCP** pour le protocole.
@@ -159,4 +159,4 @@ Pour en savoir plus sur les autres services (stockage Azure, Service Bus, base d
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
