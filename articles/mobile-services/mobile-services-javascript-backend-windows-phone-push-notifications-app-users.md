@@ -87,8 +87,8 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 <!-- URLs. -->
 [Ajout de l’authentification à votre application]: mobile-services-windows-phone-get-started-users.md
 [Ajout de notifications Push à votre application]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

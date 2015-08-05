@@ -195,7 +195,7 @@ L'exemple JSON suivant peut être utilisé pour créer un service lié nommé **
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
@@ -491,4 +491,4 @@ Consultez la rubrique [Référence JSON du pipeline](https://msdn.microsoft.com/
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

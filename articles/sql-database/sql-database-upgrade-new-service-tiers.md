@@ -161,7 +161,8 @@ En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande
 
 ![Consommation des ressources][4]
 
-> **Remarque :** les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
+> **Remarque :**
+> les nombres DTU relatif des différents niveaux de performances sont basés sur la charge de travail de [référence d’Azure SQL Database Benchmark](http://msdn.microsoft.com/library/azure/dn741327.aspx). Dans la mesure où la charge de travail de votre base de données est susceptible de ne pas être égale à celle de référence, vous devez utiliser les calculs ci-dessus pour trouver le nouveau niveau de service adapté à votre base de données Web/Business. Une fois que vous avez déplacé la base de données vers le nouveau niveau, utilisez la procédure décrite dans la section précédente pour valider/ajuster le niveau de service par rapport aux besoins de votre charge de travail.
 > 
 > bien que le nouveau niveau d’édition/niveau de performances suggéré tienne compte de l’activité de votre base de données pendant les 14 derniers jours, ces données sont basées sur des échantillons de données de consommation de ressources mesurés toutes les 5 minutes. Par conséquent, les pics d’activité à court terme inférieurs à 5 minutes peuvent ne pas apparaître. Ce guide sert donc de point de départ pour mettre à jour votre base de données. Une fois la base de données mise à jour vers le niveau suggéré, vous devez effectuer des contrôles, tests et validations supplémentaires pour déterminer si la base de données doit être élevée ou abaissée à un autre niveau de service/niveau de performances.
 
@@ -309,4 +310,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

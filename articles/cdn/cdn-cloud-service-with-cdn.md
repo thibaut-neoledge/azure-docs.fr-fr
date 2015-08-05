@@ -49,7 +49,9 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](/account/) actif.
 -	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](/pricing/free-trial/) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps.
+> + Vous pouvez [activer les avantages d’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 
 <a name="deploy"></a>
 ## Déploiement d'un service cloud avec un point de terminaison CDN intégré ##
@@ -89,7 +91,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]La publication des services cloud prend beaucoup de temps. L'option Activer Web Deploy pour tous les rôles accélère notablement le débogage de votre service cloud en fournissant des mises à jour rapides (mais provisoires) à vos rôles web. Pour en savoir plus sur cette option, consultez la page [Publication d'un service cloud en utilisant les Outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] La publication des services cloud prend beaucoup de temps. L'option Activer Web Deploy pour tous les rôles accélère notablement le débogage de votre service cloud en fournissant des mises à jour rapides (mais provisoires) à vos rôles web. Pour en savoir plus sur cette option, consultez la page [Publication d'un service cloud en utilisant les Outils Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Quand le **Journal des activités Microsoft Azure** indique que la publication est **Terminée**, vous devez créer un point de terminaison CDN intégré à ce service cloud.
 
@@ -98,7 +100,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[AZURE.NOTE]Une fois votre point de terminaison CDN créé, le portail Azure affiche son URL et le domaine d'origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
+	>[AZURE.NOTE] Une fois votre point de terminaison CDN créé, le portail Azure affiche son URL et le domaine d'origine auquel il est intégré. Cependant, la configuration du nouveau point de terminaison CDN peut prendre un certain temps pour se propager à tous les emplacements des nœuds CDN.
 
 	Notez que le point de terminaison CDN est lié au chemin **cdn/** de votre service cloud. Vous pouvez créer un dossier **cdn** dans votre projet **WebRole1** ou (comme c'est le cas dans ce didacticiel) utiliser la réécriture de l'URL pour éliminer tous les liens entrants de ce chemin.
 
@@ -110,7 +112,7 @@ Dans cette section, vous allez déployer le modèle d'application ASP.NET MVC p
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[AZURE.NOTE]Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
+	>[AZURE.NOTE] Comme l'activation des chaînes de requête n'est pas nécessaire pour cette partie du didacticiel, désactivez-la au plus tôt par commodité, car la propagation à tous les nœuds CDN de toute modification apportée ici prend du temps et le contenu non activé pour les chaînes de requête ne doit pas encombrer le cache CDN (la mise à jour du contenu CDN est abordée plus tard).
 
 3. Appliquez une commande ping à votre point de terminaison CDN pour vérifier qu'il est propagé à tous les nœuds CDN. Vous devrez peut-être attendre pendant une heure maximum avant qu'il réponde à vos commandes ping.
 
@@ -170,12 +172,27 @@ Cependant, cela ne signifie pas que c'est toujours (ou généralement) une bonne
 
 La solution alternative consiste à déterminer au cas par cas le contenu à traiter à partir d'Azure CDN dans votre service cloud. À cette fin, vous avez déjà vu comment accéder à des fichiers de contenu individuels depuis le point de terminaison CDN. Je vais vous montrer comment traiter une action sur un contrôleur donné via le point de terminaison CDN dans la section [Distribution de contenu à partir d'actions de contrôleur via Azure CDN](#controller).
 
-Vous pouvez spécifier une règle de réécriture de l'URL plus restrictive pour limiter le contenu accessible via votre point de terminaison CDN. Pour limiter, par exemple, la réécriture de l'URL dans le dossier *\Scripts*, modifiez la règle de réécriture ci-dessus comme suit : <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
+Vous pouvez spécifier une règle de réécriture de l'URL plus restrictive pour limiter le contenu accessible via votre point de terminaison CDN. Pour limiter, par exemple, la réécriture de l'URL dans le dossier *\Scripts*, modifiez la règle de réécriture ci-dessus comme suit :
+<pre class="prettyprint">
+&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+&lt;/rule&gt;
+</pre>
 
 <a name="caching"></a>
 ## Configuration des options de mise en cache pour les fichiers statiques de votre service cloud ##
 
-Avec l'intégration d'Azure CDN à votre service cloud, vous pouvez spécifier comment vous voulez que le contenu statique soit mis en cache dans le point de terminaison CDN. Pour cela, ouvrez *Web.config* à partir de votre projet de rôle Web (par exemple, WebRole1) et ajoutez l'élément `<staticContent>` à `<system.webServer>`. Le code XML ci-dessous configure le cache pour expirer dans les 3 jours. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Avec l'intégration d'Azure CDN à votre service cloud, vous pouvez spécifier comment vous voulez que le contenu statique soit mis en cache dans le point de terminaison CDN. Pour cela, ouvrez *Web.config* à partir de votre projet de rôle Web (par exemple, WebRole1) et ajoutez l'élément `<staticContent>` à `<system.webServer>`. Le code XML ci-dessous configure le cache pour expirer dans les 3 jours.
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot;
+    cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
 Lorsque vous faites cela, tous les fichiers statiques de votre service cloud respectent la même règle dans le cache de votre CDN. Pour un contrôle plus granulaire des paramètres du cache, ajoutez un fichier *Web.config* dans un dossier et ajoutez-lui vos paramètres. Exemple : ajoutez un fichier *Web.config* au dossier *\Content* et remplacez son contenu par le code XML suivant :
 
@@ -328,7 +345,15 @@ namespace WebRole1.Controllers
 
 5. Republiez le service cloud et accédez à l'adresse **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** dans votre navigateur.
 
-Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la méthode d’action `Index_Post` renvoie un lien vers la méthode d’action `Show` avec l’identificateur d’entrée respectif. En cliquant sur le lien, vous atteignez le code suivant : <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la méthode d’action `Index_Post` renvoie un lien vers la méthode d’action `Show` avec l’identificateur d’entrée respectif. En cliquant sur le lien, vous atteignez le code suivant :  
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -338,7 +363,8 @@ Quand vous envoyez les valeurs du formulaire dans `/MemeGenerator/Index`, la mé
     {
         return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 Si votre débogueur local est lié, vous effectuez un débogage normal avec une redirection locale. S'il est exécuté dans le service cloud, il redirige vers :
 
@@ -424,7 +450,8 @@ public static void RegisterBundles(BundleCollection bundles)
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 }
-</pre>N'oubliez pas de remplacer `<yourCDNName>` par le nom de votre réseau de distribution de contenu (CDN) Azure.
+	</pre>
+	N'oubliez pas de remplacer `<yourCDNName>` par le nom de votre réseau de distribution de contenu (CDN) Azure.
 
 	Exprimé simplement, vous configurez `bundles.UseCdn = true` et ajoutez une URL CDN correctement formatée à chaque regroupement. Par exemple : le premier constructeur dans le code :
 
@@ -522,7 +549,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}</pre>Quand `CdnFallbackExpression` n’a pas la valeur null, le script est injecté dans le code HTML pour tester où le regroupement est correctement chargé et, dans le cas contraire, pour accéder au regroupement directement depuis le serveur web d’origine. Cette propriété doit être configurée avec une expression JavaScript qui teste si le regroupement CDN correspondant est correctement chargé. L'expression nécessaire pour tester chaque regroupement est différente en fonction du contenu. Pour les regroupements par défaut ci-dessus :
+	}</pre>
+	Quand `CdnFallbackExpression` n’a pas la valeur null, le script est injecté dans le code HTML pour tester où le regroupement est correctement chargé et, dans le cas contraire, pour accéder au regroupement directement depuis le serveur web d’origine. Cette propriété doit être configurée avec une expression JavaScript qui teste si le regroupement CDN correspondant est correctement chargé. L'expression nécessaire pour tester chaque regroupement est différente en fonction du contenu. Pour les regroupements par défaut ci-dessus :
 	
 	-	`window.jquery` est défini dans jquery-{version}.js
 	-	`$.validator` est défini dans jquery.validate.js
@@ -544,7 +572,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
-</pre>Cette nouvelle méthode d'extension utilise la même idée pour injecter un script dans le code HTML afin de vérifier le DOM pour le nom de classe, le nom de règle et la valeur de règle correspondants dans le regroupement CSS. Elle rétablit le serveur web d'origine si elle ne trouve pas de correspondance.
+	</pre>
+	Cette nouvelle méthode d'extension utilise la même idée pour injecter un script dans le code HTML afin de vérifier le DOM pour le nom de classe, le nom de règle et la valeur de règle correspondants dans le regroupement CSS. Elle rétablit le serveur web d'origine si elle ne trouve pas de correspondance.
 
 4. Republiez le service cloud et accédez à la page d'accueil.
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :    
@@ -582,7 +611,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 <mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
 
 ...
-</pre>Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
+	</pre>
+	Notez que le script injecté pour le regroupement CSS contient toujours les éléments restants provenant de la propriété `CdnFallbackExpression` dans la ligne :
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -596,4 +626,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Utilisation du réseau de distribution de contenu (CDN) Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

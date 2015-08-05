@@ -565,7 +565,8 @@ Les comptes de stockage offrent un espace de stockage plus important et une cons
 
 1. Dans la fenêtre **Application web Microsoft Azure** de Visual Studio, cliquez sur l’onglet **Journaux**, puis sur **Configurer la journalisation dans le portail de gestion**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configuration de la journalisation](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Cette opération ouvre l’onglet **Configurer** dans le portail de gestion de votre application Web. Pour accéder à cet emplacement, vous pouvez aussi cliquer sur l’onglet **Applications web**, sur l’application Web, puis sur l’onglet **Configurer**.
 
@@ -763,4 +764,4 @@ Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une app
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

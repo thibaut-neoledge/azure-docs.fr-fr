@@ -165,7 +165,8 @@ Power BI utilise des contraintes d’accès concurrentiel et le débit comme ind
 
 C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour vous assurer le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes :![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Cela signifie que nous pouvons modifier la requête d’origine :
 

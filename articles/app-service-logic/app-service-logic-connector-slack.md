@@ -36,7 +36,9 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Sélectionnez **API Apps** et recherchez « Connecteur Slack ».
-3. Indiquez le nom, le plan App Service et d’autres propriétés : <br/> ![][1] 
+3. Indiquez le nom, le plan App Service et d’autres propriétés :
+<br/>
+![][1] 
 
 4. Cliquez sur **Create**.
 
@@ -48,10 +50,17 @@ Une fois le connecteur Slack créé, vous pouvez l’ajouter en tant qu’action
 
 1.	Dans votre application logique, ouvrez **Déclencheurs et actions**. [Créer une application logique](app-service-logic-create-a-logic-app.md)
 
-2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit : <br/>![][2]
+2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit :
+<br/>
+![][2]
 
 3.	Sélectionnez le connecteur Slack que vous avez créé pour l’ajouter automatiquement à votre application logique.
-4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** : <br/> ![][3] ![][4] ![][5] ![][6]
+4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** :
+<br/>
+![][3]
+![][4]
+![][5]
+![][6]
 	
 5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible : <br/> ![][7]
 
@@ -60,7 +69,7 @@ Testons l'action « Publier le message ». Vous pouvez utiliser cette action p
  
 ![][8]
 
-Configurez les propriétés d’entrée de l’action « Publier un message » :
+	Configurez les propriétés d’entrée de l’action « Publier un message » :
 
 Propriété | Description
 --- | ---
@@ -92,4 +101,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

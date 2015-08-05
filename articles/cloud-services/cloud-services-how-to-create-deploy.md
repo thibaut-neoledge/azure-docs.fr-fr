@@ -121,7 +121,7 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 
 4. Dans **Configuration**, utilisez **Browse** pour sélectionner le fichier de configuration du service (.cscfg) à utiliser.
 
-5. Si le service cloud doit inclure des rôles avec une seule instance, activez la case à cocher **Deploy even if one or more roles contain a single instance** afin de permettre au déploiement de continuer.
+5. Si le service cloud doit inclure des rôles avec une seule instance, activez la case à cocher **Déployer même si un ou plusieurs rôles contiennent une seule instance** afin de permettre au déploiement de continuer.
 
     Azure ne peut garantir un pourcentage d'accès au service cloud que de 99,95 % pendant la maintenance et la mise à jour du service si tous les rôles disposent d'au moins deux instances Si besoin, vous pouvez ajouter des instances de rôle supplémentaires dans la page **Échelle** une fois le service cloud déployé. Pour plus d'informations, consultez la page [Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/).
 
@@ -147,4 +147,4 @@ Trois fonctions du service cloud nécessitent une configuration spécifique avan
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
