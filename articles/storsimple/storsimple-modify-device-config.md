@@ -83,7 +83,10 @@ Pour chaque interface réseau, les paramètres suivants sont affichés :
 
 - **Vitesse** : paramètre non configurable par l'utilisateur. DATA 0, DATA 1, DATA 4 et DATA 5 sont toujours des interfaces réseau 1 Gigabit Ethernet, tandis que DATA 2 et DATA 3 sont des interfaces 10 Gigabit Ethernet.
 
-     >[AZURE.NOTE]>>- La vitesse et le mode duplex sont toujours négociés automatiquement . >- Les trames Jumbo ne sont pas prises en charge.
+     >[AZURE.NOTE]
+     >
+     >- La vitesse et le mode duplex sont toujours négociés automatiquement.
+     >- Les trames Jumbo ne sont pas prises en charge.
  
 - **État de l'interface** : une interface peut être activée ou désactivée. Si elle est activée, l’appareil essaie de l'utiliser. Nous vous recommandons d'activer uniquement les interfaces qui sont connectées au réseau et utilisées. Désactivez celles que vous n'utilisez pas.
 
@@ -128,4 +131,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
  
      
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -35,7 +35,9 @@ Avant d’installer ou de mettre à niveau le composant logiciel enfichable Gest
 
 Les étapes suivantes fournissent une vue d’ensemble des tâches de configuration requises avant d’installer le Gestionnaire d’instantanés StorSimple. Pour obtenir des informations complètes sur la configuration et l’installation de Microsoft Azure StorSimple, y compris la configuration système requise et des instructions pas à pas, consultez la page [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle préalable à l’installation](storsimple-deployment-walkthrough.md#pre-installation-checklist) et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Avant de commencer, lisez la [liste de contrôle préalable à l’installation](storsimple-deployment-walkthrough.md#pre-installation-checklist)
+> et les [conditions préalables au déploiement](storsimple-deployment-walkthrough.md#deployment-prerequisites) dans l’article [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Avant d’installer le Gestionnaire d’instantanés StorSimple
 
@@ -253,4 +255,4 @@ Pour en savoir plus sur le Gestionnaire d’instantanés StorSimple, accédez à
 
 Pour en savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple, accédez à la page [Interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
