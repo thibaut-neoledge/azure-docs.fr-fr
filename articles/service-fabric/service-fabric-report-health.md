@@ -274,4 +274,4 @@ Grâce aux données d'intégrité, les enregistreurs de service et les administr
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

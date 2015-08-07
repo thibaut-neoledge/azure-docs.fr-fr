@@ -500,4 +500,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!-----HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->
