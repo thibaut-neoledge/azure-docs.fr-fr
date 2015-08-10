@@ -1,19 +1,12 @@
 <properties
    pageTitle="Téléchargement des informations d’identification de coffre dans Azure Backup | Microsoft Azure"
-   description="Découvrez comment utiliser les informations d’identification de coffre pour authentifier votre ordinateur auprès de l’archivage de sauvegarde et du service Azure Backup"
+   description="Découvrez comment utiliser les informations d’identification de coffre pour authentifier votre ordinateur auprès de l’archivage de sauvegarde et du service Azure Backup."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Utilisation des informations d’identification de coffre pour s’authentifier auprès du service Azure Backup
 Le serveur local (client Windows ou Windows Server ou serveur SCDPM) doit être authentifié avec un archivage de sauvegarde avant de pouvoir sauvegarder des données dans Azure. L’authentification s’effectue à l’aide des « informations d’identification du coffre ». Le concept d’informations d’identification de coffre est similaire à celui du fichier de « paramètres de publication » utilisé dans Azure PowerShell.
@@ -48,4 +41,4 @@ Le fichier d’informations d’identification de coffre est téléchargé via u
 ## Étapes suivantes
 [Téléchargement, inscription et installation de l’agent Azure Backup](backup-azure-backup-download-register)
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

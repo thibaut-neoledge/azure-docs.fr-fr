@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2015"
-	ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Sauvegarde d'une batterie de serveurs SharePoint sur Azure
@@ -40,7 +33,7 @@ L'agent DPM doit être installé sur le serveur SharePoint, les serveurs SQL et 
 Pour chaque 10 millions d'éléments dans la batterie de serveurs, il doit y avoir au moins 2 Go d'espace sur le volume où figure le dossier DPM. Cet espace est nécessaire pour la génération du catalogue. Pour permettre à DPM de restaurer des éléments spécifiques (collections de sites, sites, listes, bibliothèques de documents, dossiers, documents et éléments de liste), la génération du catalogue crée une liste de toutes les URL contenues dans chaque base de données de contenu. Vous pouvez afficher la liste des URL dans le volet des éléments récupérables de la zone de tâches de récupération de la console administrateur DPM.
 
 ### SQL Server
-DPM s'exécute comme un système local, et pour sauvegarder les bases de données SQL Server, il nécessite les droits d’administrateur système sur ce compte pour le serveur SQL. Définissez NT AUTHORITY\SYSTEM sur *sysadmin* sur le serveur SQL à sauvegarder.
+DPM s'exécute comme un système local, et pour sauvegarder les bases de données SQL Server, il nécessite les droits d’administrateur système sur ce compte pour le serveur SQL. Définissez NT AUTHORITY\\SYSTEM sur *sysadmin* sur le serveur SQL à sauvegarder.
 
 Dans la batterie de serveurs SharePoint, si vous disposez de bases de données SQL Server configurées avec des alias SQL Server, installez les composants clients SQL Server sur le serveur Web frontal que DPM protégera.
 
@@ -57,14 +50,14 @@ Pour commencer la protection d'une batterie de serveurs SharePoint sur Azure, vo
 ## Configuration de la protection SharePoint
 Vous devez configurer le service SharePoint VSS Writer (service WSS Writer) à l’aide de **ConfigureSharePoint.exe** avant de pouvoir protéger SharePoint avec DPM.
 
-Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d'installation de DPM]\bin sur le serveur Web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
+Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d'installation de DPM]\\bin sur le serveur Web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
 
 ### Configuration du service SharePoint VSS Writer
-1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\bin\
+1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\\bin\\
 2. Exécutez ConfigureSharePoint -EnableSharePointProtection
 3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
-  - Accordez le contrôle total du groupe WSS_Admin_WPG au dossier DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
-  - Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+  - Accordez le contrôle total du groupe WSS\_Admin\_WPG au dossier DPM (%Program Files%\\Microsoft Data Protection Manager\\DPM).
+  - Accordez au groupe WSS\_Admin\_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque fois modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
 
@@ -114,19 +107,19 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
 
 10. Sur l’écran **Spécifier la planification de sauvegarde en ligne**, sélectionnez une planification et cliquez sur **Suivant**.
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+    ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     >[AZURE.NOTE]DPM permet d’effectuer deux sauvegardes quotidiennes à différents moments sur Azure.
 
 11. Selon la planification de sauvegarde que vous avez sélectionnée, sur l’écran **Spécifier la stratégie de rétention en ligne**, sélectionnez la stratégie de rétention pour les points de sauvegarde quotidiens, hebdomadaires, mensuels et annuels.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+    ![Online\_retention\_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
     >[AZURE.NOTE]DPM utilise un schéma de rétention grand-père-père-fils dans lequel une autre stratégie de rétention peut être choisie pour différents points de sauvegarde.
 
 12. Comme pour le disque, un réplica de point de référence initial doit être créé dans Azure. Sélectionnez votre option préférée pour la création de la copie de sauvegarde initiale sur Azure, puis cliquez sur **Suivant**.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online\_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. Vérifiez vos paramètres sélectionnés sur la page **Résumé**, puis cliquez sur **Créer un groupe**. Un message confirme la création du groupe de protection.
 
@@ -233,4 +226,4 @@ Q : Puis-je restaurer une base de données SharePoint sur l'emplacement d'origin
 - Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
