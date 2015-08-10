@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Installation d'un contrôleur de domaine de réplication dans Azure" 
-	description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Installer un contrôleur de domaine répliqué dans Azure | Microsoft Azure"
+	description="A tutorial that explains how to install a domain controller from an on-premises Active Directory forest on an Azure virtual machine."
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # Installation d’un contrôleur de domaine Active Directory de réplication dans un réseau virtuel Azure
@@ -30,7 +30,7 @@ Les rubriques suivantes peuvent également vous intéresser :
 
 ## Schéma du scénario
 
-Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les contrôleurs de domaine de réplication sont installées sur un réseau virtuel Azure. Le réseau virtuel peut être connecté au réseau local par une connexion [VPN de site à site](https://msdn.microsoft.com/library/azure/dn133795.aspx), comme illustré dans le schéma suivant, ou vous pouvez utiliser [ExpressRoute](../../services/expressroute/) pour obtenir une connexion plus rapide.
+Dans ce scénario, des utilisateurs externes doivent accéder à des applications qui s'exécutent sur des serveurs appartenant à un domaine. Les machines virtuelles qui exécutent les serveurs d'applications et les contrôleurs de domaine de réplication sont installées sur un réseau virtuel Azure. Le réseau virtuel peut être connecté au réseau local par une connexion [VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md), comme illustré dans le schéma suivant, ou vous pouvez utiliser [ExpressRoute](../../services/expressroute/) pour obtenir une connexion plus rapide.
 
 Les serveurs d’applications et les contrôleurs de domaine sont déployés dans des [services cloud](../cloud-services-what-is.md) distincts afin de distribuer la charge de traitement et dans des [groupes à haute disponibilité](../virtual-machines/virtual-machines-manage-availability.md) pour améliorer la tolérance aux pannes. Les contrôleurs de domaine répliquent entre eux et avec les contrôleurs de domaine locaux à l'aide de la réplication Active Directory. Aucun outil de synchronisation n'est nécessaire.
 
@@ -87,7 +87,7 @@ Connectez-vous à une machine virtuelle et vérifiez que vous disposez d'une con
 ## reconfiguration du serveur DNS pour le réseau virtuel
 
 1. Dans le portail Azure classique, cliquez sur le nom du réseau virtuel, puis cliquez sur l’onglet **Configurer** pour [reconfigurer les adresses IP du serveur DNS pour votre réseau virtuel](https://msdn.microsoft.com/library/azure/dn275925.aspx) afin d’utiliser les adresses IP statiques attribuées aux réplicas de contrôleurs de domaines au lieu des adresses IP de serveurs DNS local.
- 
+
 2. Pour vous assurer que toutes les réplicas de machines virtuelles de contrôleur de domaine sur le réseau virtuel sont configurées pour utiliser des serveurs DNS sur le réseau virtuel, cliquez sur **Machines virtuelles** et cliquez sur la colonne d’état pour chaque machine virtuelle, puis cliquez sur **Redémarrer**. Attendez que la machine virtuelle affiche l’état **En cours d’exécution** avant d’essayer de vous y connecter.
 
 ## création de machines virtuelles pour les serveurs d'applications
@@ -121,6 +121,5 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

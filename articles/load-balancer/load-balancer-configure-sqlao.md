@@ -15,7 +15,7 @@
    ms.date="05/01/2015"
    ms.author="joaoma" />
 
-# SQL Always On
+# Configuration de l'équilibrage de charge pour SQL Always On
 
 Les groupes de disponibilité Always On de SQL Server peuvent maintenant être exécutés avec l’équilibrage de charge interne (ILB). Le groupe de disponibilité constitue la solution phare de SQL Server pour une haute disponibilité et la récupération d’urgence. L’écouteur du groupe de disponibilité permet aux applications clientes de se connecter en toute transparence au réplica principal, quel que soit le nombre de réplicas dans la configuration.
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser le support de l'équilibrage de charge pour les points de t
 
 des services et machines virtuelles des mêmes services de réseau virtuel, des machines virtuelles à partir des services de réseau local et des machines virtuelles connectées entre les réseaux virtuels
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
 
 
 L’équilibrage de charge interne ne peut être configuré qu’avec PowerShell.
@@ -47,8 +47,9 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 ## Ajout des points de terminaison avec une charge équilibrée pour l'ILB sur chaque machine virtuelle
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
-	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+
+ 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 
 ## Voir aussi
@@ -62,4 +63,4 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

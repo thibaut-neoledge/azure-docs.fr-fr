@@ -274,7 +274,7 @@ Les étapes de cette section ont permis d’accomplir les tâches principales su
 2.	Création d’un fichier de paramètres pour accompagner le fichier de modèle
 3.	Déploiement du fichier de modèle avec le fichier de paramètres
 
-Cette dernière étape est facile à accomplir via l’applet de commande PowerShell. Pour voir les actions effectuées par Visual Studio lors du déploiement de votre application, accédez à l’élément Scripts\Deploy-AzureResourceGroup.ps1. Il y a beaucoup de code, mais je vais mettre en évidence celui que vous devez écrire pour déployer le fichier de modèle avec le fichier de paramètres.
+Cette dernière étape est facile à accomplir via l’applet de commande PowerShell. Pour voir les actions effectuées par Visual Studio lors du déploiement de votre application, accédez à l’élément Scripts\\Deploy-AzureResourceGroup.ps1. Il y a beaucoup de code, mais je vais mettre en évidence celui que vous devez écrire pour déployer le fichier de modèle avec le fichier de paramètres.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -304,4 +304,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

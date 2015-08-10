@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Basculement de votre appareil StorSimple"
+   pageTitle="Basculement et récupération d’urgence pour votre appareil StorSimple | Microsoft Azure"
    description="Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou un appareil virtuel."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/29/2015"
+   ms.date="07/23/2015"
    ms.author="alkohli" />
 
 # Basculement et récupération d’urgence pour votre appareil StorSimple
@@ -24,9 +24,11 @@ Ce didacticiel décrit les étapes nécessaires pour basculer un appareil StorSi
 ![Page Appareils](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
 ## Récupération d’urgence et basculement d’appareil
+
 Dans un scénario de récupération d’urgence, l’appareil principal cesse de fonctionner. Dans ce cas, vous pouvez déplacer les données de cloud associées à l’appareil défaillant vers un autre appareil en utilisant l’appareil principal en tant que *source* et en spécifiant un autre appareil en tant que *cible*. Vous pouvez sélectionner un ou plusieurs conteneurs de volume à migrer vers l’appareil cible. Ce processus est appelé le *basculement*. Pendant le basculement, la propriété des conteneurs de volume de l’appareil source change et ceux-ci sont transférés vers l’appareil cible.
 
 ## Considérations relatives au basculement d’appareil
+
 En cas de sinistre, vous pouvez choisir de basculer votre appareil StorSimple :
 
 - vers un appareil physique ; 
@@ -51,7 +53,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
 1. Répétez l’étape précédente pour tous les conteneurs de volume que vous souhaitez basculer vers un autre appareil.
 
-1. Sur la page Appareils, cliquez sur **Basculement**.
+1. Sur la page **Appareils**, cliquez sur **Basculement**.
 
 1. Dans l’Assistant qui s’ouvre, sous **Choisir le conteneur de volume pour le basculement** :
 
@@ -119,20 +121,26 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
 	
 	>[AZURE.NOTE]**Si votre appareil physique exécute Update 1, vous pouvez uniquement basculer vers un appareil virtuel exécutant Update 1. Si l’appareil virtuel cible exécute une version antérieure du logiciel, vous obtiendrez une erreur indiquant que le logiciel de votre appareil cible doit être mis à jour.**
 
-1. Enfin, passez en revue tous les paramètres de basculement sous Confirmer le basculement. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+1. Enfin, passez en revue tous les paramètres de basculement sous **Confirmer le basculement**. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
 1. Une fois le basculement terminé, accédez à la page **Appareils**.
 													
 	a. Sélectionnez l’appareil virtuel StorSimple qui a été utilisé en tant qu’appareil cible pour le processus de basculement.
 	
-	b. Accédez à la page **Conteneurs de volume**. Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent désormais être répertoriés ici.
+	b. Accédez à la page **Conteneurs de volumes**. Tous les conteneurs de volume, ainsi que les volumes de l’ancien appareil, doivent désormais être répertoriés.
 
+## Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR)
 
-## Voir aussi
-Après avoir effectué le basculement, vous devrez peut-être :
+Un scénario de continuité d’activité et récupération d’urgence (BCDR) se produit lorsque l’ensemble du centre de données Azure cesse de fonctionner. Cela peut affecter votre service StorSimple Manager et les appareils StorSimple associés.
 
-- [Désactiver votre appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772379.aspx#deactivate)
-- [Supprimer votre appareil StorSimple](https://msdn.microsoft.com/library/azure/dn772379.aspx#delete)
+S’il existe des appareils StorSimple inscrits juste avant un incident, ces périphériques StorSimple devront peut-être subir une réinitialisation des paramètres. Après l’incident, le périphérique StorSimple s’affichera comme étant hors connexion. Le périphérique StorSimple doit être supprimé à partir du portail, et une réinitialisation des paramètres doit être effectuée, suivie d’une nouvelle inscription.
+
+## Étapes suivantes
+
+Après avoir effectué un basculement, vous devrez peut-être :
+
+- [Désactiver votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
+- [Supprimer votre appareil StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
 Pour plus d’informations sur la gestion de votre appareil à l’aide du service StorSimple Manager, consultez :
 
@@ -140,4 +148,4 @@ Pour plus d’informations sur la gestion de votre appareil à l’aide du servi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Scénarios du processus de science des données Azure en action dans Azure Machine Learning
+# Scénarios d’analyses avancées dans Azure Machine Learning
 
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés avec le processus de science des données dans Azure Machine Learning. Il illustre les options disponibles dans les séquences de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
 
@@ -316,4 +316,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

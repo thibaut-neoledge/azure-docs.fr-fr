@@ -17,4 +17,4 @@
 
 ![Connexions depuis plusieurs zones géographiques](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

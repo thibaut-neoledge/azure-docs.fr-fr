@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Gestion de contenu avec Azure Media Services à l’aide du portail de gestion Azure
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
 Cette rubrique présente l’utilisation du portail de gestion Azure pour gérer du contenu multimédia dans votre compte Media Services.
 
@@ -37,6 +36,9 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 ##<a id="upload"></a>Téléchargement de contenu 
 
 
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+
+
 1. Sur le [portail de gestion](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
 2. Sélectionnez la page CONTENU. 
 3. Cliquez sur le bouton **Télécharger** disponible sur cette page ou en bas du portail. 
@@ -49,13 +51,17 @@ Cette rubrique explique comment effectuer les opérations suivantes directement 
 
 	![JobStatus][status]
 
-Une fois le téléchargement terminé, le nouvel élément multimédia est répertorié dans la liste Contenu. Par convention, la mention « **-Source** » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
+Une fois le téléchargement terminé, le nouvel élément multimédia est répertorié dans la liste Contenu. Par convention, la mention « \*\*-Source\*\* » est ajoutée à la fin du nom afin de faciliter le suivi des nouveaux contenus sources pour les tâches d’encodage.
 
 ![ContentPage][contentpage]
 
 Si la valeur relative à la taille du fichier n’est pas mise à jour après l’arrêt du processus de téléchargement, cliquez sur le bouton **Synchroniser les métadonnées**. La taille du fichier multimédia est alors synchronisée avec la taille réelle du fichier stocké et la valeur est actualisée sur la page Contenu.
 
 ##<a id="index"></a>Indexation de contenu
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez indexer votre contenu à l’aide du portail de gestion en suivant les étapes présentées ci-dessous. Toutefois, si vous souhaitez davantage de contrôle sur les fichiers et sur la tâche d’indexation, vous pouvez utiliser le Kit de développement logiciel (SDK) Media Services pour .NET ou les API REST. Pour plus d’informations, consultez la page [Indexation des fichiers multimédias avec Azure Media Indexer](media-services-index-content.md).
 
@@ -69,6 +75,11 @@ Les étapes qui suivent présentent comment utiliser le portail de gestion pour 
 	![Process][process]
 
 ##<a id="encode"></a>Encodage de contenu
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Media Services propose un encodeur multimédia qui vous permet de spécifier comment vous souhaitez que votre contenu soit encodé (par exemple, le codec à utiliser, le format du fichier, la résolution et le débit).
 
@@ -88,7 +99,7 @@ Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, 
 Cette section décrit les étapes à suivre pour encoder votre contenu avec l’Encodeur multimédia Azure à l’aide du portail de gestion.
 
 1.  Sélectionnez le fichier que vous souhaitez encoder. Si l’encodage est pris en charge pour ce type de fichier, le bouton de traitement sera activé en bas de la page de contenu.
-4. Dans la boîte de dialogue de **traitement**, choisissez le **processeur **Encodeur multimédia Azure.5. Choisissez une des **configurations d’encodage**.
+4. Dans la boîte de dialogue de **traitement**, choisissez le **processeur \*\*Encodeur multimédia Azure.5. Choisissez une des **configurations d’encodage**.
 
 	![Process2][process2]
 
@@ -131,6 +142,11 @@ Si vous souhaitez que Media Services chiffre dynamiquement votre ressource avec 
 	Après avoir activé le chiffrement, lorsqu’un lecteur demande un flux de données, Media Services utilise la clé spécifiée pour chiffrer dynamiquement votre contenu à l’aide du chiffrement AES ou PlayReady. Pour déchiffrer le flux de données, le lecteur demande la clé au service de remise de clé. Pour déterminer si l’utilisateur est autorisé à obtenir la clé, le service évalue les stratégies d’autorisation que vous avez spécifiées pour la clé.
 
 ##<a id="publish"></a>Publication de contenu
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ###Vue d’ensemble
 
@@ -198,4 +214,4 @@ Certaines considérations s’appliquent :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -38,4 +38,4 @@ Dans le portail Azure, l’onglet **Configurer** de l’application créée sous
 
 (L’URL de réponse dans l’image montre deux fois la même URL, une fois avec `http:` et une fois avec `https:`.)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

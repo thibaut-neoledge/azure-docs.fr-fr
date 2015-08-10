@@ -75,12 +75,11 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)
+### <a name="insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
-> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?**  
-> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?** Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
@@ -107,8 +106,7 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant plusieurs commandes BCP simultanément dans un script PowerShell.
 
-> [AZURE.NOTE]**Traitement de volumes importants de données**  
-> Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE]**Traitement de volumes importants de données** Pour optimiser le chargement de volumes importants et très importants de jeux de données, partitionnez vos tables de base de données physiques et logiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 
 L’exemple de script PowerShell ci-dessous montre comment effectuer des insertions en parallèle à l’aide de BCP :
@@ -234,4 +232,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

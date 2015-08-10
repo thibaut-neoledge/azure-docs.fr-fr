@@ -95,15 +95,15 @@ Il peut arriver lorsque vous souhaitiez déboguer votre application API en loca
 	![Hôte d’application API - Paramètres d’application pour le débogage local](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. Dans **Paramètres de l’application**, recherchez chacune des valeurs suivantes et ajoutez-les dans la section **appSettings** du fichier *web.config*.
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	Lorsque vous avez terminé, la section **appSettings** de votre fichier *web.config* doit ressembler à la capture d’écran suivante.
 
 	![Hôte d’application API - Paramètres d’application pour le débogage local](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Remarque :** les valeurs *EMA_* que vous avez ajoutées à votre fichier *web.config* dans cette section contiennent des données sensibles sur les autorisations. Par conséquent, soyez prudent lorsque vous validez ce fichier via un support de contrôle de code source public (tel que *github*), car ces secrets seront visibles pour des tiers. Pour en savoir plus, voir [Meilleures pratiques portant sur le déploiement de mots de passe et autres données sensibles dans ASP.NET et Microsoft Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+	**Remarque :** les valeurs *EMA\_* que vous avez ajoutées à votre fichier *web.config* dans cette section contiennent des données sensibles sur les autorisations. Par conséquent, soyez prudent lorsque vous validez ce fichier via un support de contrôle de code source public (tel que *github*), car ces secrets seront visibles pour des tiers. Pour en savoir plus, voir [Meilleures pratiques portant sur le déploiement de mots de passe et autres données sensibles dans ASP.NET et Microsoft Azure App Service](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 10. Placez un ou plusieurs points d’arrêt dans le code du contrôleur de votre application API (dans les méthodes `Get` et `Post`).
 
@@ -139,4 +139,4 @@ Les applications API App Service sont des applications web App Service qui pr�
 L’application API que vous avez créée dans cette série est disponible publiquement pour tous les appelants. Pour en savoir plus sur la protection des applications API de manière à ce que seuls les utilisateurs authentifiés puissent les appeler, consultez la page [Authentification pour les applications API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

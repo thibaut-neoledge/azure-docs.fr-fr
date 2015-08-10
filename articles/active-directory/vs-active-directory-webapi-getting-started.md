@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d’Azure Active Directory (Projets API web)
@@ -22,11 +22,11 @@
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
 > - [What Happened](vs-active-directory-webapi-what-happened.md)
 
-#####Demander une authentification pour l'accès aux contrôleurs
+##Demander une authentification pour l'accès aux contrôleurs
  
 Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize**. Cet attribut permet de demander à l'utilisateur de s'authentifier avant d'accéder aux API définies par ces contrôleurs. Pour autoriser un accès anonyme au contrôleur, cet attribut doit être supprimé du contrôleur. Pour définir plus précisément les autorisations, appliquez cet attribut à chaque méthode nécessitant une autorisation, au lieu de l’appliquer à la classe de contrôleur.
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

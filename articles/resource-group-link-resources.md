@@ -146,4 +146,4 @@ Pour consulter d’autres exemples traitant notamment de la récupération d’i
 - Vous pouvez également organiser vos ressources en utilisant des balises. Pour en savoir plus sur le balisage de ressources, consultez la page [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 - Pour consulter une description de la création de modèles et définir les ressources à déployer, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

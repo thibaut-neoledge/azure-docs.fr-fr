@@ -142,7 +142,7 @@ Pour configurer le pare-feu Microsoft Azure pour la première fois, procédez c
 
     À présent, vous devez effectuer différentes opérations : - Attribuer un nom à votre règle de pare-feu ; - Fournir une plage d’adresses IP, si vous ne disposez pas d’une adresse IP statique.
 
-    > [AZURE.NOTE]La plage d’adresses IP du client que vous devez inclure correspond à votre adresse IP externe ou publique. Pour connaître votre adresse IP externe, vous pouvez accéder à différents sites web, comme <a href="http://www.whatismyip.com" target="_blank">www.whatismyip.com</a>.
+    > [AZURE.NOTE]La plage d’adresses IP du client que vous devez inclure correspond à votre adresse IP externe ou publique. Pour connaître votre adresse IP externe, vous pouvez accéder à différents sites web, comme <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>.
 
 7. Enregistrez votre règle de pare-feu.
 
@@ -166,4 +166,4 @@ Les étapes suivantes ont donc pour objectif de vous aider à savoir comment : 
 [version d’essai gratuit]: https://azure.microsoft.com/fr-fr/pricing/free-trial/
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -185,7 +185,7 @@ Il existe certaines [limites au nombre de propriétés, de valeurs de propriét�
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE]Veillez à ne pas journaliser des informations personnelles dans les propriétés.
@@ -561,7 +561,7 @@ Utilisez des initialiseurs de télémétrie pour remplacer le comportement séle
 
 Par exemple, le package Application Insights pour le Web collecte la télémétrie sur les requêtes HTTP. Il indique par défaut l’échec de toute requête à l’aide d’un code de réponse supérieur ou égal à 400. Toutefois, si 400 vous convient, vous pouvez fournir un initialiseur de télémétrie qui définit la propriété Success.
 
-Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
+Si vous fournissez un initialiseur de télémétrie, celui-ci est appelé chaque fois qu'une des méthodes Track\*() est appelée. Cela inclut les méthodes appelées par les modules de télémétrie standard. Par convention, ces modules ne définissent aucune propriété déjà définie par un initialiseur.
 
 **Définir votre initialiseur**
 
@@ -715,7 +715,7 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
  * **Nom** : l'URL de la requête HTTP
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track\* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
 * **Utilisateur** : permet aux utilisateurs d'être comptés. Dans une application web, s'il existe un cookie, l'ID d'utilisateur est supprimé de celui-ci. S'il n'en existe pas, un nouveau est généré. Si vos utilisateurs doivent se connecter à votre application, vous pouvez définir l’ID depuis leur ID d’authentification, afin de fournir un nombre plus fiable qui est juste même si l'utilisateur se connecte à partir d'une autre machine. 
 
@@ -740,10 +740,11 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
 * [Référence ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Référence Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Référence JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Questions
 
-* *Quelles exceptions peuvent être lancées par les appels Track* ?*
+* *Quelles exceptions peuvent être lancées par les appels Track\* ?*
     
     Aucun. Vous n’aurez pas besoin de les inclure dans des clauses catch.
 
@@ -778,4 +779,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

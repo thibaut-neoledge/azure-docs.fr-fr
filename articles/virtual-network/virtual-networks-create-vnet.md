@@ -19,7 +19,7 @@
 
 Quand vous créez un réseau virtuel, les services et les machines virtuelles au sein du réseau virtuel peuvent communiquer entre eux en toute sécurité sans passer par Internet. La création d’un réseau virtuel Azure est un processus relativement simple et rapide si le réseau virtuel n’est pas destiné à être connecté à d’autres réseaux virtuels ou à votre réseau local. En effet, vous n’aurez pas besoin d’acquérir et de configurer un périphérique VPN, ou de coordonner les adresses IP que vous choisissez avec d’autres réseaux virtuels ou le réseau local.
 
->[AZURE.WARNING]N’utilisez pas cette procédure pour créer un réseau virtuel qui sera ensuite connecté à d’autres réseaux virtuels ou votre réseau local. Si vous voulez créer une connexion hybride ou entre locaux sécurisée, consultez [À propos de la connectivité intersite sécurisée de réseau virtuel](https://msdn.microsoft.com/library/azure/dn133798.aspx). Si vous voulez créer un réseau virtuel qui se connecte à un autre réseau virtuel, consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel](https://msdn.microsoft.com/library/azure/dn690122.aspx).
+>[AZURE.WARNING]N’utilisez pas cette procédure pour créer un réseau virtuel qui sera ensuite connecté à d’autres réseaux virtuels ou votre réseau local. Si vous voulez créer une connexion hybride ou entre locaux sécurisée, consultez [À propos de la connectivité intersite sécurisée de réseau virtuel](https://msdn.microsoft.com/library/azure/dn133798.aspx). Si vous voulez créer un réseau virtuel qui se connecte à un autre réseau virtuel, consultez [Configuration d’une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configuration de votre réseau virtuel
 
@@ -66,4 +66,4 @@ Après avoir créé votre réseau virtuel, vous pouvez lui ajouter de nouvelles 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

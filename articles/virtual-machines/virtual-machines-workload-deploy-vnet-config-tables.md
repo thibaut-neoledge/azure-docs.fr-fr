@@ -28,7 +28,7 @@ Les étapes de cette rubrique vous guident lors de la création d’un réseau v
 
 Ces tables sont généralement remplies dans une rubrique qui décrit la configuration d'une charge de travail informatique dans Azure et incluent un réseau virtuel intersite. Consulter [Phase 1 : configurer Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) pour obtenir un exemple.
 
-La procédure suivante répertorie les informations contenues dans ces tables pour vous guider tout au long du processus de configuration du réseau virtuel dans la gestion de services. Si vous n’avez pas encore spécifié les paramètres de ces tables dans une autre rubrique, mais souhaitez toujours configurer un réseau virtuel intersite, consultez [Configuration d’une connexion de site à site intersite sur un réseau virtuel Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+La procédure suivante référencie les informations contenues dans ces tables pour vous guider tout au long du processus de configuration du réseau virtuel. Si vous n’avez pas encore spécifié les paramètres de ces tables dans une autre rubrique, mais que vous voulez toujours configurer un réseau virtuel intersite, consultez [Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [AZURE.NOTE]Cette procédure vous guide tout au long de la création d'un réseau virtuel qui utilise une connexion VPN de site à site. Pour en savoir plus sur l’utilisation d’ExpressRoute pour votre connexion de site à site, consultez [Présentation technique d’ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -65,6 +65,6 @@ La procédure suivante répertorie les informations contenues dans ces tables po
 
 [Tâches de configuration du réseau virtuel](https://msdn.microsoft.com/library/jj156206.aspx)
 
-[Configuration d’une connexion de site à site intersite sur un réseau virtuel Azure](https://msdn.microsoft.com/library/dn133795.aspx)
+[Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

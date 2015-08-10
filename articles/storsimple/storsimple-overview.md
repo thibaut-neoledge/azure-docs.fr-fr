@@ -56,4 +56,4 @@ En savoir plus sur les [composants StorSimple](storsimple-components.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

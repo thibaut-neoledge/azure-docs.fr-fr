@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main d'Azure Data Factory" 
+	pageTitle="Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL" 
 	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer et surveiller une fabrique de données à l’aide de Visual Studio
@@ -249,4 +249,4 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline) pour obtenir des instructions sur l’utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

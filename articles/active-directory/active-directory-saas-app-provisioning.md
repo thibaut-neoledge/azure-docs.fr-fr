@@ -106,4 +106,4 @@ Pour qu’une application puisse prendre en charge l’approvisionnement automat
 
 Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, veuillez écrire un message sur le [forum des commentaires sur Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

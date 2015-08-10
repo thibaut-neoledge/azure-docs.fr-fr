@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server sur les machines virtuelles Azure" 
+	pageTitle="Extension de l’agent IaaS SQL Server" 
 	description="Décrit l’extension de l’agent SQL Server, qui permet aux machines virtuelles exécutant SQL Server dans le cloud sur Azure d’utiliser les fonctionnalités Automation, et explique comment installer l’agent s’il n’a pas déjà été installé automatiquement." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -43,7 +43,7 @@ Si vous configurez votre machine virtuelle SQL Server en utilisant le [portail A
 
 ### Syntaxe
 
-Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <paramètres_sauvegarde_automatique>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<paramètres_courants>]
+Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <paramètres\_sauvegarde\_automatique>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<paramètres\_courants>]
 
 > [AZURE.NOTE]Il est recommandé d’omettre le paramètre – Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
 
@@ -59,7 +59,7 @@ Vous pouvez également utiliser l’applet de commande Azure PowerShell suivante
 
 ### Syntaxe
 
-Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<paramètres_courants>]
+Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<paramètres\_courants>]
 
 > [AZURE.NOTE]Vous pouvez omettre le paramètre –Version. S’il n’est pas spécifié, la valeur par défaut est la dernière version de l’extension.
 
@@ -74,4 +74,4 @@ Si vous voulez supprimer cette extension de votre machine virtuelle, vous pouvez
 ### Syntaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

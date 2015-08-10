@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/30/2015"
+    ms.date="07/23/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 L'un des intérêts de RemoteApp repose sur le fait que vous pouvez accéder à des applications publiées sur votre ordinateur à partir de l'un de vos appareils. Mieux encore, vous pouvez commencer à travailler sur un appareil, puis passer sur un autre et reprendre exactement là où vous vous étiez arrêté. Pour commencer, vous devez télécharger le client adapté à votre appareil et vous connecter au service.
 
-Dans cette rubrique, nous allons passer en revue la liste des clients actuellement pris en charge et les modes de téléchargement, avant de découvrir comment vous connecter à RemoteApp à partir de chacun de ces clients.
+Dans cette rubrique, nous allons passer en revue les clients actuellement pris en charge et les modes de téléchargement, avant de découvrir comment vous connecter à RemoteApp à partir de chacun de ces clients.
 
 ## Clients pris en charge
 
@@ -58,33 +58,33 @@ Après avoir installé le client sur votre appareil et l'avoir lancé, passez à
 
 Une fois l'application Bureau à distance Microsoft installée à partir du Google Play Store, elle apparaît dans votre liste d'applications sous **Bureau à distance**.
 
-1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton d'ajout **""+""**, puis sur **Azure RemoteApp**.
+1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton d'ajout **""+""**, puis sur **Azure RemoteApp**.	
 
-![Centre de connexion vide](./media/remoteapp-clients/Android1.png)
+	 ![Centre de connexion vide](./media/remoteapp-clients/Android1.png)
 
-2. Vous devez vous connecter avec votre adresse de messagerie pour accéder au service. Pour démarrer ce processus, cliquez sur **Prendre en main**.
+2. Vous devez vous connecter avec votre adresse de messagerie pour accéder au service. Appuyez sur **Prise en main**.
 
-![Invite de connexion](./media/remoteapp-clients/Android2.png)
+	![Invite de connexion](./media/remoteapp-clients/Android2.png)
 
 3. Dans la page suivante, tapez votre **adresse de messagerie**, puis cliquez sur **Continuer**. Le processus de connexion à l'aide d'Azure Active Directory commence alors.
 
-![Première page Azure Active Directory](./media/remoteapp-clients/Android3.png)
+	![Première page Azure Active Directory](./media/remoteapp-clients/Android3.png)
 
-4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
+4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (précédemment appelé « LiveID ») ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
-![Page des invitations](./media/remoteapp-clients/Android4.png)
+	![Page des invitations](./media/remoteapp-clients/Android4.png)
 
 5. Une fois vos invitations acceptées, la liste des applications auxquelles vous avez accès est téléchargée sur votre appareil et devient disponible dans le centre de connexion. Cliquez sur l'une des applications pour la lancer et commencer à l'utiliser.
 
-![Centre de connexion avec un flux](./media/remoteapp-clients/Android5.png)
+	![Centre de connexion avec un flux](./media/remoteapp-clients/Android5.png)
 
 6. Si vous n'avez pas encore d'invitation, vous pouvez tout de même essayer le service. Pour ce faire, cliquez sur **Accéder à un essai gratuit** lorsque vous y êtes invité.
 
-![Invite de démonstration de flux](./media/remoteapp-clients/Android6.png)
+	![Invite de démonstration de flux](./media/remoteapp-clients/Android6.png)
 
 7. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
 
-![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Android7.png)
+	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Android7.png)
 
 ## iOS
 
@@ -92,27 +92,27 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton **""+""**, puis sur **Azure RemoteApp**.
 
-![Centre de connexion vide](./media/remoteapp-clients/IOS1.png)
+	![Centre de connexion vide](./media/remoteapp-clients/IOS1.png)
 
 2. Vous devez vous connecter avec votre adresse de messagerie pour accéder au service. Pour démarrer ce processus, tapez votre **adresse de messagerie**, puis cliquez sur **Continuer**.
 
-![Invite de connexion](./media/remoteapp-clients/IOS2.png)
+	![Invite de connexion](./media/remoteapp-clients/picture1.png)
 
 3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
-![Page des invitations](./media/remoteapp-clients/IOS3.png)
+	![Page des invitations](./media/remoteapp-clients/IOS3.png)
 
 4. Une fois vos invitations acceptées, la liste des applications auxquelles vous avez accès est téléchargée sur votre appareil et devient disponible dans le centre de connexion. Cliquez sur l'une des applications pour la lancer et commencer à l'utiliser.
 
-![Centre de connexion avec un flux](./media/remoteapp-clients/IOS4.png)
+	![Centre de connexion avec un flux](./media/remoteapp-clients/IOS4.png)
 
 5. Si vous n'avez pas encore d'invitation, vous pouvez tout de même essayer le service. Pour ce faire, cliquez sur **Accéder à un essai gratuit** lorsque vous y êtes invité.
 
-![Invite de démonstration de flux](./media/remoteapp-clients/IOS5.png)
+	![Invite de démonstration de flux](./media/remoteapp-clients/IOS5.png)
 
 6. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
 
-![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/IOS6.png)
+	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/IOS6.png)
 
 ## Mac OS X
 
@@ -120,31 +120,31 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 1. Lorsque vous lancez l'application, vous accédez à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour commencer à utiliser Azure RemoteApp, cliquez sur le bouton **Azure RemoteApp**.
 
-![Centre de connexion vide](./media/remoteapp-clients/Mac1.png)
+	![Centre de connexion vide](./media/remoteapp-clients/Mac1.png)
 
 2. Vous devez vous connecter avec votre adresse de messagerie pour accéder au service. Pour démarrer ce processus, cliquez sur **Prendre en main**.
 
-![Invite de connexion](./media/remoteapp-clients/Mac2.png)
+	![Invite de connexion](./media/remoteapp-clients/Mac2.png)
 
 3. Dans la page suivante, tapez votre **adresse de messagerie**, puis cliquez sur **Continuer**. Le processus de connexion à l'aide d'Azure Active Directory commence alors.
 
-![Première page Azure Active Directory](./media/remoteapp-clients/Mac3.png)
+	![Première page Azure Active Directory](./media/remoteapp-clients/picture2.png)
 
 4. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis fermez la boîte de dialogue.
 
-![Page des invitations](./media/remoteapp-clients/Mac4.png)
+	![Page des invitations](./media/remoteapp-clients/Mac4.png)
 
 5. Une fois vos invitations acceptées, la liste des applications auxquelles vous avez accès est téléchargée sur votre appareil et devient disponible dans le centre de connexion. Double-cliquez sur l'une des applications pour la lancer et commencer à l'utiliser.
 
-![Centre de connexion avec un flux](./media/remoteapp-clients/Mac5.png)
+	![Centre de connexion avec un flux](./media/remoteapp-clients/Mac5.png)
 
 6. Si vous n'avez pas encore d'invitation, vous pouvez tout de même essayer le service. Pour ce faire, cliquez sur **Accéder à un essai gratuit** lorsque vous y êtes invité.
 
-![Invite de démonstration de flux](./media/remoteapp-clients/Mac6.png)
+	![Invite de démonstration de flux](./media/remoteapp-clients/Mac6.png)
 
 7. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
 
-![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
+	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Mac7.png)
 
 ## Windows (Toutes les versions prises en charge sauf Windows Phone)
 
@@ -152,23 +152,23 @@ Le client se lance automatiquement une fois son installation terminée. Cependan
 
 1. Une fois le client lancé, la première page qui s'affiche vous souhaite la bienvenue dans Azure RemoteApp. Pour continuer, cliquez sur **Prise en main**.
 
-![Page d'accueil du client Azure RemoteApp](./media/remoteapp-clients/Windows1.png)
+	![Page d'accueil du client Azure RemoteApp](./media/remoteapp-clients/Windows1.png)
 
 2. La page suivante commence le processus de connexion pour Azure RemoteApp à l'aide d'Azure Active Directory. Ce processus vous semblera familier si vous avez déjà utilisé des services Microsoft. Commencez par taper votre **adresse de messagerie**, puis cliquez sur **Continuer**.
 
-![Invite de la première page Azure Active Directory](./media/remoteapp-clients/Windows2.png)
+	![Invite de la première page Azure Active Directory](./media/remoteapp-clients/Windows2.png)
 
 3. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Terminé**.
 
-![Page des invitations du client Azure RemoteApp](./media/remoteapp-clients/Windows3.png)
+	![Page des invitations du client Azure RemoteApp](./media/remoteapp-clients/Windows3.png)
 
 4. Une fois vos invitations acceptées, la liste des applications auxquelles vous avez accès est téléchargée sur votre appareil et devient disponible dans le centre de connexion. Double-cliquez sur l'une des applications pour la lancer et commencer à l'utiliser.
 
-![Centre de connexion du client Azure RemoteApp](./media/remoteapp-clients/Windows4.png)
+	![Centre de connexion du client Azure RemoteApp](./media/remoteapp-clients/Windows4.png)
 
 5. Si personne ne vous a encore envoyé d'invitation, ne vous inquiétez pas : nous avons paré à cette éventualité ! Vous avez tout de même accès à une collection de démonstration afin de pouvoir tester le service.
 
-![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Windows5.png)
+	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/Windows5.png)
 
 ## Windows Phone 8.1
 
@@ -176,35 +176,35 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 
 1. Lorsque vous lancez l'application, vous accédez directement à un centre de connexion vide, sauf si vous avez déjà utilisé l'application. Pour prendre en main Azure RemoteApp, cliquez sur le bouton d'ajout **""+""** situé en bas de l'écran.
 
-![Centre de connexion vide](./media/remoteapp-clients/WinPhone1.png)
+	![Centre de connexion vide](./media/remoteapp-clients/WinPhone1.png)
 
 2. Appuyez ensuite sur **Azure RemoteApp**.
 
-![Page Ajouter des éléments](./media/remoteapp-clients/WinPhone2.png)
+	![Page Ajouter des éléments](./media/remoteapp-clients/WinPhone2.png)
 
 3. Vous devez vous connecter avec votre adresse de messagerie pour accéder au service. Pour démarrer ce processus, cliquez sur **Se connecter**.
 
-![Invite de connexion](./media/remoteapp-clients/WinPhone3.png)
+	![Invite de connexion](./media/remoteapp-clients/WinPhone3.png)
 
 4. Dans la page suivante, tapez votre **adresse de messagerie**, puis cliquez sur **Continuer**. Le processus de connexion à l'aide d'Azure Active Directory commence alors.
 
-![Première page Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
+	![Première page Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
 
 5. Suivez les instructions qui s'affichent à l'écran pour vous connecter avec votre compte Microsoft (LiveID) ou votre ID d'organisation. Une fois que vous êtes connecté, une page répertoriant toutes les invitations que vous avez reçues peut s'afficher. Le cas échéant, sélectionnez les invitations que vous jugez fiables, puis cliquez sur **Enregistrer**.
 
-![Page des invitations](./media/remoteapp-clients/WinPhone5.png)
+	![Page des invitations](./media/remoteapp-clients/WinPhone5.png)
 
 6. Une fois vos invitations acceptées, la liste des applications auxquelles vous avez accès est téléchargée sur votre appareil et devient disponible dans le centre de connexion. Cliquez sur l'une des applications pour la lancer et commencer à l'utiliser.
 
-![Centre de connexion avec un flux](./media/remoteapp-clients/WinPhone6.png)
+	![Centre de connexion avec un flux](./media/remoteapp-clients/WinPhone6.png)
 
 7. Si vous n'avez pas encore d'invitation, vous pouvez tout de même essayer le service. Pour ce faire, cliquez sur **Oui** lorsque vous y êtes invité.
 
-![Invite de démonstration de flux](./media/remoteapp-clients/WinPhone7.png)
+	![Invite de démonstration de flux](./media/remoteapp-clients/WinPhone7.png)
 
 8. Cela vous permet d'accéder à un ensemble d'applications de base qui vous permettent de commencer à utiliser RemoteApp.
 
-![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
+	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -53,7 +53,7 @@ Vous pouvez utiliser les applets de commande Azure PowerShell pour créer et gé
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <*account_name*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources, spécifiez également un nom de compte pour <\*account\_name\*> et la région où le service Batch est disponible. La création du compte peut prendre plusieurs minutes. Par exemple :
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +156,4 @@ Pour supprimer la limite supérieure, définissez **MaxCount** sur 0 ou une val
 * [Informations de référence sur les applets de commande Azure Batch](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Requêtes de liste efficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -103,7 +103,7 @@ Dans ce cas, l’*Intégrité de la réplication* est indiquée comme Critique 
 
 ### Options de journalisation de réplication Hyper-V
 
-Tous les événements liés à Hyper-V Replica sont inscrits dans le journal Hyper-V-VMMS\Admin situé sous **Journaux des applications et des services\Microsoft\Windows**. De plus, un journal d’analyse peut être activé pour Hyper-V-VMMS. Pour activer ce journal, commencez par afficher les journaux d’analyse et de débogage dans l’Observateur d’événements. Ouvrez l’Observateur d’événements, puis dans le **menu Affichage**, cliquez sur **Afficher les journaux d’analyse et débogage**.
+Tous les événements liés à Hyper-V Replica sont inscrits dans le journal Hyper-V-VMMS\\Admin situé sous **Journaux des applications et des services\\Microsoft\\Windows**. De plus, un journal d’analyse peut être activé pour Hyper-V-VMMS. Pour activer ce journal, commencez par afficher les journaux d’analyse et de débogage dans l’Observateur d’événements. Ouvrez l’Observateur d’événements, puis dans le **menu Affichage**, cliquez sur **Afficher les journaux d’analyse et débogage**.
 
 ![Résolution des problèmes Hyper-V locaux](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ Pour la protection des sites de succursales Hyper-V et SMB, téléchargez l’[o
 
 Pour les scénarios VMware/physiques, consultez la page [Collecte de journaux Azure Site Recovery pour la protection de sites VMware et physiques](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx) pour collecter les journaux requis.
 
-L’outil SDP collecte le fichier journal en local, que vous pouvez également trouver dans un sous-dossier nommé de façon aléatoire sous **%LocalAppData%\ElevatedDiagnostics**
+L’outil SDP collecte le fichier journal en local, que vous pouvez également trouver dans un sous-dossier nommé de façon aléatoire sous **%LocalAppData%\\ElevatedDiagnostics**
 
 ### Ouverture d’un ticket de support
 
@@ -164,41 +164,33 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 
 ### Paramétrage
 
--   [Impossible de valider le certificat sélectionné. Veuillez sélectionner un autre certificat.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
--   [Impossible d’inscrire le serveur VMM en raison d'une erreur interne. Reportez-vous à la vue tâches dans le portail Site Recovery pour plus d'informations sur l'erreur. Exécutez de nouveau le programme d'installation pour inscrire le serveur.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
+-   [Impossible d'inscrire le serveur VMM en raison d'une erreur interne. Reportez-vous à la vue tâches dans le portail Site Recovery pour plus d'informations sur l'erreur. Exécutez de nouveau le programme d'installation pour inscrire le serveur.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
 -   [Impossible d'établir une connexion au coffre Hyper-V Recovery Manager. Vérifiez les paramètres de proxy ou réessayez ultérieurement.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuration
 
--   [Le cluster hôte Hyper-V contient au moins une carte réseau statique, ou aucune carte connectée n'est configurée pour utiliser DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
-
--   [Le profil Hyper-V n'est pas activé dans les profils de capacité pour le cloud](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [Impossible d’appliquer la configuration de protection pour ’%CloudName;’. Impossible de configurer le cluster ou l’hôte Hyper-V qui vient d'être ajouté, car la protection du cloud n'est pas configurée.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
+-   [Le cluster hôte Hyper-V contient au moins une carte réseau statique ou aucune carte connectée n'est configurée pour utiliser DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
 -   [VMM n'a pas les autorisations nécessaires pour effectuer une action](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### Protection
 
--   [Le système d'exploitation n'est pas pris en charge.](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
-
--   [Échec de l’activation de la protection, car l'agent n’est pas installé sur la machine hôte](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
+-   [Échec de l'activation de la protection, car l'agent n’est pas installé sur la machine hôte](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
 -   [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison des faibles ressources de calcul](http://social.technet.microsoft.com/wiki/contents/articles/25501.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-low-compute-resources.aspx)
 
--   [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison de l’absence de réseau logique attaché](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
+-   [Impossible de trouver un hôte approprié pour la machine virtuelle de réplication, en raison de l'absence de réseau logique attaché](http://social.technet.microsoft.com/wiki/contents/articles/25502.a-suitable-host-for-the-replica-virtual-machine-can-t-be-found-due-to-no-logical-network-attached.aspx)
 
--   [Impossible de se connecter à la machine hôte de réplication : impossible d’établir une connexion](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
+-   [Impossible de se connecter à la machine hôte de réplication : impossible d'établir une connexion](http://social.technet.microsoft.com/wiki/contents/articles/31106.cannot-connect-to-the-replica-host-machine-connection-could-not-be-established.aspx)
 
 ### Récupérer
 
 -   Impossible pour VMM de terminer l'opération de l'hôte :
 
-    -   [Basculement vers le point de récupération sélectionné pour la machine virtuelle : accès général refusé.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
+    -   [Basculement vers le point de récupération sélectionné pour la machine virtuelle : accès général refusé.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [Échec du basculement d’Hyper-V vers le point de récupération sélectionné pour la machine virtuelle : opération abandonnée, essayez un point de récupération plus récent. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Échec du basculement d'Hyper-V vers le point de récupération sélectionné pour la machine virtuelle : opération abandonnée, essayez un point de récupération plus récent. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   Impossible d’établir une connexion avec le serveur (0x00002EFD)
 
@@ -218,11 +210,8 @@ Vous trouverez ci-dessous les erreurs courantes qui peuvent être testées et le
 
 -   Test Failover
 
-    -   [Impossible de lancer le basculement : test de basculement en cours](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
+    -   [Impossible de lancer le basculement : test de basculement en cours](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   Aspects spécifiques de la récupération vers Azure
-
-    -   [Impossible de lancer le basculement en raison de la présence de caractères non pris en charge dans le nom de la machine virtuelle](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Serveur de configuration, Serveur de traitement, Serveur maître
 
@@ -230,4 +219,7 @@ Serveur de configuration, Serveur de traitement, Serveur maître
 
 -   [Échec de l'hôte ESXi sur lequel le serveur de traitement/configuration est hébergé comme machine virtuelle avec un écran violet de la mort.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### Résolution des problèmes après un basculement de bureau à distance
+Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. Utilisez le document de dépannage pour exécuter la résolution des problèmes de bureau à distance sur la machine virtuelle. [Lien vers le document](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

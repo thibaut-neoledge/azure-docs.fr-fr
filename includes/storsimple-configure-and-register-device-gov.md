@@ -90,7 +90,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    Un message de confirmation s’affiche. Acceptez la valeur par défaut (**Y**).
+    Un message de confirmation s’affiche. Acceptez la valeur par défaut (\*\*Y\*\*).
 
 11. Exécutez l’applet de commande suivante pour reprendre l’installation :
 
@@ -133,4 +133,4 @@
      
         
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

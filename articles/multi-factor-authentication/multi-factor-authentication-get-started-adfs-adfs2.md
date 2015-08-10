@@ -56,8 +56,8 @@ Pour sécuriser AD FS 2.0 avec un proxy, installez le serveur Azure Multi-Factor
 23. Si le test de connexion LDAP a réussi, cliquez sur le bouton OK.
 24. Ensuite, cliquez sur l'icône Paramètres de la société et sélectionnez l'onglet Résolution du nom d'utilisateur.
 25. Sélectionnez le bouton radio Utiliser l'attribut d'identificateur unique LDAP pour établir les correspondances entre les noms d'utilisateur.
-26. Si les utilisateurs entreront leur nom d'utilisateur dans le formulaire de connexion du proxy ADFS au format « domaine\nom_utilisateur », le serveur doit être en mesure de supprimer le nom d'utilisateur du domaine lorsqu'il crée la requête LDAP. Ceci peut être effectué via un paramètre du registre.
-27. Ouvrez l’éditeur du registre et accédez à HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor sur un serveur 64 bits. Si vous utilisez un serveur 32 bits, retirez la partie « Wow6432Node » du chemin d'accès. Créez une nouvelle clé de registre DWORD appelée « UsernameCxz_stripPrefixDomain » et définissez la valeur sur 1. Le proxy ADFS est désormais protégé par le serveur Azure Multi-Factor Authentication. Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section Adresses IP de confiance ci-dessous si vous souhaitez ajouter des adresses IP internes à la liste blanche de sorte que l'authentification à deux facteurs ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
+26. Si les utilisateurs entreront leur nom d'utilisateur dans le formulaire de connexion du proxy ADFS au format « domaine\\nom\_utilisateur », le serveur doit être en mesure de supprimer le nom d'utilisateur du domaine lorsqu'il crée la requête LDAP. Ceci peut être effectué via un paramètre du registre.
+27. Ouvrez l’éditeur du registre et accédez à HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor sur un serveur 64 bits. Si vous utilisez un serveur 32 bits, retirez la partie « Wow6432Node » du chemin d'accès. Créez une nouvelle clé de registre DWORD appelée « UsernameCxz\_stripPrefixDomain » et définissez la valeur sur 1. Le proxy ADFS est désormais protégé par le serveur Azure Multi-Factor Authentication. Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section Adresses IP de confiance ci-dessous si vous souhaitez ajouter des adresses IP internes à la liste blanche de sorte que l'authentification à deux facteurs ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,4 +93,4 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l'authenti
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

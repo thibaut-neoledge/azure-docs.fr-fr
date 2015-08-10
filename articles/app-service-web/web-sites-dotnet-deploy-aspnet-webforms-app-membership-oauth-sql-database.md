@@ -249,26 +249,26 @@ Commencez par créer un simple modèle de données avec du code. Ce modèle de d
 	![Boîte de dialogue Ajouter un nouvel élément](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)
 3. Remplacez le code par défaut par le code suivant :  
 	<pre class="prettyprint">
-	using System.ComponentModel.DataAnnotations;
-	using System.Globalization;
-	
-	namespace ContactManager.Models
-	{
-	    public class Contacts
-	    {
-	        [ScaffoldColumn(false)]
-	        [Key]
-	        public int ContactId { get; set; }
-	        public string Name { get; set; }
-	        public string Address { get; set; }
-	        public string City { get; set; }
-	        public string State { get; set; }
-	        public string Zip { get; set; }
-	        [DataType(DataType.EmailAddress)]
-	        public string Email { get; set; }
-	    }
-	}
-	</pre>
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+
+namespace ContactManager.Models
+{
+    public class Contacts
+    {
+        [ScaffoldColumn(false)]
+        [Key]
+        public int ContactId { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+    }
+}
+</pre>
 
 La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire (`ContactID`) requise par la base de données. La classe **Contacts** représente les données de contact qui seront affichées. Chaque instance d'un objet Contacts correspondra à une ligne dans une table de base de données relationnelle, et chaque propriété de la classe Contacts mappera vers une colonne de la table de base de données relationnelle. Plus loin dans ce didacticiel, vous réviserez les données de contact contenues dans la base de données.
 
@@ -592,71 +592,71 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
 	- *Insert.aspx *et* Insert.aspx.cs*
 3. Mettez à jour les références de lien dans *Contacts/Default.aspx* en ajoutant « Admin/ » devant les références de pages qui renvoient à *Insert.aspx*, *Edit.aspx* et *Delete.aspx* :  
 	<pre class="prettyprint">
-	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
-	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
-	
-	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
-	    &lt;h2&gt;Contacts List&lt;/h2&gt;
-	    &lt;p&gt;
-	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
-	    &lt;/p&gt;
-	    &lt;div&gt;
-	        &lt;asp:ListView runat=&quot;server&quot;
-	            DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot;
-	            AutoGenerateColumns=&quot;false&quot;
-	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
-	            SelectMethod=&quot;GetData&quot;&gt;
-	            &lt;EmptyDataTemplate&gt;
-	                There are no entries found for Contacts
-	            &lt;/EmptyDataTemplate&gt;
-	            &lt;LayoutTemplate&gt;
-	                &lt;table class=&quot;table&quot;&gt;
-	                    &lt;thead&gt;
-	                        &lt;tr&gt;
-	                            &lt;th&gt;Name&lt;/th&gt;
-	                            &lt;th&gt;Address&lt;/th&gt;
-	                            &lt;th&gt;City&lt;/th&gt;
-	                            &lt;th&gt;State&lt;/th&gt;
-	                            &lt;th&gt;Zip&lt;/th&gt;
-	                            &lt;th&gt;Email&lt;/th&gt;
-	                            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
-	                        &lt;/tr&gt;
-	                    &lt;/thead&gt;
-	                    &lt;tbody&gt;
-	                        &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt;
-	                    &lt;/tbody&gt;
-	                &lt;/table&gt;
-	            &lt;/LayoutTemplate&gt;
-	            &lt;ItemTemplate&gt;
-	                &lt;tr&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
-	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
-	                    &lt;/td&gt;
-	                &lt;/tr&gt;
-	            &lt;/ItemTemplate&gt;
-	        &lt;/asp:ListView&gt;
-	    &lt;/div&gt;
-	&lt;/asp:Content&gt;
-	</pre>
+&lt;%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
+&lt;%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
+
+&lt;asp:Content runat="server" ContentPlaceHolderID="MainContent">
+    &lt;h2>Contacts List&lt;/h2>
+    &lt;p>
+        &lt;asp:HyperLink runat="server" NavigateUrl="<mark>Admin/</mark>Insert.aspx" Text="Create new" />
+    &lt;/p>
+    &lt;div>
+        &lt;asp:ListView runat="server"
+            DataKeyNames="ContactId" ItemType="ContactManager.Models.Contacts"
+            AutoGenerateColumns="false"
+            AllowPaging="true" AllowSorting="true"
+            SelectMethod="GetData">
+            &lt;EmptyDataTemplate>
+                Il n’y a aucune entrée pour Contacts
+            &lt;/EmptyDataTemplate>
+            &lt;LayoutTemplate>
+                &lt;table class="table">
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th>Nom&lt;/th>
+                            &lt;th>Adresse&lt;/th>
+                            &lt;th>Ville&lt;/th>
+                            &lt;th>État&lt;/th>
+                            &lt;th>Code postal&lt;/th>
+                            &lt;th>E-mail&lt;/th>
+                            &lt;th>&amp;nbsp;&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                    &lt;tbody>
+                        &lt;tr runat="server" id="itemPlaceholder" />
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/LayoutTemplate>
+            &lt;ItemTemplate>
+                &lt;tr>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="Name" ID="Name" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="Address" ID="Address" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="City" ID="City" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="State" ID="State" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="Zip" ID="Zip" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;asp:DynamicControl runat="server" DataField="Email" ID="Email" Mode="ReadOnly" />
+                    &lt;/td>
+                    &lt;td>
+                        &lt;a href="<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%>">Edit&lt;/a> | 
+                        &lt;a href="<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%>">Delete&lt;/a>
+                    &lt;/td>
+                &lt;/tr>
+            &lt;/ItemTemplate>
+        &lt;/asp:ListView>
+    &lt;/div>
+&lt;/asp:Content>
+</pre>
 4. Mettez à jour les six références du code `Response.Redirect("Default.aspx")` vers `Response.Redirect("~/Contacts/Default.aspx")` pour les trois fichiers suivants :  
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
@@ -667,16 +667,16 @@ Vous allez créer un dossier nommé *Admin* auquel seuls les utilisateurs affect
 6. Dans la liste des modèles web Visual C#, sélectionnez **Fichier de configuration Web** dans la liste du milieu, acceptez le nom par défaut *Web.config*, puis sélectionnez **Ajouter**.
 7. Remplacez le contenu XML existant dans le fichier *Web.config* par le code suivant :
 	<pre class="prettyprint">
-	&lt;?xml version=&quot;1.0&quot;?&gt;
-	&lt;configuration&gt;
-	  &lt;system.web&gt;
-	    &lt;authorization&gt;
-	      &lt;allow roles=&quot;canEdit&quot;/&gt;
-	      &lt;deny users=&quot;*&quot;/&gt;
-	    &lt;/authorization&gt;
-	  &lt;/system.web&gt;
-	&lt;/configuration&gt;
-	</pre>
+&lt;?xml version="1.0"?>
+&lt;configuration>
+  &lt;system.web>
+    &lt;authorization>
+      &lt;allow roles="canEdit"/>
+      &lt;deny users="*"/>
+    &lt;/authorization>
+  &lt;/system.web>
+&lt;/configuration>
+</pre>
 8. Enregistrez le fichier *Web.config*.
 	Le fichier *Web.config* spécifie que seuls les utilisateurs affectés au rôle « canEdit » peuvent accéder aux pages du dossier *Admin*. 
 
@@ -783,4 +783,4 @@ N'hésitez pas à nous transmettre vos commentaires sur ce qui vous a plu et ce 
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

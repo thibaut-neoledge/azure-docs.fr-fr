@@ -62,4 +62,4 @@
   
       >[AZURE.NOTE]Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

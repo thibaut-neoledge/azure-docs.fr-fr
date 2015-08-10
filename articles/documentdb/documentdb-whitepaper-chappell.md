@@ -31,4 +31,4 @@ Ce livre blanc vous familiarise également avec les concepts suivants :
 **Téléchargement PDF :** [Présentation de DocumentDB - Une base de données NoSQL pour Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

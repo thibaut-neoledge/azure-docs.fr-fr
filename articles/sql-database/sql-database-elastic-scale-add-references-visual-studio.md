@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Ajout de références de bibliothèque client d’une base de données élastiques à un projet Visual Studio 
@@ -40,4 +40,4 @@ La référence de la bibliothèque cliente a maintenant été ajoutée à votre 
 [1]: ./media/sql-database-elastic-scale-add-references-visual-studio/search-online.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

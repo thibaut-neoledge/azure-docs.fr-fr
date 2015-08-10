@@ -22,4 +22,4 @@ Ce sont les limites du service pour le coffre de clés Azure.
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -157,7 +157,7 @@ Une fois la machine virtuelle créée, consultez l’article [Connexion à une m
 
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
-- Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (*.ps1)
+- Enregistrer ce jeu de commandes en tant que fichier de script PowerShell (\*.ps1)
 - Enregistrer ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automatisation** du Portail de gestion Azure
 
 ## <a id="examples"></a>Exemples
@@ -260,4 +260,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

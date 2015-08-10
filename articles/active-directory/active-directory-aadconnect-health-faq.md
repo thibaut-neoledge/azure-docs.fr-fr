@@ -105,6 +105,9 @@ Sélectionnez Avancé si vous disposez de ports proxy différents pour les proto
 Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe aléatoire pour l’authentification de base n’est actuellement pris en charge.
 
 
+
+
+
 ## Questions sur les opérations
 
 
@@ -126,4 +129,4 @@ Les alertes Azure AD Connect Health sont résolues en cas de condition de succ�
 
 Les ports TCP/UDP 80 et 443 doivent être ouverts pour permettre à l’agent Azure AD Connect Health de communiquer avec les points de terminaison de service Azure AD Health.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

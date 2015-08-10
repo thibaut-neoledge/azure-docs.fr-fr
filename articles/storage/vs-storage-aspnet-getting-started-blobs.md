@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
->[AZURE.NOTE]Cet article explique comment prendre en main le stockage d’objets blob Azure une fois que vous avez créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez la page [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
+Cet article explique comment prendre en main le stockage d’objets blob Azure une fois que vous avez créé ou référencé un compte de stockage Azure dans une application ASP.NET via la boîte de dialogue **Ajouter des services connectés** de Visual Studio. Pour obtenir des informations plus générales sur l’utilisation du stockage d’objets blob Azure, consultez [Comment utiliser le stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md).
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents.
 
@@ -36,7 +36,7 @@ De la même manière que les fichiers résident dans des dossiers, le stockage d
 
 Cet article explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. Les scénarios traités incluent le **chargement (vers une cible)**, la **création de listes**, le **téléchargement (à partir d’une source)** et la **suppression** d’objets blob.
 
-Pour plus d’informations sur les projets ASP.NET, consultez le site [ASP.NET](http://www.asp.net).
+Pour plus d’informations sur les projets ASP.NET, consultez [ASP.NET](http://www.asp.net).
 
 ##Création de conteneurs d’objets blob dans l’Explorateur de serveurs Visual Studio
 
@@ -62,7 +62,7 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
     **REMARQUE** : utilisez tout le code ci-dessus avant le code des sections suivantes.
 
 
-3. Obtenez un objet **CloudBlobClient** pour faire référence à un conteneur existant dans votre compte de stockage.
+3. Obtenez un objet **CloudBlobClient** pour référencer un conteneur existant dans votre compte de stockage.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -70,12 +70,12 @@ Pour accéder aux objets blob de projets ASP.NET par programmation, vous devez a
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-**REMARQUE** : parmi les API qui effectuent des appels vers le stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx).
+**REMARQUE** : parmi les API qui effectuent des appels au stockage Azure dans ASP.NET 5, certaines sont asynchrones. Pour plus d’informations, voir l’article [Programmation asynchrone avec Async et Await](http://msdn.microsoft.com/library/hh191443.aspx).
 
 
 ## Création d’un conteneur d’objets blob dans le code
 
-Vous pouvez aussi utiliser **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Il vous suffit pour cela d’ajouter un appel à`CreateIfNotExistsAsync()` comme dans le code suivant :
+Vous pouvez aussi utiliser **CloudBlobClient** pour créer un conteneur dans votre compte de stockage. Il vous suffit pour cela d’ajouter un appel à `CreateIfNotExistsAsync()`, comme dans le code suivant :
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -318,4 +318,4 @@ Comme l’exemple de méthode appelle une méthode asynchrone, il doit être pr�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

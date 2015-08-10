@@ -218,4 +218,4 @@ Informations concernant l’appareil, l’emplacement et l’utilisateur que le 
 
 Découvrez le [code du SDK](https://github.com/Microsoft/ApplicationInsights-js) ou contribuez à ce dernier.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

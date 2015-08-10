@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn"/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -40,9 +40,9 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 ## Étapes suivantes
 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
-- Pour plus d'informations sur la façon de configurer votre connexion ExpressRoute, consultez
+- Pour plus d'informations sur la façon de configurer votre connexion ExpressRoute, consultez :
 	- [Configuration d’une connexion ExpressRoute via un fournisseur de services réseau](expressroute-configuring-nsps.md)
 	- [Configuration d’une connexion ExpressRoute via un fournisseur Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

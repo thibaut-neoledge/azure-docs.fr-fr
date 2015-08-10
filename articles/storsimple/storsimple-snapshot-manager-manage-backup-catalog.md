@@ -181,7 +181,7 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
     4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
 
-2. Sur l’ordinateur hôte, accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. Sur l’ordinateur hôte, accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData est un dossier masqué.
  
@@ -197,7 +197,7 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
     3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
 
-5. Sur l’ordinateur hôte, accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog.
+5. Sur l’ordinateur hôte, accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
 6. Supprimez le fichier XML de catalogue et remplacez-le par la version de sauvegarde que vous avez créée.
 
@@ -207,4 +207,4 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 
 Consultez les [tâches et flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows) disponibles.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

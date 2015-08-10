@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
+	ms.date="07/25/2015"
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Ce didacticiel vous montre comment ajouter un service principal cloud à une application HTML en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile. Vous pouvez regarder une version vidéo de ce didacticiel en cliquant sur le clip à droite.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">03:51:00</span></div>
-</div>
+##Vue d'ensemble 
 
-Voici une capture d’écran de l’application terminée :
+Ce didacticiel vous montre comment ajouter un service principal cloud à une application HTML en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Vous pouvez visionner la version vidéo de ce didacticiel.
+
+> [AZURE.VIDEO mobile-get-started-html]
+ 
+Voici une capture d'écran de l'application terminée :
 
 ![][0]
 
-Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile Services pour les applications HTML.
+Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile Services pour les applications HTML. Pour une application PhoneGap/Cordova, consultez la [version PhoneGap/Cordova](mobile-services-javascript-backend-phonegap-get-started.md) de ce didacticiel.
 
-> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
+##Composants requis
 
-###Conditions supplémentaires
+Les éléments suivants sont requis pour suivre ce didacticiel :
 
-+ L'un des serveurs web suivants doit être exécuté sur votre ordinateur local pour pouvoir suivre ce didacticiel :
++ L'un des serveurs web suivants doit être exécuté sur votre ordinateur local :
 
 	+  **Sur Windows** : IIS Express. IIS Express est installé par le [programme d'installation de la plate-forme Web Microsoft].
 	+  **Sur MacOS X** : Python, qui doit déjà être installé.
@@ -47,6 +46,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels
 	Vous pouvez utiliser n'importe quel serveur Web pour héberger l'application, mais les serveurs précédents sont les seuls pris en charge par les scripts téléchargés.
 
 + Un navigateur web qui prend en charge le HTML5
++ Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
@@ -134,10 +134,6 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 <!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
-
-
-
-
 [6]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
 [7]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
 
@@ -148,15 +144,15 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 
 <!-- URLs. -->
-[Prise en main des données]: /develop/mobile/tutorials/get-started-with-data-html
-[Prise en main de l'authentification]: /develop/mobile/tutorials/get-started-with-users-html
+[Prise en main des données]: mobile-services-html-get-started-data.md
+[Prise en main de l'authentification]: mobile-services-html-get-started-users.md
 [Appel d'une API personnalisée à partir d'une application HTML]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [programme d'installation de la plate-forme Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [dernière version de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Guide de fonctionnement Mobile Services HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
-[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+[Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

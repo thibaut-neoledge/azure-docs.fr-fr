@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d’Azure Active Directory (Projets .NET)
@@ -22,13 +22,13 @@
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
 > - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
-#####Demander une authentification pour l'accès aux contrôleurs 
+##Demander une authentification pour l'accès aux contrôleurs 
 
 Tous les contrôleurs de votre projet ont été dotés de l'attribut **Authorize**. Cet attribut permet de demander à l'utilisateur de s'authentifier avant d'accéder à ces contrôleurs. Pour autoriser un accès anonyme au contrôleur, cet attribut doit être supprimé du contrôleur. Pour définir plus précisément les autorisations, appliquez cet attribut à chaque méthode nécessitant une autorisation, au lieu de l'appliquer à la classe de contrôleur.
  
-#####Ajouter des contrôles SignIn/SignOut 
+##Ajouter des contrôles SignIn/SignOut 
 
-Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml** et ajouter la fonctionnalité à l’une de vos vues. Voici un exemple de la fonctionnalité ajoutée à la vue **_Layout.cshtml** standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
+Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez utiliser la vue partielle **_LoginPartial.cshtml\*\* et ajouter la fonctionnalité à l’une de vos vues. Voici un exemple de la fonctionnalité ajoutée à la vue **_Layout.cshtml\*\* standard. (Notez le dernier élément de la classe div avec navbar-collapse) :
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@ Pour ajouter des contrôles SignIn/SignOut à l’une de vos vues, vous pouvez u
 
 [En savoir plus sur Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

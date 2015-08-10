@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="sdanie"/>
 
 # Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
@@ -26,7 +26,7 @@ Le service Gestion des API possède les groupes système suivants, qui ne sont p
 -	**Développeurs** : les utilisateurs authentifiés du portail des développeurs appartiennent à ce groupe. Les développeurs sont les clients qui génèrent des applications grâce à vos API. Les développeurs bénéficient d'un accès au portail des développeurs et génèrent des applications qui appellent les opérations d'une API.
 -	**Invités** : les utilisateurs non authentifiés du portail des développeurs, comme les prospects, qui consultent le portail des développeurs d’une instance d’API Management appartiennent à ce groupe. Ils peuvent recevoir certains accès en lecture seule, comme la possibilité d'afficher les API, mais pas de les appeler.
 
-Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés](api-management-howto-aad.md/#how-to-add-an-external-azure-active-directory-group). Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
+Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés][]. Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
 
 Ce guide explique comment les administrateurs de l'instance Gestion des API peuvent ajouter de nouveaux groupes et les associer à des produits et des développeurs.
 
@@ -105,5 +105,6 @@ Une fois le développeur ajouté à un groupe, il peut voir tous les produits as
 
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
+[utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

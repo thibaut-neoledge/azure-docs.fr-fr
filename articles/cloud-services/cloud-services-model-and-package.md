@@ -206,8 +206,8 @@ Pour déployer une application en tant que service cloud dans Azure, vous devez 
 ###### Emplacement de l’outil CSPack (sur Windows)
 | Version du Kit de développement logiciel (SDK) | Path |
 | ----------- | ---- |
-| 1.7+ | C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[versions-sdk]\bin\ |
-| &lt;1.6 | C:\Program Files\Azure SDK\[version-sdk]\bin\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[versions-sdk]\\bin\\ |
+| &lt;1.6 | C:\\Program Files\\Azure SDK\\[version-sdk]\\bin\\ |
 
 >[AZURE.NOTE]Le fichier CSPack.exe (sur Windows) est disponible en exécutant le raccourci de l’**invite de commandes Microsoft Azure**, qui est installé avec le Kit de développement logiciel (SDK).
 >  
@@ -274,4 +274,4 @@ J’utilise Visual Studio et souhaite...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/fr-fr/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

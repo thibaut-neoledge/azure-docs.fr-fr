@@ -155,4 +155,4 @@ Pour démarrer avec Azure AD Connect Health, consultez la section [Spécificatio
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

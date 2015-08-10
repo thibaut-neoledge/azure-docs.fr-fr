@@ -31,7 +31,7 @@ Les statistiques sur une colonne sont des objets contenant des informations sur 
 
 Les statistiques sur plusieurs colonnes sont des données créées sur un ensemble de colonnes. Elles incluent les statistiques sur une colonne sur la première colonne de cet ensemble, en ajoutant certaines informations de corrélation entre les différentes colonnes, appelées « densités ». Les statistiques sur plusieurs colonnes peuvent améliorer les performances des requêtes lors de certaines opérations, comme les clauses « group by » et les associations composites.
 
-Pour en savoir plus, consultez la section [DBCC SHOW_STATISTICS][] de MSDN.
+Pour en savoir plus, consultez la section [DBCC SHOW\_STATISTICS][] de MSDN.
 
 ## Pourquoi les statistiques sont-elles nécessaires ?
 Si les statistiques utilisées ne sont pas pertinentes, vous ne pourrez pas atteindre les performances prévues par la conception de SQL Data Warehouse. Dans les tables et colonnes, les statistiques ne sont pas automatiquement générées par SQL Data Warehouse ; vous devez les créer vous-même. Il est judicieux de les créer en même temps que la table, puis de les mettre à jour une fois cette dernière remplie.
@@ -152,13 +152,13 @@ Pour créer des statistiques sur plusieurs colonnes, il vous suffit d’utiliser
 
 > [AZURE.NOTE]L’histogramme, qui est utilisé pour estimer le nombre de lignes dans le résultat d’une requête, est uniquement disponible pour la première colonne répertoriée dans la définition d’objet de statistiques.
 
-Dans cet exemple, l’histogramme concerne l’élément *product_category*. Les statistiques portant sur différentes colonnes sont calculées sur la base des éléments *product_category* et *product_sub_category* :
+Dans cet exemple, l’histogramme concerne l’élément *product\_category*. Les statistiques portant sur différentes colonnes sont calculées sur la base des éléments *product\_category* et *product\_sub\_category* :
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Dans la mesure où il existe une corrélation entre les éléments *product_category* et *product_sub_category*, des statistiques sur plusieurs colonnes peuvent être utiles lorsque le système accède à ces colonnes en même temps.
+Dans la mesure où il existe une corrélation entre les éléments *product\_category* et *product\_sub\_category*, des statistiques sur plusieurs colonnes peuvent être utiles lorsque le système accède à ces colonnes en même temps.
 
 ### G. Créer des statistiques sur toutes les colonnes d’une table
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H. Utiliser une procédure stockée pour créer des statistiques sur toutes les colonnes d’une base de données
 
-SQL Data Warehouse n’inclut pas de procédure stockée par le système équivalente à [sp_create_stats][] dans SQL Server. Cette procédure stockée crée un objet de statistiques sur une colonne portant sur chaque colonne de la base de données non pourvue de statistiques.
+SQL Data Warehouse n’inclut pas de procédure stockée par le système équivalente à [sp\_create\_stats][] dans SQL Server. Cette procédure stockée crée un objet de statistiques sur une colonne portant sur chaque colonne de la base de données non pourvue de statistiques.
 
 Cela vous aidera à commencer à concevoir votre base de données. N’hésitez pas à l’adapter à vos besoins.
 
@@ -325,9 +325,9 @@ Ces vues système fournissent des informations sur les statistiques :
 | [sys.objects][] | Une ligne pour chaque objet de la base de données. | |
 | [sys.schemas][] | Une ligne pour chaque schéma de la base de données. | |
 | [sys.stats][] | Une ligne pour chaque objet de statistiques. |
-| [sys.stats_columns][] | Une ligne pour chaque colonne de l’objet de statistiques. Paramètre lié à l’élément « sys.columns ». |
+| [sys.stats\_columns][] | Une ligne pour chaque colonne de l’objet de statistiques. Paramètre lié à l’élément « sys.columns ». |
 | [sys.tables][] | Une ligne pour chaque table (y compris les tables externes). |
-| [sys.table_types][] | Une ligne pour chaque type de données. |
+| [sys.table\_types][] | Une ligne pour chaque type de données. |
 
 
 ### Fonctions système relatives aux statistiques
@@ -335,12 +335,12 @@ Ces fonctions système sont utiles lorsque vous gérez des statistiques :
 
 | Fonction système | Description |
 | :-------------- | :---------- |
-| [STATS_DATE][] | Date de la dernière mise à jour de l’objet de statistiques. |
-| [DBCC SHOW_STATISTICS][] | Fournit des informations détaillées et récapitulatives sur la distribution des valeurs, telles que l’objet de statistiques la comprend. |
+| [STATS\_DATE][] | Date de la dernière mise à jour de l’objet de statistiques. |
+| [DBCC SHOW\_STATISTICS][] | Fournit des informations détaillées et récapitulatives sur la distribution des valeurs, telles que l’objet de statistiques la comprend. |
 
 ### Combiner des fonctions et des colonnes de statistiques en une seule vue
 
-Cette vue regroupe les colonnes portant sur les statistiques et les résultats de la fonction [STATS_DATE()][].
+Cette vue regroupe les colonnes portant sur les statistiques et les résultats de la fonction [STATS\_DATE()][].
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## Exemples portant sur la fonction DBCC SHOW_STATISTICS()
+## Exemples portant sur la fonction DBCC SHOW\_STATISTICS()
 
-La fonction DBCC SHOW_STATISTICS() présente les données contenues dans un objet de statistiques. Ces données sont affichées en trois parties.
+La fonction DBCC SHOW\_STATISTICS() présente les données contenues dans un objet de statistiques. Ces données sont affichées en trois parties.
 
 1. En-tête
 2. Vecteur de densité
@@ -402,7 +402,7 @@ Par exemple :
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Afficher une ou plusieurs parties de la fonction DBCC SHOW_STATISTICS();
+### Afficher une ou plusieurs parties de la fonction DBCC SHOW\_STATISTICS();
 
 Si vous êtes uniquement intéressé par l’affichage de certaines parties spécifiques, utilisez la clause `WITH` et spécifiez les parties que vous voulez voir :
 
@@ -416,13 +416,13 @@ Par exemple :
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Différences liées à la fonction DBCC SHOW_STATISTICS()
-La fonction DBCC SHOW_STATISTICS() est implémentée de manière plus stricte dans SQLDW que dans SQL Server.
+## Différences liées à la fonction DBCC SHOW\_STATISTICS()
+La fonction DBCC SHOW\_STATISTICS() est implémentée de manière plus stricte dans SQLDW que dans SQL Server.
 
 1. Les fonctions non documentées ne sont pas prises en charge.
-- Impossible d’utiliser le paramètre « Stats_stream ».
-- Impossible de joindre les résultats de sous-ensembles spécifiques de données de statistiques, par exemple : STAT_HEADER JOIN DENSITY_VECTOR.
-2. L’élément NO_INFOMSGS ne peut pas être défini pour la suppression des messages.
+- Impossible d’utiliser le paramètre « Stats\_stream ».
+- Impossible de joindre les résultats de sous-ensembles spécifiques de données de statistiques, par exemple : STAT\_HEADER JOIN DENSITY\_VECTOR.
+2. L’élément NO\_INFOMSGS ne peut pas être défini pour la suppression des messages.
 3. Vous ne pouvez pas placer de crochets autour des noms de statistiques.
 4. Vous ne pouvez pas utiliser les noms de colonnes pour identifier les objets de statistiques.
 5. L’erreur personnalisée 2767 n’est pas prise en charge.
@@ -440,16 +440,16 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!-- External Links -->
 [Évaluation de la cardinalité]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Statistiques]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

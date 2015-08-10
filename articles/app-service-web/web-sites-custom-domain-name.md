@@ -44,7 +44,7 @@ Au-delà de ces fondamentaux, il faut prendre en compte des cas spécifiques :
 
 - Mappage de votre domaine racine. Le domaine racine est le domaine que vous avez réservé auprès du bureau d'enregistrement de domaines. Par exemple, **contoso.com**.
 - Mappage d'un sous-domaine. Par exemple, **blogs.contoso.com**. Vous pouvez mapper différents sous-domaines vers différentes applications web.
-- Mappage d’un caractère générique. Par exemple, ***.contoso.com**. Une entrée à caractère générique s’applique à tous les sous-domaines de votre domaine.
+- Mappage d’un caractère générique. Par exemple, **\*.contoso.com**. Une entrée à caractère générique s’applique à tous les sous-domaines de votre domaine.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -147,4 +147,4 @@ Pour plus d'informations, consultez [Prise en main d’Azure DNS](../dns/dns-get
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

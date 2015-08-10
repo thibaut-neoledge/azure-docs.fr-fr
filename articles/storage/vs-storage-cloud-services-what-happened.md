@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Qu'est-il arrivé à mon projet ?
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
 > - [What Happened](vs-storage-cloud-services-what-happened.md)
 
-###<span id="whathappened">Qu’est-il arrivé à mon projet ?</span>
+###Qu'est-il arrivé à mon projet ?</span>
 
 ###### Références ajoutées
 
@@ -46,4 +46,4 @@ Les éléments ont été créés avec la clé et la chaîne de connexion du comp
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

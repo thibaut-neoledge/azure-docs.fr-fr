@@ -268,4 +268,4 @@ Vous avez vu comment protéger une application API Azure en exigeant une authent
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -18,7 +18,7 @@
 # Vue d'ensemble technique d'Application Gateway 
 
 
-Microsoft Azure Application Gateway est un service géré par Azure semblable à Azure VPN Gateway. Application Gateway fournit une solution d'équilibrage de charge HTTP basée sur ARR (Application Request Routing) IIS géré par Azure. Le service Application Gateway est hautement disponible et contrôlé. Pour le contrat SLA et la tarification, reportez-vous aux pages [SLA](http://azure.microsoft.com/support/legal/sla/) et [Tarification](https://azure.microsoft.com/pricing/details/application-gateway/).
+Microsoft Azure Application Gateway fournit une solution d’équilibrage de la charge HTTP gérée par Azure et basée sur l’équilibrage de la charge de couche 7. L’équilibrage de la charge d’application permet aux administrateurs informatiques et aux développeurs de créer des règles de routage pour le trafic réseau basé sur HTTP. Le service Application Gateway est hautement disponible et contrôlé. Pour le contrat SLA et la tarification, reportez-vous aux pages [SLA](http://azure.microsoft.com/support/legal/sla/) et [Tarification](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Application Gateway prend actuellement en charge la remise d'application de couche 7 pour les éléments suivants :
 
@@ -29,8 +29,12 @@ Application Gateway prend actuellement en charge la remise d'application de couc
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
 ## Équilibrage de charge de couche 7 HTTP
-Azure fournit l'équilibrage de charge de couche 4 par le biais d'un équilibreur de charge logiciel. Ceci se produit implicitement pour chaque service cloud qui a une adresse VIP (public ou interne) avec équilibrage de charge. Toutefois, il existe de nombreuses applications qui peuvent utiliser l'équilibrage de charge de couche 7 (HTTP).
 
+Azure fournit un équilibrage de la charge de couche 4 via l’équilibreur de charge Azure fonctionnant au niveau du transport (TCP/UDP) et via l’équilibrage de la charge de tout le trafic réseau entrant pour le service App Gateway. La passerelle Application Gateway applique ensuite les règles de routage au trafic HTTP, fournissant ainsi un équilibrage de la charge de niveau 7 (HTTP). Quand vous créez une passerelle Application Gateway, un point de terminaison (VIP) est associé et utilisé comme adresse IP publique pour le trafic réseau en entrée.
+
+La passerelle Application Gateway achemine le trafic HTTP en fonction de sa configuration, qu’il s’agisse d’un ordinateur virtuel, d’un service cloud, d’une application web ou d’une adresse IP externe.
+
+Le diagramme ci-dessous explique comment le trafic circule pour la passerelle Application Gateway : ![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
 
 L'équilibrage de charge de couche 7 HTTP est utile pour :
 
@@ -51,8 +55,8 @@ Vous pouvez créer et gérer la passerelle Application Gateway à l'aide des API
 
 ## Étapes suivantes
 
-Créer une passerelle Application Gateway. Voir [Création d'une passerelle Application Gateway](application-gateway-create-gateway.md).
+Créer une passerelle Application Gateway. Consultez [Création d’une passerelle Application Gateway](application-gateway-create-gateway.md).
 
-Configurer le déchargement SSL. Voir [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
+Configurer le déchargement SSL. Consultez [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

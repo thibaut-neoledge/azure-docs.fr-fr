@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" 
-	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows Store" 
+	pageTitle="Gestion des conflits liés aux données hors connexion dans les applications Windows universelles | Azure Mobile Services" 
+	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows universelle" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
@@ -23,15 +23,13 @@
 
 ##Vue d'ensemble
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services.</p>
-<p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36:00</span></div>
-</div>
+Cette rubrique vous explique comment synchroniser les données et gérer les conflits lors de l'utilisation des fonctionnalités hors connexion d'Azure Mobile Services.
 
-Dans ce didacticiel, vous allez télécharger une solution Windows Universal c# pour une application prenant en charge la gestion des conflits de synchronisation hors connexion. Vous allez intégrer un service mobile à l'application, puis exécuter les clients Windows Store 8.1 et Windows Phone 8.1 pour générer un conflit de synchronisation et le résoudre.
+Si vous préférez regarder une vidéo, sachez que celle ci-dessous suit la même procédure que ce didacticiel.
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+
+Dans ce didacticiel, vous téléchargez une solution Windows C# universelle pour une application prenant en charge la gestion des conflits de synchronisation hors connexion. Vous allez intégrer un service mobile à l'application, puis exécuter les clients Windows Store 8.1 et Windows Phone 8.1 pour générer un conflit de synchronisation et le résoudre.
 
 Ce didacticiel s'appuie sur la procédure et l'exemple d'application présentés dans le didacticiel précédent intitulé [Prise en main des données hors connexion]. Avant de commencer, nous vous conseillons de suivre d'abord le didacticiel [Prise en main des données hors connexion].
 
@@ -51,7 +49,7 @@ Ce didacticiel est une procédure pas à pas expliquant comment l'[Exemple TODO 
 
 2. Si vous n'avez pas déjà installé SQLite pour Windows 8.1 et Windows Phone 8.1 comme indiqué dans le didacticiel [Prise en main des données hors connexion], installez les deux runtimes.
 
-3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
+3. Dans Visual Studio 2013, ouvrez le fichier de solution *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Appuyez sur **F5** pour régénérer et exécuter le projet. Assurez-vous que les packages NuGet sont restaurés et que les références sont correctement définies.
 
     >[AZURE.NOTE]Vous devrez peut-être supprimer les anciennes références pointant vers le runtime SQLite et les remplacer par la référence mise à jour, comme indiqué dans le didacticiel [Prise en main des données hors connexion].
 
@@ -166,4 +164,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Exemple TODO hors connexion Mobile Services]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

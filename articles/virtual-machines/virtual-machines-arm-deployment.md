@@ -1,12 +1,20 @@
-<properties pageTitle="Déploiement de ressources Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET Libraries" description="Apprenez à utiliser quelques-uns des clients disponibles dans les bibliothèques de traitement, réseau et de stockage .NET pour créer et supprimer des ressources dans Microsoft Azure" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET"
+	description="Ce didacticiel vous montre comment utiliser certains des clients disponibles dans les bibliothèques de calcul, de stockage et réseau .NET afin de créer et de supprimer des ressources dans Microsoft Azure."
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET
@@ -338,7 +346,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
           }
         }
 
-	>[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd ».
+	>[AZURE.NOTE]Les noms d’images de disque dur virtuel changent régulièrement dans la galerie d’images. Vous devez donc obtenir le nom d’une image actuelle pour déployer la machine virtuelle. Pour ce faire, consultez la page [Gérer les images Windows à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), puis remplacez {source-image-name} par le nom du fichier de disque dur virtuel que vous souhaitez utiliser. Par exemple, « a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd ».
 
 	Remplacez {subscription-id} par l’identificateur de votre abonnement.
 
@@ -380,4 +388,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -19,10 +19,10 @@
 # Prise en main d’Azure Mobile Engagement pour les applications iOS en Objective C
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -59,7 +59,7 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
    	![][8]
 
 	- **Nom de l'application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible (**iOS**) de l’application (si votre application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
+	- **Plateforme** : sélectionnez la plateforme cible (\*\*iOS\*\*) de l’application (si votre application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
 	- **Nom de la ressource d’application** : il s’agit du nom par lequel l’application sera accessible via les API et les URL. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
 	- **Emplacement** : sélectionnez le centre de données qui hébergera l'application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
@@ -301,4 +301,4 @@ Nous allons maintenant créer une campagne simple de notification push qui enver
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

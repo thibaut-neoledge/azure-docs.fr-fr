@@ -65,7 +65,7 @@ Vous obtiendrez uniquement les données de performances où le nom du compteur d
 ### Pour rechercher des données de performance de temps du processeur
 - Dans le champ de requête de recherche, tapez `Type=PerfHourly CounterName="% Processor Time"`
 
-Vous pouvez également être plus précis et utiliser **InstanceName=_’Total’** dans la requête, qui est un compteur de performance Windows. Vous pouvez également sélectionner une facette et une autre valeur **field:value**. Ce filtre est automatiquement ajouté à votre filtre dans la barre de requête. Vous pouvez le voir dans l'image suivante. Il indique où cliquer pour ajouter **InstanceName:’_Total’** à la requête sans avoir à taper quoi que ce soit.
+Vous pouvez également être plus précis et utiliser **InstanceName=\_’Total’** dans la requête, qui est un compteur de performance Windows. Vous pouvez également sélectionner une facette et une autre valeur **field:value**. Ce filtre est automatiquement ajouté à votre filtre dans la barre de requête. Vous pouvez le voir dans l'image suivante. Il indique où cliquer pour ajouter **InstanceName:’\_Total’** à la requête sans avoir à taper quoi que ce soit.
 
 ![Recherche de facette](./media/operational-insights-search/search-facet.png)
 
@@ -467,7 +467,7 @@ Syntaxe :
 
 filterExpression | Command1 | Command2...
 
-L'expression de filtre (** filterExpression **) définit la condition « where » pour la requête. Les commandes s'appliquent aux résultats retournés par la requête. Plusieurs commandes doivent être séparées par la barre verticale (|).
+L'expression de filtre (\*\* filterExpression \*\*) définit la condition « where » pour la requête. Les commandes s'appliquent aux résultats retournés par la requête. Plusieurs commandes doivent être séparées par la barre verticale (|).
 
 #### Exemples de syntaxe générale
 
@@ -614,7 +614,15 @@ Vous pouvez chaîner les opérateurs mathématiques Date/Heure, par exemple :
 
 Le tableau suivant répertorie les unités Date/Heure prises en charge.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unité Date/Heure </th> <th>Description </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Arrondit à l'année en cours ou décale du nombre d’années spécifié.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Arrondit au mois en cours ou décale du nombre de mois spécifié.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE </p></td> <td> <p>Arrondit au jour du mois en cours ou décale du nombre de jours spécifié.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Arrondit à l’heure en cours ou décale du nombre d’heures spécifié.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Arrondit à la minute en cours ou décale du nombre de minutes spécifié.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Arrondit à la seconde en cours ou décale du nombre de secondes spécifié.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Arrondit à la milliseconde en cours ou décale du nombre de millisecondes spécifié.</p> </td> </tr> </table>
+Unité Date/Heure|Description
+---|--- 
+YEAR, YEARS|Arrondit à l'année en cours ou décale du nombre d'années spécifié.
+MONTH, MONTHS|Arrondit au mois en cours ou décale du nombre de mois spécifié.
+DAY, DAYS, DATE|Arrondit au jour du mois en cours ou décale du nombre de jours spécifié.
+HOUR, HOURS|Arrondit à l'heure en cours ou décale du nombre d'heures spécifié.
+MINUTE, MINUTES|Arrondit à la minute en cours ou décale du nombre de minutes spécifié.
+SECOND, SECONDS|Arrondit à la seconde en cours ou décale du nombre de secondes spécifié.
+MILLISECOND, MILLISECONDS, MILLI, MILLIS|Arrondit à la milliseconde en cours ou décale du nombre de millisecondes spécifié.
 
 
 #### Facettes de champ
@@ -623,9 +631,9 @@ Le tableau suivant répertorie les unités Date/Heure prises en charge.
 
 **Syntaxe**
 
-*field:value*
+*champ:valeur*
 
-*field=value*
+*champ=valeur*
 
 **Description**
 
@@ -644,15 +652,15 @@ Exemple :
 
 **Syntaxe**
 
-*field>value*
+*champ>valeur*
 
-*field<value*
+*champ<valeur*
 
-*field>=value*
+*champ>=valeur*
 
-*field<=value*
+*champ<=valeur*
 
-*field!=value*
+*champ!=valeur*
 
 **Description**
 
@@ -665,7 +673,7 @@ Exemple :
 
 **Syntaxe**
 
-*field:[from..to]*
+*champ:[de..à]*
 
 **Description**
 
@@ -690,7 +698,10 @@ Exemples :
 Vous pouvez omettre l'opérateur logique pour les arguments de filtre de niveau supérieur. Dans ce cas, l'opérateur AND est supposé.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expression de filtre</th> <th>Équivaut à</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
+Expression de filtre|Équivalent à
+---|---
+erreur système|système AND erreur
+système « Windows Server » OR Gravité:1|système AND (« Windows Server » OR Gravité:1)
 
 
 
@@ -706,7 +717,7 @@ Syntaxe :
 
 	sort field1 asc|desc, field2 asc|desc, …
 
-Trie les résultats en fonction de champs particuliers. Le préfixe asc/desc est facultatif. S’il est omis, l'ordre de tri « asc » (croissant) est supposé. Si une requête n'utilise pas la commande **Sort** explicitement, Sort **TimeGenerated** desc est le comportement par défaut, et elle retourne toujours les résultats les plus récents en premier.
+Trie les résultats en fonction de champs particuliers. Le préfixe asc/desc est facultatif. S’il est omis, l'ordre de tri « asc » (croissant) est supposé. Si une requête n'utilise pas la commande **Sort** explicitement, Sort **TimeGenerated** desc est le comportement par défaut, qui retourne toujours les résultats les plus récents en premier.
 
 #### Top/Limit
 
@@ -754,7 +765,7 @@ Limite les champs de résultats retournés à **Name** et **Severity**.
 
 #### Measure
 
-La commande **measure** est utilisée pour appliquer des fonctions statistiques pour les résultats de recherche bruts. Cela est très utile pour obtenir un affichage *groupé* des données. Lorsque vous utilisez la commande **measure**, Operational Insights affiche un tableau avec des résultats agrégés.
+La commande **measure** est utilisée pour appliquer des fonctions statistiques pour les résultats de recherche bruts. Cela est très utile pour obtenir un affichage *groupé* des données. Lorsque vous utilisez la commande **measure**, Operational Insights affiche une table avec des résultats agrégés.
 
 Syntaxe :
 
@@ -766,11 +777,11 @@ Syntaxe :
 Agrège les résultats par valeur de **groupField** et calcule les valeurs de mesure agrégées à l'aide de **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d’agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ en cours d’agrégation. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S’il n’est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l’intervalle</p> <p>Les noms d’intervalle pris en charge sont les suivants (respectent la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Fonction statistique de mesure </th> <th>Description </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Nom de la fonction d'agrégation (ne respecte pas la casse). Les fonctions d'agrégation suivantes sont prises en charge :</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Champ qui est agrégé. Ce champ est facultatif pour la fonction d'agrégation COUNT, mais il doit être un champ numérique existant pour SUM, MAX, MIN, AVG ou STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Alias (facultatif) pour la valeur agrégée calculée. S'il n'est pas indiqué, le nom du champ sera <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Nom du champ groupant le jeu de résultats. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Intervalle de temps au format : </p> <p><em>nnnNAME</em> </p> <p></p> <p>Où : </p> <p>nnn est le nombre entier positif</p> <p><em>NAME</em> est le nom de l'intervalle</p> <p>Les noms d'intervalles pris en charge incluent (ne respectent pas la casse) : </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-L'option d’intervalle ne peut être utilisée que dans des champs de groupe Date/Heure (tels que **TimeGenerated** et **TimeCreated**). Actuellement, elle n'est pas appliquée par le service, mais un champ sans la valeur Date/Heure qui est transmis au serveur principal entraîne une erreur d'exécution. Lorsque le schéma de validation est implémenté, l’API de service rejette les requêtes qui utilisent des champs sans la valeur Date/Heure pour l’agrégation d’intervalles. L’implémentation actuelle de **Measure** prend en charge le regroupement d’intervalles pour la fonction d’agrégation **Count** uniquement.
+L'option d'intervalle ne peut être utilisée que dans des champs de groupe Date/Heure (tels que **TimeGenerated** et **TimeCreated**). Actuellement, elle n'est pas appliquée par le service, mais un champ sans la valeur Date/Heure qui est transmis au serveur principal entraîne une erreur d'exécution. Lorsque le schéma de validation est implémenté, l’API de service rejette les requêtes qui utilisent des champs sans la valeur Date/Heure pour l’agrégation d’intervalles. L'implémentation actuelle de **Measure** prend en charge le regroupement d'intervalles pour la fonction d'agrégation **Count** uniquement.
 
 Si la clause BY est omise mais un intervalle est spécifié (comme seconde syntaxe), le champ **TimeGenerated** est supposé par défaut.
 
@@ -798,9 +809,9 @@ Groupe les alertes par intervalles d'une heure à l'aide du champ **TimeGenerate
 
 *Explication*
 
-Comme pour l'exemple précédent, mais avec un alias de champ agrégé (** AlertsPerHour **).
+Comme pour l'exemple précédent, mais avec un alias de champ agrégé (\*\* AlertsPerHour \*\*).
 
-**Exemple 4**
+**Exemple 4**
 
 	* | measure count() by TimeCreated interval 5DAYS
 
@@ -808,7 +819,7 @@ Comme pour l'exemple précédent, mais avec un alias de champ agrégé (** Alert
 
 Groupe les résultats par intervalles de 5 jours à l'aide du champ **TimeCreated** et retourne le nombre de résultats dans chaque intervalle.
 
-**Exemple 5**
+**Exemple 5**
 
 	Type:Alert | measure max(Severity) by WorkflowName
 
@@ -816,7 +827,7 @@ Groupe les résultats par intervalles de 5 jours à l'aide du champ **TimeCreat
 
 Groupe les alertes par nom de la charge de travail et retourne la valeur de gravité d'alerte maximum pour chaque flux de travail.
 
-**Exemple 6**
+**Exemple 6**
 
 	Type:Alert | measure min(Severity) by WorkflowName
 
@@ -824,7 +835,7 @@ Groupe les alertes par nom de la charge de travail et retourne la valeur de grav
 
 Comme pour l'exemple précédent, mais avec la fonction agrégée **Min**.
 
-**Exemple 7**
+**Exemple 7**
 
 	Type:PerfHourly | measure avg(SampleValue) by ObjectId
 
@@ -832,7 +843,7 @@ Comme pour l'exemple précédent, mais avec la fonction agrégée **Min**.
 
 Groupe PerfHourly par ID d’objet et calcule la moyenne.
 
-**Exemple 8**
+**Exemple 8**
 
 	Type:PerfHourly | measure sum(SampleValue) by ObjectId
 
@@ -840,7 +851,7 @@ Groupe PerfHourly par ID d’objet et calcule la moyenne.
 
 Comme pour l'exemple précédent, mais utilise **Sum**.
 
-**Exemple 9**
+**Exemple 9**
 
 	Type:PerfHourly | measure stddev(SampleValue) by ObjectId
 
@@ -848,7 +859,7 @@ Comme pour l'exemple précédent, mais utilise **Sum**.
 
 Comme pour l'exemple précédent, mais utilise **STDDEV**.
 
-**Exemple 10**
+**Exemple 10**
 
 	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
@@ -862,7 +873,7 @@ Syntaxe :
 
 **where** AggregatedValue>20
 
-Peut être utilisée uniquement après une commande **Measure** pour filtrer davantage les résultats agrégés que la fonction d’agrégation **Measure** a produits.
+Peut être utilisée uniquement après une commande **Measure** pour filtrer davantage les résultats agrégés que la fonction d'agrégation **Measure** a produits.
 
 Exemples :
 
@@ -2038,4 +2049,4 @@ Lorsque vous utilisez la fonction de recherche pour rechercher des données, les
 ## Autres ressources
 Stefan Roth a créé un aide-mémoire de recherche pratique. Découvrez son [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) pour en savoir plus et télécharger son aide-mémoire.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Encodage de contenu à la demande avec Azure Media Services
@@ -26,7 +26,7 @@ Media Services prend en charge les encodeurs suivants :
 
 - [Media Encoder Standard](#media_encoder_standard)
 - [Encodeur multimédia Azure](#azure_media_encoder)
-- [Media Encoder Premium Workflow](#media_encoder_premium_workflow) (version préliminaire publique)
+- [Media Encoder Premium Workflow](#media_encoder_premium_workflow)
 
 La [section suivante](#compare_encoders) compare les fonctionnalités d'encodage des encodeurs pris en charge.
 
@@ -61,7 +61,7 @@ Procédez à l’encodage à l’aide de l’**Encodeur multimédia Azure** en u
 [Encodage de vos médias avec Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) : explique comment encoder les pistes audio à l'aide de l'encodage Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (version préliminaire)
+##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow 
 
 **Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
 
@@ -195,4 +195,4 @@ Codecs audio de sortie
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

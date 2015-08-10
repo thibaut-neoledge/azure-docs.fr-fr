@@ -174,4 +174,4 @@ L'exemple suivant de Runbook accepte la requête de l'exemple précédent et dé
 - [Démarrage d'un Runbook](automation-starting-a-runbook.md)
 - [Affichage de l'état d'une tâche du Runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Prise en main des services fiables Service Fabric de Microsoft Azure
@@ -30,14 +30,18 @@ Dans ce didacticiel, vous allez implémenter un service sans état et un service
 
 Commençons par un service sans état.
 
-Lancez Visual Studio 2015 RC comme **Administrateur** et créez un nouveau projet **Service sans état Service Fabric** nommé *HelloWorld* :
+Lancez Visual Studio 2015 RC comme **Administrateur** et créez un projet **Application Service Fabric** nommé *HelloWorld* :
 
-![Utiliser la boîte de dialogue Nouveau projet pour créer un service sans état Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-La solution créée contient 2 projets :
+Créez ensuite un projet **Service sans état** nommé *HelloWorldStateless* :
 
- + **HelloWorldApplication** Il s'agit du projet *application* qui contient vos *services*. Il contient également le manifeste d'application qui décrit l'application et plusieurs scripts PowerShell qui vous aideront à déployer votre application.
- + **HelloWorld** : il s'agit du projet service, qui contient la mise en œuvre du service sans état.
+![Dans la deuxième boîte de dialogue, créer un service sans état](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+Votre solution contient maintenant 2 projets :
+
+ + **HelloWorld** : il s'agit du projet *Application* qui contient vos *services*. Il contient également le manifeste d'application qui décrit l'application et plusieurs scripts PowerShell qui vous aideront à déployer votre application.
+ + **HelloWorldStateless** : il s'agit du projet de service, qui contient la mise en œuvre du service sans état.
 
 
 ## Mettre en œuvre le service
@@ -88,11 +92,11 @@ La plateforme appelle cette méthode lorsqu'une instance de votre service est pl
 - Le système peut déplacer les instances de service pour l'équilibrage des ressources.
 - En cas de défaillance.
 - Pendant les mises à niveau du système ou de l’application.
-- Lorsque le matériel sous-jacent connaît une panne. 
+- Lorsque le matériel sous-jacent connaît une panne.
 
 Cette orchestration est gérée par le système afin de conserver votre service hautement disponible et correctement équilibré.
 
-`RunAsync()` est exécuté dans sa propre **Tâche**. Notez que dans l'extrait de code ci-dessus nous entrons directement dans une boucle **while** : il n'est pas nécessaire de planifier une tâche distincte pour votre charge de travail. L'annulation de votre charge de travail est un effort conjoint orchestré par le jeton d'annulation fourni. Le système attendra la fin de la tâche (suite à la réussite, l’annulation ou la défaillance) avant de poursuivre. Il est **important** de respecter le jeton d'annulation, de terminer le travail et de quitter `RunAsync()` aussi rapidement que possible lorsqu’une annulation est demandée par le système.
+`RunAsync()` est exécuté dans sa propre **Tâche**. Notez que dans l'extrait de code ci-dessus nous entrons directement dans une boucle **while** : il n'est pas nécessaire de planifier une tâche distincte pour votre charge de travail. L'annulation de votre charge de travail est un effort conjoint orchestré par le jeton d'annulation fourni. Le système attendra la fin de la tâche (suite à la réussite, l’annulation ou la défaillance) avant de poursuivre. Il est **important** de respecter le jeton d'annulation, de terminer le travail et de quitter `RunAsync()` aussi rapidement que possible lorsqu'une annulation est demandée par le système.
 
 Dans cet exemple de service sans état, le décompte est stocké dans une variable locale. Mais comme il s'agit d'un service sans état, la valeur stockée existe uniquement pour le cycle de vie actuel de l'instance de service dans laquelle elle se trouve. Lorsque le service se déplace ou redémarre, la valeur est perdue.
 
@@ -148,14 +152,14 @@ Un service avec état a les mêmes points d'entrée qu'un service sans état. La
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-**IReliableDictionary** est une implémentation de dictionnaire qui vous permet de stocker de façon fiable l'état du service. Il fait partie des [Collections fiables](service-fabric-reliable-services-reliable-collections.md) intégrées de Service Fabric. Avec Service Fabric et les Collections fiables, vous pouvez désormais stocker directement des données dans votre service sans avoir besoin d'un magasin persistant externe, ce qui donne une haute disponibilité à vos données. Service Fabric achève cela en créant et en gérant plusieurs *réplicas* de votre service pour vous, tout en fournissant une API qui élimine les complexités liées à la gestion de ces réplicas et leurs transitions d'état.
+**IReliableDictionary** est une mise en œuvre de dictionnaire qui vous permet de stocker de façon fiable l'état du service. Il fait partie des [Collections fiables](service-fabric-reliable-services-reliable-collections.md) intégrées de Service Fabric. Avec Service Fabric et les Collections fiables, vous pouvez désormais stocker directement des données dans votre service sans avoir besoin d'un magasin persistant externe, ce qui donne une haute disponibilité à vos données. Service Fabric achève cela en créant et en gérant plusieurs *réplicas* de votre service pour vous, tout en fournissant une API qui élimine les complexités liées à la gestion de ces réplicas et leurs transitions d'état.
 
 Les Collections fiables peuvent stocker n'importe quel type .NET (y compris vos types personnalisés) avec quelques inconvénients :
 
  1. Service Fabric rend votre état hautement disponible en *répliquant* l'état entre les nœuds et en le stockant sur le disque local. Cela signifie que tout ce qui est stocké dans une Collection fiable doit être *sérialisable*. Par défaut, les Collections fiables utilisent [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) pour la sérialisation. Donc, il est important de s'assurer que vos types sont [pris en charge par le sérialiseur de contrat de données](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) lorsque vous utilisez le sérialiseur par défaut.
 
  2. Les objets sont répliqués pour une haute disponibilité lorsque vous engagez une transaction sur une Collection fiable. Les objets stockés dans les Collections fiables sont conservés dans la mémoire locale de votre service, ce qui signifie que vous avez une référence locale à l'objet.
- 
+
     Il est important de ne pas muter les instances locales de ces objets sans effectuer une opération de mise à jour de la Collection fiable dans une transaction, car ces modifications ne seront pas répliquées automatiquement.
 
 Le *StateManager* se charge de la gestion des Collections fiables pour vous. Il vous suffit de demander au StateManager une collection fiable par son nom, n'importe quand et n'importe où dans votre service et il garantit que vous obteniez une référence en retour. Il n'est pas recommandé d'enregistrer les références aux instances de la Collection fiable dans les propriétés ou les variables de membre de la classe. En effet, il est nécessaire de porter une attention particulière pour garantir que la référence est définie à une instance à tout moment du cycle de vie du service. Ce travail, optimisé pour les visites répétées, est géré pour vous par StateManager.
@@ -179,7 +183,7 @@ Les Collections fiables prennent également en charge les opérations *transacti
 
 ## Exécution de l'application
 
-Retour à l’application *HelloWorld*. Vous pouvez désormais générer et déployer vos services. Appuyez sur **F5** et votre application sera générée et déployée dans le cluster local.
+Retour à l'application *HelloWorld*. Vous pouvez désormais générer et déployer vos services. Appuyez sur **F5** et votre application sera générée et déployée dans le cluster local.
 
 Une fois que les services sont en cours d'exécution, vous pouvez voir les événements ETW générés dans une fenêtre **Événements de diagnostic**. Notez qu'il existe des événements affichés à partir du service sans état et du service avec état dans l'application. Vous pouvez interrompre le flux en cliquant sur le bouton *Suspendre* et examiner les détails du message en développant un message.
 
@@ -199,6 +203,5 @@ Une fois que les services sont en cours d'exécution, vous pouvez voir les évé
 [Gérer un service Service Fabric](service-fabric-manage-your-service-index.md)
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -220,4 +220,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

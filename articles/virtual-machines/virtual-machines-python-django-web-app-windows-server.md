@@ -76,7 +76,7 @@ Une capture d’écran de l’application terminée va s’afficher.
 
 1. Installez IIS avec FastCGI. Cela peut prendre quelques minutes.
 
-		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2,7
@@ -148,7 +148,7 @@ Exécutez ces commandes uniquement si vous exécutez Python 3,4.
 ## Création d'une application Django
 
 
-1.  Dans *C:\inetpub\wwwroot*, entrez la commande suivante pour créer un projet Django :
+1.  Dans *C:\\inetpub\\wwwroot*, entrez la commande suivante pour créer un projet Django :
 
     Pour Python 2.7, utilisez la commande suivante.
 
@@ -162,13 +162,13 @@ Exécutez ces commandes uniquement si vous exécutez Python 3,4.
 
 1.  La commande **django-admin** crée une structure de base pour les sites web Django :
 
-  -   **helloworld\manage.py** vous permet de lancer et d'interrompre l'hébergement de votre site web Django.
-  -   **helloworld\helloworld\settings.py** contient les paramètres Django de votre application.
-  -   **helloworld\helloworld\urls.py** contient le code de mappage entre chaque URL et sa vue.
+  -   **helloworld\\manage.py** vous permet de lancer et d'interrompre l'hébergement de votre site web Django.
+  -   **helloworld\\helloworld\\settings.py** contient les paramètres Django de votre application.
+  -   **helloworld\\helloworld\\urls.py** contient le code de mappage entre chaque URL et sa vue.
 
 
 
-1.  Créez un fichier nommé **views.py** dans le répertoire *C:\inetpub\wwwroot\helloworld\helloworld*. Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
+1.  Créez un fichier nommé **views.py** dans le répertoire *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Celui-ci contiendra la vue qui affiche la page « Hello World ». Ouvrez votre éditeur et entrez ce qui suit :
 
 		from django.http import HttpResponse
 		def home(request):
@@ -198,4 +198,4 @@ Lorsque vous avez terminé ce didacticiel, arrêtez et/ou supprimez votre machin
 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

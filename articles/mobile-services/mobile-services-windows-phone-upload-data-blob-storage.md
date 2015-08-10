@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation de Mobile Services pour télécharger des images dans le stockage d'objets blob (Windows Phone) | Mobile Services" 
-	description="Découvrez comment utiliser Mobile Services pour télécharger des images dans le stockage d'objets blob Azure." 
+	pageTitle="Charger des images vers Azure Storage à partir d'une application Windows Phone Silverlight | Azure Mobile Services" 
+	description="Découvrez comment utiliser Mobile Services pour charger des images vers le stockage d'objets blob Azure à partir d'une application Windows Phone Silverlight." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Téléchargement d'images vers Azure Storage à l'aide de Mobile Services
@@ -103,4 +103,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

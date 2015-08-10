@@ -22,7 +22,7 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli.md)
 
-La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre presque les mêmes fonctionnalités que le portail de gestion Azure, notamment la possibilité de gérer des sites Web, des machines virtuelles, des services mobiles, la base de données SQL et d'autres services fournis par la plateforme Azure.
+La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre presque les mêmes fonctionnalités que le portail de gestion Azure, notamment la possibilité de gérer des sites web, des machines virtuelles, des services mobiles, la base de données SQL et d'autres services fournis par la plateforme Azure.
 
 L’interface de ligne de commande Azure est écrite en JavaScript et nécessite Node.js. Elle est implémentée à l'aide du Kit de développement logiciel (SDK) Azure pour Node.js et publiée sous licence Apache 2.0. Le référentiel du projet se trouve à la page [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
@@ -47,8 +47,8 @@ L’interface de ligne de commande Azure est accessible à l’aide de la comma
 
 	info:             _    _____   _ ___ ___
 	info:            /_\  |_  / | | | _ \ __|
-	info:      _ ___/ _ __/ /| |_| |   / _|___ _ _
-	info:    (___  /_/ _/___|___/|_|____| _____)
+	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
@@ -105,13 +105,13 @@ Si vous avez des doutes sur les paramètres exigés par une commande, reportez-v
 
 L'interface de ligne de commande Azure vous permet d'exécuter des opérations de gestion sur des _ressources_ individuelles, qui correspondent à des entités gérées par l'utilisateur, telles qu'un serveur de base de données, une base de données ou un site Web. Il s'agit du mode de fonctionnement par défaut de l'interface de ligne de commande Azure qui est désigné sous le nom d'**Azure Service Management**. Toutefois, dans le cas d'une solution complexe comportant plusieurs ressources, il est utile de pouvoir gérer la solution entière comme une seule et même unité.
 
-Pour prendre en charge la gestion d'un groupe de ressources comme une seule unité logique, ou _groupe de ressources_, nous avons introduit une version préliminaire du **Gestionnaire de ressources** comme nouveau moyen de gestion des ressources Azure.
+Pour prendre en charge la gestion d'un groupe de ressources comme une seule unité logique, ou _groupe de ressources_, nous avons introduit une version préliminaire du **Resource Manager** comme nouveau moyen de gestion des ressources Azure.
 
->[AZURE.NOTE]Le Gestionnaire de ressources en est actuellement au stade préliminaire et ne fournit pas des capacités de gestion du même niveau qu'Azure Service Management.
+>[AZURE.NOTE]Resource Manager en est actuellement au stade préliminaire et ne fournit pas des capacités de gestion du même niveau qu'Azure Service Management.
 
 Pour prendre en charge la nouvelle solution Azure Resource Manager, l'interface de ligne de commande Azure vous permet de basculer entre ces « modes » de gestion avec la commande `azure config mode`.
 
-L'interface de ligne de commande Azure utilise par défaut le mode Azure Service Management. Pour basculer en mode Gestionnaire de ressources, utilisez la commande suivante :
+L'interface de ligne de commande Azure utilise par défaut le mode Azure Service Management. Pour basculer en mode Resource Manager, utilisez la commande suivante :
 
 	azure config mode arm
 
@@ -119,21 +119,21 @@ Pour repasser en mode Azure Service Management, utilisez la commande suivante :
 
 	azure config mode asm
 
->[AZURE.NOTE]Le mode Gestionnaire de ressources et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
+>[AZURE.NOTE]Le mode Resource Manager et le mode Azure Service Management s'excluent mutuellement. En d'autres termes, les ressources créées dans un mode ne peuvent pas être gérées dans l'autre mode.
 
-Pour plus d’informations sur l’utilisation d’Azure Manager à l’aide de l’interface de ligne de commande Azure, consultez la section [Utilisation de l'interface de ligne de commande interplateforme Azure avec le Gestionnaire de ressources][cliarm].
+Pour plus d’informations sur l’utilisation de Resource Manager à l’aide de l’interface de ligne de commande Azure, consultez la section [Utilisation de l'interface de ligne de commande Azure avec Resource Manager][cliarm].
 
 ### Utilisation des services en mode Azure Service Management
 
-L'interface de ligne de commande Azure vous permet de gérer facilement des services Azure. Dans cet exemple, vous allez apprendre à l'utiliser pour gérer un site Web Azure.
+L'interface de ligne de commande Azure vous permet de gérer facilement des services Azure. Dans cet exemple, vous allez apprendre à l'utiliser pour gérer un site web Azure.
 
 1. Pour créer un site web Azure, utilisez la commande suivante. Remplacez **mywebsite** par un nom unique.
 
 		azure site create mywebsite
 
-	Vous êtes invité à indiquer la région dans laquelle sera créé le site Web. Sélectionnez une région qui est géographiquement proche. Une fois l’exécution de la commande terminée, le site Web est disponible à l’adresse http://mywebsite.azurewebsites.net (remplacez **mywebsite** par le nom que vous avez indiqué.)
+	Vous êtes invité à indiquer la région dans laquelle sera créé le site web. Sélectionnez une région qui est géographiquement proche. Une fois l’exécution de la commande terminée, le site web est disponible à l’adresse http://mywebsite.azurewebsites.net (remplacez **mywebsite** par le nom que vous avez indiqué.)
 
-	> [AZURE.NOTE]Si vous utilisez Git pour le contrôle de la source du projet, vous pouvez spécifier le paramètre `--git` pour créer un référentiel Git sur Azure pour ce site Web. Ce paramètre initialise également un référentiel Git dans l'annuaire à partir duquel la commande a été exécutée, si celui-ci n'existe pas déjà. Il crée par ailleurs un Git distant nommé __azure__, qui peut être utilisé pour transmettre les déploiements au site Web Azure avec la commande `git push azure master`.
+	> [AZURE.NOTE]Si vous utilisez Git pour le contrôle de la source du projet, vous pouvez spécifier le paramètre `--git` pour créer un référentiel Git sur Azure pour ce site web. Ce paramètre initialise également un référentiel Git dans l'annuaire à partir duquel la commande a été exécutée, si celui-ci n'existe pas déjà. Il crée par ailleurs un Git distant nommé __azure__, qui peut être utilisé pour transmettre les déploiements au site Web Azure avec la commande `git push azure master`.
 
 	> [AZURE.NOTE]Si vous recevez une erreur indiquant que « site » n'est pas une commande Azure, l'interface de ligne de commande Azure est très probablement en mode groupe de ressources. Pour repasser en mode ressource, utilisez la commande `azure config mode asm`.
 
@@ -164,11 +164,11 @@ L'interface de ligne de commande Azure vous permet de gérer facilement des ser
 <a id="script"></a>
 ## Génération du script de l’interface de ligne de commande Azure pour Mac, Linux et Windows
 
-Avec l'interface de ligne de commande Azure, vous pouvez émettre des commandes manuellement, mais également créer des flux de travail d'automatisation complexes en exploitant les fonctionnalités de votre interpréteur de ligne de commande ou des autres utilitaires de ligne de commande disponibles sur votre système. La commande suivante, par exemple, permet d'arrêter tous les sites Web Azure en cours d'exécution :
+Avec l'interface de ligne de commande Azure, vous pouvez émettre des commandes manuellement, mais également créer des flux de travail d'automatisation complexes en exploitant les fonctionnalités de votre interpréteur de ligne de commande ou des autres utilitaires de ligne de commande disponibles sur votre système. La commande suivante, par exemple, permet d'arrêter tous les sites web Azure en cours d'exécution :
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
-Cet exemple envoie une liste de sites Web à la commande `grep`, qui examine chaque ligne en recherchant la chaîne « Running ». Toutes les lignes avec une correspondance sont ensuite envoyées à la commande `awk`, qui appelle `azure site stop` et utilise la seconde colonne transmise (le nom du site en cours d'exécution) comme nom du site à arrêter.
+Cet exemple envoie une liste de sites web à la commande `grep`, qui examine chaque ligne en recherchant la chaîne « Running ». Toutes les lignes avec une correspondance sont ensuite envoyées à la commande `awk`, qui appelle `azure site stop` et utilise la seconde colonne transmise (le nom du site en cours d'exécution) comme nom du site à arrêter.
 
 Comme nous venons de le voir, vous avez la possibilité d'enchaîner des commandes, mais vous pouvez également créer des scripts plus élaborés à l'aide des fonctions de création de scripts fournies par votre interpréteur de ligne de commande. Les différents interpréteurs de ligne de commande n'ont pas les mêmes fonctions de création de scripts ni la même syntaxe. Bash est probablement l'interpréteur de ligne de commande le plus largement utilisé pour les systèmes UNIX, y compris Linux et OS X.
 
@@ -252,11 +252,9 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 
 ## Ressources supplémentaires
 
-* [Liste des commandes détaillées de gestion des services][Using the Azure CLI]
+* [Utilisation de l’interface de ligne de commande Azure avec la gestion des services][Using the Azure CLI]
 
-* [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows](cli-cli-azure-resource-manager)
-
-* [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager][cliarm]
+* [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager][cliarm]
 
 * Pour en savoir plus sur l’interface de ligne de commande Azure, télécharger un code source, signaler des problèmes ou contribuer au projet, voir la page [Référentiel GitHub pour l’interface de ligne de commande Azure](https://github.com/azure/azure-xplat-cli) (en anglais).
 
@@ -283,4 +281,4 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

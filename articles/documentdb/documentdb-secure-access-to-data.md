@@ -163,4 +163,4 @@ Pour obtenir facilement toutes les ressources d'autorisation associées à un ut
 - Pour en savoir plus sur la construction des jetons d’autorisation DocumentDB, cliquez [ici](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -72,16 +72,16 @@ Voici quelques exemples de lignes de commande pour importer des fichiers JSON :
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\TESessions*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory (including sub-directories) of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic***.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
 
 	#Import a directory (single), directory (recursive), and individual JSON files
-	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Importation à partir de MongoDB ##
 
@@ -137,20 +137,7 @@ Cette requête retourne les résultats (partiels) suivants :
 
 Notez les alias tels que Address.AddressType et Address.Location.StateProvinceName. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents Address et Address.Location lors de l'importation. Voici un exemple de document qui en résulte dans DocumentDB :
 
-*{
-  « ID » : « 956 »,
-  « Nom » : « Service et vente au détail »,
-  « Adresse »: {
-    « AddressType »: « Siège »,
-    « AddressLine1 »: « #500-75 o ' Connor Street »,
-    « Lieu »: {
-      « Ville »: « Ottawa »,
-      « StateProvinceName »: « Ontario »
-    },
-    « Code postal »: « K4B 1S2 »,
-    « CountryRegionName »: « Canada »
-  }
-}*
+*{« ID » : « 956 », « Nom » : « Service et vente au détail », « Adresse »: {« AddressType »: « Siège », « AddressLine1 »: « #500-75 o ' Connor Street », « Lieu »: {« Ville »: « Ottawa », « StateProvinceName »: « Ontario »}, « Code postal »: « K4B 1S2 », « CountryRegionName »: « Canada »}}*
  
 Voici quelques exemples de lignes de commande pour l’importation depuis SQL Server :
 
@@ -170,20 +157,9 @@ De même que pour la source SQL, la propriété du séparateur d'imbrication peu
 
 ![Capture d’écran des exemples d’enregistrement CSV](./media/documentdb-import-data/csvsample.png)
 
-Notez les alias tels que DomainInfo.Domain_Name et RedirectInfo.Redirecting. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents DomainInfo et RedirectInfo lors de l'importation. Voici un exemple de document qui en résulte dans DocumentDB :
+Notez les alias tels que DomainInfo.Domain\_Name et RedirectInfo.Redirecting. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents DomainInfo et RedirectInfo lors de l'importation. Voici un exemple de document qui en résulte dans DocumentDB :
 
-*{
-  « DomainInfo » : {
-    « Domain_name » : « ACUS.GOV »,
-    « Domain_Name_Address » : « http://www.ACUS.GOV »
-  },
-  « Agence fédérale » : « Conférence administrative des États-Unis »,
-  « RedirectInfo » : {
-    « Redirection » : « 0 »,
-    « Redirect_Destination » : « »
-  },
-  « ID » : « 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d »
-}*
+*{« DomainInfo » : {« Domain\_name » : « ACUS.GOV », « Domain\_Name\_Address » : « http://www.ACUS.GOV »}, « Agence fédérale » : « Conférence administrative des États-Unis », « RedirectInfo » : {« Redirection » : « 0 », « Redirect\_Destination » : « »}, « ID » : « 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d »}*
 
 L'outil d'importation va tenter de déduire les informations de type pour les valeurs sans guillemets dans les fichiers CSV (les valeurs entre guillemets sont toujours traitées comme des chaînes). Les types sont identifiés dans l'ordre suivant : nombre, date et heure, valeur booléenne.
 
@@ -271,8 +247,7 @@ Pour importer à partir d'une seule collection DocumentDB, entrez le nom de la c
 
 L'option d'importateur source DocumentDB dispose des options avancées suivantes :
 
-1. Inclusion des champs internes : cette option précise les propriétés système du document DocumentDB à inclure ou non dans l'exportation (par exemple, _rid, _ts).
-2. Nombre de nouvelles tentatives en cas de défaillance : cette option précise le nombre de nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
+1. Inclusion des champs internes : cette option précise les propriétés système du document DocumentDB à inclure ou non dans l'exportation (par exemple, _rid, _ts). 2. Nombre de nouvelles tentatives en cas de défaillance : cette option précise le nombre de nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
 3. Intervalle avant nouvelle tentative : cette option indique le temps à attendre entre les nouvelles tentatives de connexion à DocumentDB en cas de défaillances temporaires (par exemple, une interruption de connectivité du réseau).
 4. Mode de connexion : cette option indique le mode de connexion à utiliser avec DocumentDB. Les choix disponibles sont DirectTcp, DirectHttps et la passerelle. Les modes de connexion directs sont plus rapides, tandis que le mode passerelle est mieux adapté au pare-feu car il utilise uniquement le port 443.
 
@@ -322,7 +297,7 @@ Le format de la chaîne de connexion DocumentDB est :
 
 > [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance DocumentDB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
+Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
 
 1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] produit les collections suivantes : collection0, collection1, collection2, collection3.
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
@@ -346,7 +321,7 @@ De plus, lorsque vous importez des types de date (par exemple, depuis SQL Server
 
 -	Chaîne : conserver en tant que valeur de chaîne
 -	Epoch : conserver en tant que valeur numérique Epoch
--	Les deux : conserver la chaîne et les valeurs numériques Epoch Cette option crée un sous-document, par exemple : « date_joined » : {« Valeur »: « 2013-10-21T21:17:25.2410000Z », « Epoch » : 1382390245} 
+-	Les deux : conserver la chaîne et les valeurs numériques Epoch Cette option crée un sous-document, par exemple : « date\_joined » : {« Valeur »: « 2013-10-21T21:17:25.2410000Z », « Epoch » : 1382390245} 
 
 
 L'importateur en bloc DocumentDB dispose des options avancées supplémentaires suivantes :
@@ -374,7 +349,7 @@ Le format de la chaîne de connexion DocumentDB est :
 
 > [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance DocumentDB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
+Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
 
 1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] produit les collections suivantes : collection0, collection1, collection2, collection3.
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
@@ -394,7 +369,7 @@ De nombreuses options avancées sont disponibles lors de l'importation. Tout d�
 
 -	Chaîne : conserver en tant que valeur de chaîne
 -	Epoch : conserver en tant que valeur numérique Epoch
--	Les deux : conserver la chaîne et les valeurs numériques Epoch Cette option crée un sous-document, par exemple : « date_joined » : {« Valeur »: « 2013-10-21T21:17:25.2410000Z », « Epoch » : 1382390245} 
+-	Les deux : conserver la chaîne et les valeurs numériques Epoch Cette option crée un sous-document, par exemple : « date\_joined » : {« Valeur »: « 2013-10-21T21:17:25.2410000Z », « Epoch » : 1382390245} 
 
 L'importateur d’enregistrement séquentiel DocumentDB dispose des options avancées supplémentaires suivantes :
 
@@ -501,4 +476,4 @@ Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journa
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

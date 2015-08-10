@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 
@@ -215,7 +215,7 @@ Les étapes suivantes créent la base de données SQL Azure vers laquelle les do
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Notez le nom de serveur retourné par cette commande (**i1qwc540ts** dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Notez le nom de serveur retourné par cette commande (\*\*i1qwc540ts\*\* dans l’exemple ci-dessus.) Voici le nom court du serveur de base de données SQL qui a été créé. Le nom de domaine complet (FQDN) est **&lt;nomcourt&gt;.database.windows.net**. Dans l’exemple ci-dessus, le nom de domaine complet serait **i1qwc540ts.database.windows.net**.
 
 2. Utilisez la commande suivante pour créer une base de données nommée **oozietest** sur le serveur de base de données SQL :
 
@@ -276,7 +276,7 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 
 1. Utilisez la commande suivante pour obtenir l’adresse WASB complète de stockage par défaut. Nous nous en servirons dans le fichier de configuration dans un moment :
 
-		sed -n '/<name>fs.default/,/</value>/p' /etc/hadoop/conf/core-site.xml
+		sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
 
 	Cette commande renvoie des informations similaires à celles-ci :
 
@@ -383,7 +383,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
 1. Utilisez la commande suivante pour obtenir l’URL du service Oozie :
 
-		sed -n '/<name>oozie.base.url/,/</value>/p' /etc/oozie/conf/oozie-site.xml
+		sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
 
 	Cette commande retourne une valeur semblable à la suivante :
 
@@ -622,7 +622,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 ###JA009 : Cannot initialize cluster (Impossible d'initialiser le cluster)
 
-**Symptômes** : l’état du travail devient **SUSPENDED**. Dans les détails du travail, **START_MANUAL** est affiché pour l’état de RunHiveScript. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
+**Symptômes** : l’état du travail devient **SUSPENDED**. Dans les détails du travail, **START\_MANUAL** est affiché pour l’état de RunHiveScript. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -632,7 +632,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 ###JA002 : Oozie is not allowed to impersonate &lt;USER> (Oozie ne peut pas emprunter l’identité &lt;USER>)
 
-**Symptômes** : l’état du travail devient **SUSPENDED**. Dans les détails du travail, **START_MANUAL** est affiché pour l’état de RunHiveScript. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
+**Symptômes** : l’état du travail devient **SUSPENDED**. Dans les détails du travail, **START\_MANUAL** est affiché pour l’état de RunHiveScript. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -686,7 +686,6 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -704,7 +703,6 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -725,4 +723,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

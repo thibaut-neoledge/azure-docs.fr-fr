@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Terminologie Azure AD" 
-	description="Termes et définitions relatifs à Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Terminologie Azure AD | Microsoft Azure"
+	description="Termes et définitions relatifs à Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Terminologie Azure AD
 
@@ -36,14 +36,11 @@ Assistant de connexion Microsoft Online Services | L'Assistant de connexion es
 Authentification multi-facteur (également appelée authentification à deux facteurs ou 2FA) | L'authentification multi-facteur ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Lorsque vous activez l'authentification multi-facteur pour un compte d'utilisateur dans Azure AD, cet utilisateur doit alors utiliser son téléphone, ainsi que ses informations d'identification par mot de passe standard, telles que la méthode de vérification de sécurité supplémentaire, chaque fois qu'il a besoin de se connecter et d’utiliser les services cloud de Microsoft auxquels votre organisation s’est abonnée.
 Authentification unique. | Utilisée pour fournir aux utilisateurs une expérience d'authentification plus transparente lorsqu'ils accèdent aux services cloud de Microsoft en étant connectés au réseau de l'entreprise. Pour configurer l'authentification unique, les organisations doivent déployer un service local d'émission de jeton de sécurité. Une fois l'authentification unique configurée, les utilisateurs peuvent utiliser leurs informations d’identification d'entreprise Active Directory (nom d'utilisateur et mot de passe) pour accéder aux services du cloud ainsi qu’à leurs ressources locales.
 ID d'utilisateur | Un ID d'utilisateur est un identificateur unique qu’un utilisateur saisit sur la page de connexion pour accéder aux services cloud Microsoft auxquels votre organisation s’est abonnée.
-Comptes professionnels ou scolaires | Un compte d'utilisateur attribué par une organisation (professionnelle, scolaire ou à but non lucratif) à l'un de ses membres constitutifs (un employé, un étudiant ou un client) qui fournit l’accès de connexion à un ou plusieurs abonnements de services cloud Microsoft de l'organisation, tels que Office 365 ou Azure. Ces comptes sont stockés dans un répertoire Azure AD de l’organisation et sont généralement supprimés lorsque l'utilisateur quitte l'organisation. Les comptes professionnels ou scolaires diffèrent des comptes Microsoft puisqu’ils sont créés et gérés par les administrateurs de l'organisation, et non par l'utilisateur. 
+Comptes professionnels ou scolaires | Un compte d'utilisateur attribué par une organisation (professionnelle, scolaire ou à but non lucratif) à l'un de ses membres constitutifs (un employé, un étudiant ou un client) qui fournit l’accès de connexion à un ou plusieurs abonnements de services cloud Microsoft de l'organisation, tels que Office 365 ou Azure. Ces comptes sont stockés dans un répertoire Azure AD de l’organisation et sont généralement supprimés lorsque l'utilisateur quitte l'organisation. Les comptes professionnels ou scolaires diffèrent des comptes Microsoft puisqu’ils sont créés et gérés par les administrateurs de l'organisation, et non par l'utilisateur.
 
 ## Étapes suivantes
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrictions et limites du service Azure Active Directory](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

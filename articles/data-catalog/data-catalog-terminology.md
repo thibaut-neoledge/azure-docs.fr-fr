@@ -40,7 +40,7 @@ Les métadonnées structurelles sont des métadonnées extraites d'une source de
 
 ## Métadonnée descriptive
 
-Les métadonnées descriptives sont des métadonnées qui décrivent l'objectif d'une ressource de données. En règle générale, les métadonnées descriptives sont ajoutées par les utilisateurs du catalogue à l'aide du portail Azure Data Catalog, mais elles peuvent être également extraites de la source de données pendant l'inscription. L'outil d'inscription d’Azure Data Catalog extraira les descriptions de la propriété Description dans SQL Server Analysis Services et SQL Server Reporting Services, et de la [propriété étendue ms_description](https://technet.microsoft.com/library/ms190243.aspx) dans les bases de données SQL Server, si ces propriétés ont été remplies avec des valeurs.
+Les métadonnées descriptives sont des métadonnées qui décrivent l'objectif d'une ressource de données. En règle générale, les métadonnées descriptives sont ajoutées par les utilisateurs du catalogue à l'aide du portail Azure Data Catalog, mais elles peuvent être également extraites de la source de données pendant l'inscription. L'outil d'inscription d’Azure Data Catalog extraira les descriptions de la propriété Description dans SQL Server Analysis Services et SQL Server Reporting Services, et de la [propriété étendue ms\_description](https://technet.microsoft.com/library/ms190243.aspx) dans les bases de données SQL Server, si ces propriétés ont été remplies avec des valeurs.
 
 ## Versions préliminaires
 
@@ -71,4 +71,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

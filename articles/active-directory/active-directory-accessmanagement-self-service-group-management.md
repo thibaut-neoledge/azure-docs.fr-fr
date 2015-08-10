@@ -41,4 +41,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

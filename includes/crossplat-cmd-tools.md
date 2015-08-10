@@ -220,4 +220,4 @@ Pour obtenir la liste complète des commandes permettant de créer et de gérer 
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

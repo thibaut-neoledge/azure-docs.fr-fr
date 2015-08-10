@@ -4,11 +4,11 @@
 
 Vous pouvez sécuriser les communications entre l’application web et le navigateur avec le protocole HTTPS, qui utilise le chiffrement SSL (Secure Socket Layer). Il s’agit de la méthode la plus courante en matière de sécurisation des données envoyées via Internet. Elle permet de garantir aux visiteurs que les transactions qu’ils réalisent avec votre application sont sécurisées. Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. Cet article ne couvre pas l’authentification du certificat client. Pour plus d’informations à ce sujet, voir [Comment configurer l’authentification mutuelle TLS pour les applications web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine *.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine \*.azurewebsites.net
 
-Si vous n’envisagez pas d’utiliser un nom de domaine personnalisé, mais le domaine *.azurewebsites.net attribué à votre application web par Azure (par exemple, contoso.azurewebsites.net), le protocole HTTPS est alors déjà activé sur votre site, avec un certificat fourni par Microsoft. Vous pouvez utiliser **https://mywebsite.azurewebsites.net** pour accéder à votre application. Cependant, *.azurewebsites.net est un domaine générique. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n’est pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. 
+Si vous n’envisagez pas d’utiliser un nom de domaine personnalisé, mais le domaine \*.azurewebsites.net attribué à votre application web par Azure (par exemple, contoso.azurewebsites.net), le protocole HTTPS est alors déjà activé sur votre site, avec un certificat fourni par Microsoft. Vous pouvez utiliser **https://mywebsite.azurewebsites.net** pour accéder à votre application. Cependant, \*.azurewebsites.net est un domaine générique. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n’est pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. 
 
-Le reste de ce document fournit des détails sur l’activation du protocole HTTPS pour les domaines personnalisés, par exemple **contoso.com**, **www.contoso.com** ou ***.contoso.com**
+Le reste de ce document fournit des détails sur l’activation du protocole HTTPS pour les domaines personnalisés, par exemple **contoso.com**, **www.contoso.com** ou **\*.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Activation de SSL pour votre domaine personnalisé
 
@@ -38,7 +38,7 @@ Pour obtenir un certificat SSL à utiliser avec Azure App Service, vous soumett
 - [Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL](#bkmk_subjectaltname)
 - [Génération de certificats auto-signés (à des fins de test uniquement)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]Lors de ces étapes, vous devez entrer un **nom commun**, comme `www.contoso.com`. Pour les certificats génériques, cette valeur doit être *.nomdedomaine (par exemple, *.contoso.com). Pour prendre en charge un nom générique comme *.contoso.com et un nom de domaine racine tel que contoso.com, vous pouvez utiliser un certificat générique subjectAltName.
+> [AZURE.NOTE]Lors de ces étapes, vous devez entrer un **nom commun**, comme `www.contoso.com`. Pour les certificats génériques, cette valeur doit être \*.nomdedomaine (par exemple, \*.contoso.com). Pour prendre en charge un nom générique comme \*.contoso.com et un nom de domaine racine tel que contoso.com, vous pouvez utiliser un certificat générique subjectAltName.
 >
 > Les certificats ECC (chiffrement à courbe elliptique) sont pris en charge par Azure App Service. Cependant, ils sont relativement nouveaux, et la procédure précise à suivre pour créer la demande de signature de certificat doit être déterminée avec votre autorité de certification.
 
@@ -164,7 +164,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 
 5. À partir de la ligne de commande, d’un interpréteur de commandes ou d’une session terminal, utilisez la commande suivante pour convertir **myserver.key** et **myserver.crt** en **myserver.pfx**, le format requis par Azure App Service :
 
-		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
@@ -174,7 +174,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Une fois cette commande exécutée, vous devez disposer d’un fichier **myserver.pfx** utilisable avec Azure App Service.
@@ -236,7 +236,7 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 
 		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-	Il n’est pas nécessaire de modifier le champ commonName_default, car vous serez invité à entrer le nom commun au cours de l’une des prochaines étapes.
+	Il n’est pas nécessaire de modifier le champ commonName\_default, car vous serez invité à entrer le nom commun au cours de l’une des prochaines étapes.
 
 2. Enregistrez le fichier __sancert.cnf__.
 
@@ -293,7 +293,7 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Une fois cette commande exécutée, vous devez disposer d’un fichier **myserver.pfx** utilisable avec Azure App Service.
@@ -445,7 +445,7 @@ Azure App Service n’applique *pas* le protocole HTTPS. Les visiteurs peuvent 
 
 Les règles de réécriture d'URL sont définies dans un fichier **web.config** stocké à la racine de votre application. L’exemple suivant contient une règle de réécriture d’URL basique qui force tout le trafic entrant à utiliser HTTPS.
 
-<a name="example"></a>**Exemple de fichier web.config de réécriture d’URL**
+<a name="example"></a>\*\*Exemple de fichier web.config de réécriture d’URL\*\*
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -541,4 +541,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

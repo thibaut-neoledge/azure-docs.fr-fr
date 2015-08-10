@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Qu'est-il arrivé à mon projet ?
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###<span id="whathappened">Qu’est-il arrivé à mon projet ?</span>
+###Qu'est-il arrivé à mon projet ?</span>
 
 ##### Références ajoutées
 
@@ -42,4 +42,4 @@ Dans le fichier web.config de votre projet, un élément a été créé avec la 
 
 Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -68,7 +68,7 @@ Vous devez d’abord inscrire votre application web. Ensuite, vous devez aussi i
 
 **Qu’est-ce que je fais ?**
 
-*Comme indiqué plus haut, Microsoft Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez procéder ainsi pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
+*Comme indiqué plus haut, Microsoft Azure Active Directory prend en charge l’ajout de deux types d’application. Les API web qui offrent des services aux utilisateurs, ainsi que les applications (soit sur Internet soit sur une application exécutée sur un appareil) qui y accèdent. Au cours de cette étape, vous inscrivez l’application de cet exemple. Vous devez procéder ainsi pour que cette application soit en mesure de demander l’accès à l’API web que vous venez d’inscrire. Azure Active Directory ne permet pas à votre application de demander une connexion, sauf si celle-ci est inscrite. Cela fait partie de la sécurité du modèle.*
 
 *Ici, nous supposons que vous inscrivez l’exemple d’application mentionné ci-dessus, mais cela fonctionne pour n’importe quelle application que vous développez.*
 
@@ -100,7 +100,7 @@ Pour générer avec Maven, vous pouvez utiliser le pom.xml au niveau supérieur.
   * Installez l’émulateur avec le kit de développement (SDK) 19.
   * Accédez au dossier racine où vous avez cloné le référentiel.
   * Exécutez la commande : mvn clean install
-  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\hello
+  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\\hello
   * Exécutez la commande : mvn android:deploy android:run
   * L’application doit normalement se lancer
   * Entrez les informations d’identification utilisateur de test pour faire un essai.
@@ -270,7 +270,8 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker** : l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
+11. **Broker** :
+  l’application Portail d’entreprise de Microsoft Intune fournira le composant Service Broker. La bibliothèque ADAL utilisera le compte Service Broker, si un compte d’utilisateur a été créé pour cet authentificateur et que le développeur choisit ne pas l'ignorer. Le développeur peut ignorer l’utilisateur de Service Broker avec :
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -282,7 +283,8 @@ Vous pouvez appeler **acquireTokenSilent** pour gérer la mise en cache et l’a
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` L’utilisateur de Service Broker est renvoyé si le compte est valide.
+ ```
+L’utilisateur de Service Broker est renvoyé si le compte est valide.
 
  Votre manifeste d’application doit disposer des autorisations requises pour utiliser des comptes AccountManager : http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -311,9 +313,12 @@ L’URL de l’autorité a besoin de l’instance STS et du nom du client :http
 
 ### Interrogation des éléments de cache
 
-ADAL fournit un cache par défaut dans SharedPrefrecens avec certaines fonctions simples de requête de cache. Vous pouvez obtenir le cache actuel d’AuthenticationContext avec : ```Java
+ADAL fournit un cache par défaut dans SharedPrefrecens avec certaines fonctions simples de requête de cache. Vous pouvez obtenir le cache actuel d’AuthenticationContext avec :
+```Java
  ITokenCacheStore cache = mContext.getCache();
-```. Vous pouvez également fournir votre implémentation du cache, si vous souhaitez le personnaliser. ```Java
+```
+Vous pouvez également fournir votre implémentation du cache, si vous souhaitez le personnaliser. 
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -359,7 +364,8 @@ Vous pouvez configurer la bibliothèque pour générer des messages de journal q
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
+ ```
+Les messages peuvent être écrits dans un fichier journal personnalisé, comme indiqué ci-dessous. Malheureusement, il n’existe aucun moyen standard d’obtenir les journaux d’un appareil. Il existe des services qui peuvent vous y aider. Vous pouvez également inventer votre propre méthode, telle que l’envoi du fichier à un serveur.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -380,7 +386,8 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (information)
 + Verbose (plus de détails)
 
-Vous définissez le niveau de journal comme suit : ```Java
+Vous définissez le niveau de journal comme suit : 
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -388,7 +395,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ Plus d’exemples à propos des commandes adb : https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Suivis réseau
 
@@ -409,16 +417,18 @@ ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous p
 
 ### Demande de support Oauth2
 
-La classe AuthenticationParameters fournit les fonctionnalités pour obtenir authorization_uri à partir de la demande de support Oauth2.
+La classe AuthenticationParameters fournit les fonctionnalités pour obtenir authorization\_uri à partir de la demande de support Oauth2.
 
 ### Cookies de session dans Webview
 
-Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant : ```java
+Android Webview n’efface pas les cookies de session après la fermeture de l’application. Vous gérez cela avec l’exemple de code suivant : 
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+``` 
+Pour en savoir plus sur les cookies : http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Remplacements de ressources
 
@@ -444,4 +454,4 @@ Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

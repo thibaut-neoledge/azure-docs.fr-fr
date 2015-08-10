@@ -208,7 +208,7 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Azure Automation ne prend pas en charge l'utilisation côte à côte de modules PowerShell. Cela signifie que toutes les configurations au sein d'un compte Automation doivent fonctionner avec la dernière version d'un module PowerShell importé dans ce compte Automation, ainsi qu'avec toutes les ressources PowerShell DSC contenues dans ce module et que la configuration utilise.
 
-- Le serveur collecteur PowerShell DSC traditionnel s'attend à ce que des fichiers ZIP de modules soient placés sur le serveur collecteur au format **NomModule_Version.zip**. Azure Automation s'attend à ce que des modules PowerShell soient importés avec des noms sous la forme **NomModule.zip**. Pour plus d'informations sur le format de module d'intégration nécessaire pour importer le module dans Azure Automation, consultez [ce billet de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/).
+- Le serveur collecteur PowerShell DSC traditionnel s'attend à ce que des fichiers ZIP de modules soient placés sur le serveur collecteur au format **NomModule\_Version.zip**. Azure Automation s'attend à ce que des modules PowerShell soient importés avec des noms sous la forme **NomModule.zip**. Pour plus d'informations sur le format de module d'intégration nécessaire pour importer le module dans Azure Automation, consultez [ce billet de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/).
 
 - Les modules PowerShell qui spécifient des ressources DSC côte à côte dans le module, en utilisant le format « version par dossier », ne fonctionneront pas dans Azure Automation pour le moment.
 
@@ -226,4 +226,4 @@ Azure Automation DSC fournit actuellement les applets de commande suivantes dans
 
 - Les nœuds DSC intégrés à Azure Automation DSC affichent initialement un état « Conforme », même s’ils ne sont pas réellement conformes à la configuration du nœud DSC à laquelle ils sont mappés. Lorsqu’un nœud effectue sa première extraction et envoie son premier rapport DSC à Azure Automation DSC, l'état du nœud doit être correct.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

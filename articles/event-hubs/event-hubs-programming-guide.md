@@ -185,4 +185,4 @@ Pour en savoir plus sur les scénarios des concentrateurs d’événements, cons
 - [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Informations de référence des API hôtes du processeur d’événements](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

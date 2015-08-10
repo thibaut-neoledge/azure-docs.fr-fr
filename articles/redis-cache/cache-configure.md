@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -122,6 +122,8 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 |lua-event-limit|500|Il s'agit de la taille maximale de la file d'attente des événements de script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu'un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d'informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
+## Commandes Redis non prises en charge dans le Cache Redis Azure
+
 >[AZURE.IMPORTANT]Étant donné que la configuration et la gestion des instances de Cache Redis Azure s'effectuent à l'aide du portail Azure, les commandes suivantes sont désactivées. Si vous essayez de les utiliser, vous recevez un message d'erreur semblable à `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
@@ -135,7 +137,21 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 
 Pour plus d'informations sur les commandes Redis, voir [http://redis.io/commands](http://redis.io/commands).
 
+## Console Redis
+
+Vous pouvez exécuter des commandes en toute sécurité aux instances de Cache Redis Azure à l'aide de la **console Redis** disponible pour les caches standard. Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
+
+![Console Redis](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT]La console Redis est uniquement disponible pour les caches standard.
+
+Pour exécuter des commandes sur votre instance de cache, tapez simplement la commande souhaitée dans la console.
+
+![Console Redis](./media/cache-configure/redis-console.png)
+
+Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le Cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache). Pour plus d'informations sur les commandes Redis, voir [http://redis.io/commands](http://redis.io/commands).
+
 ## Étapes suivantes
 -	Pour plus d'informations sur l'utilisation des commandes Redis, voir [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

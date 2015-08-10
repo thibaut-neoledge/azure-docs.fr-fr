@@ -118,4 +118,4 @@ Pour supprimer une stratégie de sauvegarde, procédez comme suit.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les tâches de sauvegarde](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

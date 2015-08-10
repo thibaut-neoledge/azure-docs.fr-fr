@@ -86,7 +86,7 @@ Rappelez-vous que DocumentDB prend en charge deux types d'index (le hachage et l
 Pour plus d'informations, consultez [Stratégies d'indexation de DocumentDB](documentdb-indexing-policies.md).
 
 ### Indexation pour la clause Order By sur toutes les propriétés numériques
-Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, « /* » représente toutes les propriétés ou tous les chemins dans la collection, et -1 représente la précision maximale.
+Voici comment vous pouvez créer une collection avec l’indexation « Toutes les plages » pour Order By sur toutes les propriétés numériques ou de chaîne qui apparaissent dans les documents JSON. Ici, « /\* » représente toutes les propriétés ou tous les chemins dans la collection, et -1 représente la précision maximale.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -176,4 +176,4 @@ Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-document
 * [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -152,7 +152,7 @@ Exécutez la procédure suivante pour consulter les détails sur un appareil St
 
 3. Dans le volet **Résultats**, cliquez sur le nom de l’appareil, puis cliquez sur **Détails**.
 
-4. La boîte de dialogue **Informations sur l’appareil** s’affiche. Cette zone indique le nom, le modèle, la version, le numéro de série, le statut, le nom qualifié iSCSI cible, ainsi que la date et l’heure de la dernière synchronisation.
+4\. La boîte de dialogue **Informations sur l’appareil** s’affiche. Cette zone indique le nom, le modèle, la version, le numéro de série, le statut, le nom qualifié iSCSI cible, ainsi que la date et l’heure de la dernière synchronisation.
 
    - Cliquez sur **Resynchroniser** pour synchroniser l’appareil.
 
@@ -238,7 +238,7 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 3. Supprimez les informations de configuration relatives à l’ancien appareil :
 
-    1. Dans l’Explorateur de fichiers, accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+    1. Dans l’Explorateur de fichiers, accédez à C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog. 
 
     2. Supprimez les fichiers du dossier BACatalog.
 
@@ -262,4 +262,4 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour afficher et gérer les volumes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

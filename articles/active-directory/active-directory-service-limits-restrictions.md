@@ -4,6 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
+	writer="curtand"
 	manager="TerryLan"
 	editor=""/>
 
@@ -27,4 +28,4 @@
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminologie Azure AD](active-directory-terminology.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

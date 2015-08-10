@@ -68,7 +68,7 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 
 Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d'informations, consultez [ce blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4 Ko, vous devez obtenir le type d'unité réservée **Premium **. Pour plus d'informations, consultez la page [Mise à l'échelle de l'encodage](media-services-portal-encoding-units).
+Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que lorsque vous utilisez une présélection pour les encodages 4 Ko, vous devez obtenir le type d'unité réservée **Premium \*\*. Pour plus d'informations, consultez la page [Mise à l'échelle de l'encodage](media-services-portal-encoding-units).
 
 
 ###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
@@ -76,10 +76,10 @@ Media Encoder Standard utilise les présélections décrites dans [cette](http:/
 La version du Kit de développement logiciel (SDK) .NET Azure Media Services est maintenant 3.4.0.0. Les fonctionnalités suivantes ont été ajoutées dans cette version :
 
 - Prise en charge implémentée d'une archive en direct. Notez que vous ne pouvez pas télécharger un actif contenant une archive en direct.
-- Prise en charge implémentée des filtres dynamiques
-- Fonctionnalité implémentée qui permet aux utilisateurs de conserver un conteneur de stockage lors de la suppression d'un actif
-- Résolution des bogues liés aux stratégies de nouvelle tentative sur les canaux
-- **Media Encoder Premium Workflow** activé
+- Prise en charge implémentée des filtres dynamiques.
+- Fonctionnalité implémentée qui permet aux utilisateurs de conserver un conteneur de stockage lors de la suppression d'un actif.
+- Résolution des bogues liés aux stratégies de nouvelle tentative sur les canaux.
+- **Media Encoder Premium Workflow** activé.
 
 ##<a id="june_changes_15"></a>Version de juin 2015
 
@@ -249,7 +249,7 @@ La dernière version du Kit de développement logiciel (SDK) de Media Services p
 
 	Pour plus d'informations, reportez-vous à la propriété **CustomHostNames** dans la rubrique [StreamingEndpoint].
 
-### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités\nouveaux scénarios intégrés à la version préliminaire publique
+### <a id="sept_14_preview_changes"></a>Nouvelles fonctionnalités\\nouveaux scénarios intégrés à la version préliminaire publique
 
 * Aperçu de la diffusion en continu. Pour plus d'informations, consultez la page [Utilisation de la diffusion en continu Azure Media Services].
 
@@ -331,7 +331,7 @@ Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
 * Dépendances du stockage Azure mises à niveau pour utiliser la version 3.0.3.0. 
 
-* Problème de compatibilité descendante résolu pour les versions 3.0.*.*.
+* Problème de compatibilité descendante résolu pour les versions 3.0.\*.\*.
 
 
 ##<a id="december_changes_13"></a>Version de décembre 2013
@@ -555,4 +555,4 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

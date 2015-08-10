@@ -87,7 +87,7 @@ L’extrait de code .NET suivant montre comment définir une stratégie d’inde
 
 ### Modes d’indexation
 
-Vous pouvez choisir des mises à jour d’index synchrones (**cohérentes**), asynchrones (**différées**), ou vous pouvez ne pas en choisir (**Aucune**). Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un document au niveau de la collection. Ainsi, les requêtes peuvent honorer le même niveau de cohérence que les lectures de document sans que l’index ne soit soumis à un quelconque délai de rattrapage.
+Vous pouvez choisir des mises à jour d’index synchrones (\*\*cohérentes\*\*), asynchrones (\*\*différées\*\*), ou vous pouvez ne pas en choisir (\*\*Aucune\*\*). Par défaut, l’index est mis à jour de manière synchrone lors de chaque insertion, remplacement ou suppression d’un document au niveau de la collection. Ainsi, les requêtes peuvent honorer le même niveau de cohérence que les lectures de document sans que l’index ne soit soumis à un quelconque délai de rattrapage.
 
 Alors que DocumentDB est optimisé pour les écritures et prend en charge les volumes soutenus d'écritures de documents, ainsi que la maintenance synchrone des index, vous pouvez configurer certaines collections de manière à ce que la mise à jour de l'index soit effectuée en différé. L'indexation différée est très utile pour les scénarios où les données sont écrites en rafales et que vous souhaitez amortir le travail requis pour indexer le contenu sur une longue période de temps. Cela vous permet d'utiliser efficacement le débit configuré et de répondre aux demandes d'écriture aux heures de pointe avec une latence minimale. Si l’indexation différée est activée, les résultats des requêtes seront cohérents, indépendamment du niveau de cohérence configuré pour le compte de base de données.
 
@@ -113,9 +113,9 @@ L'exemple suivant montre comment utiliser le Kit de développement logiciel (SDK
 
 Dans les documents, vous pouvez choisir les chemins d'accès qui doivent être inclus ou exclus de l'indexation. Il peut en résulter de meilleures performances d'écriture et un stockage des index inférieur pour les scénarios lorsque les modèles de requête sont connus au préalable.
 
-Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
+Les chemins d’accès de l’index commencent par la racine (/) et se terminent généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT \* FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d'index pour /familyName/? dans la stratégie d'index de la collection.
 
-Les chemins d'index peuvent aussi utiliser l'opérateur générique * pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
+Les chemins d'index peuvent aussi utiliser l'opérateur générique \* pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/\* peut être utilisé pour exclure de l'indexation tout ce qui figure sous la propriété « payload ».
 
 Voici les modèles courants de spécification des chemins d'index :
 
@@ -250,7 +250,7 @@ Voici les modèles courants de spécification des chemins d'index :
     </tbody>
 </table>
 
->[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /* ».
+>[AZURE.NOTE]Lors de la définition des chemins d’accès de l’index personnalisé, il est nécessaire de spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin d’accès spécial « /\* ».
 
 L’exemple suivant configure un chemin d’accès spécifique avec l’indexation de plage et une valeur personnalisée de précision de 20 octets :
 
@@ -296,7 +296,7 @@ La précision d’index vous permet trouver un compromis entre le traitement du 
 
 La configuration de la précision d’index est plus pratique avec les plages de chaînes. Comme les chaînes peuvent avoir n’importe quelle longueur arbitraire, le choix de la précision d’index peut avoir des conséquences sur les performances des requêtes de plage de chaînes et sur l’espace de stockage requis pour les index. Les index de plage de chaînes peuvent être configurés avec une valeur comprise entre 1 et 100, ou la valeur de précision maximale (-1). Si vous devez exécuter une requête Trier par sur des chaînes, vous devez préciser le chemin d’accès spécifié (-1).
 
-L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /* ».
+L’exemple suivant montre comment augmenter la précision des index de plage d’une collection à l’aide du Kit de développement (SDK) .NET. Notez qu’il utilise le chemin d’accès par défaut « /\* ».
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
@@ -318,7 +318,7 @@ L’exemple suivant montre comment augmenter la précision des index de plage d�
 > 
 > Les requêtes peuvent être effectuées sans un index de plage à l'aide de l'en-tête x-ms-documentdb-enable-scans header dans l'API REST ou l'option de requête EnableScanInQuery à l'aide du Kit de développement logiciel (SDLK) .NET.
 
-De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « * ».
+De même, des chemins d’accès peuvent être exclus complètement de l’indexation. L'exemple suivant montre comment exclure toute une section de documents (également appelé une sous-arborescence) de l'indexation à l'aide du caractère générique « \* ».
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -381,7 +381,7 @@ Les modifications suivantes ont été implémentées dans la spécification JSON
 - Chaque chemin d'accès peut avoir plusieurs définitions d'index, un pour chaque type de données
 - L'indexation de précision prend en charge les nombres de 1 à 8, les chaînes de 1 à 100 et -1 (précision maximale)
 - Les segments des chemins d'accès ne nécessitent pas de doubles guillemets pour éviter chaque chemin d'accès. Par exemple, vous pouvez ajouter un chemin d’accès pour /title/? au lieu de /"title"/?
-- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /* (en plus de /)
+- Le chemin d'accès racine représentant « tous les chemins d'accès » peut être représenté comme /\* (en plus de /)
 
 Si votre code approvisionne des collections avec une stratégie d'indexation personnalisée écrite avec la version 1.1.0 du Kit de développement logiciel (SDK) .NET ou une version antérieure, vous devrez modifier le code de votre application pour gérer ces modifications afin de les déplacer vers la version 1.2.0 du Kit de développement logiciel (SDK). Si vous n’avez pas le code qui configure la stratégie d'indexation, ou si vous envisagez de continuer à l'aide d'une version du Kit de développement logiciel (SDK) plus ancienne, aucune modification n'est requise.
 
@@ -444,4 +444,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

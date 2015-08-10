@@ -68,4 +68,4 @@ Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'archi
 
 ![Éléments d’infographie relatifs à l’architecture Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
+
+## Notes relatives à la version du 30/07/2015 de Stream Analytics ##
+
+Cette version contient les mises à jour suivantes.
+
+<table border="1">
+<tr>
+<th>Intitulé</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>ID d'organisation Power BI dissocié de l'ID&#160;Azure</td>
+<td>Cette fonctionnalité permet la sortie Power BI pour les travaux ASA sous tout type de compte Azure (Live ID ou ID d'organisation). En outre, vous pouvez avoir un ID d'organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.</td>
+</tr>
+<tr>
+<td>Prise en charge de la sortie de files d'attente de Service Bus</td>
+<td>Les sorties de files d'attente de Service Bus sont maintenant disponibles dans les travaux Stream&#160;Analytics.</td>
+</tr>
+<tr>
+<td>Prise en charge de la sortie de rubriques de Service&#160;Bus</td>
+<td>Les sorties de rubriques de Service&#160;Bus sont maintenant disponibles dans les travaux Stream&#160;Analytics.</td>
+</tr>
+<tr>
+<td>Nouvelles fonctions de tableau</td>
+<td>Ajout des fonctions de tableau GetArrayElement, GetArrayElements, GetArrayLength</td>
+</tr>
+<tr>
+<td>Nouvelles fonctions d'enregistrement</td>
+<td>Ajout des fonctions d'enregistrement GetRecordProperties et GetRecordPropertyValue</td>
+</tr>
+</table>
 
 ## Notes relatives à la version du 09/07/2015 de Stream Analytics ##
 
@@ -121,4 +152,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

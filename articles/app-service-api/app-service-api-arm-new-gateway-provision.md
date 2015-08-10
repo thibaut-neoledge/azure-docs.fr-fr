@@ -126,7 +126,7 @@ Vous pouvez voir que le paramètre **kind** est défini sur **passerelle**, ce q
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -300,4 +300,4 @@ Notez que les noms de la passerelle et de l’application web d’hébergement 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

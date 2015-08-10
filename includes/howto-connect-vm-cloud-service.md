@@ -43,4 +43,4 @@ Une fois que vous avez créé une machine virtuelle, il convient d'ajouter un di
 
 [Attachement d'un disque de données à une machine virtuelle Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

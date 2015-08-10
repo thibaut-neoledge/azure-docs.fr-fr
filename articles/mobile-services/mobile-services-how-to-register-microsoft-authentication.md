@@ -107,4 +107,4 @@ Votre service mobile et votre application sont désormais configurés pour utili
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET 5)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main le stockage d'objets blob une fois que vous avez créé un stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio.
+Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main le stockage d’objets blob une fois que vous avez créé un compte de stockage Azure via la boîte de dialogue **Ajouter des services connectés** de Visual Studio dans un projet ASP.NET 5.
 
 De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un stockage, créez un ou plusieurs conteneurs dans le stockage. Par exemple, dans un stockage appelé « Scrapbook », vous pouvez créer des conteneurs dans le stockage appelé « images » pour stocker des photos et un autre appelé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers blob. Pour plus d’informations sur la manipulation par programme des objets blob, voir l’article [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md "Utilisation du stockage d’objets blob à partir de .NET").
 
@@ -171,4 +171,4 @@ Pour supprimer un objet blob, commencez par en obtenir la référence, puis appe
  
 [Image1]: ./media/vs-storage-aspnet5-getting-started-blobs/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

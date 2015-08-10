@@ -145,4 +145,4 @@ Actuellement, une vérification de sécurité supplémentaire est utilisable uni
 
 La solution consiste à disposer d'un compte d'utilisateur distinct pour les opérations liées aux administrateurs et les autres. Vous pouvez ultérieurement lier les boîtes de réception de votre compte d'administrateur et d’un compte non administrateur pour vous connecter à Outlook à l'aide de votre compte non administrateur. Pour plus d'informations, consultez [Permettre à un administrateur d'ouvrir et d'afficher le contenu de la boîte aux lettres d'un utilisateur] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

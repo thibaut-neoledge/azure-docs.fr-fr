@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Gestion des cartes de partitions
@@ -37,12 +37,29 @@ L'infrastructure élastique prend en charge les types .Net Framework suivants en
 Vous pouvez construire des cartes de partition en utilisant des **listes de valeurs de clés de partitionnement individuelles**, ou des **plages de valeurs de clés de partitionnement**.
 
 ###Cartes de partition de liste
-Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions. Les **mappages de liste** sont explicites (par exemple, la clé 1 mappe vers la base de données A) et différentes valeurs de clés peuvent être mappées vers la même base de données (les valeurs de clés 3 et 6 font toutes deux référence à la base de données B). <table><tr><td>Emplacement</td><td>des partitions de clé</td></tr><tr><td>1</td><td>Database_A</td></tr><tr><td>3</td><td>Database_B</td></tr><tr><td>4</td><td>Database_C</td></tr><tr><td>6</td><td>Database_B</td></tr><tr><td>...</td><td>...</td></tr></table>
+Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions. Les **mappages de liste** sont explicites (par exemple, la clé 1 mappe vers la base de données A) et différentes valeurs de clés peuvent être mappées vers la même base de données (les valeurs de clés 3 et 6 font toutes deux référence à la base de données B).
+
+| Clé | Emplacement de partition |
+|-----|----------------|
+| 1 | Database\_A |
+| 3 | Database\_B |
+| 4 | Database\_C |
+| 6 | Database\_B |
+| ... | ... |
+ 
 
 ### Cartes de partitions de plage 
 Dans une **carte de partitions de plage**, la plage de clé est décrite par une paire **[valeur inférieure, valeur supérieure)**, où la *valeur inférieure* correspond à la clé minimale de la plage, tandis que la *valeur supérieure* correspond à la première valeur supérieure à la plage.
 
-Par exemple, **[0, 100)** inclut tous les entiers égaux ou supérieurs à 0 et inférieurs à 100. Notez que plusieurs plages peuvent pointer vers la même base de données et que les plages disjointes sont prises en charge (par exemple, [100,200) et [400,600) pointent vers la base de données C dans l’exemple ci-dessous.) <table><tr><td><b>Plage de clés</b></td><td><b>emplacement des partitions</b></td></tr><tr><td>[1, 50)</td><td>Database_A</td></tr><tr><td>[50, 100)</td><td>Database_B</td></tr><tr><td>[100, 200)</td><td>Database_C</td></tr><tr><td>[400, 600)</td><td>Database_C</td></tr><tr><td>...</td><td>...</td></tr></table>
+Par exemple, **[0, 100)** inclut tous les entiers égaux ou supérieurs à 0 et inférieurs à 100. Notez que plusieurs plages peuvent pointer vers la même base de données et que les plages disjointes sont prises en charge (par exemple, [100,200) et [400,600) pointent vers la base de données C dans l’exemple ci-dessous.)
+
+| Clé | Emplacement de partition |
+|-----------|----------------|
+| [1,50) | Database\_A |
+| [50,100) | Database\_B |
+| [100,200) | Database\_C |
+| [400,600) | Database\_C |
+| ... | ...            
 
 Chacune des tables présentées ci-dessus correspond à un exemple conceptuel d’un objet **ShardMap**. Chaque ligne correspond à un exemple simplifié d’un objet **PointMapping** (pour la carte de partitions de liste) ou **RangeMapping** (pour la carte de partitions de plage).
 
@@ -50,8 +67,8 @@ Chacune des tables présentées ci-dessus correspond à un exemple conceptuel d�
 
 Dans la bibliothèque cliente, le gestionnaire des cartes de partitions correspond à une collection de cartes de partitions. Les données gérées par un objet **ShardMapManager** .Net sont conservées dans trois emplacements :
 
-1. **Carte de partitions globale (CPG)** : lorsque vous créez un objet **ShardMapManager**, vous spécifiez une base de données en tant que référentiel pour l’ensemble de ses cartes et mappages de partitions. Les tables spéciales et les procédures stockées sont automatiquement créées pour gérer les informations. Il s'agit généralement d'une petite base de données à laquelle vous pouvez accéder rapidement, mais elle ne doit pas être utilisée pour d'autres besoins de l'application. Les tables sont stockées dans un schéma spécifique nommé **__ShardManagement**.
-2. **Carte de partitions locale (CPL)** : chaque base de données que vous définissez en tant que partition au sein d'une carte de partitions sera modifiée pour contenir des petites tables et des procédures stockées spécifiques qui contiennent et gèrent les informations de carte de partitions propres à cette partition. Ces informations sont redondantes pour les informations contenues dans la CPG, mais elles permettent aux applications de valider les informations de carte de partitions mises en cache sans placer aucune charge sur la CPG. L'application utilise la CPL pour déterminer la validité d'un mappage mis en cache. Les tables correspondant à la CPL de chaque partition sont stockées dans le schéma **__ShardManagement**.
+1. **Carte de partitions globale (CPG)** : lorsque vous créez un objet **ShardMapManager**, vous spécifiez une base de données en tant que référentiel pour l’ensemble de ses cartes et mappages de partitions. Les tables spéciales et les procédures stockées sont automatiquement créées pour gérer les informations. Il s'agit généralement d'une petite base de données à laquelle vous pouvez accéder rapidement, mais elle ne doit pas être utilisée pour d'autres besoins de l'application. Les tables sont stockées dans un schéma spécifique nommé **__ShardManagement\*\*.
+2. **Carte de partitions locale (CPL)** : chaque base de données que vous définissez en tant que partition au sein d'une carte de partitions sera modifiée pour contenir des petites tables et des procédures stockées spécifiques qui contiennent et gèrent les informations de carte de partitions propres à cette partition. Ces informations sont redondantes pour les informations contenues dans la CPG, mais elles permettent aux applications de valider les informations de carte de partitions mises en cache sans placer aucune charge sur la CPG. L'application utilise la CPL pour déterminer la validité d'un mappage mis en cache. Les tables correspondant à la CPL de chaque partition sont stockées dans le schéma **__ShardManagement\*\*.
 
 3. **Cache d’application** : chaque instance d’application accédant à un objet **ShardMapManager** conserve un cache local en mémoire de ses mappages. Elle stocke les informations de routage récupérées récemment.
 
@@ -107,7 +124,7 @@ Vous trouverez ci-dessous un exemple de séquence d'opérations pour remplir une
 2. Les métadonnées de deux partitions différentes sont ajoutées à la carte de partitions. 
 3. Différents mappages de plages de clés sont ajoutés et le contenu global de la carte de partitions s’affiche. 
 
-Le code est écrit de façon à ce que l'intégralité de la méthode puisse être réexécutée en toute sécurité en cas d'erreur inattendue. Chaque demande vérifie si une partition ou un mappage existe déjà, avant de démarrer sa création. Le code ci-dessous part du principe que les bases de données nommées **sample_shard_0**, **sample_shard_1** et **sample_shard_2** ont déjà été créées dans le serveur référencé par la chaîne **shardServer**.
+Le code est écrit de façon à ce que l'intégralité de la méthode puisse être réexécutée en toute sécurité en cas d'erreur inattendue. Chaque demande vérifie si une partition ou un mappage existe déjà, avant de démarrer sa création. Le code ci-dessous part du principe que les bases de données nommées **sample\_shard\_0**, **sample\_shard\_1** et **sample\_shard\_2** ont déjà été créées dans le serveur référencé par la chaîne **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -213,7 +230,7 @@ Ces méthodes fonctionnent ensemble en tant que blocs de construction disponible
 
 * Pour remapper (ou déplacer) des points ou des plages vers différentes partitions : utilisez **UpdateMapping**.
 
-    Comme il est possible que les données soient déplacées d’une partition à l’autre afin d’êtres cohérentes avec les opérations **UpdateMapping**, vous devez effectuer ces déplacements séparément tout en utilisant ces méthodes.
+    Comme il est possible que les données soient déplacées d’une partition à l’autre afin d’être cohérentes avec les opérations **UpdateMapping**, vous devez effectuer ces déplacements séparément tout en utilisant ces méthodes.
 
 * Pour effectuer des mappages en ligne et hors connexion : utilisez **MarkMappingOffline** et **MarkMappingOnline** pour contrôler l’état en ligne d’un mappage.
 
@@ -234,4 +251,4 @@ Cependant, pour les scénarios requérant le déplacement de données, l’outil
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

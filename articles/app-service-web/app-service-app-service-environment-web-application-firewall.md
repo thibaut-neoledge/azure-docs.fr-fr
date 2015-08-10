@@ -97,4 +97,4 @@ Remplacez SourceAddressPrefix par l'adresse IP virtuelle (VIP) du service cloud 
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

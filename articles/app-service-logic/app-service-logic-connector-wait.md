@@ -64,4 +64,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -84,7 +84,7 @@ Commençons par ajouter l'accès en Lecture pour toutes les ressources de l'abon
 
 ![][3]
 
-Cliquez sur le *nom de l'abonnement* ** > Lecteur > Ajouter**. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
+Cliquez sur le *nom de l'abonnement* \*\* > Lecteur > Ajouter\*\*. Dans la liste des utilisateurs et des groupes, sélectionnez ou entrez le nom du groupe Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Voici quelques ressources supplémentaires destinées à faciliter votre utilisa
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

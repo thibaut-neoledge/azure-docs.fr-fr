@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="07/24/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight
@@ -43,7 +43,7 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 ##Exécution de l'exemple
 
-1. À partir du portail Azure, cliquez sur le cluster sur lequel vous voulez exécuter l’exemple, puis cliquez sur **Console de requête** dans la partie inférieure. Vous pouvez également ouvrir directement la console de requête au moyen de l’URL suivante :
+1. À partir d’un navigateur web, accédez à l'URL suivante. Remplacez `<clustername>` par le nom de votre cluster HDInsight :
 
 	 	https://<clustername>.azurehdinsight.net
 
@@ -53,4 +53,4 @@ Dans cet exemple, vous allez utiliser Hive pour traiter les données d'historiqu
 
 3. Suivez les instructions fournies dans la page web pour terminer l'exemple.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -87,54 +87,18 @@ Les diagnostics Azure sont des extensions vous permettant de collecter des donn�
 
 Azure Diagnostics peut collecter les types de données télémétriques suivants :
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Source de données</b></td>
-		<td><b>Description</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Journaux IIS</td>
-		<td>Informations au sujet des sites Web IIS.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Journaux d'infrastructure Azure Diagnostic</td>
-		<td>Informations au sujet de Diagnostics lui-même.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Journaux d'échecs de requête IIS </td>
-		<td>Informations au sujet des échecs de requête à un site ou à une application IIS.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Journaux d'événements Windows</td>
-		<td>Informations envoyées au système de journalisation des événements Windows.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Compteurs de performances</td>
-		<td>Compteur du système d'exploitation et compteurs de performances personnalisés.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Vidages sur incident</td>
-		<td>Informations au sujet de l'état du processus en cas d'incident d'application.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Journaux d'erreurs personnalisés</td>
-		<td>Journaux créés par votre application ou votre service.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>NET EventSource</td>
-		<td>Événements générés par votre code à l'aide de la classe <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource .NET.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>ETW basé sur les manifestes</td>
-		<td>Événements ETW générés par n'importe quel processus.</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>Événements envoyés aux démons Syslog ou Rsyslog</td>
-    </tr>
-    </tbody>
-    </table>
+Source de données|Description
+ ---|--- 
+Journaux IIS|Informations au sujet des sites Web IIS.
+Journaux d'infrastructure Azure Diagnostic|Informations au sujet de Diagnostics lui-même.
+Journaux d'échecs de requête IIS |Informations au sujet des échecs de requête à un site ou à une application IIS.
+Journaux d'événements Windows|Informations envoyées au système de journalisation des événements Windows.
+Compteurs de performances|Compteur du système d'exploitation et compteurs de performances personnalisés.
+Vidages sur incident|Informations au sujet de l'état du processus en cas d'incident d'application.
+Journaux d'erreurs personnalisés|Journaux créés par votre application ou votre service.
+NET EventSource|Événements générés par votre code à l'aide de la classe [EventSource] (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) .NET
+ETW basé sur les manifestes|Événements ETW générés par n'importe quel processus
+Syslog|Événements envoyés aux démons Syslog ou Rsyslog
 
 
 Actuellement, Operational Insights est en mesure d'analyser :
@@ -153,7 +117,7 @@ Les journaux doivent se trouver dans les emplacements suivants :
 
 Pour les machines virtuelles, vous pouvez également installer [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
-Vous pouvez nous aider à hiérarchiser les journaux supplémentaires devant être analysés par Operational Insights en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)
+Vous pouvez nous aider à hiérarchiser les journaux supplémentaires devant être analysés par Operational Insights en votant sur notre [page de commentaires](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
 ## Activation des diagnostics Azure dans un rôle Web pour la collecte de journaux IIS et des événements
 
@@ -167,7 +131,7 @@ Avec les diagnostics Azure activés :
 
 ### Activation des diagnostics
 
-Pour activer les journaux d'événements Windows, ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l'aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l’[étape 2 : ajoutez le fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l’[étape 3: configurez les diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Procédure d’activation des diagnostics dans un service cloud. L’exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l’application et du système :
+Pour activer les journaux d'événements Windows ou pour modifier scheduledTransferPeriod, configurez les diagnostics Azure à l'aide du fichier de configuration XML (diagnostics.wadcfg), comme indiqué dans l'[étape 2 : ajout du fichier diagnostics.wadcfg à votre solution Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) et l'[étape 3 : configuration des diagnostics pour votre application](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) dans la rubrique Activation des diagnostics dans un service cloud. L'exemple de fichier de configuration suivant collecte des journaux IIS et tous les événements des journaux de l'application et du système :
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -190,7 +154,7 @@ Pour activer les journaux d'événements Windows, ou pour modifier scheduledTran
     </DiagnosticMonitorConfiguration>
 
 
-Dans l’[étape 4 : configuration du stockage de vos données de diagnostic](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) de la rubrique Procédure d’activation des diagnostics dans un service cloud, assurez-vous que votre élément ConfigurationSettings spécifie un compte de stockage, comme dans l’exemple suivant :
+Dans l'[étape 4 : configuration du stockage de vos données de diagnostic](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) de la rubrique Activation des diagnostics dans un service cloud, assurez-vous que votre élément ConfigurationSettings spécifie un compte de stockage, comme dans l'exemple suivant :
 
 
     <ConfigurationSettings>
@@ -198,7 +162,7 @@ Dans l’[étape 4 : configuration du stockage de vos données de diagnostic](
     </ConfigurationSettings>
 
 
-Les valeurs de **AccountName** et **AccountKey** se trouvent dans le portail de gestion Microsoft Azure dans le tableau de bord du compte de stockage, sous Gérer les clés d’accès. Le protocole pour la chaîne de connexion doit être **https**.
+Les valeurs **AccountName** et **AccountKey** se trouvent dans le portail de gestion Microsoft Azure dans le tableau de bord du compte de stockage, sous Gérer les clés d'accès. Le protocole pour la chaîne de connexion doit être **https**.
 
 Une fois que la configuration de diagnostic mise à jour est appliquée à votre service cloud et écrit des diagnostics dans Azure Storage, vous êtes prêt à configurer Operational Insights.
 
@@ -209,8 +173,8 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
 ### Activation des diagnostics Azure dans une machine virtuelle à l’aide du portail de gestion Azure
 
 1. Installez l’agent de machine virtuelle lorsque vous créez une machine virtuelle. Si la machine virtuelle existe déjà, vérifiez que l’agent de machine virtuelle est déjà installé.
-	- Si vous utilisez le portail de gestion Azure par défaut pour créer la machine virtuelle, effectuez une **Création personnalisée** et sélectionnez **Installer l’agent de machine virtuelle**.
-	- Si vous utilisez le nouveau portail de gestion Azure pour créer une machine virtuelle, sélectionnez **Configuration facultative**, puis **Diagnostics** et définissez l’**État** sur **Activé**.
+	- Si vous utilisez le portail de gestion Azure par défaut pour créer la machine virtuelle, effectuez une **Création personnalisée** et sélectionnez **Installer l'agent de machine virtuelle**.
+	- Si vous utilisez le nouveau portail de gestion Azure pour créer une machine virtuelle, sélectionnez **Configuration facultative**, puis **Diagnostics** et définissez l'**État** sur **Activé**.
 
 	Ensuite, la machine virtuelle installe et exécute automatiquement l’extension Azure Diagnostics. Cette dernière est chargée de collecter vos données de diagnostic.
 
@@ -218,11 +182,11 @@ Utilisez la procédure suivante pour activer les diagnostics Azure dans une mach
 	1. Sélectionnez la machine virtuelle.
 	2. Cliquez sur **Analyse**.
 	3. Cliquez sur **Diagnostics**.
-	4. Définissez l’**État** sur **ACTIVÉ**.
+	4. Définissez l'**État** sur **ACTIVÉ**.
 	5. Cliquez sur les métriques de diagnostic que vous souhaitez utiliser. Operational Insights peut analyser les journaux des événements système Windows, les journaux des événements d’application de Windows et les journaux IIS.
 	7. Cliquez sur **OK**.
 
-Vous pouvez spécifier les événements écrits dans Azure Storage plus précisément à l’aide d’Azure PowerShell. Consultez le schéma de configuration d’Azure Diagnostics 1.2 pour un exemple de fichier de configuration et une documentation détaillée sur son schéma. Veillez à installer et à configurer Azure PowerShell version 0.8.7 ou ultérieure à partir de la page [Installation et configuration d’Azure PowerShell](powershell-install-configure) Si vous disposez d’une version de Microsoft Azure Diagnostics antérieure à la version 1.2, vous ne pouvez pas utiliser le nouveau portail pour activer ou configurer les diagnostics.
+Vous pouvez spécifier les événements écrits dans Azure Storage plus précisément à l’aide d’Azure PowerShell. Consultez le schéma de configuration d’Azure Diagnostics 1.2 pour un exemple de fichier de configuration et une documentation détaillée sur son schéma. Veillez à installer et à configurer Azure PowerShell version 0.8.7 ou ultérieure à partir de la page [Installation et configuration d'Azure PowerShell](powershell-install-configure). Si vous disposez d’une version de Microsoft Azure Diagnostics antérieure à la version 1.2, vous ne pouvez pas utiliser le nouveau portail pour activer ou configurer les diagnostics.
 
 Vous pouvez activer et mettre à jour l’Agent en utilisant le script PowerShell suivant. Vous pouvez également utiliser ce script avec la configuration de journalisation personnalisée. Vous devez modifier le script pour définir le compte de stockage, le nom du service et le nom de la machine virtuelle.
 
@@ -267,11 +231,11 @@ Utilisez la procédure suivante pour activer l’analyse et configurer Operation
 
 ### Activation de l’analyse par Operational Insights
 
-1. Dans le portail Azure par défaut, accédez à votre espace de travail Operational Insights et sélectionnez l’onglet **Stockage**. ![onglet de stockage de l'espace de travail](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. Cliquez sur **Ajouter un compte de stockage** pour ouvrir la boîte **Ajouter un compte de stockage**.
+1. Dans le portail Azure par défaut, accédez à votre espace de travail Operational Insights et sélectionnez l'onglet **Stockage**. ![onglet de stockage de l'espace de travail](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+2. Cliquez sur **Ajouter un compte de stockage** pour ouvrir la zone **Ajouter un compte de stockage**.
 3. Sélectionnez le compte de stockage que vous voulez utiliser.
 4. Dans la liste **Type de données**, sélectionnez un type de données : **Événements**, **Journaux IIS** ou **Syslog (Linux)**.
-5. Cliquez sur l’image **OK**. ![boîte du compte de stockage](./media/operational-insights-analyze-data-azure/storage-account.png)
+5. Cliquez sur l'image **OK**.<br> ![boîte du compte de stockage](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Répétez les étapes ci-dessus pour chaque combinaison de type de données et de compte de stockage à partir de laquelle vous souhaitez collecter des données.
 
 Après environ une heure, les données du compte de stockage sont disponibles pour analyse dans Operational Insights.
@@ -279,10 +243,10 @@ Après environ une heure, les données du compte de stockage sont disponibles po
 ## Contenu connexe
 
 - [Connexion directe des ordinateurs à Operational Insights](operational-insights-direct-agent)
-- [Billet de blog : activation d’Operational Insights pour les machines virtuelles Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
+- [Billet de blog : activation d'Operational Insights pour les machines virtuelles Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 ## Étapes suivantes
 
 [Configuration des paramètres de pare-feu et de proxy (facultatif)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

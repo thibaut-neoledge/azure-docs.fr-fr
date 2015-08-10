@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
 #Prise en main des outils de base de données élastiques
@@ -26,19 +26,19 @@ Ce document présente l’aspect développement à l’aide de la bibliothèque 
 
 Pour plus d’informations sur le fonctionnement des outils de base de données élastique, consultez [Présentation des outils de bases de données élastiques](sql-database-elastic-scale-introduction.md).
 
-Pour obtenir la liste de toutes les rubriques sur les outils de bases de données élastiques, consultez la [documentation correspondante](sql-database-elastic-scale-documentation-map.md)
+Pour obtenir la liste de toutes les rubriques sur les outils de bases de données élastiques, consultez le [plan de formation](sql-database-elastic-scale-documentation-map.md)
 
 ## Exemple d’application de base de données élastique
 
 L’exemple crée une application partitionnée simple et explore les fonctionnalités clés des outils de bases de données élastiques. Pour télécharger et exécuter l’application, suivez les étapes affichées ci-dessous ou dans la vidéo intitulée [Infrastructure élastique - Prise en main](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
 
-### Configuration requise
+## Composants requis
 Pour exécuter l'exemple d'application, vous devez utiliser Visual Studio et accéder à une base de données SQL Azure exécutée sur Azure. Si vous n'êtes pas encore abonné à Azure, inscrivez-vous pour vous abonner à une [version d'évaluation](http://azure.microsoft.com/pricing/free-trial/).
-#### Visual Studio et Nuget
+### Visual Studio et Nuget
 
 1. Visual Studio 2012 ou ultérieur et C# sont requis. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-#### Création d'une base de données SQL Azure
+### Création d'une base de données SQL Azure
 
 * Consultez [Prise en main de Microsoft Azure SQL Database](sql-database-get-started.md).
 
@@ -115,4 +115,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

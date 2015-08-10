@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Fourniture d’éléments multimédias" 
-	description="Découvrez les options disponibles pour fournir des éléments multimédias qui ont été chargés sur Media Services dans Azure. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
+	pageTitle="Télécharger des éléments multimédias" 
+	description="Découvrez comment télécharger des éléments multimédias sur votre ordinateur. Les exemples de code sont écrits en C# et utilisent le Kit de développement logiciel (SDK) Media Services pour .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Fourniture d’un élément multimédia par téléchargement
-
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
 
 Cette rubrique présente les options disponibles pour fournir des éléments multimédias téléchargés sur Media Services. De nombreux scénarios d'application permettent de fournir du contenu Media Services. Il est possible de télécharger des éléments multimédias ou d'y accéder en utilisant un localisateur. Vous pouvez envoyer du contenu multimédia vers une autre application ou un autre fournisseur de contenu. Pour améliorer les performances et l’évolutivité, vous pouvez également fournir du contenu en utilisant un réseau de distribution de contenu (CDN).
 
@@ -74,5 +72,8 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
    
+##Voir aussi 
 
-<!---HONumber=July15_HO4-->
+[de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
+
+<!---HONumber=July15_HO5-->

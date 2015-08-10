@@ -12,24 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/24/2015" 
+    ms.date="07/29/2015" 
     ms.author="sidneyh" />
 
 # Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques
 
-Base de données SQL Azure propose plusieurs manières de faire évoluer la couche de données d'une application en tant que modifications des demandes de l'entreprise. Par exemple, il s’agit des applications qui deviennent virales ou pour lesquelles des locataires spécifiques s’étendent au-delà des limites d’une seule base de données. Options de mise à l'échelle :
+Si vous choisissez de ne pas utiliser le modèle simple d’attribution des bases de données distinctes pour chaque shardlet (locataire), votre application devra peut-être redistribuer de manière flexible les données entre les bases de données lorsque les besoins de capacité varient. Les outils de base de données élastique incluent un outil de fusion et de fractionnement hébergé par le client pour rééquilibrer la distribution des données et la gestion des zones réactives pour les applications partitionnées. Ce principe s’appuie sur une capacité sous-jacente à déplacer des shardlets à la demande entre les différentes bases de données et s’intègre à la gestion des cartes de partitions afin de conserver des mappages cohérents.
 
-* Les pools de base de données élastique permettent aux bases de données au sein d'un pool de croître et de réduire les ressources consommées en fonction de la demande, tout en conservant un prix total prévisible pour le pool dans son ensemble. Des bases de données peuvent également être ajoutées ou supprimées du pool pour prendre en charge les clients nouveaux ou sortants. Pour plus d’informations, consultez [le pool élastique de base de données Azure SQL (version préliminaire)](sql-database-elastic-pool.md). 
+L'outil de fractionnement et de fusion gère les mises à échelle (réduction ou augmentation) ; vous pouvez ajouter ou supprimer des bases de données à partir de votre ensemble de partitions et utiliser l'outil de fractionnement et de pour rééquilibrer la distribution des shardlets entre eux. (Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l’infrastructure élastique](sql-database-elastic-scale-glossary.md).)
 
-* Augmenter ou diminuer explicitement les ressources de base de données en modifiant les éditions ou les niveaux de performances, manuellement ou selon la stratégie (voir [Élasticité des partitions](sql-database-elastic-scale-elasticity.md))
-
-* Modification de la distribution des données entre partitions – souvent tout en agrandissant ou en réduisant le nombre total de bases de données pour un ensemble de partitions. Cela s’appelle le fractionnement et la fusion et cela est souvent nécessaire lorsque plusieurs clients finaux (locataires) sont gérés au sein de la même partition.
-
-Ce dernier scénario est traité par l’ **outil de fractionnement et de fusion de base de données élastique** et est important lorsque les alternatives plus simples de mise à l'échelle verticale ou simplement l’ajout d’une nouvelle base de données pour un nouveau locataire sont insuffisants. L'outil de fractionnement et de fusion gère les mises à échelle (réduction ou augmentation) ; vous pouvez ajouter ou supprimer des bases de données à partir de votre ensemble de partitions et utiliser l'outil de fractionnement et de pour rééquilibrer la distribution des shardlets entre eux. (Vous trouverez les définitions des termes évoqués ici sur la page[Glossaire de l’infrastructure élastique](sql-database-elastic-scale-glossary.md)).
-
-Avec les choix actuels entre les niveaux de base de données SQL Azure, la capacité peut également être gérée par la mise à l'échelle vers le haut ou vers le bas de la capacité d'une seule base de données SQL Azure. La dimension de la mise à l’échelle vers le haut/bas de la gestion des capacités élastiques n’est pas abordée dans cette rubrique. Consultez plutôt la rubrique [Élasticité des partitions](sql-database-elastic-scale-elasticity.md).
-
- 
 ## Nouveautés du fractionnement et de la fusion
 
 Les versions plus récentes de l'outil de fractionnement et de fusion apportent les améliorations suivantes :
@@ -110,7 +101,7 @@ Les informations de comparaison des tables de référence et des tables partitio
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-Les tables « région » et « nation » sont définies comme des tables de référence et sont copiées avec les opérations de fractionnement, fusion et déplacement. Les « clients » et les « commandes » sont à leur tour définis comme tables partitionnées. C_CUSTKEY et O_CUSTKEY servent de clé de partitionnement.
+Les tables « région » et « nation » sont définies comme des tables de référence et sont copiées avec les opérations de fractionnement, fusion et déplacement. Les « clients » et les « commandes » sont à leur tour définis comme tables partitionnées. C\_CUSTKEY et O\_CUSTKEY servent de clé de partitionnement.
 
 **Intégrité référentielle** : le service de fusion et de fractionnement analyse les dépendances entre les tables et utilise des relations de clé primaire / clé étrangère pour préparer les opérations de déplacement des tables de référence et des shardlets. En général, les tables de référence sont d'abord copiées dans l'ordre de dépendance, puis les shardlets sont copiés dans l'ordre de leurs dépendances au sein de chaque lot. Cela est nécessaire afin que les contraintes de clé primaire/clé étrangère sur la partition cible soient respectées lorsque les nouvelles données arrivent.
 
@@ -232,7 +223,7 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 ## Meilleures pratiques et dépannage : 
 -    Définissez un locataire test et exercez vos opérations les plus importantes de fractionnement, de fusion et de déplacement avec le locataire test sur plusieurs partitions. Assurez-vous que toutes les métadonnées sont définies correctement dans la carte de partitions et que les opérations ne violent pas les contraintes ou les clés étrangères.
 -    Maintenez la taille des données du locataire test au-dessus de la taille maximale des données de votre locataire le plus volumineux pour garantir que vous ne rencontrerez pas de problèmes liés à la taille des données. Cela vous aide à évaluer une limite supérieure relative au temps requis pour déplacer un seul locataire. 
--    Assurez-vous que votre schéma autorise les suppressions. Le service de fractionnement et de fusion requiert la possibilité de supprimer les données de la partition source une fois que les données ont été copiées dans la partition cible. Par exemple, les **déclencheurs de suppression** peuvent empêcher le service de supprimer les données de la partition source et peut provoquer l’échec des opérations.
+-    Assurez-vous que votre schéma autorise les suppressions. Le service de fractionnement et de fusion requiert la possibilité de supprimer les données de la partition source une fois que les données ont été copiées dans la partition cible. Par exemple, les **déclencheurs de suppression** peuvent empêcher le service de supprimer les données de la partition source et provoquer l’échec des opérations.
 -    La clé de partitionnement doit être la première colonne de la définition de la clé primaire ou de l’index unique. Cela garantit les meilleures performances pour les requêtes de validation de fractionnement ou de fusion ainsi que pour les opérations de déplacement et suppression de données réelles qui fonctionnent systématiquement sur des plages de clés de partitionnement.
 -    Colocalisez votre service de fractionnement et de fusion dans le centre de données et dans la région où résident vos bases de données. 
 
@@ -252,4 +243,4 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -151,15 +151,15 @@ Les publicités non linéaires sont également spécifiées dans un élément <C
 	</Creative>
 
  
-L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément **<NonLinear>** spécifie la ressource de la publicité non linéaire. La ressource peut être de type **<StaticResouce>**, **<IFrameResource>** ou **<HTMLResouce>**. **<StaticResource>** décrit une ressource non-HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
+L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément **<NonLinear>** spécifie la ressource de la publicité non linéaire. La ressource peut être de type **<StaticResouce>**, **<IFrameResource>** ou **<HTMLResouce>**. \*\*<StaticResource>\*\* décrit une ressource non-HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
 
 Image/gif, image/jpeg, image/png : la ressource est affichée dans une balise HTML **<img>**.
 
-Application/x-javascript : la ressource est affichée dans une balise HTML <**script**>.
+Application/x-javascript : la ressource est affichée dans une balise HTML <\*\*script\*\*>.
 
 Application/x-shockwave-flash : la ressource est affichée dans un lecteur Flash.
 
-**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** est situé au sein de l’élément** <NonLinearAds>** plutôt que dans l’élément **<NonLinear>**.
+**<IFrameResource>** décrit une ressource HTML qui peut être affichée dans un IFrame. **<HTMLResource>** décrit un fragment de code HTML qui peut être inséré dans une page web. **<TrackingEvents>** spécifient les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **<NonLinearAds>** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **<TrackingEvents>** est situé au sein de l’élément\*\* <NonLinearAds>\*\* plutôt que dans l’élément **<NonLinear>**.
 
 Les publicités d'accompagnement sont définies dans un élément <CompanionAds>. L’élément <CompanionAds> peut contenir un ou plusieurs éléments <Companion>. Chaque élément <Companion> décrit une publicité d'accompagnement et peut contenir un <StaticResource>, <IFrameResource> ou <HTMLResource>, lesquels sont spécifiés de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
@@ -221,13 +221,13 @@ Un fichier VMAP commence par un élément <VMAP> qui contient un ou plusieurs é
 1. Début/Fin : spécifie qu’une publicité doit être diffusée avant ou après l’affichage de la vidéo.
 1. Position : spécifie l’ordre des coupures publicitaires, lorsque le délai des coupures publicitaires est inconnu, comme lors d’une diffusion en direct. L’ordre de chaque coupure publicitaire est spécifié au format #n, où n représente un entier supérieur ou égal à 1. 1 signifie que la publicité doit être diffusée à la première occasion, 2 qu’elle doit l’être à la deuxième occasion, et ainsi de suite.
 
-L’élément <**AdBreak**> peut renfermer un élément <**AdSource**>. L’élément <**AdSource**> contient les attributs suivants :
+L’élément <\*\*AdBreak\*\*> peut renfermer un élément <\*\*AdSource\*\*>. L’élément <\*\*AdSource\*\*> contient les attributs suivants :
 
 1. Id : spécifie l’identificateur de la source publicitaire.
 1. allowMultipleAds : valeur booléenne qui spécifie si plusieurs publicités peuvent être affichées au cours de la coupure publicitaire.
 1. followRedirects : valeur booléenne facultative qui spécifie si le lecteur vidéo doit procéder aux redirections dans une réponse publicitaire.
 
-L’élément <**AdSource**> fournit au lecteur une réponse publicitaire insérée ou une référence à une réponse publicitaire. Il peut contenir l’un des éléments suivants :
+L’élément <\*\*AdSource\*\*> fournit au lecteur une réponse publicitaire insérée ou une référence à une réponse publicitaire. Il peut contenir l’un des éléments suivants :
 
 - <VASTAdData> : indique qu’une réponse publicitaire VAST est incorporée au sein du fichier VMAP.
 - <AdTagURI> : URI qui fait référence à une réponse publicitaire émanant d’un autre système.
@@ -235,7 +235,7 @@ L’élément <**AdSource**> fournit au lecteur une réponse publicitaire insér
 
 Dans cet exemple, une réponse publicitaire insérée est spécifiée avec un élément <VASTAdData> qui contient une réponse publicitaire VAST. Pour plus d’informations sur les autres éléments, consultez [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-L’élément <**AdBreak**> peut également contenir un élément <**TrackingEvents**>. L’élément <**TrackingEvents**> vous permet de suivre le début ou la fin d’une coupure publicitaire ou de déterminer si une erreur s’est produite pendant la coupure. L’élément <**TrackingEvents**> contient un ou plusieurs éléments <**Tracking**>, chacun d’eux spécifiant un événement et un URI de suivi. Les événements de suivi possibles sont les suivants :
+L’élément <\*\*AdBreak\*\*> peut également contenir un élément <\*\*TrackingEvents\*\*>. L’élément <\*\*TrackingEvents\*\*> vous permet de suivre le début ou la fin d’une coupure publicitaire ou de déterminer si une erreur s’est produite pendant la coupure. L’élément <\*\*TrackingEvents\*\*> contient un ou plusieurs éléments <\*\*Tracking\*\*>, chacun d’eux spécifiant un événement et un URI de suivi. Les événements de suivi possibles sont les suivants :
 
 1. breakStart : effectue le suivi du début d’une coupure publicitaire.
 1. breakEnd : effectue le suivi de la fin d’une coupure publicitaire.
@@ -264,7 +264,7 @@ L’exemple suivant illustre un fichier VMAP qui spécifie des événements de s
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 
-Pour plus d'informations sur l’élément <**TrackingEvents**> et ses enfants, consultez http://iab.org/VMAP.pdf.
+Pour plus d'informations sur l’élément <\*\*TrackingEvents\*\*> et ses enfants, consultez http://iab.org/VMAP.pdf.
 
 ###Utilisation d’un fichier MAST (Media Abstract Sequencing Template)
 
@@ -804,4 +804,4 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 
 [Développer des applications de lecteur vidéo](media-services-develop-video-players.md) [Présentation de l’infrastructure de lecteur Azure Media Player Framework pour iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

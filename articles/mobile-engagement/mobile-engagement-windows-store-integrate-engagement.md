@@ -19,7 +19,7 @@
 #Intégration du Kit de développement logiciel du module Engagement des applications universelles Windows
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 
@@ -271,4 +271,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

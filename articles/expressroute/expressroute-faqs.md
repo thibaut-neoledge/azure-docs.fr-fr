@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # Forum Aux Questions ExpressRoute
@@ -124,7 +124,7 @@ Oui. Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRout
 ### Je possède plusieurs abonnements Azure qui contiennent des réseaux virtuels. Puis-je connecter des réseaux virtuels qui figurent dans des abonnements distincts à un circuit ExpressRoute ?
 Oui. Vous pouvez autoriser jusqu’à 10 autres abonnements Azure à utiliser un même circuit ExpressRoute. Cette limite peut être augmentée en activant la fonctionnalité Premium d’ExpressRoute.
 
-Pour plus d’informations, consultez la page [Partage d’un circuit ExpressRoute entre plusieurs abonnements](https://msdn.microsoft.com/library/azure/dn835110.aspx).
+Pour plus d’informations, consultez la page [Partage d’un circuit ExpressRoute entre plusieurs abonnements](expressroute-share-circuit.md).
 
 ### Les réseaux virtuels sont-ils connectés à un même circuit en étant isolés les uns des autres ?
 Non. Tous les réseaux virtuels liés à un même circuit ExpressRoute font partie du même domaine de routage et ne sont pas isolés les uns des autres, du point de vue du routage. Si vous devez isoler des itinéraires, vous devez créer un circuit ExpressRoute distinct.
@@ -286,4 +286,4 @@ Nous prenons en charge la connectivité aux services Office 365 via les fournis
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

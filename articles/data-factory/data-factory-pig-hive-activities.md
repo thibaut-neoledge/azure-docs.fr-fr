@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Utilisation de Pig et Hive avec Data Factory
@@ -24,7 +24,7 @@ Cette procédure pas à pas fournit des instructions détaillées pour l’utili
 
 ### Conditions préalables
 1. Suivez le didacticiel de l’article [Prise en main d’Azure Data Factory][adfgetstarted].
-2. Créez le fichier **hivequery.hql** dans un sous-dossier nommé **Hive** sous **C:\ADFGetStarted** avec le contenu suivant.
+2. Créez le fichier **hivequery.hql** dans un sous-dossier nommé **Hive** sous **C:\\ADFGetStarted** avec le contenu suivant.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -39,7 +39,7 @@ Cette procédure pas à pas fournit des instructions détaillées pour l’utili
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Pour utiliser le moteur **Tez** afin d’exécuter des requêtes Hive dans le fichier HQL, ajoutez « **set hive.execution.engine=tez**; » en haut du fichier.
+	> [AZURE.NOTE]Pour utiliser le moteur **Tez** afin d’exécuter des requêtes Hive dans le fichier HQL, ajoutez « \*\*set hive.execution.engine=tez\*\*; » en haut du fichier.
 		
 3.  Téléchargez **hivequery.hql** dans le conteneur **adftutorial** de votre stockage d’objets blob.
 
@@ -133,14 +133,14 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -184,7 +184,7 @@ Lorsque vous définissez une activité Pig ou Hive dans un pipeline JSON, la pro
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ Lorsque vous définissez une activité Pig ou Hive dans un pipeline JSON, la pro
 - **linkedServiceName** a la valeur **MyHDInsightLinkedService**. Consultez la section du service lié HDInsight ci-dessous pour plus d’informations sur la création d’un service HDInsight lié.
 - Le **type** de la **transformation** est défini sur **Pig**.
 - Vous pouvez spécifier le script Pig en ligne pour la propriété **script**, ou stocker des fichiers de script dans un stockage d’objets blob Azure, et faire référence au fichier à l’aide de la propriété **scriptPath**, traitée plus loin dans cet article. 
-- Pour spécifier des paramètres pour le script Pig, utilisez les **extendedProperties**. Vous trouverez plus d'informations à ce sujet dans la suite de cet article. 
+- Pour spécifier des paramètres pour le script Pig, utilisez **defines**. Vous trouverez plus d'informations à ce sujet dans la suite de cet article. 
 
 
 ## Exemple JSON Hive
@@ -214,7 +214,7 @@ Lorsque vous définissez une activité Pig ou Hive dans un pipeline JSON, la pro
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ Lorsque vous définissez une activité Pig ou Hive dans un pipeline JSON, la pro
 - **linkedServiceName** a la valeur **MyHDInsightLinkedService**. 
 - Le **type** de la **transformation** est défini sur **Hive**.
 - Vous pouvez spécifier le script Hive en ligne pour la propriété **script**, ou stocker des fichiers de script dans un stockage d’objets blob Azure, et faire référence au fichier à l’aide de la propriété **scriptPath**, traitée plus loin dans cet article. 
-- Pour spécifier des paramètres pour le script Hive, utilisez les **extendedProperties**. Vous trouverez plus d'informations à ce sujet dans la suite de cet article. 
+- Pour spécifier des paramètres pour le script Hive, utilisez **defines**. Vous trouverez plus d'informations à ce sujet dans la suite de cet article. 
 
 > [AZURE.NOTE]Pour plus d’informations sur les applets de commande, les schémas JSON et les propriétés du schéma, consultez la [référence du développeur](http://go.microsoft.com/fwlink/?LinkId=516908).
 
@@ -258,9 +258,9 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -277,16 +277,16 @@ L’exemple de pipeline JSON suivant utilise une activité Hive qui fait référ
 	}
 
 
-> [AZURE.NOTE]Pour utiliser le moteur **Tez** pour exécuter une requête Hive, exécutez « **set hive.execution.engine=tez**; » avant d’exécuter la requête Hive.
+> [AZURE.NOTE]Pour utiliser le moteur **Tez** pour exécuter une requête Hive, exécutez « \*\*set hive.execution.engine=tez\*\*; » avant d’exécuter la requête Hive.
 > 
 > Pour plus d’informations sur les applets de commande, les schémas JSON et les propriétés du schéma, consultez la [référence du développeur](http://go.microsoft.com/fwlink/?LinkId=516908).
 
 ## Requêtes Pig et Hive paramétrables
-Les activités Pig et Hive de Data Factory vous permettent de spécifier des valeurs pour les paramètres utilisés dans les scripts Pig et Hive en utilisant **extendedProperties**. La section extendedProperties se compose du nom et de la valeur du paramètre.
+Les activités Pig et Hive de Data Factory vous permettent de spécifier des valeurs pour les paramètres utilisés dans les scripts Pig et Hive en utilisant **defines**. La section defines se compose du nom et de la valeur du paramètre.
 
-Consultez l’exemple suivant pour spécifier des paramètres pour un script Hive en utilisant **extendedProperties**. Pour utiliser des scripts Hive paramétrables, procédez comme suit :
+Consultez l’exemple suivant pour spécifier des paramètres pour un script Hive en utilisant **defines**. Pour utiliser des scripts Hive paramétrables, procédez comme suit :
 
-1.	Définissez les paramètres dans **extendedProperties**.
+1.	Définissez les paramètres dans **defines**.
 2.	Dans le script Hive en ligne ou dans le fichier de script Hive stocké dans le stockage d’objets blob, faites référence au paramètre en utilisant **${hiveconf:parameterName}**.
 
    
@@ -307,7 +307,7 @@ Consultez l’exemple suivant pour spécifier des paramètres pour un script Hiv
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@ Article | Description
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

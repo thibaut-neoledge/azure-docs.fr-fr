@@ -71,10 +71,10 @@ Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-cr
 
 ## Étapes suivantes
 
-[Chargez votre certificat de service dans le portail Azure](cloud-services-configure-ssl-certificate.md) (ou dans le [portail en version préliminaire](cloud-services-configure-ssl-certificate-portal.md)), puis configurez-le pour le service cloud.
- 
-Chargez votre [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure.
+[Chargez votre certificat de service dans le portail Azure](cloud-services-configure-ssl-certificate.md) (ou dans le [portail en version préliminaire](cloud-services-configure-ssl-certificate-portal.md)), puis [configurez-le](cloud-services-xml-certs.md) pour le service cloud.
+
+Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure.
 
 >[AZURE.NOTE]Le portail Azure en version préliminaire n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

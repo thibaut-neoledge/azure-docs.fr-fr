@@ -85,7 +85,7 @@ Port | Raison
 --- | ---
 9350 - 9354 | Ces ports sont utilisés pour la transmission de données. Le Gestionnaire de relais Service Bus sonde le port 9350 pour déterminer si la connectivité TCP est disponible. Si elle est disponible, il suppose que le port 9352 est également disponible. Le trafic de données passe par le port 9352. <br/><br/>Autoriser les connexions sortantes à ces ports.
 5671 | Lorsque le port 9352 est utilisé pour le trafic de données, le port 5671 est utilisé en tant que canal de contrôle. <br/><br/>Autoriser les connexions sortantes à ce port. 
-80, 443 | Si les ports 9352 et 5671 ne sont pas utilisables, *les ports 80 et 443* sont les ports de secours utilisés pour la transmission de données et le canal de contrôle.<br/><br/>Autoriser les connexions sortantes à ces ports. <br/><br/>**Remarque** Il est déconseillé d’utiliser ces ports de secours à la place des autres ports TCP. HTTP/WebSocket est utilisé comme protocole au lieu du protocole TCP natif pour les canaux de données. Cela peut entraîner une dégradation des performances.
+80, 443 | Si les ports 9352 et 5671 ne sont pas utilisables, *les ports 80 et 443* sont les ports de secours utilisés pour la transmission de données et le canal de contrôle.<br/><br/>Autoriser les connexions sortantes à ces ports. <br/><br/>\*\*Remarque\*\* Il est déconseillé d’utiliser ces ports de secours à la place des autres ports TCP. HTTP/WebSocket est utilisé comme protocole au lieu du protocole TCP natif pour les canaux de données. Cela peut entraîner une dégradation des performances.
 
 
 
@@ -103,4 +103,4 @@ Port | Raison
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

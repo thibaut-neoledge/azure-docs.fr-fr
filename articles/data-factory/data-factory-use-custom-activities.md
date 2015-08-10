@@ -19,7 +19,7 @@
 # Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 Azure Data Factory prend en charge l’utilisation d’activités intégrées telles que **Copier l’activité** et **Activité HDInsight** dans les pipelines dans le but de déplacer et de traiter des données. Vous pouvez également créer une activité personnalisée .NET avec votre propre logique de transformation/de traitement et utiliser l’activité dans un pipeline. Vous pouvez configurer l’activité à exécuter en utilisant un cluster **Azure HDInsight** ou un service **Azure Batch**.
 
-Cet article décrit comment créer une activité personnalisée et l'utiliser dans un pipeline Azure Data Factory. Il fournit également une procédure pas à pas pour créer et utiliser une activité personnalisée. La procédure pas à pas utilise le service HDInsight lié. Pour utiliser le service lié Azure Batch à la place, vous créez un service lié de type **AzureBatchLinkedService** et l’utilisez dans la section d’activité du pipeline JSON (**linkedServiceName**). Consultez la section [Service lié Azure Batch](#AzureBatch) pour plus d’informations sur l’utilisation d’Azure Batch avec l’activité personnalisée.
+Cet article décrit comment créer une activité personnalisée et l'utiliser dans un pipeline Azure Data Factory. Il fournit également une procédure pas à pas pour créer et utiliser une activité personnalisée. La procédure pas à pas utilise le service HDInsight lié. Pour utiliser le service lié Azure Batch à la place, vous créez un service lié de type **AzureBatchLinkedService** et l’utilisez dans la section d’activité du pipeline JSON (\*\*linkedServiceName\*\*). Consultez la section [Service lié Azure Batch](#AzureBatch) pour plus d’informations sur l’utilisation d’Azure Batch avec l’activité personnalisée.
 
 
 ## <a name="walkthrough" /> Procédure pas à pas
@@ -224,8 +224,8 @@ Cette procédure pas à pas vous fournit des instructions détaillées sur la cr
 
 
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
-11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** (selon le type de build).
-12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\bin\Debug.
+11. Lancez l’**Explorateur Windows** et accédez au dossier **bin\\debug** ou **bin\\release** (selon le type de build).
+12. Créez un fichier **MyDotNetActivity.zip** contenant tous les binaires dans le dossier <project folder>\\bin\\Debug.
 13. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob **customactvitycontainer** du stockage d’objets blob Microsoft Azure utilisé par le service lié **MyBlobStore** dans **ADFTutorialDataFactory**. Créez le conteneur d’objets blob **blobcustomactivitycontainer**, le cas échéant. 
 
 
@@ -464,4 +464,4 @@ Voici les étapes générales d’utilisation du service lié Microsoft Azure B
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

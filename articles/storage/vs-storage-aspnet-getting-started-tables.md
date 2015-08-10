@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Prise en main d'Azure Storage (projets ASP.NET)
@@ -42,14 +42,9 @@ Cet article vous montre comment effectuer les tâches courantes dans les tables 
 
 ##Accès aux tables dans le code 
 
-## Accès au stockage de tables par programme
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
-### Déclarations d'espace de noms
-Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C# dans lequel vous souhaitez accéder au stockage Azure par programme :
-
-1. Assurez-vous que les déclarations d'espace de noms figurant en haut du fichier C# incluent ces instructions `using`.
+1. Assurez-vous que les déclarations d’espace de noms figurant au début du fichier C# incluent ces instructions `using`.
 
 	using Microsoft.Azure; using Microsoft.WindowsAzure.Storage; using Microsoft.WindowsAzure.Storage.Auth; using Microsoft.WindowsAzure.Storage.Table;
 
@@ -60,19 +55,19 @@ Ajoutez les déclarations d'espace de noms suivantes en haut de chaque fichier C
 
     **REMARQUE** : utilisez tout le code ci-dessus avant le code des exemples suivants.
 
-3. Obtenez un objet **CloudTableClient** pour faire référence aux objets de table de votre compte de stockage.
+3. Obtenez un objet **CloudTableClient** pour référencer les objets de table de votre compte de stockage.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Obtenez un objet de référence **CloudTable** pour faire référence à une table et des entités spécifiques.
+4. Obtenez un objet de référence **CloudTable** pour référencer une table et des entités spécifiques.
 	
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ###Création d'une table dans le code
 
-Pour créer la table Azure dans le code au lieu d’utiliser l’**Explorateur de serveurs** Visual Studio, ajoutez simplement un appel à `CreateIfNotExistsAsync()`.
+Pour créer la table Azure dans le code au lieu d’utiliser l’**Explorateur de serveurs** de Visual Studio, ajoutez simplement un appel à `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -92,7 +87,7 @@ Pour créer la table Azure dans le code au lieu d’utiliser l’**Explorateur d
 
 ##Insertion d'un lot d'entités
 
-Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L’exemple de code suivant crée deux objets d’entité (« Jeff Smith » et « Ben Smith ») et les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert. L’opération est ensuite exécutée par l’appel de CloudTable.ExecuteBatchAsync.
+Vous pouvez insérer plusieurs entités dans une table en une seule opération d'écriture. L’exemple de code suivant crée deux objets d’entité (« Jeff Smith » et « Ben Smith »), les ajoute à un objet **TableBatchOperation** en utilisant la méthode Insert, puis démarre l’opération en appelant CloudTable.ExecuteBatchAsync.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
@@ -188,7 +183,7 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 ## Étapes suivantes
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

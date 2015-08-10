@@ -392,4 +392,4 @@ Pour comprendre la répartition de vos données entre plusieurs partitions, cons
 Et enfin, pour obtenir des conseils sur la modélisation et le partitionnement des données pour les applications mutualisées, consultez l’article [Mise à l’échelle d’une application mutualisée avec Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Migration vers Azure SQL Database" 
+   pageTitle="Migration d’une base de données vers Azure SQL Database" 
    description="Microsoft Azure SQL Database, déployer base de données, migration base de données, importer base de données, exporter base de données, assistant de migration" 
    services="sql-database" 
    documentationCenter="" 
@@ -16,7 +16,8 @@
    ms.date="07/17/2015"
    ms.author="pehteh"/>
 
-# Vue d'ensemble
+# Migration d’une base de données vers Azure SQL Database
+
 Azure SQL Database V12 offre une compatibilité moteur presque entière avec SQL Server 2014. Par conséquent, il simplifie considérablement la tâche de migration de la plupart des bases de données depuis SQL Server vers Azure SQL Database. La migration de plusieurs bases de données est une opération de déplacement simple nécessitant peu voire aucune modification du schéma et peu ou pas de nouvelle ingénierie des applications. Et si les bases de données doivent être modifiées, l’étendue de ces modifications est plus limitée.
 
 De par leur conception, les fonctionnalités de portée serveur de SQL Server ne sont pas prises en charge par SQL Database. Ainsi, les bases de données et les applications qui reposent sur ces fonctionnalités nécessiteront une réingénierie supplémentaire avant de pouvoir être migrées. Bien qu’Azure SQL Database V12 améliore la compatibilité avec SQL Server, la migration doit malgré tout être planifiée et exécutée avec précaution, en particulier pour les bases de données volumineuses plus complexes.
@@ -81,4 +82,4 @@ Utilisez la [dernière version de SQL Server Data Tools pour Visual Studio](http
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -62,7 +62,7 @@ Ensuite, inscrivez-vous à un compte Microsoft. Accédez à **http://outlook.com
 
 Ensuite, inscrivez-vous à une nouvelle version d'évaluation d'Office 365 FastTrack.
 
-1.	Connectez-vous à CLIENT1 avec les informations d'identification du compte CORP\User1.
+1.	Connectez-vous à CLIENT1 avec les informations d'identification du compte CORP\\User1.
 2.	Ouvrez Internet Explorer et accédez à **http://fasttrack.office.com**. 3.	Cliquez sur **Mise en route de FastTrack**.
 4.	Sur la page de mise en route de FastTrack, sous **Tout d’abord, inscrivez-vous pour une version d’évaluation d’Office 365**, cliquez sur **Pour les entreprises, inscrivez-vous ici**.
 5.	Sur la page de l’étape 1, renseignez la page, en spécifiant votre nouveau compte Microsoft dans **Adresse de messagerie professionnelle**, puis cliquez sur **Suivant**.
@@ -96,7 +96,7 @@ Ensuite, connectez-vous à la machine virtuelle DS1.
 3.	Lorsque vous êtes invité à ouvrir DS1.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-	- Nom : **CORP\User1**
+	- Nom : **CORP\\User1**
 	- Mot de passe : [mot de passe du compte User1]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -128,7 +128,7 @@ Ensuite, activez la synchronisation d'annuaires pour votre version d'évaluation
 4.	Lorsque l’invite **Voulez-vous activer la synchronisation Active Directory ?** s’ouvre, cliquez sur **Activer**. Après cela, **La synchronisation Active Directory est activée** s’affiche à l’étape 3.
 5.	Laissez la page **Configurer et gérer la synchronisation Active Directory** ouverte sur CLIENT1.
 
-Ensuite, ouvrez une session DC1 avec le compte CORP\User1 et ouvrez une invite de commandes Windows PowerShell au niveau administrateur. Exécutez ces commandes une par une pour créer une nouvelle unité d’organisation appelée contoso_users et ajouter deux nouveaux comptes d’utilisateur pour Camille Brunelle et Denise Bourgeois.
+Ensuite, ouvrez une session DC1 avec le compte CORP\\User1 et ouvrez une invite de commandes Windows PowerShell au niveau administrateur. Exécutez ces commandes une par une pour créer une nouvelle unité d’organisation appelée contoso\_users et ajouter deux nouveaux comptes d’utilisateur pour Camille Brunelle et Denise Bourgeois.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -138,12 +138,12 @@ Lorsque vous exécutez chaque commande Windows PowerShell, le nouveau mot de pas
 
 Ensuite, installez la synchronisation d'annuaires sur DS1.
 
-1.	Connectez-vous à DS1 avec le compte CORP\User1.
+1.	Connectez-vous à DS1 avec le compte CORP\\User1.
 2.	Sur l’écran d’**accueil**, tapez **Synchronisation d’annuaires**.
 3.	Cliquez avec le bouton droit sur **Configuration de la synchronisation d’annuaires**, puis cliquez sur **Exécuter en tant qu’administrateur**. Ainsi, l'Assistant de configuration démarre.
 4.	Sur la page d'accueil, cliquez sur **Suivant**.
 5.	Dans la page Informations d’identification Microsoft Azure Active Directory, tapez l’adresse de messagerie et le mot de passe du compte initial que vous avez créé lorsque vous avez installé la version d’évaluation d’Office 365 FastTrack à la phase 2. Cliquez sur Suivant. 
-6.	Dans la page Informations d’identification Active Directory, tapez **CORP\User1** dans **Nom d’utilisateur** et le mot de passe du compte User1 dans **Mot de passe**. Cliquez sur **Next**.
+6.	Dans la page Informations d’identification Active Directory, tapez **CORP\\User1** dans **Nom d’utilisateur** et le mot de passe du compte User1 dans **Mot de passe**. Cliquez sur **Next**.
 7.	Sur la page Déploiement hybride, sélectionnez **Activer le déploiement hybride**, puis cliquez sur **Suivant**.
 8.	Sur la page Synchronisation de mot de passe, sélectionnez **Activer la synchronisation des mots de passe**, puis cliquez sur **Suivant**.
 9.	La page Configuration s'affiche. Lorsque la configuration est terminée, cliquez sur **Suivant**.
@@ -164,7 +164,7 @@ Montrez ensuite la synchronisation de mot de passe d'Office 365 avec le compte 
 3.	Sous l’onglet **Affecter une licence**, sélectionnez un emplacement dans **Définir l’emplacement de l’utilisateur** (tel que les États-Unis).
 4.	Sélectionnez **Microsoft Office 365 - Plan E3**, puis cliquez sur **Enregistrer**.
 5.	Fermez Internet Explorer.
-6.	Exécutez Internet Explorer et accédez à **http://portal.microsoftonline.com**. 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera denise@<*Votre nom fictif*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
+6.	Exécutez Internet Explorer et accédez à **http://portal.microsoftonline.com**. 7.	Ouvrez une session avec les informations d'identification Office 365 de Denise Bourgeois. Son nom d’utilisateur sera denise@<\*Votre nom fictif\*>.onmicrosoft.com. Le mot de passe est le mot de passe du compte d'utilisateur Active Directory de Denise Bourgeois.
 8.	Après l’ouverture de session réussie, vous voyez la page principale du portail d’Office 365 avec la mention **Faisons la différence aujourd’hui**.
 
 Ceci est votre configuration actuelle.
@@ -194,4 +194,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

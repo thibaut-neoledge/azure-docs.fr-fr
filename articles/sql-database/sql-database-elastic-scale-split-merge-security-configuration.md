@@ -195,7 +195,7 @@ Exécutez :
 
 Pour personnaliser :
 
-*    -n avec l’URL du service. Les caractères génériques (CN=*.cloudapp.net) et d’autres noms (CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net) sont pris en charge.
+*    -n avec l’URL du service. Les caractères génériques (CN=\*.cloudapp.net) et d’autres noms (CN=myservice1.cloudapp.net, CN=myservice2.cloudapp.net) sont pris en charge.
 *    -e avec la date d'expiration du certificat Créez un mot de passe fort et spécifiez-le lorsque vous y êtes invité.
 
 ## Création d’un fichier PFX pour un certificat SSL auto-signé
@@ -204,7 +204,7 @@ Exécutez :
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
 
-Entrez le mot de passe et exportez le certificat avec les options suivantes : * Oui, exporter la clé privée * Exporter toutes les propriétés étendues
+Entrez le mot de passe et exportez le certificat avec les options suivantes : \* Oui, exporter la clé privée \* Exporter toutes les propriétés étendues
 
 ## Exportation d’un certificat SSL à partir du magasin de certificats
 
@@ -281,7 +281,7 @@ Si le fichier comportant la clé publique n’est pas disponible, exportez-le à
 * Exportez le certificat dans un fichier .CER avec les options suivantes :
     * **Non, ne pas exporter la clé privée**
     * Inclure tous les certificats dans le chemin d’accès de certification si possible.
-    * *Exporter toutes les propriétés étendues.
+    * \*Exporter toutes les propriétés étendues.
 
 ## Téléchargement du certificat CA vers le service cloud
 
@@ -344,7 +344,7 @@ Chaque personne pour laquelle un certificat client a été émis doit importer l
     * Inclure toutes les propriétés étendues activées
 
 ## Copie des empreintes numériques des certificats clients
-Chaque individu pour lequel un certificat client a été émis doit suivre ces étapes afin d'obtenir l'empreinte numérique de son certificat qui sera ajoutée au fichier de configuration de service : * Exécutez certmgr.exe * Sélectionnez l'onglet personnel * Double-cliquez sur le certificat client à utiliser pour l'authentification * Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails * Assurez-vous que Show s’affiche * Sélectionnez le champ nommé Empreinte numérique dans la liste * Copiez la valeur de l'empreinte numérique ** Supprimez les caractères Unicode non visibles devant le premier chiffre ** Supprimez tous les espaces
+Chaque individu pour lequel un certificat client a été émis doit suivre ces étapes afin d'obtenir l'empreinte numérique de son certificat qui sera ajoutée au fichier de configuration de service : \* Exécutez certmgr.exe \* Sélectionnez l'onglet personnel \* Double-cliquez sur le certificat client à utiliser pour l'authentification \* Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails \* Assurez-vous que Show s’affiche \* Sélectionnez le champ nommé Empreinte numérique dans la liste \* Copiez la valeur de l'empreinte numérique \*\* Supprimez les caractères Unicode non visibles devant le premier chiffre \*\* Supprimez tous les espaces
 
 ## Configuration des clients autorisés dans le fichier de configuration de service
 
@@ -368,7 +368,7 @@ Personnalisation :
 
     MyID.pvk and MyID.cer with the filename for the encryption certificate
 
-Entrez le mot de passe, puis exportez le certificat avec ces options : * Oui, exporter la clé privée * Exportez toutes les propriétés étendues * Vous avez besoin du mot de passe pour télécharger le certificat sur le service cloud.
+Entrez le mot de passe, puis exportez le certificat avec ces options : \* Oui, exporter la clé privée \* Exportez toutes les propriétés étendues \* Vous avez besoin du mot de passe pour télécharger le certificat sur le service cloud.
 
 ## Exportation d’un certificat de chiffrement à partir du magasin de certificats
 
@@ -471,4 +471,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

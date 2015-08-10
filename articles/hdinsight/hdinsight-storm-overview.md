@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Présentation d’Apache Storm sur HDInsight | Microsoft Azure"
 	description="Accédez à une présentation d‘Apache Storm et découvrez comment utiliser Storm sur HDInsight pour créer des solutions d‘analyse de données en temps réel dans le cloud."
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Haddop
@@ -51,9 +50,7 @@ Pour découvrir Storm, consultez la rubrique [Prise en main de Storm sur HDInsig
 
 Vous pouvez approvisionner un nouveau cluster Storm sur HDInsight en quelques minutes. Précisez le nom du cluster, sa taille, le compte d‘administrateur et le compte de stockage. Azure créera le cluster, y compris des exemples de topologies et un tableau de bord de gestion web.
 
-Voici un exemple d’approvisionnement d‘un cluster Storm sur HDInsight réalisé à l’aide du portail Azure. Vous pouvez également configurer des clusters Storm en utilisant [Azure PowerShell](../install-configure-powershell.md).
-
-![Exemple de formulaire de cluster créé via la fonction de création rapide dans le portail](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE]Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli.md) ou [Azure PowerShell](../powershell-install-configure.md).
 
 Dans les 15 minutes qui suivent l‘envoi de la demande, vous disposerez d’un nouveau cluster actif et prêt pour votre première analyse en temps réel.
 
@@ -77,7 +74,7 @@ Chaque cluster Storm sur HDInsight permet également d’accéder à un tableau 
 
 Pour plus d‘informations sur l‘utilisation du tableau de bord Storm, consultez la rubrique [Déploiement et gestion des topologies Apache Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d‘utilisation de ce spout dans une topologie Storm, consultez les rubriques [Prise en main de Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) et [Analyse des données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d‘utilisation de ce spout dans une topologie Storm, consultez les rubriques [Prise en main de Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) et [Analyse des données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Fiabilité
 
@@ -93,7 +90,7 @@ Par défaut, Apache Storm est configuré pour n’avoir un seul nœud Nimbus. S
 
 Bien que vous puissiez spécifier le nombre de nœuds dans votre cluster lors de sa création, vous pourriez souhaiter augmenter ou réduire la taille du cluster pour l’adapter à votre charge de travail. Tous les clusters HDInsight permettent de modifier le nombre de nœuds du cluster, même lors du traitement des données.
 
-![décompte des instances de nœuds de données dans le portail](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE]Pour tirer parti des nouveaux nœuds ajoutés via la mise à l'échelle, vous devrez rééquilibrer les topologies démarrées avant l’augmentation de la taille du cluster.
 
 ###Support
 
@@ -156,7 +153,7 @@ La plupart des exemples Java que vous allez rencontrer sont entièrement rédig�
 
 Pour plus d‘informations sur Trident, consultez le [didacticiel Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) sur le site apache.org.
 
-Pour obtenir des exemples de topologies Java et Trident brutes, consultez le répertoire **%storm_home%\contrib\storm-starter** situé sur votre cluster Storm HDInsight.
+Pour obtenir des exemples de topologies Java et Trident brutes, consultez le répertoire **%storm\_home%\\contrib\\storm-starter** situé sur votre cluster Storm HDInsight.
 
 ##Quels sont les modèles de développement courants ?
 
@@ -209,4 +206,4 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

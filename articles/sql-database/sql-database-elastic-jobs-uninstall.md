@@ -25,7 +25,7 @@ Si une défaillance se produit lorsque vous tentez d’installer le service de t
 1. Ouvrez la [version préliminaire du portail Azure](https://ms.portal.azure.com/).
 2. Accédez à l'abonnement qui contient la tâche élastique.
 3. Cliquez sur **Parcourir** pus sur **Groupes de ressources**.
-4. Sélectionnez le groupe de ressources intitulé « __ElasticDatabaseJob ».
+4. Sélectionnez le groupe de ressources intitulé « \_\_ElasticDatabaseJob ».
 5. Supprimez le groupe de ressources.
 
 Ou utilisez ce script PowerShell :
@@ -58,4 +58,4 @@ Pour une présentation du service de tâche élastique, consultez [Vue d’ensem
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configuration d’un mode de distribution d’équilibrage de charge | Microsoft Azure"
-   description="Procédure de configuration du mode de distribution d’équilibrage de charge Azure pour prendre en charge l'affinité d’IP source également appelé aussi sessions permanentes"
+   description="Procédure de configuration du mode de distribution d’équilibrage de charge Azure pour prendre en charge l'affinité d’IP source"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -149,4 +149,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

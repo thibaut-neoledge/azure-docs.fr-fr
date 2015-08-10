@@ -134,4 +134,4 @@ Cet article vous a montré comment utiliser le portail Azure pour effectuer des 
 
 Pour en savoir plus sur la gestion des applications API via la ligne de commande, consultez les articles de la section **Automatiser** du menu affiché à gauche de l’article (sur les fenêtres de navigation agrandies) ou sur sa partie supérieure (sur les fenêtres de navigation réduites).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

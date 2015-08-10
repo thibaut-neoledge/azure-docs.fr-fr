@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Configurer une machine virtuelle comme serveur IPython Notebook pour des analyses avancées | Microsoft Azure"
 	description="Configurez une machine virtuelle Azure pour l’utiliser dans un environnement de science des données avec un serveur IPython à des fins d’analyse avancée."
-	metaKeywords=""
 	services="machine-learning"
-	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -26,9 +24,9 @@ Cette rubrique explique comment approvisionner et configurer une machine virtuel
 
 Si vous disposez déjà d’une machine virtuelle Azure et que vous souhaitez simplement configurer un serveur Notebook IPython sur cette machine, vous pouvez ignorer cette étape et passer directement à l’[Étape 2 : ajouter un point de terminaison pour Notebook IPython à une machine virtuelle existante](#add-endpoint).
 
-Avant de démarrer la procédure de création d’une machine virtuelle sur Azure, vous devez déterminer la taille de la machine requise pour le traitement des données du projet concerné. Les machines de taille réduite comportent moins de mémoire et de cœurs de processeur que les machines de grande taille, mais se révèlent également moins coûteuses. Pour obtenir la liste des différents types de machine et des prix correspondants, consultez la page [Machines virtuelles Tarification](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Avant de démarrer la procédure de création d’une machine virtuelle sur Azure, vous devez déterminer la taille de la machine requise pour le traitement des données du projet concerné. Les machines de taille réduite comportent moins de mémoire et de cœurs de processeur que les machines de grande taille, mais se révèlent également moins coûteuses. Pour obtenir la liste des différents types de machine et des prix correspondants, consultez la page <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Tarification des machines virtuelles</a>.
 
-1. Connectez-vous à https://manage.windowsazure.com, puis cliquez sur **Nouveau** dans le coin inférieur gauche. Une fenêtre s’affiche. Sélectionnez **CALCULER** -> **MACHINE VIRTUELLE** -> **À PARTIR DE LA GALERIE**.
+1. Connectez-vous au <a href="https://manage.windowsazure.com" target="_blank">portail Azure</a>, puis cliquez sur **Nouveau** dans le coin inférieur gauche. Une fenêtre s’affiche. Sélectionnez **CALCULER** -> **MACHINE VIRTUELLE** -> **À PARTIR DE LA GALERIE**.
 
 	![Create workspace][24]
 
@@ -41,15 +39,13 @@ Avant de démarrer la procédure de création d’une machine virtuelle sur Azur
 
 	![Create workspace][25]
 
-3. Entrez un nom pour la machine virtuelle à créer, sélectionnez la taille et la puissance de la machine en fonction des données que cette dernière devra traiter (taille de mémoire et nombre de cœurs de processeur), puis entrez un nom d’utilisateur et un mot de passe pour la machine. Ensuite, cliquez sur la flèche pointant vers la droite pour accéder à la page de configuration suivante.
+3. Entrez un nom pour la machine virtuelle à créer, sélectionnez la taille et la puissance de la machine (A3, par défaut) en fonction des données que cette dernière devra traiter (taille de la mémoire et nombre de cœurs de processeur), puis entrez un nom d’utilisateur et un mot de passe pour la machine. Ensuite, cliquez sur la flèche pointant vers la droite pour accéder à la page de configuration suivante.
 
 	![Create workspace][26]
 
-4. Sélectionnez le nom de **RÉGION/GROUPE D’AFFINITÉS/RÉSEAU VIRTUEL** qui contient le **COMPTE DE STOCKAGE** que vous prévoyez d’utiliser pour cette machine virtuelle, puis sélectionnez ce compte de stockage. Ajoutez un point de terminaison au bas du champ **POINTS DE TERMINAISON** en entrant son nom (« IPython » dans le cas présent). Vous pouvez indiquer la chaîne de votre choix pour le **NOM** du point de terminaison, et tout entier compris entre 0 et 65536 **disponible** en guise de **PORT PUBLIC**. Le **PORT PRIVÉ** doit être défini sur **9999**. Les utilisateurs doivent **éviter** d’utiliser des ports publics déjà attribués pour des services Internet. L’article concernant les [ports associés aux services Internet](http://www.chebucto.ns.ca/~rakerman/port-table.html) répertorie les ports qui sont attribués et qui doivent donc être évités.
+4. Sélectionnez le nom de **RÉGION/GROUPE D’AFFINITÉS/RÉSEAU VIRTUEL** qui contient le **COMPTE DE STOCKAGE** que vous prévoyez d’utiliser pour cette machine virtuelle, puis sélectionnez ce compte de stockage. Ajoutez un point de terminaison au bas du champ **POINTS DE TERMINAISON** en entrant son nom (« IPython » dans le cas présent). Vous pouvez indiquer la chaîne de votre choix pour le **NOM** du point de terminaison, et tout entier compris entre 0 et 65536 **disponible** en guise de **PORT PUBLIC**. Le **PORT PRIVÉ** doit être défini sur **9999**. Les utilisateurs doivent **éviter** d’utiliser des ports publics déjà attribués pour des services Internet. L’article concernant les <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">ports associés aux services Internet</a> répertorie les ports qui sont attribués et qui doivent donc être évités.
 
 	![Create workspace][27]
-
-	>[AZURE.NOTE]Si vous ajoutez le point de terminaison à cette étape, vous pouvez ignorer l’[Étape 2 : ajouter un point de terminaison pour Notebook IPython à une machine virtuelle existante](#add-endpoint).
 
 5. Cliquez sur la coche pour démarrer le processus d’approvisionnement de la machine virtuelle.
 
@@ -68,32 +64,32 @@ Si la machine virtuelle existe déjà et que vous devez ajouter un point de term
 
 ![Create workspace][17]
 
-## <a name="run-commands"></a>Étape 3 : Installer Notebook IPython et les autres outils connexes
+## <a name="run-commands"></a>Étape 3 : installer Notebook IPython et les autres outils connexes
 
-Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server.md). Ouvrez l’**invite de commandes** (**et non la fenêtre Commande Powershell**) en tant qu’administrateur, puis exécutez la commande suivante.
+Une fois la machine virtuelle créée, utilisez le protocole RDP (Remote Desktop Protocol) pour vous connecter à la machine virtuelle Windows. Pour plus d’informations, consultez [Connexion à une machine virtuelle exécutant Windows Server](../virtual-machines-log-on-windows-server.md). Ouvrez l’**invite de commandes** (\*\*et non la fenêtre Commande Powershell\*\*) en tant qu’**administrateur**, puis exécutez la commande suivante.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Une fois l’installation terminée, le serveur Notebook IPython est automatiquement lancé dans le répertoire *C:\Users&#60;user name>\Documents\IPython Notebooks*.
+Une fois l’installation terminée, le serveur Notebook IPython est automatiquement lancé dans le répertoire *C:\\Users\\<nom\_utilisateur>\\Documents\\IPython Notebooks*.
 
 Lorsque vous y êtes invité, entrez un mot de passe pour Notebook IPython et le mot de passe de l’administrateur de la machine. Ceci permet à Notebook IPython de s’exécuter en tant que service sur la machine.
 
 ## <a name="access"></a>Étape 4 : accéder à Notebook IPython à partir d’un navigateur web
-Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;virtual nom d’ordinateur DNS>:&#60;public port number>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;public port number>* doit correspondre au numéro de port que vous avez spécifié lors de l’ajout du point de terminaison de Notebook IPython. Si vous choisissez *443* comme numéro de port public, vous pourrez accéder à Notebook IPython sans indiquer explicitement le numéro de port dans la zone de texte de l’URL. Sinon, vous devrez spécifier le numéro de port à la place de la variable **&#60;public port number>*.
+Pour accéder au serveur Notebook IPython, ouvrez un navigateur web, puis entrez la chaîne *https://&#60;virtual nom d’ordinateur DNS>:&#60;public port number>* dans la zone de texte de l’URL. Dans cette chaîne, la variable *&#60;public port number>* doit correspondre au numéro de port que vous avez spécifié lors de l’ajout du point de terminaison de Notebook IPython.
 
 La variable *&#60;virtual machine DNS name>* correspond au nom DNS de la machine virtuelle, qui est accessible par le biais du Portail de gestion Azure. Après vous être connecté au Portail de gestion, cliquez sur **MACHINES VIRTUELLES**, sélectionnez la machine que vous avez créée, puis sélectionnez **TABLEAU DE BORD**. Le nom DNS s’affiche sous la forme suivante :
 
 ![Create workspace][19]
 
-Vous verrez apparaître un message d’avertissement signalant qu’_il existe un problème avec le certificat de sécurité de ce site web_ (Internet Explorer) ou que _votre connexion n’est pas privée_ (Chrome), comme illustré aux figures ci-après. Cliquez sur **Poursuivre avec ce site Web (non recommandé)** (Internet Explorer) ou sur **Paramètres avancés**, puis sur **Continuer vers le site &#60;nom_DNS> (dangereux)** (Chrome) pour continuer. Puis entrez le mot de passe que vous avez indiqué précédemment pour accéder à Notebook IPython.
+Vous verrez apparaître un message d’avertissement signalant qu’_il existe un problème avec le certificat de sécurité de ce site web_ (Internet Explorer) ou que _votre connexion n’est pas privée_ (Chrome), comme illustré dans les figures ci-après. Cliquez sur **Poursuivre avec ce site web (non recommandé)** (Internet Explorer) ou sur **Paramètres avancés**, puis sur **Continuer vers le site &#60;nom\_DNS> (dangereux)** (Chrome) pour continuer. Puis entrez le mot de passe que vous avez indiqué précédemment pour accéder à Notebook IPython.
 
 Internet Explorer : ![Create workspace][20]
 
 Chrome : ![Create workspace][21]
 
-Une fois que vous vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**référentiel Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) lors du processus de configuration du serveur Notebook IPython. Microsoft gère ce référentiel et le met régulièrement à jour. Les utilisateurs peuvent se connecter au référentiel Github pour obtenir les derniers exemples de notebooks IPython. ![Create workspace][18]
+Une fois que vous êtes connecté à Notebook IPython, le répertoire *DataScienceSamples* s’affiche sur le navigateur. Ce répertoire contient des exemples de notebooks IPython qui sont partagés par Microsoft pour permettre aux utilisateurs d’exécuter des tâches liées à la science des données. Ces exemples de notebooks IPython sont récupérés sur les machines virtuelles à partir du [**référentiel Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) lors du processus de configuration du serveur Notebook IPython. Microsoft gère ce référentiel et le met régulièrement à jour. Les utilisateurs peuvent se connecter au référentiel Github pour obtenir les derniers exemples de notebooks IPython. ![Create workspace][18]
 
 ## <a name="upload"></a>Étape 5 : charger un notebook IPython figurant sur un ordinateur local vers le serveur Notebook IPython
 
@@ -106,7 +102,7 @@ Les utilisateurs peuvent aisément charger un notebook IPython de leur ordinateu
 
 ##<a name="shutdown"></a>Arrêter et libérer une machine virtuelle inutilisée
 
-Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
+Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, cette dernière doit être définie sur l’état **Arrêté (désalloué)** quand elle est inutilisée.
 
 > [AZURE.NOTE]Si vous arrêtez la machine virtuelle depuis cette dernière (à l’aide des options d’alimentation Windows), la machine virtuelle est arrêtée, mais reste allouée. Pour obtenir l’assurance que vous ne continuerez pas à être facturé, arrêtez toujours les machines virtuelles à partir du [Portail de gestion Azure](http://manage.windowsazure.com/). Vous pouvez également arrêter la machine virtuelle par le biais de Powershell en appelant **ShutdownRoleOperation** avec « PostShutdownAction » défini sur « StoppedDeallocated ».
 
@@ -128,7 +124,7 @@ Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pou
 
 Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine virtuelle est également utilisable sous forme de serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le Processus d’analyse avancé et technologie en action.
 
-Les étapes suivantes du processus d’analyse avancé et technologie et dans Azure sont présentées dans le [Guide d'apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d'échantillonnage des données dans HDInsight en vue d'en extraire de l'information pertinente avec Azure Machine Learning.
+Les étapes suivantes du processus d’analyse avancé et technologie et dans Azure sont présentées dans le [Guide d'apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d'échantillonnage des données dans HDInsight en vue d'en extraire de l'information pertinente avec Azure Machine Learning.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -147,4 +143,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

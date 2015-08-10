@@ -81,23 +81,10 @@ Examinez les variables suivantes :
 
 Par exemple, si vous supposez une taille de téléchargement quotidienne de 100 Ko par agent et la période d'archivage par défaut, vous aurez besoin du stockage suivant pour le groupe d'administration :
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Nombre d'agents</b></td>
-		<td><b>Espace requis estimé pour le groupe d'administration</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2,5&#160;Mo (5&#160;agents x 100&#160;Ko de données/jour x 5&#160;jours =&#160;2&#160;500&#160;Ko)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25&#160;Mo (50&#160;agents x 100&#160;Ko de données/jour x 5&#160;jours =&#160;25&#160;000&#160;Ko)</td>
-    </tr>
-
-    </tbody>
-    </table>
+Nombre d'agents|Espace requis estimé pour le groupe d'administration
+---|---
+5|\~2,5 Mo (5 agents x 100 Ko de données/jour x 5 jours = 2 500 Ko)
+50|\~25 Mo (50 agents x 100 Ko de données/jour x 5 jours = 25 000 Ko)
 
 ## Comptes d’identification Operations Manager pour Operational Insights
 
@@ -118,11 +105,11 @@ Les sections ci-dessous décrivent comment définir des comptes d’identificati
 
 1. Dans Operations Manager, ouvrez la console Operations, puis cliquez sur **Administration**.
 
-2. Sous **Configuration d’identification**, cliquez sur **Profils**, puis ouvrez **Profil d’identification de l’évaluation SQL Operational Insights**.
+2. Sous **Configuration d'identification**, cliquez sur **Profils**, puis ouvrez **Profil d'identification de l'évaluation SQL Operational Insights**.
 
-3. Sur la page **Comptes d’identification**, cliquez sur **Ajouter**.
+3. Sur la page **Comptes d'identification**, cliquez sur **Ajouter**.
 
-4. Sélectionnez un compte d’identification Windows qui contient les informations d’identification nécessaires pour SQL Server ou cliquez sur **Nouveau** pour en créer un.
+4. Sélectionnez un compte d'identification Windows qui contient les informations d'identification nécessaires pour SQL Server ou cliquez sur **Nouveau** pour en créer un.
 	>[AZURE.NOTE]Le type de compte d’identification doit être Windows. Le compte d’identification doit également faire partie du groupe Administrateurs local sur tous les serveurs Windows hébergeant des instances de SQL Server.
 
 5. Cliquez sur **Enregistrer**.
@@ -178,11 +165,11 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 1. Dans Operations Manager, ouvrez la console Operations, puis cliquez sur **Administration**.
 
-2. Sous **Configuration d’identification**, cliquez sur **Profils**, puis ouvrez **Compte d’identification VMM Operational Insights**.
+2. Sous **Configuration d'identification**, cliquez sur **Profils**, puis ouvrez **Compte d'identification VMM Operational Insights**.
 
-3. Sur la page **Comptes d’identification**, cliquez sur **Ajouter**.
+3. Sur la page **Comptes d'identification**, cliquez sur **Ajouter**.
 
-4. Sélectionnez un compte d’identification Windows qui contient les informations d’identification nécessaires pour VMM ou cliquez sur **Nouveau** pour en créer un.
+4. Sélectionnez un compte d'identification Windows qui contient les informations d'identification nécessaires pour VMM ou cliquez sur **Nouveau** pour en créer un.
 	>[AZURE.NOTE]Le type de compte d’identification doit être Windows.
 
 5. Cliquez sur **Enregistrer**.
@@ -196,9 +183,9 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 1. Dans Operations Manager, ouvrez la console Operations, puis cliquez sur **Administration**.
 
-2. Sous **Configuration d’identification**, cliquez sur **Profils**, puis ouvrez **Compte d’identification Lync Operational Insights**.
+2. Sous **Configuration d'identification**, cliquez sur **Profils**, puis ouvrez **Compte d'identification Lync Operational Insights**.
 
-3. Sur la page **Comptes d’identification**, cliquez sur **Ajouter**.
+3. Sur la page **Comptes d'identification**, cliquez sur **Ajouter**.
 
 4. Sélectionnez un compte d’identification Windows membre des groupes d’administrateurs locaux et de sécurité Lync RTCUniversalUserAdmins.
 	>[AZURE.NOTE]Le type de compte d’identification doit être Windows.
@@ -213,11 +200,11 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 1. Dans Operations Manager, ouvrez la console Operations, puis cliquez sur **Administration**.
 
-2. Sous **Configuration d’identification**, cliquez sur **Profils**, puis ouvrez **Compte d’identification SharePoint Operational Insights**.
+2. Sous **Configuration d'identification**, cliquez sur **Profils**, puis ouvrez **Compte d'identification SharePoint Operational Insights**.
 
-3. Sur la page **Comptes d’identification**, cliquez sur **Ajouter**.
+3. Sur la page **Comptes d'identification**, cliquez sur **Ajouter**.
 
-4. Sélectionnez un compte d’identification Windows qui contient les informations d’identification nécessaires pour SharePoint ou cliquez sur **Nouveau** pour en créer un.
+4. Sélectionnez un compte d'identification Windows qui contient les informations d'identification nécessaires pour SharePoint ou cliquez sur **Nouveau** pour en créer un.
 	>[AZURE.NOTE]Le type de compte d’identification doit être Windows.
 
 5. Cliquez sur **Enregistrer**.
@@ -228,4 +215,4 @@ Utilisez les étapes suivantes pour définir le compte lors de la connexion de O
 
 Si vous souhaitez analyser des données à partir de serveurs dans divers emplacements géographiques, envisagez de disposer d'un groupe d'administration par emplacement. Cela peut améliorer les performances de transfert de données de l'agent au groupe d'administration.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

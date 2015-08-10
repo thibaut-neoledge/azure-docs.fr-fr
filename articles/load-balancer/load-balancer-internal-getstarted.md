@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Prise en main de l’équilibrage de charge interne | Microsoft Azure"
+   pageTitle="Prise en main de l’équilibrage de charge interne | Microsoft Azure"
    description="Configuration de l'équilibrage de charge interne et procédure d’implémentation pour les machines virtuelles et les déploiements de cloud"
    services="load-balancer"
    documentationCenter="na"
@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration d’un équilibrage de charge interne
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 L’équilibrage de charge interne (ILB) d’Azure fournit un équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d'informations sur l'utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](../regional-virtual-networks.md) sur le blog Azure. Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
 
@@ -230,7 +234,7 @@ La configuration de l'ILB doit être définie lors de la création du premier d�
 
 ### Étape 1
 
-Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l'ILB sous le dernier élément « </Role> » pour la configuration du réseau.
+Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement cloud dans Visual Studio et ajoutez la section suivante pour créer l'ILB sous le dernier élément « `</Role>` » pour la configuration du réseau.
 
 
 
@@ -244,7 +248,7 @@ Ouvrez le fichier de configuration du service (.cscfg) pour votre déploiement c
 	</NetworkConfiguration>
  
 
-À titre d'exemple, nous allons ajouter les valeurs pour le fichier de configuration du réseau. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test_vnet » avec un sous-réseau 10.0.0.0/24 appelé test_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
+À titre d'exemple, nous allons ajouter les valeurs pour le fichier de configuration du réseau. Dans l'exemple, supposons que vous avez créé un sous-réseau appelé « test\_vnet » avec un sous-réseau 10.0.0.0/24 appelé test\_subnet et une adresse IP statique 10.0.0.4. L'équilibrage de charge sera nommé testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -328,7 +332,7 @@ Pour obtenir plus d'informations sur les cmdlets ILB, exécutez les commandes su
 
 [Configuration d’un mode de distribution d’équilibrage de charge](load-balancer-distribution-mode.md)
 
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+[Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

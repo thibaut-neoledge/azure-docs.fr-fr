@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Création d’un nouveau principal du service Azure à l’aide du portail Azure
@@ -94,30 +94,12 @@ Votre application est maintenant prête et le principal du service est créé su
 * **CLÉ** comme mot de passe.
 
 ## Étapes suivantes
-Mise en route
 
-- [Présentation d’Azure Resource Manager](./resource-group-overview.md)  
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec le Gestionnaire des ressources Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Utilisation du portail Azure pour gérer vos ressources Azure](azure-portal/resource-group-portal.md)  
-  
-Création et déploiement d’applications
-  
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)  
-- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)  
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)  
-- [Opérations de modèle avancées](./resource-group-advanced-template.md)  
-- [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
-  
-Organisation des ressources
-  
-- [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)  
-  
-Gestion et audit de l’accès
-  
-- [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)  
-- [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez [Gestion et audit d'accès aux ressources](azure-portal/resource-group-rbac.md).  
+- Pour savoir comment autoriser un principal du service à accéder aux ressources, consultez [Authentification d'un principal du service à l'aide d'Azure Resource Manager](./resource-group-authenticate-service-principal.md).  
+- Pour obtenir une présentation du contrôle d'accès basé sur les rôles, consultez [Contrôle d'accès basé sur les rôles dans le portail Microsoft Azure](role-based-access-control-configure.md).
+- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@ Gestion et audit de l’accès
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

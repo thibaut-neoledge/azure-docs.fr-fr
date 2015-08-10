@@ -37,14 +37,14 @@ Les tailles de machine virtuelle de série DS et leurs caractéristiques sont r�
 
 |Taille de la machine virtuelle|Cœurs d’unité centrale|Nombre maximal d’opérations d’E/S par seconde|Bande passante maximale du disque|
 |:---:|:---:|:---:|:---:|
-|**STANDARD_DS1**|1|3 200|32 Mo par seconde|
-|**STANDARD_DS2**|2|6 400|64 Mo par seconde|
-|**STANDARD_DS3**|4|12 800|128 Mo par seconde|
-|**STANDARD_DS4**|8|25 600|256 Mo par seconde|
-|**STANDARD_DS11**|2|6 400|64 Mo par seconde|
-|**STANDARD_DS12**|4|12 800|128 Mo par seconde|
-|**STANDARD_DS13**|8|25 600|256 Mo par seconde|
-|**STANDARD_DS14**|16|50 000|512 Mo par seconde|
+|**STANDARD\_DS1**|1|3 200|32 Mo par seconde|
+|**STANDARD\_DS2**|2|6 400|64 Mo par seconde|
+|**STANDARD\_DS3**|4|12 800|128 Mo par seconde|
+|**STANDARD\_DS4**|8|25 600|256 Mo par seconde|
+|**STANDARD\_DS11**|2|6 400|64 Mo par seconde|
+|**STANDARD\_DS12**|4|12 800|128 Mo par seconde|
+|**STANDARD\_DS13**|8|25 600|256 Mo par seconde|
+|**STANDARD\_DS14**|16|50 000|512 Mo par seconde|
 
 #### Tailles du disque 
 Il existe trois types de disque qui peuvent être utilisés avec votre machine virtuelle et chacun possède des E/S par seconde spécifiques avec des limites. Prenez en compte ces limites lors de la sélection du type de disque pour votre machine virtuelle en fonction des besoins de votre application en termes de capacité, de performances, d’extensibilité et de charges maximales.
@@ -237,7 +237,7 @@ Copiez et enregistrez le nom de ce nouveau disque de données Azure. Dans l’ex
 
 ### Création d’une machine virtuelle Azure de série DS  
 
-Une fois l’image du système d’exploitation ou le disque de système d’exploitation inscrit, créez une nouvelle instance de machine virtuelle Azure de série DS. Vous utiliserez l’image du système d’exploitation ou le nom de disque de système d’exploitation que vous avez inscrit. Sélectionnez le type de machine virtuelle à partir du niveau de stockage Premium. Dans l’exemple ci-dessous, nous utilisons la taille de machine virtuelle *Standard_DS2*.
+Une fois l’image du système d’exploitation ou le disque de système d’exploitation inscrit, créez une nouvelle instance de machine virtuelle Azure de série DS. Vous utiliserez l’image du système d’exploitation ou le nom de disque de système d’exploitation que vous avez inscrit. Sélectionnez le type de machine virtuelle à partir du niveau de stockage Premium. Dans l’exemple ci-dessous, nous utilisons la taille de machine virtuelle *Standard\_DS2*.
 
 >[AZURE.NOTE]Mettez à jour la taille du disque pour vous assurer qu’il correspond à votre capacité, à l’exigence de performance et aux tailles de disque Azure disponibles.
 
@@ -315,4 +315,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

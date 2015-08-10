@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure
@@ -122,15 +122,13 @@ La connexion au Cache Redis Azure est gérée par la classe `ConnectionMultiplex
 
 Pour vous connecter au Cache Redis Azure et recevoir en retour une instance `ConnectionMultiplexer` connectée, appelez la méthode statique `Connect`, puis passez le point de terminaison et la clé du cache comme dans l’exemple suivant. Utilisez la clé Azure générée sur le portail comme paramètre du mot de passe.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 >[AZURE.IMPORTANT]Avertissement : ne stockez jamais d’informations d’identification dans du code source. Pour ne pas alourdir cet exemple, elles sont montrées dans le code source. Consultez [Fonctionnement des chaînes d’application et de connexion][] pour plus d’informations sur le stockage des informations d’identification.
 
-Si vous ne souhaitez pas utiliser SSL, définissez `ssl=false` ou passez le point de terminaison et la clé.
+Si vous ne souhaitez pas utiliser SSL, configurez `ssl=false` ou omettez le paramètre `ssl`.
 
 >[AZURE.NOTE]Le port non SSL est désactivé par défaut pour les nouveaux caches. Pour obtenir des instructions sur l’activation du port non SSL, consultez la section relative aux ports d’accès dans la rubrique [Configurer un cache dans Cache Redis Azure][].
-
-	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
 Pour plus d'informations sur les options avancées de configuration de connexion, consultez la rubrique [Modèle de configuration StackExchange.Redis][].
 
@@ -142,12 +140,12 @@ Le point de terminaison et les clés du cache peuvent être obtenus dans le pann
 
 Une fois la connexion établie, renvoyez une référence à la base de données du Cache Redis en appelant la méthode `ConnectionMultiplexer.GetDatabase`.
 
-	// connection referes to a previously configured ConnectionMultiplexer
+	// connection refers to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
 
 >[AZURE.NOTE]L’objet renvoyé à partir de la méthode `GetDatabase` est un objet direct léger qui n’a pas besoin d’être stocké.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 	IDatabase cache = connection.GetDatabase();
 
@@ -161,8 +159,6 @@ Une fois la connexion établie, renvoyez une référence à la base de données 
 	int key2 = (int)cache.StringGet("key2");
 
 Maintenant que vous savez vous connecter à une instance Cache Redis Azure et renvoyer une référence à la base de données du cache, regardons comment utiliser le cache.
-
-
 
 <a name="add-object"></a>
 ## Ajout et récupération d'objets dans le cache
@@ -273,7 +269,7 @@ Pour plus d’informations sur la configuration de ces paramètres et l’utilis
 
 Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus complexes.
 
--	[Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache. Vous pouvez afficher les mesures dans le portail, ainsi que les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
+-	[Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [cache-how-to-monitor.md) l’intégrité de votre cache. Vous pouvez afficher les mesures dans le portail, ainsi que les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
 -	Consultez la [Documentation du client du cache StackExchange.Redis][].
 	-	Le Cache Redis Azure est accessible depuis de nombreux clients Redis et langages de développement. Pour plus d’informations, consultez [http://redis.io/clients][] et [Développement dans d’autres langages pour le cache Azure Redis][].
 	-	Le Cache Redis Azure peut également être utilisé avec des services tels que Redsmin. Pour plus d’informations, consultez la [page expliquant comment récupérer une chaîne de connexion Azure Redis pour l’utiliser avec Redsmin][].
@@ -372,4 +368,4 @@ Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens
 
 [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

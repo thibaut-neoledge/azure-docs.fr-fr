@@ -33,11 +33,11 @@ Afin de déterminer la solution d'authentification multifacteur appropriée, nou
 
 Les éléments que vous souhaitez protéger| Multi-Factor Authentication dans le cloud|Serveur Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
-Applications Microsoft internes|* |* |
-Applications SaaS dans la galerie d'applications|* |* |
-Applications IIS publiées via le proxy d'application Azure AD|* |* |
-Applications IIS non publiées via le proxy d'application Azure AD | |* |
-Accès à distance comme VPN, RDG| |* |
+Applications Microsoft internes|\* |\* |
+Applications SaaS dans la galerie d'applications|\* |\* |
+Applications IIS publiées via le proxy d'application Azure AD|\* |\* |
+Applications IIS non publiées via le proxy d'application Azure AD | |\* |
+Accès à distance comme VPN, RDG| |\* |
 
 
 
@@ -87,4 +87,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 * [Pour les utilisateurs](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -48,7 +48,7 @@ Comme indiqué dans le schéma ci-dessous, POST ne peut être émis que sur une 
 ## Création d'une ressource à l'aide de POST 
 Pour mieux comprendre le modèle d'interaction, prenons l'exemple de la création d'une ressource (INSERT). Pour créer une ressource, vous devez émettre une demande HTTP POST dont le corps contient la représentation de la ressource par rapport à l'URI du flux de conteneurs auquel la ressource appartient. La seule propriété requise pour la demande est l'ID de la ressource.
 
-Par exemple, pour créer une base de données, vous VALIDEZ une ressource de base de données (en définissant la propriété ID avec un nom unique) dans /dbs. De même, pour créer une collection, vous VALIDEZ une ressource de collection dans /dbs/_rid/colls/et ainsi de suite. La réponse contient la ressource entièrement validée avec les propriétés générées par le système, notamment l’élément _self link de la ressource qui permet d’accéder à d’autres ressources. Voici un exemple de modèle d’interaction HTTP simple : un client émet une requête HTTP pour créer une base de données dans un compte. 
+Par exemple, pour créer une base de données, vous VALIDEZ une ressource de base de données (en définissant la propriété ID avec un nom unique) dans /dbs. De même, pour créer une collection, vous VALIDEZ une ressource de collection dans /dbs/\_rid/colls/et ainsi de suite. La réponse contient la ressource entièrement validée avec les propriétés générées par le système, notamment l’élément _self link de la ressource qui permet d’accéder à d’autres ressources. Voici un exemple de modèle d’interaction HTTP simple : un client émet une requête HTTP pour créer une base de données dans un compte. 
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -82,7 +82,7 @@ La procédure stockée « HelloWorld » simple écrite entièrement en JavaScr
         response.setBody("Hello, World");
      }
 
-La procédure stockée peut être enregistrée dans une collection sous MyDb en émettant une demande POST vers /dbs/_rid-db/colls/_rid-coll/sprocs.
+La procédure stockée peut être enregistrée dans une collection sous MyDb en émettant une demande POST vers /dbs/\_rid-db/colls/\_rid-coll/sprocs.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
@@ -253,13 +253,13 @@ Explorez la page [Référence de l’API REST d’Azure DocumentDB](https://msd
 - [Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [Programmation DocumentDB : Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](../documentdb-programming/)
 - [Documentation de référence DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - Spécification JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - Spécification HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- Balises d’entité [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- Balises d’entité [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

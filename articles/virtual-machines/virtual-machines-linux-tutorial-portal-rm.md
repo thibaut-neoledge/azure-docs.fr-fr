@@ -29,9 +29,9 @@ La création d’une machine virtuelle Azure (VM) exécutant Linux est facile. C
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-## Sélectionnez l’image
+## Sélectionnez l'image
 
-Accédez à Azure Marketplace dans la version préliminaire du portail pour rechercher l’image de machine virtuelle Windows Server.
+Accédez à Azure Marketplace dans la version préliminaire du portail pour rechercher l'image de machine virtuelle Windows Server.
 
 1. Connectez-vous au [Portail Azure en version préliminaire](https://portal.azure.com).
 
@@ -49,7 +49,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 ## Créer la machine virtuelle
 
-Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
+Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par défaut d’Azure pour effectuer la plus grande partie de la configuration et créer rapidement la machine virtuelle.
 
 1. Sur le panneau **Créer une machine virtuelle**, cliquez sur**Options de base**. Saisissez le **nom** de machine virtuelle que vous avez choisi et un fichier de clé publique (au format **ssh rsa**, dans ce cas, à partir du fichier `~/.ssh/id_rsa.pub`). Si vous disposez de plusieurs abonnements, spécifiez celui de la nouvelle machine virtuelle, ainsi qu’un **Groupe de ressources** nouveau ou existant et un ** emplacement** de centre de données Azure.
 
@@ -57,7 +57,7 @@ Après avoir sélectionné l’image, vous pouvez utiliser les paramètres par d
 
 	> [AZURE.NOTE]Vous pouvez également choisir l’authentification par nom d’utilisateur/mot de passe ici et saisir ces informations ici si vous ne souhaitez pas sécuriser votre session **ssh** par échange de clés publique et privée.
 
-2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d’autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l’image que vous choisissez. Lorsque vous avez terminé, cliquez sur ![sélectionner le bouton](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
+2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d'autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l’image que vous choisissez. Lorsque vous avez terminé, cliquez sur ![sélectionner le bouton](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png).
 
 	>[AZURE.NOTE]Le stockage Premium est disponible pour les machines virtuelles de la série DS dans certaines régions. Le stockage Premium est l’option de stockage la mieux adaptée aux charges de travail intensives, comme une base de données. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
@@ -126,4 +126,4 @@ Pour en savoir plus sur Linux sur Microsoft Azure, consultez les pages suivante
 
 - [Extension Docker VM pour Linux sur Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

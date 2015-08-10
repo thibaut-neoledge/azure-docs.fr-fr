@@ -52,7 +52,7 @@ Vous devez disposer des éléments suivants :
 <tr><th>Nom</th><th>Autorisations</th></tr>
 <tr><td>mysendpolicy</td><td>Envoyer</td></tr>
 <tr><td>myreceivepolicy</td><td>Écouter</td></tr>
-</table>Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée des stratégies d'accès partagé qui seront utilisées pour envoyer vers (**mysendpolicy**) et écouter (**myreceivepolicy**) ce concentrateur d'événements.
+</table>Après avoir créé les autorisations, sélectionnez l’icône **Enregistrer** située en bas de page. Cela crée des stratégies d'accès partagé qui seront utilisées pour envoyer vers (\*\*mysendpolicy\*\*) et écouter (\*\*myreceivepolicy\*\*) ce concentrateur d'événements.
 
 	![stratégies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Créer des stratégies de concentrateur d'événements")
 
@@ -164,4 +164,4 @@ Les instructions sur la procédure de réalisation de ces étapes et un exemple 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

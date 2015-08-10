@@ -142,4 +142,4 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

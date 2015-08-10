@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
-# Création de modèles Azure Resource Manager
+# Création de modèles Azure Resource Manager
 
 Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
 
@@ -74,7 +74,7 @@ La liste suivante vous indique les fonctions courantes.
 
     Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
 
-- **resourceId([nom_groupe_ressources], type_ressource, nom_ressource1, [nom_ressource2]...)**
+- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
 
     Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
 
@@ -107,7 +107,7 @@ Vous définissez des paramètres avec la structure suivante :
 
 | Nom de l'élément | Requis | Description
 | :------------: | :------: | :----------
-| nom_paramètre | Oui | Nom du paramètre. Doit être un identificateur JavaScript valide.
+| nom\_paramètre | Oui | Nom du paramètre. Doit être un identificateur JavaScript valide.
 | type | Oui | Type de la valeur du paramètre. Consultez la liste ci-dessous pour découvrir les types autorisés.
 | defaultValue | Non | Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre.
 | allowedValues | Non | Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie.
@@ -218,7 +218,7 @@ Vous définissez des ressources avec la structure suivante :
 
 | Nom de l'élément | Requis | Description
 | :----------------------: | :------: | :----------
-| apiVersion | Oui | Version de l'API qui prend en charge la ressource.
+| apiVersion | Oui | Version de l'API qui prend en charge la ressource. Pour connaître les versions et les schémas disponibles pour les ressources, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Oui | Type de la ressource. Cette valeur est une combinaison de l'espace de noms du fournisseur de ressources et du type de ressource qu'il prend en charge.
 | name | Oui | Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986.
 | location | Non | Emplacements géographiques de la ressource fournie pris en charge.
@@ -311,7 +311,9 @@ L'exemple suivant montre une valeur retournée dans la section des sorties.
 ## Autres scénarios avancés
 Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario peut requérir des tâches plus avancées.
 
-Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d'informations, consultez [Profils imbriqués](../resource-group-advanced-template#nested-template).
+Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour en savoir plus, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+
+Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -319,7 +321,7 @@ Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe 
 Le modèle suivant déploie une application web et l'approvisionne avec le code d'un fichier .zip.
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
     }
 
 ## Étapes suivantes
-- [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md)
-- [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
-- [Opérations de modèle avancées](./resource-group-advanced-template.md)
-- [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Présentation d’Azure Resource Manager](./resource-group-overview.md)
-- [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas)
+- Pour plus d'informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md)
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+- Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

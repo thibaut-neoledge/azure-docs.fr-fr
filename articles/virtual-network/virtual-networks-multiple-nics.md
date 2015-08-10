@@ -43,11 +43,11 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |Taille de machine virtuelle (références SKU Standard)|NIC (nombre maximal autorisé par machine virtuelle)|
 |---|---|
 |Toutes les tailles de base|1|
-|A0\très petite|1|
-|A1\petite|1|
-|A2\moyenne|1|
-|A3\grande|2|
-|A4\très grande|4|
+|A0\\très petite|1|
+|A1\\petite|1|
+|A2\\moyenne|1|
+|A3\\grande|2|
+|A4\\très grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -81,7 +81,7 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 ## Groupes de sécurité réseau
 Les NIC d’une machine virtuelle peuvent être associées à un groupe de sécurité réseau (NSG), y compris les NIC d’une machine virtuelle sur laquelle la fonctionnalité Multi-NIC est activée. Si une NIC reçoit une adresse d’un sous-réseau associé à un NSG, les règles qui régissent le NSG du sous-réseau s’appliquent également à cette NIC. Outre l’association de sous-réseaux à des NSG, vous pouvez également associer une NIC à un NSG.
 
-Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« **ordre du flux de trafic** » en fonction de la direction du trafic entrant ou sortant de la NIC :
+Si un sous-réseau est associé à un NSG,et qu’une NIC de ce sous-réseau est liée individuellement à un NSG, les règles du NSG associé sont appliquées dans l’« \*\*ordre du flux de trafic\*\* » en fonction de la direction du trafic entrant ou sortant de la NIC :
 
 - Le **trafic entrant** dont la destination est la NIC en question passe d’abord par le sous-réseau, en déclenchant les règles du NSG du sous-réseau, puis transite par la NIC et déclenche les règles du NSG de la NIC. - Le **trafic sortant** dont la source est la NIC en question commence par sortir de la NIC, en déclenchant les règles du NSG du sous-réseau, puis transite par le sous-réseau, et déclenche alors les règles du NSG du sous-réseau. 
 
@@ -248,8 +248,4 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 
 Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
 
-## Étapes suivantes
-
-- Élargissez vos connaissances sur l’utilisation de [multiples cartes réseau de machines virtuelles et appliances de réseau virtuel dans Microsoft Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

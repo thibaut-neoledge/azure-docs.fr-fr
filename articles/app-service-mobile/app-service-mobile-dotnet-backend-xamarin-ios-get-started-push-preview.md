@@ -107,9 +107,9 @@ Pour pouvoir envoyer des notifications push à un appareil iOS à partir de votr
 
     ![][9]
 
-    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps_development.cer</strong>.
+    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps\_development.cer</strong>.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 
     Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -266,7 +266,7 @@ L'application est mise à jour et prend en charge les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
 
-2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
+2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (\*\*+\*\*).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -340,4 +340,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

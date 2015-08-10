@@ -55,10 +55,10 @@ La mise à l'échelle horizontale ou verticale est une fonction à trois éléme
 #### Sources des données de télémétrie
 Dans le contexte de la base de données SQL Azure, il existe un certain nombre de sources clés pouvant être utilisées comme sources de données pour l'élasticité des partitions.
 
-1. La **télémétrie des performances** est exposée sous la forme de durées de cinq minutes dans la vue **sys.resource_stats** 
-2. La **télémétrie de capacité de base de données** horaire est exposée via la vue **sys.resource_usage**.  
+1. La **télémétrie des performances** est exposée sous la forme de durées de cinq minutes dans la vue **sys.resource\_stats** 
+2. La **télémétrie de capacité de base de données** horaire est exposée via la vue **sys.resource\_usage**.  
 
-Vous pouvez analyser l'utilisation des ressources de performances en interrogeant la base de données MASTER à l'aide de la requête suivante où « Shard_20140623 » est le nom de la base de données cible.
+Vous pouvez analyser l'utilisation des ressources de performances en interrogeant la base de données MASTER à l'aide de la requête suivante où « Shard\_20140623 » est le nom de la base de données cible.
 
     SELECT TOP 10 *  
     FROM sys.resource_stats  
@@ -81,7 +81,7 @@ La **télémétrie des performances** peut être résumée sur une période de t
     FROM sys.resource_stats  
     WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
-La **capacité de la base de données** peut être mesurée avec une requête similaire par rapport à la vue **sys.resource_usage**. Le nombre maximal de la colonne **storage_in_megabytes** donne la taille actuelle de la base de données. Ce type de télémétrie est utile pour la mise à l'échelle horizontale d'une application lorsqu'une partition spécifique atteint sa capacité maximale.
+La **capacité de la base de données** peut être mesurée avec une requête similaire par rapport à la vue **sys.resource\_usage**. Le nombre maximal de la colonne **storage\_in\_megabytes** donne la taille actuelle de la base de données. Ce type de télémétrie est utile pour la mise à l'échelle horizontale d'une application lorsqu'une partition spécifique atteint sa capacité maximale.
 
     SELECT TOP 10 * 
     FROM [sys].[resource_usage] 
@@ -155,4 +155,4 @@ Pour faciliter l’implémentation réelle des scénarios de mise à l’échell
 [Action]: #action
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

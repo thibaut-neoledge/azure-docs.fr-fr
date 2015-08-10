@@ -126,11 +126,11 @@ Vous pouvez également utiliser Status Monitor pour [instrumentaliser une applic
 
 #### Si votre application est une application web Azure
 
-Dans le panneau de contrôle de votre application web Azure, ajoutez l'extension Application Insights.
+Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
-![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![Dans votre application web, Outils, Analyse des performances, Ajouter, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(L'extension s’applique uniquement à une application qui créée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
 
 ## Ajout d’une surveillance côté client
 
@@ -140,15 +140,15 @@ Vous pourrez également écrire votre propre code pour suivre la façon dont les
 
 #### Si vos clients sont des navigateurs web
 
-Si votre application affiche des pages web, ajoutez un extrait de code JavaScript sur chaque page. Récupérez le code à partir de votre ressource Application Insights :
+Si votre application affiche des pages web, ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
 
-![Dans votre application web, ouvrez Démarrage rapide et cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![Dans votre application web, ouvrez Démarrage rapide, puis cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
-Notez que le code contient la clé d'instrumentation qui identifie la ressource de votre application.
+Notez que le code contient la clé d’instrumentation qui identifie la ressource de votre application.
 
 [En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
 
-#### Si vos clients sont des applications pour des appareils
+#### Si vos clients sont des applications pour appareil
 
 Si votre application sert des clients tels que des téléphones ou autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
 
@@ -231,4 +231,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

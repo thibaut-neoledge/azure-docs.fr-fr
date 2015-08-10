@@ -105,9 +105,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
     ![][9]
 
-    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps_development.cer</strong>.
+    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps\_development.cer</strong>.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 
     Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -315,7 +315,7 @@ L'application est mise à jour et prend en charge les notifications Push.
 
    >[AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s'effectue uniquement lors du premier démarrage de l'application.
 
-2. Dans l’application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ puis cliquez sur l’icône Ajouter (**+**).
+2. Dans l’application, entrez un texte explicite, tel que _Nouvelle tâche Mobile Services_ puis cliquez sur l’icône Ajouter (\*\*+\*\*).
 
     ![][24]
 
@@ -399,4 +399,4 @@ Vous avez terminé ce didacticiel.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

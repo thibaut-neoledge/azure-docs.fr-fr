@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Encodage d’une ressource à l’aide d’Azure Media Encoder
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Vue d'ensemble
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop gros pour être fournis sur Internet ou pour que les périphériques de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia.
@@ -38,7 +42,7 @@ Nous vous recommandons de toujours encoder vos fichiers mezzanine sous forme de 
 Si votre ressource de sortie est stockée sous forme chiffrée, vous devez configurer une stratégie de remise de ressources. Pour plus d'informations, consultez [Configuration de la stratégie de remise de ressources](media-services-rest-configure-asset-delivery-policy.md).
 
 
->[AZURE.NOTE]Avant de référencer les processeurs multimédias, vérifiez que vous disposez de l’ID de processeur multimédia approprié. Pour plus d’informations, consultez [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md).
+>[AZURE.NOTE]Avant de référencer les processeurs multimédias, vérifiez que vous disposez de l’ID de processeur multimédia approprié. Pour plus d’informations, consultez la rubrique [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md).
 
 ##Création d’un travail avec une seule tâche d’encodage 
 
@@ -86,9 +90,9 @@ L’exemple suivant montre comment définir l’attribut assetName :
 - Vous pouvez spécifier JobInputAsset ou JobOutputAsset en tant que ressource d’entrée d’une tâche.
 - Les tâches ne doivent pas former un cycle.
 - Le paramètre de valeur que vous transmettez à JobInputAsset ou à JobOutputAsset représente la valeur d’index pour une ressource. Les ressources réelles sont définies dans les propriétés de navigation InputMediaAssets et OutputMediaAssets de la définition d’entité de travail. 
-- Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « __metadata : uri ».
+- Étant donné que Media Services est basé sur OData v3, les ressources dans les collections de propriétés de navigation InputMediaAssets et OutputMediaAssets sont référencées par une paire nom de valeur « \_\_metadata : uri ».
 - InputMediaAssets mappe vers une ou plusieurs ressources que vous avez créées dans Media Services. Les OutputMediaAssets sont créés par le système. Ils ne font pas référence à une ressource existante.
-- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)_NewJob ». 
+- OutputMediaAssets peut être nommé à l’aide de l’attribut assetName. Si cet attribut n’est pas présent, le nom d’OutputMediaAsset sera la valeur de texte interne de l’élément <outputAsset> avec le suffixe de la valeur du nom du travail ou de l’ID de travail (dans le cas où la propriété Name n’est pas définie). Par exemple, si vous affectez à assetName la valeur « Sample », la propriété de Nom d’OutputMediaAsset est définie sur « Sample ». Toutefois, si vous n’avez pas défini de valeur pour assetName, mais avez défini le nom du travail comme « NewJob », le nom d’OutputMediaAsset est « JobOutputAsset(value)\_NewJob ». 
 
 
 ##Création d’un travail avec des tâches chaînées
@@ -258,8 +262,8 @@ Si l’opération réussit, la réponse suivante est retournée :
 Maintenant que vous savez comment créer une tâche pour encoder un élément multimédia, consultez la rubrique [Vérification de la progression d'une tâche avec Media Services](media-services-rest-check-job-progress.md).
 
 
- ##Voir aussi
+##Voir aussi
 
 [Obtenir des processeurs multimédias](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

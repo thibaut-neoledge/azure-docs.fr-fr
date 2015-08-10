@@ -49,7 +49,7 @@ Rubrique de référence : [CREATE MASTER KEY (Transact-SQL)][].
 ## Créer un fichier d’informations d’identification de niveau base de données
 Pour accéder au stockage d’objets Blob Microsoft Azure, vous devez créer un fichier d’informations d’identification de niveau base de données qui conserve les informations d’identification dont vous avez besoin pour accéder à votre compte Microsoft Azure Storage. Connectez-vous à votre base de données Data Warehouse et créez un fichier d’informations d’identification de base de données pour chacun des comptes Microsoft Azure Storage pour lesquels vous souhaitez bénéficier d’un accès. Spécifiez un nom d’identité et votre clé secrète de compte Microsoft Azure Storage. Le nom d’identité n’affecte aucunement l’identification à Microsoft Azure Storage.
 
-Pour voir s’il existe déjà des informations d’identification de base de données, utilisez sys.database_credentials, et non sys.credentials, qui affiche uniquement les informations d’identification de serveur.
+Pour voir s’il existe déjà des informations d’identification de base de données, utilisez sys.database\_credentials, et non sys.credentials, qui affiche uniquement les informations d’identification de serveur.
 
 ```
 -- Check for existing database-scoped credentials.
@@ -207,4 +207,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-fr/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

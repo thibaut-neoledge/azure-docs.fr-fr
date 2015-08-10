@@ -69,7 +69,7 @@ Dans cet exercice, vous allez utiliser l’outil d’enregistrement d’Azure Da
 
     ![register4][4]
 
-    c. Cliquez sur la flèche de déplacement des objets sélectionnés (**>**). Tous les objets Product sont alors déplacés dans la liste **À enregistrer**.
+    c. Cliquez sur la flèche de déplacement des objets sélectionnés (\*\*>\*\*). Tous les objets Product sont alors déplacés dans la liste **À enregistrer**.
 
     ![register5][5]
 
@@ -222,4 +222,4 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la 
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

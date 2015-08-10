@@ -124,4 +124,4 @@ Vous pouvez aussi utiliser des connecteurs comme actions dans le cadre de votre 
 [Service BizTalk Transform]: app-service-logic-transform-xml-documents.md
 [Connecteur Wait]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

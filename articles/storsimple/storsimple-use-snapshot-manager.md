@@ -540,4 +540,4 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 
 Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour se connecter aux appareils et les gérer](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

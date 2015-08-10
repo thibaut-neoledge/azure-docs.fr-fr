@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -94,7 +95,7 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 
 <br/>
 
-> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog ** extrait la valeur de la propriété étendue ms_description pour les objets et les colonnes. Pour plus d'informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog ** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d'informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q : Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans Azure Data Catalog ?
 
@@ -157,4 +158,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d'assistance avec la ve
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

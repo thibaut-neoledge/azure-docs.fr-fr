@@ -282,4 +282,4 @@ Le tableau suivant indique où et comment ces données sont utilisées lors de l
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

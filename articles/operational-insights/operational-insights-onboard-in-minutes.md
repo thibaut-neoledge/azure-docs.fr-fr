@@ -97,4 +97,4 @@ Avec Operations Management Suite, vous pouvez rechercher rapidement les journa
 - Se familiariser avec la [recherche](operational-insights-search.md)
 - Utiliser les [tableaux de bord](operational-insights-use-dashboards.md) pour enregistrer et afficher les recherches personnalisées
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

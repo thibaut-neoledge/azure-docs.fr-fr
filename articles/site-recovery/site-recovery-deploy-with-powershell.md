@@ -354,7 +354,7 @@ Pour vérifier que l'opération est terminée, suivez les étapes décrites dans
 
 ### Créer un plan de récupération
 
-1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\RPTemplatePath.xml ».
+1. Créez un fichier .xml comme modèle pour votre plan de récupération en utilisant les données ci-dessous, puis enregistrez-le sous « C:\\RPTemplatePath.xml ».
 2. Modifiez l'Id, Name, PrimaryServerId et SecondaryServerId du nœud RecoveryPlan.
 3. Modifiez le PrimaryProtectionEntityId du nœud ProtectionEntity (vmid pour VMM).
 4. Vous pouvez ajouter davantage de machines virtuelles en ajoutant des nœuds ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

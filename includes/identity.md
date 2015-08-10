@@ -1,6 +1,6 @@
 La gestion des identités est tout aussi importante dans le cloud public que sur site. À cette fin, Azure prend en charge différentes technologies d’identité cloud, à savoir :
 
-- Vous pouvez exécuter Windows Server Active Directory (souvent appelé tout simplement AD) dans le cloud au moyen de machines virtuelles créées avec Azure Virtual Machines. Cette méthode est pertinente lorsque vous utilisez Azure pour étendre votre centre de données local au cloud.
+- Vous pouvez exécuter Windows Server Active Directory (souvent appelé tout simplement AD) dans le cloud au moyen de machines virtuelles créées avec les machines virtuelles Azure. Cette méthode est pertinente lorsque vous utilisez Azure pour étendre votre centre de données local au cloud.
 
 - Vous pouvez utiliser Azure Active Directory pour fournir à vos utilisateurs une authentification unique aux applications SaaS (Software as a Service). Microsoft Office 365 fait appel à cette technologie, par exemple, et les applications s’exécutant sous Azure ou d’autres plateformes sur le cloud peuvent également y recourir.
 
@@ -118,4 +118,4 @@ L’utilisation des identités est importante dans pratiquement chaque applicati
 
 David Chappell est directeur associé de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) à San Francisco, en Californie.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

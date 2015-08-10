@@ -24,4 +24,6 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 |Nombre de filtres de corrélation par rubrique|À l’échelle du système|Statique|Les demandes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception.|100 000|
 |Taille des filtres SQL/actions|À l’échelle du système|Statique|Les demandes de création de filtres supplémentaires sont rejetées et le code appelant reçoit une exception.|Longueur maximale de chaîne de condition de filtre : 1 024 (1 Ko).<br /><br />Longueur maximale de chaîne d'action de règle : 1 024 (1 Ko).<br /><br />Nombre maximal d'expressions par action de règle : 32.|
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO3-->
+
+<!---HONumber=July15_HO5-->

@@ -78,7 +78,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet, et démarrez l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (\*\*+\*\*).
 
 	![][10]
 
@@ -134,4 +134,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

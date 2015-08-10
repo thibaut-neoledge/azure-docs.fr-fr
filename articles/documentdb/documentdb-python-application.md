@@ -273,11 +273,11 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
     	{% endblock %}
 
 
-### Ajout d’un fichier de configuration et modification de __init__.py
+### Ajout d’un fichier de configuration et modification de \_\_init\_\_.py
 
 1. Cliquez avec le bouton droit sur le projet nommé tutorial et ajoutez le fichier **config.py**. Cette configuration est requise par les formulaires dans Flask. Vous pouvez l'utiliser pour fournir une clé secrète. Cela n'est cependant pas nécessaire dans le cadre de ce didacticiel.
 
-2. Ajoutez le code suivant à config.py. Modifiez les valeurs des paramètres **DOCUMENTDB_HOST** et **DOCUMENTDB_KEY**.
+2. Ajoutez le code suivant à config.py. Modifiez les valeurs des paramètres **DOCUMENTDB\_HOST** et **DOCUMENTDB\_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Sous le dossier Modèles, ajoutez les fichiers html suivants : create.html, res
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. De même, remplacez le contenu de **__init__.py** par le contenu suivant.
+3. De même, remplacez le contenu de **\_\_init\_\_.py** par le contenu suivant.
 
     	from flask import Flask
     	app = Flask(__name__)
@@ -350,4 +350,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

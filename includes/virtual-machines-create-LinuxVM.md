@@ -1,34 +1,41 @@
-1. Connectez-vous au [portail de gestion](http://manage.windowsazure.com) Azure. Dans la barre de commandes, cliquez sur **New**.
+1. Connectez-vous à votre abonnement Azure en suivant les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface de ligne de commande Azure (Azure CLI)](../articles/xplat-cli-connect.md).
+2. Assurez-vous que vous êtes en mode de gestion des services, en utilisant :
 
-2. Cliquez sur **Virtual Machine**, puis sur **From Gallery**.
+        azure config mode asm
 
-3. Dans **Choose an Image**, sélectionnez une image dans l’une des listes. (Les images disponibles dépendent de l’abonnement que vous utilisez.) Cliquez sur la flèche pour continuer.
+3. Trouvez l'image Linux que vous souhaitez charger à partir des images disponibles :
 
-4. Si plusieurs versions de l’image sont disponibles, dans **Version Release Date**, choisissez la version à utiliser.
+        azure vm image list | grep "Linux"
 
-5. Dans **Nom de la machine virtuelle**, tapez le nom que vous souhaitez utiliser. Pour cette machine virtuelle, tapez **MonTestMV1**.
+4. Utilisez `azure vm create` pour créer une machine virtuelle avec l'image Linux de la liste ci-dessus. Cette étape crée un nouveau service cloud ainsi qu'un compte de stockage. Vous pouvez également connecter cette machine virtuelle à un service cloud existant avec une option `-c`. Cela crée également un point de terminaison SSH pour se connecter à la machine virtuelle Linux avec l’option `-e`.
 
-6. Dans **Taille**, sélectionnez la taille à utiliser pour la machine virtuelle. Celle-ci dépend du nombre de cœurs nécessaires à votre application. Pour cette machine virtuelle, sélectionnez la taille la plus petite.
+        ~$ azure vm create "MyTestVM" b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64 "adminUser" -z "Small" -e -l "West US"
+        info:    Executing command vm create
+        + Looking up image b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64
+        Enter VM 'adminUser' password:*********
+        Confirm password: *********
+        + Looking up cloud service
+        info:    cloud service MyTestVM not found.
+        + Creating cloud service
+        + Retrieving storage accounts
+        + Creating a new storage account 'mytestvm1437604756125'
+        + Creating VM
+        info:    vm create command OK
 
-7. Dans **Nouveau nom d’utilisateur**, tapez le nom du compte qui servira à administrer la machine virtuelle. Vous ne pouvez pas utiliser le nom d’utilisateur racine. Pour cette machine virtuelle, tapez **NouvelUtilisateur1**.
+    >[AZURE.NOTE]Pour une machine virtuelle Linux, vous devez fournir l’option `-e` dans `vm create` ; il n'est pas possible d'activer SSH une fois la machine virtuelle créée. Pour plus d’informations sur SSH, consultez la rubrique [Utilisation de SSH avec Linux dans Azure](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md).
 
-8. Sous Authentification, cochez **Fournir un mot de passe**. Fournissez ensuite les informations requises, puis cliquez sur la flèche pour continuer.
+    Notez que l'image *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* est celle que nous avons choisie dans la liste d'images lors de l'étape ci-dessus. *MyTestVM* est le nom de notre nouvelle machine virtuelle et *adminUser* est le nom d'utilisateur pour la connexion SSH à la machine virtuelle. Vous pouvez remplacer ces variables selon vos besoins. Pour plus d'informations sur cette commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Service Management.](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-9. Bien qu’il soit possible de rassembler plusieurs machines virtuelles dans le service cloud, vous n’allez en créer qu’une seule dans le cadre de ce didacticiel. Pour ce faire, sélectionnez **Create a new cloud service**.
+5. La machine virtuelle Linux nouvellement créée s'affiche dans la liste donnée par :
 
-10. Dans **Cloud Service DNS Name**, tapez un nom comprenant entre 3 et 24 caractères (minuscules et chiffres uniquement). Vous devrez créer votre propre nom de service cloud, car il doit être unique dans Azure. Le nom du service cloud fait alors partie de l'URI servant à contacter la machine virtuelle via le service cloud.
+        azure vm list
 
-11. Dans **Region/Affinity Group/Virtual Network**, sélectionnez l’emplacement de la machine virtuelle.
+6. Vous pouvez vérifier les attributs de la machine virtuelle à l'aide de la commande :
 
-12. Vous pouvez sélectionner le compte sur lequel le fichier de disque dur virtuel est stocké. Pour ce didacticiel, acceptez le paramètre par défaut **Use an Automatically Generated Storage Account**.
+        azure vm show MyTestVM
 
-13. Sous **Availability Set**, utilisez le paramètre par défaut **None**.
+7. La machine virtuelle nouvellement créée est prête à démarrer avec la commande `azure vm start`.
 
-14.	Sous **Points de terminaison**, vérifiez le point de terminaison créé automatiquement pour autoriser les connexions SSH (Secure Shell) à la machine virtuelle. Les points de terminaison permettent aux ressources disponibles sur Internet ou aux autres réseaux virtuels de communiquer avec une machine virtuelle. Vous pouvez ajouter d’autres points de terminaison maintenant ou en créer ultérieurement. Pour obtenir des instructions sur leur création à une date ultérieure, consultez la page [Configuration des points de terminaison sur une machine virtuelle](../articles/virtual-machines/virtual-machines-set-up-endpoints.md).
+Pour plus d'informations sur toutes les commandes des machines virtuelles Azure CLI, consultez [Utilisation de l’interface de ligne de commande Azure avec Microsoft Azure Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-15.  Sous **Agent de machine virtuelle**, consultez les extensions disponibles. Ces extensions proposent différentes fonctionnalités qui facilitent l'utilisation et la gestion des machines virtuelles. Pour plus d'informations, consultez la page [Extensions de machine virtuelle Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
-
-
-Une fois la machine virtuelle et le service cloud créés par Azure, le portail de gestion répertorie la nouvelle machine virtuelle sous **Machines virtuelles** et le service cloud sous **Services de cloud**. Ces derniers démarrent automatiquement.
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

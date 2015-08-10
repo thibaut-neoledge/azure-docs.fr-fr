@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Requête sur plusieurs partitions
 
 ## Vue d'ensemble
 
-La **requête sur plusieurs partitions** est utilisée pour des tâches telles que la collecte de données / la création de rapports qui nécessitent l’exécution d’une requête qui s’étend sur plusieurs partitions. (Comparez cela au [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) qui effectue tout le travail sur une partition unique.)
+La **requête sur plusieurs partitions** est utilisée pour des tâches telles que la collecte de données / la création de rapports qui nécessitent l’exécution d’une requête qui s’étend sur plusieurs partitions. (Comparez cela au [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) qui effectue tout le travail sur une partition unique.) Pour utiliser SQL Server Management Studio, consultez la rubrique [Prise en main des requêtes de base de données élastique](sql-database-elastic-query-getting-started.md).
 
 La bibliothèque cliente de l’infrastructure élastique introduit un nouvel espace de noms appelé**Microsoft.Azure.SqlDatabase.ElasticScale.Query** qui permet d’interroger plusieurs partitions à l’aide d’une requête et d’un résultat uniques. Elle fournit une abstraction de requête sur une collection de partitions. Elle fournit également des stratégies d'exécution alternatives, en particulier des résultats partiels, permettant de gérer les échecs d'interrogation sur plusieurs partitions.
 
@@ -67,4 +67,4 @@ Les requêtes sur plusieurs partitions ne vérifient pas si les shardlets de la 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

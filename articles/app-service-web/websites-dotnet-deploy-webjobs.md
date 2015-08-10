@@ -24,7 +24,7 @@ Cette rubrique explique comment utiliser Visual Studio pour déployer un projet
 
 Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 
-* Il copie des fichiers exécutables dans le dossier approprié de l’application web (*App_Data/jobs/continuous* pour les tâches web continues, *App_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
+* Il copie des fichiers exécutables dans le dossier approprié de l’application web (\*App\_Data/jobs/continuous\* pour les tâches web continues, *App\_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
 * Il configure des [tâches Azure Scheduler](#scheduler) pour les tâches web dont l'exécution est prévue à des horaires précis (inutile pour les tâches web continues).
 
 Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
@@ -131,8 +131,8 @@ Les champs de cette boîte de dialogue correspondent à ceux de la boîte de dia
 
 Pour une tâche web planifiée (mais pas pour les tâches web continues), Visual Studio crée une collection de tâches [Azure Scheduler](/services/scheduler/) s'il n'en existe pas encore, et crée une tâche dans la collection :
 
-* La collection de tâches de planification est appelée *WebJobs-{nom_région}* où *{nom_région}* fait référence à la région où le site web est hébergé. Par exemple : WebJobs-WestUS.
-* La tâche du planificateur est appelée *{nom_app_web}-{nom_tâche_web}*. Par exemple : MonAppWeb-MaTacheWeb. 
+* La collection de tâches de planification est appelée *WebJobs-{nom\_région}* où *{nom\_région}* fait référence à la région où le site web est hébergé. Par exemple : WebJobs-WestUS.
+* La tâche du planificateur est appelée *{nom\_app\_web}-{nom\_tâche\_web}*. Par exemple : MonAppWeb-MaTacheWeb. 
  
 >[AZURE.NOTE]
 > 
@@ -200,4 +200,4 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

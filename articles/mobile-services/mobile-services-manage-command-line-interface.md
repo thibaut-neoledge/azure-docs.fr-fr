@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administration d'un service mobile à l'aide d'une invite de commandes - Didacticiel Azure" 
+	pageTitle="Administration d'un service mobile à partir d'une invite de commandes | Azure Mobile Services" 
 	description="Découvrez comment créer, déployer et gérer votre service mobile Azure à l'aide des outils en ligne de commande." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Automatisation des services mobiles avec les outils en ligne de commande 
@@ -25,10 +25,6 @@ Cette rubrique explique comment utiliser les outils en ligne de commande Azure p
 Lorsqu'elles sont combinées dans un seul script ou dans un fichier de commandes, ces commandes individuelles automatisent le processus de création, de vérification et de suppression d'un service mobile.
 
 Cette rubrique présente une sélection de tâches d'administration courantes prises en charge par les outils en ligne de commande Azure. Pour plus d'informations, consultez la [documentation sur les outils en ligne de commande Azure][reference-docs].
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Installation des outils en ligne de commande Azure
 
@@ -110,11 +106,7 @@ La commande suivante crée une table dont l'autorisation `read` est définie sur
 
 Le tableau suivant présente une comparaison entre la valeur d'autorisation du script et la valeur d'autorisation du [portail de gestion Azure].
 
-<table border="1" width="100%"><tr><th>Valeur du script</th><th>Valeur du portail de gestion</th></tr>
-<tr><td><code>public</code></td><td>Tout le monde</td></tr>
-<tr><td><code>application</code> (par défaut)</td><td>Toute personne avec la clé d'application</td></tr>
-<tr><td><code>user</code></td><td>Seuls les utilisateurs authentifiés</td></tr>
-<tr><td><code>admin </code></td><td>Seuls les scripts et les administrateurs</td></tr></table>
+|Valeur du script|Valeur du portail de gestion| |========|========| |`public`|Tout le monde| |`application`(par défaut)|Toute personne avec la clé d'application| |`user`|Seuls les utilisateurs authentifiés| |`admin`|Seuls les scripts et les administrateurs|
 
 La commande `mobile table create` échoue si la table spécifiée existe déjà. Dans vos scripts d'automatisation, vous devez essayer de supprimer une table avant de tenter de la recréer.
 
@@ -192,4 +184,4 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [R�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

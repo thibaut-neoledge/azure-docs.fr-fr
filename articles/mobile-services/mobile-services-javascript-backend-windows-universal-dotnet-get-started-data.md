@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Ajout de Mobile Services à une application existante (application Windows universelle) | Centre de développement mobile" 
-	description="Découvrez comment utiliser Mobile Services pour tirer profit des données de votre application universelle Windows." 
+	pageTitle="Ajouter Mobile Services à une application Windows universelle existante | Azure Mobile Services" 
+	description="Découvrez comment connecter votre application Windows universelle existante à Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Ajout de services mobiles à une application existante
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous allez télécharger un projet Visual Studio 2013 pour
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 pour Windows</a> (Update 2 ou une version ultérieure). 
+* [Visual Studio Express 2013 pour Windows](https://go.microsoft.com/fwLink/p/?LinkID=257546) (Update 2 ou une version ultérieure). 
 
 ##<a name="download-app"></a>Téléchargement du projet GetStartedWithData
 
@@ -42,19 +42,16 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
-<ol start="7"><li><p>Dans l'Explorateur de solutions, ouvrez le fichier de code App.xaml.cs dans le dossier de projet GetStartedWithData.Shared, et voyez comment le nouveau champ statique a été ajouté à la classe <strong>App</strong> dans un bloc de compilation conditionnelle de l'application Windows Store, pour ressembler à l'exemple suivant&#160;:</p> 
+&nbsp;&nbsp;7. Dans l'Explorateur de solutions, ouvrez le fichier de code App.xaml.cs dans le dossier de projet GetStartedWithData.Shared, et voyez comment le nouveau champ statique a été ajouté à la classe **App** dans un bloc de compilation conditionnelle de l'application Windows Store, pour ressembler à l'exemple suivant :
 
-		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-		        "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		</code></pre>
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+	        "https://todolist.azure-mobile.net/",
+	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
-	<p>Ce code fournit un accès à votre nouveau service mobile dans votre application à l'aide d'une instance de la <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">classe MobileServiceClient</a>. Le client est créé en fournissant l'URI et la clé de l'application du nouveau service mobile. Ce champ statique est disponible pour toutes les pages de votre application.</p>
-</li>
-<li><p>Cliquez avec le bouton droit de la souris sur le projet d'application Windows Phone, cliquez sur <strong>Ajouter</strong>, puis sur <strong>Service connecté...</strong>, sélectionnez le service mobile que vous venez de créer, puis cliquez sur <strong>OK</strong>. </p>
-<p>Le même code est ajouté au fichier App.xaml.cs partagé, mais dans un bloc de compilation conditionnelle de l'application Windows Phone.</p></li>
-</ol>
+&nbsp;&nbsp;Ce code fournit l'accès à votre nouveau service mobile dans votre application à l'aide d'une instance de la classe [MobileServiceClient]. Le client est créé en fournissant l'URI et la clé de l'application du nouveau service mobile. Ce champ statique est disponible pour toutes les pages de votre application.
+
+&nbsp;&nbsp;8. Cliquez avec le bouton droit de la souris sur le projet d'application Windows Phone, cliquez sur **Ajouter**, puis sur **Service connecté...**, sélectionnez le service mobile que vous venez de créer, puis cliquez sur **OK**. Le même code est ajouté au fichier App.xaml.cs partagé, mais dans un bloc de compilation conditionnelle de l'application Windows Phone.
 
 Les deux applications Windows Store et Windows Phone Store sont maintenant connectées au nouveau service mobile. L'étape suivante consiste à créer une table TodoItem dans le service mobile.
 
@@ -72,11 +69,10 @@ Nous pouvons maintenant tester les deux versions de l'application Windows univer
 
 [AZURE.INCLUDE [mobile-services-windows-universal-test-app](../../includes/mobile-services-windows-universal-test-app.md)]
 
-<ol start="4">
-<li><p>Dans le <a href="https://manage.windowsazure.com/" target="_blank">portail de gestion</a>, cliquez sur <strong>Mobile Services</strong>, puis sur le service mobile.<p></li>
-<li><p>Cliquez sur l'onglet <strong>Données</strong>, puis sur <strong>Parcourir</strong>.</p>
-<p>La table <strong>TodoItem</strong> contient à présent des données, dont les valeurs d'ID ont été générées par Mobile&#160;Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.</p></li>
-</ol>
+&nbsp;&nbsp;4. Dans le [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur le service mobile.
+
+&nbsp;&nbsp;5. Cliquez sur **Données** > **Parcourir** et notez que la table **TodoItem** contient à présent des données, dont les valeurs d'ID ont été générées par Mobile Services, et les colonnes ont été automatiquement ajoutées à la table de manière à correspondre à la classe TodoItem au sein de l'application.
+     
 Cela conclut le didacticiel.
 
 ## <a name="next-steps"> </a>Étapes suivantes
@@ -110,12 +106,12 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [Prise en main des notifications Push]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

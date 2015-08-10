@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Déploiement et gestion des topologies Apache Storm sur HDInsight
@@ -42,9 +42,7 @@ Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s’
 
 ##Tableau de bord Storm
 
-Le tableau de bord Storm est disponible sur votre cluster Storm. L’URL est **https://&lt;clustername>.azurehdinsight.net/**, où **clustername** est le nom de votre Storm sur le cluster HDInsight. Vous pouvez également accéder au tableau de bord à l’aide du lien **Tableau de bord Storm** sur le tableau de bord de votre cluster dans le portail Azure.
-
-![le portail avec le tableau de bord Storm en surbrillance][hdinsight-dashboard]
+Le tableau de bord Storm est une page web disponible sur votre cluster Storm. L’URL est **https://&lt;clustername>.azurehdinsight.net/**, où **clustername** est le nom de votre Storm sur le cluster HDInsight.
 
 Dans la partie supérieure du tableau de bord Storm, sélectionnez **Soumettre la topologie**. Suivez les instructions affichées sur la page pour exécuter une topologie d’exemple ou pour télécharger et exécuter une topologie que vous avez créée.
 
@@ -178,4 +176,4 @@ Pour accéder à une liste d’exemples supplémentaires de topologies, consulte
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
