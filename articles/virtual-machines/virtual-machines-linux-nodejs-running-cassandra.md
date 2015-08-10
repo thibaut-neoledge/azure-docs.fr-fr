@@ -84,7 +84,7 @@ Le modèle de cohérence et de réplication compatible avec les centres de donn�
 
 **Déploiement basé sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d’enseignement peuvent déployer un cluster distribué dans les régions Est et Ouest des États-Unis pour servir les campus respectifs pour les transactions et l’analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d’autres exemples, tels que la distribution multimédia ou le commerce électronique, et tout ce qui répond aux demandes des bases d’utilisateurs concentrées géographiquement constitue un bon cas d’utilisation pour ce modèle de déploiement.
 
-**Haute disponibilité :** la redondance est un facteur clé dans l’obtention de la haute disponibilité des logiciels et du matériel ; pour plus d’informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l’une des régions est défaillante, Microsoft Azure Traffic Manager peut rediriger le trafic vers la région active. Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) * (1-0.999))*100) ; pour plus d’informations, consultez le document ci-dessus.
+**Haute disponibilité :** la redondance est un facteur clé dans l’obtention de la haute disponibilité des logiciels et du matériel ; pour plus d’informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l’une des régions est défaillante, Microsoft Azure Traffic Manager peut rediriger le trafic vers la région active. Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) \* (1-0.999))\*100) ; pour plus d’informations, consultez le document ci-dessus.
 
 **Récupération d’urgence :** un cluster Cassandra à plusieurs régions, conçu correctement, peut résister aux pannes catastrophiques d’un centre de données. Si une région est défaillante, l’application déployée dans d’autres régions peut répondre aux demandes des utilisateurs finaux. Comme toute autre implémentation de continuité des activités métier, l’application doit pouvoir tolérer certaines pertes de données dues aux données contenues dans le pipeline asynchrone. Toutefois, Cassandra accélère la récupération par rapport aux processus de récupération de bases de données traditionnels. La Figure 2 montre le modèle de déploiement dans plusieurs régions classiques avec huit nœuds dans chaque région. Les deux régions sont des images miroirs l’une de l’autre ; les conceptions réelles varient selon le type de charge de travail (par exemple, transactionnelle ou analytique), l’objectif de point de récupération, l’objectif de temps de récupération, la cohérence des données et les exigences de disponibilité.
 
@@ -96,7 +96,7 @@ Figure 2 : Déploiement de Cassandra dans plusieurs régions
 Les ensembles de machines virtuelles déployés sur des réseaux privés situés dans deux régions communiquent entre eux à l'aide d'un tunnel VPN. Le tunnel VPN connecte deux passerelles logicielles approvisionnées pendant le processus de déploiement réseau. Les deux régions ont une architecture réseau similaire en termes de sous-réseaux « web » et de « données » ; la mise en réseau Azure permet de créer autant de sous-réseaux que nécessaire et d'appliquer des listes de contrôle d'accès selon les besoins de sécurité réseau. Lors de la conception de la topologie de cluster, la latence de communication entre les centres de données et l'impact économique du trafic réseau doivent être pris en considération.
 
 ### Cohérence des données pour le déploiement dans plusieurs centres de données
-Les déploiements distribués doivent être conscients de l'impact de la topologie de cluster sur le débit et la haute disponibilité. Le facteur de récupération et le niveau de cohérence doivent être sélectionnés de sorte que le quorum ne dépende pas de la disponibilité de tous les centres de données. Pour un système qui a besoin d'une cohérence élevée, un LOCAL_QUORUM pour le niveau de cohérence (pour les écritures et lectures) permet de s'assurer que les lectures et écritures locales sont satisfaites à partir des nœuds locaux tandis que les données sont répliquées de manière asynchrone vers les centres de données distants. Le Tableau 2 récapitule les détails de configuration pour le cluster à plusieurs régions décrit plus loin.
+Les déploiements distribués doivent être conscients de l'impact de la topologie de cluster sur le débit et la haute disponibilité. Le facteur de récupération et le niveau de cohérence doivent être sélectionnés de sorte que le quorum ne dépende pas de la disponibilité de tous les centres de données. Pour un système qui a besoin d'une cohérence élevée, un LOCAL\_QUORUM pour le niveau de cohérence (pour les écritures et lectures) permet de s'assurer que les lectures et écritures locales sont satisfaites à partir des nœuds locaux tandis que les données sont répliquées de manière asynchrone vers les centres de données distants. Le Tableau 2 récapitule les détails de configuration pour le cluster à plusieurs régions décrit plus loin.
 
 **Configuration de cluster Cassandra à deux régions**
 
@@ -105,8 +105,8 @@ Les déploiements distribués doivent être conscients de l'impact de la topolog
 | ----------------- | ----- | ------- |
 | Nombre de nœuds (N) | 8 + 8 | Nombre total de nœuds dans le cluster |
 | Facteur de réplication (RF) | 3 | Nombre de réplicas d'une ligne donnée |
-| Niveau de cohérence (écriture) | LOCAL_QUORUM [(sum(RF)/2) +1) = 4] Le résultat de la formule est arrondi vers le bas | Deux nœuds seront écrits dans le premier centre de données de façon synchrone ; les deux nœuds supplémentaires nécessaires pour le quorum seront écrits de façon asynchrone dans le deuxième centre de données. |
-| Niveau de cohérence (lecture) | LOCAL_QUORUM ((RF/2) +1) = 2 Le résultat de la formule est arrondi vers le bas | Les demandes de lecture sont satisfaites à partir d'une seule région ; deux nœuds sont lus avant que la réponse soit envoyée au client. |
+| Niveau de cohérence (écriture) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Le résultat de la formule est arrondi vers le bas | Deux nœuds seront écrits dans le premier centre de données de façon synchrone ; les deux nœuds supplémentaires nécessaires pour le quorum seront écrits de façon asynchrone dans le deuxième centre de données. |
+| Niveau de cohérence (lecture) | LOCAL\_QUORUM ((RF/2) +1) = 2 Le résultat de la formule est arrondi vers le bas | Les demandes de lecture sont satisfaites à partir d'une seule région ; deux nœuds sont lus avant que la réponse soit envoyée au client. |
 | Stratégie de réplication | NetworkTopologyStrategy voir [Réplication des données](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) dans la documentation de Cassandra pour plus d’informations | Comprend la topologie de déploiement et place des réplicas sur les nœuds afin que tous les réplicas ne finissent pas sur le même rack |
 | Snitch | GossipingPropertyFileSnitch voir [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra pour plus d’informations | NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch | 
  
@@ -124,7 +124,7 @@ Les versions logicielles suivantes sont utilisées lors du déploiement :
 
 Étant donné que le téléchargement de JRE nécessite l'acceptation manuelle de la licence Oracle, pour simplifier le déploiement, téléchargez tous les logiciels nécessaires sur le bureau en vue de leur chargement ultérieur dans l'image du modèle Ubuntu que nous créerons préalablement au déploiement du cluster.
 
-Téléchargez les logiciels ci-dessus dans un répertoire de téléchargements connu (par exemple, %TEMP%/downloads sur Windows ou ~/downloads sur Linux ou Mac) sur le bureau local.
+Téléchargez les logiciels ci-dessus dans un répertoire de téléchargements connu (par exemple, %TEMP%/downloads sur Windows ou \~/downloads sur Linux ou Mac) sur le bureau local.
 
 ### CRÉATION D’UNE MACHINE VIRTUELLE UBUNTU
 Lors de cette étape du processus, nous allons créer une image Ubuntu avec les logiciels prérequis pour que l'image puisse être réutilisée pour l'approvisionnement de plusieurs nœuds Cassandra.
@@ -165,7 +165,7 @@ Cliquez sur la flèche droite, conservez les valeurs par défaut dans l'écran n
 
 ###INSTALLATION DU LOGICIEL NÉCESSAIRE
 ####ÉTAPE 1 : Téléchargement de tarballs 
-À l'aide de scp ou pscp, copiez les logiciels téléchargés précédemment dans le répertoire ~/downloads en utilisant le format de commande suivant :
+À l'aide de scp ou pscp, copiez les logiciels téléchargés précédemment dans le répertoire \~/downloads en utilisant le format de commande suivant :
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -250,7 +250,7 @@ Connectez-vous à la machine virtuelle, créez la structure de répertoires et e
 	echo "installation is complete"
 
 
-Si vous collez ce script dans la fenêtre vim, veillez à supprimer le retour chariot (‘\r”) à l'aide de la commande suivante :
+Si vous collez ce script dans la fenêtre vim, veillez à supprimer le retour chariot (‘\\r”) à l'aide de la commande suivante :
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -267,7 +267,7 @@ Ajoutez le code suivant à la fin :
 ####Étape 4 : Installation de JNA pour les systèmes de production
 Utilisez la séquence de commandes suivantes : la commande suivante installera jna-3.2.7.jar et jna-platform-3.2.7.jar sur /usr/share.java directory sudo apt-get install libjna-java
 
-Créez des liens symboliques dans le répertoire $CASS_HOME/lib pour que le script de démarrage Cassandra puisse trouver ces fichiers JAR :
+Créez des liens symboliques dans le répertoire $CASS\_HOME/lib pour que le script de démarrage Cassandra puisse trouver ces fichiers JAR :
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
@@ -289,7 +289,7 @@ Modifiez cassandra.yaml sur chaque machine virtuelle afin de refléter la config
 Ouvrez une session sur la machine virtuelle à l'aide du nom d'hôte (hk-AC-template.cloudapp.net) et de la clé privée SSH créée précédemment. Consultez Utilisation de SSH avec Linux sur Azure pour plus d'informations sur la façon de se connecter à l'aide de la commande ssh ou putty.exe.
 
 Exécutez la séquence d'actions suivante pour capturer l'image :
-#####1. annulation du déploiement
+#####1\. annulation du déploiement
 Utilisez la commande « sudo waagent –deprovision+user » pour supprimer des informations spécifiques à l'instance de machine virtuelle. Pour plus de détails sur le processus de capture d’image, consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-capture-image.md).
 
 #####2 : Arrêt de la machine virtuelle
@@ -409,7 +409,7 @@ La procédure ci-dessus peut être exécutée à l'aide du portail de gestion Az
 
 Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
 
-* Modifiez $CASS_HOME/conf/cassandra-rackdc.properties pour spécifier les propriétés du rack et du centre de données :
+* Modifiez $CASS\_HOME/conf/cassandra-rackdc.properties pour spécifier les propriétés du rack et du centre de données :
       
        dc =EASTUS, rack =rack1
 
@@ -442,7 +442,7 @@ Pour tester le cluster, procédez comme suit :
 
 1.    À l'aide de la commande Powershell Get-AzureInternalLoadbalancer, obtenez l'adresse IP de l'équilibreur de charge interne (par exemple 10.1.2.101). La syntaxe de la commande est illustrée ci-dessous : Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us" [affiche les détails de l’équilibreur de charge interne, ainsi que son adresse IP]
 2.	Connectez-vous à la machine virtuelle de la batterie de serveurs web (par exemple, hk-w1-west-us) à l'aide de Putty ou ssh
-3.	Exécutez $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+3.	Exécutez $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 4.	Utilisez les commandes CQL suivantes pour vérifier si le cluster fonctionne :
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -461,7 +461,7 @@ Vous devez obtenir un affichage semblable à celui-ci :
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-Notez que le keyspace créé à l'étape 4 utilise SimpleStrategy avec un replication_factor égal à 3. SimpleStrategy est recommandé pour les déploiements de centre de données unique, tandis que NetworkTopologyStrategy est recommandé pour les déploiements de plusieurs centres de données. Un replication_factor égal à 3 procure une tolérance des échecs de nœuds.
+Notez que le keyspace créé à l'étape 4 utilise SimpleStrategy avec un replication\_factor égal à 3. SimpleStrategy est recommandé pour les déploiements de centre de données unique, tandis que NetworkTopologyStrategy est recommandé pour les déploiements de plusieurs centres de données. Un replication\_factor égal à 3 procure une tolérance des échecs de nœuds.
 
 ##<a id="tworegion"> </a>Processus de déploiement de plusieurs régions
 Nous allons tirer parti du déploiement à une seule région que nous venons d'effectuer et répéter la même procédure pour installer la deuxième région. La principale différence entre le déploiement dans une seule région et dans plusieurs régions concerne la configuration du tunnel VPN pour la communication inter-région ; nous allons commencer par l'installation du réseau, puis approvisionner les machines virtuelles et configurer Cassandra.
@@ -485,14 +485,14 @@ Ajoutez les sous-réseaux suivants : <table> <tr><th>Nom </th><th>IP de début 
 
 
 ###Étape 2 : Création des réseaux locaux
-Un réseau local dans la mise en réseau virtuel Azure est un espace d'adressage de proxy qui mappe à un site distant, y compris un cloud privé ou une autre région Azure. Cet espace d'adressage de proxy est lié à une passerelle distante pour le routage réseau vers les destinations réseau appropriées. Pour obtenir des instructions sur l’établissement de connexions de réseau virtuel à réseau virtuel, consultez [Configurer une connexion de réseau virtuel à réseau virtuel](http://msdn.microsoft.com/library/azure/dn690122.aspx).
+Un réseau local dans la mise en réseau virtuel Azure est un espace d'adressage de proxy qui mappe à un site distant, y compris un cloud privé ou une autre région Azure. Cet espace d'adressage de proxy est lié à une passerelle distante pour le routage réseau vers les destinations réseau appropriées. Pour obtenir des instructions sur l’établissement de connexions de réseau virtuel à réseau virtuel, consultez [Configurer une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Créez deux réseaux locaux avec les détails suivants :
 
 | Nom de réseau | Adresse de la passerelle VPN | Espace d'adressage | Remarques |
 | ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23.1.1.1 | 10.2.0.0/16 | Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Est des États-Unis. |
-| hk-lnet-map-to-west-us | 23.2.2.2 | 10.1.0.0/16 | Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Ouest des États-Unis. |
+| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Est des États-Unis. |
+| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Ouest des États-Unis. |
 
 
 ###Étape 3 : Mappage du réseau « Local » aux réseaux virtuels respectifs
@@ -528,25 +528,25 @@ Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la
 
 | Nom de la machine | Sous-réseau | Adresse IP | Groupe à haute disponibilité | Contrôleur de domaine ou rack | Initial ? |
 | ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | données | 10.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Oui |
-| hk-c2-east-us | données | 10.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Non |
-| hk-c3-east-us | données | 10.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | Oui |
-| hk-c5-east-us | données | 10.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Oui |
-| hk-c6-east-us | données | 10.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Non |
-| hk-c7-east-us | données | 10.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Oui |
-| hk-c8-east-us | données | 10.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Non |
-| hk-w1-east-us | web | 10.2.1.4 | hk-w-aset-1 | N/A | N/A |
-| hk-w2-east-us | web | 10.2.1.5 | hk-w-aset-1 | N/A | N/A |
+| hk-c1-east-us | données | 10\.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Oui |
+| hk-c2-east-us | données | 10\.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | Non |
+| hk-c3-east-us | données | 10\.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | Oui |
+| hk-c5-east-us | données | 10\.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Oui |
+| hk-c6-east-us | données | 10\.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | Non |
+| hk-c7-east-us | données | 10\.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Oui |
+| hk-c8-east-us | données | 10\.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | Non |
+| hk-w1-east-us | web | 10\.2.1.4 | hk-w-aset-1 | N/A | N/A |
+| hk-w2-east-us | web | 10\.2.1.5 | hk-w-aset-1 | N/A | N/A |
 
 
 Suivez les mêmes instructions que pour la région n°1, mais utilisez l'espace d'adressage 10.2.xxx.xxx.
 ###Étape 8: Configuration de Cassandra sur chaque machine virtuelle
 Connectez-vous à la machine virtuelle et effectuez les tâches suivantes :
 
-1. Modifiez $CASS_HOME/conf/cassandra-rackdc.properties pour spécifier les propriétés du rack et du centre de données au format suivant : dc =EASTUS rack =rack1
+1. Modifiez $CASS\_HOME/conf/cassandra-rackdc.properties pour spécifier les propriétés du rack et du centre de données au format suivant : dc =EASTUS rack =rack1
 2. Modifiez cassandra.yaml pour configurer les nœuds de départ : Valeurs initiales : 10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10
 ###Étape 9 : Démarrage de Cassandra
-Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-plan en exécutant la commande suivante : $CASS_HOME/bin/cassandra
+Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-plan en exécutant la commande suivante : $CASS\_HOME/bin/cassandra
 
 ## Test du cluster à plusieurs régions
 À ce stade, Cassandra a été déployé sur 16 nœuds, avec huit nœuds dans chaque région Azure. Ces nœuds sont dans le même cluster suite à la configuration des nœuds de départ et du nom de cluster identique. Pour tester le cluster, procédez comme suit :
@@ -557,7 +557,7 @@ Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-pl
     Notez les adresses IP affichées (par exemple, west - 10.1.2.101, east - 10.2.2.101).
 
 ###Étape 2 : Exécution de la commande suivante dans la région Ouest après la connexion à hk-w1-west-us
-1.    Exécutez $CASS_HOME/bin/cqlsh 10.1.2.101 9160 
+1.    Exécutez $CASS\_HOME/bin/cqlsh 10.1.2.101 9160 
 2.	Exécutez les commandes CQL suivantes :
 
 		CREATE KEYSPACE customers_ks
@@ -570,14 +570,14 @@ Connectez-vous à chaque machine virtuelle et démarrez Cassandra en arrière-pl
 
 Vous devez obtenir un affichage semblable à celui-ci :
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 | ----------- | --------- | -------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
 
 
 ###Étape 3 : Exécution de la commande suivante dans la région Est après la connexion à hk-w1-east-us :
-1.    Exécutez $CASS_HOME/bin/cqlsh 10.2.2.101 9160 
+1.    Exécutez $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 
 2.	Exécutez les commandes CQL suivantes :
 
 		USE customers_ks;
@@ -589,7 +589,7 @@ Vous devez obtenir un affichage semblable à celui-ci :
 Vous devez obtenir le même affichage que pour la région Ouest :
 
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 |------------ | --------- | ---------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
@@ -700,4 +700,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

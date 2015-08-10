@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Ajout d’une partition à l’aide des outils de base de données élastique
@@ -25,7 +25,7 @@ Souvent, les applications n'ont qu'à ajouter de nouvelles partitions pour gére
 Si la nouvelle plage de valeurs de clé n’appartient pas déjà à un mappage existant, il est très simple d’ajouter la nouvelle partition et d’associer la nouvelle clé ou la plage à cette partition.
 
 ### Exemple : ajout d’une partition et de sa plage à une carte de partition existante
-Dans l’exemple ci-dessous, une base de données nommée **sample_shard_2** et tous les objets de schéma nécessaires qu’elle contient ont été créés pour contenir la plage [300, 400).
+Dans l’exemple ci-dessous, une base de données nommée **sample\_shard\_2** et tous les objets de schéma nécessaires qu’elle contient ont été créés pour contenir la plage [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@ Il peut arriver que vous ayez déjà mappé une plage à une partition et l’ay
 
 ### Exemple : fractionnement d’une plage et affectation de la partie vide dans une partition nouvellement ajoutée
 
-Une base de données nommée « sample_shard_2 » et tous les objets de schéma nécessaires qu’elle contient ont été créés.
+Une base de données nommée « sample\_shard\_2 » et tous les objets de schéma nécessaires qu’elle contient ont été créés.
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@ Une base de données nommée « sample_shard_2 » et tous les objets de schém
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

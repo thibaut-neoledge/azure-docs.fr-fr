@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # Exécution de requêtes Hive à l'aide de la console de requêtes
@@ -23,6 +23,7 @@
 Dans cet article, vous découvrirez comment utiliser la console de requêtes HDInsight pour exécuter des requêtes Hive sur un cluster Hadoop HDInsight à partir de votre navigateur.
 
 > [AZURE.NOTE]La console de requêtes n'est disponible que sur les clusters HDInsight Windows.
+
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -34,9 +35,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 ##<a id="run"></a> Exécution de requêtes Hive à l'aide de la console de requêtes
 
-1. Ouvrez le [portail Azure](https://manage.windowsazure.com) et sélectionnez votre cluster HDInsight. En bas de la page, sélectionnez **Console de requêtes**. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster.
-
-    > [AZURE.NOTE]Vous pouvez également contacter la Console de requêtes en entrant **https://CLUSTERNAME.azurehdinsight.net** dans votre navigateur.
+1. Ouvrez un navigateur Web et accédez à __https://CLUSTERNAME.azurehdinsight.net__, où__CLUSTERNAME__ est le nom de votre cluster HDInsight. Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe que vous avez entrés lors de la création du cluster. 
 
 2. À partir des liens situés en haut de la page, sélectionnez **Éditeur Hive**. Cela affiche un formulaire qui peut être utilisé pour saisir les instructions HiveQL que vous souhaitez exécuter sur le cluster HDInsight.
 
@@ -120,4 +119,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

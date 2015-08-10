@@ -44,7 +44,7 @@ Dans Démarrage rapide, récupérez le script pour les pages Web :
 
 Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaitez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
-* Dans un projet ASP.NET MVC, vous devez placer le script dans View\Shared\_Layout.cshtml
+* Dans un projet ASP.NET MVC, vous devez placer le script dans View\\Shared\\\_Layout.cshtml
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](app-insights-sharepoint.md).
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
@@ -137,7 +137,7 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo\* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « \*oncernan » ne correspondra pas à « Concernant ».
 
 > [En savoir plus sur la recherche de diagnostic][diagnostic]
 
@@ -149,7 +149,8 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 
 Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En insérant des appels dans votre code côtés client et serveur, vous pouvez envoyer vos propres données de télémétrie à Application Insights. Par exemple, vous pouvez découvrir combien d'utilisateurs ont créé des commandes sans les achever, quelles erreurs de validation surviennent le plus souvent ou quel est le score moyen d'un jeu.
 
-[En savoir plus sur les événements personnalisés et les API de métriques][track].
+* [En savoir plus sur les événements personnalisés et les API de métriques][track].
+* [Référence d’API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Télémétrie de serveur
 
@@ -177,8 +178,8 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

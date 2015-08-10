@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET
@@ -74,7 +74,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les tables d'entrée et de sortie, ainsi qu'un pipeline. Cet objet vous permet également d'analyser les tranches d'une table au moment de l'exécution.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]Remplacez **resourcegroupname** par le nom de votre groupe de ressources Azure. Vous pouvez créer un groupe de ressources à l’aide du cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Ajoutez à la méthode **Main** le code suivant, qui crée une **fabrique de données**.
 
@@ -103,7 +105,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         );
 
 8. Ajoutez à la méthode **Main** le code suivant, qui crée un **service lié**.
-	> [AZURE.NOTE]Utilisez le **nom de compte** et la **clé de compte** de votre compte de stockage Azure pour **ConnectionString**.
+	> [AZURE.NOTE]Utilisez le **nom de compte**et la **clé de compte** de votre compte de stockage Azure pour la **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -329,7 +331,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
             }
         }
 
-14. **(Facultatif)** Ajoutez à la méthode **Main** le code suivant pour obtenir les détails d’exécution d’une tranche de données.
+14. **(facultatif)** Ajoutez à la méthode **Main** le code suivant pour obtenir les détails d’exécution d’une tranche de données.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -360,7 +362,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. Si vous obtenez une erreur sur la classe **ConfigurationManager**, ajoutez une référence à l’assembly **System.Configuration** et réessayez de générer.
+15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. Si vous obtenez une erreur à propos de la classe **ConfigurationManager**, ajoutez une référence à l’assembly **System.Configuration** et réessayez de générer le projet.
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 
         John, Doe
@@ -368,7 +370,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 	 
 17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **ENTRÉE**.
 18. Utilisez le portail Azure en version préliminaire pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
-	- Service lié : **LinkedService_AzureStorage** 
+	- Service lié : **LinkedService\_AzureStorage** 
 	- Tables : **TableBlobSource** et **TableBlobDestination**
 	- Pipeline : **PipelineBlobSample** 
 18. Vérifiez qu'un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
@@ -392,4 +394,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -50,7 +50,7 @@ Il est possible de créer un espace de travail à partir de [microsoft.com/oms](
 
 ## Mise à niveau de l’espace de travail vers un plan payant
 
-Il existe trois types de plan d’espace de travail pour Operational Insights : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « **plan avec paiement à l’utilisation** » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification d’Operational Insights, consultez la page [Tarification](http://azure.microsoft.com/pricing/operational-insights/).
+Il existe trois types de plan d’espace de travail pour Operational Insights : **Gratuit**, **Standard** et **Premium**. Si vous utilisez un plan *gratuit*, vous avez peut-être atteint votre plafond de données de 500 Mo. Vous devez mettre à niveau votre espace de travail vers un « \*\*plan avec paiement à l’utilisation\*\* » afin de collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment. Pour plus d’informations sur la tarification d’Operational Insights, consultez la page [Tarification](http://azure.microsoft.com/pricing/operational-insights/).
 
 >[AZURE.IMPORTANT]Les plans d’espace de travail peuvent uniquement être modifiés s’ils sont *liés* à un abonnement Azure. Si vous avez créé votre espace de travail dans Azure ou si vous avez *déjà* lié votre espace de travail, vous pouvez ignorer ce message. Si vous avez créé votre espace de travail à partir de [opinsights.azure.com](http://opinsights.azure.com), vous devez suivre les étapes de [Liaison d’un espace de travail existant à un abonnement Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -180,4 +180,4 @@ Si vous êtes administrateur et que plusieurs utilisateurs sont associés à l�
 
 3. Cliquez sur **Fermer l’espace de travail**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

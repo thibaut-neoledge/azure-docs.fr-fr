@@ -66,4 +66,4 @@ Pour ouvrir un ticket de support, procédez comme suit :
 1. Cliquez sur Envoyer pour ouvrir le ticket.
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

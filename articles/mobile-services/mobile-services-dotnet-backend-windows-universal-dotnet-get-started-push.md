@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Ajout de notifications push à votre application Mobile Services
@@ -34,14 +34,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Accédez au dossier de projet <code>\Services\MobileServices\nom_du_service</code>, ouvrez le fichier de code push.register.cs généré et examinez la méthode <strong>UploadChannel</strong> qui enregistre l'URL de canal d'appareil avec le concentrateur de notification.</p></li> 
-<li><p>Ouvrez le fichier de code App.xaml.cs partagé et notez qu'un appel vers la méthode <strong>UploadChannel</strong> a été ajouté au gestionnaire d'événements <strong>OnLaunched</strong>.</p> <p>Cela garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.</p></li>
-<li><p>Répétez les étapes précédentes pour ajouter des notifications Push à un projet d'application Windows Phone Store&#160;; ensuite, dans le fichier App.xaml.cs partagé, supprimez l'appel supplémentaire vers <strong>UploadChannel</strong> et l'encapsuleur conditionnel <code>#if...#endif</code> restant.</p> <p>Les deux projets peuvent maintenant partager un même appel vers <strong>UploadChannel</strong>.</p>
-</li>
-</ol>
+&nbsp;&nbsp;6. Accédez au dossier de projet `\Services\MobileServices\your_service_name`, ouvrez le fichier de code push.register.cs généré et examinez la méthode **UploadChannel** qui enregistre l'URL de canal d'appareil avec le concentrateur de notification.
+ 
+&nbsp;&nbsp;7. Ouvrez le fichier de code App.xaml.cs partagé et notez qu'un appel vers la méthode **UploadChannel** a été ajouté au gestionnaire d'événements **OnLaunched**. Cela garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.
 
-> [AZURE.NOTE]Vous pouvez également simplifier le code généré en unifiant les définitions [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) encapsulées dans <code>#if...#endif</code> en une seule définition encapsulée, utilisée par les deux versions de l'application.
+&nbsp;&nbsp;8. Répétez les étapes précédentes pour ajouter des notifications Push à un projet d'application Windows Phone Store. Ensuite, dans le fichier App.xaml.cs partagé, supprimez l'appel supplémentaire vers **UploadChannel** et l'encapsuleur conditionnel `#if...#endif` restant. Les deux projets peuvent maintenant partager un même appel vers **UploadChannel**.
+
+> [AZURE.NOTE]Vous pouvez également simplifier le code généré en unifiant les définitions [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) encapsulées dans `#if...#endif` en une seule définition non encapsulée, utilisée pour les deux versions de l'application.
 
 Maintenant que les notifications Push sont activées dans l'application, vous devez mettre à jour le service mobile pour les envoyer.
 
@@ -59,16 +58,17 @@ Les étapes restantes de cette section sont facultatives. Elles vous permettent 
 
 >[AZURE.NOTE]N'utilisez jamais de service mobile de production pour les tests et le développement. Pour les tests, publiez toujours votre projet de service mobile vers un service intermédiaire.
 
-<ol start="5">
-<li><p>Ouvrez le fichier de projet App.xaml.cs partagé et identifiez toutes les lignes de code qui créent une instance de la classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> pour accéder au service mobile exécuté dans Azure.</p></li>
-<li><p>Placez ce code en commentaire et ajoutez du code pour créer une classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> du même nom, mais en utilisant l'URL de l'hôte local dans le constructeur, similaire à ceci :</p>
-<pre><code>// This MobileServiceClient has been configured to communicate with your local
-// test project for debugging purposes.
-public static MobileServiceClient todolistClient = new MobileServiceClient(
-	"http://localhost:4584"
-);
-</code></pre><p>En utilisant cette classe <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>, l'application se connecte au service local au lieu de la version hébergée dans Azure. Si vous souhaitez revenir à une exécution de l'application sur le service mobile hébergé dans Azure, réintégrez les définitions <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> d'origine.</p></li>
-</ol>
+&nbsp;&nbsp;5. Ouvrez le fichier de projet App.xaml.cs partagé et identifiez toutes les lignes de code qui créent une instance de la classe [MobileServiceClient] pour accéder au service mobile exécuté dans Azure.
+
+&nbsp;&nbsp;6. Placez ce code en commentaire et ajoutez du code pour créer une classe [MobileServiceClient] du même nom, mais en utilisant l'URL de l'hôte local dans le constructeur, similaire à ceci :
+
+	// This MobileServiceClient has been configured to communicate with your local
+	// test project for debugging purposes.
+	public static MobileServiceClient todolistClient = new MobileServiceClient(
+		"http://localhost:4584"
+	);
+
+&nbsp;&nbsp;En utilisant cette classe [MobileServiceClient], l'application se connecte au service local au lieu de la version hébergée dans Azure. Si vous souhaitez revenir à une exécution de l'application sur le service mobile hébergé dans Azure, réintégrez les définitions [MobileServiceClient] d'origine.
 
 ##<a id="test"></a> Test des notifications Push dans votre application
 
@@ -107,6 +107,6 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Présentation de Notification Hubs]: ../notification-hubs-overview.md
 
 [Utilisation d'un client .NET pour Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
- 
+[MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

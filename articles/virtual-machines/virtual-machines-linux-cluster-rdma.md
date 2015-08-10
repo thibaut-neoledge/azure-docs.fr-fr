@@ -137,7 +137,7 @@ Enregistrez la clé publique dans un emplacement par défaut et n'oubliez pas la
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-Dans le répertoire /.ssh, modifiez ou créez le fichier ssh_config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure :
+Dans le répertoire \~/.ssh, modifiez ou créez le fichier ssh\_config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure :
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 Vous pouvez exécuter les commandes Intel MPI suivantes pour vérifier la configuration du cluster à l'aide d'un test d’évaluation pingpong.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel avec deux nœuds :
@@ -341,4 +339,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-fr/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

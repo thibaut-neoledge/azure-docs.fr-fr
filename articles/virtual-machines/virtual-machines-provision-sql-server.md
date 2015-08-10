@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Configuration d'une machine virtuelle SQL Server sur Azure #
@@ -143,7 +143,7 @@ Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un
 
 3. Dans la boîte de dialogue de l’**Assistant Nouvelle règle de trafic entrant**, sous **Type de règle**, sélectionnez **Port**, puis cliquez sur **Suivant**.
 
-4. Dans la boîte de dialogue **Protocole et ports**, utilisez le paramètre par défaut **TCP**. Dans la boîte de dialogue **Ports locaux spécifiques**, entrez le numéro de port de l’instance du moteur de base de données (**1433** pour l’instance par défaut, ou le numéro que vous avez choisi pour le port privé à l’étape du point de terminaison).
+4. Dans la boîte de dialogue **Protocole et ports**, utilisez le paramètre par défaut **TCP**. Dans la boîte de dialogue **Ports locaux spécifiques**, entrez le numéro de port de l’instance du moteur de base de données (\*\*1433\*\* pour l’instance par défaut, ou le numéro que vous avez choisi pour le port privé à l’étape du point de terminaison).
 
 	![Port TCP 1433][Image14]
 
@@ -180,7 +180,7 @@ Le cas échéant, ouvrez des ports supplémentaires pour les autres composants. 
 
 	![Activer TCP][Image10]
 
-5. Dans le volet de la console, cliquez sur **Services SQL Server** Dans le volet d’informations, cliquez avec le bouton droit sur **SQL Server (_nom de l’instance_)** (l’instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
+5. Dans le volet de la console, cliquez sur **Services SQL Server** Dans le volet d’informations, cliquez avec le bouton droit sur **SQL Server (\_nom de l’instance\_)** (l’instance par défaut est **SQL Server (MSSQLSERVER)**), puis cliquez sur **Redémarrer** pour arrêter et redémarrer l’instance de SQL Server.
 
 	![Redémarrer le moteur de base de données][Image11]
 
@@ -200,7 +200,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
 	Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l’environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_your_VM_name_\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
+2. Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez **_your\_VM\_name_\\your\_local\_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
 	![Se connecter au serveur][Image19]
 
@@ -274,7 +274,7 @@ Pour vous connecter au moteur de base de données SQL Server à partir d’un au
 ### <a id="cde">Se connecter au moteur de base de données à partir d’un autre ordinateur</a>
  
 1. Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
-2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé pendant la tâche précédente) et le numéro d’un port de point de terminaison public au format *NomDNS,NuméroPort*, par exemple **tutorialtestVM.cloudapp.net,57500**. Pour obtenir le numéro de port, connectez-vous au portail de gestion Azure et cherchez la machine virtuelle. Dans le tableau de bord, cliquez sur **POINTS DE TERMINAISON** et utilisez le **PORT PUBLIC** affecté à **MSSQL**. ![Port public][Image36]
+2. Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone \*\*Nom du serveur\*\*, entrez le nom DNS de la machine virtuelle (déterminé pendant la tâche précédente) et le numéro d’un port de point de terminaison public au format *NomDNS,NuméroPort*, par exemple **tutorialtestVM.cloudapp.net,57500**. Pour obtenir le numéro de port, connectez-vous au portail de gestion Azure et cherchez la machine virtuelle. Dans le tableau de bord, cliquez sur **POINTS DE TERMINAISON** et utilisez le **PORT PUBLIC** affecté à **MSSQL**. ![Port public][Image36]
 3. Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 5. Dans la zone **Connexion**, entrez le nom d'une connexion créée lors d'une tâche précédente.
 6. Dans la zone **Mot de passe**, entrez le mot de passe de connexion que vous avez créé lors d'une tâche précédente.
@@ -291,7 +291,9 @@ Si vous pouvez vous connecter à une instance de SQL Server exécutée sur une m
 Pour plus d'informations, consultez la page [Résolution des problèmes de connexion au moteur de base de données SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 ##<a id="Optional">Étapes suivantes</a>
-Vous avez vu comment créer et configurer une instance de SQL Server sur une machine virtuelle Azure en utilisant une image de plateforme. Lorsque vous utilisez SQL Server dans des machines virtuelles Azure, nous vous recommandons de suivre les informations d'utilisation fournies dans la documentation [SQL Server dans des machines virtuelles Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) de la bibliothèque Azure. Cet ensemble de documentation inclut une série d'articles et de didacticiels fournissant des informations d'utilisation détaillées. Cette série inclut les sections suivantes :
+Vous avez vu comment créer et configurer une instance de SQL Server sur une machine virtuelle Azure en utilisant une image de plateforme. Dans de nombreux cas, l’étape suivante consiste à migrer vos bases de données vers cette nouvelle machine virtuelle SQL Server. Pour obtenir de l’aide sur la migration des bases de données, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-migrate-onpremises-database.md).
+
+En plus de ces ressources, nous vous recommandons de suivre l’aide détaillée fournie dans la documentation [SQL Server dans des machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) de la bibliothèque Azure. Cet ensemble de documentation inclut une série d'articles et de didacticiels fournissant des informations d'utilisation détaillées. Cette série inclut les sections suivantes :
 
 [SQL Server dans des machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -319,11 +321,11 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 
 [Business Intelligence de SQL Server dans les machines virtuelles Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-[SQL Server Data Warehousing dans des machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[Entreposage de données et charges de travail transactionnelles de SQL Server dans des machines virtuelles Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Articles techniques relatifs aux performances de SQL Server sur les machines virtuelles Azure](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
-- [Livre blanc : Présentation de Base de données SQL Azure et de SQL Server dans les machines virtuelles Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
+- [Livre blanc : Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Livre blanc : Modèles d’application et stratégies de développement pour SQL Server dans Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
@@ -362,4 +364,4 @@ Vous avez vu comment créer et configurer une instance de SQL Server sur une mac
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

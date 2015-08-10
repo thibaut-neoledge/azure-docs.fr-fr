@@ -160,7 +160,7 @@ Si votre page web inclut des fichiers de script à partir de réseaux de distrib
 
 Pour les formulaires web, le module HTTP pourra collecter les exceptions si aucune redirection n’est configurée avec CustomErrors.
 
-Mais si vous avez des redirections actives, ajoutez les lignes suivantes à la fonction Application_Error dans Global.asax.cs. (Ajouter un fichier Global.asax si vous n'en avez pas déjà).
+Mais si vous avez des redirections actives, ajoutez les lignes suivantes à la fonction Application\_Error dans Global.asax.cs. (Ajouter un fichier Global.asax si vous n'en avez pas déjà).
 
 *C#*
 
@@ -441,4 +441,4 @@ Ajoutez l'attribut aux implémentations de service :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

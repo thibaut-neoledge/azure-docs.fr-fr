@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
 # Prise en main de Notification Hubs
@@ -128,9 +128,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
   	![][9]
 
-    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps_development.cer**.
+    > [AZURE.NOTE]Par défaut, le fichier téléchargé est un certificat de développement nommé **aps\_development.cer**.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 
 	Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -480,4 +480,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

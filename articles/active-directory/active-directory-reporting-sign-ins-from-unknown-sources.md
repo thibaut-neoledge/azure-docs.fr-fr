@@ -24,4 +24,4 @@
 
 ![Connexions à partir de sources inconnues](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

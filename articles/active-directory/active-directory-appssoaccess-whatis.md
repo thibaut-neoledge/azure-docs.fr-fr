@@ -78,7 +78,7 @@ Dans les deux cas, les informations d’identification sont stockées sous forme
 
 L’authentification unique avec mot de passe s’appuie sur une extension de navigateur pour récupérer de façon sécurisée les informations sur l’application et sur l’utilisateur à partir d’Azure AD et les appliquer au service. La plupart des applications SaaS tierces prises en charge par Azure AD prennent en charge cette fonctionnalité.
 
-Pour l’authentification unique avec mot de passe, le navigateur de l’utilisateur final peut être : * Internet Explorer 8, Internet Explorer 9 et Internet Explorer 10 sur Windows 7 ou version ultérieure * Chrome sur Windows 7 ou version ultérieure ou MacOS X ou version ultérieure
+Pour l’authentification unique avec mot de passe, le navigateur de l’utilisateur final peut être : \* Internet Explorer 8, Internet Explorer 9 et Internet Explorer 10 sur Windows 7 ou version ultérieure \* Chrome sur Windows 7 ou version ultérieure ou MacOS X ou version ultérieure
 
 ###Authentification unique existante
 
@@ -212,4 +212,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -86,7 +86,7 @@ Pour exposer la fonction `CustomAddRows` en tant que module Azure Machine Learni
 	</Module>
 
  
-Notez que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre exactement aux noms des paramètres de la fonction du code R (*dataset1*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre exactement au nom de la fonction dans le script R (*CustomAddRows* dans l’exemple). En revanche, l’attribut **id** des éléments **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés dans le même ordre que celui dans lequel les sorties sont déclarées dans le fichier XML.
+Notez que la valeur des attributs **id** des éléments **Input** et **Arg** dans le fichier XML doit correspondre exactement aux noms des paramètres de la fonction du code R (\*dataset1\*, *dataset2* et *swap* dans l’exemple). De même, la valeur de l’attribut **entryPoint** de l’élément **Langage** doit correspondre exactement au nom de la fonction dans le script R (\*CustomAddRows\* dans l’exemple). En revanche, l’attribut **id** des éléments **Output** ne correspond à aucune variable du script R. Lorsque plusieurs sorties sont requises, il suffit de renvoyer une liste à partir de la fonction R avec les résultats placés dans le même ordre que celui dans lequel les sorties sont déclarées dans le fichier XML.
 
 Enregistrez ces deux fichiers sous *CustomAddRows.R* et *CustomAddRows.xml*, puis compressez-les ensemble dans un fichier *CustomAddRows.zip*.
 
@@ -114,7 +114,7 @@ Dans l’élément **Module**, vous pouvez spécifier un élément **Owner**, qu
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-** Indiquant si les résultats d’un module sont déterministes ou non déterministes
+\*\* Indiquant si les résultats d’un module sont déterministes ou non déterministes
 
 Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de paramètres qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Microsoft Azure Machine Learning Studio ne réexécute pas les modules marqués comme étant déterministes, sauf si un paramètre ou les données d’entrée ont été modifiés. Les résultats mis en cache sont retournés, ce qui permet d’exécuter l’expérience plus rapidement.
 
@@ -325,7 +325,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 ### Fichiers auxiliaires
 
-Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. S’il existe une structure de répertoire, elle est conservée. Cela signifie que l’approvisionnement du fichier fonctionnera de la même façon en local et lors de l’exécution de Microsoft Azure ML.
+Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. S’il existe une structure de répertoire, elle est conservée. Cela signifie que l’approvisionnement du fichier fonctionnera de la même façon en local et lors de l’exécution de Microsoft Azure ML. Notez que tous les fichiers sont extraits vers le répertoire « src ». Tous les chemins d'accès doivent donc comporter un préfixe « src/ »
 
 Supposons que vous souhaitiez supprimer toutes les lignes présentant la mention « NA » et toutes les lignes en double dans le jeu de données avant de créer une sortie dans myAddRows, et que vous avez déjà créé une fonction R qui effectue cette opération dans un fichier, removeDupNARows.R :
 
@@ -339,7 +339,7 @@ Supposons que vous souhaitiez supprimer toutes les lignes présentant la mention
 Vous pouvez approvisionner le fichier auxiliaire RemoveDupNARows.R dans la fonction myAddRows :
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 
@@ -363,4 +363,4 @@ Les **limitations de l’environnement d’exécution** sont les suivantes :
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

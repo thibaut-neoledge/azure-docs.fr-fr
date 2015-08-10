@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)
@@ -84,9 +84,7 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 
 ### Quel stockage d’objets blob le cluster utilise-t-il ?
 
-À la création du cluster, vous pouvez choisir d’utiliser un compte Azure Storage et un conteneur existants ou d’en créer de nouveaux. Vous avez peut-être oublié cela par la suite. Vous pouvez trouver le compte de stockage et le conteneur à l’aide des méthodes suivantes.
-
-**API Ambari**
+À la création du cluster, vous pouvez choisir d’utiliser un compte Azure Storage et un conteneur existants ou d’en créer de nouveaux. Vous avez peut-être oublié cela par la suite. Vous pouvez trouver le conteneur et le compte de stockage par défaut à l’aide de l’API REST Ambari.
 
 1. Utilisez la commande suivante pour récupérer les informations de configuration HDFS :
 
@@ -110,16 +108,6 @@ HDInsight vous permet également d’associer de multiples comptes de stockage d
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Portail Azure**
-
-1. Ouvrez le [portail Azure](https://manage.windowsazure.com/) et sélectionnez votre cluster HDInsight.
-
-2. Sélectionnez **Tableau de bord** en haut de la page.
-
-3. Le(s) compte(s) de stockage et le(s) conteneur(s) sont listés dans la section **Ressources liées** de la page.
-
-	![Ressources liées](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### Comment accéder au stockage d’objets blob ?
 
@@ -150,6 +138,5 @@ Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob
 * [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

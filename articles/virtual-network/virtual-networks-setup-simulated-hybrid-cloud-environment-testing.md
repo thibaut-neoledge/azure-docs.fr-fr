@@ -51,7 +51,7 @@ Si vous ne disposez pas d’un abonnement Azure, vous pouvez vous inscrire pour 
 
 Suivez les instructions de la section [Environnement de test de la configuration de base](../virtual-machines/virtual-machines-base-configuration-test-environment.md) afin de configurer les ordinateurs DC1, APP1 et CLIENT1 dans un réseau virtuel Azure nommé TestLab.
 
-Dans le portail de gestion Azure sur votre ordinateur local, connectez-vous à DC1 avec les informations d’identification CORP\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
+Dans le portail de gestion Azure sur votre ordinateur local, connectez-vous à DC1 avec les informations d’identification CORP\\User1. Pour configurer le domaine CORP afin que les utilisateurs et les ordinateurs utilisent leur contrôleur de domaine local pour l’authentification, exécutez les commandes suivantes à partir d’une invite de commandes Windows PowerShell de niveau administrateur.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -79,7 +79,7 @@ Tout d’abord, créez un réseau virtuel appelé TestVNET.
 
 Ensuite, suivez les instructions de la page [Installation et configuration d’Azure PowerShell pour installer Azure PowerShell sur votre ordinateur local](../install-configure-powershell.md).
 
-Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer **TestVNET**-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud **TestVNET-Tailspin**.
+Ensuite, créez un service cloud pour le réseau virtuel TestVNET. Vous devez choisir un nom unique. Par exemple, vous pouvez le nommer **TestVNET**-\*UniqueSequence\*, où *UniqueSequence* est l’abréviation de votre organisation. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez nommer le service cloud **TestVNET-Tailspin**.
 
 Vous pouvez vérifier si le nom est unique avec cette commande Azure PowerShell sur votre ordinateur local.
 
@@ -171,7 +171,7 @@ Ensuite, connectez-vous à la machine virtuelle DC2.
 3.	Lorsque vous êtes invité à ouvrir DC2.rdp, cliquez sur **Ouvrir**.
 4.	Lorsque le message Connexion Bureau à distance s’affiche, cliquez sur **Connecter**.
 5.	Si des informations d’identification vous sont demandées, utilisez celles-ci :
-- Nom : **DC2\**[Nom de compte d’administrateur local]
+- Nom : **DC2\\**[Nom de compte d’administrateur local]
 - Mot de passe : [Mot de passe de compte d’administrateur local]
 6.	Lorsqu’une zone de message de connexion Bureau à distance faisant référence aux certificats s’ouvre, cliquez sur **Oui**.
 
@@ -200,7 +200,7 @@ Ensuite, configurez DC2 comme contrôleur de domaine réplica pour le domaine co
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Notez que vous êtes invité à fournir le mot de passe CORP\User1 et un mot de passe du Mode restauration des Services annuaire (DSRM), puis à redémarrer DC2.
+Notez que vous êtes invité à fournir le mot de passe CORP\\User1 et un mot de passe du Mode restauration des Services annuaire (DSRM), puis à redémarrer DC2.
 
 Maintenant que le réseau virtuel TestVNET possède son propre serveur DNS (DC2), vous devez configurer le réseau virtuel TestVNET pour utiliser ce serveur DNS.
 
@@ -226,7 +226,7 @@ Vous pouvez également créer ces configurations dans cet environnement de test�
 
 [Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configuration d’une connexion de réseau virtuel à réseau virtuel](http://msdn.microsoft.com/library/azure/dn690122.aspx)
+[Configuration d’une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 [Environnement de test de la configuration de base](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
 
@@ -236,7 +236,7 @@ Vous pouvez également créer ces configurations dans cet environnement de test�
 
 ## <a id="costs"></a>Réduction des coûts récurrents de cet environnement
 
-Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles dans les réseaux virtuels TestLab et Test_VNET à la fin de chaque journée de travail. Pour plus d’informations, voir l’article [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md). Lorsque vous redémarrez les machines virtuelles sur le sous-réseau du réseau d’entreprise, commencez par DC1.
+Afin de réduire les coûts d’exécution des machines virtuelles dans cet environnement, effectuez les tests et démonstrations nécessaires aussi rapidement que possible et supprimez ou arrêtez les machines virtuelles lorsque vous ne les utilisez pas. Par exemple, vous pouvez utiliser Azure Automation et un runbook pour arrêter automatiquement les machines virtuelles dans les réseaux virtuels TestLab et Test\_VNET à la fin de chaque journée de travail. Pour plus d’informations, voir l’article [Prise en main d’Azure Automation](../automation-create-runbook-from-samples.md). Lorsque vous redémarrez les machines virtuelles sur le sous-réseau du réseau d’entreprise, commencez par DC1.
 
 La passerelle VPN Azure est implémentée comme un ensemble de deux machines virtuelles qui entraînent des frais récurrents. Pour plus d’informations, voir la page [Virtual Network - Tarification](http://azure.microsoft.com/pricing/details/virtual-network/). Pour réduire les coûts des deux passerelles VPN (une pour TestLab et l’autre pour TestVNET), créez l’environnement de test et exécutez vos tests et démonstrations aussi rapidement que possible ou supprimez les passerelles en suivant ces étapes.
  
@@ -273,4 +273,4 @@ Ensuite, vous configurez la clé prépartagée pour que les deux passerelles uti
 Ensuite, dans la page Réseau du portail de gestion Azure, cliquez sur le réseau virtuel **TestLab**, puis cliquez sur **Connexion** dans la barre des tâches. Attendez que le réseau virtuel TestLab soit connecté au réseau local TestVNET.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -61,7 +61,7 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
     -   Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
     -   Lisez et acceptez les informations de tarification.
 
-6.	Dans la section **POINTS DE TERMINAISON**, cliquez dans la liste déroulante vide sous **NOM**, sélectionnez **MSSQL**, puis tapez le numéro de port de l’instance du moteur de base de données (**1433** pour l’instance par défaut).
+6.	Dans la section **POINTS DE TERMINAISON**, cliquez dans la liste déroulante vide sous **NOM**, sélectionnez **MSSQL**, puis tapez le numéro de port de l’instance du moteur de base de données (\*\*1433\*\* pour l’instance par défaut).
 
 7.  Votre machine virtuelle SQL Server peut également faire office de serveur Notebook IPython, que nous configurerons ultérieurement. Ajoutez un point de terminaison pour spécifier le port à utiliser pour votre serveur Notebook IPython. Entrez un nom dans la colonne **NOM**, puis sélectionnez le numéro de port de votre choix pour le port public et le numéro 9999 pour le port privé.
 
@@ -137,7 +137,7 @@ Le moteur de base de données de SQL Server ne peut pas utiliser l’authentific
 
     Lorsque vous ouvrez Management Studio pour la première fois, il doit créer l’environnement Management Studio pour les utilisateurs. Cette opération peut prendre du temps.
 
-2.  Lorsque vous l’ouvrez, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez ***your_VM_name*\your_local_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
+2.  Lorsque vous l’ouvrez, Management Studio affiche la boîte de dialogue **Se connecter au serveur**. Dans la zone **Nom du serveur**, entrez le nom de la machine virtuelle à connecter au moteur de base de données avec Object Explorer (au lieu d'entrer le nom de la machine virtuelle, vous pouvez également utiliser **(local)** ou un simple point pour le **nom du serveur**). Sélectionnez **Authentification Windows** et laissez ***your\_VM\_name*\\your\_local\_administrator** dans la zone **Nom d'utilisateur**. Cliquez sur **Connecter**.
 
     ![Se connecter au serveur][6]
 
@@ -231,7 +231,7 @@ Pour vous connecter au moteur de base de données SQL Server à partir d’un au
 
 1.  Sur un ordinateur connecté à Internet, ouvrez SQL Server Management Studio.
 
-2.  Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé durant la tâche précédente), ainsi qu'un numéro de port de point de terminaison public au format *NomDNS,numéro_port* tel que **tutorialtestVM.cloudapp.net,57500**.
+2.  Dans la boîte de dialogue **Se connecter au serveur** ou **Se connecter au moteur de base de données**, dans la zone **Nom du serveur**, entrez le nom DNS de la machine virtuelle (déterminé durant la tâche précédente), ainsi qu'un numéro de port de point de terminaison public au format *NomDNS,numéro\_port* tel que **tutorialtestVM.cloudapp.net,57500**.
 
 3.  Dans la zone **Authentification**, sélectionnez **Authentification SQL Server**.
 
@@ -298,4 +298,4 @@ Les étapes suivantes du traitement de données avancé dans Azure sont présent
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

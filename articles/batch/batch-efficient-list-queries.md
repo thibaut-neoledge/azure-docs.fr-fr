@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Requêtes de liste efficaces" 
-	description="Découvrez comment réduire le nombre d'éléments retournés dans une liste ainsi que la quantité d'informations retournées pour chaque élément" 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Requêtes de liste efficaces"
+	description="Découvrez comment réduire le nombre d'éléments retournés dans une liste ainsi que la quantité d'informations retournées pour chaque élément"
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Requêtes de liste efficaces
@@ -80,4 +81,4 @@ Le nombre d'appels d'API peut être réduit avec une chaîne complète. Vous pou
 
 > [AZURE.NOTE]Il est recommandé de toujours utiliser le filtre et les clauses select pour vos appels d'API de liste pour garantir une efficacité maximale et les meilleures performances pour votre application.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

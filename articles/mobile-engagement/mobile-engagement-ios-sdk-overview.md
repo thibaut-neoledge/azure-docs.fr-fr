@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
@@ -32,7 +32,7 @@ Cliquez pour voir le [contenu du Kit de développement logiciel (SDK)](mobile-en
 
 ##Notes de publication
 
-###2.2.0 (21/05/2015)
+###2\.2.0 (21/05/2015)
 
 -   L’ID d’appareil Mobile Engagement pour les appareils iOS version 6 et inférieure est désormais basé sur un GUID généré au moment de l’installation.
 
@@ -50,4 +50,4 @@ Pour chaque nouvelle version du Kit de développement logiciel, vous devez d'abo
 Aucun.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

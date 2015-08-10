@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Erreur lors de la détection de l’authentification
 
 L'Assistant a trouvé un type d'authentification incompatible lors de l'opération de détection du code d'authentification précédent.
 
-###Quel est l’objet de la vérification ?
+##Quel est l’objet de la vérification ?
 
 **Remarque :** afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré. Si vous avez rencontré cette erreur et que vous n’avez pas de code d’authentification précédent dans votre projet, régénérez et réessayez.
 
-####Types de projet
+###Types de projet
 
 L’Assistant vérifie le type de projet que vous développez afin d’injecter la logique d’authentification appropriée au projet. S’il existe un contrôleur qui dérive de `ApiController` dans le projet, celui-ci est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, celui-ci est considéré comme un projet MVC. Tout autre élément est considéré comme non pris en charge par l’Assistant. Les projets WebForms ne sont pas pris en charge actuellement.
 
-#####Code d’authentification compatible
+###Code d’authentification compatible
 
 L’Assistant vérifie également les paramètres d’authentification qui ont été précédemment configurés ou sont compatibles avec celui-ci. Si tous les paramètres sont présents, il est considéré comme réentrant et l’Assistant s’ouvre et affiche les paramètres. Si seuls certains paramètres sont présents, il est considéré comme une erreur.
 
@@ -45,7 +45,7 @@ En outre, l'Assistant vérifie les paramètres suivants dans un projet d'API web
 	<add key="ida:Tenant" value="" />
 	<add key="ida:Audience" value="" />
 
-#####Code d’authentification incompatible
+###Code d’authentification incompatible
 
 Pour terminer, l’Assistant détecte l’utilisation éventuelle de versions du code d’authentification configurées avec des versions antérieures de Visual Studio. Si cette erreur s’affiche, cela signifie que votre projet comporte un type d’authentification incompatible. L'Assistant détecte les types d'authentification suivants, provenant de versions antérieures de Visual Studio :
 
@@ -97,4 +97,4 @@ Pour modifier le type d’authentification, supprimez le type d’authentificati
 Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Azure Service Bus
@@ -25,7 +25,7 @@ Que l’application ou le service s’exécute dans le cloud ou localement, il e
 
 Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. La figure 1 illustre ce concept.
 
-![Schéma d’Azure Service Bus][svc-bus]
+![][1]
  
 **Figure 1 : Service Bus est un service mutualisé permettant la connexion d’applications via le cloud.**
 
@@ -42,12 +42,11 @@ Pour utiliser ces objets, les applications Windows peuvent utiliser Windows Comm
 
 Il est important de comprendre que même si Service Bus fonctionne dans le cloud (c'est-à-dire dans les centres de données Microsoft Azure), les applications qui y ont recours peuvent s'exécuter n'importe où. Vous pouvez utiliser Service Bus pour connecter des applications qui s’exécutent sous Azure, par exemple, ou des applications qui s’exécutent dans votre centre de données. Vous pouvez également l’utiliser pour connecter une application qui s’exécute sous Azure ou une autre plateforme cloud avec une application locale ou avec des tablettes et des téléphones. Il est également possible de connecter des appareils électroménagers, des capteurs ou d’autres appareils à une application centrale ou bien de les connecter entre eux. Service Bus est un mécanisme de communication générique dans le cloud, accessible quasiment partout. La façon dont vous l’utilisez dépend des besoins de vos applications.
 
-
 ## Files d’attente
 
 Supposons que vous décidiez de connecter deux applications à l'aide d'une file d'attente Service Bus. La figure 2 illustre cette situation.
 
-![Schéma des files d’attente Service Bus][queues]
+![][2]
  
 **Figure 2 : les files d’attente Service Bus offrent un système de files d’attente unidirectionnelles asynchrones.**
 
@@ -67,12 +66,11 @@ Notez ce qui peut se produire ici : le même message risque d’être remis deu
 
 Les files d’attente sont utiles dans de nombreuses situations. Elles laissent les applications communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
 
-
 ## Rubriques
 
 Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne solution. Parfois, les rubriques Service Bus sont plus utiles. La figure 3 illustre cette idée.
 
-![Schéma des rubriques et abonnements Service Bus][topics-subs]
+![][3]
  
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
@@ -84,12 +82,11 @@ Les rubriques sont assez similaires aux files d'attente. Les expéditeurs envoie
 
 Comme pour les files d'attente, les abonnés d'une rubrique peuvent lire les messages via ReceiveAndDelete ou PeekLock. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, appelée *publication et abonnement*, est utile lorsque plusieurs applications peuvent être intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
-
 ## Relais
 
 Les files d'attente et les rubriques permettent la communication asynchrone unidirectionnelle par le biais d'un intermédiaire. Le trafic circule dans une seule direction, et il n’y a pas de connexion directe entre expéditeur et destinataire. Mais que faire si vous ne voulez pas de cette situation ? Supposons que vos applications doivent aussi bien envoyer que recevoir des messages, ou bien que vous souhaitiez disposer d’une liaison directe entre elles et que vous n’avez pas besoin d’un intermédiaire pour stocker les messages. Pour ce genre de scénarios, Service Bus fournit des relais, comme illustré dans la figure 4.
 
-![Schéma du relais Service Bus][relay]
+![][4]
  
 **Figure 4 : le relais Service Bus permet la communication bidirectionnelle synchrone entre applications.**
 
@@ -128,4 +125,9 @@ Maintenant que vous avez appris les principes de base d’Azure Service Bus, con
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
 
-<!---HONumber=July15_HO4-->
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+
+<!---HONumber=July15_HO5-->

@@ -76,4 +76,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

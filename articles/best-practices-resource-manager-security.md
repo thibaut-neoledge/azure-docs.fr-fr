@@ -3,7 +3,7 @@
 	description="Montre les approches recommandées dans Azure Resource Manager pour la sécurisation des ressources avec des clés et des secrets, l’accès basé sur les rôles, contrôlent et les groupes de sécurité du réseau."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
+	authors="george-moore"
 	manager="georgem"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
-	ms.author="mmercuri"/>
+	ms.date="07/24/2015"
+	ms.author="georgem"/>
 
 
 # Questions de sécurité relatives à Azure Resource Manager
@@ -33,7 +33,7 @@ Les fonctions Azure Virtual Machines, Azure Resource Manager et Azure Key Vault 
       - modèles pour déployer les clés 
       - modèles servant à déployer une machine virtuelle avec des références aux clés 
       - les documents clés réels dans le coffre. Chaque modèle (et action) peut se trouver sous différents rôles RBAC pour une séparation complète des tâches.
-- Le chargement des secrets dans une machine virtuelle au moment du déploiement s’effectue via un canal direct entre Azure Fabric et le coffre de clés, dans les limites du centre de Microsoft Datacenter. Une fois les clés placées dans le coffre de clés, elles ne sont jamais « visibles » sur un canal non approuvé hors du centre de données.  
+- Le chargement des secrets dans une machine virtuelle au moment du déploiement s’effectue via un canal direct entre Azure Fabric et le coffre de clés, dans les limites du centre de données Microsoft Datacenter. Une fois les clés placées dans le coffre de clés, elles ne sont jamais « visibles » sur un canal non approuvé hors du centre de données.  
 - Les coffres de clés ont toujours un caractère régional et les secrets disposent toujours d’une localité (et de la souveraineté) auprès des machines virtuelles. Il n’existe pas de coffre de clés global.
 
 ### Séparation des clés à partir des déploiements
@@ -147,7 +147,7 @@ Le fragment de modèle ci-dessous serait inclus dans des constructions de déplo
 
 ## Principaux de service pour les interactions inter abonnements
 
-les identités de service sont représentées sous forme de principaux du service dans Active Directory. Les principaux de service seront au centre de scénarios de clés pour les organisations informatiques, les intégrateurs système et les fournisseurs de services de Cloud. Dans certains cas particuliers, ces organisations devront interagir avec l’abonnement d’un de leurs clients.
+les identités de service sont représentées sous forme de principaux du service dans Active Directory. Les principaux de service seront au centre de scénarios de clés pour les organisations informatiques, les intégrateurs système (SI) et les fournisseurs de services de Cloud (CSV). Dans certains cas particuliers, ces organisations devront interagir avec l’abonnement d’un de leurs clients.
 
 Votre organisation peut fournir une offre qui servant à gérer une solution déployée dans l’environnement et l’abonnement de vos clients. Dans ce cas, vous devrez accéder aux journaux et à d’autres données du compte de clients afin que vous puissiez l’utiliser dans votre solution d’analyse. Si vous êtes une organisation d’entreprise informatique, un intégrateur de systèmes, vous pouvez proposer à votre client une offre où vous allez déployer et gérer pour lui une fonctionnalité, par exemple, une plate-forme d’analyse de données où l’offre réside dans l’abonnement du client.
 
@@ -186,19 +186,19 @@ Une règle spécifie les éléments suivants :
 
 -	Nom : un identificateur unique pour la règle
 -	Type : entrant et sortant
--	Priorité : un entier compris entre 100 et 4096.
+-	Priorité : entier compris entre 100 et 4 096 (règles traitées de faible à élevée)
 -	Adresse IP source : CIDR de plage d’IP source
 -	Plage de ports source : entier ou plage comprise entre 0 et 65536
 -	Plage d’adresses IP de destination : CIDR de la plage d’adresses IP de destination
 -	Plage de Port de destination : un entier ou une plage comprise entre 0 et 65536
--	Protocole : TCP, UDP ou « * »
+-	Protocole : TCP, UDP ou « \* »
 -	Accès : Autoriser/Refuser
 
 ### Règles par défaut
 
 Un groupe de sécurité réseau contient des règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. Les règles par défaut décrivent les paramètres par défaut recommandés par la plateforme. Comme illustré par les règles par défaut ci-dessous, le trafic d’origine et de fin d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
 
-Tandis que la connectivité à Internet est autorisée pour la direction sortante, elle est bloquée par défaut pour la direction entrante. Une règle par défaut permet à l’équilibrage de charge Azure de tester l’intégrité d’un ordinateur virtuel. Vous pouvez remplacer cette règle si la machine virtuelle ou l'ensemble de machines virtuelles sous le groupe de sécurité réseau n'est pas inclus dans le jeu d'équilibrage de charge.
+La connectivité à Internet est autorisée dans la direction sortante, mais elle est bloquée par défaut dans la direction entrante. Une règle par défaut permet à l’équilibrage de charge Azure de tester l’intégrité d’un ordinateur virtuel. Vous pouvez remplacer cette règle si la machine virtuelle ou l'ensemble de machines virtuelles sous le groupe de sécurité réseau n'est pas inclus dans le jeu d'équilibrage de charge.
 
 Les règles par défaut sont indiquées dans les tableaux ci-dessous.
 
@@ -206,17 +206,17 @@ Les règles par défaut sont indiquées dans les tableaux ci-dessous.
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL_NETWORK |	* |	VIRTUAL_NETWORK | * |	* | AUTORISER
-AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE_LOADBALANCER | * | * | * | * | AUTORISER
-REFUSER TOUT TRAFIC ENTRANT | 65 500 | * | * | * | * | * | REFUSER
+AUTORISER LE TRAFIC ENTRANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK |	\* |	VIRTUAL\_NETWORK | \* |	\* | AUTORISER
+AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBRAGE DE CHARGE AZURE | 65 001 | AZURE\_LOADBALANCER | \* | \* | \* | \* | AUTORISER
+REFUSER TOUT TRAFIC ENTRANT | 65 500 | \* | \* | \* | \* | \* | REFUSER
 
 **Les règles sortantes par défaut sont :**
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | AUTORISER
-AUTORISER LE TRAFIC SORTANT D’INTERNET | 65 001 | * | * | INTERNET | * | * | AUTORISER
-REFUSER TOUT TRAFIC SORTANT | 65 500 | * | * | * | * | * | REFUSER
+AUTORISER LE TRAFIC SORTANT DU RÉSEAU VIRTUEL | 65 000 | VIRTUAL\_NETWORK | \* | VIRTUAL\_NETWORK | \* | \* | AUTORISER
+AUTORISER LE TRAFIC SORTANT D’INTERNET | 65 001 | \* | \* | INTERNET | \* | \* | AUTORISER
+REFUSER TOUT TRAFIC SORTANT | 65 500 | \* | \* | \* | \* | \* | REFUSER
 
 ### Règles d’infrastructure spéciales
 
@@ -233,17 +233,17 @@ Les balises par défaut sont des identificateurs fournis par le système pour ad
 
 Balise |	Description
 --- | ---
-VIRTUAL_NETWORK |	Désigne tous les espaces d’adressage de votre réseau. Il inclut l'espace d'adressage du réseau virtuel (IP CIDR dans Azure), ainsi que tout espace d'adressage local connecté (réseaux locaux). Cela inclut également des espaces d’adressage réseau virtuel - réseau virtuel.
-AZURE_LOADBALANCER | Désigne l’équilibrage de charge de l’infrastructure Azure et convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure. Cela est nécessaire uniquement si la machine virtuelle ou un ensemble de machines virtuelles associées au groupe de sécurité réseau fait partie d'un jeu d'équilibrage de charge.
+VIRTUAL\_NETWORK |	Désigne tous les espaces d’adressage de votre réseau. Il inclut l'espace d'adressage du réseau virtuel (IP CIDR dans Azure), ainsi que tout espace d'adressage local connecté (réseaux locaux). Cela inclut également des espaces d’adressage réseau virtuel - réseau virtuel.
+AZURE\_LOADBALANCER | Désigne l’équilibrage de charge de l’infrastructure Azure et convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure. Cela est nécessaire uniquement si la machine virtuelle ou un ensemble de machines virtuelles associées au groupe de sécurité réseau fait partie d'un jeu d'équilibrage de charge.
 INTERNET | Cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. Cette plage inclut espace IP public d’Azure.
 
 ### Ports et plages de ports
 
-Les règles de groupe de sécurité réseau peuvent être spécifiées sur un port source ou un port de destination unique, ou sur une plage de ports. Cette approche est particulièrement utile lorsque vous souhaitez ouvrir une grande plage de ports pour une application telle que FTP. La plage doit uniquement être séquentielle et ne peut pas être combinée avec la spécification d’un port individuel. Pour spécifier une plage de ports, utilisez le caractère trait d’union (\ –). Par exemple, **100-500**.
+Les règles de groupe de sécurité réseau peuvent être spécifiées sur un port source ou un port de destination unique, ou sur une plage de ports. Cette approche est particulièrement utile lorsque vous souhaitez ouvrir une grande plage de ports pour une application telle que FTP. La plage doit uniquement être séquentielle et ne peut pas être combinée avec la spécification d’un port individuel. Pour spécifier une plage de ports, utilisez le caractère trait d’union ( –). Par exemple, **100-500**.
 
 ### Trafic ICMP
 
-Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « * » dans le réseau virtuel.
+Grâce aux règles NSG actuelles, vous pouvez spécifier les protocoles TCP ou UDP, mais pas ICMP. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quels port et protocole « \* » dans le réseau virtuel.
 
 ### Association d’un groupe de sécurité réseau à une machine virtuelle
 
@@ -267,7 +267,7 @@ Par exemple, vous pouvez créer une nouvelle machine virtuelle et un nouveau NSG
 
 Nom |	Priorité |	IP Source |	Port source |	IP de destination |	Port de destination |	Protocole |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB | 100 | INTERNET | * | * | 80 | TCP | AUTORISER
+WEB | 100 | INTERNET | \* | \* | 80 | TCP | AUTORISER
 
 ## Itinéraires définis par l’utilisateur
 
@@ -281,9 +281,14 @@ Il en est de même si vous avez implémenté une appliance virtuelle NAT pour co
 
 Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itinéraires définie sur chaque nœud du réseau physique. Une table d’itinéraires est une collection d’itinéraires individuels permettant de déterminer où transférer les paquets en fonction de l’adresse IP de destination. Un itinéraire se compose des éléments suivants :
 
--	Préfixe d’adresse. CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16.
--	Type de tronçon suivant. Type de tronçon Azure vers lequel le paquet doit être envoyé. Les valeurs possibles sont les suivantes : - Local. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon Local. Passerelle VPN. Représente une passerelle VPN Azure S2S - Internet. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure - Appliance virtuelle. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés.
--	Valeur de tronçon suivant. La valeur de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*.
+- Préfixe d’adresse. CIDR de destination auquel s’applique l’itinéraire, par exemple 10.1.0.0/16.
+- Type de tronçon suivant. Type de tronçon Azure vers lequel le paquet doit être envoyé. Les valeurs possibles sont les suivantes :
+  - Local. Représente le réseau virtuel local. Par exemple, si vous avez deux sous-réseaux, 10.1.0.0/16 et 10.2.0.0/16 qui sont situés dans le même réseau virtuel, l’itinéraire de chaque sous-réseau de la table d’itinéraires a la valeur de tronçon suivant Local.
+  - Passerelle VPN Représente une passerelle VPN de site à site Azure.
+  - Internet. Représente la passerelle Internet par défaut fournie par l’infrastructure Azure
+  - Appliance virtuelle. Représente une appliance virtuelle que vous avez ajoutée à votre réseau virtuel Azure.
+  - NULL. Représente un trou noir. Les paquets transmis à un trou noir ne sont pas du tout transférés.
+-	Valeur de tronçon suivant. La valeur de tronçon suivant contient l’adresse IP vers laquelle les paquets doivent être transférés. Les valeurs de tronçon suivant sont autorisées uniquement dans les itinéraires où le type de tronçon suivant est *Appliance virtuelle*. Le saut suivant doit avoir lieu sur le sous-réseau (l’interface locale de l’appliance virtuelle selon l’ID de réseau), et non sur un sous-réseau distant. 
 
 ![Routage](./media/best-practices-resource-manager-security/routing.png)
 
@@ -291,13 +296,13 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
 
 Chaque sous-réseau créé dans un réseau virtuel est automatiquement associé à une table de routage qui comporte les règles suivantes d’itinéraires par défaut :
 
-- Règle locale Vnet : cette règle est automatiquement créée pour chaque sous-réseau d’un réseau virtuel. Elle indique qu’il existe un lien direct entre les machines virtuelles et le réseau virtuel, et qu’aucun tronçon intermédiaire suivant n’est à signaler.
+- Règle locale Vnet : cette règle est automatiquement créée pour chaque sous-réseau d’un réseau virtuel. Elle indique qu’il existe un lien direct entre les machines virtuelles et le réseau virtuel, et qu’aucun tronçon intermédiaire suivant n’est à signaler. Cela permet aux machines virtuelles situées sur le même sous-réseau, quel que soit l’ID du réseau dans lequel elles existent, de communiquer entre elles sans recourir à une adresse de passerelle par défaut.
 - Règle locale : cette règle s’applique à tout le trafic destiné à la plage d’adresses locales et utilise une passerelle VPN en tant que tronçon suivant de destination.
 - Règle Internet : cette règle traite l’ensemble du trafic destiné à l’Internet public et utilise la passerelle Internet d’infrastructure en tant que tronçon suivant pour l’ensemble du trafic destiné au réseau Internet.
 
 ### Itinéraires BGP
 
-Au moment de l’écriture, ExpressRoute n’est pas encore pris en charge par le fournisseur de ressources réseau ARM. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](expressroute-information.md)
+Au moment de cette écriture, [ExpressRoute](expressroute/expressroute-introduction.md) n’est pas encore pris en charge par le [fournisseur de ressource réseau](virtual-network/resource-groups-networking.md) d’Azure Resource Manager. Si vous disposez d’une connexion ExpressRoute entre votre réseau local et Azure, vous pouvez activer BGP pour propager les itinéraires de votre réseau local vers Azure une fois qu’ExpressRoute est pris en charge dans NRP. Ces itinéraires BGP sont utilisés de la même façon que les itinéraires par défaut et les itinéraires définis par l’utilisateur dans chaque sous-réseau Azure. Pour plus d’informations, consultez la page [Présentation d’ExpressRoute](expressroute/expressroute-introduction.md)
 
 >[AZURE.NOTE]Une fois ExpressRoute pris en charge sur NRP, vous pouvez configurer votre environnement Azure de manière à ce qu’il utilise le tunneling forcé via votre réseau local en créant un itinéraire défini par l’utilisateur pour le sous-réseau 0.0.0.0/0 qui utilise la passerelle VPN comme tronçon suivant. Toutefois, cela ne fonctionne que si vous utilisez une passerelle VPN, et non ExpressRoute. Pour ExpressRoute, le tunneling forcé est configuré via BGP.
 
@@ -310,7 +315,7 @@ Vous ne pouvez pas afficher les itinéraires par défaut spécifiés ci-dessus d
 
 Dans les scénarios ci-dessus, vous devez créer une table d’itinéraires et lui ajouter des itinéraires définis par l’utilisateur. Vous pouvez avoir plusieurs tables d’itinéraires et celles-ci peuvent être associées à un ou plusieurs sous-réseaux. Chaque sous-réseau ne peut être associé qu’à une seule table d’itinéraires. L’ensemble des machines virtuelles et services cloud d’un sous-réseau utilisent la table d’itinéraires associée à ce sous-réseau.
 
-Les sous-réseaux s’appuient sur les itinéraires par défaut jusqu’à ce qu’une table d’itinéraires soit associée au sous-réseau. Une fois que l’association existe, le routage se base sur la correspondance de préfixe la plus longue parmi les itinéraires définis par l’utilisateur et les itinéraires par défaut. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
+Les sous-réseaux s’appuient sur les itinéraires par défaut jusqu’à ce qu’une table d’itinéraires soit associée au sous-réseau. Une fois que l’association existe, le routage se base sur la correspondance de [préfixe la plus longue](https://en.wikipedia.org/wiki/Longest_prefix_match) parmi les itinéraires définis par l’utilisateur et les itinéraires par défaut. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
 
 1.	Itinéraire défini par l’utilisateur
 2.	Itinéraire BGP (lorsque ExpressRoute est utilisé)
@@ -327,5 +332,7 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 ## Étapes suivantes
 - Pour comprendre comment définir les principaux de sécurité avec l’accès approprié pour travailler avec des ressources de votre organisation, consultez la section [Authentification d’un Principal de Service avec Azure Resource Manager](resource-group-authenticate-service-principal.md)
 - Si vous devez verrouiller l’accès à une ressource, vous pouvez utiliser des verrous de gestion. Voir [Verrouiller les ressources avec Azure Resource Manager](resource-group-lock-resources.md)
+- Pour configurer le routage et le transfert IP pour une machine virtuelle dans Microsoft Azure, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Pour obtenir une présentation du contrôle d’accès basé sur les rôles, consultez [Contrôle d’accès basé sur les rôles dans le portail Microsoft Azure](role-based-access-control-configure.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

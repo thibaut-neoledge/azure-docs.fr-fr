@@ -3,7 +3,7 @@
    description="Vue d’ensemble de multiVIP et définition de plusieurs adresses IP virtuelles sur un service cloud"
    services="load-balancer"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2015"
-   ms.author="telmos" />
+   ms.date="07/23/2015"
+   ms.author="joaoma" />
 
 # Plusieurs adresses IP virtuelles par service cloud
 Vous pouvez accéder aux services cloud Azure via Internet à l’aide d’une adresse IP fournie par Azure. Cette adresse IP publique est appelée adresse IP virtuelle, car elle est liée à l’équilibrage de charge Azure et non aux instances de la machine virtuelle dans le service cloud. Vous pouvez accéder à une instance de machine virtuelle dans un service cloud à l’aide d’une adresse IP virtuelle unique.
@@ -38,7 +38,6 @@ Vous pouvez utiliser PowerShell pour vérifier les adresses IP virtuelles utilis
 
 - **IaaS uniquement**. Vous ne pouvez activer les adresses IP virtuelles multiples que pour les services cloud qui contiennent des machines virtuelles. Vous ne pouvez pas utiliser les adresses IP virtuelles multiples dans les scénarios PaaS avec des instances de rôle.
 - **PowerShell uniquement**. Vous pouvez gérer les adresses IP virtuelles multiples uniquement à l'aide de PowerShell.
-- **Aucune prise en charge ARM**. Il n'existe aucune prise en charge des adresses IP virtuelles multiples dans Azure Resource Manager.
 
 >[AZURE.IMPORTANT]Ces limitations sont temporaires et peuvent changer à tout moment. N'oubliez pas de revenir sur cette page pour consulter les modifications.
 
@@ -156,4 +155,4 @@ Vous pouvez également mettre à jour votre équilibrage de charge pour utiliser
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

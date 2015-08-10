@@ -179,8 +179,13 @@ Vous voyez ce qui doit être exporté. Si vous voulez modifier la plage des donn
 
 *Pour le moment, Excel est uniquement compatible avec Internet Explorer et Chrome. Nous travaillons sur l’ajout de la prise en charge d’autres navigateurs.*
 
+### Exportation continue
+
 Si vous souhaitez mettre en place une exportation continue des données pour les traiter en externe, envisagez d’utiliser l’[Exportation continue](app-insights-export-telemetry.md).
 
+### Power BI
+
+Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [exporter vers Power BI](app-insights-export-power-bi.md).
 
 ## Étapes suivantes
 
@@ -196,4 +201,4 @@ Si vous souhaitez mettre en place une exportation continue des données pour les
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

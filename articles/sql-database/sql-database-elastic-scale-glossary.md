@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#Glossaire des outils de base de données élastique
+# Glossaire des outils de base de données élastique
 Les termes suivants sont définis pour les outils de base de données élastique, une fonction de Base de données SQL Azure. Les outils incluent la bibliothèque cliente, l’outil de fusion et de fractionnement, les pools élastiques et les requêtes.
 
 ![Termes liés ç l’infrastructure flexible][1]
@@ -80,4 +80,4 @@ Les termes suivants sont définis pour les outils de base de données élastique
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

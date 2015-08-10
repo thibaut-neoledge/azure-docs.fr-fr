@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Création d’un équilibrage de charge à l’aide d’Azure Resource Manager | Microsoft Azure"
+   pageTitle="Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager | Microsoft Azure"
    description="Création de règles d’équilibrage de charge, de règles NAT et d’une sonde pour Azure Resource Manager. Présentation étape par étape de la procédure complète pour créer une ressource d’équilibrage de charge."
    services="load-balancer"
    documentationCenter="na"
@@ -12,31 +12,37 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Création d’un équilibrage de charge à l’aide d’Azure Resource Manager
+# Prise en main de la configuration d’un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager
 
-Les étapes ci-dessous expliquent comment créer un équilibrage de charge à l’aide d’Azure Resource Manager avec PowerShell. Avec Azure Resource Manager, les éléments pour créer un équilibrage de charge sont configurés individuellement, puis rassemblés pour créer une ressource.
+
+> [AZURE.SELECTOR]
+- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+
+Les étapes ci-dessous expliquent comment créer un équilibrage de charge accessible sur Internet à l’aide d’Azure Resource Manager avec PowerShell. Avec Azure Resource Manager, les éléments pour créer un équilibrage de charge accessible sur Internet sont configurés individuellement, puis rassemblés pour créer une ressource.
 
 Dans cette page, nous allons aborder la séquence de tâches individuelles qui doivent être exécutées pour créer un équilibrage de charge et expliquer en détail ce qui est effectué pour atteindre l’objectif : créer un équilibrage de charge.
 
 
-## Ce qui est nécessaire pour créer un équilibrage de charge
+## Ce qui est nécessaire pour créer un équilibrage de charge accessible sur Internet
 
 Les éléments suivants doivent être configurés avant la création d’un équilibrage de charge :
 
-- Configuration d’adresses IP frontales 
+- Configuration d’adresses IP frontales : ajoute une adresse IP publique au pool d’adresses IP frontales pour le trafic entrant du réseau d’équilibrage de charge. 
 
-- Pool d’adresses principales
+- Pool d'adresses principales : configure les interfaces réseau qui recevront le trafic d'équilibrage de charge provenant du pool d'adresses IP frontales.
 
-- Règles d’équilibrage de la charge
+- Règles d’équilibrage de charge : configure les ports locaux et source pour l’équilibrage de charge.
 
-- Sondes
+- Sondes : configure la sonde d'état d'intégrité pour les instances d’un ordinateur virtuel.
 
-- Règles NAT entrantes
+- Règles NAT entrantes : configure les règles de port pour accéder directement à l'une des instances d’un ordinateur virtuel.
 
-Pour obtenir plus d’informations sur les composants de l’équilibrage de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
+Pour obtenir plus d’informations sur les composants de l’équilibrage de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
 
 Les étapes suivantes montrent comment configurer un équilibrage de charge à charge équilibrée entre 2 ordinateurs virtuels.
 
@@ -48,7 +54,7 @@ Les étapes suivantes montrent comment configurer un équilibrage de charge à c
 
 
 ### Étape 1
-Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
+Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. Pour plus d'informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
 
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
@@ -235,7 +241,7 @@ PS C:\> $backendnic1
 
 Utilisez la commande Add-AzureVMNetworkInterface pour affecter la carte réseau à un ordinateur virtuel.
 
-Pour la procédure détaillée à suivre pour créer une machine virtuelle et définir une affectation à une carte réseau, consultez la documentation [Création et préconfiguration d’un ordinateur virtuel Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Pour la procédure détaillée à suivre pour créer une machine virtuelle et définir une affectation à une carte réseau, consultez la documentation [Création et préconfiguration d’un ordinateur virtuel Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
 
 
 ## Voir aussi
@@ -245,4 +251,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

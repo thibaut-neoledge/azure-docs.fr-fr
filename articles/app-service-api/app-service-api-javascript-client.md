@@ -36,7 +36,7 @@ En règle générale, CORS (Cross-Origin Resource Sharing) est nécessaire dans 
 
 ### Activation de CORS pour les passerelles d'application API
 
-Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
+Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS\_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
 
 1. Accédez au panneau du portail Azure en version préliminaire de l'application API pour laquelle vous voulez activer CORS. Une fois dans ce panneau, cliquez sur l'icône *Passerelle* pour votre application API. 
 
@@ -310,7 +310,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
             $scope.refresh();
         });
 
-1, Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
+ Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
@@ -371,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

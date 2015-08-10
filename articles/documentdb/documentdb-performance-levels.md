@@ -141,4 +141,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

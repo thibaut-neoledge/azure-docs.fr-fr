@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Utilisation de la bibliothèque cliente de la base de données élastique avec Entity Framework 
+# Bibliothèque cliente de la base de données élastique avec Entity Framework 
  
 Vous pouvez utiliser la bibliothèque cliente de base de données avec Entity Framework (EF) de Microsoft pour créer des applications qui tirent parti du partitionnement de la base de données, ce qui facilite la montée en charge du niveau de données de votre application. Ce document présente les modifications d'une application Entity Framework requises pour intégrer les fonctionnalités de l’outil de base de données élastique. L'objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l'approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour EF nous sert d’exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
   
@@ -53,7 +53,7 @@ Toutes ces approches s'appuient sur la classe DbContext pour gérer en toute tra
 
 ## Hypothèses des outils de base de données élastique 
 
-Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l’infrastructure élastique](sql-database-elastic-scale-glossary.md).
+Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md).
 
 La bibliothèque cliente de base de données permet de définir des partitions pour les données de votre application. Ces partitions sont nommées shardlets. Les shardlets sont identifiés par une clé de partitionnement et sont mappés vers des bases de données spécifiques. Une application peut avoir autant de bases de données que nécessaire et distribuer les shardlets pour fournir suffisamment de capacité ou de performances selon les besoins de l'entreprise. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API clientes de la base de données élastique. Nous appelons cette fonctionnalité **Gestion des cartes de partitions**, ou GCP. La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Nous appelons cette fonction **routage dépendant des données**.
  
@@ -281,4 +281,4 @@ Les applications Entity Framework peuvent facilement tirer parti des outils de b
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

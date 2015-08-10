@@ -74,7 +74,7 @@ La date et l’heure sont au format UTC et correspondent au moment où la télé
 
 ## <a name="format"></a> Format de données
 
-* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \n.
+* Chaque objet blob est un fichier texte qui contient plusieurs lignes séparées par des \\n.
 * Chaque ligne est un document JSON sans mise en forme. Pour consulter ce format, vous pouvez l’ouvrir par exemple dans Notepad++ avec le plug-in JSON :
 
 ![Consultez la télémétrie avec un outil approprié.](./media/app-insights-export-telemetry/06-json.png)
@@ -110,17 +110,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Pa
 
 Pour un exemple de code plus long, consultez [utilisation d’un rôle de travail][exportasa].
 
-#### Exporter vers SQL
 
-L’autre possibilité consiste à déplacer les données vers une base de données SQL, où vous pouvez effectuer une analyse plus puissante.
-
-Nous disposons d’exemples illustrant deux autres méthodes de déplacement des données depuis le stockage d’objets blob dans une base de données :
-
-* [Exportation vers SQL à l’aide d’un rôle de travail][exportcode]
-* [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
-
-
-À plus grande échelle, envisagez d’utiliser des clusters [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop dans le cloud. HDInsight offre de nombreuses technologies pour gérer et analyser les données volumineuses.
 
 ## <a name="delete"></a>Supprimer les anciennes données
 Notez que vous êtes responsable de la gestion de votre capacité de stockage et de la suppression des anciennes données si nécessaire.
@@ -134,6 +124,27 @@ Ouvrez le panneau Exportation continue et modifiez votre exportation. Modifiez l
 ![Modifiez l’exportation continue, ouvrez puis fermez la destination de l’exportation.](./media/app-insights-export-telemetry/07-resetstore.png)
 
 L’exportation continue redémarre.
+
+## Exporter vers Power BI
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) présente vos données dans des graphiques riches et variés, avec la possibilité de rassembler des informations provenant de plusieurs sources. Vous pouvez diffuser des données télémétriques sur les performances et l’utilisation de vos applications à partir d’Application Insights vers Power BI.
+
+[Diffusion d’Application Insights vers Power BI](app-insights-export-power-bi.md)
+
+![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-telemetry/210.png)
+
+## Exporter vers SQL
+
+L’autre possibilité consiste à déplacer les données vers une base de données SQL, où vous pouvez effectuer une analyse plus puissante.
+
+Nous disposons d’exemples illustrant deux autres méthodes de déplacement des données depuis le stockage d’objets blob dans une base de données :
+
+* [Exportation vers SQL à l’aide d’un rôle de travail][exportcode]
+* [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
+
+
+À plus grande échelle, envisagez d’utiliser des clusters [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop dans le cloud. HDInsight offre de nombreuses technologies pour gérer et analyser les données volumineuses.
+
 
 
 ## Questions et réponses
@@ -183,4 +194,4 @@ L’exportation continue redémarre.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

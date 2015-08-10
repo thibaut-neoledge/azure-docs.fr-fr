@@ -28,7 +28,7 @@ Les environnements App Service requièrent tous les éléments suivants pour fo
 
 
 -  Connectivité réseau sortante aux ressources BD SQL et stockage Azure situées dans la même région que l'environnement App Service. Ce chemin d'accès réseau ne peut pas transiter par des proxys d'entreprise internes, car cela est susceptible de changer l'adresse NAT réelle du trafic réseau sortant. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service dirigé vers des points de terminaison de stockage Azure et de base de données SQL entraîne des échecs de connectivité.
--  La configuration DNS du réseau virtuel doit être capable de résoudre les points de terminaison dans les domaines contrôlés par Azure suivants : **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*. -  La configuration DNS du réseau virtuel doit rester stable pendant la création des environnements App Service, ainsi que pendant les reconfigurations et les modifications de mise à l'échelle des environnements App Service.   
+-  La configuration DNS du réseau virtuel doit être capable de résoudre les points de terminaison dans les domaines contrôlés par Azure suivants : **.file.core.windows.net\*, **.blob.core.windows.net\*, **.database.windows.net\*. -  La configuration DNS du réseau virtuel doit rester stable pendant la création des environnements App Service, ainsi que pendant les reconfigurations et les modifications de mise à l'échelle des environnements App Service.   
 -  L'accès réseau entrant aux ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
 
 Les exigences DNS peuvent être satisfaites par le biais d'une configuration DNS valide pour le réseau virtuel.
@@ -120,4 +120,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

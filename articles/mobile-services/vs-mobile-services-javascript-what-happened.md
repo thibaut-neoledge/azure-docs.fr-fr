@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###<span id="whathappened">Qu’est-il arrivé à mon projet ?</id>
+###Qu'est-il arrivé à mon projet ?</id>
 
 #####Package NuGet ajouté
 
@@ -46,4 +46,4 @@ Dans le dossier des services, les fichiers de configuration des services connect
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

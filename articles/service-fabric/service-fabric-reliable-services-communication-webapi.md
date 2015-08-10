@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN
@@ -35,9 +35,11 @@ L'application API Web elle-même ne change pas ici - elle ne diffère pas des ap
 
 ## Configurer une application API Web
 
-Commencez par créer un nouveau service sans état dans Visual Studio 2015 :
+Commencez par créer une application, avec un seul service sans état, dans Visual Studio 2015 :
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![Création d'une application Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![Création d'un service unique sans état](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 Cela nous donne un service sans état vide qui hébergera l'application API Web. Nous allons configurer l'application à partir de zéro pour voir comment elle est assemblée.
 
@@ -47,11 +49,11 @@ La première étape consiste à extraire certains packages NuGet pour l'API Web.
 
 Avec les packages installés, nous pouvons commencer la création de la structure de base du projet d'API Web. Si vous avez déjà utilisé des API Web, la structure du projet doit sembler très familière. Commencez par créer les répertoires de base de l'API Web :
 
- + App_Start
+ + App\_Start
  + Controllers
  + Models
 
-Ajoutez les classes de configuration de base de l'API Web dans le répertoire App_Start :
+Ajoutez les classes de configuration de base de l'API Web dans le répertoire App\_Start :
 
  + FormatterConfig.cs
 
@@ -334,7 +336,7 @@ L'URL du serveur web sera définie ici. Pour cela, vous avez besoin de quelques 
 
 Avant de sélectionner un port pour le serveur web, il est important de comprendre que Service Fabric fournit une couche d'application qui agit comme un tampon entre votre application et le système d'exploitation sous-jacent sur lequel il s'exécute. Par conséquent, Service Fabric permet de configurer des *points de terminaison* pour vos services. Service Fabric s'assure que le système d'extrémité est disponible pour votre service, ce qui vous évite de le configurer vous-même avec l'environnement de système d'exploitation sous-jacent. Cela vous permet d'héberger facilement votre application Service Fabric dans différents environnements sans avoir à la modifier (par exemple, vous pouvez héberger la même application dans Azure ou dans votre propre centre de données).
 
-Configurer un point de terminaison HTTP dans PackageRoot\ServiceManifest.xml :
+Configurer un point de terminaison HTTP dans PackageRoot\\ServiceManifest.xml :
 
 ```xml
 
@@ -447,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-C'est ici que finissent par se rencontrer l'*application* de l'API Web et l'*hôte* OWIN : l'*hôte* (**OwinCommunicationListener **) reçoit une instance de l'*application* (API Web via **Startup**), et Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
+C'est ici que finissent par se rencontrer l'*application* de l'API Web et l'*hôte* OWIN : l'*hôte* (\*\*OwinCommunicationListener \*\*) reçoit une instance de l'*application* (API Web via **Startup**), et Service Fabric gère son cycle de vie. Ce même modèle peut généralement être suivi d'une pile de communication.
 
 ## Exemple complet
 
@@ -611,6 +613,5 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 ## Étapes suivantes
 
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

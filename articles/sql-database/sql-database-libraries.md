@@ -39,12 +39,12 @@ Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonn
 
 | Plateforme | Syst. d’exploitation | Bibliothèques<br/> à télécharger | Version<br/> du pilote | Description <br/>du pilote | Plus<br/> d’informations |
 | :--- | :--- | :--- | :--- | :--- | :-- |
-| .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Fournisseur SQL Server pour .NET Framework | . |
-| PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 + | Pilote PHP pour SQL Server | [Lien](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard | [Lien](http://msdn.microsoft.com/library/dn425070.aspx) |
-| ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | . |
-| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+| .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Fournisseur SQL Server pour .NET Framework | . |
+| PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 + | Pilote PHP pour SQL Server | [Lien](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC pour SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 + | Pilote JDBC de type 4 qui fournit la connectivité de base de données via l’API JDBC standard | [Lien](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+| ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
 
 
 ### OLE DB pour DB2 et SQL Server, pour la conception DRDA
@@ -82,4 +82,4 @@ Le tableau suivant affiche les bibliothèques publiées par des tiers, tels que 
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

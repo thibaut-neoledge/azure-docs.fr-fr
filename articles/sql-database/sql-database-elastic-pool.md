@@ -63,4 +63,4 @@ Les bases de données pour lesquelles la géo-réplication est déjà activée p
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -235,7 +235,7 @@ Gestion des disques est un utilitaire système dédié à la gestion des disques
 
     ![Message de conversion de disque dynamique](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. Dans le composant Gestion des disques, vérifiez que Disque 1 et Disque 2 sont représentés en tant que volumes dynamiques mis en miroir. (**Dynamique** doit apparaître dans la colonne de statut et la barre de capacité doit devenir rouge pour indiquer un volume mis en miroir.)
+10. Dans le composant Gestion des disques, vérifiez que Disque 1 et Disque 2 sont représentés en tant que volumes dynamiques mis en miroir. (\*\*Dynamique\*\* doit apparaître dans la colonne de statut et la barre de capacité doit devenir rouge pour indiquer un volume mis en miroir.)
 
     ![Disques dynamiques mis en miroir du composant Gestion des disques](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -270,4 +270,4 @@ Appliquez la procédure suivante pour configurer un volume dynamique mis en miro
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

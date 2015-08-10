@@ -2,7 +2,6 @@
 	pageTitle="Créer et charger des données dans des tables Hive à partir d'un stockage Blob | Microsoft Azure" 
 	description="Créer des tables Hive et charger des données d’un blob dans des tables Hive" 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/22/2015" 
 	ms.author="hangzh;bradsev" />
 
  
@@ -23,13 +22,13 @@
 Ce document présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage Azure Blob. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
 
-Les requêtes Hive sont disponibles en téléchargement dans le [référentiel Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql).
+Les requêtes Hive sont disponibles en téléchargement dans le <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql" target="_blank">référentiel Github</a>.
 
-Si vous créez une machine virtuelle Azure en suivant les instructions de l'article [Créer une machine virtuelle Azure pour l'analyse avancée](machine-learning-data-science-setup-virtual-machine.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\Utilisateurs<nom utilisateur>\Documents\Data Science Scripts* de la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que votre schéma de données et la configuration de votre stockage Azure Blob soient déclarés dans les champs appropriés.
+Si vous créez une machine virtuelle Azure en suivant les instructions de l'article [Configurer une machine virtuelle Azure pour l'analyse avancée](machine-learning-data-science-setup-virtual-machine.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\\Users<nom\_utilisateur>\\Documents\\Data Science Scripts* de la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que votre schéma de données et la configuration de votre stockage Azure Blob soient déclarés dans les champs appropriés.
 
-Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu'elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop. Si vous souhaitez vous exercer sur les _données NYC Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de [données NYC Taxi Trip](http://www.andresmh.com/nyctaxitrips/) (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers CSV, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans l'article [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md).
+Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu'elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop. Si vous souhaitez vous exercer sur les _données NY Taxi Trip_, vous devez d'abord télécharger les 24 fichiers de <a href="http://www.andresmh.com/nyctaxitrips/" target="_blank">données NYC Taxi Trip</a> (12 fichiers Trip et 12 fichiers Fare), **décompresser** ces fichiers pour obtenir des fichiers CSV, puis les charger dans le conteneur par défaut (ou le conteneur approprié) du compte Azure Storage utilisé par la procédure dans l'article [Personnaliser les clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md). Pour découvrir le processus qui vous permet de télécharger les fichiers .csv du conteneur par défaut sur le compte de stockage, consultez cette [page](machine-learning-data-science-process-hive-walkthrough/#upload).
 
-Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d'informations sur la procédure, consultez l'article [Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d'analyse avancée](machine-learning-data-science-process-hive-tables.md).
+Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d'informations sur la procédure, consultez l'article [Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d'analyse avancée](machine-learning-data-science-process-hive-tables.md).
 
 Les utilisateurs peuvent également utiliser Query Console (Hive Editor) en saisissant l’adresse
 
@@ -37,12 +36,12 @@ https://&#60;Hadoop nom de cluster>.azurehdinsight.net/Home/HiveEditor
 
 dans un navigateur Web. Notez que vous devrez entrer les informations d'identification du cluster Hadoop pour vous connecter. Vous pouvez également [envoyer des tâches Hive avec PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
-## Conditions préalables
+## Composants requis
 Cet article suppose que vous avez :
  
-* Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../hdinsight-get-started.md#storage). 
-* Approvisionné un cluster Hadoop personnalisé avec le service HDInsight. Si vous avez besoin d'aide, consultez [Personnaliser des clusters Hadoop Azure HDInsight pour l'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md).
-* Activé l’accès à distance au cluster, saisi les identifiants appropriés et ouvert la console de ligne de commande Hadoop. Si vous avez besoin d'aide, consultez [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
+* Créé un compte Azure Storage. Si vous avez besoin d'aide, consultez la rubrique [Créer un compte Azure Storage](../hdinsight-get-started.md#storage). 
+* Approvisionné un cluster Hadoop personnalisé avec le service HDInsight. Si vous avez besoin d'aide, consultez la rubrique [Personnaliser des clusters Hadoop Azure HDInsight pour l'analyse avancée](machine-learning-data-science-customize-hadoop-cluster.md).
+* Activé l’accès à distance au cluster, saisi les identifiants appropriés et ouvert la console de ligne de commande Hadoop. Si vous avez besoin d'aide, consultez la rubrique [Accéder au nœud principal du cluster Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
 
 
 ## <a name="create-tables"></a>Créer la base de données et les tables Hive
@@ -66,7 +65,7 @@ Voici les descriptions des champs que les utilisateurs doivent renseigner et d�
 - **&#60;database name>** : nom de la base de données que les utilisateurs souhaitent créer. S'ils veulent utiliser la base de données par défaut, la requête *create database...* peut être omise. 
 - **&#60;table name>** : nom de la table que les utilisateurs veulent créer dans la base de données spécifiée. S'ils veulent utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
 - **&#60;field separator>** : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive. 
-- &#60;line separator> : séparateur qui délimite les lignes dans le fichier de données. 
+- **&#60;line separator>** : séparateur qui délimite les lignes dans le fichier de données. 
 - **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si les utilisateurs ne spécifient pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si un utilisateur souhaite spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster dans le format de *'wasb:///&#60;directory 1>/'* ou *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. Une fois la requête exécutée, les répertoires relatifs seront créés dans le conteneur par défaut. 
 - **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d’en-tête, les utilisateurs doivent ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête. 
 
@@ -84,7 +83,7 @@ Voici la requête Hive qui charge les données dans une table Hive.
 
 Si les données sont volumineuses, le partitionnement de la table est avantageux pour les requêtes qui doivent n’en balayer que quelques partitions. Par exemple, il est raisonnable de partitionner les données journalisées d’un site Web par dates.
 
-Outre le partitionnement des tables Hive, il est également judicieux de stocker les données Hive au format ORC (Optimized Row Columnar). Pour plus d'informations sur le format ORC, consultez [L'utilisation de fichiers ORC améliore les performances lorsque Hive lit, écrit et traite des données](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles).
+Outre le partitionnement des tables Hive, il est également judicieux de stocker les données Hive au format ORC (Optimized Row Columnar). Pour plus d'informations sur le format ORC, consultez l’article <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">L'utilisation de fichiers ORC améliore les performances lorsque Hive lit, écrit et traite des données</a>.
 
 ### Table partitionnée
 Voici la requête Hive qui crée une table partitionnée et charge les données dans celle-ci.
@@ -141,7 +140,7 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	[AZURE.NOTE]Si la table TEXTFILE *&#60;database name>.&#60;external textfile table name>* a des partitions, à l'ÉTAPE 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition comme champ dans le jeu de données renvoyé. Le fait de l'insérer dans *&#60;database name>.&#60;ORC table name>* échouera car *&#60;database name>.&#60;ORC table name>* ne dispose pas de la variable de partition comme champ dans le schéma de la table. Dans ce cas, les utilisateurs doivent sélectionner explicitement les champs à insérer dans *&#60;database name>.&#60;ORC table name>* comme suit :
+	>[AZURE.NOTE]Si la table TEXTFILE *&#60;database name>.&#60;external textfile table name>* a des partitions, à l’Étape 3, la commande `SELECT * FROM <database name>.<external textfile table name>` sélectionne la variable de partition comme champ dans le jeu de données renvoyé. Le fait de l'insérer dans *&#60;database name>.&#60;ORC table name>* échouera car *&#60;database name>.&#60;ORC table name>* ne dispose pas de la variable de partition comme champ dans le schéma de la table. Dans ce cas, les utilisateurs doivent sélectionner explicitement les champs à insérer dans *&#60;database name>.&#60;ORC table name>* comme suit :
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
@@ -154,4 +153,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 À l’issue de cette procédure, vous devez obtenir une table immédiatement exploitable et contenant des données au format ORC.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

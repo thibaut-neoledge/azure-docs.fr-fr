@@ -89,4 +89,4 @@ L’accès à distance ne peut pas être configuré à l'aide du **portail Azure
 			
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

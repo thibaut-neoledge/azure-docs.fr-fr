@@ -18,8 +18,8 @@
 	ms.author="kathydav"/>
 
 
-# Connexion de machines virtuelles à un réseau virtuel ou un service cloud
+# Connexion d’ordinateurs virtuels à un réseau virtuel ou un service cloud
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

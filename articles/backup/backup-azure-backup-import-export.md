@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+   editor=""/>
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flux de travail de la sauvegarde hors connexion dans Azure Backup
 
@@ -63,20 +64,20 @@ Les informations fournies dans cette section concernent la fin du flux de travai
 
 2. Décompressez le fichier *WAImportExport.zip*. Exécutez l’outil *WAImportExport* pour formater le disque SATA, écrire les données de sauvegarde sur le disque SATA et les chiffrer. Avant d’exécuter la commande suivante, assurez-vous que BitLocker est activé sur l’ordinateur. <br/>
 
-    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\\WAImportExport.exe PrepImport /j:<\*JournalFile*>.jrn /id: <\*SessionId\*> /sk:<\*StorageAccountKey\*> /BlobType:\*\*PageBlob\*\* /t:<\*TargetDriveLetter\*> /format /encrypt /srcdir:<\*staging location\*> /dstdir: <\*DestinationBlobVirtualDirectory\*>/\*
 
 
 | Paramètre | Description
 |-------------|-------------|
-| /j:<*JournalFile*>| Chemin d’accès du fichier journal. Chaque disque doit avoir un seul fichier journal. Notez que le fichier journal ne doit pas résider sur le disque cible. L’extension du fichier journal est .jrn, elle est créée à l’exécution de cette commande.|
-|/id:<*SessionId*> | L’ID de session identifie une *session de copie*. Il est utilisé pour assurer la précision de la récupération d’une session de copie interrompue. Les fichiers copiés dans une session de copie sont stockés dans un répertoire dont le nom fait référence à l’ID de session sur le disque cible.|
-| /sk:<*StorageAccountKey*> | Clé du compte de stockage vers lequel les données seront importées. |
+| /j:<\*JournalFile\*>| Chemin d’accès du fichier journal. Chaque disque doit avoir un seul fichier journal. Notez que le fichier journal ne doit pas résider sur le disque cible. L’extension du fichier journal est .jrn, elle est créée à l’exécution de cette commande.|
+|/id:<\*SessionId\*> | L’ID de session identifie une *session de copie*. Il est utilisé pour assurer la précision de la récupération d’une session de copie interrompue. Les fichiers copiés dans une session de copie sont stockés dans un répertoire dont le nom fait référence à l’ID de session sur le disque cible.|
+| /sk:<\*StorageAccountKey\*> | Clé du compte de stockage vers lequel les données seront importées. |
 | /BlobType | Spécifiez **PageBlob** (ce flux de travail aboutit uniquement si l’option PageBlob est spécifiée). Ce paramètre n’est pas l’option par défaut et doit être indiqué dans cette commande. |
-|/t:<*TargetDriveLetter*> | Lettre de lecteur du disque dur cible pour la session de copie actuelle, sans les deux-points de fin.|
+|/t:<\*TargetDriveLetter\*> | Lettre de lecteur du disque dur cible pour la session de copie actuelle, sans les deux-points de fin.|
 |/format | Spécifiez ce paramètre quand le disque doit être formaté, sinon, ignorez-le. Avant de formater le disque, l’outil demande confirmation à partir de la console. Pour supprimer la confirmation, spécifiez le paramètre /silentmode.|
 |/encrypt | Spécifiez ce paramètre quand le disque n’a pas encore été chiffré avec BitLocker et doit être chiffré par l’outil. Si le disque a déjà été chiffré avec BitLocker, ignorez ce paramètre et spécifiez le paramètre /bk, en fournissant la clé BitLocker existante. Si vous spécifiez le paramètre /format, vous devez également spécifier le paramètre /encrypt. |
-|/srcdir:<*SourceDirectory*> | Répertoire source qui contient les fichiers à copier sur le disque cible. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif).|
-|/dstdir:<*DestinationBlobVirtualDirectory*> | Chemin d’accès au répertoire virtuel de destination dans votre compte de stockage Microsoft Azure. Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules.|
+|/srcdir:<\*SourceDirectory\*> | Répertoire source qui contient les fichiers à copier sur le disque cible. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif).|
+|/dstdir:<\*DestinationBlobVirtualDirectory\*> | Chemin d’accès au répertoire virtuel de destination dans votre compte de stockage Microsoft Azure. Veillez à utiliser des noms de conteneur valides quand vous spécifiez des répertoires virtuels de destination ou des objets blob. N’oubliez pas que les noms de conteneur doivent être en minuscules.|
 
   >[AZURE.NOTE]Un fichier journal est créé dans le dossier WAImportExport et capture toutes les informations du flux de travail. Vous aurez besoin de ce fichier lors de la création d’une tâche d’importation dans le portail Azure.
 
@@ -107,4 +108,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

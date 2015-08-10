@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Automatisation avec Microsoft Azure Resource Manager"
-	description="Obtenez des liens vers des rubriques sur l’automatisation de la création et la gestion des machines virtuelles Azure avec le Gestionnaire de ressources."
+	description="Obtenez des liens vers des rubriques sur l’automatisation de la création et la gestion des machines virtuelles Azure à l’aide du Gestionnaire de ressources."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -17,21 +17,22 @@
 	ms.date="07/09/2015"
 	ms.author="davidmu"/>
 
+
 # Automatisation avec Microsoft Azure Resource Manager
 
 Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’applications complexes exécutées sur les services d’infrastructure Microsoft Azure. De nombreuses applications nécessitent une combinaison de ressources de calcul, réseau et de stockage, comme Microsoft Azure Virtual Network, le compte de stockage Microsoft Azure et Microsoft Azure Virtual Machines avec les interfaces réseau. Grâce à Microsoft Azure Resource Manager, vous pouvez utiliser ou développer un modèle JSON afin de déployer et de gérer l’ensemble de ces ressources comme une application unique.
 
 ## Démarrer ici
 
-[Vue d’ensemble de Microsoft Azure Resource Manager](../resource-group-overview.md)
+[Présentation d’Azure Resource Manager](../resource-group-overview.md)
 
-[Modèles Microsoft Azure Resource Manager](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
+[Modèles de démarrage rapide Microsoft Azure](http://go.microsoft.com/fwlink/p/?linkid=536445&clcid=0x409)
 
 [Infrastructures d’application utilisant des modèles](virtual-machines-app-frameworks.md)
 
-[Déployer et gérer à l’aide de Microsoft Azure Resource Manager et de l’interface de ligne de commande](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
-[Déployer et gérer à l’aide de Microsoft Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 ## Ressources générales
 
@@ -42,27 +43,28 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 ## Mise en réseau
 
-[Configurer des ressources réseau](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
+[Fournisseur de ressources réseau](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
 
 ## Automatiser avec l’interface de ligne de commande Microsoft Azure
 
-[Vue d’ensemble de l’interface de ligne de commande pour Mac et Linux](xplat-cli-azure-resource-manager.md)
+[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md)
 
-[Déployer et gérer à l’aide de Microsoft Azure Resource Manager et de l’interface de ligne de commande](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
+[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
-## Automatiser avec PowerShell
+## Automatisation avec Azure PowerShell
 
-[Déployer et gérer à l’aide de Microsoft Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 
 ## Automatiser avec .NET
 
 [Déployer les ressources Microsoft Azure à l’aide de la bibliothèque .NET](virtual-machines-arm-deployment.md)
 
+
 ## Automatiser avec Microsoft Azure Automation
 
-[Utiliser Microsoft Azure Automation pour gérer les tâches de machines virtuelles](automation-manage-virtual-machines.md)
+[Gestion d'Azure Virtual Machines à l'aide d'Azure Automation](automation-manage-virtual-machines.md)
 
 
 
@@ -70,4 +72,4 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

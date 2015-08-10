@@ -35,7 +35,7 @@ Ce didacticiel requiert les éléments suivants :
 + Visual Studio 2013
 + Le [Kit de développement logiciel (SDK) Windows Phone Mobile Engagement]
 
-> [AZURE.IMPORTANT]Pour accéder aux autres didacticiels Mobile Engagement relatifs aux applications Windows Phone Silverlight et terminer notamment celui-ci, vous devez disposer d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.IMPORTANT]Pour accéder aux autres didacticiels Mobile Engagement relatifs aux applications Windows Phone Silverlight et terminer notamment celui-ci, vous devez disposer d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 ##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application Windows Silverlight
 
@@ -50,7 +50,7 @@ Ce didacticiel requiert les éléments suivants :
    	![][8]
 
 	- **Nom de l'application** : tapez ici le nom de votre application. Tous les caractères sont autorisés.
-	- **Plateforme** : sélectionnez la plateforme cible (**Windows Phone Silverlight**) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
+	- **Plateforme** : sélectionnez la plateforme cible (\*\*Windows Phone Silverlight\*\*) de l'application (si l'application cible plusieurs plateformes, répétez ce didacticiel pour chacune des plateformes).
 	- **Nom de la ressource d'application** : nom utilisé dans les API et les URL pour faire référence à l'application. Vous devez utiliser uniquement des caractères d'URL conventionnels. Le nom généré automatiquement vous fournit un point de départ solide. Il est également recommandé d'ajouter le nom de la plateforme pour éviter tout conflit de noms, puisque ce nom doit être unique.
 	- **Emplacement** : sélectionnez le centre de données qui hébergera l'application (et surtout sa collection).
 	- **Collection** : si vous avez déjà créé une application, sélectionnez une collection créée précédemment, sinon sélectionnez Nouvelle collection.
@@ -238,4 +238,4 @@ Nous allons à présent créer une campagne simple qui enverra une notification 
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

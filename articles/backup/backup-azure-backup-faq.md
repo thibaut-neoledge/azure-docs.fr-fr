@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/23/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -75,13 +75,22 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q15. Puis-je « migrer » mes données de sauvegarde entre les abonnements ?** <br/> R15 : non
 
-**Q16 : puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
+**Question 16. Puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
 
-**Question 17 : L'agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
+**Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
-**Question 18 : Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu'elle a démarré ?** <br/>R18 : Non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu'au moment de l'annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
+**Question 18. Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu’elle a démarré ?** <br/>R18 : Non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu'au moment de l'annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
 
-**Q19 : Pourquoi l'avertissement « Les sauvegardes Azure n'ont pas été configurées pour ce serveur » apparaît-il alors que j'avais planifié des sauvegardes standard ?** <br/>R19 : Cela peut se produire lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s'est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
+**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/>R19 : Cela peut se produire lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s'est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
+
+**Question 20. Quelles règles de pare-feu doivent être configurées pour la sauvegarde d’Azure Backup ?** <br/>Réponse 20. Vérifiez que les règles de pare-feu permettent la communication avec les URL ci-dessous pour la sauvegarde transparente du serveur local vers Azure et la protection de la charge de travail sur Azure :
+
+- www.msftncsi.com
+- \*.Microsoft.com
+- \*.MicrosoftAzure.com
+- \*.microsoftonline.com
+- \*.windows.net
+
 
 ## Sauvegarde et rétention
 **Q1. La taille de chaque source de données sauvegardée est-elle limitée ?** <br/> R1. Depuis juillet 2015, la taille de chaque source de données doit être inférieure ou égale à 1,7 To. Une source de données peut être l’un des éléments suivants :
@@ -92,7 +101,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 - Serveur Exchange
 - Machine virtuelle Hyper-V
 
-**Q2. Le nombre de planifications de sauvegarde est-il limité ?**<br/> R2. Oui, Azure Backup permet 3 copies de sauvegarde par jour via un client/serveur Windows et 2 copies de sauvegarde par jour via SCDPM.
+**Q2. Le nombre de planifications de sauvegarde par jour est-il limité ?**<br/> R2. Oui, Azure Backup permet 3 copies de sauvegarde par jour via un client/serveur Windows et 2 copies de sauvegarde par jour via SCDPM.
 
 **Q3. Existe-t-il une différence entre les stratégies de planification de sauvegarde de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?** <br/> R3. Oui. À l’aide de DPM, vous pouvez spécifier une planification quotidienne, hebdomadaire, mensuelle, annuelle tandis qu’avec un Windows Server (sans DPM), vous pouvez spécifier uniquement des planifications quotidiennes et hebdomadaires.
 
@@ -100,7 +109,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Vous disposez d’un jeu complet de boutons pour définir des stratégies qui définissent au mieux vos exigences en matière de conformité et de rétention.
 
-**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18 h 00. <br/>
+**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18:00. <br/>
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -132,4 +141,4 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #Routage dépendant des données
 
 La classe **ShardMapManager** permet aux applications ADO.NET de diriger facilement les requêtes et les commandes de base de données vers la base de données physique appropriée dans un environnement partitionné. Il s'agit du **routage dépendant des données** qui est un modèle fondamental lorsque vous travaillez avec des bases de données partitionnées. Chaque requête ou transaction spécifique d'une application utilisant le routage dépendant des données est limitée à l'accès à une seule base de données par demande.
 
-À l'aide du routage dépendant des données, il est inutile que l'application effectue le suivi des diverses chaînes de connexion ou emplacements de base de données associés à différents segments de données dans l'environnement partitionné. À la place, le [Gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md) assume la responsabilité de la distribution des connexions ouvertes à la base de données appropriée, le cas échéant, en fonction des données de la carte de partitions et de la valeur de la clé de partitionnement qui est la cible de la demande de l'application. (Cette clé est généralement l'identificateur *customer_id*, *tenant_id* ou *date_key* ou tout autre identificateur spécifique qui est un paramètre fondamental de la demande de la base de données).
+À l'aide du routage dépendant des données, il est inutile que l'application effectue le suivi des diverses chaînes de connexion ou emplacements de base de données associés à différents segments de données dans l'environnement partitionné. À la place, le [Gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md) assume la responsabilité de la distribution des connexions ouvertes à la base de données appropriée, le cas échéant, en fonction des données de la carte de partitions et de la valeur de la clé de partitionnement qui est la cible de la demande de l'application. (Cette clé est généralement l'identificateur *customer\_id*, *tenant\_id* ou *date\_key* ou tout autre identificateur spécifique qui est un paramètre fondamental de la demande de la base de données).
 
 ## Utilisation d’une classe ShardMapManager dans une application de routage dépendant des données 
 
@@ -117,4 +117,4 @@ Les propriétés transactionnelles sont garanties pour toutes les opérations lo
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

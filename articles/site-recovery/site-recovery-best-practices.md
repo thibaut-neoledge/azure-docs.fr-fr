@@ -147,11 +147,11 @@ Les fournisseurs et les agents sont installés sur les serveurs locaux, et peuve
 	- Configurez les réseaux logiques et de machines virtuelles de manière appropriée dans VMM. En savoir plus sur les [réseaux logiques](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) et les [réseaux de machines virtuelles](https://technet.microsoft.com/library/jj721575.aspx).
 	- Assurez-vous que l’ensemble des machines virtuelles du serveur source VMM sont connectées au réseau de machines virtuelles.
 	- Vérifiez que les réseaux de machines virtuelles sont liés au réseau logique associé au cloud.
-	- Si vous répliquez vers Microsoft Azure, créez des réseaux virtuels dans Microsoft Azure. Notez que plusieurs réseaux de machines virtuelles peuvent être mappés à un seul réseau Azure. Lisez les [tâches de configuration du réseau virtuel](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- Si vous répliquez vers Microsoft Azure, créez des réseaux virtuels dans Microsoft Azure. Notez que plusieurs réseaux de machines virtuelles peuvent être mappés à un seul réseau Azure. Lisez les [tâches de configuration du réseau virtuel](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Optimisation des performances
 
-- **Taille du volume du système d’exploitation** : lorsque vous répliquez une machine virtuelle vers Microsoft Azure, la taille du volume du système d’exploitation ne doit pas excéder 127 Go. Si vous disposez de volumes supérieurs, vous pouvez les déplacer manuellement vers un disque différent avant de démarrer le déploiement.
+- **Taille du volume du système d'exploitation** : lorsque vous répliquez une machine virtuelle vers Microsoft Azure, la taille du volume du système d’exploitation doit être inférieure à 1 To. Si vous disposez de volumes supérieurs, vous pouvez les déplacer manuellement vers un disque différent avant de démarrer le déploiement.
 - **Taille du disque de données** : si vous répliquez vers Microsoft Azure, vous pouvez posséder jusqu’à 32 disques de données sur une machine virtuelle, chacun présentant une taille maximale d’1 To. Vous pouvez répliquer et basculer efficacement une machine virtuelle présentant une taille d’environ 32 To.
 - **Limites de plan de récupération** : Scan Recovery peut prendre en charge des milliers de machines virtuelles. Les plans de récupération sont conçus comme un modèle dédié aux applications devant basculer simultanément, de manière à ce que le nombre de machines du plan soit limité à 50.
 - **Limites des services Microsoft Azure** : chaque abonnement Microsoft Azure comporte un ensemble de défauts liés aux services principaux, cloud, etc. Pour valider la disponibilité des ressources de votre abonnement, nous vous recommandons d’exécuter un basculement test. Vous pouvez modifier ces limites via le support Microsoft Azure.
@@ -189,4 +189,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

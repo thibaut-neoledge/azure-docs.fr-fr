@@ -35,7 +35,7 @@ Quand vous associez plusieurs comptes de stockage à votre compte Media Services
 
 Autres points à considérer :
 
-Media Services utilise la valeur de la propriété **IAssetFile.Name** lors de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété Name ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
+Media Services utilise la valeur de la propriété **IAssetFile.Name** lors de la génération des URL pour le contenu de diffusion en continu (par exemple, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Pour cette raison, l'encodage par pourcentage n'est pas autorisé. La valeur de la propriété Name ne peut pas comprendre un des [caractères réservés à l’encodage par pourcentage](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) suivants : !\*'();:@&=+$,/?%#". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier.
 
 ##Pour associer un compte de stockage à l'aide de l'API REST de gestion des services Azure
 
@@ -53,7 +53,7 @@ Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Se
 
 	using Microsoft.WindowsAzure.MediaServices.Client; using System; using System.Collections.Generic; using System.Configuration; using System.IO; using System.Linq; using System.Text; using System.Threading; using System.Threading.Tasks;
 	
-	espace de noms MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+	espace de noms MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +236,4 @@ Le code suivant utilise le dernier Kit de développement logiciel (SDK) Media Se
 	}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

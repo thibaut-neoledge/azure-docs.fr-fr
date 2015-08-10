@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -25,7 +25,7 @@ Cette rubrique fournit des liens vers des échantillons de code de démarrage ra
 
 
 - Exemples courts de connexion et de requête.
-- Exemples de nouvelle tentative de connexion et de requête, mais, si une erreur a été rencontrée, une tentative automatique est considérée comme une [*erreur temporaire*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) (délai de connexion, par exemple).
+- Exemples de nouvelle tentative de connexion et de requête, mais, si une erreur a été rencontrée, une tentative automatique est considérée comme une [*erreur temporaire*](sql-database-develop-error-messages.md#bkmk_connection_errors) (délai de connexion, par exemple).
 
 
 Les exemples regroupent :
@@ -75,11 +75,11 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 
 | Langage | Exemple court | Exemple de nouvelle tentative | Relationnel à l'objet |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET avec Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personnalisé](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET avec Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Pilote ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC personnalisé](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -88,9 +88,9 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 
 - [Téléchargements pour les Kits de développement logiciel (SDK) et les outils, pour de nombreux langages et plateformes](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
-- [Liste de codes numériques des erreurs temporaires](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)<br/>&nbsp;
+- [Liste de codes numériques des erreurs temporaires](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Développement avec Azure SQL Database : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Connexion à SQL Database : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 - [Créer votre première base de données SQL Azure](sql-database-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

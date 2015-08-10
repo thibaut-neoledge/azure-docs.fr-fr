@@ -93,4 +93,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -122,25 +122,25 @@ La section **Site diagnostics** de la page d'administration **Configure** contr�
 
 Une fois la fonction de diagnostic activée pour une application web, cliquez sur l’icône **Enregistrer** en bas de la page de gestion **Configurer** pour appliquer les options que vous avez définies.
 
-> [AZURE.IMPORTANT]Les activités de journalisation et de suivi représentent une charge importante pour une application Web. Il est recommandé de désactiver la journalisation et le suivi une fois que vous avez pu reproduire le ou les problème(s) que vous essayez de résoudre.
+> [AZURE.IMPORTANT]Les fonctionnalités Messages d’erreur détaillés et Suivi des demandes ayant échoué génèrent des demandes importantes sur une application web. Nous recommandons de désactiver ces fonctionnalités une fois que vous avez reproduit le ou les problèmes que vous devez résoudre.
 
 ### Configuration avancée ###
 
 Vous pouvez également modifier la fonction de diagnostic en ajoutant des paires clé/valeur dans la section **app settings** de la page d'administration **Configure**. Les paramètres suivants peuvent être configurés à partir de **app settings** :
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - Emplacement où sont enregistrés les journaux de l'application ; chemin relatif à la racine du serveur Web.
 
-- Valeur par défaut : ..\..\LogFiles\Application
+- Valeur par défaut : ..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - Taille maximale de la mémoire tampon à utiliser au moment de récupérer les journaux de l'application. Initialement, les informations sont écrites dans la mémoire tampon avant d'être transférées dans un fichier ou une ressource de stockage. Si de nouvelles informations sont écrites dans la mémoire tampon avant que les informations précédemment enregistrées soient vidées, ces dernières peuvent être perdues. Si votre application génère d'importants flux d'informations de journalisation, pensez à augmenter la taille de la mémoire tampon.
 
 - Valeur par défaut : 10 Mo
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - Taille maximale du dossier **Application** dans lequel les diagnostics d'application écrits dans des fichiers sont stockés.
 
@@ -277,4 +277,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

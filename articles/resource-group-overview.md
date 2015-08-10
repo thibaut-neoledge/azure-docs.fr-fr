@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -38,13 +38,15 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 
 Dans le portail Azure en version préliminaire, toutes les nouvelles ressources sont créées dans un groupe de ressources. Même si vous ne créez qu’une seule ressource comme un site web, vous devez décider s’il convient de l’ajouter à un groupe existant ou de créer un autre groupe pour cette ressource.
 
-L’image ci-après illustre un groupe de ressources avec un site web, une base de données et Application Insights.
+L'image ci-après illustre un groupe de ressources avec Application Insights, un serveur de base de données, une base de données, un plan App Service et un site web.
 
-![résumé d’un groupe de ressources](./media/resource-group-overview/resourcegroupsummary.png)
+![résumé d’un groupe de ressources](./media/resource-group-overview/resourcegroupsummary2.png)
 
-Un groupe de ressources peut également être lié à une ressource d’un autre groupe de ressources. Une ressource est considérée comme liée lorsqu’il existe une dépendance de déploiement entre les ressources de différents groupes de ressources. Par exemple, si une application web d’un groupe de ressources se connecte à une base de données d’un autre groupe de ressources, ces ressources sont liées.
+Un groupe de ressources peut également être lié à une ressource d’un autre groupe de ressources. Une ressource est considérée comme liée lorsqu’il existe une dépendance de déploiement entre les ressources de différents groupes de ressources. Par exemple, si une application web d’un groupe de ressources se connecte à une base de données d’un autre groupe de ressources, ces ressources sont liées. Vous pouvez également définir explicitement des liens entre les ressources dans un autre groupe de ressources.
 
-![ressources liées](./media/resource-group-overview/linkedresource.png)
+Pour plus d'informations sur la liaison des ressources, consultez [Liaison des ressources dans Azure Resource Manager](resource-group-link-resources.md)
+
+Si vous souhaitez déplacer une ressource vers un nouveau groupe de ressources, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
 
 Le portail en version préliminaire vous permet de visualiser les coûts, de surveiller les événements et de gérer les alertes avec facilité. L’image ci-après illustre la facturation consolidée relative à un groupe.
 
@@ -68,9 +70,11 @@ Pour finir, le modèle devient partie intégrante du code source de votre applic
 
 Pour plus d’informations sur la définition du modèle, voir [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 
-Pour les schémas de modèle, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+Pour obtenir les schémas de modèle, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
 Pour plus d’informations sur l’utilisation d’un modèle pour le déploiement, voir [Déployer une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md) et [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Pour obtenir des instructions sur la façon de structurer vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
 ## Balises
 
@@ -94,11 +98,13 @@ Pour définir le contrôle d’accès, cliquez sur le bouton d’accès du porta
 
 Azure Resource Manager enregistre automatiquement les actions des utilisateurs à des fins d’audit.
 
-Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier.
+Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour en savoir plus, consultez [Verrouiller les ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
 Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure](./role-based-access-control-configure.md).
 
 Pour découvrir des exemples de définition de stratégies d’accès, voir [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md).
+
+Pour les meilleures pratiques, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md)
 
 ## Couche de gestion cohérente
 
@@ -110,33 +116,13 @@ Pour plus d’informations sur l’interface de ligne de commande Azure, voir [U
 
 Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST du gestionnaire des ressources Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+Pour plus d'informations sur l'utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
+
 ## Étapes suivantes
-Prise en main
 
-- [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
-- [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
+- Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md)
+- Pour déployer le modèle créé, consultez [Déploiement de modèles](azure-portal/resource-group-template-deploy.md)
+- Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md)
+- Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
-Création et déploiement d’applications
-
-- [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
-- [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
-- [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md)
-- [Déployer une application complexe de manière prévisible dans Microsoft Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Déploiement de ressources Azure à l’aide de bibliothèques .NET et d’un modèle](virtual-machines/arm-template-deployment.md)
-- [Fonctions des modèles de gestionnaire des ressources Azure](./resource-group-template-functions.md)
-- [Opérations de modèle avancées](./resource-group-advanced-template.md)
-- [Schémas de modèle](https://github.com/Azure/azure-resource-manager-schemas)
-
-Organisation des ressources
-
-- [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
-
-Gestion et audit de l’accès
-
-- [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
-- [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure](./role-based-access-control-configure.md)
-- [Authentification d’un principal du service à l’aide d’Azure Resource Manager](./resource-group-authenticate-service-principal.md)
-- [Création d’un nouveau principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

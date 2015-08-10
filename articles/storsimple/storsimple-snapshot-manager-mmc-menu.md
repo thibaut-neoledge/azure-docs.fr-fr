@@ -127,4 +127,4 @@ Utilisez le menu **Aide** pour consulter l’aide en ligne disponible du Gestion
 
 [En savoir plus sur l’interface utilisateur du Gestionnaire d’instantanés StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

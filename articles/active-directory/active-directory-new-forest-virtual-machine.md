@@ -3,7 +3,7 @@
 	description="Didacticiel qui explique comment créer une forêt Active Directory sur une machine virtuelle dans Azure Virtual Network." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure
@@ -25,7 +25,7 @@ Cette rubrique explique comment créer un nouvel environnement Windows Server Ac
 Les rubriques suivantes peuvent également vous intéresser :
 
 - Pour une vidéo qui illustre ces étapes, consultez [Installation d’une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- Vous pouvez éventuellement [configurer un VPN virtuel de site à site](https://msdn.microsoft.com/library/azure/dn133795.aspx), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
+- Vous pouvez éventuellement [configurer un VPN virtuel de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md), puis installer une nouvelle forêt ou étendre une forêt locale à un réseau virtuel Azure. Dans ce cas, consultez la page [Installation d'un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Pour obtenir des recommandations sur l'installation des services de domaine Active Directory (AD DS) sur un réseau virtuel Azure, consultez la page [Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Schéma du scénario
@@ -42,7 +42,7 @@ Pour configurer... | Au niveau local | Azure Virtual Network
 ------------- | -------------  | ------------
 **Adresse IP pour le contrôleur de domaine** | Attribuez une adresse IP statique aux propriétés d'adaptateur réseau | Exécutez la cmdlet Set-AzureStaticVNetIP pour attribuer une adresse IP statique
 **Programme de résolution du client DNS** | Définissez l'adresse des serveurs DNS préféré et auxiliaire dans les propriétés d'adaptateur réseau des membres du domaine | Définissez l'adresse du serveur DNS dans les propriétés du réseau virtuel
-**Stockage de base de données Active Directory** | (Facultatif) Définissez l'emplacement de stockage par défaut sur un autre lecteur que le lecteur C:\ | Vous devez définir l'emplacement de stockage par défaut avec un autre lecteur que le lecteur C:\
+**Stockage de base de données Active Directory** | (Facultatif) Définissez l'emplacement de stockage par défaut sur un autre lecteur que le lecteur C:\\ | Vous devez définir l'emplacement de stockage par défaut avec un autre lecteur que le lecteur C:\\
 
 
 
@@ -121,7 +121,7 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 -  [Installation d'une nouvelle forêt Active Directory sur un réseau virtuel Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Instructions pour le déploiement de Windows Server Active Directory sur des machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Configuration d’un réseau virtuel uniquement dans le cloud](https://msdn.microsoft.com/library/dn631643.aspx)
--  [Configuration d’un réseau VPN de site à site](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [Configuration d’un réseau VPN de site à site](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Installation d’un réplica de contrôleur de domaine Active Directory dans un réseau virtuel Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Iaas des professionnels de l’informatique Microsoft Azure : principes de base des machines virtuelles (01)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Iaas des professionnels de l’informatique Microsoft Azure :(05) Création de réseaux virtuels pour la connectivité entre différents locaux](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -139,4 +139,4 @@ Pour plus d'informations sur l'utilisation de Windows PowerShell, consultez [Pr
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

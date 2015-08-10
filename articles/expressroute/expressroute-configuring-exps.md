@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
-#  Configurer une connexion ExpressRoute via un fournisseur Exchange
+#  Configuration d’une connexion ExpressRoute via un fournisseur Exchange
 
 Pour configurer votre connexion ExpressRoute via un fournisseur Exchange, vous devrez respecter plusieurs étapes dans l'ordre approprié. Ces instructions vous aideront à effectuer les opérations suivantes :
 
@@ -218,7 +218,7 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 
 8. **Configurez votre réseau virtuel et votre passerelle.**
 
-	Consultez [Configuration d’un réseau virtuel et d’une passerelle pour ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Notez que le sous-réseau de la passerelle doit être/28 pour pouvoir fonctionner avec une connexion ExpressRoute.
+	Consultez [Configuration d’un réseau virtuel et d’une passerelle pour ExpressRoute](expressroute-configuring-vnet-gateway.md). Notez que le sous-réseau de la passerelle doit être/28 pour pouvoir fonctionner avec une connexion ExpressRoute.
 
 9. **Liez votre réseau à un circuit.** Suivez les instructions suivantes uniquement après avoir vérifié que votre circuit est passé à l'état et au statut suivants :
 	- ServiceProviderProvisioningState: Provisioned
@@ -227,5 +227,8 @@ Windows PowerShell est un environnement de création de scripts vous permettant 
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Étapes suivantes
 
-<!---HONumber=July15_HO4-->
+- Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
+
+<!---HONumber=July15_HO5-->

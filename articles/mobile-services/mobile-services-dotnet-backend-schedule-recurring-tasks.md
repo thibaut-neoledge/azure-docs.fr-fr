@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Planification des tâches du backend avec le planificateur - Mobile Services" 
+	pageTitle="Planification des travaux récurrents dans Azure Mobile Services" 
 	description="Azure Mobile Services Scheduler permet de planifier des tâches pour votre application mobile." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Planification des travaux récurrents dans Mobile Services 
@@ -36,16 +36,14 @@ Ce didacticiel explique comment utiliser la planification des travaux pour crée
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>Dans l'Explorateur de solutions Visual&#160;Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d'application <strong>MS_TwitterConsumerKey</strong> et <strong>MS_TwitterConsumerSecret</strong> et remplacez les valeurs de ces clés par des valeurs de clé de consommateur et de secret de consommateur Twitter que vous définissez dans le portail.</p></li>
+&nbsp;&nbsp;7. Dans l'Explorateur de solutions Visual Studio, ouvrez le fichier web.config correspondant au projet de service mobile, localisez les paramètres d'application `MS_TwitterConsumerKey` et `MS_TwitterConsumerSecret`, puis remplacez les valeurs de ces clés par des valeurs de clé de consommateur et de secret de consommateur Twitter que vous définissez dans le portail.
 
-<li><p>Dans la même section, ajoutez les nouveaux paramètres d'application suivants, remplacez les espaces réservés par les valeurs du jeton d'accès et du secret de jeton d'accès Twitter que vous définissez comme paramètres d'application dans le portail&#160;:</p>
+&nbsp;&nbsp;8. Dans la même section, ajoutez les nouveaux paramètres d'application suivants, remplacez les espaces réservés par les valeurs du jeton d'accès et du secret de jeton d'accès Twitter que vous définissez comme paramètres d'application dans le portail :
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**votre_jeton_accès**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**votre_secret_jeton_accès**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>Le service mobile utilise ces paramètres stockés lorsqu'il s'exécute sur l'ordinateur local, ce qui permet de tester la tâche planifiée avant de la publier. Si le service mobile est exécuté dans Azure, il utilise à la place les valeurs définies dans le portail et ignore les paramètres du projet.  </p></li>
-</ol>
+Le service mobile utilise ces paramètres stockés lorsqu'il s'exécute sur l'ordinateur local, ce qui permet de tester la tâche planifiée avant de la publier. Si le service mobile est exécuté dans Azure, il utilise à la place les valeurs définies dans le portail et ignore les paramètres du projet.
 
 ##<a name="install-linq2twitter"></a>Téléchargement et installation du LINQ dans la bibliothèque Twitter
 
@@ -65,7 +63,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 
 	Ainsi, un nouveau fichier de projet est créé pour la classe Updates.
 
-2. Cliquez avec le bouton droit sur le nœud **Références**, cliquez sur **Ajouter une référence...**, sélectionnez **Infrastructure** sous **Assemblys**, cochez **System.ComponentModel.DataAnnotations**, puis cliquez sur **OK**.
+2. Cliquez avec le bouton droit sur **Références** > **Ajouter une référence...** > **Infrastructure** sous **Assemblys**, cochez **System.ComponentModel.DataAnnotations**, puis cliquez sur **OK**.
 
 	![][7]
 
@@ -88,7 +86,7 @@ Ensuite, vous devez créer une nouvelle table pour y stocker les tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Développez le dossier Modèles, ouvrez le fichier de contexte du modèle de données (nommé <em>nom_service</em>Context.cs) et ajoutez la propriété suivante qui renvoie un **DbSet** typé :
+4. Développez le dossier Modèles, ouvrez le fichier de contexte du modèle de données (nommé *nom\_service\*Context.cs) et ajoutez la propriété suivante qui renvoie un **DbSet** typé :
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@ Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@ Vous pouvez ensuite créer la tâche planifiée qui accède à Twitter et stocke
 		    }
 		}
 
-	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l'espace de noms et le DbContext du projet téléchargé, qui sont <em>nom&#95;service&#95;mobile</em>Service et <em>nom&#95;service&#95;mobile</em>Context, respectivement.
+	Dans le code ci-dessus, vous devez remplacer les chaînes _todolistService_ et _todolistContext_ par l'espace de noms et le DbContext du projet téléchargé, qui sont *nom&#95;service&#95;mobile\*Service et *nom&#95;service&#95;mobile\*Context, respectivement. 
    	
 	Dans le code ci-dessus, la méthode de remplacement **ExecuteAsync** appelle l'API de requêtes Twitter en utilisant les informations d'identification stockées pour demander les tweets récents contenant la balise de hachage `#mobileservices`. Les tweets en double et les réponses sont supprimés des résultats avant que ces derniers ne soient stockés dans la table.
 
@@ -301,4 +300,4 @@ Félicitations, vous avez créé un nouveau travail planifié dans votre service
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Projet CodePlex LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

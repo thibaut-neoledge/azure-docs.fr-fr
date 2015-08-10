@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # Utilisation du stockage de files d'attente à partir de PHP
@@ -42,7 +42,7 @@ Dans ce guide, vous allez utiliser des fonctionnalités du service de File d'att
 
 Pour utiliser les API du service de File d'attente Azure, vous devez procéder comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require_once][require_once] ; et
+1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require_once] ; et
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -384,4 +384,4 @@ Maintenant que vous connaissez les principes de base du service de File d'attent
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

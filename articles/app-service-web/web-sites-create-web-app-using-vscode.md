@@ -187,8 +187,8 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 	![Informations d’identification sur le déploiement dans Microsoft Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **
-10.  URL**.
+9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous \*\*
+10.  URL\*\*.
 
 10. Copiez la valeur **URL GIT** pour pouvoir l’utiliser plus tard dans le didacticiel.
 
@@ -256,4 +256,4 @@ Cette opération peut être réalisée de deux manières :
 ## Résumé
 Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi VS Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

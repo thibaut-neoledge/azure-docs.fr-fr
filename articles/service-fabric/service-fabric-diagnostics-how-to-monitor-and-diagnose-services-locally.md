@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@ Service Fabric émet des événements ETW pour aider les développeurs d'applica
 1. Vous devez d'abord installer les composants suivants :
    * Visual Studio 2015
    * SDK Service Fabric
-2. Lancez Visual Studio en tant qu'administrateur.
-3. Créez un projet (ou ouvrez un projet existant) pour un acteur/service avec ou sans état. ![Créer un projet Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. Appuyez sur F5 pour déboguer l'application. Les événements Service Fabric doivent s'afficher dans la fenêtre Événements de diagnostic. Chaque événement comporte des informations de métadonnées standard qui vous indiquent le nœud, l'application et le service d'où il provient. Vous pouvez également filtrer la liste des événements à l'aide de la zone « Filtrer les événements » en haut des fenêtres, par exemple, vous pouvez filtrer sur le Nom du nœud ou le Nom du service. ![Observateur d'événements de diagnostic de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. Lancez Visual Studio en tant qu'administrateur.
+
+3. Créez un projet (ou ouvrez un projet existant) pour un acteur/service avec ou sans état.
+
+  ![Créer une application Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Créer un service Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. Appuyez sur F5 pour déboguer l'application. Les événements Service Fabric doivent s'afficher dans la fenêtre Événements de diagnostic. Chaque événement comporte des informations de métadonnées standard qui vous indiquent le nœud, l'application et le service d'où il provient. Vous pouvez également filtrer la liste des événements à l'aide de la zone « Filtrer les événements » en haut des fenêtres. Vous pouvez, par exemple, filtrer sur le Nom du nœud ou le Nom du service.
+
+  ![Observateur d'événements de diagnostic de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. Si la fenêtre Diagnostics d'événements ne s'affiche pas automatiquement, accédez à l'onglet Explorateur de serveurs dans Visual Studio, cliquez avec le bouton droit sur le cluster Service Fabric et choisissez « Afficher les événements de diagnostic » dans le menu contextuel.
 
-![Ouvrir l'Observateur d'événements de diagnostic de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Ouvrir l'Observateur d'événements de diagnostic de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Ajouter vos propres traces personnalisées au code d'application
 Les modèles de projet Visual Studio de Service Fabric contiennent des exemples de code. Le code indique comment ajouter les traces ETW de code d'application personnalisé qui s'affichent dans la visionneuse ETW de Visual Studio avec les traces système de Service Fabric. L'avantage de cette méthode est que les métadonnées sont automatiquement ajoutées aux traces et la visionneuse de diagnostics de Visual Studio est déjà configurée pour les afficher.
@@ -55,7 +63,7 @@ Pour les projets créés à partir des **modèles de service** (sans état ou av
 
 Pour les projets créés à partir des **modèles d'acteur** (sans état ou avec état) :
 
-1. Ouvrez le fichier **« Nom_projet ».cs** où *Nom_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
+1. Ouvrez le fichier **« Nom\_projet ».cs** où *Nom\_projet* est le nom que vous avez choisi pour votre projet Visual Studio.  
 2. Recherchez le code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` dans la méthode *DoWorkAsync*. Il s'agit d'un exemple de suivi ETW personnalisé à partir du code d'application.  
 3. Dans le fichier **ActorEventSource.cs**, les surcharges de la méthode `ActorEventSource.ActorMessage` indiquent une façon d'écrire des suivis ETW personnalisés.
 
@@ -70,6 +78,5 @@ Le même code de suivi que vous avez ajouté à votre application ci-dessus pour
 * [Configuration d'Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnostics et surveillance des performances pour Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

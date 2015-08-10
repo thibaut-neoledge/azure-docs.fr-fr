@@ -64,8 +64,8 @@ Ce didacticiel est conçu pour vous aider à créer des applications à l’aide
 4. Maintenant que le gestionnaire de version .NET est installé, vous devez l’utiliser pour charger DNX afin d’exécuter vos applications. Exécutez la commande suivante depuis la fenêtre Commande :
 
 	<pre class="prettyprint">
-	dnvm upgrade
-	</pre>
+dnvm upgrade
+</pre>
 
 5. Vérifiez votre gestionnaire de version .NET et affichez le runtime actif en saisissant la commande suivante dans la fenêtre Commande :
 
@@ -87,14 +87,14 @@ Cette section vous indique comment structurer une nouvelle application API ASP
 2. Pour installer Yeoman et les outils de prise en charge, saisissez la commande suivante dans la fenêtre Commandes :
 
 	<pre class="prettyprint">
-	npm install -g yo grunt-cli generator-aspnet bower
-	</pre>
+npm install -g yo grunt-cli generator-aspnet bower
+</pre>
 
 3. Saisissez la commande suivante dans la fenêtre Commandes pour créer le dossier du projet et structurer l’application :
 
 	<pre class="prettyprint">
-	yo aspnet
-	</pre>
+yo aspnet
+</pre>
 
 4. Suivez les instructions fournies par le générateur en faisant défiler la zone et en sélectionnant le type d’**application API web**.
 
@@ -136,42 +136,42 @@ Vous allez modifier l’application **ContactsList** en ajoutant une classe **Co
 2. Cliquez avec le bouton droit de la souris sur le dossier **Models** afin d’ajouter un nouveau fichier de classe appelé *Contact.cs* en utilisant le code suivant :
 
 	<pre class="prettyprint">
-	namespace ContactsList.Models
-	{
-	    public class Contact
-	    {
-	        public int Id { get; set; }
-	        public string Name { get; set; }
-	        public string EmailAddress { get; set; }
-	    }
-	}
-	</pre>
+namespace ContactsList.Models
+{
+    public class Contact
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+    }
+}
+</pre>
 
 3. Cliquez avec le bouton droit de la souris sur le dossier **Controllers** et ajoutez un fichier *ContactsController.cs*, de façon qu’il apparaisse comme suit :
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Assurez-vous que tous vos fichiers sont enregistrés en cliquant sur **Fichier** > **Enregistrer tout**.
 5. Dans la zone **Palette de commandes**, saisissez la commande suivante pour exécuter l’application en local :
@@ -199,18 +199,18 @@ Les métadonnées qui permettent le déploiement d’un projet d’API ASP.NET e
 3. Ajoutez le code suivant au fichier *apiapp.json* :
 
 	<pre class="prettyprint">
-	{
-	    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
-	    "id": "ContactsList",
-	    "namespace": "microsoft.com",
-	    "gateway": "2015-01-14",
-	    "version": "1.0.0",
-	    "title": "ContactsList",
-	    "summary": "",
-	    "author": "",
-	    "endpoints": null
-	}
-	</pre>
+{
+    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+    "id": "ContactsList",
+    "namespace": "microsoft.com",
+    "gateway": "2015-01-14",
+    "version": "1.0.0",
+    "title": "ContactsList",
+    "summary": "",
+    "author": "",
+    "endpoints": null
+}
+</pre>
 
 Dans le fichier *apiapp.json*, vous pouvez spécifier un point de terminaison pour le JSON de définition de l’API Swagger. Cependant, pour les besoins de ce didacticiel, vous utiliserez un fichier de définition d’API statique. Pour obtenir un exemple qui utilise la génération de Swagger dynamique, voir [Configurer un projet d’API web comme application API](app-service-dotnet-create-api-app-visual-studio.md).
 
@@ -222,107 +222,106 @@ Pour fournir un fichier de définition d’API Swagger 2.0 statique, vous deve
 3. Ajoutez la syntaxe JSON suivante dans le nouveau fichier :
 
 	<pre class="prettyprint">
-	{
-	  "swagger": "2.0",
-	  "info": {
-	    "version": "v1",
-	    "title": "ContactsList"
-	  },
-	  "host": "REMPLACEZ CETTE VALEUR PAR L’URL DE VOTRE HÔTE",
-	  "schemes": [
-	    "https"
-	  ],
-	  "paths": {
-	    "/api/Contacts": {
-	      "get": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Get",
-	        "consumes": [],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "type": "array",
-	              "items": {
-	                "$ref": "#/definitions/Contact"
-	              }
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      },
-	      "post": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Post",
-	        "consumes": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml",
-	          "application/x-www-form-urlencoded"
-	        ],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "parameters": [
-	          {
-	            "name": "contact",
-	            "in": "body",
-	            "required": true,
-	            "schema": {
-	              "$ref": "#/definitions/Contact"
-	            }
-	          }
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "$ref": "#/definitions/Object"
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      }
-	    }
-	  },
-	  "definitions": {
-	    "Contact": {
-	      "type": "object",
-	      "properties": {
-	        "Id": {
-	          "format": "int32",
-	          "type": "integer"
-	        },
-	        "Name": {
-	          "type": "string"
-	        },
-	        "EmailAddress": {
-	          "type": "string"
-	        }
-	      }
-	    },
-	    "Object": {
-	      "type": "object",
-	      "properties": {}
-	    }
-	  }
-	}
-	</pre>
-
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "ContactsList"
+  },
+  "host": "REMPLACEZ CETTE VALEUR PAR L’URL DE VOTRE HÔTE",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Contacts": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Post",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
+</pre>
 
 À une étape ultérieure de ce didacticiel, vous remplacerez la chaîne d’espace réservé relative à l’URL de l’hôte (ci-dessus) par l’URL de votre hôte Microsoft Azure, que vous créerez et copierez ultérieurement.
 
@@ -422,14 +421,14 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 7. Dans **GitBash**, remplacez les dossiers par celui de votre projet VSCode. Exemple :
 
 	<pre class="prettyprint">
-	cd c:\VSCodeProjects\ContactsList
-	</pre>
+cd c:\VSCodeProjects\ContactsList
+</pre>
 
 7. Créez une référence distante pour l’envoi des mises à jour vers l’application web (hôte de l’application API) que vous avez créée précédemment, en utilisant l’URL Git copiée précédemment (qui se termine par « .git ») :
 
 	<pre class="prettyprint">
-	git remote add azure [URL de votre référentiel distant]
-	</pre>
+git remote add azure [URL de votre référentiel distant]
+</pre>
 
 8. Envoyez vos modifications dans Azure en entrant la commande suivante :
 
@@ -442,15 +441,15 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 	La sortie de cette commande se termine par un message indiquant que le déploiement a réussi :
 
 	<pre class="prettyprint">
-	remote: Deployment successful.
-	To https://user@testsite.scm.azurewebsites.net/testsite.git
-	[new branch]      master -> master
-	</pre>
+remote: Deployment successful.
+To https://user@testsite.scm.azurewebsites.net/testsite.git
+[new branch]      master -> master
+</pre>
 
 > [AZURE.NOTE]Si vous apportez des modifications à votre application, vous pouvez la republier en cochant la case **Valider tout** dans VS Code, puis en saisissant la commande **git push azure master** dans **GitBash**.
 
-## Afficher la définition d’API dans le portail Azure en version préliminaire
-Maintenant que vous avez déployé une API dans votre application API, vous pouvez voir la définition de l’API dans le portail Azure en version préliminaire. Vous commencez par redémarrer la passerelle, ce qui permet à Microsoft Azure de reconnaître que la définition d’API d’une application API a été modifiée. La passerelle est une application web qui gère l’administration et les autorisations des API pour les applications API d’un groupe de ressources.
+## Afficher la définition d'API dans le portail Azure en version préliminaire
+Maintenant que vous avez déployé une API dans votre application API, vous pouvez voir la définition de l'API dans le portail Azure en version préliminaire. Vous commencez par redémarrer la passerelle, ce qui permet à Microsoft Azure de reconnaître que la définition d’API d’une application API a été modifiée. La passerelle est une application web qui gère l'administration et les autorisations des API pour les applications API d'un groupe de ressources.
 
 1. Dans le portail Microsoft Azure en version préliminaire, accédez au panneau **APPLICATION API** de l’application API que vous avez créée précédemment, puis cliquez sur le lien **Passerelle**.
 2. Dans le panneau **PASSERELLE**, cliquez sur **Redémarrer**. Vous pouvez maintenant fermer ce panneau.
@@ -466,4 +465,4 @@ Dans le portail Microsoft Azure en version préliminaire, accédez au panneau *
 Ce didacticiel vous a montré comment créer une application API dans Visual Studio Code. Pour en savoir plus sur ce logiciel, voir [Visual Studio Code](https://code.visualstudio.com/Docs/). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

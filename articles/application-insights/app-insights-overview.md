@@ -39,6 +39,9 @@ Les données de télémétrie recueillies à partir de votre application sont st
 
 ![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
 
+Vous voulez bénéficier d’une analyse encore plus approfondie ? [Exportez](app-insights-export-telemetry.md) vos données [vers SQL](app-insights-code-sample-export-telemetry-sql-database.md)[vers Power BI](app-insights-export-power-bi.md) ou vers vos propres outils.
+
+![Affichage des données dans Power BI](./media/app-insights-overview/210.png)
 
 ## Plateformes et langages
 
@@ -52,7 +55,7 @@ Il existe des Kits de développement logiciel pour un nombre croissant de platef
  * [Ordinateurs Windows][desktop]
  * [iOS][ios]
  * [Android][android]
- * [Autres plateformes][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
 Application Insights peut également obtenir les mesures de télémétrie à partir des applications web ASP.NET existantes sur IIS, sans les recréer.
 
@@ -72,16 +75,19 @@ Pour les serveurs ASP.NET et les applications web Azure, vous pouvez également 
 * surveiller une application web sans la régénérer ou la réinstaller.
 * suivre les appels aux modules dépendants.
 
+
+
 ### Quelle est la surcharge ?
 
 L'impact sur les performances est très faible. Le suivi des appels n’entraîne aucun blocage, et les appels sont regroupés par lots et envoyés dans un thread séparé.
 
 
+
 ## Pour commencer
 
-1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L’inscription est gratuite et vous pouvez choisir l'outil le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
+1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L’inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d’Application Insights.
 
-2. Connexion au [portail Azure en version préliminaire](http://portal.azure.com)
+2. Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com)
 3. Créez une ressource Application Insights. C’est ici que vous pouvez afficher les données de votre application.
 
     ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
@@ -139,4 +145,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

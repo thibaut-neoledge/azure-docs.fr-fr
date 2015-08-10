@@ -70,16 +70,16 @@ Une fois votre connecteur créé, vous pouvez utiliser le connecteur SMTP comme 
 
 Vous pouvez maintenant configurer le connecteur SMTP à utiliser dans votre flux de travail. Sélectionnez l’action **Envoyer le message électronique** et configurez les propriétés d’entrée :
 
-	Propriété | Description
+	Property | Description
 	--- | ---
-	To | Saisissez l'adresse e-mail du ou des destinataires. Séparez les différentes adresses par un point-virgule (;). Par exemple, saisissez :  *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Saisissez l'adresse e-mail du ou des destinataires en copie (Cc). Séparez les différentes adresses par un point-virgule (;). Par exemple, saisissez : *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Saisissez l'objet de l'e-mail.
-	Body | Saisissez le corps de l'e-mail.
-	Is HTML | Lorsque cette propriété est définie sur « true », les contenus du corps sont envoyés au format HTML.
-	Bcc | Saisissez l'adresse e-mail du ou des destinataires en copie invisible (Bcc). Séparez les différentes adresses par un point-virgule (;). Par exemple, saisissez : *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Définissez le degré d'importance de l'e-mail. Les options possibles sont : faible, moyen et élevé.
-	Attachments | Pièces jointes à envoyer avec l'e-mail. Ceci comprend les champs suivants : <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -91,7 +91,7 @@ Créez les applications API à l’aide des API REST. Consultez la page [Référ
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

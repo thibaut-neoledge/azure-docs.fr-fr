@@ -302,4 +302,4 @@ Pour plus d’informations sur les notifications de création de rapport Azure A
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajouter des stratégies de promotion professionnelles aux pages du volet d’accès et de connexion](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

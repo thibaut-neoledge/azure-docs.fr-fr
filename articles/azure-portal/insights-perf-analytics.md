@@ -83,4 +83,4 @@ Une fois que vous arrivez sur le panneau, pour Application Insights par exemple,
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

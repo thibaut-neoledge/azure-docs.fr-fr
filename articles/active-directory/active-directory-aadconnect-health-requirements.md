@@ -72,7 +72,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les 
 #### Pour activer l’audit pour AD FS 2.0
 
 1. Cliquez sur **Démarrer**, survolez **Programmes**, **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
-1. Accédez au dossier **Security Settings\Local Policies\User Rights Management**, puis double-cliquez sur Générer des audits de sécurité.
+1. Accédez au dossier **Security Settings\\Local Policies\\User Rights Management**, puis double-cliquez sur Générer des audits de sécurité.
 1. Sur l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le dans la liste, puis cliquez sur **OK**.
 1. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Fermez Stratégie de sécurité locale, puis ouvrez le composant logiciel enfichable Gestion. Pour ouvrir le composant logiciel enfichable Gestion, cliquez sur **Démarrer**, survolez **Programmes**, **Outils d’administration**, puis cliquez sur Gestion AD FS 2.0.
@@ -84,7 +84,7 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les 
 #### Pour activer l’audit pour AD FS sur Windows Server 2012 R2
 
 1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
-1. Accédez au dossier **Security Settings\Local Policies\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
+1. Accédez au dossier **Security Settings\\Local Policies\\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
 1. Sur l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS est répertorié. Si ce n’est pas le cas, cliquez sur **Ajouter un utilisateur ou un groupe** et procédez à l’ajout dans la liste, puis cliquez sur **OK**.
 1. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit : `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
 1. Fermez **Stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable **Gestion AD FS** (dans Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
@@ -155,4 +155,4 @@ Pour vérifier que l’agent a été installé, ouvrez les services et procédez
  
 ![Vérifier Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

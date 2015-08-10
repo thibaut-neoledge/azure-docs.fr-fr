@@ -222,4 +222,4 @@ Consultez la figure suivante pour voir un flux de travail typique qu'un dévelop
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

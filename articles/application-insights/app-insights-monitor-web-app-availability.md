@@ -129,7 +129,7 @@ Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple,
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l'aide de Visual Studio et téléchargez ensuite l'enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
 
-#### 1. Enregistrement d’un scénario
+#### 1\. Enregistrement d’un scénario
 
 Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
@@ -156,7 +156,7 @@ Utilisez Visual Studio Ultimate pour enregistrer une session web.
 
 (N'insérez pas de boucles dans votre code de test web.)
 
-#### 2. Chargement du test web dans Application Insights
+#### 2\. Chargement du test web dans Application Insights
 
 1. Dans le portail Application Insights, créez un test web.
 
@@ -229,4 +229,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

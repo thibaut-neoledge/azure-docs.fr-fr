@@ -15,4 +15,4 @@ Les limites suivantes s’appliquent uniquement lorsque vous utilisez Azure Reso
 </tr>
 </table>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

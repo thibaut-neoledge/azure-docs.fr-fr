@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création d'une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire | Microsoft Azure"
-	description="Apprenez à créer une ressource de machine virtuelle Azure exécutant Windows, à l’aide d’Azure Marketplace dans le portail Azure en version préliminaire"
+	pageTitle="Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire | Microsoft Azure"
+	description="Découvrez comment créer une ressource de machine virtuelle Azure exécutant Windows à l’aide d’Azure Marketplace dans le portail Azure en version préliminaire."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -16,15 +16,15 @@
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
-# Création d'une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire#
+# Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure en version préliminaire, et ce en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d'exemple pour créer la machine virtuelle dans Azure Resource Manager. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure en seulement quelques minutes dans le portail en version préliminaire. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d'exemple pour créer la machine virtuelle dans Azure Resource Manager. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Notez que votre choix en matière d’images dépend de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
 Vous pouvez également créer des machines virtuelles à l'aide de vos propres images, avec des modèles Resource Manager ou avec les outils d'automatisation. Pour en savoir plus sur les différentes méthodes, consultez la page [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -33,7 +33,7 @@ Vous pouvez également créer des machines virtuelles à l'aide de vos propres i
 
 ## Sélectionnez l'image
 
-Accédez à Azure Marketplace dans la version préliminaire du portail pour rechercher l'image de machine virtuelle Windows Server.
+Accédez à Azure Marketplace dans le portail en version préliminaire pour rechercher l’image de machine virtuelle Windows Server souhaitée.
 
 1. Connectez-vous au [portail en version préliminaire](https://portal.azure.com).
 
@@ -43,7 +43,7 @@ Accédez à Azure Marketplace dans la version préliminaire du portail pour rech
 
 	>[AZURE.TIP]Pour rechercher d’autres images, cliquez sur **Marketplace**, puis recherchez ou filtrez les éléments disponibles.
 
-3. Sur la page **Windows Server 2012 R2 Datacenter**, sélectionnez **Utiliser la pile du gestionnaire de ressources** pour créer la machine virtuelle dans Azure Resource Manager. (Pour la plupart des nouvelles charges de travail, nous vous recommandons la pile du Gestionnaire de ressources. Pour connaître les aspects à prendre en compte, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans le Gestionnaire de ressources Azure](virtual-machines-azurerm-versus-azuresm.md).) Cliquez sur **Créer**.
+3. Sur la page **Windows Server 2012 R2 Datacenter**, sélectionnez **Utiliser la pile Resource Manager** pour créer la machine virtuelle dans Azure Resource Manager. (Pour la plupart des nouvelles charges de travail, nous vous recommandons la pile de Resource Manager. Pour connaître les aspects à prendre en compte, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).) Cliquez sur **Créer**.
 
 	![Recherche dans Marketplace](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
@@ -55,7 +55,7 @@ Après avoir sélectionné l'image, vous pouvez utiliser les paramètres par dé
 
 	![Configurer les éléments de base de la machine virtuelle](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**Nom d’utilisateur** fait référence au compte administratif que vous utilisez pour gérer le serveur. Créez un mot de passe difficile à deviner, mais dont vous vous souviendrez. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
+	>[AZURE.NOTE]\*\*Nom d’utilisateur\*\* fait référence au compte administratif que vous utilisez pour gérer le serveur. Créez un mot de passe difficile à deviner, mais dont vous vous souviendrez. **Vous aurez besoin du nom d'utilisateur et du mot de passe pour vous connecter à la machine virtuelle**.
 
 2. Cliquez sur **Taille** et sélectionnez une taille de machine virtuelle adaptée à vos besoins. Chaque taille spécifie la quantité de cœurs de calcul, de mémoire et d'autres fonctionnalités, telles que la prise en charge du stockage Premium, ce qui aura un impact sur le prix. Azure recommande automatiquement certaines tailles en fonction de l'image que vous choisissez.
 
@@ -79,7 +79,7 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 
 >[AZURE.NOTE]Pour des conseils concernant les exigences et le dépannage, consultez [Connexion d'une machine virtuelle Azure à l'aide de RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Si ce n’est pas déjà fait, connectez-vous à la [version préliminaire du portail](https://portal.azure.com).
+1. Si ce n’est pas déjà fait, connectez-vous au [portail en version préliminaire](https://portal.azure.com).
 
 2. Cliquez sur votre machine virtuelle dans le tableau d'accueil. Si vous devez la rechercher, cliquez sur **Parcourir tout** > **Récentes** ou **Parcourir tout** > **Machines virtuelles**. Sélectionnez ensuite votre machine virtuelle à partir de la liste.
 
@@ -102,4 +102,4 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 * Utiliser Azure PowerShell et la CLI Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
 * Automatiser le déploiement et la gestion de machine virtuelle et de charge de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

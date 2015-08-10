@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="07/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,12 +64,12 @@ L'article d'assistance ci-dessus fournit une aide pour les problèmes de connect
 
 - Pour plus d'informations sur la connexion à la base de données SQL, consultez [Recommandations pour la connexion à la base de données SQL Azure par programme](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
 
-- Vous trouverez plus d'informations sur les erreurs de connexion spécifiques dans la section **Erreurs de perte de connexion** sous [Messages d'erreur (base de données SQL Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors).
+- Vous trouverez plus d'informations sur les erreurs de connexion spécifiques dans la section **Erreurs temporaires, erreurs de perte de connexion** sous [Messages d'erreur pour programmes clients SQL Database](sql-database-develop-error-messages.md#bkmk_connection_errors).
 
-- Vous pouvez accéder aux données de l'événement de connexion en interrogeant les événements de connectivité à l'aide de la vue [**sys.event_log (base de données de SQL Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
+- Vous pouvez accéder aux données de l'événement de connexion en interrogeant les événements de connectivité à l'aide de la vue [**sys.event\_log (base de données de SQL Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
 
-- Vous pouvez accéder aux mesures des événements de connectivité de la base de données en interrogeant la vue [**sys.database_connection_stats (base de données de SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
+- Vous pouvez accéder aux mesures des événements de connectivité de la base de données en interrogeant la vue [**sys.database\_connection\_stats (base de données de SQL Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

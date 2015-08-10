@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #Gestion de la disponibilité des machines virtuelles
@@ -69,4 +69,4 @@ Si l'équilibrage de charge n'est pas configuré pour équilibrer le trafic entr
 [Éviter les instances uniques de machines virtuelles dans les groupes à haute disponibilité]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuration d’un groupe à haute disponibilité pour des machines virtuelles]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

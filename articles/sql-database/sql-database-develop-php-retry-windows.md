@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Cette rubrique illustre comment vous pouvez vous connecter à Azure SQL Database à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
+Cette rubrique montre comment vous connecter à Azure SQL Database à partir d'une application cliente écrite en PHP qui s'exécute sur Windows.
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
@@ -40,9 +40,9 @@ Consultez la [rubrique Prise en main](sql-database-get-started.md) pour découvr
 
 Le programme de démonstration est conçu afin qu’une erreur temporaire au cours d’une tentative de connexion aboutisse à une nouvelle tentative. Mais une erreur temporaire au cours de la commande de requête oblige le programme à ignorer la connexion et à en créer une nouvelle, avant de réessayer la commande de requête. Nous ne vous recommandons ni ne vous déconseillons ce choix de conception. Le programme de démonstration illustre quelques aspects de la flexibilité de conception qui vous sont accessibles.
 
-<br>La longueur de cet exemple de code est due essentiellement à la logique de l’exception catch. Une version plus courte du fichier Program.cs est disponible [ici](https://azure.microsoft.com/fr-fr/documentation/articles/sql-database-develop-php-simple-windows/). <br>La méthode Main se trouve dans le fichier Program.cs. La pile des appels s’exécute comme suit : * Main appelle ConnectAndQuery. * ConnectAndQuery appelle EstablishConnection. * EstablishConnection appelle IssueQueryCommand.
+<br>La longueur de cet exemple de code est due essentiellement à la logique de l’exception catch. Une version plus courte du fichier Program.cs est disponible [ici](sql-database-develop-php-simple-windows.md). <br>La méthode Main se trouve dans le fichier Program.cs. La pile des appels s’exécute comme suit : \* Main appelle ConnectAndQuery. \* ConnectAndQuery appelle EstablishConnection. \* EstablishConnection appelle IssueQueryCommand.
 
-La fonction [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+La fonction [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte toutes les requêtes et l'objet de connexion, et retourne un jeu de résultats qui peut faire l'objet d'une itération à l'aide de [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	<?php
 		// Variables to tune the retry logic.  
@@ -137,4 +137,4 @@ Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

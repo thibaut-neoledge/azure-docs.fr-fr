@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-Dans ce didacticiel, vous allez ajouter l’authentification au [didacticiel Démarrage rapide de Mobile Services] en faisant appel à un fournisseur d’identité pris en charge. Vous devez d’abord terminer le [didacticiel Démarrage rapide de Mobile Services].
+Dans ce didacticiel, vous allez ajouter l’authentification au [didacticiel Démarrage rapide de Mobile Services] en faisant appel à un fournisseur d’identité pris en charge.
+
+Nous vous recommandons de terminer d'abord le [didacticiel Démarrage rapide de Mobile Services]. Vous pouvez également télécharger le projet Démarrage rapide iOS : cliquez sur le portail Azure > **Mobile Services** > votre service mobile > l'authentification cloud en haut à gauche > **iOS** > **Créer une nouvelle application iOS** > **Télécharger et exécuter votre application** > **Objective-C** > **Télécharger**. N'oubliez pas de cliquer sur **Créer une table TodoItem** avant de cliquer sur **Télécharger** si vous n'avez pas encore créé la table.
 
 ##<a name="register"></a>Inscription de l’application pour l’authentification
 
@@ -82,4 +84,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

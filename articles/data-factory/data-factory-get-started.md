@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d'Azure Data Factory"
+	pageTitle="Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL"
 	description="Ce didacticiel vous montre comment créer un exemple de pipeline de données qui copie les données d'un objet blob vers une instance de base de données SQL Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Prise en main d'Azure Data Factory
+# Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -67,7 +67,7 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 ### Préparer le stockage d'objets blob Azure et la base de données SQL Azure pour le didacticiel
 À présent, préparez votre stockage d'objets blob Azure et votre base de données SQL Azure pour ce didacticiel, en procédant comme suit :
 
-1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\ADFGetStarted** sur votre disque dur.
+1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **emp.txt** dans le dossier **C:\\ADFGetStarted** sur votre disque dur.
 
         John, Doe
 		Jane, Doe
@@ -110,4 +110,4 @@ Effectuez les actions suivantes :
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

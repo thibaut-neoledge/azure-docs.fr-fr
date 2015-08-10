@@ -100,7 +100,9 @@ Avant d’installer Azure AD Connect avec les paramètres Express, voici ce don
  
 - Un abonnement Azure ou un [abonnement d'essai Azure](http://azure.microsoft.com/pricing/free-trial/). Cette condition est nécessaire uniquement pour accéder au portail Azure mais pas pour l'utilisation d’Azure AD Connect. Si vous utilisez PowerShell ou Office 365, vous n’avez pas besoin d’un abonnement Azure pour utiliser Azure AD Connect.
 - Le compte d’administrateur global Azure AD du locataire Azure AD que vous souhaitez intégrer
-- Un contrôleur de domaine ou un serveur membre AD avec Windows Server 2008 ou version ultérieure
+- Azure Active Directory Connect doit être installé sur Windows Server 2008 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre.
+- La version de schéma Active Directory et le niveau de forêt doit être Windows Server 2003 ou version ultérieure. Les contrôleurs de domaine peuvent exécuter n’importe quelle version aussi longtemps que les exigences relatives au schéma et le niveau de forêt sont remplies.
+- Si les services de fédération Active Directory sont dépoloyés, les serveurs sur lesquels AD FS doivent être installés doivent être Windows Server 2012 ou version ultérieure.
 - Un compte d’administrateur d’entreprise pour votre Active Directory local
 - Facultatif : un compte d’utilisateur test pour vérifier la synchronisation. 
 
@@ -140,7 +142,7 @@ La sélection des paramètres Express est l’option par défaut et s’applique
 8. Sur l’écran Connexion à AD DS, entrez le nom d'utilisateur et le mot de passe d’un compte d'administrateur d’entreprise. Cliquez sur **Next**.
 <center>![Bienvenu dans Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
-	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « **Démarrer le processus de synchronisation dès que la configuration est terminée** ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
+	- Sur la page Prêt à configurer, vous pouvez éventuellement la case à cocher « \*\*Démarrer le processus de synchronisation dès que la configuration est terminée\*\* ». Si vous faites cela, l'assistant configurera la synchronisation, mais laissera la tâche désactivée afin qu'elle ne s’exécute pas avant que vous ne l'activiez manuellement dans le Planificateur de tâches. Une fois que la tâche est activée, la synchronisation s'exécute toutes les trois heures.
 	- Éventuellement, vous pouvez également choisir de configurer les services de synchronisation pour le **déploiement hybride Exchange** en cochant la case à cocher correspondante. Si vous n'envisagez pas d'avoir des boîtes aux lettres Exchange dans le cloud et en local, vous n’avez pas besoin de cela.
 
 <center>![Bienvenue dans Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -182,7 +184,7 @@ Maintenant que vos utilisateurs ont été synchronisés dans le cloud, vous deve
 2. Sélectionnez **Active Directory** à gauche.
 3. Sur la page Active Directory, double-cliquez sur le répertoire qui contient les utilisateurs que vous souhaitez activer.
 4. En haut de la page du répertoire, sélectionnez **Licences**.
-5. Sur la page des licences, sélectionnez Active Directory Premium ou Enterprise Mobility Suite, puis cliquez sur **Attribuer**.
+5. Sur la page des licences, sélectionnez Active Directory Premium ou Enterprise Mobility Suite, puis cliquez sur **Assign**.
 6. Dans la boîte de dialogue, sélectionnez les utilisateurs auxquels vous souhaitez attribuer des licences, puis cliquez sur l’icône de coche pour enregistrer les modifications.
 
 
@@ -245,6 +247,8 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) : analysez le fonctionnement de votre infrastructure AD FS locale.
 
+[FAQ Azure D Connect](active-directory-aadconnect-faq.md) - Forum aux questions concernant Azure AD Connect.
+
 
 
 
@@ -252,4 +256,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

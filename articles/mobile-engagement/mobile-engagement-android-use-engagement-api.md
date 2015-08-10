@@ -252,7 +252,7 @@ Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
 #### Taille
 
@@ -260,7 +260,7 @@ Les paramètres extras sont limités à **1024** caractères par appel (une foi
 
 Dans l'exemple précédent, le JSON envoyé au serveur fait 58 caractères :
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##Rapports d'informations sur l'application
 
@@ -287,7 +287,7 @@ Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (_).
+Cela signifie que les clés doivent commencer par au moins une lettre, suivie de lettres, de chiffres ou de traits de soulignement (\_).
 
 #### Taille
 
@@ -298,4 +298,4 @@ Dans l'exemple précédent, le JSON envoyé au serveur fait 44 caractères :
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

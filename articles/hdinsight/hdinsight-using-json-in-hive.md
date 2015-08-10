@@ -97,12 +97,12 @@ Voici la sortie de l’instruction SELECT :
 
 Hive propose trois mécanismes différents pour exécuter des requêtes sur des documents JSON :
 
-- utilisation de la fonction définie par l'utilisateur (UDF) GET_JSON_OBJECT ;
-- utilisation de la fonction UDF JSON_TUPLE ;
+- utilisation de la fonction définie par l'utilisateur (UDF) GET\_JSON\_OBJECT ;
+- utilisation de la fonction UDF JSON\_TUPLE ;
 - utilisation d’un SerDe personnalisé ;
 - écriture de votre propre fonction UDF à l’aide de Python ou d’autres langages. Consultez [cet article][hdinsight-python] consacré à l’exécution de votre propre code Python avec Hive. 
 
-### Utiliser la fonction UDF GET_JSON_OBJECT
+### Utiliser la fonction UDF GET\_JSON\_OBJECT
 Hive intègre une fonction UDF appelée [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) qui permet d’exécuter des requêtes sur un document JSON pendant l’exécution. Cette méthode accepte deux arguments : d'une part, le nom de la table et le nom de la méthode contenant le document JSON aplati et, d'autre part, le champ JSON à analyser. Prenons un exemple pour examiner de plus près cette fonction UDF.
 
 Obtenir le prénom et le nom de chaque élève
@@ -114,19 +114,19 @@ Obtenir le prénom et le nom de chaque élève
 
 Voici la sortie de cette requête dans la fenêtre de console.
 
-![Fonction UDF get_json_object][image-hdi-hivejson-getjsonobject]
+![Fonction UDF get\_json\_object][image-hdi-hivejson-getjsonobject]
 
-La fonction UDF get-json_object présente quelques limitations.
+La fonction UDF get-json\_object présente quelques limitations.
 
 - Étant donné que chaque champ de la requête requiert la ré-analyse de la requête, cela influe sur les performances.
-- GET_JSON_OBJECT() retourne une représentation sous forme de chaîne d’un tableau. Pour convertir cette dernière en tableau Hive, vous devez utiliser des expressions régulières pour remplacer les crochets « [ » et « ] », puis appeler split pour obtenir le tableau.
+- GET\_JSON\_OBJECT() retourne une représentation sous forme de chaîne d’un tableau. Pour convertir cette dernière en tableau Hive, vous devez utiliser des expressions régulières pour remplacer les crochets « [ » et « ] », puis appeler split pour obtenir le tableau.
 
 
-C’est pourquoi le wiki Hive recommande l’utilisation de json_tuple.
+C’est pourquoi le wiki Hive recommande l’utilisation de json\_tuple.
 
-### Utiliser la fonction UDF JSON_TUPLE
+### Utiliser la fonction UDF JSON\_TUPLE
 
-L’autre fonction UDF fournie par Hive, intitulée [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante renvoie l’ID de l'étudiant et la qualité du document JSON :
+L’autre fonction UDF fournie par Hive, intitulée [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), est plus performante que [get\_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Cette méthode, qui accepte un ensemble de clés et une chaîne JSON, retourne un tuple de valeurs en utilisant une seule fonction. La requête suivante renvoie l’ID de l'étudiant et la qualité du document JSON :
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -135,9 +135,9 @@ L’autre fonction UDF fournie par Hive, intitulée [json_tuple](https://cwiki.a
 
 Sortie de ce script dans la console Hive :
 
-![Fonction UDF json_tuple][image-hdi-hivejson-jsontuple]
+![Fonction UDF json\_tuple][image-hdi-hivejson-jsontuple]
 
-JSON_TUPLE utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON deviennent trop complexes en raison de l’utilisation répétée de LATERAL VIEW. En outre, JSON_TUPLE ne peut pas gérer les documents JSON imbriqués.
+JSON\_TUPLE utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json\_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON deviennent trop complexes en raison de l’utilisation répétée de LATERAL VIEW. En outre, JSON\_TUPLE ne peut pas gérer les documents JSON imbriqués.
 
 
 ###Utiliser un SerDe personnalisé
@@ -146,7 +146,7 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 **Pour utiliser le SerDe personnalisé :**
 
-1. Installez le [JDK 1.7.0_55 du Kit de développement SE Java 7u55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si vous envisagez d’utiliser le déploiement Windows de HDInsight, choisissez la version Windows X64 du JDK.
+1. Installez le [JDK 1.7.0\_55 du Kit de développement SE Java 7u55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Si vous envisagez d’utiliser le déploiement Windows de HDInsight, choisissez la version Windows X64 du JDK.
 
 	>[AZURE.WARNING]Le JDK 1.8 ne fonctionne pas avec ce SerDe.
 
@@ -154,7 +154,7 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 	1. Ouvrez **Afficher les paramètres système avancés** à partir de l’écran de Windows.
 	2. Cliquez sur **Variables d’environnement**.  
-	3. Ajoutez une nouvelle variable d’environnement **JAVA_HOME** pointant vers **C:\Program Files\Java\jdk1.7.0_55** ou vers l’emplacement où est installé votre JDK.
+	3. Ajoutez une nouvelle variable d’environnement **JAVA\_HOME** pointant vers **C:\\Program Files\\Java\\jdk1.7.0\_55** ou vers l’emplacement où est installé votre JDK.
 
 	![Définition de valeurs de configuration correctes pour JDK][image-hdi-hivejson-jdk]
 
@@ -168,11 +168,11 @@ SerDe est le meilleur choix pour l’analyse des documents JSON imbriqués ; il
 
 	![Clonage du projet][image-hdi-hivejson-serde]
 
-4. Accédez au dossier dans lequel vous avez téléchargé ce package et tapez « mvn package ». Cette action doit créer les fichiers jar nécessaires que vous pouvez ensuite copier dans le cluster.
+4\. Accédez au dossier dans lequel vous avez téléchargé ce package et tapez « mvn package ». Cette action doit créer les fichiers jar nécessaires que vous pouvez ensuite copier dans le cluster.
 
-5. Accédez au dossier cible sous le dossier racine dans lequel vous avez téléchargé le package. Téléchargez le fichier json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar dans le nœud principal de votre cluster. En général, je le mets dans le dossier binaire Hive (C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin) ou un dossier semblable.
+5\. Accédez au dossier cible sous le dossier racine dans lequel vous avez téléchargé le package. Téléchargez le fichier json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar dans le nœud principal de votre cluster. En général, je le mets dans le dossier binaire Hive (C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin) ou un dossier semblable.
  
-6. À l’invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\apps\dist\hive-0.13.x\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous :
+6\. À l’invite Hive, tapez « add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.ja ». Comme dans le cas présent, le fichier jar se trouve dans le dossier C:\\apps\\dist\\hive-0.13.x\\bin, je peux directement l'ajouter avec le nom comme indiqué ci-dessous :
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -223,9 +223,9 @@ Voici la sortie de la console Hive.
 
 ![Requête SerDe 2][image-hdi-hivejson-serde_query2]
 
-Pour rechercher les matières dans lesquelles l’élève à obtenu un score de plus de 80 points : SELECT jt.StudentClassCollection.ClassId FROM json_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
+Pour rechercher les matières dans lesquelles l’élève à obtenu un score de plus de 80 points : SELECT jt.StudentClassCollection.ClassId FROM json\_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
       
-Contrairement à get_json_object qui retourne une chaîne, la requête ci-dessus retourne un tableau Hive.
+Contrairement à get\_json\_object qui retourne une chaîne, la requête ci-dessus retourne un tableau Hive.
 
 ![Requête SerDe 3][image-hdi-hivejson-serde_query3]
 
@@ -237,7 +237,7 @@ Pour ignorer les données JSON mal formées, vous pouvez, comme l'explique la [p
 
 
 ##Résumé
-En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Si vous possédez un document JSON simple et que votre recherche ne porte que sur un seul champ, vous pouvez utiliser la fonction UDF Hive get_json_object. Si votre recherche porte sur plusieurs clés, vous pouvez utiliser json_tuple. Enfin, si vous disposez d'un document imbriqué, il est recommandé d'utiliser le SerDe JSON.
+En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Si vous possédez un document JSON simple et que votre recherche ne porte que sur un seul champ, vous pouvez utiliser la fonction UDF Hive get\_json\_object. Si votre recherche porte sur plusieurs clés, vous pouvez utiliser json\_tuple. Enfin, si vous disposez d'un document imbriqué, il est recommandé d'utiliser le SerDe JSON.
 
 Autres articles associés :
 
@@ -261,4 +261,4 @@ Autres articles associés :
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

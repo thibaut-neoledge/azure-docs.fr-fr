@@ -122,9 +122,9 @@ Pour en savoir plus sur les abonnements à Microsoft Azure, voir [Gestion des c
 
 	- **$ContainerName :** utilisez le nom donné dans le script ou entrez un nouveau nom pour votre conteneur.
 
-	- **$ImageToUpload :** entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\Images\image.png ».
+	- **$ImageToUpload :** entrez le chemin d’accès à une image sur votre ordinateur local, par exemple « C:\\Images\\image.png ».
 
-	- **$DestinationFolder :** entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\Téléchargements ».
+	- **$DestinationFolder :** entrez un chemin d’accès à un répertoire local pour stocker les fichiers téléchargés d’Azure Storage, par exemple « C:\\Téléchargements ».
 
 7.	Après la mise à jour des variables de script dans le fichier mystoragescript.ps1, cliquez sur **Fichier** > **Enregistrer**. Cliquez ensuite sur **Déboguer** > **Exécuter** ou appuyez sur **F5** pour exécuter le script.
 
@@ -255,7 +255,7 @@ Pour charger des objets blob dans un conteneur, vous pouvez utiliser l’applet 
 
 L’exemple suivant exécute l’applet de commande [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) pour obtenir tous les fichiers du dossier spécifié, puis les transmet à l’applet de commande suivante à l’aide de l’opérateur de pipeline. L’applet de commande [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) charge les fichiers locaux dans votre conteneur :
 
-    Get-ChildItem –Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
+    Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
 ### Téléchargement d'objets blob depuis un conteneur
 L’exemple suivant indique comment télécharger des objets blob depuis un conteneur. Cet exemple établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès primaire. Ensuite, l’exemple récupère une référence d’objet blob à l’aide de l’applet de commande [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx). Ensuite, l’exemple utilise l’applet de commande [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) pour télécharger les objets blob dans le dossier local de destination.
@@ -736,4 +736,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

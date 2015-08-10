@@ -57,10 +57,17 @@ Dans le diagramme ci-dessus :
 - Étant donné que l'adresse VIP publique de l'environnement App Service est 192.23.1.2, cela correspond à l'adresse IP sortante utilisée lors des appels aux points de terminaison « Internet ».
 - La plage CIDR du sous-réseau conteneur pour l'environnement App Service est 10.0.1.0/26. Les autres points de terminaison dans la même infrastructure de réseau virtuel verront les appels provenant d'applications comme émanant de quelque part dans cette plage d'adresses.
 
-## Informations et liens supplémentaires ##
-Vous trouverez plus d'informations sur les ports entrants utilisés par les environnements App Service et l'utilisation de groupes de sécurité réseau pour contrôler le trafic entrant [ici][controllinginboundtraffic].
+## Appels entre les environnements App Service ##
+Un scénario plus complexe peut se produire si vous déployez plusieurs environnements App Service dans le même réseau virtuel et effectuez des appels sortants à partir d’un environnement App Service vers un autre environnement App Service. Ces types d’appels entre les environnements App Service seront également traités comme des appels « Internet ».
 
-Cet [article][ExpressRoute] contient des informations sur l'utilisation d'itinéraires définis par l'utilisateur pour accorder un accès Internet sortant à des environnements App Service.
+Comme exemple d’utilisation de l’environnement App Service ci-dessus avec l’adresse IP sortante 192.23.1.2 : si une application s’exécutant sur l’environnement App Service effectue un appel sortant vers une application s’exécutant sur un deuxième environnement App Service situé dans le même réseau virtuel, les appels sortants arrivant sur le deuxième environnement App Service s’affichent comme provenant de l’adresse 192.23.1.2 (autrement dit, pas la plage d’adresses de sous-réseau du premier environnement App Service).
+
+Même si les appels entre les différents environnements App Service sont traités comme des appels « Internet », lorsque les deux environnements App Service se trouvent dans la même région Azure, le trafic réseau reste sur le réseau Azure régional et ne circule pas physiquement sur le réseau Internet public. Par conséquent, vous pouvez utiliser un groupe de sécurité réseau sur le sous-réseau du deuxième environnement App Service pour autoriser uniquement les appels entrants à partir de 192.23.1.2, afin de garantir une communication sécurisée entre les environnements App Service.
+
+## Informations et liens supplémentaires ##
+Vous trouverez plus d’informations sur les ports entrants utilisés par les environnements App Service et l’utilisation de groupes de sécurité réseau pour contrôler le trafic entrant [ici][controllinginboundtraffic].
+
+Cet [article][ExpressRoute] contient des informations sur l’utilisation d’itinéraires définis par l’utilisateur pour accorder un accès Internet sortant à des environnements App Service.
 
 
 <!-- LINKS -->
@@ -72,4 +79,4 @@ Cet [article][ExpressRoute] contient des informations sur l'utilisation d'itiné
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

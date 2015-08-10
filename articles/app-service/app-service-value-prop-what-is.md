@@ -59,4 +59,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application web](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -60,4 +60,4 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour surveiller
 
 [Télécharger le Gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

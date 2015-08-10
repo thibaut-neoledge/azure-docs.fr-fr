@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Indexation de fichiers multimédias avec Azure Media Indexer
 
-Cet article fait partie de la série [workflow de vidéo à la demande Media Services](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.
 
@@ -35,12 +38,12 @@ Un travail d’indexation génère quatre sorties pour chaque fichier d’indexa
 - Un fichier de mot-clé(XML).
 - Un fichier blob d’indexation audio (AIB) à utiliser avec SQL Server.
 	
-	Pour plus d’informations, consultez [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Pour plus d’informations, consultez la rubrique [Utilisation de fichiers AIB avec Azure Media Indexer et SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Cette rubrique explique comment créer des tâches d’indexation pour **indexer un élément multimédia** et **indexer plusieurs fichiers**.
 
-Pour connaître les derniers développements d’Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
+Pour connaître les derniers développements d’Azure Media Indexer, consultez les [blogs Media Services](http://azure.microsoft.com/blog/topics/media-services/).
 
 ##Utilisation des fichiers de configuration et manifeste pour l’indexation des tâches
 
@@ -48,7 +51,7 @@ Vous pouvez définir plus de détails pour vos tâches d’indexation en utilisa
 
 Vous pouvez également traiter plusieurs fichiers multimédias à la fois à l’aide d’un fichier manifeste.
 
-Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Pour plus d’informations, consultez la rubrique [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ##Indexation d’une ressource
 
@@ -180,7 +183,7 @@ Si tous les fichiers multimédias d’entrée ne sont pas correctement indexés,
 
 La méthode suivante télécharge plusieurs fichiers multimédias en tant que ressource et crée une tâche pour indexer tous ces fichiers en lot.
 
-Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la ressource. Le fichier manifeste contient la liste de tous les fichiers de ressources. Pour plus d’informations, consultez la rubrique [Présélection de tâches pour Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -260,7 +263,7 @@ Un fichier manifeste avec l’extension .lst est créé et téléchargé dans la
 
 Lorsqu’il existe plusieurs fichiers multimédias d’entrée, WAMI génère un fichier manifeste pour les sorties de la tâche, nommé « JobResult.txt ». Pour chaque fichier multimédia d’entrée, les fichiers AIB, SAMI, TTML et mots clés de sortie sont numérotés de façon séquentielle, comme indiqué ci-dessous.
 
-Pour obtenir une description des fichiers de sortie, consultez [Fichiers de sortie](#output_files).
+Pour obtenir une description des fichiers de sortie, consultez la rubrique [Fichiers de sortie](#output_files).
 
 
 <table border="1">
@@ -329,9 +332,9 @@ Il n’y a aucun flux audio dans le fichier d’entrée.</td></tr>
 </table>
 
 
-##<a id="supported_languages"></a>Langues prises en charge
+##<a id="supported_languages"></a>Langues prises en charge :
 
-Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez la [Version espagnole d’Azure Media Indexer](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez la [Version espagnole d’Azure Media Indexer](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ##Liens connexes
 
@@ -343,4 +346,4 @@ Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Po
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

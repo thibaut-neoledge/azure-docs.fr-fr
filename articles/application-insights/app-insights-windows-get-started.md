@@ -35,7 +35,7 @@ Vous devez avoir :
 * Un abonnement à [Microsoft Azure][azure].
 * Visual Studio 2013 ou une version ultérieure.
 
-## 1. Création d’une ressource Application Insights dans Azure 
+## 1\. Création d’une ressource Application Insights dans Azure 
 
 Dans le [portail Azure][portal], créez une ressource Application Insights.
 
@@ -50,7 +50,7 @@ Cette clé identifie la ressource. Vous en aurez besoin rapidement, pour configu
 ![Ouvrez le tiroir de liste déroulante Essentials et sélectionnez la clé d'instrumentation](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
+## 2\. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
 
 Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) approprié à votre projet.
 
@@ -66,18 +66,20 @@ S’il s’agit d’une application Windows Universal, répétez les étapes pou
 
 3. Sélectionnez **Application Insights pour les applications Windows**.
 
-4. Ajoutez un fichier ApplicationInsights.config à la racine de votre solution et insérez la clé d'instrumentation copiée à l’étape précédente. Un exemple xml de ce fichier de configuration est présenté ci-dessous. **Pour le fichier ApplicationInsights.config, veillez à définir l’option Action de génération sur « Contenu » et l’option Copier dans le répertoire de sortie sur « Toujours copier »**.
+4. Ajoutez un fichier ApplicationInsights.config à la racine de votre projet et insérez la clé d’instrumentation copiée à partir du portail. Un exemple xml de ce fichier de configuration est présenté ci-dessous.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Définissez les propriétés du fichier ApplicationInsights.config : **Action de génération** == **Contenu** et **Copier dans le répertoire de sortie** == **Toujours copier**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Ajoutez le code d'initialisation suivant. Il est recommandé d'ajouter ce code au constructeur `App()`. Si cette initialisation n'est pas effectuée dans le constructeur de l'application, vous risquez de manquer la comptabilisation automatique initiale des pages consultées.
+5. Ajoutez le code d’initialisation suivant. Il est préférable d’ajouter ce code au constructeur `App()`. Si vous le faites ailleurs, vous risquez de manquer la collecte automatique des premières pageviews.
 
 ```C#
 	public App()
@@ -90,7 +92,7 @@ S’il s’agit d’une application Windows Universal, répétez les étapes pou
 	}  
 ```
 
-**Applications Windows Universal** : répétez ces étapes pour les projets Windows Phone et Windows Store. [Exemple d’application universelle Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+**Applications Windows universelles** : répétez les étapes pour les projets Windows Phone et Windows Store. [Exemple d’application universelle Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Activation de l'accès réseau pour votre application
 
@@ -141,7 +143,7 @@ Le SDK Application Insights inclut plusieurs collecteurs, qui recueillent automa
 
 #### Envoi de votre propre télémétrie
 
-Utilisez l’[API][api] pour envoyer des événements, des mesures et des données de diagnostic à Application Insights. En résumé :
+Utilisez l’[API][api] pour envoyer des événements, des métriques et des données de diagnostic à Application Insights. En résumé :
 
 ```C#
 
@@ -163,7 +165,7 @@ Utilisez l’[API][api] pour envoyer des événements, des mesures et des donné
 
 ```
 
-Pour plus d'informations, consultez la rubrique [Événements et mesures personnalisés][api].
+Pour plus d’informations, consultez la rubrique [Événements et métriques personnalisés][api].
 
 ## Et ensuite ?
 
@@ -194,7 +196,7 @@ Ajoutez Application Insights à partir de l'Explorateur de solutions.
 
 ## Pour mettre à niveau avec une nouvelle version du Kit de développement logiciel
 
-Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app-insights-release-notes-windows.md) : * cliquez avec le bouton droit de la souris sur votre projet et choisissez Gérer les packages NuGet. * Sélectionnez les packages Application Insights installés et choisissez Action : Mettre à niveau.
+Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app-insights-release-notes-windows.md) : \* cliquez avec le bouton droit de la souris sur votre projet et choisissez Gérer les packages NuGet. \* Sélectionnez les packages Application Insights installés et choisissez Action : Mettre à niveau.
 
 
 ## <a name="usage"></a>Étapes suivantes
@@ -227,4 +229,4 @@ Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

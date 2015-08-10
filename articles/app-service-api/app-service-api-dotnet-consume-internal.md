@@ -71,7 +71,7 @@ Les étapes suivantes sont expliquées plus en détail à la page [Utiliser une 
 
 Par défaut, les projets d’application API sont activés avec une génération automatique des métadonnées [Swagger](http://swagger.io/ "Informations officielles relatives à Swagger"), mais le modèle de nouveau projet d’application API Azure désactive la page de test de l’API. Dans cette section, vous allez activer la page de test.
 
-1. Ouvrez le fichier *App_Start/SwaggerConfig.cs* et recherchez **EnableSwaggerUI** :
+1. Ouvrez le fichier *App\_Start/SwaggerConfig.cs* et recherchez **EnableSwaggerUI** :
 
 2. Annulez les marques de commentaire sur les lignes de code suivantes :
 
@@ -265,4 +265,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

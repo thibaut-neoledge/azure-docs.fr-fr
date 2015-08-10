@@ -149,16 +149,16 @@ Les types pris en charge dans une formule sont les suivants :
 - string
 - timestamp
 - timeinterval
-	- TimeInterval_Zero
-	- TimeInterval_100ns
-	- TimeInterval_Microsecond
-	- TimeInterval_Millisecond
-	- TimeInterval_Second
-	- TimeInterval_Minute
-	- TimeInterval_Hour
-	- TimeInterval_Day
-	- TimeInterval_Week
-	- TimeInterval_Year
+	- TimeInterval\_Zero
+	- TimeInterval\_100ns
+	- TimeInterval\_Microsecond
+	- TimeInterval\_Millisecond
+	- TimeInterval\_Second
+	- TimeInterval\_Minute
+	- TimeInterval\_Hour
+	- TimeInterval\_Day
+	- TimeInterval\_Week
+	- TimeInterval\_Year
 
 ### Opérations
 
@@ -359,8 +359,8 @@ Ces méthodes sont ensuite utilisables pour obtenir des échantillons de donnée
           <li><p><b>doubleVec GetSample(double count)</b>&#160;: spécifie le nombre d’échantillons requis à partir des échantillons les plus récents.</p>
 				  <p>Un échantillon correspond à 5&#160;secondes de données de métrique. GetSample(1) renvoie le dernier échantillon disponible, mais pour les métriques comme $CPUPercent, vous ne devez pas utiliser cette méthode, car il est impossible de déterminer le moment où l’échantillon a été collecté. Il peut s’agir d’un événement récent ou plus ancien en raison de problèmes système. Il est préférable d’utiliser un intervalle de temps, comme indiqué ci-dessous.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;: indique un délai d’exécution pour la collecte des échantillons de données et spécifie en option le pourcentage d’échantillons devant correspondre à la plage demandée.</p>
-          <p>$CPUPercent.GetSample(TimeInterval_Minute*10) doit renvoyer 200&#160;échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Si la dernière minute de l’historique n’est pas présente, seuls 180&#160;échantillons sont renvoyés.</p>
-					<p>$CPUPercent.GetSample(TimeInterval_Minute*10, 80) aboutit, et $CPUPercent.GetSample(TimeInterval_Minute*10,95) échoue.</p></li>
+          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10) doit renvoyer 200&#160;échantillons si tous les échantillons des dix dernières minutes sont présents dans l’historique CPUPercent. Si la dernière minute de l’historique n’est pas présente, seuls 180&#160;échantillons sont renvoyés.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) aboutit, et $CPUPercent.GetSample(TimeInterval_Minute\*10,95) échoue.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>&#160;: spécifie un délai d’exécution pour la collecte des données avec une heure de début et une heure de fin.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@ Les métriques définissables dans une formule sont les suivants :
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>Cet exemple présente une formule permettant de définir le nombre de nœuds de calcul dans le pool sur 110&#160;% du nombre cible actuel de nœuds si l’utilisation moyenne minimale du processeur des 10&#160;dernières minutes est supérieure à 70&#160;%&#160;:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
     <p>Cet exemple présente une formule permettant de définir le nombre de nœuds de calcul dans le pool sur 90&#160;% du nombre cible actuel de nœuds si l’utilisation moyenne du processeur des 60&#160;dernières minutes est inférieure à 20&#160;%&#160;:</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
     <p>Cet exemple définit le nombre cible de nœuds de calcul dédiés sur un maximum de 400&#160;:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@ Les métriques définissables dans une formule sont les suivants :
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Cet exemple présente une formule qui détecte si 70&#160;% des échantillons ont été enregistrés au cours des 15&#160;dernières minutes. Si ce n’est pas le cas, l’exemple utilise le dernier échantillon. Il essaie d’augmenter le nombre de nœuds de calcul pour le faire correspondre au nombre de tâches actives, avec un maximum de 3. Il définit le nombre de nœuds sur un quart du nombre de tâches actives, car la propriété MaxTasksPerVM du pool est définie sur 4. Il définit également l’option Deallocation sur «&#160;taskcompletion&#160;» pour conserver la machine jusqu’à ce que les tâches soient terminées.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@ Vous devez vérifier régulièrement les résultats des exécutions de mise à l
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) : cette applet de commande obtient le fichier RDP à partir du nœud de calcul spécifié et l’enregistre à l’emplacement de fichier spécifié ou dans un flux de données.
 2.	Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

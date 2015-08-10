@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
-#Encodage avancé avec Media Encoder Premium Workflow (version préliminaire publique)
+#Encodage avancé avec Media Encoder Premium Workflow
 
 **Remarque** : le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine.
 
-##Vue d’ensemble
+##Vue d'ensemble
 
-Microsoft Azure Media Services lance la version préliminaire publique du processeur multimédia **Media Encoder Premium Workflow**. Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
+Microsoft Azure Media Services lance le processeur multimédia **Media Encoder Premium Workflow**. Ce processeur offre des fonctionnalités d’encodage avancées pour vos flux de travail à la demande premium.
 
 Vous trouverez dans les rubriques suivantes des détails concernant **Media Encoder Premium Workflow** :
 
@@ -265,4 +265,4 @@ L’exemple ci-dessous est complet. Pour plus d’informations sur la configurat
 
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

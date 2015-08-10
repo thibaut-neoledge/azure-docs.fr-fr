@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de l'authentification (HTML 5) | Centre de développement mobile" 
-	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et Microsoft." 
+	pageTitle="Ajout de l'authentification à votre application HTML/JavaScript | Azure Mobile Services" 
+	description="Apprenez à utiliser Mobile Services pour authentifier les utilisateurs de votre application HTML par l'intermédiaire de divers fournisseurs d'identité, notamment Google, Facebook, Twitter et un compte Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Mobile Services 
@@ -51,9 +51,9 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 Ensuite, vous allez mettre à jour l'application pour autoriser l'authentification avant de demander des ressources à partir du service mobile.
 
-##<a name="add-authentication"></a>Ajout de l'authentification à l'application
+##<a name="add-authentication"></a>Ajout de l’authentification à l’application
 
->[AZURE.NOTE]La connexion étant effectuée dans une fenêtre contextuelle, vous devez appeler la méthode <strong>login</strong> à partir de l'événement Click du bouton. Sinon, certains navigateurs suppriment la fenêtre de connexion.
+>[AZURE.NOTE]La connexion étant effectuée dans une fenêtre contextuelle, vous devez appeler la méthode **login** à partir de l'événement Click du bouton. Sinon, certains navigateurs suppriment la fenêtre de connexion.
 
 1. Ouvrez le fichier projet index.html, recherchez l'élément H1, puis ajoutez juste en dessous l'extrait de code suivant :
 
@@ -109,7 +109,7 @@ Ensuite, vous allez mettre à jour l'application pour autoriser l'authentificati
 
 	   Lorsque vous êtes connecté, l'application doit s'exécuter sans erreur et vous devez pouvoir exécuter des requêtes Mobile Services et mettre à jour les données.
 
-	>[AZURE.NOTE]Quand vous utilisez Internet Explorer, vous pouvez recevoir cette erreur après la connexion : <code>window opener inaccessible. Il peut être dans une zone Internet Explorer différente</code>. Cela survient lorsque la fenêtre contextuelle s'exécute dans une zone de sécurité différente (Internet) de localhost (Intranet). Cela affecte les applications uniquement lors du développement sur localhost. Pour contourner ce problème, ouvrez l'onglet <strong>Sécurité</strong> dans les <strong>Options Internet</strong>, cliquez sur <strong>Intranet local</strong>, puis sur <strong>Sites</strong> et décochez la case <strong>Détecter automatiquement le réseau Intranet</strong>. N'oubliez pas d'activer à nouveau ce paramètre lorsque vous avez fini de tester
+	>[AZURE.NOTE]Quand vous utilisez Internet Explorer, vous pouvez recevoir cette erreur après la connexion : <code>window opener inaccessible. Il peut être dans une zone Internet Explorer différente</code>. Cela survient lorsque la fenêtre contextuelle s'exécute dans une zone de sécurité différente (Internet) de localhost (Intranet). Cela affecte les applications uniquement lors du développement sur localhost. Pour contourner ce problème, ouvrez l'onglet **Sécurité** dans les **Options Internet**, cliquez sur **Intranet local**, puis sur **Sites** et désactivez **Détecter automatiquement le réseau Intranet**. N'oubliez pas d'activer à nouveau ce paramètre lorsque vous avez fini de tester
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
@@ -138,4 +138,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -55,13 +55,13 @@ Nous vous proposons une application client capable d’exploiter les données de
 Procédez comme suit pour configurer l’application :
 
 1.	[Téléchargez la solution TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Ouvrez le fichier App.config et remplacez oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret par les jetons Twitter avec vos valeurs.  
+2.	Ouvrez le fichier App.config et remplacez oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret par les jetons Twitter avec vos valeurs.  
 
 	[Procédure de génération d’un jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Notez que vous devez créer une application vide pour générer un jeton.  
 3.	Remplacez les valeurs EventHubConnectionString et EventHubName dans le fichier App.config par la chaîne de connexion et le nom de votre concentrateur d’événements.
-4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter_keywords dans App.config.
+4.	*Facultatif :* définissez les mots clés à rechercher. Par défaut, cette application recherche « Azure, Skype, XBox, Microsoft, Seattle ». Si vous le souhaitez, vous pouvez modifier ces mots clés en changeant les valeurs de twitter\_keywords dans App.config.
 5.	Générez la solution.
 6.	Lancez l’application. Vous voyez s’afficher les événements de Tweet tandis que les valeurs CreatedAt, Topic et SentimentScore sont transmises à votre concentrateur d’événements :
 
@@ -235,4 +235,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

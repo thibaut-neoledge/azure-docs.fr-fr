@@ -112,7 +112,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 > [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d'informations sur ces sujets, consultez les rubriques [Vue d'ensemble d'Event Hubs] et [Guide de programmation Event Hubs].
 
 <!-- Links -->
-[Vue d'ensemble d'Event Hubs]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Vue d'ensemble d'Event Hubs]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [compte Azure Storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
@@ -126,8 +126,8 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guide de programmation Event Hubs]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[Guide de programmation Event Hubs]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

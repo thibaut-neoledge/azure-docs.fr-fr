@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Environnements de test de cloud hybride Azure" 
-	description="Accédez aux rubriques essentielles qui décrivent comment créer des environnements de test que vous pouvez utiliser à des fins de développement/test ou de validation technique pour votre cloud hybride Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Environnements de test de cloud hybride Azure"
+	description="Accédez aux rubriques essentielles qui décrivent comment créer des environnements de test que vous pouvez utiliser à des fins de développement/test ou de validation technique pour votre cloud hybride Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Environnements de test de cloud hybride Azure
@@ -37,7 +37,7 @@ La [batterie de serveurs SharePoint intranet dans un environnement de test de cl
 
 ## Application métier web dans un cloud hybride
 
-L’[application métier web dans un environnement de test de cloud hybride](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ajoute un serveur SQL Server 2014 et IIS (Internet Information Services) à la configuration de base de cloud hybride. Cela crée l’infrastructure dans laquelle vous pouvez déployer et tester une application métier web à plusieurs niveaux.
+L’[application métier web dans un environnement de test de cloud hybride](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md) ajoute un serveur SQL Server 2014 et IIS (Internet Information Services) à la configuration de base de cloud hybride. Cela crée l’infrastructure dans laquelle vous pouvez déployer et tester une application métier Web à plusieurs niveaux.
 
 ## Serveur de synchronisation d’annuaires Office 365 (DirSync) dans un cloud hybride
 
@@ -58,7 +58,4 @@ Pour les organisations et les personnes ne disposant pas d’une connexion direc
 
 [Instructions d’implémentation des services d’infrastructure Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

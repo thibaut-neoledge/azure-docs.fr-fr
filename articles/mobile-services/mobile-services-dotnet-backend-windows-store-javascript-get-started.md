@@ -21,9 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+##Vue d'ensemble
 Ce didacticiel présente l’ajout d’un service principal cloud à une application Windows universelle à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* en HTML et JavaScript qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version principale JavaScript de cette rubrique.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
+
+##Composants requis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -68,26 +71,22 @@ Dans cette section, vous allez créer une application Windows universelle connec
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<ol start="4">
-<li><p>Dans le projet de code partagé, ouvrez le fichier default.js, recherchez le code de création d'une instance <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx" target="_blank">WindowsAzure.MobileServiceClient</a> placez en commentaire le code de création de ce client à l'aide de <em>localhost</em> et annulez le commentaire du code de création du client à l'aide de l'URL du service mobile distant, lequel est semblable à ce qui suit&#160;:</p>
+&nbsp;&nbsp;4. Dans le projet de code partagé, ouvrez le fichier default.js, recherchez le code de création d'une instance [WindowsAzure.MobileServiceClient](http://msdn.microsoft.com/library/azure/jj554219.aspx) placez en commentaire le code de création de ce client à l'aide de *localhost* et annulez le commentaire du code de création du client à l'aide de l'URL du service mobile distant, lequel est semblable à ce qui suit :
 
-        <pre><code>var client = new WindowsAzure.MobileServiceClient(
-            "https://todolist.azure-mobile.net/",
-            "XXXXXX-APPLICATION-KEY-XXXXXX"
-        );</code></pre>
+	var client = new WindowsAzure.MobileServiceClient(
+	    "https://todolist.azure-mobile.net/",
+	    "XXXXXX-APPLICATION-KEY-XXXXXX"
+	);
 
-	<p>Le client a désormais accès au service mobile publié sur Azure.</p></li>
+&nbsp;&nbsp;Le client a désormais accès au service mobile publié sur Azure.
 
-<li><p>Appuyez sur la touche <strong>F5</strong> pour régénérer le projet et démarrer l'application.</p></li>
+&nbsp;&nbsp;5. Appuyez sur la touche **F5** pour régénérer le projet et démarrer l'application.
 
-<li><p>Dans l'application, tapez un texte explicite, comme <em>Suivre le didacticiel</em>, dans <strong>Insert a TodoItem</strong>, puis cliquez sur <strong>Enregistrer</strong>.</p>
+&nbsp;&nbsp;6. Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans **Insert a TodoItem**, puis cliquez sur **Enregistrer**.
 
-<p>Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure.</p>
-</li>
-<li><p>(Facultatif) Dans une solution Windows universelle, remplacez le projet de démarrage par défaut par l'autre application et appuyez de nouveau sur <strong>F5</strong>.</p>
+&nbsp;&nbsp;Ceci envoie une requête POST vers le nouveau service mobile hébergé dans Azure.
 
-	<p>Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.</p></li>
-</ol>
+&nbsp;&nbsp;7. (Facultatif) Dans une solution Windows universelle, modifiez le projet de démarrage par défaut pour l'autre application, appuyez à nouveau sur **F5** et notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
 
 Pour plus d'informations sur les applications Windows universelles, consultez la page [Prise en charge de plusieurs plateformes d'appareil à partir d'un service mobile unique](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
@@ -121,4 +120,4 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

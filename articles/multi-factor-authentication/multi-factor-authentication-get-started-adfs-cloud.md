@@ -24,7 +24,7 @@ Si votre organisation est fédérée avec Azure Active Directory et que vous dis
 
 
 
-1. Utilisez la procédure décrite dans [Activation de l'authentification multifacteur](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) pour permettre aux utilisateurs d’activer un compte.
+1. Utilisez la procédure décrite dans [Activez l'authentification multifacteur pour vos utilisateurs](active-directory/multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) pour activer un compte.
 2. Utilisez la procédure suivante pour configurer une règle de revendication :
 
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
@@ -53,57 +53,44 @@ Les adresses IP de confiance permettent aux administrateurs de contourner l'auth
 
 ### Configuration des règles de revendications AD FS
 
-La première chose à faire consiste à configurer les revendications AD FS. Nous allons créer deux règles de revendications : une pour le type de revendication Inside Corporate Network (Dans un réseau d'entreprise) et l'autre pour maintenir les utilisateurs connectés.<ol>
+La première chose à faire consiste à configurer les revendications AD FS. Nous allons créer deux règles de revendications : une pour le type de revendication Inside Corporate Network (Dans un réseau d'entreprise) et l'autre pour maintenir les utilisateurs connectés.
 
-<li>Ouvrez Gestion AD FS.</li>
-<li>Sur la gauche, sélectionnez Relying Party Trusts (Approbations de la partie de confiance).</li>
-<li>Au milieu, cliquez avec le bouton droit sur la plateforme d'identité Microsoft Office 365 et sélectionnez **Edit Claim Rules…** (Modifier les règles de revendication).</li>
-
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
-
-<li>Sous Issuance Transform Rules (Émission de règles de transformation), cliquez sur **Add Rule** (Ajouter une règle).</li>
-
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-
-<li>Dans l'Assistant d'ajout d'une règle de revendication de transformation, sélectionnez Passthrough ou Filter an Incoming Claim (Filtrer une revendication entrante) dans la liste déroulante et cliquez sur Next (Suivant).</li>
-
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
-
-<li>Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple : InsideCorpNet.</li>
-<li>Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez Inside Corporate Network (Dans un réseau d'entreprise).</li>
-
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
-
-<li>Cliquez sur Finish.</li>
-<li>Sous Issuance Transform Rules (Émission de règles de transformation), cliquez sur **Add Rule** (Ajouter une règle).</li>
-<li>Dans l'Assistant d'ajout d'une règle de revendication de transformation, sélectionnez Send Claims Using a Custom Rule (Envoyer les revendications à l'aide d'une règle personnalisée) dans la liste déroulante et cliquez sur Next (Suivant).</li>
-<li>Dans la zone sous le nom de la règle de revendication, entrez Keep Users Signed In (Maintenir les utilisateurs connectés).</li>
-<li>Dans la zone de la règle personnalisée, entrez&#160;: c:[Type == "http://schemas.microsoft.com/2014/03/psso"] => issue(claim = c);
-</li>
-
+1. Ouvrez Gestion AD FS.
+2. Sur la gauche, sélectionnez Relying Party Trusts (Approbations de la partie de confiance).
+3. Au milieu, cliquez avec le bouton droit sur la plateforme d'identité Microsoft Office 365 et sélectionnez **Edit Claim Rules…** (Modifier les règles de revendication) ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+4. Sous Issuance Transform Rules (Émission de règles de transformation), cliquez sur **Add Rule** (Ajouter une règle). ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+5. Dans l'Assistant d'ajout d'une règle de revendication de transformation, sélectionnez Passthrough ou Filter an Incoming Claim (Filtrer une revendication entrante) dans la liste déroulante et cliquez sur Next (Suivant). ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple : InsideCorpNet.
+7. Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez Inside Corporate Network (Dans un réseau d'entreprise). ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+8. Cliquez sur Finish.
+9. Sous Issuance Transform Rules (Émission de règles de transformation), cliquez sur **Add Rule** (Ajouter une règle).
+10. Dans l'Assistant d'ajout d'une règle de revendication de transformation, sélectionnez Send Claims Using a Custom Rule (Envoyer les revendications à l'aide d'une règle personnalisée) dans la liste déroulante et cliquez sur Next (Suivant).
+11. Dans la zone sous le nom de la règle de revendication, entrez Keep Users Signed In (Maintenir les utilisateurs connectés).
+12. Dans la zone de règle personnalisée, entrez :
+	    
+		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+			=> issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+13. Cliquez sur **Terminer**.
+14. Cliquez sur **Apply**.
+15. Cliquez sur **OK**.
+16. Fermez Gestion AD FS.
 
-<li>Cliquez sur **Terminer**.</li>
-<li>Cliquez sur **Appliquer**.</li>
-<li>Cliquez sur **Ok**.</li>
 
-<li>Fermez Gestion AD FS.</li>
 
 ### Configuration d'adresses IP de confiance Azure Multi-Factor Authentication avec des utilisateurs fédérés
-Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP de confiance. <ol>
+Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP de confiance.
 
-<li>Connectez-vous au portail de gestion Azure.</li>
-<li>Cliquez à gauche sur Active&#160;Directory.</li>
-<li>Sous Directory, cliquez sur le répertoire sur lequel vous souhaitez configurer les adresses IP de confiance.</li>
-<li>Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.</li>
-<li>Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.</li>
-<li>Dans la page Service Settings (Paramètres du service), sous Trusted IPs (Adresses IP de confiance), sélectionnez **For requests from federated users originating from my intranet** (Pour les requêtes d'utilisateurs fédérés provenant de mon intranet).</li>
+1. Connectez-vous au portail de gestion Azure.
+2. Cliquez à gauche sur Active Directory.
+3. Sous Directory, cliquez sur le répertoire sur lequel vous souhaitez configurer les adresses IP de confiance.
+4. Dans le répertoire que vous avez sélectionné, cliquez sur Configurer.
+5. Dans la section Authentification multifacteur, cliquez sur Gérer les paramètres de service.
+6. Dans la page Service Settings (Paramètres du service), sous Trusted IPs (Adresses IP de confiance), sélectionnez **For requests from federated users originating from my intranet** (Pour les requêtes d'utilisateurs fédérés provenant de mon intranet). ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+7. Cliquez sur Enregistrer.
+8. Une fois les mises à jour appliquées, cliquez sur Fermer.
 
-![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-
-<li>Cliquez sur Enregistrer.</li>
-<li>Une fois les mises à jour appliquées, cliquez sur Fermer.</li>
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -48,9 +48,12 @@ Avec les modèles Resource Manager, vous pouvez :
 
 ## Déployer avec la version préliminaire du portail
 
-Devinez quoi ? Chaque application de la galerie est soutenue par un modèle Azure Resource Manager ! En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus.
+Devinez quoi ? Chaque application que vous créez avec la [version préliminaire du portail](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager. En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l'icône **Nouveau** et vous pourrez progresser vers le déploiement d'une application avec Azure Resource Manager.
 
-Pour résoudre les problèmes de déploiement grâce à la version préliminaire du portail, cliquez sur **Parcourir** -> **Groupes de ressources** -> *NomDeVotreGroupeDeRessources*. À partir de là, cliquez sur la vignette **Événements** sous la thématique **Analyse**. Enfin, vous pouvez sélectionner une **opération** et un **événement** pour afficher des informations.
+![Nouveau](./media/resource-group-template-deploy/new.png)
+
+Pour plus d'informations sur l'utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
+
 
 ## Déployer avec PowerShell
 
@@ -247,13 +250,11 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
     }
 
 ## Étapes suivantes
-- [Présentation d’Azure Resource Manager](../resource-group-overview.md)
-- [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](../arm-template-deployment.md)
-- [Déployer une application complexe de manière prévisible dans Microsoft Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Création de modèles](../resource-group-authoring-templates.md)
-- [Fonctions de modèle](../resource-group-template-functions.md)
-- [Opérations de modèle avancées](../resource-group-advanced-template.md)  
+- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l'aide de bibliothèques .NET et d'un modèle](../arm-template-deployment.md).
+- Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez la section [Création de modèles](../resource-group-authoring-templates.md).
+- Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions de modèle](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

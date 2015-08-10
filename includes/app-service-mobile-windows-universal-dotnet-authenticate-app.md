@@ -57,13 +57,13 @@
 		
 5. Dans le projet d'application Windows Store, ouvrez le fichier de projet MainPage.xaml, puis ajoutez l'élément **Bouton** suivant juste avant l'élément définissant le bouton **Enregistrer** :
 
-	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                Visibility="Visible">Connexion</Button>
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button>
 
 6. Dans le projet d’application Windows Phone Store, ajoutez l’élément **Button** suivant dans le **ContentPanel**, après l’élément **TextBlock** :
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
+        	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. Ouvrez le fichier de projet partagé App.xaml.cs, puis ajoutez l’instruction using suivante, si elle n’est pas déjà présente :
 
@@ -94,4 +94,4 @@
 
 10. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

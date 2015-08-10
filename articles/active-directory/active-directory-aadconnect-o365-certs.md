@@ -39,13 +39,16 @@ Si vous utilisez AD FS 2.0 ou une version ultérieure, Office 365 et Azure A
 
 Vérifiez que vos métadonnées de fédération sont publiquement accessibles en accédant à l’URL ci-dessous à partir d’un ordinateur relié au réseau Internet public (en dehors du réseau de l’entreprise) :
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml
 
-où `<your_FS_name> ` est remplacé par le nom d’hôte du service de fédération utilisé par votre organisation, tel que fs.contoso.com. Si vous êtes parvenu à vérifier la présence de ces deux paramètres, vous n’avez rien d’autre à faire.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+
+où `(your_FS_name) ` est remplacé par le nom d’hôte du service de fédération utilisé par votre organisation, tel que fs.contoso.com. Si vous êtes parvenu à vérifier la présence de ces deux paramètres, vous n’avez rien d’autre à faire.
+
+Exemple : https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Si votre propriété AutoCertificateRollover est définie sur False
 
-Si la propriété AutoCertificateRollover est définie sur False, vous utilisez des paramètres de certificat AD FS autres que ceux par défaut. Le plus souvent, ceci s’explique par le fait que votre organisation gère les certificats AD FS inscrits auprès d’une autorité de certification d’organisation. Dans ce cas, vous devez vous-même renouveler et mettre à jour vos certificats. Pour ce faire, suivez les instructions fournies [ici](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Si la propriété AutoCertificateRollover est définie sur False, vous utilisez des paramètres de certificat AD FS autres que ceux par défaut. Le plus souvent, ceci s’explique par le fait que votre organisation gère les certificats AD FS inscrits auprès d’une autorité de certification d’organisation. Dans ce cas, vous devez vous-même renouveler et mettre à jour vos certificats. Suivez les instructions fournies [ici](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 ## Si vos métadonnées ne sont pas accessibles publiquement
 Si votre paramètre AutocertificateRollover est défini sur True, mais que vos métadonnées de fédération ne sont pas disponibles publiquement, suivez la procédure ci-dessous pour vérifier que vos certificats sont mis à jour à la fois au niveau local et dans le cloud :
@@ -82,4 +85,4 @@ Vous devez alors voir apparaître deux certificats, dont l’un présente une da
 
 >[AZURE.NOTE]Si vous avez besoin de prendre en charge plusieurs domaines de premier niveau, par exemple contoso.com et fabrikam.com, vous devez utiliser le commutateur SupportMultipleDomain avec les applets de commande. Pour plus d’informations, voir l’article concernant la prise en charge de plusieurs domaines de premier niveau. Pour finir, vérifiez que tous les serveurs Proxy d’application Web sont mis à jour avec le correctif cumulatif de [mai 2014 pour Windows Server](http://support.microsoft.com/kb/2955164) ; dans le cas contraire, les proxys risquent de ne pas se mettre à jour avec le nouveau certificat, ce qui entraînera une panne.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

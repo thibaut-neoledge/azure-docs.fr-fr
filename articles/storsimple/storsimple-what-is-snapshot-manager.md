@@ -148,4 +148,4 @@ Pour plus d’informations sur l’analyse des tâches de sauvegarde, accédez a
 
 [Télécharger le gestionnaire d’instantanés StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -52,7 +52,7 @@ Le code d'un workflow PowerShell est quasiment identique au code d'un script Pow
 
 Une activité est une tâche spécifique dans un workflow. Tout comme un script se compose d'une ou de plusieurs commandes, un workflow se compose d'une ou de plusieurs activités exécutées en séquence. Le workflow Windows PowerShell convertit automatiquement la plupart des applets de commande Windows PowerShell en activités lors de son exécution. Lorsque vous spécifiez une de ces applets de commande dans votre Runbook, l'activité correspondante est de fait exécutée par Windows Workflow Foundation. Pour ces applets de commande sans activité correspondante, le workflow Windows PowerShell exécute automatiquement l'applet de commande au sein d'une activité [InlineScript](#inlinescript). Il existe un ensemble d'applets de commande qui sont exclues et ne peuvent pas être utilisées dans un workflow, à moins que vous ne les incluiez explicitement dans un bloc InlineScript. Pour plus d'informations sur ces concepts, consultez [Utilisation des activités dans les workflows de script](http://technet.microsoft.com/library/jj574194.aspx).
 
-Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Pour plus d'informations sur les paramètres communs de workflow, consultez [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Pour plus d'informations sur les paramètres communs de workflow, consultez [about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
 ### Paramètres positionnels
 
@@ -144,7 +144,7 @@ Même si les activités InlineScript peuvent être critiques dans certains workf
 - Vous ne pouvez effectuer une [exécution en parallèle](#parallel-execution) à l'intérieur d'un bloc InlineScriptBlock.
 - InlineScript affecte l'extensibilité du workflow puisque l'activité maintient la session Windows PowerShell pendant toute la durée du bloc InlineScript.
 
-Pour plus d'informations sur l'utilisation d'InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](http://technet.microsoft.com/library/jj574197.aspx) et [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Pour plus d'informations sur l'utilisation d'InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](http://technet.microsoft.com/library/jj574197.aspx) et [about\_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
 
 
 ## Traitement en parallèle
@@ -163,9 +163,9 @@ Vous pouvez utiliser le mot clé **Parallel** pour créer un bloc de script avec
 
 Par exemple, considérez les commandes PowerShell suivantes qui copier plusieurs fichiers vers une destination sur le réseau. Ces commandes sont exécutées séquentiellement afin que le fichier termine la copie avant de démarrer la suivante.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 Le workflow suivant exécute ces commandes en parallèle afin qu'elles commencent toutes la copie en même temps. Le message confirmant la fin de l'opération apparaît uniquement une fois toutes les copies effectuées.
 
@@ -173,9 +173,9 @@ Le workflow suivant exécute ces commandes en parallèle afin qu'elles commencen
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ L'exemple suivant est similaire à l'exemple précédent concernant la copie de 
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ L'exemple suivant copie plusieurs fichiers vers un emplacement réseau et défin
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Pour plus d'informations sur les points de contrôle, consultez [Ajout de points
 
 - [Mise en route d'un workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

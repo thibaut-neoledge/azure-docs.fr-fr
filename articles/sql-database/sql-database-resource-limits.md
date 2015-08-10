@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/13/2015"
+   ms.date="07/24/2015"
    ms.author="jroth" />
 
 # Limites de ressources de base de données SQL Azure
@@ -64,7 +64,7 @@ Le reste de cette rubrique décrit en détail les codes d’erreur possibles, y 
 | **Condition** | Base de données SQL régit la limite du nombre de connexions simultanées qui peuvent être établies avec une base de données. Lorsque la limite des connexions simultanées est atteinte pour une base de données, les nouvelles demandes de connexion à la base de données sont refusées, et le code d’erreur 10928 est retourné. |
 | **Code d'erreur** | **10928** : ID de la ressource : 3. %d, la limite %s de la base de données a été atteinte. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance. |
 | **Limite** | Dépend du [niveau de service et du niveau de performances](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Recommandation** | Vérifiez dm_exec_connections pour afficher les connexions utilisateur actives actuellement.<br><br>Interrompez la connexion et réessayez de vous connecter après 10 secondes. |
+| **Recommandation** | Vérifiez dm\_exec\_connections pour afficher les connexions utilisateur actives actuellement.<br><br>Interrompez la connexion et réessayez de vous connecter après 10 secondes. |
 
 > [AZURE.NOTE]La valeur d’ID de la ressource contenue dans le message d’erreur indique la ressource dont la limite a été atteinte. Pour les connexions, l’ID de la ressource = 3.
 
@@ -85,7 +85,7 @@ Le reste de cette rubrique décrit en détail les codes d’erreur possibles, y 
 | **Condition** | Base de données SQL régit la limite du nombre de sessions simultanées qui peuvent être établies dans une base de données. Lorsque la limite de sessions simultanées est atteinte pour une base de données, les nouvelles connexions à la base de données sont refusées, et l’utilisateur reçoit le code d’erreur 10928. Toutefois, les sessions existant dans la base de données ne sont pas terminées. |
 | **Code d'erreur** | **10928** : ID de la ressource : 2. %d, la limite %s de la base de données a été atteinte. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance. |
 | **Limite** | Dépend du [niveau de service et du niveau de performances](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Recommandation** | Vérifiez dm_exec_requests pour afficher les demandes utilisateur en cours d’exécution. |
+| **Recommandation** | Vérifiez dm\_exec\_requests pour afficher les demandes utilisateur en cours d’exécution. |
 
 > [AZURE.NOTE]La valeur d’ID de la ressource contenue dans le message d’erreur indique la ressource dont la limite a été atteinte. Pour les sessions, l’ID de la ressource = 2.
 
@@ -93,9 +93,9 @@ Le reste de cette rubrique décrit en détail les codes d’erreur possibles, y 
 
 | &nbsp; | Informations complémentaires |
 | :--- | :--- |
-| **Condition** | Vos demandes dans tempdb peuvent être refusées en raison d’une des trois conditions suivantes :<br><br>**État 1 :** lorsqu’une session utilise un espace tempdb de plus de 5 Go, la session est terminée.<br><br>**État 2 : ** les transactions effectuées dans tempdb avec des journaux d’une taille supérieure à 2 Go sont tronquées. Exemples d’opérations qui peuvent consommer l’espace réservé aux journaux dans tempdb : insertion, mise à jour, suppression, fusion, création d’index.<br><br>**État 3 : ** les transactions non validées dans tempdb peuvent bloquer la troncation des fichiers journaux. Pour éviter ce problème, la distance entre le plus ancien numéro séquentiel dans le journal (LSN) des transactions actif et la fin du journal (numéro LSN actuel) dans tempdb ne peut pas dépasser 20 % de la taille du fichier journal. En cas de violation, la transaction incriminée dans tempdb est arrêtée et annulée pour que le journal puisse être tronqué. |
+| **Condition** | Vos demandes dans tempdb peuvent être refusées en raison d’une des trois conditions suivantes :<br><br>\*\*État 1 :\*\* lorsqu’une session utilise un espace tempdb de plus de 5 Go, la session est terminée.<br><br>\*\*État 2 : \*\* les transactions effectuées dans tempdb avec des journaux d’une taille supérieure à 2 Go sont tronquées. Exemples d’opérations qui peuvent consommer l’espace réservé aux journaux dans tempdb : insertion, mise à jour, suppression, fusion, création d’index.<br><br>\*\*État 3 : \*\* les transactions non validées dans tempdb peuvent bloquer la troncation des fichiers journaux. Pour éviter ce problème, la distance entre le plus ancien numéro séquentiel dans le journal (LSN) des transactions actif et la fin du journal (numéro LSN actuel) dans tempdb ne peut pas dépasser 20 % de la taille du fichier journal. En cas de violation, la transaction incriminée dans tempdb est arrêtée et annulée pour que le journal puisse être tronqué. |
 | **Code d'erreur** | **40551** : la session a été arrêtée en raison de l’utilisation excessive de tempdb. Essayez de modifier votre requête pour réduire l’espace utilisé par la table temporaire. |
-| **Limite** | **État 1 :** espace tempdb de 5 Go<br><br>**État 2 :** 2 Go par transaction dans tempdb <br><br>**État 3 : ** 20 % de l’espace total réservé aux journaux dans tempdb |
+| **Limite** | **État 1 :** espace tempdb de 5 Go<br><br>**État 2 :** 2 Go par transaction dans tempdb <br><br>\*\*État 3 : \*\* 20 % de l’espace total réservé aux journaux dans tempdb |
 | **Type de demande refusée** | Toutes les instructions DDL ou DML exécutées dans tempdb. |
 | **Recommandation** | Modifiez des requêtes pour réduire l’espace utilisé par la table temporaire, supprimez les objets temporaires lorsqu’ils ne sont plus nécessaires, tronquez des tables ou supprimez des tables inutilisées. Réduisez la taille des données de votre transaction dans tempdb en diminuant le nombre de lignes ou en fractionnant l’opération en plusieurs transactions. |
 
@@ -105,7 +105,7 @@ Le reste de cette rubrique décrit en détail les codes d’erreur possibles, y 
 | :--- | :--- |
 | **Condition** | Les transactions demandent des verrous sur les ressources telles que les lignes, les pages ou les tables dont elles dépendent, puis libèrent les verrous lorsqu’elles n’ont plus de dépendance dans les ressources verrouillées. Vos demandes peuvent être refusées en raison des deux conditions suivantes : État 1 : si une transaction a été exécutée pendant plus de 24 heures, elle est arrêtée. État 2 : si une transaction verrouille une ressource requise par une tâche système sous-jacente pendant plus de 20 secondes, elle est arrêtée. |
 | **Code d'erreur** | **40549** : la session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir. |
-| **Limite** | **État 1: **24 heures<br><br>**État 2 :** 20 secondes si une transaction verrouille une ressource requise par une tâche système sous-jacente. |
+| **Limite** | **État 1: **24 heures<br><br>\*\*État 2 :\*\* 20 secondes si une transaction verrouille une ressource requise par une tâche système sous-jacente. |
 | **Type de demande refusée** | Toute transaction dont l’exécution dure plus de 24 heures ou toute instruction DDL ou DML qui accepte un verrou, ce qui entraîne le blocage d’une tâche système. |
 | **Recommandation** | Les opérations effectuées dans la base de données SQL ne doivent pas bloquer sur les entrées utilisateur ni avoir d’autres dépendances entraînant des transactions de longue durée. |
 
@@ -117,26 +117,26 @@ Le reste de cette rubrique décrit en détail les codes d’erreur possibles, y 
 | **Code d'erreur** | **40550** : la session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique. |
 | **Limite** | 1 million de verrous par transaction |
 | **Type de demande refusée** | Toutes les instructions DDL ou DML. |
-| **Recommandation** | Les DMV suivantes permettent de surveiller les transactions : **sys.dm_tran_active_transactions**, **sys.dm_tran_database_transactions**, **sys.dm_tran_locks** et **sys.dm_tran_session_transactions**. En fonction du type d’application, il est possible d’utiliser des indicateurs de verrou de plus grande ampleur, comme **PAGLOCK** ou **TABLOCK**, pour réduire le nombre de verrous dans une instruction/transaction donnée. Notez que cela peut avoir des effets négatifs sur l’accès concurrentiel aux applications. |
+| **Recommandation** | Les DMV suivantes permettent de surveiller les transactions : **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** et **sys.dm\_tran\_session\_transactions**. En fonction du type d’application, il est possible d’utiliser des indicateurs de verrou de plus grande ampleur, comme **PAGLOCK** ou **TABLOCK**, pour réduire le nombre de verrous dans une instruction/transaction donnée. Notez que cela peut avoir des effets négatifs sur l’accès concurrentiel aux applications. |
 
 ## Longueur de journal de transactions
 
 | &nbsp; | Informations complémentaires |
 | :--- | :--- |
-| **Condition** | Vos demandes peuvent être refusées en raison d’une des deux conditions suivantes :<br><br>**État 1 :** Base de données SQL prend en charge les transactions générant un journal dont la taille peut atteindre 2 Go. Les transactions dont les journaux dépassent cette limite sont tronquées. Exemples d’opérations qui peuvent consommer l’espace réservé aux journaux dans ce volume : insertion, mise à jour, suppression, fusion, création d’index.<br><br>**État 2 :** les transactions non validées peuvent bloquer la troncation des fichiers journaux. Pour éviter ce problème, la distance entre le plus ancien numéro séquentiel dans le journal (LSN) des transactions actif et la fin du journal (numéro LSN actuel) ne peut pas dépasser 20 % de la taille du fichier journal. En cas de violation, la transaction incriminée est arrêtée et annulée pour que le journal puisse être tronqué. |
+| **Condition** | Vos demandes peuvent être refusées en raison d’une des deux conditions suivantes :<br><br>\*\*État 1 :\*\* Base de données SQL prend en charge les transactions générant un journal dont la taille peut atteindre 2 Go. Les transactions dont les journaux dépassent cette limite sont tronquées. Exemples d’opérations qui peuvent consommer l’espace réservé aux journaux dans ce volume : insertion, mise à jour, suppression, fusion, création d’index.<br><br>\*\*État 2 :\*\* les transactions non validées peuvent bloquer la troncation des fichiers journaux. Pour éviter ce problème, la distance entre le plus ancien numéro séquentiel dans le journal (LSN) des transactions actif et la fin du journal (numéro LSN actuel) ne peut pas dépasser 20 % de la taille du fichier journal. En cas de violation, la transaction incriminée est arrêtée et annulée pour que le journal puisse être tronqué. |
 | **Code d'erreur** | **40552** : la session a été arrêtée en raison de l’utilisation excessive de l’espace réservé au journal des transactions. Essayez de modifier moins de lignes dans une transaction unique. |
-| **Limite** | **État 1 :** 2 Go par transaction<br><br>**État 2 :** 20 % de l’espace total réservé aux journaux |
+| **Limite** | **État 1 :** 2 Go par transaction<br><br>\*\*État 2 :\*\* 20 % de l’espace total réservé aux journaux |
 | **Type de demande refusée** | Toutes les instructions DDL ou DML. |
-| **Recommandation** | Pour les opérations effectuées au niveau des lignes, réduisez la taille des données de votre transaction, par exemple en diminuant le nombre de lignes ou en fractionnant l’opération en plusieurs transactions. Pour les opérations effectuées au niveau des tables/index, qui requièrent une transaction unique, vérifiez que la formule suivante est respectée : nombre de lignes affectées dans la table * (taille moyenne du champ mis à jour en octets + 80) < 2 Go (en cas de reconstruction d’index, la taille moyenne du champ mis à jour doit être remplacée par la taille moyenne de l’index). |
+| **Recommandation** | Pour les opérations effectuées au niveau des lignes, réduisez la taille des données de votre transaction, par exemple en diminuant le nombre de lignes ou en fractionnant l’opération en plusieurs transactions. Pour les opérations effectuées au niveau des tables/index, qui requièrent une transaction unique, vérifiez que la formule suivante est respectée : nombre de lignes affectées dans la table \* (taille moyenne du champ mis à jour en octets + 80) < 2 Go (en cas de reconstruction d’index, la taille moyenne du champ mis à jour doit être remplacée par la taille moyenne de l’index). |
 
 ## Threads de travail (nombre maximal de demandes simultanées)
 
 | &nbsp; | Informations complémentaires |
 | :--- | :--- |
 | **Condition** | Base de données SQL régit la limite du nombre de threads de travail (demandes simultanées) dans une base de données. Les bases de données dont le nombre de demandes simultanées est supérieur à la limite autorisée reçoivent l’erreur 10928. Les demandes ultérieures dans cette base de données peuvent alors être refusées. |
-| **Codes d’erreur** | **10928** : ID de la ressource : 1. %d, la limite %s de la base de données a été atteinte. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance.<br><br>**10929** : ID de la ressource : 1. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance. Sinon, réessayez plus tard. |
+| **Codes d’erreur** | **10928** : ID de la ressource : 1. %d, la limite %s de la base de données a été atteinte. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance.<br><br>\*\*10929\*\* : ID de la ressource : 1. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Consultez http://go.microsoft.com/fwlink/?LinkId=267637 pour obtenir une assistance. Sinon, réessayez plus tard. |
 | **Limite** | Pour les niveaux De base, Standard et Premium, elle dépend du [niveau de performances](https://msdn.microsoft.com/library/azure/dn741336.aspx). Pour les anciennes bases de données web/professionnelles, le nombre maximal de demandes simultanées est 180, et il peut être inférieur en fonction de l’activité du système. |
-| **Recommandation** | Vérifiez dm_exec_requests pour afficher les demandes utilisateur en cours d’exécution.<br><br>Arrêtez la demande et renouvelez-la après 10 secondes. |
+| **Recommandation** | Vérifiez dm\_exec\_requests pour afficher les demandes utilisateur en cours d’exécution.<br><br>Arrêtez la demande et renouvelez-la après 10 secondes. |
 
 > [AZURE.NOTE]La valeur d’ID de la ressource contenue dans le message d’erreur indique la ressource dont la limite a été atteinte. Pour les threads de travail, ID de la ressource = 1.
 
@@ -148,8 +148,8 @@ Dans certains scénarios tels que l’utilisation de la fonctionnalité de base 
 
 [Gestion des ressources de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-[Messages d’erreur (Base de données SQL Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
+[Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
 [Recommandations liées à Base de données SQL Azure pour empêcher les refus de demande ou l’arrêt des connexions](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

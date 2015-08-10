@@ -73,4 +73,4 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

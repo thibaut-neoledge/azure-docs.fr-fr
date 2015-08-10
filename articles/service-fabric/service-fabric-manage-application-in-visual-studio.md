@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="07/22/2015"
    ms.author="jesseb"/>
 
 # Gestion de vos applications Service Fabric dans Visual Studio
@@ -34,13 +34,8 @@ Le déploiement d'une application Service Fabric combine les étapes suivantes e
 4. Suppression des instances d'application en cours d'exécution
 5. Création d'une instance d'application
 
-Dans Visual Studio, pour effectuer le déploiement, cliquez avec le bouton droit sur votre application Service Fabric dans l'**Explorateur de solutions**, puis cliquez sur **Déployer**. Vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application.
+Dans Visual Studio, vous pouvez déployer une application en sélectionnant Déployer la solution dans le menu Générer. Vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application.
 
-Le déploiement peut être supprimé à l'aide de **Supprimer le déploiement**. Les étapes de déploiement ci-dessus seront annulées.
-
-1. Supprimer toutes les instances d'application en cours d'exécution
-2. Annuler l'enregistrement du type d'application
-3. Télécharger le package d'application à partir du magasin d'images
 
 ## Ajout d'un service à votre application Service Fabric
 
@@ -60,6 +55,16 @@ Le nouveau service est ajouté à votre solution et au package d'application exi
 
 Un package d'application doit être créé pour déployer l'application et ses services dans un cluster. Le package organise le manifeste d'application, le ou les manifestes de service et les autres fichiers nécessaires dans une disposition spécifique. Visual Studio configure et gère le package dans le dossier du projet d'application, dans le répertoire « pkg ». Cliquez sur **Package** pour créer ou mettre à jour le package d'application. Ce peut être utile si vous déployez l'application à l'aide de scripts Powershell personnalisés.
 
+## Suppression d'une application
+
+Vous pouvez supprimer une application de votre cluster local à l'aide de l'Explorateur de serveurs. Les étapes de déploiement décrites ci-dessus seront annulées :
+
+1. Supprimer toutes les instances d'application en cours d'exécution
+2. Annuler l'enregistrement du type d'application
+3. Télécharger le package d'application à partir du magasin d'images
+
+![Supprimer une application](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Étapes suivantes
 
@@ -73,6 +78,5 @@ Un package d'application doit être créé pour déployer l'application et ses s
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

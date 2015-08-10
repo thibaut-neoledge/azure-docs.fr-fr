@@ -121,13 +121,13 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/appinsights-311search.png)
 
-Recherchez des termes, et non des sous-chaînes. Les termes sont des chaînes alphanumériques comprenant des signes de ponctuation (comme « . » et « _ »). Par exemple :
+Recherchez des termes, et non des sous-chaînes. Les termes sont des chaînes alphanumériques comprenant des signes de ponctuation (comme « . » et « \_ »). Par exemple :
 
 terme|*non* trouvé en recherchant|mais en recherchant
 ---|---|---
-HomeController.About|about<br/>home|h*about<br/>home*
-IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
-New Delay|w d|new<br/>delay<br/>n* AND d*
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
 
 
 Expressions de recherche utilisables :
@@ -136,12 +136,12 @@ Exemple de requête | Résultat
 ---|---
 slow|Trouve tous les événements dont la période comprend le terme « slow »
 database??|Renvoie database01, databaseAB,...<br/>? n’est pas autorisé au début du terme à rechercher.
-database*|Renvoie database, database01, databaseNNNN<br/>* n’est pas autorisé au début du terme à rechercher.
+database\*|Renvoie database, database01, databaseNNNN<br/>\* n’est pas autorisé au début du terme à rechercher.
 apple AND banana|Trouve les événements qui contiennent les deux termes. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules).
 apple OR banana<br/>apple banana|Trouve les événements qui contiennent un des deux termes. Utilisez « OR » et non « or ».</br/>Forme abrégée.
 apple NOT banana<br/>apple -banana|Trouve les événements qui contiennent un terme, mais pas l’autre.<br/>Forme abrégée.
-app* AND banana -(grape pear)|Opérateurs logiques et utilisation des parenthèses.
-"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
+app\* AND banana -(grape pear)|Opérateurs logiques et utilisation des parenthèses.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | Trouve les événements qui contiennent la mesure nommée dans la plage de valeurs.
 
 
 ## Enregistrer votre recherche
@@ -198,4 +198,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

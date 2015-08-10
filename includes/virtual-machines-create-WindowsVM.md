@@ -40,4 +40,4 @@
 
 	![Configurer l’agent de machine virtuelle et les points de terminaison de la machine virtuelle](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

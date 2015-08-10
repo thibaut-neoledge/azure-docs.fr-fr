@@ -304,4 +304,4 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
  - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

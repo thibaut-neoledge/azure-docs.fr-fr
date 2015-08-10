@@ -44,6 +44,7 @@ Pour l’instant, les services à partir desquels il est possible de déplacer l
 - Mobile Engagement
 - Operational Insights
 - Cache Redis
+- Azure Web Apps (certaines [limitations](app-service-web/app-service-move-resources.md) s'appliquent)
 
 Les services qui prennent en charge le déplacement des ressources vers un nouveau groupe de ressources mais pas vers un nouvel abonnement sont les suivants :
 
@@ -76,7 +77,7 @@ Pour déplacer des ressources existantes vers un autre groupe de ressources ou u
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l’abonnement et le groupe de ressource qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
+Remplacez **{source-subscription-id}** et **{source-resource-group-name}** par l'abonnement et le groupe de ressource qui comportent actuellement les ressources que vous souhaitez déplacer. Utilisez **2015-01-01** pour {api-version}.
 
 Dans la requête, incluez un objet JSON qui définit le groupe de ressources cible et les ressources que vous souhaitez déplacer.
 
@@ -95,4 +96,4 @@ Dans la requête, incluez un objet JSON qui définit le groupe de ressources ci
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

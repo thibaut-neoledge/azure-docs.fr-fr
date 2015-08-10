@@ -52,4 +52,4 @@ Une fois que vous avez créé un réseau virtuel, vous pouvez lui ajouter de nou
 
 -  [Ajouter une machine virtuelle](../virtual-machines/virtual-machines-create-custom.md) à un réseau virtuel.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

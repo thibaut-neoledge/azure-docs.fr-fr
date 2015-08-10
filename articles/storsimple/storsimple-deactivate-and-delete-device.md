@@ -91,4 +91,4 @@ Pour restaurer les paramètres d’usine de l’appareil désactivé, consultez�
 
 Pour obtenir une assistance technique, [contactez le support technique de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -51,7 +51,7 @@ Quelle que soit la technologie de connexion utilisée, certains paramètres de p
 
 - Utilisez l’authentification SQL Database et non l’authentification Windows.
 - Définissez une base de données spécifique, au lieu de la base de données *master* par défaut.
-- Dans certains cas, le nom d’utilisateur doit être suivi du suffixe *@nom_votre_serveur*, mais dans d’autres, le suffixe doit être omis. Cela dépend du code de votre outil ou API.
+- Dans certains cas, le nom d’utilisateur doit être suivi du suffixe *@nom\_votre\_serveur*, mais dans d’autres, le suffixe doit être omis. Cela dépend du code de votre outil ou API.
  - Vérifiez les détails de chaque technologie.
 - Connectez-vous en spécifiant un utilisateur d’une [base de données à relation contenant-contenu](http://msdn.microsoft.com/library/ff929071.aspx).
  - Cette approche assure des performances et une extensibilité accrues en éliminant la nécessité d’une connexion à la base de données MASTER.
@@ -88,9 +88,9 @@ Lors du changement, la base de données peut être temporairement indisponible. 
 Lorsqu’une erreur se produit en rapport avec SQL Database, une exception [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) est levée. La `SqlException` contient un code d’erreur numérique dans sa propriété **Numéro**. Si le code d’erreur correspond à une erreur temporaire, votre programme doit renouveler l’appel.
 
 
-- [Messages d’erreur (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
  - Sa section **Erreurs temporaires, erreurs de perte de connexion** répertorie les erreurs temporaires qui justifient une nouvelle tentative automatique.
- - Par exemple, réessayez si vous obtenez le numéro d’erreur 40613, qui correspond à peu près à <br/>* La base de données « ma_base_de_données » sur le serveur « le_serveur » n’est pas disponible actuellement.*
+ - Par exemple, réessayez si vous obtenez le numéro d’erreur 40613, qui correspond à peu près à <br/>\* La base de données « ma\_base\_de\_données » sur le serveur « le\_serveur » n’est pas disponible actuellement.\*
 
 
 Les *erreurs* temporaires sont parfois appelées des *défaillances* temporaires. Cette rubrique considère ces deux termes comme des synonymes.
@@ -135,7 +135,7 @@ La passerelle gérait automatiquement la nouvelle tentative lors de certaines er
  - Propose des liens vers des exemples de code qui contiennent la logique de nouvelle tentative et vers des exemples plus simples de connexion et de requête.
 - [Procédure : connexion fiable à Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [Procédure : connexion à Azure SQL Database en utilisant ADO.NET avec Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Procédure : connexion à Azure SQL Database à l’aide d’ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Exemple de code : Logique C# de reconnexion à SQL Database](sql-database-develop-csharp-retry-windows.md)
 
 
 ## Technologies
@@ -174,4 +174,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

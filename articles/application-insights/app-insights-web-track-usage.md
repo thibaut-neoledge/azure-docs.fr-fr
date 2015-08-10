@@ -347,6 +347,11 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 * Parlez à vos utilisateurs ! L'analyse en soi n'est pas suffisante, mais elle vient compléter une bonne relation client.
 
 
+## Références
+
+* [Utilisation de l’API : vue d’ensemble][api]
+* [Référence de l’API JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## Vidéo
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

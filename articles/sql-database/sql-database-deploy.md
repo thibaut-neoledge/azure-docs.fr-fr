@@ -593,4 +593,4 @@ Pour obtenir un didacticiel sur la création d’une base de données SQL Azure,
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

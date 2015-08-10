@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # Ajout d’utilisateurs à un pool de base de données élastique
@@ -32,7 +32,7 @@ Les **tâches de bases de données élastiques** vous permettent d’exécuter u
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. L'utilisateur doit également disposer des autorisations suffisantes pour exécuter le script spécifié pour la tâche. Utilisez la procédure **sp_addrolemember** pour fournir à l'utilisateur les autorisations minimales requises pour exécuter le script avec succès.
+3. L'utilisateur doit également disposer des autorisations suffisantes pour exécuter le script spécifié pour la tâche. Utilisez la procédure **sp\_addrolemember** pour fournir à l'utilisateur les autorisations minimales requises pour exécuter le script avec succès.
 
 ## Étapes suivantes
 
@@ -44,4 +44,4 @@ Exécuter une tâche dans le pool de base de données élastique. Voir [Créatio
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

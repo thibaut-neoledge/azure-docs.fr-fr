@@ -33,4 +33,4 @@
 
 	![Notification d’état via la fenêtre Activité d’Azure App Service](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

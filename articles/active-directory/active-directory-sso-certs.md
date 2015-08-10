@@ -80,4 +80,4 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 
 [Accès aux applications et authentification unique dans Azure AD](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

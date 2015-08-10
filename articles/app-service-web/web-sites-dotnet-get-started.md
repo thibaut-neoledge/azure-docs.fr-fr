@@ -172,9 +172,9 @@ Vous devez tout d’abord créer un projet d’application Web. Visual Studio cr
 
 		Permet de réduire les temps de préchauffage lors de la première demande pour les applications volumineuses.
 
-	* Exclure les fichiers du dossier App_Data.
+	* Exclure les fichiers du dossier App\_Data.
 
-		Pour les tests, vous conservez parfois dans le dossier App_Data un fichier de base de données SQL Server que vous ne souhaitez pas déployer en production.
+		Pour les tests, vous conservez parfois dans le dossier App\_Data un fichier de base de données SQL Server que vous ne souhaitez pas déployer en production.
 
 11. Sous l'onglet **Aperçu**, cliquez sur **Démarrer l'aperçu**.
 
@@ -316,4 +316,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

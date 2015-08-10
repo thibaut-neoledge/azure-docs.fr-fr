@@ -58,7 +58,7 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
 
 **Pour créer une table de partition, vous devez :**
 
-- [Créer une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) qui définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple, pour limiter les partitions mensuelles (some_datetime_field) de l’année 2013 :
+- [Créer une fonction de partition](https://msdn.microsoft.com/library/ms187802.aspx) qui définit la plage de valeurs/limites à inclure dans chaque table de partition, par exemple, pour limiter les partitions mensuelles (some\_datetime\_field) de l’année 2013 :
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -95,7 +95,7 @@ Créez une ou plusieurs tables partitionnées, selon le schéma de données, et 
 
 - Vous pouvez utiliser BCP, BULK INSERT ou d’autres méthodes telles que l’[Assistant Migration SQL Server](http://sqlazuremw.codeplex.com/). L’exemple fourni utilise la méthode BCP.
 
-- [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
+- [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK\_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
@@ -184,4 +184,4 @@ ou
 Pour obtenir un exemple de procédure pas à pas de bout en bout utilisant le processus de science des données avec un jeu de données public, consultez la page [Processus de science des données Azure en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

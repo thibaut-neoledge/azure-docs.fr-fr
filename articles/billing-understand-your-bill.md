@@ -9,7 +9,7 @@
    tags="billing"/>
 
 <tags
-   ms.service="na"
+   ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -227,7 +227,7 @@ Outre certains nouveaux champs et changements de nom, la version 2 du fichier 
 
 - **Informations supplémentaires** : cette colonne dans le fichier .csv d’utilisation spécifie les métadonnées propres au service. Par exemple, le type d’image d’une machine virtuelle. Actuellement, un service émet des métadonnées propres au service dans plusieurs colonnes : champs Informations supplémentaires, Informations sur le service 1 et Informations sur le service 2. Les services Microsoft Azure vont être standardisés de façon à ne présenter les métadonnées propres au service que dans la colonne Informations supplémentaires. Voir la capture instantanée ci-après du format standardisé :
 
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Balises** : cette colonne contient les balises de ressource spécifiées par l’utilisateur. Les balises peuvent servir à regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département à l’aide du service. Pour plus d’informations, voir l’article décrivant l’[utilisation des balises pour organiser les ressources Azure](/resource-group-using-tags.md/). Les services qui prennent en charge l’émission de balises sont les suivants :
     - Machines virtuelles
@@ -262,4 +262,4 @@ Accédez à la section **Gestion des comptes, des abonnements et des rôles d’
 
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

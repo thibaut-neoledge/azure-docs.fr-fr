@@ -33,7 +33,7 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
 1.  Téléchargez une [version archivée ZIP ou GZ][release] du projet Socket.IO (la version 1.3.5 a été utilisée pour ce document).
 
 
-3.  Extrayez l’archive et copiez le répertoire **examples\chat** dans un nouvel emplacement. Par exemple, **\node\chat**.
+3.  Extrayez l’archive et copiez le répertoire **examples\\chat** dans un nouvel emplacement. Par exemple, **\\node\\chat**.
 
 ## Modifier le fichier app.js et installer les modules
 
@@ -57,11 +57,11 @@ Pour ce projet, nous utiliserons un exemple de conversation instantanée obtenu 
 		  "socket.io": "1.3.5"
 		}
 
-4. Depuis la ligne de commande, accédez au répertoire **\node\chat** et utilisez la commande npm pour installer les modules requis par cette application :
+4. Depuis la ligne de commande, accédez au répertoire **\\node\\chat** et utilisez la commande npm pour installer les modules requis par cette application :
 
         npm install
 
-    Cette opération installe les modules dans un sous-dossier nommé **node_modules**.
+    Cette opération installe les modules dans un sous-dossier nommé **node\_modules**.
 
 ## Créer une application web Azure
 
@@ -76,7 +76,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 		azure site deployment user set [username] [password]
 
 
-3. Accédez au répertoire **\node\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
+3. Accédez au répertoire **\\node\\chat**, puis utilisez la commande ci-après pour créer une application web Azure et un référentiel Git local. Cette commande crée également un Git distant nommé ’azure’.
 
 		azure site create mysitename --git
 
@@ -125,7 +125,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
 
 ###Ajout des modules redis et socket.io-redis
 
-1. Sur la ligne de commande, accédez au répertoire __\node\chat__ et exécutez la commande suivante :
+1. Sur la ligne de commande, accédez au répertoire __\\node\\chat__ et exécutez la commande suivante :
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
 
 ###Validation des modifications et redéploiement
 
-Depuis la ligne de commande dans le répertoire __\node\chat__, utilisez les commandes suivantes pour valider les modifications et redéployer l'application.
+Depuis la ligne de commande dans le répertoire __\\node\\chat__, utilisez les commandes suivantes pour valider les modifications et redéployer l'application.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -231,7 +231,7 @@ Si les navigateurs clients utilisent l'interrogation longue plutôt que WebSocke
 		      <rules>
 		        <!-- Do not interfere with requests for node-inspector debugging -->
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
-		          <match url="^app.js/debug[/]?" />
+		          <match url="^app.js\/debug[\/]?" />
 		        </rule>
 
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
@@ -283,4 +283,4 @@ Ce didacticiel vous a expliqué comment créer une application de conversation i
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

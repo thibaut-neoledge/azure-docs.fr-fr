@@ -55,4 +55,4 @@ Tous les rapports ne sont pas encore inclus dans les résultats de la recherche.
  - [Rapports Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Événements de rapport d’audit d’Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

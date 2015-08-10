@@ -48,7 +48,7 @@ Les types de fichier suivants sont acceptés :
 	
 	![Panneau Ajouter une tâche Web](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).
+2. Sous **Nom**, indiquez le nom de la tâche Web. Le nom doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « \_ »).
 	
 4. Dans la zone **How to Run**, sélectionnez **Run on Demand**.
 	
@@ -70,7 +70,7 @@ Les types de fichier suivants sont acceptés :
 	
 > [AZURE.NOTE]Si votre application web est exécutée sur plusieurs instances, une tâche web exécutée en continu le sera sur toutes vos instances. Les tâches web à la demande et planifiées sont exécutées sur une seule instance sélectionnée pour l’équilibrage de charge par Microsoft Azure.
 	
-> Pour que les tâches Web continues s'exécutent de façon fiable sur toutes les instances, activez le paramètre de configuration Toujours actif* de l'application Web. Sinon, elles risquent de s’arrêter si le site de l'hôte SCM reste inactif pendant trop longtemps.
+> Pour que les tâches Web continues s'exécutent de façon fiable sur toutes les instances, activez le paramètre de configuration Toujours actif\* de l'application Web. Sinon, elles risquent de s’arrêter si le site de l'hôte SCM reste inactif pendant trop longtemps.
 
 ## <a name="CreateScheduled"></a>Création d’une tâche Web planifiée
 
@@ -209,4 +209,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -47,8 +47,7 @@ Pour voir un exemple plus détaillé de profil de score, cliquez sur [Exemple](#
 
 Un calcul de score détermine un score de recherche pour chaque élément dans un jeu de résultats classés par rang. Un score de recherche est attribué à chaque élément d'un jeu de résultats de recherche. Ils sont ensuite classés du rang le plus élevé au rang le plus bas. Les éléments dont les scores sont plus élevés sont renvoyés à l'application. Par défaut, il s'agit des 50 premiers éléments, mais le paramètre `$top` vous permet de définir le renvoi d'un nombre supérieur ou inférieur d'éléments (jusqu'à 1 000 par réponse).
 
-Par défaut, un score de recherche est calculé sur la base de propriétés statistiques des données et de la requête. Azure Search trouve les documents qui contiennent (en totalité ou en partie, selon le `searchMode`) les termes recherchés indiqués dans la chaîne de requête, en favorisant les documents qui contiennent de nombreuses occurrences du terme recherché. Le score de recherche augmente davantage si le terme est rare dans le corpus de données, mais courant au sein du document. La base de cette approche de la pertinence du calcul est appelée TF-IDF (Term Frequency-Inverse Document Frequency, fréquence de terme-fréquence inverse de document).
-En supposant qu'il n'y a pas de tri personnalisé, les résultats sont classés par score de recherche avant d'être renvoyés à l'application appelante. Si la valeur `$top` n'est pas spécifiée, les 50 éléments dont le score de recherche est le plus élevé sont renvoyés.
+Par défaut, un score de recherche est calculé sur la base de propriétés statistiques des données et de la requête. Azure Search trouve les documents qui contiennent (en totalité ou en partie, selon le `searchMode`) les termes recherchés indiqués dans la chaîne de requête, en favorisant les documents qui contiennent de nombreuses occurrences du terme recherché. Le score de recherche augmente davantage si le terme est rare dans le corpus de données, mais courant au sein du document. La base de cette approche de la pertinence du calcul est appelée TF-IDF (Term Frequency-Inverse Document Frequency, fréquence de terme-fréquence inverse de document). En supposant qu'il n'y a pas de tri personnalisé, les résultats sont classés par score de recherche avant d'être renvoyés à l'application appelante. Si la valeur `$top` n'est pas spécifiée, les 50 éléments dont le score de recherche est le plus élevé sont renvoyés.
 
 Des valeurs de score de recherche peuvent être répétées dans un jeu de résultats. Par exemple, vous pouvez avoir dix éléments dont le score est 1,2, vingt éléments dont le score est 1,0, et vingt éléments dont le score est 0,5. Quand plusieurs correspondances ont le même score de recherche, le classement des éléments ayant le même score n'est ni défini ni stable. Si vous exécutez de nouveau la requête, il se peut que des éléments changent de position. Si deux éléments ont un score identique, il est impossible de prédire celui qui apparaîtra en première position.
 
@@ -131,40 +130,7 @@ Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous
 
 Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>élément</td><td>description</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Pondérations</b></td>
-<td>
-Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.
-</td>
-</tr>
-<tr>
-<td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques.
-<br>
-- La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness.
-<br>
-- `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier
-<br>
-- `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`.
-<br>
-<b>Règles d'utilisation des fonctions</b>
-<br>
-Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules.
-<br>
-Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
-<br>
-Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search).
-<br>
-Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>élément</td><td>description</td></tr></thead> <tbody <tr> <td><b>Pondérations</b></td> <td> Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk\_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante. </td> </tr> <tr> <td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques. <br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness. <br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier <br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`. <br> <b>Règles d'utilisation des fonctions</b> <br> Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules. <br> Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier. <br> Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search). <br> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index. <td> </tr> </tbody> </table> </font>
 
 Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx) et [Ajout, mise à jour ou suppression de documents (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798930.aspx). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
@@ -217,8 +183,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 
 ##Référence des attributs d'index
 
-**Remarque**
-Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.
+**Remarque** Vous pouvez appliquer une fonction de calcul de score uniquement à des champs filtrables.
 
 <table style="font-size:12">
 <thead>
@@ -320,10 +285,8 @@ Le tableau suivant fournit plusieurs exemples.
 
 **Voir aussi**
 
-Création d’index de l’API REST du services 
-Azure Search (API d’Azure Search)
-________________________________________
+Création d’index de l’API REST du services Azure Search (API d’Azure Search) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

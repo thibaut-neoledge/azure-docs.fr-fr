@@ -82,7 +82,7 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 
 
 2. Développez
-3. *Services de données*, développez *Recovery Services*, puis cliquez sur *Coffre Site Recovery*. *
+3. *Services de données*, développez *Recovery Services*, puis cliquez sur *Coffre Site Recovery*. \*
 3. Cliquez sur *Create New*, puis sur *Quick Create*.
 
 
@@ -321,4 +321,4 @@ Pour exécuter un test de basculement, procédez comme suit :
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

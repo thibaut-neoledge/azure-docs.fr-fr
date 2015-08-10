@@ -45,8 +45,8 @@ Vous pouvez créer une connexion hybride dans le portail de gestion Azure avec W
 
 	Propriété | Description
 --- | ---
-Nom | Le nom de la connexion hybride doit être unique et ne doit pas être le même que celui du service BizTalk. Vous pouvez entrer n’importe quel nom, mais soyez précis quant à son objet. Voici quelques exemples :<br/><br/>Paie*SQLServer*<br/>ListeFournisseurs*SharepointServer*<br/>Clients *OracleServer*
-Nom d’hôte | Entrez le nom complet de l’hôte, uniquement le nom d’hôte ou l’adresse IPv4 de la ressource locale. Voici quelques exemples :<br/><br/>mySQLServer<br/>*mySQLServer*.*domaine*.corp.*votresociété*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*votresociété*.com<br/>10.100.10.10
+Nom | Le nom de la connexion hybride doit être unique et ne doit pas être le même que celui du service BizTalk. Vous pouvez entrer n’importe quel nom, mais soyez précis quant à son objet. Voici quelques exemples :<br/><br/>Paie\*SQLServer\*<br/>ListeFournisseurs\*SharepointServer\*<br/>Clients \*OracleServer\*
+Nom d’hôte | Entrez le nom complet de l’hôte, uniquement le nom d’hôte ou l’adresse IPv4 de la ressource locale. Voici quelques exemples :<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*domaine\*.corp.\*votresociété\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*votresociété\*.com<br/>10.100.10.10
 Port | Entrez le numéro de port de la ressource locale. Par exemple, si vous utilisez des applications web, entrez le port 80 ou 443. Si vous utilisez SQL Server, entrez le port 1433.
 
 5. Cliquez sur la coche pour terminer la configuration.
@@ -124,8 +124,8 @@ Pour gérer vos connexions hybrides, vous pouvez :
 2. Procédez à l’extraction des fichiers.
 3. Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit : 
 
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions*.
-	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\PolicyDefinitions\fr-fr*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions*.
+	- Copiez les fichiers .ADMX dans le dossier *%WINROOT%\\PolicyDefinitions\\fr-fr*.
 
 Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de groupe pour modifier la stratégie.
 
@@ -146,4 +146,4 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

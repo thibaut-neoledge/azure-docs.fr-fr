@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@ Pour utiliser Azure Storage, vous devez télécharger et utiliser le package Azu
 
 ## Configuration d'une connexion Azure Storage
 
-Le module Azure lit les variables d'environnement **AZURE_STORAGE_ACCOUNT** et **AZURE_STORAGE_ACCESS_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::TableService** grâce au code suivant :
+Le module Azure lit les variables d'environnement **AZURE\_STORAGE\_ACCOUNT** et **AZURE\_STORAGE\_ACCESS\_KEY** pour obtenir les informations nécessaires à la connexion à votre compte Azure Storage. Si ces variables d'environnement ne sont pas définies, vous devez spécifier les informations de compte avant d'utiliser **Azure::TableService** grâce au code suivant :
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -68,7 +68,7 @@ Pour obtenir ces valeurs :
 
 ## Création d'une table
 
-L'objet **Azure::TableService** permet d'utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create_table()**. L'exemple suivant crée une table ou imprime l'erreur le cas échéant.
+L'objet **Azure::TableService** permet d'utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create\_table()**. L'exemple suivant crée une table ou imprime l'erreur le cas échéant.
 
 	azure_table_service = Azure::TableService.new
 	begin
@@ -89,22 +89,22 @@ Pour ajouter une entité, créez tout d'abord un objet de hachage qui définit l
 
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **update_entity() :** met à jour une entité existante en la remplaçant.
-* **merge_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
-* **insert_or_merge_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
-* **insert_or_replace_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
+* **update\_entity() :** met à jour une entité existante en la remplaçant.
+* **merge\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
+* **insert\_or\_merge\_entity() :** met à jour une entité existante en la remplaçant. En l’absence d’entité, une nouvelle entité est insérée.
+* **insert\_or\_replace\_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
-L'exemple suivant illustre la mise à jour d'une entité avec **update_entity()** :
+L'exemple suivant illustre la mise à jour d'une entité avec **update\_entity()** :
 
 	entity = { "content" => "test entity with updated content", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.update_entity("testtable", entity)
 
-Avec **update_entity()** et **merge_entity()**, si l'entité mise à jour n'existe pas, l'opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez plutôt **insert_or_replace_entity()** ou **insert_or_merge_entity()**.
+Avec **update\_entity()** et **merge\_entity()**, si l'entité mise à jour n'existe pas, l'opération échoue. Si vous voulez stocker une entité, qu'elle existe déjà ou non, utilisez plutôt **insert\_or\_replace\_entity()** ou **insert\_or\_merge\_entity()**.
 
 ## Procédure : utilisation de groupes d’entités
 
-Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez d'abord créer un objet **Lot**, puis utiliser la méthode **execute_batch()** sur **TableService**. L'exemple ci-dessous présente l'envoi de deux entités avec RowKey 2 et 3 dans un lot. Notez qu'il ne s'applique qu'aux entités possédant le même élément PartitionKey.
+Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez d'abord créer un objet **Lot**, puis utiliser la méthode **execute\_batch()** sur **TableService**. L'exemple ci-dessous présente l'envoi de deux entités avec RowKey 2 et 3 dans un lot. Notez qu'il ne s'applique qu'aux entités possédant le même élément PartitionKey.
 
 	azure_table_service = Azure::TableService.new
 	batch = Azure::Storage::Table::Batch.new("testtable", 
@@ -116,14 +116,14 @@ Il est parfois intéressant de soumettre un lot d'opérations simultanément pou
 
 ## Procédure : interrogation d’une entité
 
-Pour interroger une entité dans une table, utilisez la méthode **get_entity()** en transmettant le nom de table, **PartitionKey** et **RowKey**.
+Pour interroger une entité dans une table, utilisez la méthode **get\_entity()** en transmettant le nom de table, **PartitionKey** et **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
 ## Procédure : interrogation d’un ensemble d’entités
 
-Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
+Pour interroger un ensemble d'entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query\_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey** :
 
 	query = { :filter => "PartitionKey eq 'test-partition-key'" }
 	result, token = azure_table_service.query_entities("testtable", query)
@@ -140,13 +140,13 @@ Vous pouvez utiliser une requête de table pour extraire uniquement quelques pro
 
 ## Procédure : suppression d’une entité
 
-Pour supprimer une entité, utilisez la méthode **delete_entity()**. Vous devez transmettre le nom de la table qui contient l'entité, ainsi que les éléments PartitionKey et RowKey de l'entité.
+Pour supprimer une entité, utilisez la méthode **delete\_entity()**. Vous devez transmettre le nom de la table qui contient l'entité, ainsi que les éléments PartitionKey et RowKey de l'entité.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
 ## Procédure : suppression d’une table
 
-Pour supprimer une table, utilisez la méthode **delete_table()** et transmettez le nom de la table que vous souhaitez supprimer.
+Pour supprimer une table, utilisez la méthode **delete\_table()** et transmettez le nom de la table que vous souhaitez supprimer.
 
 		azure_table_service.delete_table("testtable")
 
@@ -159,4 +159,4 @@ Maintenant que vous connaissez les bases du stockage des tables, consultez les l
 - Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

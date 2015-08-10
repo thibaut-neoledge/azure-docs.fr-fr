@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utilisation des données hors connexion dans Mobile Services (Windows Store) | Centre de développement mobile" 
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" 
+	pageTitle="Utilisation de données hors connexion dans votre application Windows universelle | Azure Mobile Services" 
+	description="Découvrez comment utiliser Azure Mobile Services pour mettre en cache et synchroniser les données hors connexion dans votre application Windows universelle." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -13,39 +13,26 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
+Ce didacticiel explique comment ajouter la prise en charge des données hors connexion dans une application Windows Store universelle à l'aide d'Azure Mobile Services. La prise en charge en mode hors connexion permet d'interagir avec une base de données locale lorsque l'application est hors connexion. Une fois l'application connectée avec la base de données principale, vous pouvez synchroniser vos modifications locales en utilisant la fonctionnalité hors connexion.
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Ce didacticiel explique comment ajouter la prise en charge des données hors connexion dans une application Windows Store universelle à l'aide d'Azure Mobile Services. La prise en charge en mode hors connexion permet d'interagir avec une base de données locale lorsque l'application est hors connexion. Une fois l'application connectée avec la base de données principale, vous pouvez synchroniser vos modifications locales en utilisant la fonctionnalité hors connexion. 
-</p>
-<p>Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">regarder le didacticiel</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Lire la vidéo</span></a> <span class="time">14:36:00</span></div>
-</div>
+Si vous préférez regarder une vidéo, le clip sur la droite suit la même procédure que ce didacticiel.
 
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
 
-Dans ce didacticiel, vous allez mettre à jour le projet d'application universelle développé dans le didacticiel [Prise en main de Mobile Services] pour prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
-
+Dans ce didacticiel, vous mettez à jour le projet d'application universelle développé dans le didacticiel [Prise en main de Mobile Services] pour prendre en charge les fonctionnalités hors connexion d'Azure Mobile Services. Ensuite, vous allez ajouter les données dans le cadre d'un scénario hors connexion déconnecté, synchroniser ces éléments dans la base de données en ligne, puis vous connecter au portail de gestion Azure pour afficher les modifications apportées aux données lors de l'exécution de l'application.
 
 >[AZURE.NOTE]Ce didacticiel vise à mieux vous faire comprendre en quoi Mobile Services vous permet de stocker et de récupérer des données dans une application Windows Store à l'aide d'Azure. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel [Prise en main de Mobile Services].
 >
->Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10&nbsp;services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
->
 >L'ancien didacticiel Windows Phone 8 pour Visual Studio 2012 est toujours disponible ici, [Didacticiel Windows Phone 8 pour Visual Studio 2012].
 
-
-Ce didacticiel vous familiarise avec ces étapes de base :
-
-1. [Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion]
-2. [Mettre à jour le comportement de synchronisation de l'application] 
-3. [Mettre à jour l'application pour reconnecter votre service mobile]
+##Composants requis 
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -54,8 +41,7 @@ Ce didacticiel requiert les éléments suivants :
 * [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou version ultérieure)][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][SQLite store nuget]
 * [SQLite pour Windows 8.1](www.sqlite.org/downloads)
-
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+* Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion
 
@@ -194,7 +180,7 @@ Les fonctionnalités hors connexion d'Azure Mobile Services vous permettent d'in
 
     Dans cet exemple, nous récupérons tous les enregistrements du `todoTable` distant, mais nous aurions également pu filtrer les enregistrements en transmettant une requête. Le premier paramètre de `PullAsync` est un ID de requête utilisé pour la synchronisation incrémentielle, qui utilise l'horodatage `UpdatedAt` pour obtenir uniquement les enregistrements modifiés depuis la dernière synchronisation. L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `null` comme ID de requête. Vous récupérerez ainsi tous les enregistrements de chaque opération pull potentiellement inefficace.
 
-    >[AZURE.NOTE]*Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
+    >[AZURE.NOTE]\*Pour supprimer des enregistrements du magasin local du périphérique lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler périodiquement `IMobileServiceSyncTable.PurgeAsync()` pour vider le magasin local.
 
     Notez que le `MobileServicePushFailedException` peut survenir pour une opération push et une opération d'extraction. Elle peut se produire pour une extraction, car l'opération d'extraction exécute en interne une opération Push pour s'assurer que toutes les tables et toutes les relations sont cohérentes. Le didacticiel suivant, [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services], montre comment gérer ces exceptions relatives à la synchronisation.
 
@@ -261,9 +247,9 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 * [Utilisation de la suppression réversible dans Mobile Services][Soft Delete]
 
 <!-- Anchors. -->
-[Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion]: #enable-offline-app
-[Mettre à jour le comportement de synchronisation de l'application]: #update-sync
-[Mettre à jour l'application pour reconnecter votre service mobile]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your mobile service]: #update-online-app
 [Next Steps]: #next-steps
 
 <!-- Images -->
@@ -297,4 +283,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

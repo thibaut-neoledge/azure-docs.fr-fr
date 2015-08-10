@@ -42,4 +42,4 @@ Dans ce didacticiel, vous avez appris à créer une machine virtuelle exécutant
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
