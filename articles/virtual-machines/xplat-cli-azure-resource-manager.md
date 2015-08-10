@@ -1,13 +1,20 @@
 <properties
 	pageTitle="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management"
-	description="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Manager"
+	description="Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Manager."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt\_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
@@ -339,4 +346,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

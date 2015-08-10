@@ -1,12 +1,19 @@
 <properties
    pageTitle="Azure Backup - Sauvegarde hors connexion ou amorçage initial à l’aide du service Azure Import/Export | Microsoft Azure"
-   description="Découvrez comment Azure Backup vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiales à l’aide du service Azure Import/Export."
+   description="Découvrez comment Azure Backup vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiales à l’aide du service Azure Import/Export"
    services="backup"
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/14/2015"
+   ms.author="aashishr"; "jimpark"/>
 
 # Flux de travail de la sauvegarde hors connexion dans Azure Backup
 
@@ -108,4 +115,4 @@ Une fois que les données de sauvegarde initiales sont disponibles dans votre co
 - Pour toute question sur le flux de travail Azure Import/Export, reportez-vous à cet [article](../storage-import-export-service.md).
 - Reportez-vous à la section Sauvegarde hors connexion du [Forum Aux Questions](backup-azure-backup-faq.md) Azure Backup pour toute question concernant le flux de travail.
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" | Description Microsoft Azure="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur.="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties
+   pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows | Microsoft Azure"
+   description="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="jwhit"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="07/01/2015"
+	 ms.author="jimpark"; "aashishr"/>
 
 # Sauvegarde et restauration à partir d’un serveur Windows ou d’un ordinateur client Windows
 Cet article décrit les étapes requises pour effectuer une sauvegarde à partir d’un serveur Windows ou d’un ordinateur client Windows. Il décrit également les étapes requises pour restaurer les fichiers sauvegardés sur le même ordinateur et pour restaurer les fichiers sauvegardés sur un autre ordinateur.
@@ -114,4 +128,4 @@ La nomenclature utilisée dans les étapes est la suivante : - *Ordinateur sourc
 ## Étapes suivantes
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

@@ -1,12 +1,19 @@
 <properties
    pageTitle="Téléchargement, installation et inscription de l’agent Azure Backup | Microsoft Azure"
-   description="Découvrez comment télécharger et installer l’agent Azure Backup, et inscrire ce dernier à l’aide des informations d’identification de coffre."
+   description="Découvrez comment télécharger et installer l’agent Azure Backup, et inscrire ce dernier à l’aide des informations d’identification de coffre"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/01/2015"
+   ms.author="jimpark"; "aashishr"/>
 
 # Téléchargement, installation et inscription de l’agent Azure Backup
 Après avoir créé l’archivage Azure Backup, un agent doit être installé sur chaque serveur local (Windows Server, client Windows ou serveur System Center Data Protection Manager) pour vous permettre de sauvegarder des données et des applications dans Azure. Cet article décrit les étapes requises pour configurer l’agent Azure Backup sur Windows Server ou un ordinateur client Windows.
@@ -56,4 +63,4 @@ Après avoir créé l’archivage Azure Backup, un agent doit être installé su
 ## Étapes suivantes
 - Consultez la rubrique [Planification des sauvegardes](backup-azure-backup-and-recover.md) pour plus d'informations sur la sauvegarde des données et des applications vers Azure.
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

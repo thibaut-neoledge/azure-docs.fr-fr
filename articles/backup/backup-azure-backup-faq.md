@@ -7,7 +7,15 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/23/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="08/07/2015"
+	 ms.author="arunak"; "jimpark"; "aashishr"/>
+
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -105,35 +113,47 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q3. Existe-t-il une différence entre les stratégies de planification de sauvegarde de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?** <br/> R3. Oui. À l’aide de DPM, vous pouvez spécifier une planification quotidienne, hebdomadaire, mensuelle, annuelle tandis qu’avec un Windows Server (sans DPM), vous pouvez spécifier uniquement des planifications quotidiennes et hebdomadaires.
 
-**Q4. Existe-t-il une différence entre les stratégies de rétention de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?**<br/> R4. Non, vous avez les mêmes fonctionnalités. Vous pouvez spécifier des stratégies de rétention quotidiennes, hebdomadaires, mensuelles et annuelles.
+**Q4. Existe-t-il une différence entre les stratégies de rétention de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?**<br/>
+R4. Non, vous avez les mêmes fonctionnalités. Vous pouvez spécifier des stratégies de rétention quotidiennes, hebdomadaires, mensuelles et annuelles.
 
-**Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Vous disposez d’un jeu complet de boutons pour définir des stratégies qui définissent au mieux vos exigences en matière de conformité et de rétention.
+**Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/>
+R5. Vous disposez d’un jeu complet de boutons pour définir des stratégies qui définissent au mieux vos exigences en matière de conformité et de rétention.
 
-**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18:00. <br/>
+**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/>
+R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18:00. <br/>
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
-**Q7. Une copie incrémentielle est-elle transférée pour les stratégies de rétention planifiées ?** <br/> R7. Non, la copie incrémentielle est envoyée en fonction de l’heure mentionnée dans la page de planification de sauvegarde. Les points qui peuvent être conservés sont déterminés par la stratégie de rétention.
+**Q7. Une copie incrémentielle est-elle transférée pour les stratégies de rétention planifiées ?** <br/>
+R7. Non, la copie incrémentielle est envoyée en fonction de l’heure mentionnée dans la page de planification de sauvegarde. Les points qui peuvent être conservés sont déterminés par la stratégie de rétention.
 
-**Q8. Si la sauvegarde est conservée sur une longue durée, la récupération des données prend-elle plus de temps (par exemple, la récupération du point le plus ancien) ?** <br/> R8. Non. Le temps de récupération est le même pour le point le plus ancien ou le dernier point. Chaque point de récupération se comporte comme un point complet.
+**Q8. Si la sauvegarde est conservée sur une longue durée, la récupération des données prend-elle plus de temps (par exemple, la récupération du point le plus ancien) ?** <br/>
+R8. Non. Le temps de récupération est le même pour le point le plus ancien ou le dernier point. Chaque point de récupération se comporte comme un point complet.
 
-**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/> R9. Les produits classiques de points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points occupent de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles occupent moins d’espace de stockage, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage unique d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche garantit que votre bande passante (entrante et sortante) est utilisée efficacement et que l’espace de stockage occupé ainsi que le temps de récupération restent minimes.
+**Q9. Si chaque point de récupération est un point complet, a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?**<br/>
+R9. Les produits classiques de points de rétention à long terme stockent les données de sauvegarde en tant que points complets. Toutefois, même si ces points occupent de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer. Les copies incrémentielles occupent moins d’espace de stockage, mais vous devez restaurer une chaîne de données qui rallonge le temps de récupération. L’architecture de stockage unique d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche garantit que votre bande passante (entrante et sortante) est utilisée efficacement et que l’espace de stockage occupé ainsi que le temps de récupération restent minimes.
 
-**Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/> R10. Depuis avril 2015, vous pouvez créer un maximum de 366 points de récupération. Vous pouvez utiliser n’importe quelle permutation pour arriver à un nombre inférieur à 366. Par ex., la somme des points de rétention de l’image ci-dessous est égale à 354. <br/>
+**Q10. Le nombre de points de récupération pouvant être créés est-il limité ?**<br/>
+R10. Depuis avril 2015, vous pouvez créer un maximum de 366 points de récupération. Vous pouvez utiliser n’importe quelle permutation pour arriver à un nombre inférieur à 366. Par ex., la somme des points de rétention de l’image ci-dessous est égale à 354. <br/>
 
 ![Écran de rétention](./media/backup-azure-backup-faq/RetentionScreen1.png)
 
-**Q11. Quand Microsoft augmentera la limite de 366, devrai-je mettre à niveau l’agent ou réamorcer la sauvegarde initiale ?** <br/> R11. Non. Quand nous modifierons notre service, vous serez averti via nos médias sociaux (blogs, annonces Azure, portail, etc.). Selon vos besoins, vous devrez uniquement modifier la stratégie de rétention.
+**Q11. Quand Microsoft augmentera la limite de 366, devrai-je mettre à niveau l’agent ou réamorcer la sauvegarde initiale ?** <br/>
+R11. Non. Quand nous modifierons notre service, vous serez averti via nos médias sociaux (blogs, annonces Azure, portail, etc.). Selon vos besoins, vous devrez uniquement modifier la stratégie de rétention.
 
-**Q12. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/> R12. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Vous pouvez gagner 30 à 40 % d’espace de compression en fonction du type de données à sauvegarder.
+**Q12. Pourquoi la quantité de données transférée dans la sauvegarde est-elle différente de la quantité de données que j’ai sauvegardée ?**<br/>
+R12. Toutes les données sauvegardées sont compressées et chiffrées avant d’être transférées. Vous pouvez gagner 30 à 40 % d’espace de compression en fonction du type de données à sauvegarder.
 
 ## Récupérer
-**Q1. Combien de récupérations puis-je effectuer sur les données sauvegardées dans Azure ?**<br/> R1. Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
+**Q1. Combien de récupérations puis-je effectuer sur les données sauvegardées dans Azure ?**<br/>
+R1. Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
 
-**Q2. Le trafic sortant du centre de données Azure m’est-il facturé pendant les récupérations ?**<br/> R2. Non. Vos récupérations sont gratuites et le trafic sortant ne vous est pas facturé.
+**Q2. Le trafic sortant du centre de données Azure m’est-il facturé pendant les récupérations ?**<br/>
+R2. Non. Vos récupérations sont gratuites et le trafic sortant ne vous est pas facturé.
 
 ## Sécurité
-**Q1. Les données envoyées à Azure sont-elles chiffrées ?** <br/> R1. Oui. Les données sont chiffrées sur l’ordinateur client/serveur/SCDPM local avec AES256 et sont envoyées via une connexion HTTPS sécurisée.
+**Q1. Les données envoyées à Azure sont-elles chiffrées ?** <br/>
+R1. Oui. Les données sont chiffrées sur l’ordinateur client/serveur/SCDPM local avec AES256 et sont envoyées via une connexion HTTPS sécurisée.
 
 **Q2. Les données de sauvegarde sont-elles également chiffrées dans Azure ?**<br/> R2. Oui. Les données envoyées à Azure restent chiffrées (au repos). Microsoft ne déchiffre les données de sauvegarde à aucun moment.
 
