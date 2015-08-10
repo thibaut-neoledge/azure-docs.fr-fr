@@ -7,7 +7,14 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="08/07/2015"
+	 ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -132,4 +139,4 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q4. Que se passe-t-il si j’ai égaré la clé de chiffrement ? Puis-je récupérer des données (ou) Microsoft peut-il récupérer les données ?** <br/> R4. La clé utilisée pour chiffrer les données de sauvegarde est présente uniquement localement chez le client. Microsoft ne conserve pas de copie dans Azure et n’a pas accès à la clé. Si le client égare la clé, Microsoft ne peut pas récupérer les données de sauvegarde.
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

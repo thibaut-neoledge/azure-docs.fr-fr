@@ -7,7 +7,14 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management
 
@@ -340,4 +347,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
