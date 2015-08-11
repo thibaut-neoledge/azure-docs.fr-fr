@@ -36,7 +36,7 @@ En règle générale, CORS (Cross-Origin Resource Sharing) est nécessaire dans 
 
 ### Activation de CORS pour les passerelles d'application API
 
-Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS\_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
+Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
 
 1. Accédez au panneau du portail Azure en version préliminaire de l'application API pour laquelle vous voulez activer CORS. Une fois dans ce panneau, cliquez sur l'icône *Passerelle* pour votre application API. 
 
@@ -371,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

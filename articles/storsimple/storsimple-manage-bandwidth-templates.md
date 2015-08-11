@@ -68,7 +68,7 @@ Pour créer un modèle de bande passante, procédez comme suit.
    3. Dans la liste déroulante, sélectionnez une **Heure de début**. Cette heure correspond au début de la planification.
    4. Dans la liste déroulante, sélectionnez une **Heure de fin**. Cette heure correspond à la fin de la planification.
    
-         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+         > [AZURE.NOTE] Les planifications qui se chevauchent ne sont pas autorisées. Si les heures de début et de fin entraînent une planification qui se chevauche, un message d'erreur apparaîtra.
 
    5. Spécifiez le **Débit de bande passante**. Il s’agit de la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil StorSimple dans les opérations impliquant le cloud. Fournissez un nombre compris entre 1 et 1 000 pour ce champ.
    
@@ -176,4 +176,4 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 En savoir plus sur les [composants StorSimple](storsimple-components.md).
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

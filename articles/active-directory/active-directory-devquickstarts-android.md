@@ -100,7 +100,7 @@ Pour générer avec Maven, vous pouvez utiliser le pom.xml au niveau supérieur.
   * Installez l’émulateur avec le kit de développement (SDK) 19.
   * Accédez au dossier racine où vous avez cloné le référentiel.
   * Exécutez la commande : mvn clean install
-  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\\hello
+  * Accédez au répertoire de l’exemple de démarrage rapide : cd samples\hello
   * Exécutez la commande : mvn android:deploy android:run
   * L’application doit normalement se lancer
   * Entrez les informations d’identification utilisateur de test pour faire un essai.
@@ -417,7 +417,7 @@ ADAL chiffre les jetons et les stocke dans SharedPreferences par défaut. Vous p
 
 ### Demande de support Oauth2
 
-La classe AuthenticationParameters fournit les fonctionnalités pour obtenir authorization\_uri à partir de la demande de support Oauth2.
+La classe AuthenticationParameters fournit les fonctionnalités pour obtenir authorization_uri à partir de la demande de support Oauth2.
 
 ### Cookies de session dans Webview
 
@@ -454,4 +454,4 @@ Adal version 1.1.0 prend en charge la boîte de dialogue NTLM qui est traitée 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

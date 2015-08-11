@@ -114,7 +114,7 @@ La vue avec balises ASP.NET s’adapte à l’écran, ce que Bootstrap effectue 
 
 La prise en charge de Bootstrap intégrée est une nouveauté du modèle MVC 5. Vous avez déjà vu comment cette prise en charge améliore les différentes vues dans votre application. Par exemple, la barre de navigation dans la partie supérieure se réduit automatiquement lorsque la largeur du navigateur est inférieure. Sur le navigateur de bureau, essayez de redimensionner la fenêtre du navigateur et observez le comportement de la barre de navigation. Il s'agit de la conception de sites web réactive intégrée à Bootstrap.
 
-Pour voir à quoi ressemblerait l’application Web sans Bootstrap, ouvrez le fichier *App\_Start\BundleConfig.cs* et placez les lignes qui contiennent *bootstrap.js* et *bootstrap.css* en commentaire. Le code ci-après indique les deux dernières instructions de la méthode `RegisterBundles` après la modification :
+Pour voir à quoi ressemblerait l’application Web sans Bootstrap, ouvrez le fichier *App_Start\BundleConfig.cs* et placez les lignes qui contiennent *bootstrap.js* et *bootstrap.css* en commentaire. Le code ci-après indique les deux dernières instructions de la méthode `RegisterBundles` après la modification :
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -144,7 +144,7 @@ Vous pouvez remplacer toutes les vues (y compris les dispositions et les vues pa
 
 Dans cette section, vous allez créer un fichier de disposition mobile.
 
-Tout d'abord, copiez *Views\Shared\_Layout.cshtml* vers *Views\Shared\_Layout.Mobile.cshtml*. Ouvrez *\_Layout.Mobile.cshtml* et remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
+Tout d'abord, copiez *Views\Shared_Layout.cshtml* vers *Views\Shared_Layout.Mobile.cshtml*. Ouvrez *_Layout.Mobile.cshtml* et remplacez le titre **MVC5 Application** par **MVC5 Application (Mobile)**.
 
 Dans chaque appel `Html.ActionLink` pour la barre de navigation, supprimez « Parcourir par »de chaque lien *ActionLink*. Le code suivant affiche la balise `<ul class="nav navbar-nav">` terminée d’un fichier de disposition mobile.
 
@@ -191,7 +191,7 @@ Vous pouvez aussi ajouter manuellement la ligne suivante à la section `using` d
 
     using System.Web.WebPages;
 
-Enregistrez les modifications. Copiez le fichier *Views\Shared\_Layout.Mobile.cshtml* vers *Views\Shared\_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par `MVC5 Application (iPhone)`.
+Enregistrez les modifications. Copiez le fichier *Views\Shared_Layout.Mobile.cshtml* vers *Views\Shared_Layout.iPhone.cshtml*. Ouvrez le nouveau fichier, puis remplacez le titre `MVC5 Application (Mobile)` par `MVC5 Application (iPhone)`.
 
 Copiez le fichier *Views\Home\AllTags.Mobile.cshtml* vers *Views\Home\AllTags.iPhone.cshtml*. Dans le nouveau fichier, pour l’élément `<h2>`, remplacez « Tags (M) » par « Tags (iPhone) ».
 
@@ -209,7 +209,7 @@ Dans le navigateur mobile, sélectionnez le lien **Intervenants**. En l’absenc
 
 ![][AllSpeakers_LayoutMobile]
 
-Vous pouvez globalement désactiver l’affichage d’une vue par défaut (non mobile) au sein d’une disposition mobile en définissant `RequireConsistentDisplayMode` sur `true` dans le fichier *Views\_ViewStart.cshtml*, comme indiqué ci-dessous :
+Vous pouvez globalement désactiver l’affichage d’une vue par défaut (non mobile) au sein d’une disposition mobile en définissant `RequireConsistentDisplayMode` sur `true` dans le fichier *Views_ViewStart.cshtml*, comme indiqué ci-dessous :
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -262,7 +262,7 @@ Avec le style [linked list group][] Bootstrap, toute la zone de chaque lien est 
 
 ![][AllSpeakersFixedDesktop]
 
-Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\Home\AllSpeakers.cshtml*, ajoutez une balise <form> juste après la balise <h2>, comme indiqué ci-dessous :
+Certes, l’affichage du navigateur mobile a été amélioré, mais il est tout de même difficile de parcourir la longue liste d’intervenants. Bootstrap est dépourvu d'une fonction de filtre de recherche en natif. Il est possible d'en ajouter une à l'aide de quelques lignes de code. Tout d'abord, vous devez ajouter un champ de recherche à la vue, puis connecter du code JavaScript pour la fonction de filtre. Dans *Views\Home\AllSpeakers.cshtml*, ajoutez une balise \<form\> juste après la balise \<h2\>, comme indiqué ci-dessous :
 
     @model IEnumerable<string>
 
@@ -616,4 +616,4 @@ Ce didacticiel vous a guidé dans l’utilisation d’ASP.NET MVC 5 pour déve
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

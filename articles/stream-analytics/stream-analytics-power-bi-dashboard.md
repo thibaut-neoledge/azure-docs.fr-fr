@@ -63,9 +63,9 @@ Pour ce didacticiel, nous partons du principe que vous utilisez Event Hub comme 
 
 > [AZURE.NOTE]Cet exemple utilise le nombre de partitions par défaut : 16.
 
-* **Nom du concentrateur d’événements** – sélectionnez le nom du concentrateur d’événements Azure que vous possédez.
-* **Nom de la stratégie du concentrateur d’événements** – sélectionnez la stratégie du concentrateur d’événements pour le concentrateur d’événements que vous utilisez. Assurez-vous que cette stratégie a des autorisations de gestion.
-*	**Groupe de consommateurs du concentrateur d’événements** – vous pouvez laisser ce champ vide ou spécifier un groupe de consommateurs présent sur votre concentrateur d’événements. Notez que chaque groupe de consommateurs d’un concentrateur d’événements peut avoir seulement 5 lecteurs à la fois. Décidez en conséquence du groupe de consommateurs approprié pour votre travail. Si vous laissez le champ vide, le groupe de consommateurs par défaut est utilisé.
+* **Nom du concentrateur d’événements** - sélectionnez le nom du concentrateur d’événements Azure que vous possédez.
+* **Nom de la stratégie du concentrateur d’événements** - sélectionnez la stratégie du concentrateur d’événements pour le concentrateur d’événements que vous utilisez. Assurez-vous que cette stratégie a des autorisations de gestion.
+*	**Groupe de consommateurs du concentrateur d’événements** - vous pouvez laisser ce champ vide ou spécifier un groupe de consommateurs présent sur votre concentrateur d’événements. Notez que chaque groupe de consommateurs d’un concentrateur d’événements peut avoir seulement 5 lecteurs à la fois. Décidez en conséquence du groupe de consommateurs approprié pour votre travail. Si vous laissez le champ vide, le groupe de consommateurs par défaut est utilisé.
 
 *	Cliquez avec le bouton droit.
 *	Spécifiez les valeurs suivantes :
@@ -98,11 +98,11 @@ Fournissez les valeurs suivantes :
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] De même, veuillez noter que si Power BI dispose déjà d'un groupe de données et d'un tableau portant le même nom que celui que vous avez saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
 
 
 ## Écriture d’une requête ##
@@ -167,7 +167,8 @@ Power BI utilise des contraintes d’accès concurrentiel et le débit comme ind
 
 C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour vous assurer le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes :![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Par exemple, si 1 000 appareils envoient des données à chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) :
+![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Cela signifie que nous pouvons modifier la requête d’origine :
 
@@ -210,4 +211,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

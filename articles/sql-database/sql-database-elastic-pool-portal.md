@@ -56,7 +56,7 @@ Créez un pool élastique en ajoutant un nouveau pool à un serveur. Vous pouvez
 
 Configurer le pool en définissant le niveau de tarification, en ajoutant des bases de données et en configurant les caractéristiques de performances du pool.
 
-*Lorsque vous sélectionnez la commande **Ajouter un pool**, vous devez accepter les termes du contrat de l'aperçu en sélectionnant **TERMES DE LA VERSION PRÉLIMINAIRE** et en remplissant le panneau **Termes de la version préliminaire**. Il vous suffit d'accepter les termes du contrat une fois pour chaque abonnement.*
+*Lorsque vous sélectionnez la commande **Ajouter un pool** , vous devez accepter les termes du contrat de l'aperçu en sélectionnant **TERMES DE LA VERSION PRÉLIMINAIRE** et en remplissant le panneau **Termes de la version préliminaire**. Il vous suffit d'accepter les termes du contrat une fois pour chaque abonnement.*
 
    ![Configurer un pool élastique][2]
 
@@ -162,4 +162,4 @@ Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données �
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

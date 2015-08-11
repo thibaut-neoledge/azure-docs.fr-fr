@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Activation du proxy d’application Azure AD
-> [AZURE.NOTE]Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 Le proxy d’application Microsoft Azure AD vous permet de publier des applications, telles que les sites SharePoint, Outlook Web Access et les applications IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau. Les employés peuvent se connecter à vos applications depuis leur domicile, sur leurs propres appareils et s’authentifier via ce proxy cloud.
 
@@ -73,4 +73,4 @@ Si vous souhaitez désinstaller le connecteur, après avoir désinstallé le ser
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

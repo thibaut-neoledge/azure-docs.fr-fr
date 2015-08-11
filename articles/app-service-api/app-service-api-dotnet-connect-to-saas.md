@@ -86,7 +86,7 @@ La plateforme SaaS recevant les appels émis par l’application API doit être 
 		    ]
 		}
 
-2. Enregistrez le fichier .
+2. Enregistrez le fichier.
 
 Le fait de configurer la propriété `authentication` a deux effets :
 
@@ -450,6 +450,8 @@ Supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une
 Vous avez appris à coder et à configurer une application API se connectant à une plateforme SaaS. Pour consulter des liens vers d’autres didacticiels sur la gestion de l’authentification dans les applications API, consultez [la section Étapes suivantes de la page Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
+[portail Azure en version préliminaire]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

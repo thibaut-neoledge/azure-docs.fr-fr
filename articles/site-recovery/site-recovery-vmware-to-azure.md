@@ -273,7 +273,12 @@ Le serveur de configuration est déployé dans un service cloud Azure créé aut
 	- Lorsque vous cliquez sur **Suivant**, un test est exécuté pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy, le port et les informations d’identification.
 	- Les URL suivantes doivent être accessibles via le proxy :
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net- Si votre pare-feu a des règles basées sur l'adresse IP, assurez-vous qu'elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d'adresses IP du centre de données Azure](https://msdn.microsoft.com/fr-fr/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+		- *.hypervrecoverymanager.windowsazure.com 
+		- *.accesscontrol.windows.net 
+		- *.backup.windowsazure.com 
+		- *.blob.core.windows.net 
+		- *.store.core.windows.net
+	- Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu'elle autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP des centres de données Azure](https://msdn.microsoft.com/fr-fr/library/azure/dn175718.aspx) et pour le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	![Inscription de proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -376,7 +381,7 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 	3. Extrayez les fichiers du programme d'installation compressé avec gzip en exécutant : **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64**\* ![Serveur cible maître Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Assurez-vous que vous êtes dans le répertoire dans lequel vous avez extrait le contenu du fichier tar.
 	5. Copiez la phrase secrète du serveur de configuration dans un fichier local à l'aide de la commande **echo*`<passphrase>`* > passphrase.txt**
-	6. Exécutez la commande « \*\*sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt\*\* ».
+	6. Exécutez la commande « **sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt** ».
 
 	![Inscrire un serveur cible](./media/site-recovery-vmware-to-azure/Linux-MT-install.png)
 
@@ -396,12 +401,12 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 
 2.  Copiez le fichier zip téléchargé sur le serveur sur lequel vous allez installer le serveur de traitement. Le fichier .zip contient deux fichiers d'installation :
 
-	- Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows\*
-	- Microsoft-ASR\_CX\_8.4.0.0\_Windows\*
+	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
+	- Microsoft-ASR_CX_8.4.0.0_Windows*
 
 3. Décompressez l'archive et copiez les fichiers d'installation à un emplacement sur le serveur.
-4. Exécutez le fichier d'installation **Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows**\* et suivez les instructions. Cette opération installe les composants tiers nécessaires au déploiement.
-5. Ensuite, exécutez **Microsoft-ASR\_CX\_8.4.0.0\_Windows**\*.
+4. Exécutez le fichier d'installation **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** et suivez les instructions. Cette opération installe les composants tiers nécessaires au déploiement.
+5. Ensuite, exécutez **Microsoft-ASR_CX_8.4.0.0_Windows***.
 6. À la page **Mode du serveur**, sélectionnez **Serveur de traitement**.
 
 	![Mode de sélection du serveur](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -446,7 +451,7 @@ Notez que les quatre premières adresses IP d’un sous-réseau sont réservées
 
 Si vous n'avez pas désactivé la vérification de la signature pour le service de mobilité lors de l'inscription du serveur de traitement, vous pouvez le faire ultérieurement comme suit :
 
-1. Ouvrez une session sur le serveur de traitement en tant qu'administrateur et ouvrez le fichier C:\\pushinstallsvc\\pushinstaller.conf. Dans la section **[PushInstaller.transport]**, ajoutez cette ligne : **SignatureVerificationChecks=”0”**. Enregistrez et fermez le fichier.
+1. Ouvrez une session sur le serveur de traitement en tant qu'administrateur et ouvrez le fichier C:\pushinstallsvc\pushinstaller.conf. Dans la section **[PushInstaller.transport]**, ajoutez cette ligne : **SignatureVerificationChecks=”0”**. Enregistrez et fermez le fichier.
 2. Redémarrez le service InMage PushInstall.
 
 
@@ -542,7 +547,7 @@ Quand vous ajoutez des ordinateurs à un groupe de protection, le service de mob
 	![Paramètres du pare-feu](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. Le compte utilisé pour effectuer l'installation Push doit appartenir au groupe Administrateurs sur l'ordinateur que vous souhaitez protéger. Ces informations d'identification sont uniquement utilisées pour l'installation Push du service de mobilité et vous devez les fournir lorsque vous ajoutez un ordinateur à un groupe de protection.
-5. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System. Pour ajouter l'entrée de registre à partir d'une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
+5. Si le compte fourni n'est pas un compte de domaine, vous devez désactiver le contrôle d'accès utilisateur distant sur l'ordinateur local. Pour cela, ajoutez l’entrée de registre DWORD LocalAccountTokenFilterPolicy avec une valeur de 1 dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Pour ajouter l'entrée de registre à partir d'une CLI, ouvrez cmd ou powershell et entrez **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**. 
 
 **Transmettre et installer automatiquement le service de mobilité sur des serveurs Linux :**
 
@@ -552,10 +557,10 @@ Quand vous ajoutez des ordinateurs à un groupe de protection, le service de mob
 4. Assurez-vous que les fichiers /etc/hosts sur le serveur Linux source contiennent des entrées qui mappent le nom d'hôte local aux adresses IP associées à toutes les cartes réseau.
 5. Installez les packages openssh, openssh-server et openssl les plus récents sur l'ordinateur que vous souhaitez protéger.
 6. Vérifiez que SSH est activé et exécuté sur le port 22. 
-7. Activez le sous-système SFTP et l'authentification par mot de passe dans le fichier sshd\_config comme suit : 
+7. Activez le sous-système SFTP et l'authentification par mot de passe dans le fichier sshd_config comme suit : 
 
 	- a) Connectez-vous en tant qu’utilisateur racine.
-	- b) Dans le fichier /etc/ssh/sshd\_config, recherchez la ligne qui commence par **PasswordAuthentication**.
+	- b) Dans le fichier /etc/ssh/sshd_config, recherchez la ligne qui commence par **PasswordAuthentication**.
 	- c) Supprimez les commentaires de la ligne et remplacez la valeur « no » par « yes ».
 
 		![Mobilité Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
@@ -568,7 +573,7 @@ Quand vous ajoutez des ordinateurs à un groupe de protection, le service de mob
  
 ### Installer le service de mobilité manuellement
 
-Les packages de logiciel utilisés pour installer le service de mobilité sont sur le serveur de traitement dans C:\\pushinstallsvc\\repository. Connectez-vous au serveur de traitement et copiez le package d'installation approprié vers l'ordinateur source selon le tableau ci-dessous :
+Les packages de logiciel utilisés pour installer le service de mobilité sont sur le serveur de traitement dans C:\pushinstallsvc\\repository. Connectez-vous au serveur de traitement et copiez le package d'installation approprié vers l'ordinateur source selon le tableau ci-dessous :
 
 | Système d’exploitation source | Package de service de mobilité sur le serveur de traitement |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -580,7 +585,7 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 
 **Pour installer le service de mobilité manuellement sur un serveur Windows**, procédez comme suit :
 
-1. Copiez le package **Microsoft-ASR\_UA\_8.4.0.0\_Windows\_GA\_28Jul2015\_release.exe** depuis le répertoire du serveur de traitement dont le chemin d'accès est indiqué dans le tableau ci-dessus vers l'ordinateur source.
+1. Copiez le package **Microsoft-ASR_UA_8.4.0.0_Windows_GA_28Jul2015_release.exe** depuis le répertoire du serveur de traitement dont le chemin d'accès est indiqué dans le tableau ci-dessus vers l'ordinateur source.
 2. Installez le service de mobilité en exécutant le fichier exécutable sur l'ordinateur source.
 3. Suivez les instructions du programme d’installation :
 4. Sélectionnez **Service de mobilité** en tant que rôle et cliquez sur **Suivant**.
@@ -599,7 +604,7 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 
 **Pour exécuter depuis la ligne de commande :**
 
-1. Copiez la phrase secrète depuis le CX vers le fichier « C:\\connection.passphrase » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
+1. Copiez la phrase secrète depuis le CX vers le fichier « C:\connection.passphrase » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
@@ -614,7 +619,7 @@ Les packages de logiciel utilisés pour installer le service de mobilité sont s
 	- Si vous vous connectez au serveur de configuration via Internet, spécifiez l'adresse IP publique virtuelle et le point de terminaison HTTPS public du serveur de configuration dans `<IP address>` et `<port>`.
 	- Si vous vous connectez via une connexion VPN, spécifiez l'adresse IP interne et le port 443.
 
-**Pour exécuter depuis la ligne de commande :**
+**Pour exécuter depuis la ligne de commande** :
 
 1. Copiez la phrase secrète depuis le CX vers le fichier « passphrase.txt » sur le serveur et exécutez cette commande. Dans notre exemple, CX est 104.40.75.37 et le port HTTPS est 62519 :
 
@@ -762,4 +767,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 Le fichier complet se trouve dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

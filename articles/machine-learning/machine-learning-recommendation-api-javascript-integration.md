@@ -39,11 +39,11 @@ Dans la première phase, vous insérez dans vos pages html une petite bibliothè
 
 Pendant la deuxième phase, lorsque vous souhaitez afficher les recommandations sur la page, sélectionnez une des options suivantes :
 
-1. Votre serveur (dans la phase de rendu des pages) appelle le serveur Azure ML Recommandations (via Data Market) pour obtenir des recommandations. Les résultats incluent une liste des ID d’articles. Votre serveur a besoin d’enrichir les résultats avec les métadonnées des articles (par exemple des images, une description) et d’envoyer la page créée dans le navigateur.
+1.Votre serveur (dans la phase de rendu des pages) appelle le serveur Azure ML Recommandations (via Data Market) pour obtenir des recommandations. Les résultats incluent une liste des ID d’articles. Votre serveur a besoin d’enrichir les résultats avec les métadonnées des articles (par exemple des images, une description) et d’envoyer la page créée dans le navigateur.
 
 ![Drawing2][2]
 
-2. L’autre option consiste à utiliser le petit fichier JavaScript de la première étape pour obtenir une liste simple d’articles recommandés. Les données reçues ici sont moins conséquentes qu’avec la première option.
+2.L’autre option consiste à utiliser le petit fichier JavaScript de la première étape pour obtenir une liste simple d’articles recommandés. Les données reçues ici sont moins conséquentes qu’avec la première option.
 
 ![Drawing3][3]
 
@@ -78,21 +78,21 @@ Les étapes suivantes facilitent l’envoi d’événements :
 		</script>
 
 
-###3.1.	Limitations et prise en charge du navigateur
+###3.1. Limitations et prise en charge du navigateur
 Il s’agit d’une implémentation de référence, fournie en l’état. Elle prend normalement en charge les principaux navigateurs.
 
 ###3.2. Type d’événements
 Il existe cinq types d’événements pris en charge par la bibliothèque : clic, clic de recommandation, ajouter au panier, supprimer du panier et achat. Il existe un événement supplémentaire, utilisé pour définir le contexte utilisateur, appelé connexion.
 
-####3.2.1.	Événement clic
+####3.2.1. Événement clic
 Cet événement doit être utilisé chaque fois qu’un utilisateur clique sur un article. Généralement lorsque l’utilisateur clique sur un article, une nouvelle page s’ouvre avec les détails de l’article ; cet événement doit être déclenché dans cette page.
 
 Paramètres :
 - événement (chaîne, obligatoire) – "click"
 - article (chaîne, obligatoire) – identificateur unique de l’article
 - itemName (chaîne, facultatif) – le nom de l’article
-- itemDescription (chaîne, facultatif) – la description de l’article - itemCategory (chaîne, facultatif)
-– la catégorie de l’article
+- itemDescription (chaîne, facultatif) – la description de l’article
+- itemCategory (chaîne, facultatif) – la catégorie de l’article
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -117,7 +117,7 @@ Paramètres :
 - itemDescription (chaîne, facultatif) – la description de l’article
 - itemCategory (chaîne, facultatif) – la catégorie de l’article
 - valeurs initiales (table de chaînes, facultatif) – les valeurs initiales ayant généré la requête de recommandation.
--recoList (table de chaînes, facultatif) – le résultat de la demande de recommandation ayant généré l’article sur lequel l’utilisateur a cliqué.
+- recoList (table de chaînes, facultatif) – le résultat de la demande de recommandation ayant généré l’article sur lequel l’utilisateur a cliqué.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -133,7 +133,8 @@ Ou avec des données facultatives :
 
 
 ####3.2.3. Événement ajouter au panier
-Cet événement doit être utilisé lorsque l’utilisateur ajoute un article au panier. Paramètres :
+Cet événement doit être utilisé lorsque l’utilisateur ajoute un article au panier.
+Paramètres :
 * événement (chaîne, obligatoire) – “addshopcart”
 * article (chaîne, obligatoire) – identificateur unique de l’article
 * itemName (chaîne, facultatif) – le nom de l’article
@@ -227,4 +228,4 @@ Exemple : le code suivant demande 8 recommandations pour l’article « 64f6e
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

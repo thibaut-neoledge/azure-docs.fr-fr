@@ -67,7 +67,7 @@ Vous pouvez utiliser la classe **cloud_storage_account** pour représenter vos i
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **￼cloud_blob_client**￼ en utilisant l’objet de compte de stockage récupéré ci-dessus :
+Ensuite, récupérez une référence pointant vers une classe **cloud_blob_client**, car elle permet de récupérer des objets représentant des conteneurs et des objets blob stockés dans le serveur de stockage d'objets blob. Le code suivant crée un objet **￼cloud_blob_client** en utilisant l’objet de compte de stockage récupéré ci-dessus :
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -243,4 +243,4 @@ Maintenant que vous connaissez les bases du stockage d'objets blob, consultez le
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

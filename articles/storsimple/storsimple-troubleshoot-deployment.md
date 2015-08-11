@@ -131,8 +131,8 @@ Vous utilisez le service StorSimple Manager en cours d’exécution dans Microso
 | Non.| Message d’erreur | Causes possibles | Action recommandée |
 | ---| ------------- | --------------- | ------------------ |
 | 1 | Erreur 350027 : Impossible d’inscrire l’appareil auprès de StorSimple Manager. | | Patientez quelques minutes et recommencez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).|
-| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section [
-Obtenir la clé d’inscription de service.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) |
+| 2 | Erreur 350013 : Une erreur s’est produite lors de l’inscription de l’appareil. Cela peut résulter d’une clé d’inscription du service incorrecte. | | Inscrivez à nouveau l’appareil avec la clé d’inscription de service appropriée. Pour plus d’informations, consultez la section 
+[Obtenir la clé d’inscription de service.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) |
 | 3 | Erreur 350063 : l’authentification auprès du service StorSimple Manager a réussi, mais l’inscription a échoué. Veuillez réessayer l’opération après un certain temps. | Cette erreur indique que l’authentification avec ACS a réussi, mais que l’appel pour l’inscription au service a échoué. Cela peut résulter d’un problème réseau sporadique. | Si le problème persiste, contactez le [support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). |
 | 4 | Erreur 350049 : Le service n’a pas pu être atteint lors de l’inscription. | Lorsque l’appel au service est effectué, une exception web est reçue. Dans certains cas, ce problème peut être résolu avec une nouvelle tentative ultérieure de l’opération. | Vérifiez votre adresse IP et le nom DNS, puis réessayez l’opération. Si le problème persiste, [contactez le support technique Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). | 
 | 5. | Erreur 350031 : L’appareil a déjà été inscrit. | | Aucune action requise. |
@@ -578,4 +578,4 @@ L’erreur peut provenir des éléments suivants :
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

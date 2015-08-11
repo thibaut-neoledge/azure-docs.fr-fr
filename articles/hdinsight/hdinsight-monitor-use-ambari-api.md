@@ -44,11 +44,13 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - Un **cluster Azure HDInsight**. Pour obtenir des instructions sur l’approvisionnement des clusters, consultez la rubrique [Prise en main de HDInsight][hdinsight-get-started] ou [Approvisionnement de clusters HDInsight][hdinsight-provision]. Vous aurez besoin des données suivantes pour suivre ce didacticiel :
 
 	<table border="1">
-<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
-<tr><td>Nom d'utilisateur du cluster</td><td>$clusterUsername</td><td></td><td>Nom d’utilisateur du cluster spécifié lors de l’approvisionnement</td></tr>
-<tr><td>Mot de passe du cluster</td><td>$clusterPassword</td><td></td><td>Mot de passe utilisateur du cluster</td></tr>
-</table>> [AZURE.NOTE]Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
+	<tr><th>Propriété du cluster</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+	<tr><td>Nom du cluster HDInsight</td><td>$clusterName</td><td></td><td>Nom de votre cluster HDInsight</td></tr>
+	<tr><td>Nom d'utilisateur du cluster</td><td>$clusterUsername</td><td></td><td>Nom d’utilisateur du cluster spécifié lors de l’approvisionnement</td></tr>
+	<tr><td>Mot de passe du cluster</td><td>$clusterPassword</td><td></td><td>Mot de passe utilisateur du cluster</td></tr>
+	</table>
+
+	> [AZURE.NOTE] Renseignez les valeurs dans le tableau. Cela vous sera utile pour ce didacticiel.
 
 
 
@@ -176,4 +178,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

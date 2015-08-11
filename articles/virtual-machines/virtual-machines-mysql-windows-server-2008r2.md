@@ -54,7 +54,9 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 > [AZURE.NOTE]Ces étapes concernent la version Community 5.6.23.0 de MySQL et Windows Server 2012 R2. Votre expérience peut être différente sur d'autres versions de MySQL ou Windows Server.
 
 1.	Une fois connecté à la machine virtuelle à l’aide du Bureau à distance, cliquez sur **Internet Explorer** dans l’écran d’accueil.
-2.	Sélectionnez le bouton **Outils** dans le coin supérieur droit (icône en forme de roue dentée), puis cliquez sur **Options Internet**. Cliquez successivement sur l’onglet **Sécurité**, sur l’icône **Sites de confiance**, puis sur le bouton **Sites**. Ajoutez **http://*.mysql.com** à la liste des sites de confiance. Cliquez sur **Fermer**, puis sur **OK**. 3.	Dans la barre d’adresse d’Internet Explorer, tapez **http://dev.mysql.com/downloads/mysql/**. 4.	Utilisez le site MySQL pour rechercher et télécharger la dernière version du programme d'installation de MySQL pour Windows. Lorsque vous choisissez le programme d'installation de MySQL, téléchargez la version qui comporte le jeu de fichiers complet (par exemple, le fichier mysql-installer-community-5.6.23.0.msi d'une taille de 282,4 Mo) et enregistrez le fichier d'installation sur le Bureau Windows.
+2.	Sélectionnez le bouton **Outils** dans le coin supérieur droit (icône en forme de roue dentée), puis cliquez sur **Options Internet**. Cliquez successivement sur l’onglet **Sécurité**, sur l’icône **Sites de confiance**, puis sur le bouton **Sites**. Ajoutez **http://*.mysql.com** à la liste des sites de confiance. Cliquez sur **Fermer**, puis sur **OK**. 
+3.	Dans la barre d’adresse d’Internet Explorer, tapez **http://dev.mysql.com/downloads/mysql/**. 
+4.	Utilisez le site MySQL pour rechercher et télécharger la dernière version du programme d'installation de MySQL pour Windows. Lorsque vous choisissez le programme d'installation de MySQL, téléchargez la version qui comporte le jeu de fichiers complet (par exemple, le fichier mysql-installer-community-5.6.23.0.msi d'une taille de 282,4 Mo) et enregistrez le fichier d'installation sur le Bureau Windows.
 5.	Sur le Bureau, double-cliquez sur le fichier pour lancer l'installation.
 6.	Sur la page **Contrat de licence**, acceptez le contrat de licence, puis cliquez sur **Suivant**.
 7.	Sur la page **Choix du type de configuration**, cliquez sur le type souhaité, puis sur **Suivant**. Les étapes suivantes reposent sur l’hypothèse que vous avez sélectionné le type **Serveur uniquement**.
@@ -128,4 +130,4 @@ Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http:/
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
