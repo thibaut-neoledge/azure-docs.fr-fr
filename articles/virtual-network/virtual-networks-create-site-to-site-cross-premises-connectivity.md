@@ -260,7 +260,7 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
 -  [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md)
 
--  [À propos des périphériques VPN pour la connectivité de réseau virtuel(http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
+-  [À propos des périphériques VPN pour la connectivité de réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Résolution de noms (DNS)](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)
@@ -271,4 +271,4 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
