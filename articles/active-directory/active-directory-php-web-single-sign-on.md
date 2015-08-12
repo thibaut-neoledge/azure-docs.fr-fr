@@ -125,7 +125,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
+> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
 
 4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
@@ -203,4 +203,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

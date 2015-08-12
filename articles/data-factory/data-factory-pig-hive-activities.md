@@ -159,7 +159,7 @@ Le service Azure Data Factory prend en charge la création d'un cluster à la de
       		}
 		}
 
-	> [AZURE.NOTE]Remplacez la valeur **StartDateTime** par une date antérieure de trois jours à la date actuelle, et remplacez la valeur **EndDateTime** par la date actuelle. Les valeurs StartDateTime et EndDateTime doivent être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. La table de sortie est planifiée pour être produite tous les jours, trois tranches seront donc produites.
+	> [AZURE.NOTE]Remplacez la valeur **StartDateTime** par une date antérieure de trois jours à la date actuelle, et remplacez la valeur **EndDateTime** par la date actuelle. Les valeurs StartDateTime et EndDateTime doivent être au [format ISO](http://fr.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. La table de sortie est planifiée pour être produite tous les jours, trois tranches seront donc produites.
 	> 
 	> Remplacez **votre compte de stockage** dans le script JSON par le nom de votre compte de stockage.
 	
@@ -353,4 +353,4 @@ Article | Description
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

@@ -397,7 +397,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié comme **type de source**, et **BlobSink** comme **type sink**. - La requête SQL **select \* from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
-	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
+	Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant. Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://fr.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin (**end**) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 	
 	Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « \*\*start + 48 heures\*\* ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 	
@@ -625,4 +625,4 @@ Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Rem
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

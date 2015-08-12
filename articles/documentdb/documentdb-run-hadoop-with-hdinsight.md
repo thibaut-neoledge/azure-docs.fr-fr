@@ -341,7 +341,9 @@ Ce didacticiel utilise une action de script à partir du portail de gestion Azur
 
 4. Pour terminer, nous allons stocker les résultats dans notre nouvelle collection de sortie.
 
-    > [AZURE.NOTE]Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie : </br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br>    Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
+    > [AZURE.NOTE] Oui, nous autorisons l’ajout de plusieurs collections en tant que sortie: </br>
+    '\<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>' </br> Les noms de collection sont séparés sans espace, en utilisant uniquement une virgule. </br>
+    Les documents seront distribués en séquence, sur plusieurs collections. Un lot de documents sera stocké dans une collection, puis un deuxième lot de documents sera stocké dans la collection suivante, etc.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -487,4 +489,4 @@ Pour en savoir plus, consultez les articles suivants :
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!------HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

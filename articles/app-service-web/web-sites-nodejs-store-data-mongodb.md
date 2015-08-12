@@ -55,7 +55,8 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 Bien qu’il soit possible de créer une machine virtuelle puis d’y installer MongoDB selon les [guides d’installation MongoDB][installguides], une machine virtuelle préinstallée avec MongoDB est disponible dans Azure Marketplace. Les étapes suivantes montrent comment utiliser un de ces nombreux modèles de machine virtuelle.
 
-> [AZURE.NOTE]L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez [Installer MongoDB sur Linux sur Azure][mongodbonazure].
+> [AZURE.NOTE]L'image de communauté utilisée par ce didacticiel stocke les données MongoDB sur le disque du système d'exploitation. Bien que cela soit suffisant pour les besoins du didacticiel, le stockage de données MongoDB sur un disque de données offrira de meilleures performances. Pour obtenir les étapes nécessaires à la création d'une nouvelle machine virtuelle, y compris un disque de données, et au stockage de données MongoDB sur le disque de données, consultez
+>  [Installer MongoDB sur Linux sur Azure][mongodbonazure].
 
 1. Connectez-vous au [portail Azure][azureportal].
 
@@ -113,13 +114,13 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 
 1. Dans la ligne de commande, accédez au répertoire **tasklist**. Si le répertoire **tasklist** n'existe pas, créez-le.
 
-	> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\node\tasklist**
+> [AZURE.NOTE]Ce didacticiel fait référence au dossier **tasklist**. Le chemin complet de ce dossier n'est pas mentionné, en raison des différences entre les systèmes d'exploitation. Créez ce dossier dans un emplacement facilement accessible dans votre système de fichiers local, par exemple **~/node/tasklist** ou **c:\node\tasklist**
 
 2. Entrez la commande suivante pour installer la commande express.
 
 	npm install express-generator -g
 
-	> [AZURE.NOTE]Lorsque vous utilisez le paramètre ’-g’ sur certains systèmes d’exploitation, vous pouvez recevoir une erreur de type ___Error: EPERM, chmod ’/usr/local/bin/express’___ et une demande d’exécution du compte en tant qu’administrateur. Dans ce cas, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
+> [AZURE.NOTE]Lorsque vous utilisez le paramètre ’-g’ sur certains systèmes d’exploitation, vous pouvez recevoir une erreur de type ___Error: EPERM, chmod ’/usr/local/bin/express’___ et une demande d’exécution du compte en tant qu’administrateur. Dans ce cas, utilisez la commande `sudo` pour exécuter npm avec des privilèges plus élevés.
 
     Le résultat de cette commande doit ressembler à ceci :
 
@@ -127,7 +128,7 @@ Dans cette section, vous allez créer une nouvelle application Node dans votre e
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]Avec le paramètre '-g', le module express est installé dans sa globalité. Ceci nous permet d’accéder à la commande ___express___ pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires dans le chemin d’accès.
+> [AZURE.NOTE]Avec le paramètre '-g', le module express est installé dans sa globalité. Ceci nous permet d’accéder à la commande ___express___ pour générer la structure de l’application web sans avoir à saisir d’informations supplémentaires dans le chemin d’accès.
 
 4. Pour créer la structure qui sera utilisée pour cette application, utilisez la commande **express** :
 
@@ -571,4 +572,4 @@ Pour plus d'informations sur la sécurisation de MongoDB, consultez la page [Sé
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->
