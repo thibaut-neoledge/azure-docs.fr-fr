@@ -247,7 +247,7 @@ Quand vous modifiez les dispositions fournies, vous modifiez l'apparence de tout
 
 Pour inscrire un gestionnaire de catégories pour vos notifications, vous devez ajouter un appel quand l'application est initialisée.
 
-> [AZURE.IMPORTANT] Lisez l'avertissement concernant l'attribut android:process <android-sdk-engagement-process> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
+> [AZURE.IMPORTANT] Lisez l'avertissement concernant l'attribut android:process \<android-sdk-engagement-process\> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
 
 L'exemple suivant suppose que vous avez pris en compte l'avertissement précédent et que vous utilisez une sous-classe de `EngagementApplication` :
 
@@ -647,4 +647,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!------HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->
