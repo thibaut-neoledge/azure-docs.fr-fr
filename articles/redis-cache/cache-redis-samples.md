@@ -38,19 +38,19 @@ Cet exemple montre comment :
 
 Pour plus d’informations, consultez la documentation [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) sur Github. Pour plus de scénarios d’utilisation, consultez les tests unitaires [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
 
-L’exemple [How to use Azure Redis Cache with Node.js](cache-nodejs-get-started.md) montre comment utiliser le cache Redis Azure avec Node.js et le client [node_redis](https://github.com/mranney/node_redis).
+L’exemple [Comment utiliser Azure Redis Cache avec Node.js](cache-nodejs-get-started.md) montre comment utiliser le cache Redis Azure avec Node.js et le client [node_redis](https://github.com/mranney/node_redis).
 
-L’exemple [How to use Azure Redis Cache with Java](cache-java-get-started.md) montre comment utiliser le cache Redis Azure avec Java et le client [Jedis](https://github.com/xetorthio/jedis).
+L’exemple [Comment utiliser Azure Redis Cache avec Java](cache-java-get-started.md) montre comment utiliser le cache Redis Azure avec Java et le client [Jedis](https://github.com/xetorthio/jedis).
 
-L’exemple [How to use Azure Redis Cache with Python](cache-python-get-started.md) montre comment utiliser le cache Redis Azure avec Python et le client [redis-py](https://github.com/andymccurdy/redis-py).
+L’exemple [Comment utiliser Azure Redis Cache avec Python](cache-python-get-started.md) montre comment utiliser le cache Redis Azure avec Python et le client [redis-py](https://github.com/andymccurdy/redis-py).
 
 L’[exemple PHP](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) montre comment utiliser le cache Redis Azure avec PHP et le client [predis](https://github.com/nrk/predis).
 
-L’exemple [Work with .NET objects in the cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
+L’exemple [Utilisation des objets .NET dans le cache](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Redis Azure.
 
 ## Utiliser le Cache Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 
-L’exemple [Use Redis Cache as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) montre comment utiliser le cache Redis Azure comme fond de panier SignalR. Pour plus d’informations sur le fond de panier, consultez [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
+L’exemple [Utilisez Redis Cache en tant qu'infrastructure d'intégration avec montée en charge pour ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) montre comment utiliser le cache Redis Azure comme fond de panier SignalR. Pour plus d’informations sur le fond de panier, consultez [SignalR Scaleout with Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## Exemple de requête client dans le Cache Redis
 
@@ -79,4 +79,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!---HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->
