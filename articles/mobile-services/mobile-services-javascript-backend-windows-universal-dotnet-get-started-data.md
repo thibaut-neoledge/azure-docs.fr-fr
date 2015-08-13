@@ -79,11 +79,14 @@ Cela conclut le didacticiel.
 
 Ce didacticiel a présenté les bases de l'activation d'une application Windows universelle pour utiliser les données dans Mobile Services. Vous pouvez ensuite consulter une de ces autres rubriques :
 
-* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
+* [Prise en main de l'authentification]
+  <br/>En savoir plus sur l'authentification des utilisateurs de votre application.
 
-* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Prise en main des notifications Push]
+  <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
 
-* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
+* [Guide de fonctionnement Mobile Services C#](mobile-services-windows-dotnet-how-to-use-client-library.md)
+  <br/>En savoir plus sur l'utilisation de Mobile Services avec .NET.
   
 <!-- Anchors. -->
 
@@ -110,8 +113,8 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-
+[site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

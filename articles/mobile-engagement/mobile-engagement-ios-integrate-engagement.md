@@ -26,7 +26,7 @@
 
 Cette procédure décrit la méthode la plus simple pour activer les fonctions d'analyse et de contrôle d'Engagement dans votre application iOS.
 
-> [AZURE.IMPORTANT]Le SDK Engagement requiert iOS4+ : la version cible de déploiement de votre application doit être au moins iOS 4.
+> [AZURE.IMPORTANT] Le SDK Engagement requiert iOS4+ : la version cible de déploiement de votre application doit être au moins iOS 4.
 
 Les étapes suivantes permettent d'activer la génération des journaux nécessaires pour calculer toutes les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques. Le rapport des journaux nécessaire pour calculer d’autres statistiques telles que les événements, les erreurs et les tâches, doit être généré manuellement à l’aide de l’API Engagement (consultez la rubrique [Utilisation de l’API de balisage Mobile Engagement avancée dans vos applications iOS](mobile-engagement-ios-use-engagement-api.md) étant donné que ces statistiques dépendent de l’application.
 
@@ -43,7 +43,7 @@ Engagement nécessite des infrastructures supplémentaires pour fonctionner : d
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA <ios-sdk-engagement-idfa> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
+> [AZURE.NOTE] L'infrastructure AdSupport peut être supprimée. Engagement en a besoin pour collecter l'IDFA. Toutefois, il est possible de désactiver la collection de l'IDFA <ios-sdk-engagement-idfa> pour se conformer à la nouvelle politique d'Apple concernant cet ID.
 
 ##Initialiser le SDK Engagement
 
@@ -98,7 +98,7 @@ Pour activer le rapport de tous les journaux requis par Engagement pour calculer
 
 Si vous ne pouvez pas ou ne voulez pas surcharger vos classes `UIViewController`, vous pouvez démarrer vos activités en appelant directement les méthodes de `EngagementAgent`.
 
-> [AZURE.IMPORTANT]Le Kit de développement logiciel (SDK) iOS appelle automatiquement la méthode `endActivity()` à la fermeture de l'application. Par conséquent, il est *FORTEMENT* recommandé d'appeler la méthode `startActivity` chaque fois que l'activité de l'utilisateur change et de ne *JAMAIS* appeler la méthode `endActivity`, étant donné que l'appel de cette méthode entraîne l'arrêt de la session en cours.
+> [AZURE.IMPORTANT] Le Kit de développement logiciel (SDK) iOS appelle automatiquement la méthode `endActivity()` à la fermeture de l'application. Par conséquent, il est *FORTEMENT* recommandé d'appeler la méthode `startActivity` chaque fois que l'activité de l'utilisateur change et de ne *JAMAIS* appeler la méthode `endActivity`, étant donné que l'appel de cette méthode entraîne l'arrêt de la session en cours.
 
 ##Rapports d'emplacement
 
@@ -143,7 +143,7 @@ Par défaut, le rapport d'emplacement en temps réel est uniquement actif quand 
 
 			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
-> [AZURE.NOTE]Quand l'application s'exécute en arrière-plan, seuls les emplacements réseau sont signalés, même si vous avez activé le GPS.
+> [AZURE.NOTE] Quand l'application s'exécute en arrière-plan, seuls les emplacements réseau sont signalés, même si vous avez activé le GPS.
 
 L'implémentation de cette fonction appelle [startMonitoringSignificantLocationChanges] quand votre application passe en arrière-plan. N'oubliez pas que votre application sera automatiquement relancée en arrière-plan en cas de nouvel événement d'emplacement.
 
@@ -208,4 +208,4 @@ L'exemple suivant de `Settings.bundle` montre comment l'implémenter :
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
  
 
-<!---HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->

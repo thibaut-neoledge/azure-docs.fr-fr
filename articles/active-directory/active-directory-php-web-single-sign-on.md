@@ -203,4 +203,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!------HONumber=July15_HO4-->
+<!---------HONumber=July15_HO4-->

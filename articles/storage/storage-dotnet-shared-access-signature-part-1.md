@@ -39,7 +39,7 @@ Un service où les utilisateurs lisent et écrivent leurs propres données dans 
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
+2\.	Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -238,4 +238,4 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---------HONumber=July15_HO5-->
