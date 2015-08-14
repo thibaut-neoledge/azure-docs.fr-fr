@@ -1,8 +1,9 @@
-
+﻿
 <properties 
     pageTitle="Configuration requise pour les images Azure RemoteApp"
     description="En savoir plus sur la configuration requise pour la création d’images à utiliser avec Azure RemoteApp" 
     services="remoteapp" 
+    solutions="documentationCenter" 
     authors="lizap" 
     manager="mbaldwin" />
 
