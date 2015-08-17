@@ -1,4 +1,11 @@
-<properties pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" | Description Microsoft Azure="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur.="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties
+   pageTitle="Azure Backup - Sauvegarde et restauration à partir d’un serveur/client Windows" 
+   description="Découvrez comment sauvegarder et restaurer des fichiers à partir d’un serveur/client Windows.. Cet article décrit également la récupération sur un autre serveur."
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="jwhit"
+   editor=""/>
 
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
